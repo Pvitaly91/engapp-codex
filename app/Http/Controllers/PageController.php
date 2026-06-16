@@ -1114,8 +1114,44 @@ class PageController extends Controller
             'subtitleBlock' => $subtitleBlock,
             'columns' => $columns,
             'locale' => $locale,
+            'lessonLinks' => $this->lessonLinksForCategory($category),
             'hasBlocks' => $blocks->isNotEmpty(),
         ];
+    }
+
+    protected function lessonLinksForCategory(PageCategory $category): array
+    {
+        $pages = $category->relationLoaded('pages')
+            ? $category->pages
+            : Page::query()
+                ->where('page_category_id', $category->getKey())
+                ->forType($this->pageType)
+                ->orderBy('title')
+                ->get();
+
+        $links = [];
+        $categoryPath = $this->routePrefix === 'pages'
+            ? $category->slug
+            : $this->categorySlugPath($category);
+
+        foreach ($pages as $page) {
+            if (! $page instanceof Page || blank($page->title) || blank($page->slug)) {
+                continue;
+            }
+
+            $url = localized_route($this->routePrefix . '.show', [$categoryPath, $page->slug]);
+            $links[(string) $page->title] = $url;
+            $links[$this->normalizeTitle((string) $page->title)] = $url;
+            $links[(string) $page->slug] = $url;
+
+            $shortTitle = trim((string) Str::after((string) $page->title, ':'));
+            if ($shortTitle !== '' && $shortTitle !== (string) $page->title) {
+                $links[$shortTitle] = $url;
+                $links[$this->normalizeTitle($shortTitle)] = $url;
+            }
+        }
+
+        return $links;
     }
 
     protected function resolveCategoryLanguage(string $preferredLocale, string $fallbackLocale): ?string

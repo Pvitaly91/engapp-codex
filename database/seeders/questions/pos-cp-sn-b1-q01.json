@@ -1,185 +1,33 @@
 {
     "question": {
-        "id": 29,
+        "id": 11,
         "uuid": "pos-cp-sn-b1-q01",
         "question": "In 'She arrived {a1} Monday.', the word 'on' is a ___.",
         "difficulty": 3,
         "level": "B1",
-        "category_id": 2,
-        "source_id": 2,
+        "category_id": 1,
+        "source_id": 1,
         "flag": 0,
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:57.000000Z"
+        "created_at": "2026-06-03T11:40:22.000000Z",
+        "updated_at": "2026-06-03T11:40:22.000000Z"
     },
     "category": {
-        "id": 2,
+        "id": 1,
         "name": "Базова граматика",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
     "source": {
-        "id": 2,
+        "id": 1,
         "name": "Parts of Speech — Частини мови",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 40,
-                "name": "Preposition identification",
-                "category": null,
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 29,
-                "tag_id": 40,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 140,
-                "option": "adverb",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 29,
-                "option_id": 140,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 142,
-                "option": "preposition",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 29,
-                "option_id": 142,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 143,
-                "option": "conjunction",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 29,
-                "option_id": 143,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 139,
-                "question_id": 29,
-                "marker": "a1",
-                "option_id": 142,
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "option": {
-                "id": 142,
-                "option": "preposition",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 11,
-            "question_id": 29,
-            "text": "In 'She arrived {a1} Monday.', the word 'on' is a ___.",
-            "created_at": "2026-05-26T14:30:52.000000Z",
-            "updated_at": "2026-05-26T14:30:52.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 11,
-            "question_id": 29,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Прийменники часу вживаються з конкретними днями тижня.\nПеред назвами днів тижня в англійській мові використовується прийменник `on`.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 63,
-            "question": "In 'She arrived {a1} Monday.', the word 'on' is a ___.",
-            "wrong_answer": "adverb",
-            "correct_answer": "preposition",
-            "language": "ua",
-            "explanation": "«On» тут не є прислівником. Прислівники не потребують наступного іменника.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 64,
-            "question": "In 'She arrived {a1} Monday.', the word 'on' is a ___.",
-            "wrong_answer": "adverb",
-            "correct_answer": "preposition",
-            "language": "uk",
-            "explanation": "«On» тут не є прислівником. Прислівники не потребують наступного іменника.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 65,
-            "question": "In 'She arrived {a1} Monday.', the word 'on' is a ___.",
-            "wrong_answer": "conjunction",
-            "correct_answer": "preposition",
-            "language": "ua",
-            "explanation": "«On» не є сполучником. Сполучники з'єднують речення або фрази.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 66,
-            "question": "In 'She arrived {a1} Monday.', the word 'on' is a ___.",
-            "wrong_answer": "conjunction",
-            "correct_answer": "preposition",
-            "language": "uk",
-            "explanation": "«On» не є сполучником. Сполучники з'єднують речення або фрази.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 61,
-            "question": "In 'She arrived {a1} Monday.', the word 'on' is a ___.",
-            "wrong_answer": "preposition",
-            "correct_answer": "preposition",
-            "language": "ua",
-            "explanation": "«On» є прийменником часу: він указує, коли відбулася дія (в понеділок).",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 62,
-            "question": "In 'She arrived {a1} Monday.', the word 'on' is a ___.",
-            "wrong_answer": "preposition",
-            "correct_answer": "preposition",
-            "language": "uk",
-            "explanation": "«On» є прийменником часу: він указує, коли відбулася дія (в понеділок).",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

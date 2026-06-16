@@ -1,185 +1,33 @@
 {
     "question": {
-        "id": 19,
+        "id": 1,
         "uuid": "pos-cp-sn-a1-q01",
         "question": "The word 'dog' in this sentence is a {a1}: 'My dog runs fast.'",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 2,
-        "source_id": 2,
+        "category_id": 1,
+        "source_id": 1,
         "flag": 0,
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:57.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
     "category": {
-        "id": 2,
+        "id": 1,
         "name": "Базова граматика",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
     "source": {
-        "id": 2,
+        "id": 1,
         "name": "Parts of Speech — Частини мови",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 35,
-                "name": "Noun identification",
-                "category": null,
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 19,
-                "tag_id": 35,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 137,
-                "option": "noun",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 19,
-                "option_id": 137,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 138,
-                "option": "verb",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 19,
-                "option_id": 138,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 139,
-                "option": "adjective",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 19,
-                "option_id": 139,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 129,
-                "question_id": 19,
-                "marker": "a1",
-                "option_id": 137,
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "option": {
-                "id": 137,
-                "option": "noun",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 1,
-            "question_id": 19,
-            "text": "The word 'dog' in this sentence is a {a1}: 'My dog runs fast.'",
-            "created_at": "2026-05-26T14:30:52.000000Z",
-            "updated_at": "2026-05-26T14:30:52.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 1,
-            "question_id": 19,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Іменник (noun) — це слово, яке називає людину, тварину, місце або річ.\nСлово `dog` називає тварину і відповідає на питання «хто?» або «що?».",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 5,
-            "question": "The word 'dog' in this sentence is a {a1}: 'My dog runs fast.'",
-            "wrong_answer": "adjective",
-            "correct_answer": "noun",
-            "language": "ua",
-            "explanation": "«Dog» не є прикметником. Прикметники описують іменники — наприклад, 'fast' описує, як бігає пес.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 6,
-            "question": "The word 'dog' in this sentence is a {a1}: 'My dog runs fast.'",
-            "wrong_answer": "adjective",
-            "correct_answer": "noun",
-            "language": "uk",
-            "explanation": "«Dog» не є прикметником. Прикметники описують іменники — наприклад, 'fast' описує, як бігає пес.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 1,
-            "question": "The word 'dog' in this sentence is a {a1}: 'My dog runs fast.'",
-            "wrong_answer": "noun",
-            "correct_answer": "noun",
-            "language": "ua",
-            "explanation": "«Dog» є іменником, бо називає тварину. Іменники позначають людей, тварин, місця або речі.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 2,
-            "question": "The word 'dog' in this sentence is a {a1}: 'My dog runs fast.'",
-            "wrong_answer": "noun",
-            "correct_answer": "noun",
-            "language": "uk",
-            "explanation": "«Dog» є іменником, бо називає тварину. Іменники позначають людей, тварин, місця або речі.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 3,
-            "question": "The word 'dog' in this sentence is a {a1}: 'My dog runs fast.'",
-            "wrong_answer": "verb",
-            "correct_answer": "noun",
-            "language": "ua",
-            "explanation": "«Dog» не є дієсловом. Дієслово виражає дію або стан — наприклад, 'runs' у цьому ж реченні.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 4,
-            "question": "The word 'dog' in this sentence is a {a1}: 'My dog runs fast.'",
-            "wrong_answer": "verb",
-            "correct_answer": "noun",
-            "language": "uk",
-            "explanation": "«Dog» не є дієсловом. Дієслово виражає дію або стан — наприклад, 'runs' у цьому ж реченні.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

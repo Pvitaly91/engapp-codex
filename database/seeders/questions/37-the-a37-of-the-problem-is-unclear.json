@@ -1,310 +1,33 @@
 {
     "question": {
-        "id": 85,
+        "id": 67,
         "uuid": "37-the-a37-of-the-problem-is-unclear",
         "question": "The {a37} of the problem is unclear.",
         "difficulty": 3,
         "level": "B1",
-        "category_id": 2,
-        "source_id": 2,
+        "category_id": 1,
+        "source_id": 1,
         "flag": 2,
-        "created_at": "2026-05-26T14:30:54.000000Z",
-        "updated_at": "2026-05-26T14:30:58.000000Z"
+        "created_at": "2026-06-03T11:40:23.000000Z",
+        "updated_at": "2026-06-03T11:40:23.000000Z"
     },
     "category": {
-        "id": 2,
+        "id": 1,
         "name": "Базова граматика",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
     "source": {
-        "id": 2,
+        "id": 1,
         "name": "Parts of Speech — Частини мови",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 1,
-                "name": "Parts of speech identification",
-                "category": null,
-                "created_at": "2026-05-26T14:30:48.000000Z",
-                "updated_at": "2026-05-26T14:30:48.000000Z"
-            },
-            "pivot": {
-                "question_id": 85,
-                "tag_id": 1,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 44,
-                "name": "Noun recognition",
-                "category": "pattern",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 85,
-                "tag_id": 44,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 53,
-                "name": "Word-form derivation",
-                "category": "pattern",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 85,
-                "tag_id": 53,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 235,
-                "option": "solution",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 85,
-                "option_id": 235,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 236,
-                "option": "solve",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 85,
-                "option_id": 236,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 237,
-                "option": "solvable",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 85,
-                "option_id": 237,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 195,
-                "question_id": 85,
-                "marker": "a37",
-                "option_id": 235,
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "option": {
-                "id": 235,
-                "option": "solution",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 37,
-                "question_id": 85,
-                "marker": "a37",
-                "option_id": 193,
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "option": {
-                "id": 193,
-                "option": "noun form",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 67,
-            "question_id": 85,
-            "text": "The {a37} of the problem is unclear.",
-            "created_at": "2026-05-26T14:30:54.000000Z",
-            "updated_at": "2026-05-26T14:30:54.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 139,
-            "question_id": 85,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "Choose the word that best completes the sentence grammatically.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 140,
-            "question_id": 85,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "Po 'the' i przed 'of' potrzebujemy rzeczownika.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 141,
-            "question_id": 85,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Після артикля 'the' і перед прийменника 'of' потрібен іменник.\nСлово 'solution' (розв'язання) — іменник, що називає результат дії 'solve'.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 614,
-            "question": "The {a37} of the problem is unclear.",
-            "wrong_answer": "solution",
-            "correct_answer": "solution",
-            "language": "en",
-            "explanation": "Correct. 'solution' is the appropriate choice in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 617,
-            "question": "The {a37} of the problem is unclear.",
-            "wrong_answer": "solution",
-            "correct_answer": "solution",
-            "language": "pl",
-            "explanation": "Poprawnie! 'Solution' to rzeczownik (rozwiązanie).",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 621,
-            "question": "The {a37} of the problem is unclear.",
-            "wrong_answer": "solution",
-            "correct_answer": "solution",
-            "language": "ua",
-            "explanation": "Іменник 'solution' правильно називає відповідь на проблему.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 622,
-            "question": "The {a37} of the problem is unclear.",
-            "wrong_answer": "solution",
-            "correct_answer": "solution",
-            "language": "uk",
-            "explanation": "Іменник 'solution' правильно називає відповідь на проблему.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 615,
-            "question": "The {a37} of the problem is unclear.",
-            "wrong_answer": "solvable",
-            "correct_answer": "solution",
-            "language": "en",
-            "explanation": "Incorrect. 'solvable' doesn't fit grammatically or idiomatically in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 618,
-            "question": "The {a37} of the problem is unclear.",
-            "wrong_answer": "solvable",
-            "correct_answer": "solution",
-            "language": "pl",
-            "explanation": "'Solvable' to przymiotnik (rozwiązywalny), nie rzeczownik.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 623,
-            "question": "The {a37} of the problem is unclear.",
-            "wrong_answer": "solvable",
-            "correct_answer": "solution",
-            "language": "ua",
-            "explanation": "Прикметник 'solvable' (розв'язний) описує те, що можна вирішити, але граматично не підходить.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 624,
-            "question": "The {a37} of the problem is unclear.",
-            "wrong_answer": "solvable",
-            "correct_answer": "solution",
-            "language": "uk",
-            "explanation": "Прикметник 'solvable' (розв'язний) описує те, що можна вирішити, але граматично не підходить.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 613,
-            "question": "The {a37} of the problem is unclear.",
-            "wrong_answer": "solve",
-            "correct_answer": "solution",
-            "language": "en",
-            "explanation": "Incorrect. 'solve' doesn't fit grammatically or idiomatically in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 616,
-            "question": "The {a37} of the problem is unclear.",
-            "wrong_answer": "solve",
-            "correct_answer": "solution",
-            "language": "pl",
-            "explanation": "'Solve' to czasownik (rozwiązywać), nie rzeczownik.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 619,
-            "question": "The {a37} of the problem is unclear.",
-            "wrong_answer": "solve",
-            "correct_answer": "solution",
-            "language": "ua",
-            "explanation": "Дієслово 'solve' виражає дію, але не може стояти після артикля.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 620,
-            "question": "The {a37} of the problem is unclear.",
-            "wrong_answer": "solve",
-            "correct_answer": "solution",
-            "language": "uk",
-            "explanation": "Дієслово 'solve' виражає дію, але не може стояти після артикля.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

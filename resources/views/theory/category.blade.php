@@ -108,6 +108,10 @@
                             </svg>
                         </button>
                     </div>
+                    @include('theory.partials.tree-nav-search', [
+                        'categories' => $categories,
+                        'searchId' => 'theory-sidebar-search-desktop',
+                    ])
                     <div class="mt-5 min-h-0 flex-1 overflow-y-auto overscroll-contain pr-1 space-y-3" data-theory-sidebar-scroll style="scrollbar-color: color-mix(in srgb, var(--accent) 34%, transparent) transparent;">
                         @include('theory.partials.tree-nav', [
                             'categories' => $categories,

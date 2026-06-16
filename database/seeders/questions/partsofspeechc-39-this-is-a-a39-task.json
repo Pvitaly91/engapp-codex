@@ -1,310 +1,33 @@
 {
     "question": {
-        "id": 87,
+        "id": 69,
         "uuid": "partsofspeechc-39-this-is-a-a39-task",
         "question": "This is a {a39} task.",
         "difficulty": 3,
         "level": "B1",
-        "category_id": 2,
-        "source_id": 2,
+        "category_id": 1,
+        "source_id": 1,
         "flag": 2,
-        "created_at": "2026-05-26T14:30:54.000000Z",
-        "updated_at": "2026-05-26T14:30:58.000000Z"
+        "created_at": "2026-06-03T11:40:24.000000Z",
+        "updated_at": "2026-06-03T11:40:24.000000Z"
     },
     "category": {
-        "id": 2,
+        "id": 1,
         "name": "Базова граматика",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
     "source": {
-        "id": 2,
+        "id": 1,
         "name": "Parts of Speech — Частини мови",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 1,
-                "name": "Parts of speech identification",
-                "category": null,
-                "created_at": "2026-05-26T14:30:48.000000Z",
-                "updated_at": "2026-05-26T14:30:48.000000Z"
-            },
-            "pivot": {
-                "question_id": 87,
-                "tag_id": 1,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 46,
-                "name": "Adjective recognition",
-                "category": "pattern",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 87,
-                "tag_id": 46,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 53,
-                "name": "Word-form derivation",
-                "category": "pattern",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 87,
-                "tag_id": 53,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 235,
-                "option": "solution",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 87,
-                "option_id": 235,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 236,
-                "option": "solve",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 87,
-                "option_id": 236,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 237,
-                "option": "solvable",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 87,
-                "option_id": 237,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 197,
-                "question_id": 87,
-                "marker": "a39",
-                "option_id": 237,
-                "created_at": "2026-05-26T14:30:55.000000Z",
-                "updated_at": "2026-05-26T14:30:55.000000Z"
-            },
-            "option": {
-                "id": 237,
-                "option": "solvable",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 39,
-                "question_id": 87,
-                "marker": "a39",
-                "option_id": 239,
-                "created_at": "2026-05-26T14:30:55.000000Z",
-                "updated_at": "2026-05-26T14:30:55.000000Z"
-            },
-            "option": {
-                "id": 239,
-                "option": "adjective form",
-                "created_at": "2026-05-26T14:30:55.000000Z",
-                "updated_at": "2026-05-26T14:30:55.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 69,
-            "question_id": 87,
-            "text": "This is a {a39} task.",
-            "created_at": "2026-05-26T14:30:55.000000Z",
-            "updated_at": "2026-05-26T14:30:55.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 145,
-            "question_id": 87,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "Choose the word that best completes the sentence grammatically.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 146,
-            "question_id": 87,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "Przed rzeczownikiem 'task' potrzebujemy przymiotnika.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 147,
-            "question_id": 87,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Між артиклем 'a' і іменником 'task' потрібен прикметник, що описує завдання.\nСлово 'solvable' (розв'язний) — прикметник, що означає можливість вирішення.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 638,
-            "question": "This is a {a39} task.",
-            "wrong_answer": "solution",
-            "correct_answer": "solvable",
-            "language": "en",
-            "explanation": "Incorrect. 'solution' doesn't fit grammatically or idiomatically in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 641,
-            "question": "This is a {a39} task.",
-            "wrong_answer": "solution",
-            "correct_answer": "solvable",
-            "language": "pl",
-            "explanation": "'Solution' to rzeczownik, nie przymiotnik.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 645,
-            "question": "This is a {a39} task.",
-            "wrong_answer": "solution",
-            "correct_answer": "solvable",
-            "language": "ua",
-            "explanation": "Іменник 'solution' називає результат, але не описує іменник 'task'.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 646,
-            "question": "This is a {a39} task.",
-            "wrong_answer": "solution",
-            "correct_answer": "solvable",
-            "language": "uk",
-            "explanation": "Іменник 'solution' називає результат, але не описує іменник 'task'.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 639,
-            "question": "This is a {a39} task.",
-            "wrong_answer": "solvable",
-            "correct_answer": "solvable",
-            "language": "en",
-            "explanation": "Correct. 'solvable' is the appropriate choice in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 642,
-            "question": "This is a {a39} task.",
-            "wrong_answer": "solvable",
-            "correct_answer": "solvable",
-            "language": "pl",
-            "explanation": "Poprawnie! 'Solvable' to przymiotnik (rozwiązywalny).",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 647,
-            "question": "This is a {a39} task.",
-            "wrong_answer": "solvable",
-            "correct_answer": "solvable",
-            "language": "ua",
-            "explanation": "Прикметник 'solvable' правильно описує завдання, яке можна вирішити.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 648,
-            "question": "This is a {a39} task.",
-            "wrong_answer": "solvable",
-            "correct_answer": "solvable",
-            "language": "uk",
-            "explanation": "Прикметник 'solvable' правильно описує завдання, яке можна вирішити.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 637,
-            "question": "This is a {a39} task.",
-            "wrong_answer": "solve",
-            "correct_answer": "solvable",
-            "language": "en",
-            "explanation": "Incorrect. 'solve' doesn't fit grammatically or idiomatically in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 640,
-            "question": "This is a {a39} task.",
-            "wrong_answer": "solve",
-            "correct_answer": "solvable",
-            "language": "pl",
-            "explanation": "'Solve' to czasownik, nie przymiotnik.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 643,
-            "question": "This is a {a39} task.",
-            "wrong_answer": "solve",
-            "correct_answer": "solvable",
-            "language": "ua",
-            "explanation": "Дієслово 'solve' не може стояти між артиклем і іменником.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 644,
-            "question": "This is a {a39} task.",
-            "wrong_answer": "solve",
-            "correct_answer": "solvable",
-            "language": "uk",
-            "explanation": "Дієслово 'solve' не може стояти між артиклем і іменником.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

@@ -1,295 +1,33 @@
 {
     "question": {
-        "id": 131,
+        "id": 113,
         "uuid": "83-the-findings-are-a83-with-previou",
         "question": "The findings are {a83} with previous research.",
         "difficulty": 5,
         "level": "C1",
-        "category_id": 2,
-        "source_id": 2,
+        "category_id": 1,
+        "source_id": 1,
         "flag": 2,
-        "created_at": "2026-05-26T14:30:55.000000Z",
-        "updated_at": "2026-05-26T14:30:59.000000Z"
+        "created_at": "2026-06-03T11:40:24.000000Z",
+        "updated_at": "2026-06-03T11:40:24.000000Z"
     },
     "category": {
-        "id": 2,
+        "id": 1,
         "name": "Базова граматика",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
     "source": {
-        "id": 2,
+        "id": 1,
         "name": "Parts of Speech — Частини мови",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 1,
-                "name": "Parts of speech identification",
-                "category": null,
-                "created_at": "2026-05-26T14:30:48.000000Z",
-                "updated_at": "2026-05-26T14:30:48.000000Z"
-            },
-            "pivot": {
-                "question_id": 131,
-                "tag_id": 1,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 46,
-                "name": "Adjective recognition",
-                "category": "pattern",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 131,
-                "tag_id": 46,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 341,
-                "option": "congruent",
-                "created_at": "2026-05-26T14:30:55.000000Z",
-                "updated_at": "2026-05-26T14:30:55.000000Z"
-            },
-            "pivot": {
-                "question_id": 131,
-                "option_id": 341,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 343,
-                "option": "congruence",
-                "created_at": "2026-05-26T14:30:55.000000Z",
-                "updated_at": "2026-05-26T14:30:55.000000Z"
-            },
-            "pivot": {
-                "question_id": 131,
-                "option_id": 343,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 344,
-                "option": "congruently",
-                "created_at": "2026-05-26T14:30:55.000000Z",
-                "updated_at": "2026-05-26T14:30:55.000000Z"
-            },
-            "pivot": {
-                "question_id": 131,
-                "option_id": 344,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 241,
-                "question_id": 131,
-                "marker": "a83",
-                "option_id": 341,
-                "created_at": "2026-05-26T14:30:55.000000Z",
-                "updated_at": "2026-05-26T14:30:55.000000Z"
-            },
-            "option": {
-                "id": 341,
-                "option": "congruent",
-                "created_at": "2026-05-26T14:30:55.000000Z",
-                "updated_at": "2026-05-26T14:30:55.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 83,
-                "question_id": 131,
-                "marker": "a83",
-                "option_id": 342,
-                "created_at": "2026-05-26T14:30:55.000000Z",
-                "updated_at": "2026-05-26T14:30:55.000000Z"
-            },
-            "option": {
-                "id": 342,
-                "option": "formal adjective",
-                "created_at": "2026-05-26T14:30:55.000000Z",
-                "updated_at": "2026-05-26T14:30:55.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 113,
-            "question_id": 131,
-            "text": "The findings are {a83} with previous research.",
-            "created_at": "2026-05-26T14:30:55.000000Z",
-            "updated_at": "2026-05-26T14:30:55.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 277,
-            "question_id": 131,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "Choose the word that best completes the sentence grammatically.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 278,
-            "question_id": 131,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "Formalny przymiotnik oznaczający 'zgodny'.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 279,
-            "question_id": 131,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Після зв'язкового дієслова 'are' потрібен формальний прикметник узгодженості.\nСлово 'congruent' (узгоджений, відповідний) — формальний прикметник наукового стилю.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 1166,
-            "question": "The findings are {a83} with previous research.",
-            "wrong_answer": "congruence",
-            "correct_answer": "congruent",
-            "language": "en",
-            "explanation": "Incorrect. 'congruence' doesn't fit grammatically or idiomatically in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1169,
-            "question": "The findings are {a83} with previous research.",
-            "wrong_answer": "congruence",
-            "correct_answer": "congruent",
-            "language": "pl",
-            "explanation": "'Congruence' to rzeczownik (zgodność), nie przymiotnik.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1173,
-            "question": "The findings are {a83} with previous research.",
-            "wrong_answer": "congruence",
-            "correct_answer": "congruent",
-            "language": "ua",
-            "explanation": "Іменник 'congruence' (узгодженість) називає властивість, але не може бути присудком.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1174,
-            "question": "The findings are {a83} with previous research.",
-            "wrong_answer": "congruence",
-            "correct_answer": "congruent",
-            "language": "uk",
-            "explanation": "Іменник 'congruence' (узгодженість) називає властивість, але не може бути присудком.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1165,
-            "question": "The findings are {a83} with previous research.",
-            "wrong_answer": "congruent",
-            "correct_answer": "congruent",
-            "language": "en",
-            "explanation": "Correct. 'congruent' is the appropriate choice in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1168,
-            "question": "The findings are {a83} with previous research.",
-            "wrong_answer": "congruent",
-            "correct_answer": "congruent",
-            "language": "pl",
-            "explanation": "Poprawnie! 'Congruent' to formalny przymiotnik (zgodny, spójny).",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1171,
-            "question": "The findings are {a83} with previous research.",
-            "wrong_answer": "congruent",
-            "correct_answer": "congruent",
-            "language": "ua",
-            "explanation": "Прикметник 'congruent' правильно описує відповідність висновків попереднім дослідженням.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1172,
-            "question": "The findings are {a83} with previous research.",
-            "wrong_answer": "congruent",
-            "correct_answer": "congruent",
-            "language": "uk",
-            "explanation": "Прикметник 'congruent' правильно описує відповідність висновків попереднім дослідженням.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1167,
-            "question": "The findings are {a83} with previous research.",
-            "wrong_answer": "congruently",
-            "correct_answer": "congruent",
-            "language": "en",
-            "explanation": "Incorrect. 'congruently' doesn't fit grammatically or idiomatically in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1170,
-            "question": "The findings are {a83} with previous research.",
-            "wrong_answer": "congruently",
-            "correct_answer": "congruent",
-            "language": "pl",
-            "explanation": "'Congruently' to przysłówek (zgodnie), nie przymiotnik.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1175,
-            "question": "The findings are {a83} with previous research.",
-            "wrong_answer": "congruently",
-            "correct_answer": "congruent",
-            "language": "ua",
-            "explanation": "Прислівник 'congruently' описує спосіб дії, а не стан після 'are'.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1176,
-            "question": "The findings are {a83} with previous research.",
-            "wrong_answer": "congruently",
-            "correct_answer": "congruent",
-            "language": "uk",
-            "explanation": "Прислівник 'congruently' описує спосіб дії, а не стан після 'are'.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

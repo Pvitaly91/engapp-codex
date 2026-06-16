@@ -1,310 +1,33 @@
 {
     "question": {
-        "id": 124,
+        "id": 106,
         "uuid": "partsof-76-the-data-was-a76-analyzed",
         "question": "The data was {a76} analyzed.",
         "difficulty": 5,
         "level": "C1",
-        "category_id": 2,
-        "source_id": 2,
+        "category_id": 1,
+        "source_id": 1,
         "flag": 2,
-        "created_at": "2026-05-26T14:30:55.000000Z",
-        "updated_at": "2026-05-26T14:30:59.000000Z"
+        "created_at": "2026-06-03T11:40:24.000000Z",
+        "updated_at": "2026-06-03T11:40:24.000000Z"
     },
     "category": {
-        "id": 2,
+        "id": 1,
         "name": "Базова граматика",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
     "source": {
-        "id": 2,
+        "id": 1,
         "name": "Parts of Speech — Частини мови",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 1,
-                "name": "Parts of speech identification",
-                "category": null,
-                "created_at": "2026-05-26T14:30:48.000000Z",
-                "updated_at": "2026-05-26T14:30:48.000000Z"
-            },
-            "pivot": {
-                "question_id": 124,
-                "tag_id": 1,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 47,
-                "name": "Adverb recognition",
-                "category": "pattern",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 124,
-                "tag_id": 47,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 53,
-                "name": "Word-form derivation",
-                "category": "pattern",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 124,
-                "tag_id": 53,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 317,
-                "option": "meticulously",
-                "created_at": "2026-05-26T14:30:55.000000Z",
-                "updated_at": "2026-05-26T14:30:55.000000Z"
-            },
-            "pivot": {
-                "question_id": 124,
-                "option_id": 317,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 318,
-                "option": "meticulous",
-                "created_at": "2026-05-26T14:30:55.000000Z",
-                "updated_at": "2026-05-26T14:30:55.000000Z"
-            },
-            "pivot": {
-                "question_id": 124,
-                "option_id": 318,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 319,
-                "option": "meticulousness",
-                "created_at": "2026-05-26T14:30:55.000000Z",
-                "updated_at": "2026-05-26T14:30:55.000000Z"
-            },
-            "pivot": {
-                "question_id": 124,
-                "option_id": 319,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 234,
-                "question_id": 124,
-                "marker": "a76",
-                "option_id": 317,
-                "created_at": "2026-05-26T14:30:55.000000Z",
-                "updated_at": "2026-05-26T14:30:55.000000Z"
-            },
-            "option": {
-                "id": 317,
-                "option": "meticulously",
-                "created_at": "2026-05-26T14:30:55.000000Z",
-                "updated_at": "2026-05-26T14:30:55.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 76,
-                "question_id": 124,
-                "marker": "a76",
-                "option_id": 153,
-                "created_at": "2026-05-26T14:30:55.000000Z",
-                "updated_at": "2026-05-26T14:30:55.000000Z"
-            },
-            "option": {
-                "id": 153,
-                "option": "manner adverb",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 106,
-            "question_id": 124,
-            "text": "The data was {a76} analyzed.",
-            "created_at": "2026-05-26T14:30:55.000000Z",
-            "updated_at": "2026-05-26T14:30:55.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 256,
-            "question_id": 124,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "Choose the word that best completes the sentence grammatically.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 257,
-            "question_id": 124,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "Przysłówek opisuje sposób analizy danych.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 258,
-            "question_id": 124,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Після дієслова 'analyzed' потрібен прислівник, що описує ретельність аналізу.\nПрислівник 'meticulously' утворений від прикметника 'meticulous' з закінченням -ly.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 1081,
-            "question": "The data was {a76} analyzed.",
-            "wrong_answer": "meticulous",
-            "correct_answer": "meticulously",
-            "language": "en",
-            "explanation": "Incorrect. 'meticulous' doesn't fit grammatically or idiomatically in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1084,
-            "question": "The data was {a76} analyzed.",
-            "wrong_answer": "meticulous",
-            "correct_answer": "meticulously",
-            "language": "pl",
-            "explanation": "'Meticulous' to przymiotnik (drobiazgowy), nie przysłówek.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1087,
-            "question": "The data was {a76} analyzed.",
-            "wrong_answer": "meticulous",
-            "correct_answer": "meticulously",
-            "language": "ua",
-            "explanation": "Прикметник 'meticulous' описує іменники, а не дієслова.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1088,
-            "question": "The data was {a76} analyzed.",
-            "wrong_answer": "meticulous",
-            "correct_answer": "meticulously",
-            "language": "uk",
-            "explanation": "Прикметник 'meticulous' описує іменники, а не дієслова.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1082,
-            "question": "The data was {a76} analyzed.",
-            "wrong_answer": "meticulously",
-            "correct_answer": "meticulously",
-            "language": "en",
-            "explanation": "Correct. 'meticulously' is the appropriate choice in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1085,
-            "question": "The data was {a76} analyzed.",
-            "wrong_answer": "meticulously",
-            "correct_answer": "meticulously",
-            "language": "pl",
-            "explanation": "Poprawnie! 'Meticulously' to przysłówek (drobiazgowo).",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1089,
-            "question": "The data was {a76} analyzed.",
-            "wrong_answer": "meticulously",
-            "correct_answer": "meticulously",
-            "language": "ua",
-            "explanation": "Прислівник 'meticulously' (ретельно) правильно описує спосіб аналізу даних.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1090,
-            "question": "The data was {a76} analyzed.",
-            "wrong_answer": "meticulously",
-            "correct_answer": "meticulously",
-            "language": "uk",
-            "explanation": "Прислівник 'meticulously' (ретельно) правильно описує спосіб аналізу даних.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1083,
-            "question": "The data was {a76} analyzed.",
-            "wrong_answer": "meticulousness",
-            "correct_answer": "meticulously",
-            "language": "en",
-            "explanation": "Incorrect. 'meticulousness' doesn't fit grammatically or idiomatically in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1086,
-            "question": "The data was {a76} analyzed.",
-            "wrong_answer": "meticulousness",
-            "correct_answer": "meticulously",
-            "language": "pl",
-            "explanation": "'Meticulousness' to rzeczownik (drobiazgowość), nie przysłówek.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1091,
-            "question": "The data was {a76} analyzed.",
-            "wrong_answer": "meticulousness",
-            "correct_answer": "meticulously",
-            "language": "ua",
-            "explanation": "Іменник 'meticulousness' (ретельність) називає якість, але не описує дієслово.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 1092,
-            "question": "The data was {a76} analyzed.",
-            "wrong_answer": "meticulousness",
-            "correct_answer": "meticulously",
-            "language": "uk",
-            "explanation": "Іменник 'meticulousness' (ретельність) називає якість, але не описує дієслово.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

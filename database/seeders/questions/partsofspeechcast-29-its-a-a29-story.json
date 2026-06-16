@@ -1,295 +1,33 @@
 {
     "question": {
-        "id": 77,
+        "id": 59,
         "uuid": "partsofspeechcast-29-its-a-a29-story",
         "question": "It's a {a29} story.",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 2,
-        "source_id": 2,
+        "category_id": 1,
+        "source_id": 1,
         "flag": 2,
-        "created_at": "2026-05-26T14:30:54.000000Z",
-        "updated_at": "2026-05-26T14:30:58.000000Z"
+        "created_at": "2026-06-03T11:40:23.000000Z",
+        "updated_at": "2026-06-03T11:40:23.000000Z"
     },
     "category": {
-        "id": 2,
+        "id": 1,
         "name": "Базова граматика",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
     "source": {
-        "id": 2,
+        "id": 1,
         "name": "Parts of Speech — Частини мови",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 1,
-                "name": "Parts of speech identification",
-                "category": null,
-                "created_at": "2026-05-26T14:30:48.000000Z",
-                "updated_at": "2026-05-26T14:30:48.000000Z"
-            },
-            "pivot": {
-                "question_id": 77,
-                "tag_id": 1,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 46,
-                "name": "Adjective recognition",
-                "category": "pattern",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 77,
-                "tag_id": 46,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 217,
-                "option": "beautiful",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 77,
-                "option_id": 217,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 218,
-                "option": "beauty",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 77,
-                "option_id": 218,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 219,
-                "option": "beautifully",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 77,
-                "option_id": 219,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 187,
-                "question_id": 77,
-                "marker": "a29",
-                "option_id": 217,
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "option": {
-                "id": 217,
-                "option": "beautiful",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 29,
-                "question_id": 77,
-                "marker": "a29",
-                "option_id": 166,
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "option": {
-                "id": 166,
-                "option": "describing word",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 59,
-            "question_id": 77,
-            "text": "It's a {a29} story.",
-            "created_at": "2026-05-26T14:30:54.000000Z",
-            "updated_at": "2026-05-26T14:30:54.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 115,
-            "question_id": 77,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "Choose the word that best completes the sentence grammatically.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 116,
-            "question_id": 77,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "Przed rzeczownikiem 'story' potrzebujemy przymiotnika.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 117,
-            "question_id": 77,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Між артиклем 'a' і іменником 'story' потрібен прикметник, що описує історію.\nСлово 'beautiful' — це прикметник, утворений від іменника 'beauty'.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 518,
-            "question": "It's a {a29} story.",
-            "wrong_answer": "beautiful",
-            "correct_answer": "beautiful",
-            "language": "en",
-            "explanation": "Correct. 'beautiful' is the appropriate choice in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 521,
-            "question": "It's a {a29} story.",
-            "wrong_answer": "beautiful",
-            "correct_answer": "beautiful",
-            "language": "pl",
-            "explanation": "Poprawnie! 'Beautiful' to przymiotnik opisujący opowieść.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 525,
-            "question": "It's a {a29} story.",
-            "wrong_answer": "beautiful",
-            "correct_answer": "beautiful",
-            "language": "ua",
-            "explanation": "Прикметник 'beautiful' (красивий) правильно описує іменник 'story'.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 526,
-            "question": "It's a {a29} story.",
-            "wrong_answer": "beautiful",
-            "correct_answer": "beautiful",
-            "language": "uk",
-            "explanation": "Прикметник 'beautiful' (красивий) правильно описує іменник 'story'.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 519,
-            "question": "It's a {a29} story.",
-            "wrong_answer": "beautifully",
-            "correct_answer": "beautiful",
-            "language": "en",
-            "explanation": "Incorrect. 'beautifully' doesn't fit grammatically or idiomatically in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 522,
-            "question": "It's a {a29} story.",
-            "wrong_answer": "beautifully",
-            "correct_answer": "beautiful",
-            "language": "pl",
-            "explanation": "'Beautifully' to przysłówek, który opisuje czasowniki.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 527,
-            "question": "It's a {a29} story.",
-            "wrong_answer": "beautifully",
-            "correct_answer": "beautiful",
-            "language": "ua",
-            "explanation": "Прислівник 'beautifully' описує дієслова, а не іменники.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 528,
-            "question": "It's a {a29} story.",
-            "wrong_answer": "beautifully",
-            "correct_answer": "beautiful",
-            "language": "uk",
-            "explanation": "Прислівник 'beautifully' описує дієслова, а не іменники.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 517,
-            "question": "It's a {a29} story.",
-            "wrong_answer": "beauty",
-            "correct_answer": "beautiful",
-            "language": "en",
-            "explanation": "Incorrect. 'beauty' doesn't fit grammatically or idiomatically in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 520,
-            "question": "It's a {a29} story.",
-            "wrong_answer": "beauty",
-            "correct_answer": "beautiful",
-            "language": "pl",
-            "explanation": "'Beauty' to rzeczownik (piękno), nie przymiotnik.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 523,
-            "question": "It's a {a29} story.",
-            "wrong_answer": "beauty",
-            "correct_answer": "beautiful",
-            "language": "ua",
-            "explanation": "Іменник 'beauty' (краса) називає якість, але не описує інший іменник.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 524,
-            "question": "It's a {a29} story.",
-            "wrong_answer": "beauty",
-            "correct_answer": "beautiful",
-            "language": "uk",
-            "explanation": "Іменник 'beauty' (краса) називає якість, але не описує інший іменник.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

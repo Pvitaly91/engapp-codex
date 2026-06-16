@@ -17,7 +17,12 @@
         $itemCount = $orderedItems->count() ?: ($category->pages_count ?? 0);
     @endphp
 
-    <div x-data="{ expanded: {{ $isExpanded ? 'true' : 'false' }} }" class="space-y-2.5">
+    <div
+        x-data="{ expanded: {{ $isExpanded ? 'true' : 'false' }} }"
+        class="space-y-2.5"
+        data-theory-sidebar-node
+        @if($level === 0) data-theory-sidebar-top-node @endif
+    >
         <div class="flex items-center gap-2.5" style="padding-left: {{ $indent }}px;">
             @if($orderedItems->isNotEmpty())
                 <button
@@ -60,7 +65,7 @@
                     </span>
                     <span class="min-w-0 flex-1">
                         <span class="flex items-center justify-between gap-3">
-                            <span class="block text-sm font-extrabold leading-5">{{ $category->title }}</span>
+                            <span class="block text-sm font-extrabold leading-5" data-theory-sidebar-highlight>{{ $category->title }}</span>
                             <span class="inline-flex min-w-[2rem] items-center justify-center rounded-full px-2 py-1 text-[10px] font-extrabold" style="background: {{ $isBranchActive ? 'rgba(47, 103, 177, 0.12)' : 'rgba(91, 108, 128, 0.10)' }}; color: {{ $isBranchActive ? 'var(--accent)' : 'var(--muted)' }};">
                                 {{ $itemCount }}
                             </span>
@@ -71,7 +76,7 @@
         </div>
 
         @if($orderedItems->isNotEmpty())
-            <div x-show="expanded" x-transition x-cloak class="space-y-2.5 border-l pl-3" style="border-color: color-mix(in srgb, var(--line) 88%, transparent); margin-left: {{ $indent + 18 }}px;">
+            <div x-show="expanded" x-transition x-cloak class="theory-nav-children space-y-2.5 border-l pl-3" style="border-color: color-mix(in srgb, var(--line) 88%, transparent); margin-left: {{ $indent + 18 }}px;">
                 @foreach($orderedItems as $item)
                     @if($item['type'] === 'category')
                         @include('theory.partials.tree-nav-mobile', [
@@ -91,9 +96,10 @@
                                 ? 'background: color-mix(in srgb, var(--accent-soft) 78%, white); color: var(--text);'
                                 : 'color: var(--muted);' }}"
                             @if($isCurrentPage) aria-current="page" @endif
+                            data-theory-sidebar-node
                         >
                             <span class="mt-1.5 inline-flex h-3 w-3 shrink-0 rounded-full border-2" style="border-color: {{ $isCurrentPage ? 'var(--accent)' : 'color-mix(in srgb, var(--line) 88%, var(--muted))' }}; background: {{ $isCurrentPage ? 'var(--accent)' : 'transparent' }};"></span>
-                            <span class="min-w-0 break-words leading-5">{{ $pageItem->title }}</span>
+                            <span class="min-w-0 break-words leading-5" data-theory-sidebar-highlight>{{ $pageItem->title }}</span>
                         </a>
                     @endif
                 @endforeach

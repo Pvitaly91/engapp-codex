@@ -8,208 +8,26 @@
         "category_id": 1,
         "source_id": 1,
         "flag": 0,
-        "created_at": "2026-05-26T14:31:53.000000Z",
-        "updated_at": "2026-05-26T14:32:02.000000Z"
+        "created_at": "2026-06-03T11:39:29.000000Z",
+        "updated_at": "2026-06-03T11:39:29.000000Z"
     },
     "category": {
         "id": 1,
         "name": "Речення та граматика",
-        "created_at": "2026-05-26T14:31:53.000000Z",
-        "updated_at": "2026-05-26T14:31:53.000000Z"
+        "created_at": "2026-06-03T11:39:28.000000Z",
+        "updated_at": "2026-06-03T11:39:28.000000Z"
     },
     "source": {
         "id": 1,
         "name": "Sentence Structure — Будова речення (SVO)",
-        "created_at": "2026-05-26T14:31:53.000000Z",
-        "updated_at": "2026-05-26T14:31:53.000000Z"
+        "created_at": "2026-06-03T11:39:28.000000Z",
+        "updated_at": "2026-06-03T11:39:28.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 28,
-                "name": "Sentence structure SVO",
-                "category": "topic",
-                "created_at": "2026-05-26T14:31:53.000000Z",
-                "updated_at": "2026-05-26T14:31:53.000000Z"
-            },
-            "pivot": {
-                "question_id": 16,
-                "tag_id": 28,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 29,
-                "name": "Basic SVO order",
-                "category": "pattern",
-                "created_at": "2026-05-26T14:31:53.000000Z",
-                "updated_at": "2026-05-26T14:31:53.000000Z"
-            },
-            "pivot": {
-                "question_id": 16,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 34,
-                "name": "Cleft sentences",
-                "category": "pattern",
-                "created_at": "2026-05-26T14:31:53.000000Z",
-                "updated_at": "2026-05-26T14:31:53.000000Z"
-            },
-            "pivot": {
-                "question_id": 16,
-                "tag_id": 34,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 25,
-                "option": "was",
-                "created_at": "2026-05-26T14:31:53.000000Z",
-                "updated_at": "2026-05-26T14:31:53.000000Z"
-            },
-            "pivot": {
-                "question_id": 16,
-                "option_id": 25,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 26,
-                "option": "is",
-                "created_at": "2026-05-26T14:31:53.000000Z",
-                "updated_at": "2026-05-26T14:31:53.000000Z"
-            },
-            "pivot": {
-                "question_id": 16,
-                "option_id": 26,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 27,
-                "option": "were",
-                "created_at": "2026-05-26T14:31:53.000000Z",
-                "updated_at": "2026-05-26T14:31:53.000000Z"
-            },
-            "pivot": {
-                "question_id": 16,
-                "option_id": 27,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 16,
-                "question_id": 16,
-                "marker": "a1",
-                "option_id": 25,
-                "created_at": "2026-05-26T14:31:53.000000Z",
-                "updated_at": "2026-05-26T14:31:53.000000Z"
-            },
-            "option": {
-                "id": 25,
-                "option": "was",
-                "created_at": "2026-05-26T14:31:53.000000Z",
-                "updated_at": "2026-05-26T14:31:53.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 16,
-            "question_id": 16,
-            "text": "It {a1} John who broke the window.",
-            "created_at": "2026-05-26T14:31:53.000000Z",
-            "updated_at": "2026-05-26T14:31:53.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 16,
-            "question_id": 16,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Речення є розщепленим (cleft sentence) типу «It + be + виділений елемент + who/that + решта речення».\nДруга частина речення містить «broke» — Past Simple, тому дієслово-зв'язка теж має бути у минулому часі.",
-            "created_at": "2026-05-26T14:31:53.000000Z",
-            "updated_at": "2026-05-26T14:31:53.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 93,
-            "question": "It {a1} John who broke the window.",
-            "wrong_answer": "is",
-            "correct_answer": "was",
-            "language": "ua",
-            "explanation": "Форма «is» — теперішній час; суперечить «broke» (Past Simple) у другій частині речення.",
-            "created_at": "2026-05-26T14:31:53.000000Z",
-            "updated_at": "2026-05-26T14:31:53.000000Z"
-        },
-        {
-            "id": 94,
-            "question": "It {a1} John who broke the window.",
-            "wrong_answer": "is",
-            "correct_answer": "was",
-            "language": "uk",
-            "explanation": "Форма «is» — теперішній час; суперечить «broke» (Past Simple) у другій частині речення.",
-            "created_at": "2026-05-26T14:31:53.000000Z",
-            "updated_at": "2026-05-26T14:31:53.000000Z"
-        },
-        {
-            "id": 91,
-            "question": "It {a1} John who broke the window.",
-            "wrong_answer": "was",
-            "correct_answer": "was",
-            "language": "ua",
-            "explanation": "Форма «was» правильна: «It was John who...» — стандартна конструкція cleft sentence у минулому часі; «broke» (Past Simple) підтверджує вибір.",
-            "created_at": "2026-05-26T14:31:53.000000Z",
-            "updated_at": "2026-05-26T14:31:53.000000Z"
-        },
-        {
-            "id": 92,
-            "question": "It {a1} John who broke the window.",
-            "wrong_answer": "was",
-            "correct_answer": "was",
-            "language": "uk",
-            "explanation": "Форма «was» правильна: «It was John who...» — стандартна конструкція cleft sentence у минулому часі; «broke» (Past Simple) підтверджує вибір.",
-            "created_at": "2026-05-26T14:31:53.000000Z",
-            "updated_at": "2026-05-26T14:31:53.000000Z"
-        },
-        {
-            "id": 95,
-            "question": "It {a1} John who broke the window.",
-            "wrong_answer": "were",
-            "correct_answer": "was",
-            "language": "ua",
-            "explanation": "Форма «were» — множина Past Simple; конструкція «It + be» завжди вживається в однині незалежно від виділеного елемента.",
-            "created_at": "2026-05-26T14:31:53.000000Z",
-            "updated_at": "2026-05-26T14:31:53.000000Z"
-        },
-        {
-            "id": 96,
-            "question": "It {a1} John who broke the window.",
-            "wrong_answer": "were",
-            "correct_answer": "was",
-            "language": "uk",
-            "explanation": "Форма «were» — множина Past Simple; конструкція «It + be» завжди вживається в однині незалежно від виділеного елемента.",
-            "created_at": "2026-05-26T14:31:53.000000Z",
-            "updated_at": "2026-05-26T14:31:53.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

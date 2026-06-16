@@ -1,185 +1,33 @@
 {
     "question": {
-        "id": 45,
+        "id": 27,
         "uuid": "pos-cp-sn-c2-q02",
         "question": "What is the part of speech of 'fast' in 'She runs {a1}.'?",
         "difficulty": 5,
         "level": "C2",
-        "category_id": 2,
-        "source_id": 2,
+        "category_id": 1,
+        "source_id": 1,
         "flag": 0,
-        "created_at": "2026-05-26T14:30:53.000000Z",
-        "updated_at": "2026-05-26T14:30:57.000000Z"
+        "created_at": "2026-06-03T11:40:22.000000Z",
+        "updated_at": "2026-06-03T11:40:22.000000Z"
     },
     "category": {
-        "id": 2,
+        "id": 1,
         "name": "Базова граматика",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
     "source": {
-        "id": 2,
+        "id": 1,
         "name": "Parts of Speech — Частини мови",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 42,
-                "name": "Adverb vs Adjective",
-                "category": null,
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 45,
-                "tag_id": 42,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 137,
-                "option": "noun",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 45,
-                "option_id": 137,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 139,
-                "option": "adjective",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 45,
-                "option_id": 139,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 140,
-                "option": "adverb",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 45,
-                "option_id": 140,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 155,
-                "question_id": 45,
-                "marker": "a1",
-                "option_id": 140,
-                "created_at": "2026-05-26T14:30:53.000000Z",
-                "updated_at": "2026-05-26T14:30:53.000000Z"
-            },
-            "option": {
-                "id": 140,
-                "option": "adverb",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 27,
-            "question_id": 45,
-            "text": "What is the part of speech of 'fast' in 'She runs {a1}.'?",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 27,
-            "question_id": 45,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "«Fast» є омонімом: і прикметником ('a fast car'), і прислівником ('runs fast').\nСлово `fast` описує дієслово 'runs', відповідаючи на питання «як?» — це прислівник.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 159,
-            "question": "What is the part of speech of 'fast' in 'She runs {a1}.'?",
-            "wrong_answer": "adjective",
-            "correct_answer": "adverb",
-            "language": "ua",
-            "explanation": "«Fast» як прикметник описує іменник ('a fast car'). Тут воно описує дію 'runs'.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 160,
-            "question": "What is the part of speech of 'fast' in 'She runs {a1}.'?",
-            "wrong_answer": "adjective",
-            "correct_answer": "adverb",
-            "language": "uk",
-            "explanation": "«Fast» як прикметник описує іменник ('a fast car'). Тут воно описує дію 'runs'.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 157,
-            "question": "What is the part of speech of 'fast' in 'She runs {a1}.'?",
-            "wrong_answer": "adverb",
-            "correct_answer": "adverb",
-            "language": "ua",
-            "explanation": "«Fast» є прислівником: воно описує, як вона бігає. На відміну від 'quickly', воно не змінює форми.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 158,
-            "question": "What is the part of speech of 'fast' in 'She runs {a1}.'?",
-            "wrong_answer": "adverb",
-            "correct_answer": "adverb",
-            "language": "uk",
-            "explanation": "«Fast» є прислівником: воно описує, як вона бігає. На відміну від 'quickly', воно не змінює форми.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 161,
-            "question": "What is the part of speech of 'fast' in 'She runs {a1}.'?",
-            "wrong_answer": "noun",
-            "correct_answer": "adverb",
-            "language": "ua",
-            "explanation": "«Fast» не є іменником у цьому контексті, хоча 'a fast' (піст) є іменником в іншому значенні.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 162,
-            "question": "What is the part of speech of 'fast' in 'She runs {a1}.'?",
-            "wrong_answer": "noun",
-            "correct_answer": "adverb",
-            "language": "uk",
-            "explanation": "«Fast» не є іменником у цьому контексті, хоча 'a fast' (піст) є іменником в іншому значенні.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

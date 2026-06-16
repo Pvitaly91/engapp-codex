@@ -148,6 +148,29 @@
         backface-visibility: hidden;
     }
 
+    #new-design-test-shell .sticky-inner {
+        overflow: visible !important;
+        contain: none !important;
+    }
+
+    #new-design-test-shell .word-search-section {
+        position: relative;
+        z-index: 80;
+    }
+
+    #new-design-test-shell .word-search-section:focus-within {
+        z-index: 120;
+    }
+
+    #new-design-test-shell .word-search-section [data-word-search-results] {
+        z-index: 9999 !important;
+    }
+
+    #new-design-test-shell .progress-section {
+        position: relative;
+        z-index: 10;
+    }
+
     #new-design-test-shell .sticky-inner,
     #new-design-test-shell .word-search-section,
     #new-design-test-shell .progress-section,

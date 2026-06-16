@@ -1,185 +1,33 @@
 {
     "question": {
-        "id": 25,
+        "id": 7,
         "uuid": "pos-cp-sn-a2-q02",
         "question": "Choose the part of speech for 'and' in 'Tom {a1} Jerry are friends.'",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 2,
-        "source_id": 2,
+        "category_id": 1,
+        "source_id": 1,
         "flag": 0,
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:57.000000Z"
+        "created_at": "2026-06-03T11:40:22.000000Z",
+        "updated_at": "2026-06-03T11:40:22.000000Z"
     },
     "category": {
-        "id": 2,
+        "id": 1,
         "name": "Базова граматика",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
     "source": {
-        "id": 2,
+        "id": 1,
         "name": "Parts of Speech — Частини мови",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 41,
-                "name": "Conjunction identification",
-                "category": null,
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 25,
-                "tag_id": 41,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 141,
-                "option": "pronoun",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 25,
-                "option_id": 141,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 142,
-                "option": "preposition",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 25,
-                "option_id": 142,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 143,
-                "option": "conjunction",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 25,
-                "option_id": 143,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 135,
-                "question_id": 25,
-                "marker": "a1",
-                "option_id": 143,
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "option": {
-                "id": 143,
-                "option": "conjunction",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 7,
-            "question_id": 25,
-            "text": "Choose the part of speech for 'and' in 'Tom {a1} Jerry are friends.'",
-            "created_at": "2026-05-26T14:30:52.000000Z",
-            "updated_at": "2026-05-26T14:30:52.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 7,
-            "question_id": 25,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Сполучник (conjunction) — це слово, яке з'єднує слова, фрази або речення.\nСлово `and` пов'язує два іменники 'Tom' і 'Jerry'.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 37,
-            "question": "Choose the part of speech for 'and' in 'Tom {a1} Jerry are friends.'",
-            "wrong_answer": "conjunction",
-            "correct_answer": "conjunction",
-            "language": "ua",
-            "explanation": "«And» є сполучником, бо з'єднує два підмети в одному реченні.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 38,
-            "question": "Choose the part of speech for 'and' in 'Tom {a1} Jerry are friends.'",
-            "wrong_answer": "conjunction",
-            "correct_answer": "conjunction",
-            "language": "uk",
-            "explanation": "«And» є сполучником, бо з'єднує два підмети в одному реченні.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 39,
-            "question": "Choose the part of speech for 'and' in 'Tom {a1} Jerry are friends.'",
-            "wrong_answer": "preposition",
-            "correct_answer": "conjunction",
-            "language": "ua",
-            "explanation": "«And» не є прийменником. Прийменники вказують на відношення між іменниками.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 40,
-            "question": "Choose the part of speech for 'and' in 'Tom {a1} Jerry are friends.'",
-            "wrong_answer": "preposition",
-            "correct_answer": "conjunction",
-            "language": "uk",
-            "explanation": "«And» не є прийменником. Прийменники вказують на відношення між іменниками.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 41,
-            "question": "Choose the part of speech for 'and' in 'Tom {a1} Jerry are friends.'",
-            "wrong_answer": "pronoun",
-            "correct_answer": "conjunction",
-            "language": "ua",
-            "explanation": "«And» не є займенником. Займенники замінюють іменники, а не з'єднують їх.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 42,
-            "question": "Choose the part of speech for 'and' in 'Tom {a1} Jerry are friends.'",
-            "wrong_answer": "pronoun",
-            "correct_answer": "conjunction",
-            "language": "uk",
-            "explanation": "«And» не є займенником. Займенники замінюють іменники, а не з'єднують їх.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

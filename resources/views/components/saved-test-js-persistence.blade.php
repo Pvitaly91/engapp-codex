@@ -16,6 +16,13 @@
         $stateEndpoint .= '?' . $queryString;
         $questionsEndpoint .= '?' . $queryString;
     }
+
+    $storageKey = 'gramlyze:js-test-state:v1:' . hash('sha256', implode('|', [
+        request()->getHost(),
+        $test->slug,
+        $mode,
+        $stateEndpoint,
+    ]));
 @endphp
 <script>
 window.JS_TEST_PERSISTENCE = {
@@ -23,6 +30,7 @@ window.JS_TEST_PERSISTENCE = {
     mode: '{{ $mode }}',
     token: '{{ csrf_token() }}',
     questionsEndpoint: @json($questionsEndpoint),
+    storageKey: @json($storageKey),
     saved: @json($savedState),
 };
 </script>

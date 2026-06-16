@@ -8,208 +8,26 @@
         "category_id": 1,
         "source_id": 1,
         "flag": 0,
-        "created_at": "2026-05-26T14:31:53.000000Z",
-        "updated_at": "2026-05-26T14:32:02.000000Z"
+        "created_at": "2026-06-03T11:39:28.000000Z",
+        "updated_at": "2026-06-03T11:39:28.000000Z"
     },
     "category": {
         "id": 1,
         "name": "Речення та граматика",
-        "created_at": "2026-05-26T14:31:53.000000Z",
-        "updated_at": "2026-05-26T14:31:53.000000Z"
+        "created_at": "2026-06-03T11:39:28.000000Z",
+        "updated_at": "2026-06-03T11:39:28.000000Z"
     },
     "source": {
         "id": 1,
         "name": "Sentence Structure — Будова речення (SVO)",
-        "created_at": "2026-05-26T14:31:53.000000Z",
-        "updated_at": "2026-05-26T14:31:53.000000Z"
+        "created_at": "2026-06-03T11:39:28.000000Z",
+        "updated_at": "2026-06-03T11:39:28.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 28,
-                "name": "Sentence structure SVO",
-                "category": "topic",
-                "created_at": "2026-05-26T14:31:53.000000Z",
-                "updated_at": "2026-05-26T14:31:53.000000Z"
-            },
-            "pivot": {
-                "question_id": 6,
-                "tag_id": 28,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 29,
-                "name": "Basic SVO order",
-                "category": "pattern",
-                "created_at": "2026-05-26T14:31:53.000000Z",
-                "updated_at": "2026-05-26T14:31:53.000000Z"
-            },
-            "pivot": {
-                "question_id": 6,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 30,
-                "name": "Negation in SVO",
-                "category": "pattern",
-                "created_at": "2026-05-26T14:31:53.000000Z",
-                "updated_at": "2026-05-26T14:31:53.000000Z"
-            },
-            "pivot": {
-                "question_id": 6,
-                "tag_id": 30,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 10,
-                "option": "do",
-                "created_at": "2026-05-26T14:31:53.000000Z",
-                "updated_at": "2026-05-26T14:31:53.000000Z"
-            },
-            "pivot": {
-                "question_id": 6,
-                "option_id": 10,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 11,
-                "option": "does",
-                "created_at": "2026-05-26T14:31:53.000000Z",
-                "updated_at": "2026-05-26T14:31:53.000000Z"
-            },
-            "pivot": {
-                "question_id": 6,
-                "option_id": 11,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 12,
-                "option": "did",
-                "created_at": "2026-05-26T14:31:53.000000Z",
-                "updated_at": "2026-05-26T14:31:53.000000Z"
-            },
-            "pivot": {
-                "question_id": 6,
-                "option_id": 12,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 6,
-                "question_id": 6,
-                "marker": "a1",
-                "option_id": 12,
-                "created_at": "2026-05-26T14:31:53.000000Z",
-                "updated_at": "2026-05-26T14:31:53.000000Z"
-            },
-            "option": {
-                "id": 12,
-                "option": "did",
-                "created_at": "2026-05-26T14:31:53.000000Z",
-                "updated_at": "2026-05-26T14:31:53.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 6,
-            "question_id": 6,
-            "text": "They {a1} not go to school yesterday.",
-            "created_at": "2026-05-26T14:31:53.000000Z",
-            "updated_at": "2026-05-26T14:31:53.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 6,
-            "question_id": 6,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Слово «yesterday» чітко вказує на минулий час — для заперечення в Past Simple потрібне «did».\nСтруктура заперечення у Past Simple: підмет + did + not + основне дієслово у базовій формі.",
-            "created_at": "2026-05-26T14:31:53.000000Z",
-            "updated_at": "2026-05-26T14:31:53.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 31,
-            "question": "They {a1} not go to school yesterday.",
-            "wrong_answer": "did",
-            "correct_answer": "did",
-            "language": "ua",
-            "explanation": "Форма «did» правильна: «yesterday» вказує на Past Simple, а «did not» — стандартне заперечення для всіх підметів у минулому часі.",
-            "created_at": "2026-05-26T14:31:53.000000Z",
-            "updated_at": "2026-05-26T14:31:53.000000Z"
-        },
-        {
-            "id": 32,
-            "question": "They {a1} not go to school yesterday.",
-            "wrong_answer": "did",
-            "correct_answer": "did",
-            "language": "uk",
-            "explanation": "Форма «did» правильна: «yesterday» вказує на Past Simple, а «did not» — стандартне заперечення для всіх підметів у минулому часі.",
-            "created_at": "2026-05-26T14:31:53.000000Z",
-            "updated_at": "2026-05-26T14:31:53.000000Z"
-        },
-        {
-            "id": 33,
-            "question": "They {a1} not go to school yesterday.",
-            "wrong_answer": "do",
-            "correct_answer": "did",
-            "language": "ua",
-            "explanation": "Форма «do» — допоміжне дієслово Present Simple для I/you/we/they; не підходить до минулого часу.",
-            "created_at": "2026-05-26T14:31:53.000000Z",
-            "updated_at": "2026-05-26T14:31:53.000000Z"
-        },
-        {
-            "id": 34,
-            "question": "They {a1} not go to school yesterday.",
-            "wrong_answer": "do",
-            "correct_answer": "did",
-            "language": "uk",
-            "explanation": "Форма «do» — допоміжне дієслово Present Simple для I/you/we/they; не підходить до минулого часу.",
-            "created_at": "2026-05-26T14:31:53.000000Z",
-            "updated_at": "2026-05-26T14:31:53.000000Z"
-        },
-        {
-            "id": 35,
-            "question": "They {a1} not go to school yesterday.",
-            "wrong_answer": "does",
-            "correct_answer": "did",
-            "language": "ua",
-            "explanation": "Форма «does» — Present Simple для третьої особи однини; не відповідає ні часу (минуле), ні підмету (they).",
-            "created_at": "2026-05-26T14:31:53.000000Z",
-            "updated_at": "2026-05-26T14:31:53.000000Z"
-        },
-        {
-            "id": 36,
-            "question": "They {a1} not go to school yesterday.",
-            "wrong_answer": "does",
-            "correct_answer": "did",
-            "language": "uk",
-            "explanation": "Форма «does» — Present Simple для третьої особи однини; не відповідає ні часу (минуле), ні підмету (they).",
-            "created_at": "2026-05-26T14:31:53.000000Z",
-            "updated_at": "2026-05-26T14:31:53.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

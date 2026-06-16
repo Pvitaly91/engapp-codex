@@ -75,18 +75,33 @@
                 'hint' => $h->hint,
             ];
         })->toArray();
-        
-        return [
-            'id' => $q->id,
-            'question' => $q->question,
-            'level' => $q->level,
-            'options' => $q->options->pluck('option')->toArray(),
-            'answers' => $q->answers->map(function($a) {
+
+        $answers = $q->answers
+            ->sortBy(function ($answer) {
+                $marker = strtolower(trim((string) $answer->marker));
+
+                if (preg_match('/^([a-z_]+)(\d+)$/', $marker, $matches) === 1) {
+                    return sprintf('%s%08d', $matches[1], (int) $matches[2]);
+                }
+
+                return $marker;
+            })
+            ->map(function($a) {
                 return [
                     'marker' => $a->marker,
                     'correct' => $a->option->option ?? null,
                 ];
-            })->toArray(),
+            })
+            ->values();
+        
+        return [
+            'id' => $q->id,
+            'type' => (string) $q->type,
+            'question' => $q->question,
+            'level' => $q->level,
+            'options' => $q->options->pluck('option')->toArray(),
+            'answers' => $answers->toArray(),
+            'correct_tokens' => $answers->pluck('correct')->filter()->values()->toArray(),
             'verb_hints' => $verbHints,
             'hints' => $hints,
             'tags' => $tags->toArray(),
@@ -201,8 +216,38 @@
                 </template>
             </div>
             
+            {{-- Compose Tokens --}}
+            <div class="mb-4 space-y-3" x-show="!answered && isComposeQuestion()">
+                <div class="min-h-[48px] rounded-lg border border-border/70 bg-background px-3 py-2">
+                    <template x-if="selectedTokens.length === 0">
+                        <span class="text-xs text-muted-foreground">Складіть переклад речення з токенів нижче</span>
+                    </template>
+                    <div class="flex flex-wrap gap-2" x-show="selectedTokens.length > 0">
+                        <template x-for="token in selectedTokens" :key="token.id">
+                            <button
+                                type="button"
+                                @click="removeToken(token)"
+                                class="rounded-md border border-primary/30 bg-primary/10 px-2.5 py-1 text-sm font-medium text-primary transition hover:bg-primary/15"
+                                x-text="token.value"
+                            ></button>
+                        </template>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2">
+                    <template x-for="token in tokenBank" :key="token.id">
+                        <button
+                            type="button"
+                            @click="selectToken(token)"
+                            class="rounded-md border border-border/70 bg-background px-3 py-1.5 text-sm text-foreground/85 transition hover:border-primary/40 hover:bg-primary/5"
+                            x-text="token.value"
+                        ></button>
+                    </template>
+                </div>
+            </div>
+
             {{-- Answer Options --}}
-            <div class="space-y-2 mb-4" x-show="!answered">
+            <div class="space-y-2 mb-4" x-show="!answered && !isComposeQuestion()">
                 <template x-for="(option, index) in currentOptions" :key="index">
                     <button 
                         @click="selectAnswer(option)"
@@ -226,7 +271,7 @@
             </div>
             
             {{-- Submit Button --}}
-            <div x-show="selectedOption && !answered" class="mb-4">
+            <div x-show="!answered && (selectedOption || (isComposeQuestion() && selectedTokens.length > 0))" class="mb-4">
                 <button 
                     @click="checkAnswer()"
                     class="w-full py-2.5 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 transition-colors"
@@ -309,9 +354,17 @@
                 "won't", "wouldn't", "can't", "couldn't", "shouldn't"
             ];
             const practiceI18n = @js($practiceI18n);
-            
+            const storageKey = [
+                'gramlyze:theory-practice:v1',
+                window.location.host,
+                window.location.pathname,
+                @js($uniqueId),
+                @js($locale),
+            ].join(':');
+
             return {
                 practiceI18n,
+                storageKey,
                 questions: @json($questionsData),
                 currentIndex: 0,
                 currentQuestion: null,
@@ -324,10 +377,104 @@
                 answeredIndices: [],
                 currentVerbHint: '',
                 currentExplanation: '',
+                selectedTokens: [],
+                tokenBank: [],
                 
                 init() {
+                    if (this.restoreState()) {
+                        return;
+                    }
+
                     this.shuffleQuestions();
                     this.loadQuestion();
+                    this.persistState();
+                },
+
+                questionId(question) {
+                    return String(question?.id ?? '');
+                },
+
+                questionSignature(questions = this.questions) {
+                    return questions.map(question => this.questionId(question)).filter(Boolean).sort().join('|');
+                },
+
+                restoreState() {
+                    let saved = null;
+
+                    try {
+                        const raw = window.localStorage?.getItem(this.storageKey);
+                        saved = raw ? JSON.parse(raw) : null;
+                    } catch (error) {
+                        console.error(error);
+                        return false;
+                    }
+
+                    if (!saved || saved.signature !== this.questionSignature()) {
+                        return false;
+                    }
+
+                    const currentById = new Map(this.questions.map(question => [this.questionId(question), question]));
+                    const orderedQuestions = (saved.questionIds || [])
+                        .map(id => currentById.get(String(id)))
+                        .filter(Boolean);
+
+                    if (orderedQuestions.length !== this.questions.length) {
+                        return false;
+                    }
+
+                    this.questions = orderedQuestions;
+                    this.currentIndex = Math.max(0, Math.min(Number(saved.currentIndex) || 0, this.questions.length - 1));
+                    this.correctCount = Math.max(0, Number(saved.correctCount) || 0);
+                    this.answeredIndices = Array.isArray(saved.answeredIndices)
+                        ? saved.answeredIndices.map(index => Number(index)).filter(index => Number.isInteger(index))
+                        : [];
+
+                    this.loadQuestion();
+
+                    const current = saved.current && typeof saved.current === 'object' ? saved.current : {};
+                    this.selectedOption = typeof current.selectedOption === 'string' ? current.selectedOption : null;
+                    this.answered = Boolean(current.answered);
+                    this.isCorrect = Boolean(current.isCorrect);
+                    this.currentOptions = Array.isArray(current.currentOptions) && current.currentOptions.length
+                        ? current.currentOptions
+                        : this.currentOptions;
+                    this.selectedTokens = Array.isArray(current.selectedTokens) ? current.selectedTokens : [];
+                    this.tokenBank = Array.isArray(current.tokenBank) && current.tokenBank.length
+                        ? current.tokenBank
+                        : this.tokenBank;
+
+                    return true;
+                },
+
+                persistState() {
+                    try {
+                        window.localStorage?.setItem(this.storageKey, JSON.stringify({
+                            signature: this.questionSignature(),
+                            questionIds: this.questions.map(question => this.questionId(question)),
+                            currentIndex: this.currentIndex,
+                            correctCount: this.correctCount,
+                            answeredIndices: this.answeredIndices,
+                            current: {
+                                selectedOption: this.selectedOption,
+                                answered: this.answered,
+                                isCorrect: this.isCorrect,
+                                currentOptions: this.currentOptions,
+                                selectedTokens: this.selectedTokens,
+                                tokenBank: this.tokenBank,
+                            },
+                            savedAt: new Date().toISOString(),
+                        }));
+                    } catch (error) {
+                        console.error(error);
+                    }
+                },
+
+                clearStoredState() {
+                    try {
+                        window.localStorage?.removeItem(this.storageKey);
+                    } catch (error) {
+                        console.error(error);
+                    }
                 },
                 
                 shuffleQuestions() {
@@ -345,6 +492,8 @@
                     this.answered = false;
                     this.isCorrect = false;
                     this.currentExplanation = '';
+                    this.selectedTokens = [];
+                    this.tokenBank = [];
                     
                     // Get the first marker's correct answer
                     const firstAnswer = this.currentQuestion.answers.find(a => a.marker === 'a1') || this.currentQuestion.answers[0];
@@ -356,6 +505,13 @@
                     // Get explanation hint
                     const hint = this.currentQuestion.hints?.find(h => h.hint);
                     this.currentExplanation = hint?.hint || '';
+
+                    if (this.isComposeQuestion()) {
+                        this.correctAnswer = this.composeCorrectText();
+                        this.tokenBank = this.shuffledTokens(this.composeTokenValues());
+                        this.currentOptions = [];
+                        return;
+                    }
                     
                     // Mix options: include all question options
                     let options = [...this.currentQuestion.options];
@@ -397,6 +553,70 @@
                         this.currentOptions[Math.floor(Math.random() * this.currentOptions.length)] = this.correctAnswer;
                     }
                 },
+
+                isComposeQuestion() {
+                    return String(this.currentQuestion?.type || '') === '4';
+                },
+
+                composeTokenValues() {
+                    const correct = this.currentQuestion?.correct_tokens || [];
+                    const distractors = this.currentQuestion?.options || [];
+                    const seen = new Set();
+
+                    return [...correct, ...distractors]
+                        .map(value => String(value || '').trim())
+                        .filter(value => {
+                            if (!value || seen.has(value)) return false;
+                            seen.add(value);
+                            return true;
+                        });
+                },
+
+                shuffledTokens(tokens) {
+                    const items = tokens.map((value, index) => ({ id: `${index}-${value}`, value }));
+
+                    for (let i = items.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [items[i], items[j]] = [items[j], items[i]];
+                    }
+
+                    return items;
+                },
+
+                selectToken(token) {
+                    if (this.answered) return;
+                    this.tokenBank = this.tokenBank.filter(item => item.id !== token.id);
+                    this.selectedTokens.push(token);
+                    this.persistState();
+                },
+
+                removeToken(token) {
+                    if (this.answered) return;
+                    this.selectedTokens = this.selectedTokens.filter(item => item.id !== token.id);
+                    this.tokenBank.push(token);
+                    this.persistState();
+                },
+
+                composeCorrectText() {
+                    const text = (this.currentQuestion?.correct_tokens || [])
+                        .map(value => String(value || '').trim())
+                        .filter(Boolean)
+                        .join(' ');
+
+                    if (!text) return '';
+
+                    const punctuation = String(this.currentQuestion?.question || '').trim().endsWith('?') ? '?' : '.';
+                    return `${text}${punctuation}`.replace(/\s+([?.!,;:])/g, '$1');
+                },
+
+                composeSelectedText() {
+                    const text = this.selectedTokens.map(token => token.value).join(' ').trim();
+
+                    if (!text) return '';
+
+                    const punctuation = String(this.currentQuestion?.question || '').trim().endsWith('?') ? '?' : '.';
+                    return `${text}${punctuation}`.replace(/\s+([?.!,;:])/g, '$1');
+                },
                 
                 getDisplayText() {
                     if (!this.currentQuestion) return '';
@@ -428,10 +648,28 @@
                 selectAnswer(option) {
                     if (this.answered) return;
                     this.selectedOption = option;
+                    this.persistState();
                 },
                 
                 checkAnswer() {
-                    if (!this.selectedOption || this.answered) return;
+                    if (this.answered) return;
+
+                    if (this.isComposeQuestion()) {
+                        if (this.selectedTokens.length === 0) return;
+
+                        this.answered = true;
+                        this.isCorrect = this.composeSelectedText() === this.correctAnswer;
+
+                        if (this.isCorrect) {
+                            this.correctCount++;
+                        }
+
+                        this.answeredIndices.push(this.currentIndex);
+                        this.persistState();
+                        return;
+                    }
+
+                    if (!this.selectedOption) return;
                     
                     this.answered = true;
                     this.isCorrect = this.selectedOption === this.correctAnswer;
@@ -441,6 +679,7 @@
                     }
                     
                     this.answeredIndices.push(this.currentIndex);
+                    this.persistState();
                 },
                 
                 hasMoreQuestions() {
@@ -457,9 +696,13 @@
                     } else {
                         // Start over with shuffled questions
                         this.currentIndex = 0;
+                        this.correctCount = 0;
+                        this.answeredIndices = [];
+                        this.clearStoredState();
                         this.shuffleQuestions();
                     }
                     this.loadQuestion();
+                    this.persistState();
                 }
             };
         }

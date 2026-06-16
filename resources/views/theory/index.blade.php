@@ -76,14 +76,49 @@
             </p>
         </div>
 
-        <div class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div class="mt-8 rounded-[28px] border p-4 shadow-card surface-card-strong sm:p-5" style="border-color: var(--line);" data-theory-category-search>
+            <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                <label for="theory-category-search" class="min-w-0 flex-1">
+                    <span class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.category_search_label') }}</span>
+                    <span class="mt-3 flex items-center gap-3 rounded-[22px] border px-4 py-3 surface-card" style="border-color: var(--line);">
+                        <span class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-ocean/10 text-sm font-extrabold" style="color: var(--accent);">
+                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="m21 21-4.35-4.35m1.35-5.15a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <input
+                            id="theory-category-search"
+                            type="search"
+                            autocomplete="off"
+                            data-theory-category-search-input
+                            class="min-w-0 flex-1 bg-transparent text-base font-bold outline-none placeholder:font-semibold"
+                            style="color: var(--text);"
+                            placeholder="{{ __('public.theory.category_search_placeholder') }}"
+                        >
+                    </span>
+                </label>
+                <div class="flex shrink-0 items-center justify-between gap-3 lg:justify-end">
+                    <span class="rounded-full px-4 py-2 text-sm font-extrabold soft-accent" data-theory-category-search-count>
+                        {{ $categories->count() }} / {{ $categories->count() }}
+                    </span>
+                    <button type="button" class="hidden rounded-2xl border px-4 py-3 text-sm font-extrabold transition hover:bg-slate-50" style="border-color: var(--line); color: var(--muted);" data-theory-category-search-clear>
+                        {{ __('public.theory.category_search_clear') }}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3" data-theory-category-grid>
             @forelse($categories as $index => $category)
                 @php
                     $accent = $gradients[$index % count($gradients)];
                     $hasChildren = $category->relationLoaded('children') && $category->children->isNotEmpty();
                     $hasPages = $category->relationLoaded('pages') && $category->pages->isNotEmpty();
+                    $searchText = collect([$category->title])
+                        ->merge($hasChildren ? $category->children->pluck('title') : collect())
+                        ->implode(' ');
                 @endphp
-                <article class="flex h-full flex-col overflow-hidden rounded-[26px] border shadow-card surface-card-strong" style="border-color: var(--line);">
+                <article class="flex h-full flex-col overflow-hidden rounded-[26px] border shadow-card surface-card-strong" style="border-color: var(--line);" data-theory-category-card data-theory-search-text="{{ $searchText }}">
                     <a href="{{ localized_route($routePrefix . '.category', $category->slug) }}" class="block shrink-0 border-b p-6" style="border-color: var(--line);">
                         <div class="flex items-start justify-between gap-4">
                             <span class="inline-flex h-14 w-14 items-center justify-center rounded-[20px] {{ $accent }} text-sm font-extrabold text-white dark:text-slate-950">
@@ -93,7 +128,7 @@
                                 {{ $category->recursive_pages_count ?? $category->pages_count ?? 0 }} {{ __('public.theory.lessons_count') }}
                             </span>
                         </div>
-                        <h3 class="mt-5 font-display text-xl font-extrabold leading-tight">{{ $category->title }}</h3>
+                        <h3 class="mt-5 font-display text-xl font-extrabold leading-tight"><span data-theory-highlight>{{ $category->title }}</span></h3>
                     </a>
 
                     <div class="flex flex-1 flex-col gap-4 p-5">
@@ -101,9 +136,9 @@
                             <div>
                                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.common.categories') }}</p>
                                 <div class="mt-3 space-y-2">
-                                    @foreach($category->children->take(4) as $child)
+                                    @foreach($category->children as $child)
                                         <a href="{{ localized_route($routePrefix . '.category', $child->slug) }}" class="flex items-center justify-between rounded-[18px] border px-3 py-3 text-sm transition hover:-translate-y-0.5 surface-card" style="border-color: var(--line); color: var(--text);">
-                                            <span class="min-w-0 break-words">{{ $child->title }}</span>
+                                            <span class="min-w-0 break-words" data-theory-highlight>{{ $child->title }}</span>
                                             <span class="text-xs font-bold" style="color: var(--muted);">{{ $child->recursive_pages_count ?? $child->pages_count ?? 0 }}</span>
                                         </a>
                                     @endforeach
@@ -140,6 +175,13 @@
                 </div>
             @endforelse
         </div>
+
+        @if($categories->isNotEmpty())
+            <div class="mt-8 hidden rounded-[28px] border border-dashed p-10 text-center shadow-card surface-card-strong" style="border-color: var(--line);" data-theory-category-search-empty>
+                <h3 class="font-display text-xl font-extrabold">{{ __('public.theory.category_search_empty_title') }}</h3>
+                <p class="mt-3 text-sm leading-6" style="color: var(--muted);">{{ __('public.theory.category_search_empty_hint') }}</p>
+            </div>
+        @endif
     </section>
 
     <section class="theory-lazy-section nd-section">
@@ -189,4 +231,115 @@
         </div>
     </section>
 </div>
+@endsection
+
+@section('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const root = document.querySelector('[data-theory-category-search]');
+            const grid = document.querySelector('[data-theory-category-grid]');
+
+            if (!root || !grid) {
+                return;
+            }
+
+            const input = root.querySelector('[data-theory-category-search-input]');
+            const clearButton = root.querySelector('[data-theory-category-search-clear]');
+            const count = root.querySelector('[data-theory-category-search-count]');
+            const cards = Array.from(grid.querySelectorAll('[data-theory-category-card]'));
+            const empty = document.querySelector('[data-theory-category-search-empty]');
+            const total = cards.length;
+
+            const normalize = (value) => value.toLocaleLowerCase().trim();
+
+            const clearHighlight = (element) => {
+                element.textContent = element.dataset.theoryOriginalText || element.textContent;
+            };
+
+            const highlightText = (element, query) => {
+                const original = element.dataset.theoryOriginalText || element.textContent;
+                element.dataset.theoryOriginalText = original;
+                element.textContent = '';
+
+                if (!query) {
+                    element.textContent = original;
+                    return;
+                }
+
+                const lowerOriginal = original.toLocaleLowerCase();
+                const lowerQuery = query.toLocaleLowerCase();
+                let cursor = 0;
+                let matchIndex = lowerOriginal.indexOf(lowerQuery);
+
+                if (matchIndex === -1) {
+                    element.textContent = original;
+                    return;
+                }
+
+                while (matchIndex !== -1) {
+                    if (matchIndex > cursor) {
+                        element.append(document.createTextNode(original.slice(cursor, matchIndex)));
+                    }
+
+                    const mark = document.createElement('mark');
+                    mark.className = 'rounded-md bg-amber/30 px-1 py-0.5 text-inherit';
+                    mark.textContent = original.slice(matchIndex, matchIndex + query.length);
+                    element.append(mark);
+
+                    cursor = matchIndex + query.length;
+                    matchIndex = lowerOriginal.indexOf(lowerQuery, cursor);
+                }
+
+                if (cursor < original.length) {
+                    element.append(document.createTextNode(original.slice(cursor)));
+                }
+            };
+
+            const applySearch = () => {
+                const query = normalize(input.value);
+                let visible = 0;
+
+                cards.forEach((card) => {
+                    const haystack = normalize(card.dataset.theorySearchText || '');
+                    const matched = !query || haystack.includes(query);
+
+                    card.classList.toggle('hidden', !matched);
+
+                    if (matched) {
+                        visible += 1;
+                    }
+
+                    card.querySelectorAll('[data-theory-highlight]').forEach((element) => {
+                        if (matched && query) {
+                            highlightText(element, query);
+                        } else {
+                            clearHighlight(element);
+                        }
+                    });
+                });
+
+                if (count) {
+                    count.textContent = `${visible} / ${total}`;
+                }
+
+                if (clearButton) {
+                    clearButton.classList.toggle('hidden', !query);
+                }
+
+                if (empty) {
+                    empty.classList.toggle('hidden', visible !== 0);
+                }
+            };
+
+            input.addEventListener('input', applySearch);
+
+            clearButton?.addEventListener('click', () => {
+                input.value = '';
+                input.focus();
+                applySearch();
+            });
+
+            applySearch();
+        });
+    </script>
 @endsection

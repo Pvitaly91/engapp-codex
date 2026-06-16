@@ -12,6 +12,7 @@
         @click="open = !open"
         class="flex w-full items-center justify-between rounded-[24px] border px-4 py-4 shadow-card surface-card-strong"
         style="border-color: var(--line);"
+        data-theory-mobile-nav-toggle
     >
         <div class="text-left">
             <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.copilot_theory.map') }}</p>
@@ -22,9 +23,13 @@
         </svg>
     </button>
 
-    <div x-show="open" x-transition x-cloak class="mt-5 rounded-[24px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
+    <div x-show="open" x-transition x-cloak class="mt-5 flex max-h-[calc(100vh-8rem)] flex-col rounded-[24px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);" data-theory-sidebar data-theory-mobile-nav-panel>
         <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--muted);">{{ __('public.common.categories') }}</p>
-        <div class="mt-4 space-y-3">
+        @include('theory.partials.tree-nav-search', [
+            'categories' => $categories,
+            'searchId' => 'theory-sidebar-search-mobile',
+        ])
+        <div class="mt-4 min-h-0 flex-1 space-y-3 overflow-y-auto overscroll-contain pr-1" data-theory-sidebar-scroll style="scrollbar-color: color-mix(in srgb, var(--accent) 34%, transparent) transparent;">
             @include('theory.partials.tree-nav-mobile', [
                 'categories' => $categories,
                 'selectedCategory' => $selectedCategory,

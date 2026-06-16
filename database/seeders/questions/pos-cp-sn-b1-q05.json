@@ -1,185 +1,33 @@
 {
     "question": {
-        "id": 33,
+        "id": 15,
         "uuid": "pos-cp-sn-b1-q05",
         "question": "In 'Neither Tom {a1} Jerry came.', the word 'nor' is a ___.",
         "difficulty": 3,
         "level": "B1",
-        "category_id": 2,
-        "source_id": 2,
+        "category_id": 1,
+        "source_id": 1,
         "flag": 0,
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:57.000000Z"
+        "created_at": "2026-06-03T11:40:22.000000Z",
+        "updated_at": "2026-06-03T11:40:22.000000Z"
     },
     "category": {
-        "id": 2,
+        "id": 1,
         "name": "Базова граматика",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
     "source": {
-        "id": 2,
+        "id": 1,
         "name": "Parts of Speech — Частини мови",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 41,
-                "name": "Conjunction identification",
-                "category": null,
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 33,
-                "tag_id": 41,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 140,
-                "option": "adverb",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 33,
-                "option_id": 140,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 142,
-                "option": "preposition",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 33,
-                "option_id": 142,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 143,
-                "option": "conjunction",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 33,
-                "option_id": 143,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 143,
-                "question_id": 33,
-                "marker": "a1",
-                "option_id": 143,
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "option": {
-                "id": 143,
-                "option": "conjunction",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 15,
-            "question_id": 33,
-            "text": "In 'Neither Tom {a1} Jerry came.', the word 'nor' is a ___.",
-            "created_at": "2026-05-26T14:30:52.000000Z",
-            "updated_at": "2026-05-26T14:30:52.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 15,
-            "question_id": 33,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Парні сполучники (correlative conjunctions) використовуються парами — наприклад, neither…nor.\nСлово `nor` є частиною пари `neither…nor`, яка виражає подвійне заперечення.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 89,
-            "question": "In 'Neither Tom {a1} Jerry came.', the word 'nor' is a ___.",
-            "wrong_answer": "adverb",
-            "correct_answer": "conjunction",
-            "language": "ua",
-            "explanation": "«Nor» не є прислівником. Воно виконує сполучникову функцію.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 90,
-            "question": "In 'Neither Tom {a1} Jerry came.', the word 'nor' is a ___.",
-            "wrong_answer": "adverb",
-            "correct_answer": "conjunction",
-            "language": "uk",
-            "explanation": "«Nor» не є прислівником. Воно виконує сполучникову функцію.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 85,
-            "question": "In 'Neither Tom {a1} Jerry came.', the word 'nor' is a ___.",
-            "wrong_answer": "conjunction",
-            "correct_answer": "conjunction",
-            "language": "ua",
-            "explanation": "«Nor» є сполучником у парі 'neither…nor', що з'єднує два негативні варіанти.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 86,
-            "question": "In 'Neither Tom {a1} Jerry came.', the word 'nor' is a ___.",
-            "wrong_answer": "conjunction",
-            "correct_answer": "conjunction",
-            "language": "uk",
-            "explanation": "«Nor» є сполучником у парі 'neither…nor', що з'єднує два негативні варіанти.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 87,
-            "question": "In 'Neither Tom {a1} Jerry came.', the word 'nor' is a ___.",
-            "wrong_answer": "preposition",
-            "correct_answer": "conjunction",
-            "language": "ua",
-            "explanation": "«Nor» не є прийменником. Воно не показує відношення між іменниками.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        },
-        {
-            "id": 88,
-            "question": "In 'Neither Tom {a1} Jerry came.', the word 'nor' is a ___.",
-            "wrong_answer": "preposition",
-            "correct_answer": "conjunction",
-            "language": "uk",
-            "explanation": "«Nor» не є прийменником. Воно не показує відношення між іменниками.",
-            "created_at": "2026-05-26T14:30:53.000000Z",
-            "updated_at": "2026-05-26T14:30:53.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

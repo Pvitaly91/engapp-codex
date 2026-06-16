@@ -1,295 +1,33 @@
 {
     "question": {
-        "id": 50,
+        "id": 32,
         "uuid": "2-the-word-run-is-a-a2-when-it-shows",
         "question": "The word 'run' is a {a2} when it shows action.",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 2,
-        "source_id": 2,
+        "category_id": 1,
+        "source_id": 1,
         "flag": 2,
-        "created_at": "2026-05-26T14:30:54.000000Z",
-        "updated_at": "2026-05-26T14:30:57.000000Z"
+        "created_at": "2026-06-03T11:40:23.000000Z",
+        "updated_at": "2026-06-03T11:40:23.000000Z"
     },
     "category": {
-        "id": 2,
+        "id": 1,
         "name": "Базова граматика",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
     "source": {
-        "id": 2,
+        "id": 1,
         "name": "Parts of Speech — Частини мови",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 1,
-                "name": "Parts of speech identification",
-                "category": null,
-                "created_at": "2026-05-26T14:30:48.000000Z",
-                "updated_at": "2026-05-26T14:30:48.000000Z"
-            },
-            "pivot": {
-                "question_id": 50,
-                "tag_id": 1,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 45,
-                "name": "Verb recognition",
-                "category": "pattern",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 50,
-                "tag_id": 45,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 137,
-                "option": "noun",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 50,
-                "option_id": 137,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 138,
-                "option": "verb",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 50,
-                "option_id": 138,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 141,
-                "option": "pronoun",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            },
-            "pivot": {
-                "question_id": 50,
-                "option_id": 141,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 160,
-                "question_id": 50,
-                "marker": "a2",
-                "option_id": 138,
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "option": {
-                "id": 138,
-                "option": "verb",
-                "created_at": "2026-05-26T14:30:52.000000Z",
-                "updated_at": "2026-05-26T14:30:52.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 2,
-                "question_id": 50,
-                "marker": "a2",
-                "option_id": 146,
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "option": {
-                "id": 146,
-                "option": "part of speech",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 32,
-            "question_id": 50,
-            "text": "The word 'run' is a {a2} when it shows action.",
-            "created_at": "2026-05-26T14:30:54.000000Z",
-            "updated_at": "2026-05-26T14:30:54.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 34,
-            "question_id": 50,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "Nouns name people, places, things, or ideas.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 35,
-            "question_id": 50,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "Czasownik (verb) to część mowy wyrażająca działanie lub stan.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 36,
-            "question_id": 50,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Коли слово показує дію ('shows action'), воно функціонує як дієслово (verb).\nСлово 'run' у значенні дії (бігти) є дієсловом, бо виражає процес руху.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 193,
-            "question": "The word 'run' is a {a2} when it shows action.",
-            "wrong_answer": "noun",
-            "correct_answer": "verb",
-            "language": "en",
-            "explanation": "Incorrect. A noun names a person, place, or thing, which doesn't fit this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 196,
-            "question": "The word 'run' is a {a2} when it shows action.",
-            "wrong_answer": "noun",
-            "correct_answer": "verb",
-            "language": "pl",
-            "explanation": "Rzeczownik nazywa osobę, miejsce lub rzecz, ale 'run' pokazuje działanie.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 199,
-            "question": "The word 'run' is a {a2} when it shows action.",
-            "wrong_answer": "noun",
-            "correct_answer": "verb",
-            "language": "ua",
-            "explanation": "Слово 'run' може бути іменником (пробіжка), але коли воно показує дію, це дієслово.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 200,
-            "question": "The word 'run' is a {a2} when it shows action.",
-            "wrong_answer": "noun",
-            "correct_answer": "verb",
-            "language": "uk",
-            "explanation": "Слово 'run' може бути іменником (пробіжка), але коли воно показує дію, це дієслово.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 195,
-            "question": "The word 'run' is a {a2} when it shows action.",
-            "wrong_answer": "pronoun",
-            "correct_answer": "verb",
-            "language": "en",
-            "explanation": "Incorrect. A pronoun replaces a noun, which doesn't fit this sentence.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 198,
-            "question": "The word 'run' is a {a2} when it shows action.",
-            "wrong_answer": "pronoun",
-            "correct_answer": "verb",
-            "language": "pl",
-            "explanation": "Zaimek (pronoun) zastępuje rzeczownik, ale nie pokazuje działania.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 203,
-            "question": "The word 'run' is a {a2} when it shows action.",
-            "wrong_answer": "pronoun",
-            "correct_answer": "verb",
-            "language": "ua",
-            "explanation": "Займенник (pronoun) замінює іменник, а 'run' виражає дію.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 204,
-            "question": "The word 'run' is a {a2} when it shows action.",
-            "wrong_answer": "pronoun",
-            "correct_answer": "verb",
-            "language": "uk",
-            "explanation": "Займенник (pronoun) замінює іменник, а 'run' виражає дію.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 194,
-            "question": "The word 'run' is a {a2} when it shows action.",
-            "wrong_answer": "verb",
-            "correct_answer": "verb",
-            "language": "en",
-            "explanation": "Correct. This word is a verb expressing an action.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 197,
-            "question": "The word 'run' is a {a2} when it shows action.",
-            "wrong_answer": "verb",
-            "correct_answer": "verb",
-            "language": "pl",
-            "explanation": "Poprawnie! 'Run' jako czasownik (verb) pokazuje działanie.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 201,
-            "question": "The word 'run' is a {a2} when it shows action.",
-            "wrong_answer": "verb",
-            "correct_answer": "verb",
-            "language": "ua",
-            "explanation": "Дієслово (verb) — це частина мови, що виражає дію, процес або стан.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 202,
-            "question": "The word 'run' is a {a2} when it shows action.",
-            "wrong_answer": "verb",
-            "correct_answer": "verb",
-            "language": "uk",
-            "explanation": "Дієслово (verb) — це частина мови, що виражає дію, процес або стан.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

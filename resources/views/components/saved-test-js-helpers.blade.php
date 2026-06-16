@@ -1009,16 +1009,79 @@ if (JS_TEST_PERSISTENCE && JS_TEST_PERSISTENCE.saved) {
     JS_TEST_PERSISTENCE.saved = cloneState(JS_TEST_PERSISTENCE.saved);
 }
 
-function getSavedState() {
-    if (!JS_TEST_PERSISTENCE || !JS_TEST_PERSISTENCE.saved) {
+function readLocalJsTestState() {
+    if (!JS_TEST_PERSISTENCE || !JS_TEST_PERSISTENCE.storageKey || !window.localStorage) {
         return null;
     }
 
-    return cloneState(JS_TEST_PERSISTENCE.saved);
+    try {
+        const raw = window.localStorage.getItem(JS_TEST_PERSISTENCE.storageKey);
+        if (!raw) {
+            return null;
+        }
+
+        const parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== 'object' || !parsed.state) {
+            return null;
+        }
+
+        if (!isStartedState(parsed.state)) {
+            return null;
+        }
+
+        return cloneState(parsed.state);
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
+
+function writeLocalJsTestState(state) {
+    if (!JS_TEST_PERSISTENCE || !JS_TEST_PERSISTENCE.storageKey || !window.localStorage) {
+        return;
+    }
+
+    try {
+        window.localStorage.setItem(JS_TEST_PERSISTENCE.storageKey, JSON.stringify({
+            saved_at: new Date().toISOString(),
+            state,
+        }));
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+function clearLocalJsTestState() {
+    if (!JS_TEST_PERSISTENCE || !JS_TEST_PERSISTENCE.storageKey || !window.localStorage) {
+        return;
+    }
+
+    try {
+        window.localStorage.removeItem(JS_TEST_PERSISTENCE.storageKey);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+function getSavedState() {
+    if (!JS_TEST_PERSISTENCE) {
+        return null;
+    }
+
+    if (JS_TEST_PERSISTENCE.saved) {
+        return cloneState(JS_TEST_PERSISTENCE.saved);
+    }
+
+    const localState = readLocalJsTestState();
+    if (localState) {
+        JS_TEST_PERSISTENCE.saved = cloneState(localState);
+    }
+
+    return localState;
 }
 
 function persistState(state, immediate = false) {
-    if (!JS_TEST_PERSISTENCE || !JS_TEST_PERSISTENCE.endpoint) {
+    if (!JS_TEST_PERSISTENCE) {
         return;
     }
 
@@ -1026,6 +1089,11 @@ function persistState(state, immediate = false) {
     const snapshot = prepareStateForPersistence(state);
     const started = Boolean(snapshot?.__meta?.started);
     JS_TEST_PERSISTENCE.saved = snapshot;
+    writeLocalJsTestState(snapshot);
+
+    if (!JS_TEST_PERSISTENCE.endpoint) {
+        return;
+    }
 
     const payload = {
         mode: JS_TEST_PERSISTENCE.mode,
@@ -1072,6 +1140,7 @@ async function loadQuestions(forceFresh = false) {
         if (JS_TEST_PERSISTENCE) {
             JS_TEST_PERSISTENCE.saved = null;
         }
+        clearLocalJsTestState();
 
         window.__INITIAL_JS_TEST_QUESTIONS__ = current;
 
@@ -1098,6 +1167,7 @@ async function loadQuestions(forceFresh = false) {
         const payload = await response.json();
         if (payload && Array.isArray(payload.questions)) {
             JS_TEST_PERSISTENCE.saved = null;
+            clearLocalJsTestState();
             window.__INITIAL_JS_TEST_QUESTIONS__ = payload.questions;
 
             return payload.questions;
@@ -1108,6 +1178,7 @@ async function loadQuestions(forceFresh = false) {
 
     if (JS_TEST_PERSISTENCE) {
         JS_TEST_PERSISTENCE.saved = null;
+        clearLocalJsTestState();
     }
 
     return current;
@@ -1119,6 +1190,7 @@ async function resetJsTestState() {
     }
 
     JS_TEST_PERSISTENCE.saved = null;
+    clearLocalJsTestState();
 
     if (!JS_TEST_PERSISTENCE.endpoint) {
         return;

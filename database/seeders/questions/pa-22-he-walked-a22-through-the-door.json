@@ -1,295 +1,33 @@
 {
     "question": {
-        "id": 70,
+        "id": 52,
         "uuid": "pa-22-he-walked-a22-through-the-door",
         "question": "He walked {a22} through the door.",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 2,
-        "source_id": 2,
+        "category_id": 1,
+        "source_id": 1,
         "flag": 2,
-        "created_at": "2026-05-26T14:30:54.000000Z",
-        "updated_at": "2026-05-26T14:30:58.000000Z"
+        "created_at": "2026-06-03T11:40:23.000000Z",
+        "updated_at": "2026-06-03T11:40:23.000000Z"
     },
     "category": {
-        "id": 2,
+        "id": 1,
         "name": "Базова граматика",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
     "source": {
-        "id": 2,
+        "id": 1,
         "name": "Parts of Speech — Частини мови",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 1,
-                "name": "Parts of speech identification",
-                "category": null,
-                "created_at": "2026-05-26T14:30:48.000000Z",
-                "updated_at": "2026-05-26T14:30:48.000000Z"
-            },
-            "pivot": {
-                "question_id": 70,
-                "tag_id": 1,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 47,
-                "name": "Adverb recognition",
-                "category": "pattern",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 70,
-                "tag_id": 47,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 199,
-                "option": "slowly",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 70,
-                "option_id": 199,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 200,
-                "option": "slow",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 70,
-                "option_id": 200,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 201,
-                "option": "slowness",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 70,
-                "option_id": 201,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 180,
-                "question_id": 70,
-                "marker": "a22",
-                "option_id": 199,
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "option": {
-                "id": 199,
-                "option": "slowly",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 22,
-                "question_id": 70,
-                "marker": "a22",
-                "option_id": 178,
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "option": {
-                "id": 178,
-                "option": "manner word",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 52,
-            "question_id": 70,
-            "text": "He walked {a22} through the door.",
-            "created_at": "2026-05-26T14:30:54.000000Z",
-            "updated_at": "2026-05-26T14:30:54.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 94,
-            "question_id": 70,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "The adverb 'slowly' correctly modifies the verb or adjective in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 95,
-            "question_id": 70,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "Przysłówek (adverb) opisuje sposób chodzenia.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 96,
-            "question_id": 70,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Після дієслова руху 'walked' потрібен прислівник способу дії.\nПрислівник 'slowly' утворений від прикметника 'slow' додаванням закінчення -ly.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 433,
-            "question": "He walked {a22} through the door.",
-            "wrong_answer": "slow",
-            "correct_answer": "slowly",
-            "language": "en",
-            "explanation": "Incorrect. 'slow' doesn't fit grammatically or idiomatically in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 436,
-            "question": "He walked {a22} through the door.",
-            "wrong_answer": "slow",
-            "correct_answer": "slowly",
-            "language": "pl",
-            "explanation": "'Slow' to przymiotnik, który opisuje rzeczowniki.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 439,
-            "question": "He walked {a22} through the door.",
-            "wrong_answer": "slow",
-            "correct_answer": "slowly",
-            "language": "ua",
-            "explanation": "Прикметник 'slow' описує іменники, а не дієслова руху.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 440,
-            "question": "He walked {a22} through the door.",
-            "wrong_answer": "slow",
-            "correct_answer": "slowly",
-            "language": "uk",
-            "explanation": "Прикметник 'slow' описує іменники, а не дієслова руху.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 434,
-            "question": "He walked {a22} through the door.",
-            "wrong_answer": "slowly",
-            "correct_answer": "slowly",
-            "language": "en",
-            "explanation": "Correct. 'slowly' is the appropriate choice in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 437,
-            "question": "He walked {a22} through the door.",
-            "wrong_answer": "slowly",
-            "correct_answer": "slowly",
-            "language": "pl",
-            "explanation": "Poprawnie! 'Slowly' to przysłówek opisujący sposób chodzenia.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 441,
-            "question": "He walked {a22} through the door.",
-            "wrong_answer": "slowly",
-            "correct_answer": "slowly",
-            "language": "ua",
-            "explanation": "Прислівник 'slowly' (повільно) правильно описує спосіб ходьби.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 442,
-            "question": "He walked {a22} through the door.",
-            "wrong_answer": "slowly",
-            "correct_answer": "slowly",
-            "language": "uk",
-            "explanation": "Прислівник 'slowly' (повільно) правильно описує спосіб ходьби.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 435,
-            "question": "He walked {a22} through the door.",
-            "wrong_answer": "slowness",
-            "correct_answer": "slowly",
-            "language": "en",
-            "explanation": "Incorrect. 'slowness' doesn't fit grammatically or idiomatically in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 438,
-            "question": "He walked {a22} through the door.",
-            "wrong_answer": "slowness",
-            "correct_answer": "slowly",
-            "language": "pl",
-            "explanation": "'Slowness' to rzeczownik abstrakcyjny, nie przysłówek.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 443,
-            "question": "He walked {a22} through the door.",
-            "wrong_answer": "slowness",
-            "correct_answer": "slowly",
-            "language": "ua",
-            "explanation": "Іменник 'slowness' (повільність) називає якість, а не описує конкретну дію.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 444,
-            "question": "He walked {a22} through the door.",
-            "wrong_answer": "slowness",
-            "correct_answer": "slowly",
-            "language": "uk",
-            "explanation": "Іменник 'slowness' (повільність) називає якість, а не описує конкретну дію.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

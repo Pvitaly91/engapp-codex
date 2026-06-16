@@ -51,6 +51,10 @@
             display: none !important;
         }
 
+        [data-theory-sidebar][data-theory-sidebar-searching="true"] .theory-nav-children {
+            display: block !important;
+        }
+
         [data-theory-layout][data-settled="false"] [data-theory-sidebar] [data-theory-sidebar-scroll],
         [data-theory-sidebar][data-collapsed="true"] [data-theory-sidebar-scroll] {
             padding-left: 3px;
@@ -130,6 +134,132 @@
                 }, 240);
             });
         };
+
+        window.initTheorySidebarSearch = () => {
+            document.querySelectorAll('[data-theory-sidebar-search]').forEach((searchRoot) => {
+                if (searchRoot.dataset.theorySearchReady === 'true') {
+                    return;
+                }
+
+                searchRoot.dataset.theorySearchReady = 'true';
+
+                const sidebar = searchRoot.closest('[data-theory-sidebar]');
+                const scrollRoot = sidebar?.querySelector('[data-theory-sidebar-scroll]');
+                const input = searchRoot.querySelector('[data-theory-sidebar-search-input]');
+                const clearButton = searchRoot.querySelector('[data-theory-sidebar-search-clear]');
+                const count = searchRoot.querySelector('[data-theory-sidebar-search-count]');
+                const empty = searchRoot.querySelector('[data-theory-sidebar-search-empty]');
+                const topNodes = Array.from(scrollRoot?.querySelectorAll('[data-theory-sidebar-top-node]') || []);
+                const allNodes = Array.from(scrollRoot?.querySelectorAll('[data-theory-sidebar-node]') || []);
+                const total = topNodes.length;
+
+                if (!input || !sidebar || !scrollRoot || topNodes.length === 0) {
+                    return;
+                }
+
+                const normalize = (value) => String(value || '').toLocaleLowerCase().trim();
+
+                const clearHighlight = (element) => {
+                    element.textContent = element.dataset.theorySidebarOriginalText || element.textContent;
+                };
+
+                const highlightText = (element, query) => {
+                    const original = element.dataset.theorySidebarOriginalText || element.textContent;
+                    element.dataset.theorySidebarOriginalText = original;
+                    element.textContent = '';
+
+                    if (!query) {
+                        element.textContent = original;
+                        return;
+                    }
+
+                    const lowerOriginal = original.toLocaleLowerCase();
+                    const lowerQuery = query.toLocaleLowerCase();
+                    let cursor = 0;
+                    let matchIndex = lowerOriginal.indexOf(lowerQuery);
+
+                    if (matchIndex === -1) {
+                        element.textContent = original;
+                        return;
+                    }
+
+                    while (matchIndex !== -1) {
+                        if (matchIndex > cursor) {
+                            element.append(document.createTextNode(original.slice(cursor, matchIndex)));
+                        }
+
+                        const mark = document.createElement('mark');
+                        mark.className = 'rounded-md bg-amber/30 px-1 py-0.5 text-inherit';
+                        mark.textContent = original.slice(matchIndex, matchIndex + query.length);
+                        element.append(mark);
+
+                        cursor = matchIndex + query.length;
+                        matchIndex = lowerOriginal.indexOf(lowerQuery, cursor);
+                    }
+
+                    if (cursor < original.length) {
+                        element.append(document.createTextNode(original.slice(cursor)));
+                    }
+                };
+
+                const clearSearch = () => {
+                    input.value = '';
+                    applySearch();
+                };
+
+                const applySearch = () => {
+                    const query = normalize(input.value);
+                    let visible = 0;
+
+                    sidebar.dataset.theorySidebarSearching = query ? 'true' : 'false';
+
+                    allNodes.forEach((node) => {
+                        const matched = !query || normalize(node.textContent).includes(query);
+                        node.classList.toggle('hidden', !matched);
+                    });
+
+                    topNodes.forEach((node) => {
+                        if (!node.classList.contains('hidden')) {
+                            visible += 1;
+                        }
+                    });
+
+                    scrollRoot.querySelectorAll('[data-theory-sidebar-highlight]').forEach((element) => {
+                        if (query && normalize(element.textContent).includes(query)) {
+                            highlightText(element, query);
+                        } else {
+                            clearHighlight(element);
+                        }
+                    });
+
+                    if (count) {
+                        count.textContent = `${visible} / ${total}`;
+                    }
+
+                    clearButton?.classList.toggle('hidden', !query);
+                    empty?.classList.toggle('hidden', visible !== 0);
+                };
+
+                input.addEventListener('input', applySearch);
+                clearButton?.addEventListener('click', () => {
+                    clearSearch();
+                    input.focus();
+                });
+
+                const observer = new MutationObserver(() => {
+                    if (sidebar.dataset.collapsed === 'true' && input.value) {
+                        clearSearch();
+                    }
+                });
+
+                observer.observe(sidebar, { attributes: true, attributeFilter: ['data-collapsed'] });
+
+                applySearch();
+            });
+        };
+
+        document.addEventListener('DOMContentLoaded', window.initTheorySidebarSearch);
+        document.addEventListener('alpine:initialized', window.initTheorySidebarSearch);
     </script>
 @endonce
 
@@ -143,7 +273,12 @@
         $itemCount = $orderedItems->count() ?: ($category->pages_count ?? 0);
     @endphp
 
-    <div x-data="{ expanded: {{ $isExpanded ? 'true' : 'false' }} }" class="{{ $level === 0 ? 'space-y-2.5' : 'space-y-2' }}">
+    <div
+        x-data="{ expanded: {{ $isExpanded ? 'true' : 'false' }} }"
+        class="{{ $level === 0 ? 'space-y-2.5' : 'space-y-2' }}"
+        data-theory-sidebar-node
+        @if($level === 0) data-theory-sidebar-top-node @endif
+    >
         <div class="min-w-0 flex-1">
             <div class="relative">
                 <a
@@ -171,7 +306,7 @@
 
                         <span class="theory-nav-label min-w-0 flex-1">
                             <span class="flex items-center justify-between gap-3">
-                                <span class="block text-sm font-extrabold leading-6">{{ $category->title }}</span>
+                                <span class="block text-sm font-extrabold leading-6" data-theory-sidebar-highlight>{{ $category->title }}</span>
                                 <span class="theory-nav-count inline-flex min-w-[2rem] items-center justify-center rounded-full px-2 py-1 text-[10px] font-extrabold" style="background: {{ $isBranchActive ? 'rgba(47, 103, 177, 0.12)' : 'rgba(91, 108, 128, 0.10)' }}; color: {{ $isBranchActive ? 'var(--accent)' : 'var(--muted)' }};">
                                     {{ $itemCount }}
                                 </span>
@@ -216,10 +351,11 @@
                                     ? 'background: color-mix(in srgb, var(--accent-soft) 78%, white); color: var(--text);'
                                     : 'color: var(--muted);' }}"
                                 @if($isCurrentPage) aria-current="page" @endif
+                                data-theory-sidebar-node
                             >
                                 <span class="mt-1.5 inline-flex h-3 w-3 shrink-0 rounded-full border-2" style="border-color: {{ $isCurrentPage ? 'var(--accent)' : 'color-mix(in srgb, var(--line) 88%, var(--muted))' }}; background: {{ $isCurrentPage ? 'var(--accent)' : 'transparent' }};"></span>
                                 <span class="min-w-0 flex-1">
-                                    <span class="block text-sm font-semibold leading-5">{{ $pageItem->title }}</span>
+                                    <span class="block text-sm font-semibold leading-5" data-theory-sidebar-highlight>{{ $pageItem->title }}</span>
                                 </span>
                             </a>
                         @endif

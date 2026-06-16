@@ -1,295 +1,33 @@
 {
     "question": {
-        "id": 69,
+        "id": 51,
         "uuid": "par-21-the-weather-is-very-a21-today",
         "question": "The weather is very {a21} today.",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 2,
-        "source_id": 2,
+        "category_id": 1,
+        "source_id": 1,
         "flag": 2,
-        "created_at": "2026-05-26T14:30:54.000000Z",
-        "updated_at": "2026-05-26T14:30:58.000000Z"
+        "created_at": "2026-06-03T11:40:23.000000Z",
+        "updated_at": "2026-06-03T11:40:23.000000Z"
     },
     "category": {
-        "id": 2,
+        "id": 1,
         "name": "Базова граматика",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
     "source": {
-        "id": 2,
+        "id": 1,
         "name": "Parts of Speech — Частини мови",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 1,
-                "name": "Parts of speech identification",
-                "category": null,
-                "created_at": "2026-05-26T14:30:48.000000Z",
-                "updated_at": "2026-05-26T14:30:48.000000Z"
-            },
-            "pivot": {
-                "question_id": 69,
-                "tag_id": 1,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 46,
-                "name": "Adjective recognition",
-                "category": "pattern",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 69,
-                "tag_id": 46,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 196,
-                "option": "cold",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 69,
-                "option_id": 196,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 197,
-                "option": "coldly",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 69,
-                "option_id": 197,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 198,
-                "option": "coldness",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 69,
-                "option_id": 198,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 179,
-                "question_id": 69,
-                "marker": "a21",
-                "option_id": 196,
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "option": {
-                "id": 196,
-                "option": "cold",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 21,
-                "question_id": 69,
-                "marker": "a21",
-                "option_id": 166,
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "option": {
-                "id": 166,
-                "option": "describing word",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 51,
-            "question_id": 69,
-            "text": "The weather is very {a21} today.",
-            "created_at": "2026-05-26T14:30:54.000000Z",
-            "updated_at": "2026-05-26T14:30:54.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 91,
-            "question_id": 69,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "Choose the word that best completes the sentence grammatically.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 92,
-            "question_id": 69,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "Po 'very' i przed rzeczownikiem potrzebujemy przymiotnika.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 93,
-            "question_id": 69,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Після зв'язкового дієслова 'is' і прислівника ступеня 'very' потрібен прикметник.\nСлово 'cold' (холодний) описує стан погоди як ознаку.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 421,
-            "question": "The weather is very {a21} today.",
-            "wrong_answer": "cold",
-            "correct_answer": "cold",
-            "language": "en",
-            "explanation": "Correct. 'cold' is the appropriate choice in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 424,
-            "question": "The weather is very {a21} today.",
-            "wrong_answer": "cold",
-            "correct_answer": "cold",
-            "language": "pl",
-            "explanation": "Poprawnie! 'Cold' to przymiotnik opisujący pogodę.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 427,
-            "question": "The weather is very {a21} today.",
-            "wrong_answer": "cold",
-            "correct_answer": "cold",
-            "language": "ua",
-            "explanation": "Прикметник 'cold' правильно описує якість погоди після 'is very'.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 428,
-            "question": "The weather is very {a21} today.",
-            "wrong_answer": "cold",
-            "correct_answer": "cold",
-            "language": "uk",
-            "explanation": "Прикметник 'cold' правильно описує якість погоди після 'is very'.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 422,
-            "question": "The weather is very {a21} today.",
-            "wrong_answer": "coldly",
-            "correct_answer": "cold",
-            "language": "en",
-            "explanation": "Incorrect. 'coldly' doesn't fit grammatically or idiomatically in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 425,
-            "question": "The weather is very {a21} today.",
-            "wrong_answer": "coldly",
-            "correct_answer": "cold",
-            "language": "pl",
-            "explanation": "'Coldly' to przysłówek, który opisuje czasowniki.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 429,
-            "question": "The weather is very {a21} today.",
-            "wrong_answer": "coldly",
-            "correct_answer": "cold",
-            "language": "ua",
-            "explanation": "Прислівник 'coldly' (холодно) описує спосіб дії, а не стан предмета.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 430,
-            "question": "The weather is very {a21} today.",
-            "wrong_answer": "coldly",
-            "correct_answer": "cold",
-            "language": "uk",
-            "explanation": "Прислівник 'coldly' (холодно) описує спосіб дії, а не стан предмета.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 423,
-            "question": "The weather is very {a21} today.",
-            "wrong_answer": "coldness",
-            "correct_answer": "cold",
-            "language": "en",
-            "explanation": "Incorrect. 'coldness' doesn't fit grammatically or idiomatically in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 426,
-            "question": "The weather is very {a21} today.",
-            "wrong_answer": "coldness",
-            "correct_answer": "cold",
-            "language": "pl",
-            "explanation": "'Coldness' to rzeczownik abstrakcyjny, nie przymiotnik.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 431,
-            "question": "The weather is very {a21} today.",
-            "wrong_answer": "coldness",
-            "correct_answer": "cold",
-            "language": "ua",
-            "explanation": "Іменник 'coldness' (холод) називає абстрактне поняття, а не описує ознаку.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 432,
-            "question": "The weather is very {a21} today.",
-            "wrong_answer": "coldness",
-            "correct_answer": "cold",
-            "language": "uk",
-            "explanation": "Іменник 'coldness' (холод) називає абстрактне поняття, а не описує ознаку.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

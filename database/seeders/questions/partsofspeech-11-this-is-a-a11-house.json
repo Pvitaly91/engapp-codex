@@ -1,295 +1,33 @@
 {
     "question": {
-        "id": 59,
+        "id": 41,
         "uuid": "partsofspeech-11-this-is-a-a11-house",
         "question": "This is a {a11} house.",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 2,
-        "source_id": 2,
+        "category_id": 1,
+        "source_id": 1,
         "flag": 2,
-        "created_at": "2026-05-26T14:30:54.000000Z",
-        "updated_at": "2026-05-26T14:30:57.000000Z"
+        "created_at": "2026-06-03T11:40:23.000000Z",
+        "updated_at": "2026-06-03T11:40:23.000000Z"
     },
     "category": {
-        "id": 2,
+        "id": 1,
         "name": "Базова граматика",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
     "source": {
-        "id": 2,
+        "id": 1,
         "name": "Parts of Speech — Частини мови",
-        "created_at": "2026-05-26T14:30:52.000000Z",
-        "updated_at": "2026-05-26T14:30:52.000000Z"
+        "created_at": "2026-06-03T11:40:21.000000Z",
+        "updated_at": "2026-06-03T11:40:21.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 1,
-                "name": "Parts of speech identification",
-                "category": null,
-                "created_at": "2026-05-26T14:30:48.000000Z",
-                "updated_at": "2026-05-26T14:30:48.000000Z"
-            },
-            "pivot": {
-                "question_id": 59,
-                "tag_id": 1,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 46,
-                "name": "Adjective recognition",
-                "category": "pattern",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 59,
-                "tag_id": 46,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 165,
-                "option": "nice",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 59,
-                "option_id": 165,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 167,
-                "option": "nicely",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 59,
-                "option_id": 167,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 168,
-                "option": "niceness",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "pivot": {
-                "question_id": 59,
-                "option_id": 168,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 169,
-                "question_id": 59,
-                "marker": "a11",
-                "option_id": 165,
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "option": {
-                "id": 165,
-                "option": "nice",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 11,
-                "question_id": 59,
-                "marker": "a11",
-                "option_id": 166,
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            },
-            "option": {
-                "id": 166,
-                "option": "describing word",
-                "created_at": "2026-05-26T14:30:54.000000Z",
-                "updated_at": "2026-05-26T14:30:54.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 41,
-            "question_id": 59,
-            "text": "This is a {a11} house.",
-            "created_at": "2026-05-26T14:30:54.000000Z",
-            "updated_at": "2026-05-26T14:30:54.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 61,
-            "question_id": 59,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "Choose the word that best completes the sentence grammatically.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 62,
-            "question_id": 59,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "Przymiotnik (adjective) przed rzeczownikiem opisuje jego cechy.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 63,
-            "question_id": 59,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Між артиклем 'a' і іменником 'house' потрібен прикметник, що описує будинок.\nСлово 'nice' (гарний) — це прикметник, що характеризує якість предмета.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 301,
-            "question": "This is a {a11} house.",
-            "wrong_answer": "nice",
-            "correct_answer": "nice",
-            "language": "en",
-            "explanation": "Correct. 'nice' is the appropriate choice in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 304,
-            "question": "This is a {a11} house.",
-            "wrong_answer": "nice",
-            "correct_answer": "nice",
-            "language": "pl",
-            "explanation": "Poprawnie! 'Nice' to przymiotnik opisujący dom.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 307,
-            "question": "This is a {a11} house.",
-            "wrong_answer": "nice",
-            "correct_answer": "nice",
-            "language": "ua",
-            "explanation": "Прикметник 'nice' описує ознаку іменника 'house' і стоїть перед ним.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 308,
-            "question": "This is a {a11} house.",
-            "wrong_answer": "nice",
-            "correct_answer": "nice",
-            "language": "uk",
-            "explanation": "Прикметник 'nice' описує ознаку іменника 'house' і стоїть перед ним.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 302,
-            "question": "This is a {a11} house.",
-            "wrong_answer": "nicely",
-            "correct_answer": "nice",
-            "language": "en",
-            "explanation": "Incorrect. 'nicely' doesn't fit grammatically or idiomatically in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 305,
-            "question": "This is a {a11} house.",
-            "wrong_answer": "nicely",
-            "correct_answer": "nice",
-            "language": "pl",
-            "explanation": "'Nicely' to przysłówek, który opisuje czasowniki, nie rzeczowniki.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 309,
-            "question": "This is a {a11} house.",
-            "wrong_answer": "nicely",
-            "correct_answer": "nice",
-            "language": "ua",
-            "explanation": "Прислівник 'nicely' описує дієслова, а не іменники.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 310,
-            "question": "This is a {a11} house.",
-            "wrong_answer": "nicely",
-            "correct_answer": "nice",
-            "language": "uk",
-            "explanation": "Прислівник 'nicely' описує дієслова, а не іменники.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 303,
-            "question": "This is a {a11} house.",
-            "wrong_answer": "niceness",
-            "correct_answer": "nice",
-            "language": "en",
-            "explanation": "Incorrect. 'niceness' doesn't fit grammatically or idiomatically in this context.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 306,
-            "question": "This is a {a11} house.",
-            "wrong_answer": "niceness",
-            "correct_answer": "nice",
-            "language": "pl",
-            "explanation": "'Niceness' to rzeczownik abstrakcyjny, nie przymiotnik.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 311,
-            "question": "This is a {a11} house.",
-            "wrong_answer": "niceness",
-            "correct_answer": "nice",
-            "language": "ua",
-            "explanation": "Іменник 'niceness' (привабливість) називає абстрактне поняття, а не описує предмет.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        },
-        {
-            "id": 312,
-            "question": "This is a {a11} house.",
-            "wrong_answer": "niceness",
-            "correct_answer": "nice",
-            "language": "uk",
-            "explanation": "Іменник 'niceness' (привабливість) називає абстрактне поняття, а не описує предмет.",
-            "created_at": "2026-05-26T14:30:56.000000Z",
-            "updated_at": "2026-05-26T14:30:56.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

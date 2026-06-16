@@ -1,4 +1,4 @@
-<div x-data="wordSearch()" @click.outside="close()" class="space-y-1.5 sm:space-y-2">
+<div x-data="wordSearch()" @click.outside="close()" class="relative z-50 space-y-1.5 sm:space-y-2" data-word-search-root>
     <div class="flex flex-wrap items-center justify-between gap-1">
         <label for="word-search" class="text-xs sm:text-sm font-semibold text-gray-800">{{ __('frontend.tests.word_search.label') }}</label>
         <span class="text-[11px] sm:text-xs text-gray-500">{{ __('frontend.tests.word_search.hint') }}</span>
@@ -6,7 +6,7 @@
     <div class="relative">
         <input id="word-search" type="text" x-model="query" @input.debounce.150ms="search" @focus="reopen()" @keydown.escape.stop.prevent="close()" placeholder="{{ __('frontend.tests.word_search.placeholder') }}"
                class="w-full rounded-xl sm:rounded-2xl border border-indigo-100 bg-white px-3 py-2.5 text-sm sm:px-4 sm:py-3 sm:text-base shadow transition focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-200" autocomplete="off">
-        <div x-show="open && results.length" x-cloak x-transition class="absolute left-0 right-0 z-20 mt-2 rounded-2xl border border-gray-200 bg-white shadow-xl">
+        <div x-show="open && results.length" x-cloak x-transition class="absolute left-0 right-0 z-[9999] mt-2 rounded-2xl border border-gray-200 bg-white shadow-xl" data-word-search-results>
             <div class="divide-y divide-gray-100 max-h-72 overflow-y-auto">
                 <template x-for="item in results" :key="item.word">
                     <div class="px-4 py-3 text-sm hover:bg-indigo-50/60">
