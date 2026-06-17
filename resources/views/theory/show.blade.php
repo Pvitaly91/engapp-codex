@@ -98,8 +98,8 @@
         :data-settled="theorySidebarSettled.toString()"
         data-theory-layout
     >
-        <aside class="hidden shrink-0 overflow-hidden lg:block" data-theory-aside>
-            <div class="sticky top-24 space-y-6">
+        <aside class="relative hidden shrink-0 overflow-visible lg:block lg:self-stretch" data-theory-aside>
+            <div class="space-y-6">
                 <section
                     class="flex max-h-[calc(100vh-7rem)] flex-col rounded-[28px] border p-4 shadow-card surface-card-strong xl:p-5"
                     :data-collapsed="theorySidebarCollapsed.toString()"
@@ -138,7 +138,8 @@
                 </section>
 
                 @if($tocBlocks->isNotEmpty())
-                    <section x-show="!theorySidebarCollapsed && theorySidebarSettled" x-cloak class="rounded-[28px] border p-4 shadow-card surface-card xl:p-5" style="border-color: var(--line);">
+                    <div x-show="!theorySidebarCollapsed && theorySidebarSettled" x-cloak data-theory-toc-pin-root>
+                    <section class="rounded-[28px] border p-4 shadow-card surface-card xl:p-5" style="border-color: var(--line);" data-theory-toc-card>
                         <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.copilot_theory.contents') }}</p>
                         <div class="mt-4 space-y-2">
                             @foreach($tocBlocks as $tocBlock)
@@ -152,6 +153,7 @@
                             @endforeach
                         </div>
                     </section>
+                    </div>
                 @endif
 
                 @if($pageTags->isNotEmpty())
@@ -246,5 +248,123 @@
         </div>
     </div>
 </div>
+
+@if($tocBlocks->isNotEmpty())
+    <script>
+        (() => {
+            const resetTheoryTocPin = (root, card) => {
+                root.style.minHeight = '';
+                card.style.position = '';
+                card.style.top = '';
+                card.style.left = '';
+                card.style.width = '';
+                card.style.maxHeight = '';
+                card.style.overflowY = '';
+                card.style.zIndex = '';
+                card.style.bottom = '';
+            };
+
+            const theoryTocTopOffset = () => {
+                const header = document.getElementById('site-header');
+                const headerBottom = header ? header.getBoundingClientRect().bottom : 0;
+                const gap = 16;
+
+                return {
+                    gap,
+                    top: Math.max(gap, Math.round(headerBottom + gap)),
+                };
+            };
+
+            const updateTheoryTocPin = () => {
+                const root = document.querySelector('[data-theory-toc-pin-root]');
+                const card = root?.querySelector('[data-theory-toc-card]');
+
+                if (!root || !card) {
+                    return;
+                }
+
+                if (window.innerWidth < 1024 || root.offsetParent === null) {
+                    resetTheoryTocPin(root, card);
+                    return;
+                }
+
+                resetTheoryTocPin(root, card);
+
+                const { gap, top } = theoryTocTopOffset();
+                const rootRect = root.getBoundingClientRect();
+                const aside = root.closest('[data-theory-aside]');
+                const asideRect = aside?.getBoundingClientRect();
+                const rootDocumentTop = window.scrollY + rootRect.top;
+                const shouldPin = window.scrollY >= rootDocumentTop - top;
+
+                if (!shouldPin) {
+                    return;
+                }
+
+                root.style.minHeight = `${card.offsetHeight}px`;
+                card.style.left = `${Math.round(rootRect.left)}px`;
+                card.style.width = `${Math.round(rootRect.width)}px`;
+                card.style.maxHeight = `calc(100vh - ${top + gap}px)`;
+                card.style.overflowY = 'auto';
+                card.style.zIndex = '30';
+
+                const cardHeight = card.offsetHeight;
+                const asideDocumentBottom = asideRect ? window.scrollY + asideRect.bottom : Number.POSITIVE_INFINITY;
+                const fixedBottom = window.scrollY + top + cardHeight;
+
+                if (fixedBottom >= asideDocumentBottom - gap && aside) {
+                    card.style.position = 'absolute';
+                    card.style.top = '';
+                    card.style.bottom = '0';
+                    card.style.left = '0';
+                    return;
+                }
+
+                card.style.position = 'fixed';
+                card.style.top = `${top}px`;
+            };
+
+            const scheduleTheoryTocPin = () => window.requestAnimationFrame(updateTheoryTocPin);
+
+            const handleTheoryTocClick = (event) => {
+                const link = event.target.closest('[data-theory-toc-card] a[href^="#block-"]');
+
+                if (!link) {
+                    return;
+                }
+
+                const targetId = link.getAttribute('href')?.slice(1);
+                const target = targetId ? document.getElementById(targetId) : null;
+
+                if (!target) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                const { top } = theoryTocTopOffset();
+                const targetTop = window.scrollY + target.getBoundingClientRect().top - top;
+
+                window.scrollTo({
+                    top: Math.max(0, targetTop),
+                    behavior: 'smooth',
+                });
+
+                if (history.pushState) {
+                    history.pushState(null, '', `#${targetId}`);
+                }
+
+                window.setTimeout(scheduleTheoryTocPin, 450);
+            };
+
+            document.addEventListener('DOMContentLoaded', scheduleTheoryTocPin);
+            document.addEventListener('click', handleTheoryTocClick);
+            document.addEventListener('alpine:initialized', scheduleTheoryTocPin);
+            window.addEventListener('load', scheduleTheoryTocPin);
+            window.addEventListener('resize', scheduleTheoryTocPin);
+            window.addEventListener('scroll', scheduleTheoryTocPin, { passive: true });
+        })();
+    </script>
+@endif
 @endsection
 

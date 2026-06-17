@@ -217,24 +217,28 @@
             </div>
             
             {{-- Compose Tokens --}}
-            <div class="mb-4 space-y-3" x-show="!answered && isComposeQuestion()">
+            <div class="mb-4 space-y-3" x-show="isComposeQuestion()">
                 <div class="min-h-[48px] rounded-lg border border-border/70 bg-background px-3 py-2">
-                    <template x-if="selectedTokens.length === 0">
+                    <template x-if="selectedTokens.length === 0 && !answered">
                         <span class="text-xs text-muted-foreground">Складіть переклад речення з токенів нижче</span>
+                    </template>
+                    <template x-if="selectedTokens.length === 0 && answered">
+                        <span class="text-xs text-muted-foreground">Відповідь не складена</span>
                     </template>
                     <div class="flex flex-wrap gap-2" x-show="selectedTokens.length > 0">
                         <template x-for="token in selectedTokens" :key="token.id">
                             <button
                                 type="button"
+                                :disabled="answered"
                                 @click="removeToken(token)"
-                                class="rounded-md border border-primary/30 bg-primary/10 px-2.5 py-1 text-sm font-medium text-primary transition hover:bg-primary/15"
+                                class="rounded-md border border-primary/30 bg-primary/10 px-2.5 py-1 text-sm font-medium text-primary transition hover:bg-primary/15 disabled:cursor-default disabled:hover:bg-primary/10"
                                 x-text="token.value"
                             ></button>
                         </template>
                     </div>
                 </div>
 
-                <div class="flex flex-wrap gap-2">
+                <div class="flex flex-wrap gap-2" x-show="!answered">
                     <template x-for="token in tokenBank" :key="token.id">
                         <button
                             type="button"
@@ -309,6 +313,13 @@
                 </div>
                 
                 {{-- Explanation/Hint (shown after answering) --}}
+                <template x-if="isComposeQuestion()">
+                    <div class="rounded-lg border border-border/70 bg-background p-3 text-sm">
+                        <div class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-muted-foreground">Твоя відповідь</div>
+                        <div class="mt-1 font-semibold text-foreground" x-text="composeSelectedText() || '—'"></div>
+                    </div>
+                </template>
+
                 <template x-if="currentExplanation">
                     <div class="rounded-lg p-3 border border-blue-200 bg-blue-50 text-blue-800">
                         <div class="flex items-start gap-2 text-sm">

@@ -10,7 +10,7 @@
     <style>
         @media (min-width: 1024px) {
             [data-theory-aside] {
-                contain: layout paint;
+                contain: none;
                 inline-size: 390px;
             }
 

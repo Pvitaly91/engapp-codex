@@ -66,16 +66,25 @@
                                     <label class="block text-sm text-foreground/80 mb-1.5">
                                         {!! $item['label'] ?? '' !!}
                                     </label>
-                                    <select
-                                        x-model="selectAnswers[{{ $index }}]"
-                                        :class="fieldClass('selects', {{ $index }})"
-                                        class="w-full sm:w-48 rounded-lg border-border bg-white px-3 py-1.5 text-sm focus:border-brand-500 focus:ring-1 focus:ring-brand-100 transition-all"
-                                    >
-                                        <option value="">{{ __('theory_blocks.practice.select_placeholder') }}</option>
+                                    <div class="flex flex-wrap gap-2">
                                         @foreach($options as $option)
-                                            <option value="{{ $option }}">{{ $option }}</option>
+                                            <button
+                                                type="button"
+                                                @click="selectAnswers[{{ $index }}] = @js($option)"
+                                                class="min-w-12 rounded-xl border px-4 py-2 text-sm font-extrabold uppercase transition"
+                                                :class="[
+                                                    selectAnswers[{{ $index }}] === @js($option)
+                                                        ? 'border-blue-600 bg-blue-600 text-white shadow-sm'
+                                                        : 'border-blue-200 bg-white text-blue-700 hover:border-blue-400 hover:bg-blue-50',
+                                                    isChecked('selects') && hasAnswer('selects', {{ $index }}) && selectAnswers[{{ $index }}] === @js($option)
+                                                        ? (isCorrect('selects', {{ $index }}) ? 'ring-2 ring-emerald-300' : 'ring-2 ring-rose-300')
+                                                        : ''
+                                                ].join(' ')"
+                                            >
+                                                {{ $option }}
+                                            </button>
                                         @endforeach
-                                    </select>
+                                    </div>
                                     <div x-show="isChecked('selects') && hasAnswer('selects', {{ $index }})" class="mt-2 text-xs font-semibold" :class="isCorrect('selects', {{ $index }}) ? 'text-emerald-700' : 'text-rose-700'">
                                         <span x-text="feedbackText('selects', {{ $index }})"></span>
                                     </div>
@@ -118,7 +127,10 @@
                                     {{ chr(97 + $index) }}
                                 </span>
                                 <span>{!! $item['before'] ?? '' !!}</span>
-                                <div class="relative inline-flex" @click.outside="closeWordSuggestions('inputs', {{ $index }})">
+                                @if(!empty($item['after']))
+                                    <span class="font-semibold text-foreground">{!! $item['after'] !!}</span>
+                                @endif
+                                <div class="relative min-w-[220px] flex-1 sm:max-w-md" @click.outside="closeWordSuggestions('inputs', {{ $index }})">
                                     <input
                                         type="text"
                                         x-model="inputAnswers[{{ $index }}]"
@@ -128,7 +140,7 @@
                                         @keydown.escape.stop.prevent="closeWordSuggestions('inputs', {{ $index }})"
                                         @keydown.enter="maybeSelectFirstWordSuggestion('inputs', {{ $index }}, $event)"
                                         data-word-suggestion-input="inputs-{{ $index }}"
-                                        class="w-28 rounded-lg border-border bg-white px-2.5 py-1 text-sm focus:border-brand-500 focus:ring-1 focus:ring-brand-100 transition-all"
+                                        class="w-full rounded-xl border border-emerald-300 bg-white px-3.5 py-2 text-sm font-semibold text-foreground shadow-sm placeholder:text-slate-400 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition-all"
                                         placeholder="..."
                                     />
                                     <div
@@ -152,7 +164,6 @@
                                         </template>
                                     </div>
                                 </div>
-                                <span>{!! $item['after'] ?? '' !!}</span>
                                 <span x-show="isChecked('inputs') && hasAnswer('inputs', {{ $index }})" class="basis-full pl-7 text-xs font-semibold" :class="isCorrect('inputs', {{ $index }}) ? 'text-emerald-700' : 'text-rose-700'" x-text="feedbackText('inputs', {{ $index }})"></span>
                             </div>
                         @endforeach
