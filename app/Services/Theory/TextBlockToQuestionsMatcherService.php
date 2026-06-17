@@ -79,7 +79,7 @@ class TextBlockToQuestionsMatcherService
 
         usort($scored, fn ($a, $b) => $b['score'] <=> $a['score']);
 
-        $topCandidates = array_slice($scored, 0, 30);
+        $topCandidates = $this->topScoringWindow($scored, $limit);
         $selected = $this->weightedRandomSelection($topCandidates, $limit);
 
         return collect($selected)->map(function ($item) {
@@ -90,6 +90,35 @@ class TextBlockToQuestionsMatcherService
 
             return $question;
         });
+    }
+
+    private function topScoringWindow(array $scored, int $limit): array
+    {
+        if (count($scored) <= $limit) {
+            return $scored;
+        }
+
+        $candidates = [];
+        $cutoffScore = null;
+
+        foreach ($scored as $item) {
+            if (count($candidates) < $limit) {
+                $candidates[] = $item;
+                $cutoffScore = $item['score'];
+
+                continue;
+            }
+
+            if ($cutoffScore !== null && abs($item['score'] - $cutoffScore) < 0.001) {
+                $candidates[] = $item;
+
+                continue;
+            }
+
+            break;
+        }
+
+        return $candidates;
     }
 
     /**
@@ -133,6 +162,8 @@ class TextBlockToQuestionsMatcherService
             return new EloquentCollection();
         }
 
+        $minimumSharedTags = min(2, count($blockTagIds));
+
         $query = Question::query()
             ->with([
                 'tags:id,name',
@@ -142,9 +173,16 @@ class TextBlockToQuestionsMatcherService
                 'hints',
                 'markerTags:id,name,category',
             ])
+            ->withCount([
+                'tags as matched_tags_count' => function ($q) use ($blockTagIds) {
+                    $q->whereIn('tags.id', $blockTagIds);
+                },
+            ])
             ->whereHas('tags', function ($q) use ($blockTagIds) {
                 $q->whereIn('tags.id', $blockTagIds);
-            })
+            }, '>=', $minimumSharedTags)
+            ->orderByDesc('matched_tags_count')
+            ->orderByDesc('questions.id')
             ->limit(200);
 
         if ($blockLevel && $this->hasQuestionLevelColumn()) {

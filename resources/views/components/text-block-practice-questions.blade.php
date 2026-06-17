@@ -617,6 +617,17 @@
                     const punctuation = String(this.currentQuestion?.question || '').trim().endsWith('?') ? '?' : '.';
                     return `${text}${punctuation}`.replace(/\s+([?.!,;:])/g, '$1');
                 },
+
+                normalizeAnswer(value) {
+                    return String(value || '')
+                        .normalize('NFKD')
+                        .toLowerCase()
+                        .replace(/[\u0300-\u036f]/g, '')
+                        .replace(/[\u2018\u2019\u201b\u2032`´ʼ']/g, '')
+                        .replace(/[^\p{L}\p{N}]+/gu, ' ')
+                        .replace(/\s+/g, ' ')
+                        .trim();
+                },
                 
                 getDisplayText() {
                     if (!this.currentQuestion) return '';
@@ -658,7 +669,7 @@
                         if (this.selectedTokens.length === 0) return;
 
                         this.answered = true;
-                        this.isCorrect = this.composeSelectedText() === this.correctAnswer;
+                        this.isCorrect = this.normalizeAnswer(this.composeSelectedText()) === this.normalizeAnswer(this.correctAnswer);
 
                         if (this.isCorrect) {
                             this.correctCount++;
