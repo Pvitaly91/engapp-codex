@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\SavedGrammarTest;
+use App\Support\VirtualTestRegistry;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -71,6 +73,20 @@ class ComingSoonMiddleware
             return false;
         }
 
+        if ($this->isTheoryTestRequest($request, $slug)) {
+            $this->rememberTheoryTestSlug($request, $slug);
+
+            return true;
+        }
+
+        if ($this->isRememberedTheoryTestSlug($request, $slug)) {
+            return true;
+        }
+
+        if (VirtualTestRegistry::has($slug)) {
+            return true;
+        }
+
         $allowedPrefixes = config('coming-soon.allowed_test_slug_prefixes', []);
 
         foreach ($allowedPrefixes as $prefix) {
@@ -81,6 +97,67 @@ class ComingSoonMiddleware
             }
         }
 
-        return false;
+        return $this->isTheoryLinkedSavedTest($slug);
+    }
+
+    protected function isTheoryLinkedSavedTest(string $slug): bool
+    {
+        $test = SavedGrammarTest::query()
+            ->where('slug', $slug)
+            ->first(['filters']);
+
+        if (! $test) {
+            return false;
+        }
+
+        $filters = is_array($test->filters) ? $test->filters : [];
+        $courseSlug = strtolower(trim((string) data_get($filters, 'course_slug', '')));
+
+        if ($courseSlug === 'polyglot-theory-pages') {
+            return true;
+        }
+
+        return filled(data_get($filters, 'prompt_generator.theory_page_id'))
+            || filled(data_get($filters, 'prompt_generator.theory_page.id'))
+            || filled(data_get($filters, 'prompt_generator.theory_page.slug'))
+            || filled(data_get($filters, 'prompt_generator.theory_page.page_seeder_class'))
+            || filled(data_get($filters, 'prompt_generator.theory_page_ids'));
+    }
+
+    protected function isTheoryTestRequest(Request $request, string $slug): bool
+    {
+        if ($request->query('source') === 'theory') {
+            return true;
+        }
+
+        $refererPath = parse_url((string) $request->headers->get('referer'), PHP_URL_PATH);
+
+        return is_string($refererPath)
+            && str_starts_with('/'.ltrim($refererPath, '/'), '/theory/')
+            && $slug !== '';
+    }
+
+    protected function rememberTheoryTestSlug(Request $request, string $slug): void
+    {
+        if (! $request->hasSession()) {
+            return;
+        }
+
+        $allowedSlugs = $request->session()->get('coming_soon.allowed_theory_test_slugs', []);
+        $allowedSlugs = is_array($allowedSlugs) ? $allowedSlugs : [];
+        $allowedSlugs[$slug] = true;
+
+        $request->session()->put('coming_soon.allowed_theory_test_slugs', $allowedSlugs);
+    }
+
+    protected function isRememberedTheoryTestSlug(Request $request, string $slug): bool
+    {
+        if (! $request->hasSession()) {
+            return false;
+        }
+
+        $allowedSlugs = $request->session()->get('coming_soon.allowed_theory_test_slugs', []);
+
+        return is_array($allowedSlugs) && isset($allowedSlugs[$slug]);
     }
 }

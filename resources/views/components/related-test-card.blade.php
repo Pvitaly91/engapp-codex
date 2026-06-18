@@ -4,10 +4,12 @@
     $publicName = \App\Support\SentenceBuilderBranding::publicText((string) ($test->name ?? ''));
     $publicSlug = data_get($test, 'public_slug', \App\Support\SentenceBuilderBranding::canonicalLessonSlug((string) ($test->slug ?? '')));
     $publicDescription = \App\Support\SentenceBuilderBranding::publicText((string) ($test->description ?? ''));
+    \App\Support\VirtualTestRegistry::rememberSlug($publicSlug);
+    $testUrl = localized_route('test.show', $publicSlug);
 @endphp
 
 <div class="bg-background border border-border/60 rounded-xl p-4 flex flex-col hover:border-primary/40 hover:shadow-md transition">
-    <a href="{{ localized_route('test.show', $publicSlug) }}" class="font-medium text-foreground hover:text-primary mb-2">
+    <a href="{{ $testUrl }}" class="font-medium text-foreground hover:text-primary mb-2">
         {{ $publicName }}
     </a>
     
@@ -29,7 +31,7 @@
         <p class="text-sm text-muted-foreground mb-3 line-clamp-2">{{ $publicDescription }}</p>
     @endif
 
-    <a href="{{ localized_route('test.show', $publicSlug) }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-xl text-sm font-semibold transition">
+    <a href="{{ $testUrl }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-xl text-sm font-semibold transition">
         {{ __('frontend.tests.related.take_test') }}
     </a>
 </div>

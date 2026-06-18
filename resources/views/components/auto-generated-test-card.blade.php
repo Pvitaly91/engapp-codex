@@ -17,14 +17,18 @@
     $isVirtual = method_exists($test, 'isVirtual') ? $test->isVirtual() : (($test->exists ?? true) === false);
     $launchPerClickHandler = "const url = new URL(this.href, window.location.origin); const token = (window.crypto && typeof window.crypto.randomUUID === 'function') ? window.crypto.randomUUID() : ('launch-' + Date.now() + '-' + Math.random().toString(16).slice(2)); url.searchParams.set('launch', token); window.location.href = url.toString(); return false;";
     
-    // Build URL with filters for virtual tests
+    // Build URL with server-side registered filters for virtual tests.
     if ($isVirtual) {
-        $encodedFilters = base64_encode(json_encode($filters));
-        $testUrl = localized_route('test.show', $publicSlug) . '?' . http_build_query([
-            'filters' => $encodedFilters,
-            'name' => $publicName,
-        ]);
+        $publicSlug = \App\Support\VirtualTestRegistry::register(
+            $publicSlug,
+            $publicName,
+            is_array($filters) ? $filters : [],
+            (string) ($test->description ?? ''),
+            (int) $totalAvailable
+        );
+        $testUrl = localized_route('test.show', $publicSlug);
     } else {
+        \App\Support\VirtualTestRegistry::rememberSlug($publicSlug);
         $testUrl = localized_route('test.show', $publicSlug);
     }
 @endphp

@@ -6,6 +6,7 @@ use App\Models\Question;
 use App\Models\SavedGrammarTest;
 use App\Models\Test;
 use App\Support\SentenceBuilderBranding;
+use App\Support\VirtualTestRegistry;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
@@ -55,13 +56,46 @@ class SavedTestResolver
             return $this->resolveFromModel($saved);
         }
 
-        // Try to resolve from query parameters (for virtual/filter-based tests)
+        $virtualTest = $this->resolveFromRegistry($slug);
+        if ($virtualTest) {
+            return $virtualTest;
+        }
+
+        // Try to resolve from query parameters (legacy virtual/filter-based links)
         $virtualTest = $this->resolveFromQueryParams($slug);
         if ($virtualTest) {
             return $virtualTest;
         }
 
         throw new ModelNotFoundException("Saved test [{$slug}] not found.");
+    }
+
+    private function resolveFromRegistry(string $slug): ?ResolvedSavedTest
+    {
+        $payload = VirtualTestRegistry::resolve($slug);
+
+        if (! is_array($payload)) {
+            return null;
+        }
+
+        $filters = $payload['filters'] ?? null;
+        if (! is_array($filters) || ! $this->validateFilterStructure($filters)) {
+            return null;
+        }
+
+        $name = $payload['name'] ?? 'Тест';
+        $name = is_string($name) && $name !== '' ? $name : 'Тест';
+        $description = $payload['description'] ?? null;
+        $description = is_string($description) ? $description : null;
+        $totalQuestionsAvailable = $payload['total_questions_available'] ?? 0;
+
+        return $this->resolveVirtualTest(
+            $slug,
+            $name,
+            $filters,
+            $description,
+            is_numeric($totalQuestionsAvailable) ? (int) $totalQuestionsAvailable : 0
+        );
     }
 
     /**
@@ -158,13 +192,23 @@ class SavedTestResolver
             $name = 'Тест';
         }
 
-        // Create a virtual test model
+        return $this->resolveVirtualTest($slug, $name, $filters);
+    }
+
+    private function resolveVirtualTest(
+        string $slug,
+        string $name,
+        array $filters,
+        ?string $description = null,
+        int $totalQuestionsAvailable = 0
+    ): ResolvedSavedTest {
         $virtualTest = new VirtualSavedTest(
             name: SentenceBuilderBranding::publicText($name),
             slug: $slug,
-            filters: $filters
+            filters: $filters,
+            description: $description,
+            totalQuestionsAvailable: $totalQuestionsAvailable
         );
-
         $normalized = $this->filterService->normalize($filters);
         $questions = $this->filterService->questionsFromFilters($normalized);
 
