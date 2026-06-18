@@ -137,6 +137,7 @@ const JS_IS_ADMIN = Boolean(@json($isAdmin ?? false));
 window.__IS_ADMIN__ = JS_IS_ADMIN;
 const EXPLAIN_URL = '{{ localized_route('question.explain') }}';
 const MARKER_THEORY_URL = '{{ localized_route('question.marker-theory') }}';
+const WORD_SEARCH_URL = '{{ localized_route('words.search') }}';
 const TEST_SLUG = @json($test->slug);
 const IS_POLYGLOT_STEP_PREVIEW = @json(\Illuminate\Support\Str::startsWith((string) $test->slug, 'polyglot-'));
 const COMPOSE_TOKENS_QUESTION_TYPE = @json((string) \App\Models\Question::TYPE_COMPOSE_TOKENS);
@@ -331,6 +332,15 @@ async function init(forceFresh = false) {
         // Initialize new per-slot fields if missing (backward compatibility)
         const markersCount = getMarkersCount(item);
         item.markers_count = markersCount;
+        if (!Array.isArray(item.manualInputsBySlot)) {
+          item.manualInputsBySlot = Array(markersCount).fill('');
+        }
+        if (!Array.isArray(item.wordSuggestionsBySlot)) {
+          item.wordSuggestionsBySlot = Array(markersCount).fill(null).map(() => []);
+        }
+        if (!Array.isArray(item.wordSearchRequestBySlot)) {
+          item.wordSearchRequestBySlot = Array(markersCount).fill(0);
+        }
         if (!Array.isArray(item.attemptsBySlot)) {
           item.attemptsBySlot = Array(markersCount).fill(0);
         }
@@ -373,6 +383,9 @@ async function init(forceFresh = false) {
         pendingExplanationKey: null,
         markerTheoryCache: {},
         markerTheoryMatch: {},
+        manualInputsBySlot: Array(markersCount).fill(''),
+        wordSuggestionsBySlot: Array(markersCount).fill(null).map(() => []),
+        wordSearchRequestBySlot: Array(markersCount).fill(0),
       };
     });
     state.current = 0;
@@ -455,29 +468,52 @@ function render() {
   }
 
   // Gap click and marker theory button handler (event delegation on wrap)
-  wrap.addEventListener('click', (e) => {
-    // Handle gap click to switch active slot
-    const gapBtn = e.target.closest('button[data-gap]');
-    if (gapBtn) {
-      e.stopPropagation();
-      const gapIndex = parseInt(gapBtn.dataset.gap, 10);
-      if (!isNaN(gapIndex) && gapIndex !== q.activeSlot) {
-        q.activeSlot = gapIndex;
-        clampActiveSlot(q);
-        render();
-        persistState(state);
+  if (wrap.dataset.stepClickHooked !== '1') {
+    wrap.dataset.stepClickHooked = '1';
+    wrap.addEventListener('click', (e) => {
+      const currentIdx = state.current;
+      const currentQ = state.items[currentIdx];
+      if (!currentQ) return;
+
+      const suggestionBtn = e.target.closest('button[data-word-suggestion]');
+      if (suggestionBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        const suggestionSlot = parseInt(suggestionBtn.dataset.gap ?? currentQ.activeSlot, 10);
+        submitManualAnswer(currentIdx, isNaN(suggestionSlot) ? currentQ.activeSlot : suggestionSlot, suggestionBtn.dataset.wordSuggestion || '');
+        return;
       }
-      return;
-    }
-    
-    const markerTheoryBtn = e.target.closest('button.marker-theory-btn');
-    if (markerTheoryBtn) {
-      e.stopPropagation();
-      const marker = markerTheoryBtn.dataset.marker;
-      const btnIdx = parseInt(markerTheoryBtn.dataset.idx, 10);
-      fetchMarkerTheory(btnIdx, marker);
-    }
-  });
+
+      const manualInput = e.target.closest('input[data-manual-gap]');
+      if (manualInput) {
+        e.stopPropagation();
+        return;
+      }
+
+      // Handle gap click to switch active slot
+      const gapBtn = e.target.closest('button[data-gap]');
+      if (gapBtn) {
+        e.stopPropagation();
+        const gapIndex = parseInt(gapBtn.dataset.gap, 10);
+        if (!isNaN(gapIndex) && gapIndex !== currentQ.activeSlot) {
+          currentQ.activeSlot = gapIndex;
+          clampActiveSlot(currentQ);
+          render();
+          persistState(state);
+        }
+        focusManualAnswer(currentIdx, gapIndex);
+        return;
+      }
+
+      const markerTheoryBtn = e.target.closest('button.marker-theory-btn');
+      if (markerTheoryBtn) {
+        e.stopPropagation();
+        const marker = markerTheoryBtn.dataset.marker;
+        const btnIdx = parseInt(markerTheoryBtn.dataset.idx, 10);
+        fetchMarkerTheory(btnIdx, marker);
+      }
+    });
+  }
 }
 
 function renderOptionButton(q, opt, i) {
@@ -531,15 +567,86 @@ function renderFeedback(q) {
 }
 
 document.getElementById('question-card').addEventListener('click', (e) => {
+  const suggestionBtn = e.target.closest('button[data-word-suggestion]');
+  if (suggestionBtn) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    const q = state.items[state.current];
+    if (!q) return;
+    const slotIndex = parseInt(suggestionBtn.dataset.gap ?? q.activeSlot, 10);
+    submitManualAnswer(state.current, isNaN(slotIndex) ? q.activeSlot : slotIndex, suggestionBtn.dataset.wordSuggestion || '');
+    return;
+  }
+
+  if (e.target.closest('input[data-manual-gap]')) {
+    e.stopImmediatePropagation();
+    return;
+  }
+
   const btn = e.target.closest('button[data-opt]');
   if (!btn) return;
   onChoose(btn.dataset.opt);
+});
+
+document.getElementById('question-card').addEventListener('input', (e) => {
+  const manualInput = e.target.closest('input[data-manual-gap]');
+  if (!manualInput) return;
+
+  const q = state.items[state.current];
+  if (!q) return;
+  const slotIndex = parseInt(manualInput.dataset.manualGap, 10);
+  if (isNaN(slotIndex)) return;
+
+  ensureManualSlotState(q);
+  q.activeSlot = slotIndex;
+  q.manualInputsBySlot[slotIndex] = manualInput.value;
+  searchManualWords(state.current, slotIndex, manualInput.value);
+  persistState(state);
+});
+
+document.getElementById('question-card').addEventListener('keydown', (e) => {
+  const manualInput = e.target.closest('input[data-manual-gap]');
+  if (!manualInput) return;
+
+  const q = state.items[state.current];
+  if (!q) return;
+  const slotIndex = parseInt(manualInput.dataset.manualGap, 10);
+  if (isNaN(slotIndex)) return;
+
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    submitManualAnswer(state.current, slotIndex, manualInput.value);
+  }
+
+  if (e.key === 'Escape') {
+    ensureManualSlotState(q);
+    q.wordSuggestionsBySlot[slotIndex] = [];
+    updateManualSuggestionsDom(state.current, slotIndex);
+  }
+});
+
+document.getElementById('question-card').addEventListener('focusout', (e) => {
+  const manualInput = e.target.closest('input[data-manual-gap]');
+  if (!manualInput) return;
+
+  const slotIndex = parseInt(manualInput.dataset.manualGap, 10);
+  if (isNaN(slotIndex)) return;
+
+  const value = String(manualInput.value ?? '').trim();
+  if (!value) return;
+
+  window.setTimeout(() => {
+    const q = state.items[state.current];
+    if (!q || q.done || q.chosen?.[slotIndex] !== null) return;
+    submitManualAnswer(state.current, slotIndex, value);
+  }, 80);
 });
 
 function onChoose(opt) {
   const q = state.items[state.current];
   if (!q || q.done) return;
   clampActiveSlot(q);
+  ensureManualSlotState(q);
 
   const slotIndex = q.activeSlot;
   const expected = q.answers[slotIndex];
@@ -561,6 +668,8 @@ function onChoose(opt) {
   }
 
   const explanationPromise = ensureExplanation(q, opt, expected, key, slotIndex);
+  q.manualInputsBySlot[slotIndex] = opt;
+  q.wordSuggestionsBySlot[slotIndex] = [];
 
   if (normalizeAnswer(opt) === normalizeAnswer(expected)) {
     q.chosen[slotIndex] = opt;
@@ -608,6 +717,9 @@ function onChoose(opt) {
     }
   }
   render();
+  if (!q.done) {
+    focusManualAnswer(state.current, q.activeSlot);
+  }
   updateProgress();
   persistState(state);
 
@@ -658,6 +770,159 @@ function updateProgress() {
   document.getElementById('progress-bar').style.width = `${(answered / state.items.length) * 100}%`;
 }
 
+function ensureManualSlotState(q) {
+  const markersCount = getMarkersCount(q);
+  if (!Array.isArray(q.manualInputsBySlot)) {
+    q.manualInputsBySlot = Array(markersCount).fill('');
+  }
+  if (!Array.isArray(q.wordSuggestionsBySlot)) {
+    q.wordSuggestionsBySlot = Array(markersCount).fill(null).map(() => []);
+  }
+  if (!Array.isArray(q.wordSearchRequestBySlot)) {
+    q.wordSearchRequestBySlot = Array(markersCount).fill(0);
+  }
+}
+
+function manualInputId(idx, slotIndex) {
+  return `manual-answer-${idx}-${slotIndex}`;
+}
+
+function manualSuggestionsId(idx, slotIndex) {
+  return `manual-suggestions-${idx}-${slotIndex}`;
+}
+
+function renderWordSuggestionButtons(suggestions, idx, slotIndex) {
+  if (!Array.isArray(suggestions) || suggestions.length === 0) {
+    return '';
+  }
+
+  return suggestions.map((item) => {
+    const word = String(item?.word ?? '').trim();
+    if (!word) return '';
+    const translation = String(item?.translation ?? '').trim();
+    const forms = item?.forms && typeof item.forms === 'object'
+      ? Object.values(item.forms).flat().filter(Boolean)
+      : [];
+    const formButtons = forms.slice(0, 6).map((form) => {
+      const value = String(form).trim();
+      if (!value) return '';
+      return `<button type="button" class="rounded-full bg-gray-100 px-2 py-1 text-[11px] font-semibold text-gray-600 hover:bg-indigo-100 hover:text-indigo-700" data-word-suggestion="${html(value)}" data-gap="${slotIndex}">${html(value)}</button>`;
+    }).join('');
+
+    return `
+      <div class="border-b border-gray-100 last:border-b-0 p-2.5">
+        <button type="button" class="flex w-full items-start justify-between gap-3 rounded-xl px-2 py-1.5 text-left hover:bg-indigo-50" data-word-suggestion="${html(word)}" data-gap="${slotIndex}">
+          <span class="font-semibold text-gray-900">${html(word)}</span>
+          ${translation ? `<span class="text-xs text-gray-500">${html(translation)}</span>` : ''}
+        </button>
+        ${formButtons ? `<div class="mt-1.5 flex flex-wrap gap-1.5 px-2">${formButtons}</div>` : ''}
+      </div>
+    `;
+  }).join('');
+}
+
+function renderManualSuggestions(q, idx, slotIndex) {
+  ensureManualSlotState(q);
+  const suggestions = q.wordSuggestionsBySlot[slotIndex] || [];
+  const hidden = suggestions.length ? '' : ' hidden';
+
+  return `<div id="${manualSuggestionsId(idx, slotIndex)}" class="absolute left-0 top-full z-[9999] mt-2 w-72 max-w-[80vw] overflow-hidden rounded-2xl border border-gray-200 bg-white text-sm shadow-2xl${hidden}" data-manual-suggestions>${renderWordSuggestionButtons(suggestions, idx, slotIndex)}</div>`;
+}
+
+function renderManualGapInput(q, idx, slotIndex) {
+  ensureManualSlotState(q);
+  const value = q.manualInputsBySlot[slotIndex] || '';
+
+  return `
+    <span class="relative inline-flex align-middle">
+      <input
+        id="${manualInputId(idx, slotIndex)}"
+        type="text"
+        value="${html(value)}"
+        data-manual-gap="${slotIndex}"
+        autocomplete="off"
+        class="min-w-[5.5rem] max-w-[11rem] rounded-xl border-2 border-indigo-300 bg-white px-3 py-1 text-center text-base font-semibold text-gray-900 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+        placeholder="____"
+      >
+      ${renderManualSuggestions(q, idx, slotIndex)}
+    </span>
+  `;
+}
+
+function focusManualAnswer(idx, slotIndex) {
+  setTimeout(() => {
+    const input = document.getElementById(manualInputId(idx, slotIndex));
+    if (!input) return;
+    input.focus();
+    input.select();
+  }, 0);
+}
+
+function updateManualSuggestionsDom(idx, slotIndex) {
+  const item = state.items[idx];
+  if (!item) return;
+  ensureManualSlotState(item);
+
+  const list = document.getElementById(manualSuggestionsId(idx, slotIndex));
+  if (!list) return;
+  const suggestions = item.wordSuggestionsBySlot[slotIndex] || [];
+  list.innerHTML = renderWordSuggestionButtons(suggestions, idx, slotIndex);
+  list.classList.toggle('hidden', suggestions.length === 0);
+}
+
+async function searchManualWords(idx, slotIndex, query) {
+  const item = state.items[idx];
+  if (!item) return;
+  ensureManualSlotState(item);
+
+  const normalizedQuery = String(query ?? '').trim();
+  const requestId = (item.wordSearchRequestBySlot[slotIndex] || 0) + 1;
+  item.wordSearchRequestBySlot[slotIndex] = requestId;
+
+  if (normalizedQuery.length < 2) {
+    item.wordSuggestionsBySlot[slotIndex] = [];
+    updateManualSuggestionsDom(idx, slotIndex);
+    return;
+  }
+
+  try {
+    const response = await fetch(WORD_SEARCH_URL + '?q=' + encodeURIComponent(normalizedQuery), {
+      headers: { 'Accept': 'application/json' }
+    });
+    const data = await response.json();
+
+    if (item.wordSearchRequestBySlot[slotIndex] !== requestId) {
+      return;
+    }
+
+    item.wordSuggestionsBySlot[slotIndex] = Array.isArray(data) ? data : [];
+    updateManualSuggestionsDom(idx, slotIndex);
+  } catch (error) {
+    if (item.wordSearchRequestBySlot[slotIndex] !== requestId) {
+      return;
+    }
+
+    item.wordSuggestionsBySlot[slotIndex] = [];
+    updateManualSuggestionsDom(idx, slotIndex);
+  }
+}
+
+function submitManualAnswer(idx, slotIndex, value) {
+  const item = state.items[idx];
+  if (!item || item.done) return;
+  const answer = String(value ?? '').trim();
+  if (!answer) {
+    focusManualAnswer(idx, slotIndex);
+    return;
+  }
+
+  item.activeSlot = slotIndex;
+  ensureManualSlotState(item);
+  item.manualInputsBySlot[slotIndex] = answer;
+  item.wordSuggestionsBySlot[slotIndex] = [];
+  onChoose(answer);
+}
+
 function renderSentence(q, idx) {
   let text = q.question;
   q.answers.forEach((ans, i) => {
@@ -670,12 +935,11 @@ function renderSentence(q, idx) {
       // Filled slot - show chosen answer
       const filledClass = isActive ? 'ring-2 ring-indigo-300 ring-offset-1' : '';
       replacement = `<mark class="px-2 py-1 rounded-lg bg-gradient-to-r from-amber-100 to-yellow-100 font-semibold ${filledClass}">${html(q.chosen[i])}</mark>`;
+    } else if (isActive) {
+      replacement = renderManualGapInput(q, idx, i);
     } else {
       // Unfilled slot - make clickable
-      const activeClass = isActive
-        ? 'bg-gradient-to-r from-amber-200 to-yellow-200 ring-2 ring-indigo-300 ring-offset-1'
-        : 'bg-gray-100 hover:bg-amber-100';
-      replacement = `<button type="button" class="gap-btn px-2 py-1 rounded-lg ${activeClass} font-semibold cursor-pointer transition-colors" data-gap="${i}">____</button>`;
+      replacement = `<button type="button" class="gap-btn px-2 py-1 rounded-lg bg-gray-100 hover:bg-amber-100 font-semibold cursor-pointer transition-colors" data-gap="${i}">____</button>`;
     }
     const hint = q.verb_hints && q.verb_hints[marker]
       ? ` <span class="verb-hint text-red-600 text-sm font-bold">( ${html(q.verb_hints[marker])} )</span>`
@@ -1007,6 +1271,10 @@ function renderTheoryPanel(q) {
 
 function hookGlobalEvents() {
   document.addEventListener('keydown', (e) => {
+    if (e.target && e.target.closest && e.target.closest('input[data-manual-gap], textarea, select')) {
+      return;
+    }
+
     const n = Number(e.key);
     if (!Number.isInteger(n) || n < 1 || n > 4) return;
     const q = state.items[state.current];

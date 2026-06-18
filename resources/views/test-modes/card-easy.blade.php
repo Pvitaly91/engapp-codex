@@ -139,6 +139,7 @@ window.__IS_ADMIN__ = JS_IS_ADMIN;
 const EXPLAIN_URL = '{{ localized_route('question.explain') }}';
 const HINT_URL = '{{ localized_route('question.hint') }}';
 const MARKER_THEORY_URL = '{{ localized_route('question.marker-theory') }}';
+const WORD_SEARCH_URL = '{{ localized_route('words.search') }}';
 const TEST_SLUG = @json($test->slug);
 const IS_POLYGLOT_STEP_PREVIEW = @json(\Illuminate\Support\Str::startsWith((string) $test->slug, 'polyglot-'));
 const COMPOSE_TOKENS_QUESTION_TYPE = @json((string) \App\Models\Question::TYPE_COMPOSE_TOKENS);
@@ -335,6 +336,15 @@ async function init(forceFresh = false) {
         // Initialize new per-slot fields if missing (backward compatibility)
         const markersCount = getMarkersCount(item);
         item.markers_count = markersCount;
+        if (!Array.isArray(item.manualInputsBySlot)) {
+          item.manualInputsBySlot = Array(markersCount).fill('');
+        }
+        if (!Array.isArray(item.wordSuggestionsBySlot)) {
+          item.wordSuggestionsBySlot = Array(markersCount).fill(null).map(() => []);
+        }
+        if (!Array.isArray(item.wordSearchRequestBySlot)) {
+          item.wordSearchRequestBySlot = Array(markersCount).fill(0);
+        }
         if (!Array.isArray(item.attemptsBySlot)) {
           item.attemptsBySlot = Array(markersCount).fill(0);
         }
@@ -377,6 +387,9 @@ async function init(forceFresh = false) {
         pendingExplanationKey: null,
         markerTheoryCache: {},
         markerTheoryMatch: {},
+        manualInputsBySlot: Array(markersCount).fill(''),
+        wordSuggestionsBySlot: Array(markersCount).fill(null).map(() => []),
+        wordSearchRequestBySlot: Array(markersCount).fill(0),
       };
     });
     state.correct = 0;
@@ -410,7 +423,7 @@ function rerenderCard(idx) {
 
   const previewEl = container.querySelector(`#polyglot-translation-preview-${idx}`);
   if (previewEl) {
-    previewEl.innerHTML = renderPolyglotTranslationPreview(item);
+    previewEl.innerHTML = renderPolyglotTranslationPreview(item, idx);
   }
   
   // Update options
@@ -450,7 +463,7 @@ function renderQuestions(showOnlyWrong = false) {
     card.dataset.idx = idx;
 
     const sentence = renderSentence(q, idx);
-    const polyglotTranslationPreview = renderPolyglotTranslationPreview(q);
+    const polyglotTranslationPreview = renderPolyglotTranslationPreview(q, idx);
     const activeOptions = getActiveOptions(q);
 
     card.innerHTML = `
@@ -499,6 +512,21 @@ function renderQuestions(showOnlyWrong = false) {
     `;
 
     card.addEventListener('click', (e) => {
+      const suggestionBtn = e.target.closest('button[data-word-suggestion]');
+      if (suggestionBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        const suggestionSlot = parseInt(suggestionBtn.dataset.gap ?? q.activeSlot, 10);
+        submitManualAnswer(idx, isNaN(suggestionSlot) ? q.activeSlot : suggestionSlot, suggestionBtn.dataset.wordSuggestion || '');
+        return;
+      }
+
+      const manualInput = e.target.closest('input[data-manual-gap]');
+      if (manualInput) {
+        e.stopPropagation();
+        return;
+      }
+
       // Handle gap click to switch active slot
       const gapBtn = e.target.closest('button[data-gap]');
       if (gapBtn) {
@@ -510,6 +538,7 @@ function renderQuestions(showOnlyWrong = false) {
           rerenderCard(idx);
           persistState(state);
         }
+        focusManualAnswer(idx, gapIndex, gapBtn.hasAttribute('data-polyglot-translation-slot') ? 'preview' : 'sentence');
         return;
       }
       
@@ -526,6 +555,56 @@ function renderQuestions(showOnlyWrong = false) {
       const btn = e.target.closest('button[data-opt]');
       if (!btn) return;
       onChoose(idx, btn.dataset.opt);
+    });
+
+    card.addEventListener('input', (e) => {
+      const manualInput = e.target.closest('input[data-manual-gap]');
+      if (!manualInput) return;
+
+      const slotIndex = parseInt(manualInput.dataset.manualGap, 10);
+      if (isNaN(slotIndex)) return;
+
+      ensureManualSlotState(q);
+      q.activeSlot = slotIndex;
+      q.manualInputsBySlot[slotIndex] = manualInput.value;
+      searchManualWords(idx, slotIndex, manualInput.value);
+      persistState(state);
+    });
+
+    card.addEventListener('keydown', (e) => {
+      const manualInput = e.target.closest('input[data-manual-gap]');
+      if (!manualInput) return;
+
+      const slotIndex = parseInt(manualInput.dataset.manualGap, 10);
+      if (isNaN(slotIndex)) return;
+
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        submitManualAnswer(idx, slotIndex, manualInput.value);
+      }
+
+      if (e.key === 'Escape') {
+        ensureManualSlotState(q);
+        q.wordSuggestionsBySlot[slotIndex] = [];
+        updateManualSuggestionsDom(idx, slotIndex);
+      }
+    });
+
+    card.addEventListener('focusout', (e) => {
+      const manualInput = e.target.closest('input[data-manual-gap]');
+      if (!manualInput) return;
+
+      const slotIndex = parseInt(manualInput.dataset.manualGap, 10);
+      if (isNaN(slotIndex)) return;
+
+      const value = String(manualInput.value ?? '').trim();
+      if (!value) return;
+
+      window.setTimeout(() => {
+        const item = state.items[idx];
+        if (!item || item.done || item.chosen?.[slotIndex] !== null) return;
+        submitManualAnswer(idx, slotIndex, value);
+      }, 80);
     });
 
     card.addEventListener('focusin', () => {
@@ -631,6 +710,7 @@ function onChoose(idx, opt) {
   const item = state.items[idx];
   if (item.done) return;
   clampActiveSlot(item);
+  ensureManualSlotState(item);
 
   const slotIndex = item.activeSlot;
   const expected = item.answers[slotIndex];
@@ -652,6 +732,8 @@ function onChoose(idx, opt) {
   }
 
   const explanationPromise = ensureExplanation(item, idx, opt, expected, key, slotIndex);
+  item.manualInputsBySlot[slotIndex] = opt;
+  item.wordSuggestionsBySlot[slotIndex] = [];
 
   if (normalizeAnswer(opt) === normalizeAnswer(expected)) {
     item.chosen[slotIndex] = opt;
@@ -702,6 +784,9 @@ function onChoose(idx, opt) {
   }
 
   rerenderCard(idx);
+  if (!item.done) {
+    focusManualAnswer(idx, item.activeSlot, isPolyglotComposeQuestion(item) ? 'preview' : 'sentence');
+  }
   updateProgress();
   checkAllDone();
   persistState(state);
@@ -745,6 +830,169 @@ function checkAllDone() {
   }
 }
 
+function ensureManualSlotState(q) {
+  const markersCount = getMarkersCount(q);
+  if (!Array.isArray(q.manualInputsBySlot)) {
+    q.manualInputsBySlot = Array(markersCount).fill('');
+  }
+  if (!Array.isArray(q.wordSuggestionsBySlot)) {
+    q.wordSuggestionsBySlot = Array(markersCount).fill(null).map(() => []);
+  }
+  if (!Array.isArray(q.wordSearchRequestBySlot)) {
+    q.wordSearchRequestBySlot = Array(markersCount).fill(0);
+  }
+}
+
+function manualInputId(idx, slotIndex, context = 'sentence') {
+  return `manual-answer-${context}-${idx}-${slotIndex}`;
+}
+
+function manualSuggestionsId(idx, slotIndex, context = 'sentence') {
+  return `manual-suggestions-${context}-${idx}-${slotIndex}`;
+}
+
+function renderWordSuggestionButtons(suggestions, idx, slotIndex) {
+  if (!Array.isArray(suggestions) || suggestions.length === 0) {
+    return '';
+  }
+
+  return suggestions.map((item) => {
+    const word = String(item?.word ?? '').trim();
+    if (!word) return '';
+    const translation = String(item?.translation ?? '').trim();
+    const forms = item?.forms && typeof item.forms === 'object'
+      ? Object.values(item.forms).flat().filter(Boolean)
+      : [];
+    const formButtons = forms.slice(0, 6).map((form) => {
+      const value = String(form).trim();
+      if (!value) return '';
+      return `<button type="button" class="rounded-full bg-gray-100 px-2 py-1 text-[11px] font-semibold text-gray-600 hover:bg-indigo-100 hover:text-indigo-700" data-word-suggestion="${html(value)}" data-question="${idx}" data-gap="${slotIndex}">${html(value)}</button>`;
+    }).join('');
+
+    return `
+      <div class="border-b border-gray-100 last:border-b-0 p-2.5">
+        <button type="button" class="flex w-full items-start justify-between gap-3 rounded-xl px-2 py-1.5 text-left hover:bg-indigo-50" data-word-suggestion="${html(word)}" data-question="${idx}" data-gap="${slotIndex}">
+          <span class="font-semibold text-gray-900">${html(word)}</span>
+          ${translation ? `<span class="text-xs text-gray-500">${html(translation)}</span>` : ''}
+        </button>
+        ${formButtons ? `<div class="mt-1.5 flex flex-wrap gap-1.5 px-2">${formButtons}</div>` : ''}
+      </div>
+    `;
+  }).join('');
+}
+
+function renderManualSuggestions(q, idx, slotIndex, context = 'sentence') {
+  ensureManualSlotState(q);
+  const suggestions = q.wordSuggestionsBySlot[slotIndex] || [];
+  const hidden = suggestions.length ? '' : ' hidden';
+
+  return `<div id="${manualSuggestionsId(idx, slotIndex, context)}" class="absolute left-0 top-full z-[9999] mt-2 w-72 max-w-[80vw] overflow-hidden rounded-2xl border border-gray-200 bg-white text-sm shadow-2xl${hidden}" data-manual-suggestions data-question="${idx}" data-gap="${slotIndex}">${renderWordSuggestionButtons(suggestions, idx, slotIndex)}</div>`;
+}
+
+function renderManualGapInput(q, idx, slotIndex, context = 'sentence') {
+  ensureManualSlotState(q);
+  const value = q.manualInputsBySlot[slotIndex] || '';
+  const isPreview = context === 'preview';
+  const inputClass = isPreview
+    ? 'min-h-[2.6rem] w-[4.6rem] rounded-xl border-2 border-indigo-300 bg-white px-2 py-2 text-center text-sm font-semibold text-gray-900 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 sm:w-[5.25rem] sm:text-base'
+    : 'min-w-[5.5rem] max-w-[11rem] rounded-xl border-2 border-indigo-300 bg-white px-3 py-1 text-center text-base font-semibold text-gray-900 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100';
+
+  return `
+    <span class="relative inline-flex align-middle">
+      <input
+        id="${manualInputId(idx, slotIndex, context)}"
+        type="text"
+        value="${html(value)}"
+        data-manual-gap="${slotIndex}"
+        data-question="${idx}"
+        data-manual-context="${context}"
+        autocomplete="off"
+        class="${inputClass}"
+        placeholder="${isPreview ? '...' : '____'}"
+      >
+      ${renderManualSuggestions(q, idx, slotIndex, context)}
+    </span>
+  `;
+}
+
+function focusManualAnswer(idx, slotIndex, context = 'sentence') {
+  setTimeout(() => {
+    const input = document.getElementById(manualInputId(idx, slotIndex, context))
+      || document.getElementById(manualInputId(idx, slotIndex, 'sentence'))
+      || document.getElementById(manualInputId(idx, slotIndex, 'preview'));
+    if (!input) return;
+    input.focus();
+    input.select();
+  }, 0);
+}
+
+function updateManualSuggestionsDom(idx, slotIndex) {
+  const item = state.items[idx];
+  if (!item) return;
+  ensureManualSlotState(item);
+
+  const suggestions = item.wordSuggestionsBySlot[slotIndex] || [];
+  document
+    .querySelectorAll(`[data-manual-suggestions][data-question="${idx}"][data-gap="${slotIndex}"]`)
+    .forEach((list) => {
+      list.innerHTML = renderWordSuggestionButtons(suggestions, idx, slotIndex);
+      list.classList.toggle('hidden', suggestions.length === 0);
+    });
+}
+
+async function searchManualWords(idx, slotIndex, query) {
+  const item = state.items[idx];
+  if (!item) return;
+  ensureManualSlotState(item);
+
+  const normalizedQuery = String(query ?? '').trim();
+  const requestId = (item.wordSearchRequestBySlot[slotIndex] || 0) + 1;
+  item.wordSearchRequestBySlot[slotIndex] = requestId;
+
+  if (normalizedQuery.length < 2) {
+    item.wordSuggestionsBySlot[slotIndex] = [];
+    updateManualSuggestionsDom(idx, slotIndex);
+    return;
+  }
+
+  try {
+    const response = await fetch(WORD_SEARCH_URL + '?q=' + encodeURIComponent(normalizedQuery), {
+      headers: { 'Accept': 'application/json' }
+    });
+    const data = await response.json();
+
+    if (item.wordSearchRequestBySlot[slotIndex] !== requestId) {
+      return;
+    }
+
+    item.wordSuggestionsBySlot[slotIndex] = Array.isArray(data) ? data : [];
+    updateManualSuggestionsDom(idx, slotIndex);
+  } catch (error) {
+    if (item.wordSearchRequestBySlot[slotIndex] !== requestId) {
+      return;
+    }
+
+    item.wordSuggestionsBySlot[slotIndex] = [];
+    updateManualSuggestionsDom(idx, slotIndex);
+  }
+}
+
+function submitManualAnswer(idx, slotIndex, value) {
+  const item = state.items[idx];
+  if (!item || item.done) return;
+  const answer = String(value ?? '').trim();
+  if (!answer) {
+    focusManualAnswer(idx, slotIndex);
+    return;
+  }
+
+  item.activeSlot = slotIndex;
+  ensureManualSlotState(item);
+  item.manualInputsBySlot[slotIndex] = answer;
+  item.wordSuggestionsBySlot[slotIndex] = [];
+  onChoose(idx, answer);
+}
+
 function renderSentence(q, idx) {
   let text = q.question;
   q.answers.forEach((ans, i) => {
@@ -757,11 +1005,11 @@ function renderSentence(q, idx) {
       // Filled slot - show chosen answer
       const filledClass = isActive ? 'ring-2 ring-indigo-300 ring-offset-1' : '';
       replacement = `<mark class="px-2 py-1 rounded-lg bg-gradient-to-r from-amber-100 to-yellow-100 font-semibold ${filledClass}">${html(q.chosen[i])}</mark>`;
+    } else if (isActive) {
+      replacement = renderManualGapInput(q, idx, i);
     } else {
       // Unfilled slot - make clickable
-      const activeClass = isActive
-        ? 'bg-gradient-to-r from-amber-200 to-yellow-200 ring-2 ring-indigo-300 ring-offset-1'
-        : 'bg-gray-100 hover:bg-amber-100';
+      const activeClass = 'bg-gray-100 hover:bg-amber-100';
       replacement = `<button type="button" class="gap-btn px-2 py-1 rounded-lg ${activeClass} font-semibold cursor-pointer transition-colors" data-gap="${i}">____</button>`;
     }
     const hint = q.verb_hints && q.verb_hints[marker]
@@ -782,7 +1030,7 @@ function shouldRenderPolyglotTranslationPreview(q) {
     && q.answers.length > 0;
 }
 
-function renderPolyglotTranslationPreview(q) {
+function renderPolyglotTranslationPreview(q, idx) {
   if (!shouldRenderPolyglotTranslationPreview(q)) {
     return '';
   }
@@ -791,17 +1039,16 @@ function renderPolyglotTranslationPreview(q) {
   const slots = q.answers.map((_, slotIndex) => {
     const isFilled = typeof q.chosen?.[slotIndex] === 'string' && q.chosen[slotIndex].trim() !== '';
     const isActive = slotIndex === q.activeSlot;
-    const value = isFilled
-      ? html(q.chosen[slotIndex])
-      : html(testUi('question.translation_slot_pending'));
     const baseClass = 'inline-flex min-h-[2.6rem] items-center rounded-xl border px-3 py-2 text-sm sm:text-base font-semibold transition-all duration-200';
-    const stateClass = isFilled
-      ? (isActive
-          ? 'border-indigo-300 bg-gradient-to-r from-indigo-50 to-blue-50 text-indigo-700 ring-2 ring-indigo-100'
-          : 'border-gray-200 bg-white text-gray-800 hover:border-indigo-200 hover:bg-indigo-50')
-      : (isActive
-          ? 'border-indigo-300 bg-gradient-to-r from-amber-100 to-yellow-100 text-indigo-700 ring-2 ring-indigo-100'
-          : 'border-dashed border-gray-300 bg-gray-50 text-gray-400 hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-500');
+
+    if (!isFilled) {
+      return renderManualGapInput(q, idx, slotIndex, 'preview');
+    }
+
+    const value = html(q.chosen[slotIndex]);
+    const stateClass = isActive
+      ? 'border-indigo-300 bg-gradient-to-r from-indigo-50 to-blue-50 text-indigo-700 ring-2 ring-indigo-100'
+      : 'border-gray-200 bg-white text-gray-800 hover:border-indigo-200 hover:bg-indigo-50';
 
     return `<button type="button"
         class="${baseClass} ${stateClass}"
@@ -1090,6 +1337,10 @@ function renderTheoryPanel(q, idx) {
 
 function hookGlobalEvents() {
   document.addEventListener('keydown', (e) => {
+    if (e.target && e.target.closest && e.target.closest('input[data-manual-gap], textarea, select')) {
+      return;
+    }
+
     const n = Number(e.key);
     if (!Number.isInteger(n) || n < 1 || n > 4) return;
 

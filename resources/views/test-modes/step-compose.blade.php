@@ -730,6 +730,7 @@
 window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
 window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
 window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
+window.__POLYGLOT_WORD_SEARCH_URL__ = @json(localized_route('words.search'));
 </script>
 @include('components.saved-test-js-helpers')
 <script>
@@ -751,6 +752,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         ? window.__INITIAL_JS_TEST_QUESTIONS__
         : [];
     const config = window.__POLYGLOT_COMPOSE_CONFIG__ || {};
+    const wordSearchUrl = String(window.__POLYGLOT_WORD_SEARCH_URL__ || '').trim();
     const rollingWindow = Number.isFinite(Number(config.rollingWindow)) ? Number(config.rollingWindow) : 100;
     const minRating = Number.isFinite(Number(config.minRating)) ? Number(config.minRating) : 4.5;
     const progressSync = window.__POLYGLOT_PROGRESS_SYNC__ || {};
@@ -1184,6 +1186,9 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
     const state = {
         progress: progressStore.read(),
         selectedTokenIds: [],
+        answerSlots: [],
+        manualWordSuggestionsBySlot: [],
+        wordSearchRequestBySlot: [],
         bankOrder: [],
         feedback: null,
         autoAdvanceTimer: null,
@@ -1357,6 +1362,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
                         source: 'compose_tokens',
                         current_queue_index: progressSnapshot.current_queue_index,
                         selected_token_ids: state.selectedTokenIds,
+                        answer_slots: state.answerSlots,
                         submitted_answer: submitted,
                         correct_answer: question?.correctText || null,
                     },
@@ -1859,12 +1865,119 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         state.progress = progressStore.write(state.progress);
     }
 
+    function ensureAnswerSlots(question) {
+        const slotCount = Array.isArray(question?.correctTokenValues) ? question.correctTokenValues.length : 0;
+        if (!Array.isArray(state.answerSlots) || state.answerSlots.length !== slotCount) {
+            state.answerSlots = Array(slotCount).fill(null).map((_, index) => {
+                const tokenId = state.selectedTokenIds[index];
+
+                return tokenId && question.tokenMap[tokenId]
+                    ? { tokenId: String(tokenId), manualValue: '' }
+                    : { tokenId: '', manualValue: '' };
+            });
+        } else {
+            state.answerSlots = state.answerSlots.map((slot) => ({
+                tokenId: slot?.tokenId && question.tokenMap[slot.tokenId] ? String(slot.tokenId) : '',
+                manualValue: slot?.tokenId ? '' : sanitizeTokenValue(slot?.manualValue),
+            }));
+        }
+
+        if (!Array.isArray(state.manualWordSuggestionsBySlot) || state.manualWordSuggestionsBySlot.length !== slotCount) {
+            state.manualWordSuggestionsBySlot = Array(slotCount).fill(null).map(() => []);
+        }
+        if (!Array.isArray(state.wordSearchRequestBySlot) || state.wordSearchRequestBySlot.length !== slotCount) {
+            state.wordSearchRequestBySlot = Array(slotCount).fill(0);
+        }
+
+        syncSelectedTokenIdsFromSlots(question);
+    }
+
+    function syncSelectedTokenIdsFromSlots(question) {
+        state.selectedTokenIds = (state.answerSlots || [])
+            .map((slot) => slot?.tokenId ? String(slot.tokenId) : '')
+            .filter((tokenId) => tokenId !== '' && question.tokenMap[tokenId]);
+    }
+
+    function answerSlotValue(question, slotIndex) {
+        const slot = state.answerSlots?.[slotIndex];
+        if (!slot) {
+            return '';
+        }
+        if (slot.tokenId && question.tokenMap[slot.tokenId]) {
+            return question.tokenMap[slot.tokenId].value || '';
+        }
+
+        return sanitizeTokenValue(slot.manualValue);
+    }
+
+    function selectedValuesFromSlots(question) {
+        ensureAnswerSlots(question);
+
+        return state.answerSlots
+            .map((_, index) => answerSlotValue(question, index))
+            .filter(Boolean);
+    }
+
+    function sentenceFromCurrentSlots(question) {
+        const values = selectedValuesFromSlots(question);
+
+        return normalizeText(`${values.join(' ')}${question.punctuation || '.'}`);
+    }
+
     function sentenceFromTokenIds(question, tokenIds) {
         const values = tokenIds
             .map((tokenId) => question.tokenMap[tokenId]?.value ?? '')
             .filter(Boolean);
 
         return normalizeText(`${values.join(' ')}${question.punctuation || '.'}`);
+    }
+
+    function hasAnyAnswerValue(question) {
+        return selectedValuesFromSlots(question).length > 0;
+    }
+
+    function firstEmptySlotIndex(question) {
+        ensureAnswerSlots(question);
+
+        return state.answerSlots.findIndex((_, index) => answerSlotValue(question, index) === '');
+    }
+
+    function lastFilledSlotIndex(question) {
+        ensureAnswerSlots(question);
+
+        for (let index = state.answerSlots.length - 1; index >= 0; index -= 1) {
+            if (answerSlotValue(question, index) !== '') {
+                return index;
+            }
+        }
+
+        return -1;
+    }
+
+    function clearAnswerSlot(question, slotIndex) {
+        ensureAnswerSlots(question);
+        if (!state.answerSlots[slotIndex]) {
+            return;
+        }
+
+        state.answerSlots[slotIndex] = { tokenId: '', manualValue: '' };
+        state.manualWordSuggestionsBySlot[slotIndex] = [];
+        syncSelectedTokenIdsFromSlots(question);
+        state.feedback = null;
+    }
+
+    function setManualSlotValue(question, slotIndex, value) {
+        ensureAnswerSlots(question);
+        if (!state.answerSlots[slotIndex]) {
+            return;
+        }
+
+        state.answerSlots[slotIndex] = {
+            tokenId: '',
+            manualValue: sanitizeTokenValue(value),
+        };
+        syncSelectedTokenIdsFromSlots(question);
+        state.feedback = null;
     }
 
     // Theory hint helpers — render content blocks attached to the current
@@ -2055,7 +2168,12 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
     }
 
     function availableBankTokenIds(question) {
+        ensureAnswerSlots(question);
         const selectedIds = new Set(state.selectedTokenIds);
+
+        if (firstEmptySlotIndex(question) === -1) {
+            return [];
+        }
 
         return state.bankOrder.filter((tokenId) => !selectedIds.has(tokenId) && question.tokenMap[tokenId]);
     }
@@ -2065,9 +2183,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
             return '';
         }
 
-        const selectedValues = state.selectedTokenIds
-            .map((tokenId) => question.tokenMap[tokenId]?.value ?? '')
-            .filter(Boolean);
+        const selectedValues = selectedValuesFromSlots(question);
 
         const mismatchedToken = selectedValues.find((token, index) => {
             const expected = question.correctTokenValues[index];
@@ -2098,6 +2214,9 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
 
     function resetCurrentAnswer(reshuffle = false) {
         state.selectedTokenIds = [];
+        state.answerSlots = [];
+        state.manualWordSuggestionsBySlot = [];
+        state.wordSearchRequestBySlot = [];
         state.feedback = null;
 
         if (reshuffle || state.bankOrder.length === 0) {
@@ -2251,6 +2370,106 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         `;
     }
 
+    function composeManualInputId(slotIndex) {
+        return `compose-manual-slot-${slotIndex}`;
+    }
+
+    function composeManualSuggestionsId(slotIndex) {
+        return `compose-manual-suggestions-${slotIndex}`;
+    }
+
+    function renderWordSuggestionButtons(suggestions, slotIndex) {
+        if (!Array.isArray(suggestions) || suggestions.length === 0) {
+            return '';
+        }
+
+        return suggestions.map((item) => {
+            const word = sanitizeTokenValue(item?.word);
+            if (word === '') return '';
+            const translation = sanitizeTokenValue(item?.translation);
+            const forms = item?.forms && typeof item.forms === 'object'
+                ? Object.values(item.forms).flat().filter(Boolean)
+                : [];
+            const formButtons = forms.slice(0, 6).map((form) => {
+                const value = sanitizeTokenValue(form);
+                if (value === '') return '';
+
+                return `<button type="button" class="rounded-full bg-gray-100 px-2 py-1 text-[11px] font-semibold text-gray-600 hover:bg-indigo-100 hover:text-indigo-700" data-compose-word-suggestion="${html(value)}" data-compose-slot="${slotIndex}">${html(value)}</button>`;
+            }).join('');
+
+            return `
+                <div class="border-b border-gray-100 p-2.5 last:border-b-0">
+                    <button type="button" class="flex w-full items-start justify-between gap-3 rounded-xl px-2 py-1.5 text-left hover:bg-indigo-50" data-compose-word-suggestion="${html(word)}" data-compose-slot="${slotIndex}">
+                        <span class="font-semibold text-gray-900">${html(word)}</span>
+                        ${translation ? `<span class="text-xs text-gray-500">${html(translation)}</span>` : ''}
+                    </button>
+                    ${formButtons ? `<div class="mt-1.5 flex flex-wrap gap-1.5 px-2">${formButtons}</div>` : ''}
+                </div>
+            `;
+        }).join('');
+    }
+
+    function renderManualSuggestions(slotIndex) {
+        const suggestions = state.manualWordSuggestionsBySlot[slotIndex] || [];
+        const hidden = suggestions.length ? '' : ' hidden';
+
+        return `<div id="${composeManualSuggestionsId(slotIndex)}" class="absolute left-0 top-full z-[9999] mt-2 w-72 max-w-[80vw] overflow-hidden rounded-2xl border border-gray-200 bg-white text-sm shadow-2xl${hidden}" data-compose-manual-suggestions>${renderWordSuggestionButtons(suggestions, slotIndex)}</div>`;
+    }
+
+    function updateManualSuggestionsDom(slotIndex) {
+        const list = document.getElementById(composeManualSuggestionsId(slotIndex));
+        if (!list) return;
+
+        const suggestions = state.manualWordSuggestionsBySlot[slotIndex] || [];
+        list.innerHTML = renderWordSuggestionButtons(suggestions, slotIndex);
+        list.classList.toggle('hidden', suggestions.length === 0);
+    }
+
+    async function searchManualWords(slotIndex, query) {
+        const question = currentQuestion();
+        ensureAnswerSlots(question);
+
+        const normalizedQuery = sanitizeTokenValue(query);
+        const requestId = (state.wordSearchRequestBySlot[slotIndex] || 0) + 1;
+        state.wordSearchRequestBySlot[slotIndex] = requestId;
+
+        if (!wordSearchUrl || normalizedQuery.length < 2) {
+            state.manualWordSuggestionsBySlot[slotIndex] = [];
+            updateManualSuggestionsDom(slotIndex);
+            return;
+        }
+
+        try {
+            const response = await fetch(wordSearchUrl + '?q=' + encodeURIComponent(normalizedQuery), {
+                headers: { 'Accept': 'application/json' },
+            });
+            const data = await response.json();
+
+            if (state.wordSearchRequestBySlot[slotIndex] !== requestId) {
+                return;
+            }
+
+            state.manualWordSuggestionsBySlot[slotIndex] = Array.isArray(data) ? data : [];
+            updateManualSuggestionsDom(slotIndex);
+        } catch (error) {
+            if (state.wordSearchRequestBySlot[slotIndex] !== requestId) {
+                return;
+            }
+
+            state.manualWordSuggestionsBySlot[slotIndex] = [];
+            updateManualSuggestionsDom(slotIndex);
+        }
+    }
+
+    function focusManualSlot(slotIndex) {
+        window.setTimeout(() => {
+            const input = document.getElementById(composeManualInputId(slotIndex));
+            if (!input) return;
+            input.focus();
+            input.select();
+        }, 0);
+    }
+
     const chipBaseClass = 'inline-flex items-center border font-bold leading-none transition';
     const chipLayoutStyle = 'min-height: var(--polyglot-chip-min-height); padding: var(--polyglot-chip-padding); border-radius: var(--polyglot-chip-radius); font-size: var(--polyglot-chip-font-size);';
     const answerChipStyle = `${chipLayoutStyle} border-color: var(--line); background: color-mix(in srgb, var(--accent-soft) 88%, white); color: var(--text);`;
@@ -2258,30 +2477,49 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
     const punctuationChipStyle = `${chipLayoutStyle} border-color: var(--line); background: color-mix(in srgb, var(--surface) 90%, white); color: var(--muted);`;
 
     function answerZoneMarkup(question) {
-        const chips = state.selectedTokenIds.map((tokenId) => {
-            const token = question.tokenMap[tokenId];
-            if (!token) {
-                return '';
+        ensureAnswerSlots(question);
+
+        const slots = state.answerSlots.map((slot, slotIndex) => {
+            const value = answerSlotValue(question, slotIndex);
+
+            if (value !== '') {
+                const sourceAttribute = slot?.tokenId
+                    ? `data-answer-token-id="${html(slot.tokenId)}"`
+                    : `data-answer-manual-value="${html(value)}"`;
+
+                return `
+                    <button type="button"
+                        data-answer-slot="${slotIndex}"
+                        ${sourceAttribute}
+                        class="${chipBaseClass} gap-1.5 hover:opacity-90 sm:gap-2.5"
+                        style="${answerChipStyle}">
+                        <span>${html(value)}</span>
+                        <span class="text-xs leading-none sm:text-sm" style="color: var(--muted);">&times;</span>
+                    </button>
+                `;
             }
 
             return `
-                <button type="button"
-                    data-answer-token-id="${html(token.id)}"
-                    class="${chipBaseClass} gap-1.5 hover:opacity-90 sm:gap-2.5"
-                    style="${answerChipStyle}">
-                    <span>${html(token.value)}</span>
-                    <span class="text-xs leading-none sm:text-sm" style="color: var(--muted);">&times;</span>
-                </button>
+                <span class="relative inline-flex align-middle">
+                    <input
+                        id="${composeManualInputId(slotIndex)}"
+                        type="text"
+                        value="${html(slot?.manualValue || '')}"
+                        data-compose-manual-slot="${slotIndex}"
+                        autocomplete="off"
+                        aria-label="${html(testUi('question.gap', { label: `a${slotIndex + 1}`, current: slotIndex + 1, total: state.answerSlots.length }))}"
+                        class="min-w-[5.5rem] max-w-[11rem] border bg-white px-3 py-1 text-center font-bold leading-none text-slate-900 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+                        style="min-height: var(--polyglot-chip-min-height); border-radius: var(--polyglot-chip-radius); border-color: color-mix(in srgb, var(--accent) 36%, var(--line)); font-size: var(--polyglot-chip-font-size);"
+                        placeholder="..."
+                    >
+                    ${renderManualSuggestions(slotIndex)}
+                </span>
             `;
         }).join('');
 
-        const placeholder = chips === ''
-            ? `<div class="rounded-[14px] border border-dashed px-3 py-3 text-[13px] leading-5 sm:rounded-[18px] sm:px-4 sm:py-5 sm:text-sm sm:leading-6" style="border-color: var(--line); color: var(--muted);">${html(testUi('compose.answer_placeholder'))}</div>`
-            : chips;
-
         return `
             <div class="flex min-h-[3.25rem] flex-wrap content-start items-start gap-2 sm:min-h-[5rem] sm:gap-3">
-                ${placeholder}
+                ${slots}
                 <span class="${chipBaseClass}" style="${punctuationChipStyle}">${html(question.punctuation)}</span>
             </div>
         `;
@@ -2337,6 +2575,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         document.getElementById('compose-status').textContent = statusLabel;
         document.getElementById('compose-status-note').textContent = statusGoalNote();
         document.getElementById('compose-source-text').textContent = question.sourceTextUk;
+        ensureAnswerSlots(question);
         renderComposeTheoryControls(question);
         const sourceSeederElement = document.getElementById('compose-source-seeder');
         if (sourceSeederElement) {
@@ -2356,39 +2595,51 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         feedbackElement.classList.toggle('hidden', feedbackHtml.trim() === '');
 
         root.querySelector('[data-action="check"]').disabled = isLocked;
-        root.querySelector('[data-action="clear"]').disabled = isLocked || state.selectedTokenIds.length === 0;
-        root.querySelector('[data-action="undo"]').disabled = isLocked || state.selectedTokenIds.length === 0;
+        root.querySelector('[data-action="clear"]').disabled = isLocked || !hasAnyAnswerValue(question);
+        root.querySelector('[data-action="undo"]').disabled = isLocked || !hasAnyAnswerValue(question);
         root.querySelector('[data-action="reset-progress"]').disabled = isLocked || serverAuthenticated;
     }
 
     function addTokenById(tokenId) {
         const question = currentQuestion();
+        ensureAnswerSlots(question);
         if (!question.tokenMap[tokenId] || state.selectedTokenIds.includes(tokenId)) {
             return;
         }
 
-        state.selectedTokenIds.push(String(tokenId));
+        const slotIndex = firstEmptySlotIndex(question);
+        if (slotIndex === -1) {
+            return;
+        }
+
+        state.answerSlots[slotIndex] = {
+            tokenId: String(tokenId),
+            manualValue: '',
+        };
+        state.manualWordSuggestionsBySlot[slotIndex] = [];
+        syncSelectedTokenIdsFromSlots(question);
         state.feedback = null;
         render();
     }
 
-    function removeTokenById(tokenId) {
-        const index = state.selectedTokenIds.findIndex((selectedTokenId) => selectedTokenId === tokenId);
-        if (index === -1) {
+    function removeAnswerSlot(slotIndex) {
+        const question = currentQuestion();
+        if (!question) {
             return;
         }
 
-        state.selectedTokenIds.splice(index, 1);
-        state.feedback = null;
+        clearAnswerSlot(question, slotIndex);
         render();
     }
 
     function removeLastToken() {
-        if (state.selectedTokenIds.length === 0) {
+        const question = currentQuestion();
+        const slotIndex = lastFilledSlotIndex(question);
+        if (slotIndex === -1) {
             return;
         }
 
-        removeTokenById(state.selectedTokenIds[state.selectedTokenIds.length - 1]);
+        removeAnswerSlot(slotIndex);
     }
 
     function checkAnswer() {
@@ -2397,7 +2648,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         }
 
         const question = currentQuestion();
-        const submitted = sentenceFromTokenIds(question, state.selectedTokenIds);
+        const submitted = sentenceFromCurrentSlots(question);
         const isCorrect = normalizeCompare(submitted) === normalizeCompare(question.correctText);
 
         if (isCorrect) {
@@ -2445,15 +2696,39 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
             }
         }
 
+        const suggestionButton = event.target.closest('[data-compose-word-suggestion]');
+        if (suggestionButton) {
+            event.preventDefault();
+            event.stopPropagation();
+            const question = currentQuestion();
+            const slotIndex = sanitizeInteger(suggestionButton.getAttribute('data-compose-slot'), -1);
+            if (slotIndex >= 0) {
+                setManualSlotValue(question, slotIndex, suggestionButton.getAttribute('data-compose-word-suggestion') || '');
+                state.manualWordSuggestionsBySlot[slotIndex] = [];
+                render();
+                focusManualSlot(Math.min(slotIndex + 1, Math.max(0, state.answerSlots.length - 1)));
+            }
+            return;
+        }
+
+        if (event.target.closest('[data-compose-manual-slot]')) {
+            event.stopPropagation();
+            return;
+        }
+
         const bankToken = event.target.closest('[data-bank-token-id]');
         if (bankToken) {
             addTokenById(bankToken.getAttribute('data-bank-token-id') || '');
             return;
         }
 
-        const answerToken = event.target.closest('[data-answer-token-id]');
-        if (answerToken) {
-            removeTokenById(answerToken.getAttribute('data-answer-token-id') || '');
+        const answerSlot = event.target.closest('[data-answer-slot]');
+        if (answerSlot) {
+            const slotIndex = sanitizeInteger(answerSlot.getAttribute('data-answer-slot'), -1);
+            if (slotIndex >= 0) {
+                removeAnswerSlot(slotIndex);
+                focusManualSlot(slotIndex);
+            }
             return;
         }
 
@@ -2488,6 +2763,51 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
         }
     });
 
+    root.addEventListener('input', (event) => {
+        const input = event.target.closest('[data-compose-manual-slot]');
+        if (!input) return;
+
+        const question = currentQuestion();
+        const slotIndex = sanitizeInteger(input.getAttribute('data-compose-manual-slot'), -1);
+        if (slotIndex < 0) return;
+
+        setManualSlotValue(question, slotIndex, input.value);
+        searchManualWords(slotIndex, input.value);
+    });
+
+    root.addEventListener('keydown', (event) => {
+        const input = event.target.closest('[data-compose-manual-slot]');
+        if (!input) return;
+
+        const question = currentQuestion();
+        const slotIndex = sanitizeInteger(input.getAttribute('data-compose-manual-slot'), -1);
+        if (slotIndex < 0) return;
+
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            setManualSlotValue(question, slotIndex, input.value);
+            checkAnswer();
+        }
+
+        if (event.key === 'Escape') {
+            state.manualWordSuggestionsBySlot[slotIndex] = [];
+            updateManualSuggestionsDom(slotIndex);
+        }
+    });
+
+    root.addEventListener('focusout', (event) => {
+        const input = event.target.closest('[data-compose-manual-slot]');
+        if (!input) return;
+
+        const question = currentQuestion();
+        const slotIndex = sanitizeInteger(input.getAttribute('data-compose-manual-slot'), -1);
+        if (slotIndex < 0) return;
+
+        setManualSlotValue(question, slotIndex, input.value);
+        state.manualWordSuggestionsBySlot[slotIndex] = [];
+        window.setTimeout(() => updateManualSuggestionsDom(slotIndex), 80);
+    });
+
     document.addEventListener('keydown', (event) => {
         if (hasEditableFocus(event.target)) {
             return;
@@ -2499,7 +2819,7 @@ window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
             return;
         }
 
-        if (event.key === 'Backspace' && state.selectedTokenIds.length > 0) {
+        if (event.key === 'Backspace' && hasAnyAnswerValue(currentQuestion())) {
             event.preventDefault();
             removeLastToken();
         }

@@ -569,6 +569,12 @@ class GrammarTestController extends Controller
                 ->mapWithKeys(fn ($vh) => [$vh->marker => $vh->option->option ?? ''])
                 ->toArray();
             $optionsByMarker = $controller->normalizeOptionsByMarker($q->options_by_marker, $markers);
+            $optionsByMarker = $controller->ensureMinimumOptionsByMarker(
+                $optionsByMarker,
+                $markers,
+                $answerMap,
+                $options
+            );
             $firstMarker = $markers[0] ?? null;
 
             return [
@@ -611,6 +617,103 @@ class GrammarTestController extends Controller
         }
 
         return $hasValues ? $normalized : null;
+    }
+
+    private function ensureMinimumOptionsByMarker(
+        ?array $optionsByMarker,
+        array $markers,
+        array $answerMap,
+        array $fallbackOptions,
+        int $minimum = 3
+    ): ?array {
+        if ($markers === []) {
+            return $optionsByMarker;
+        }
+
+        $normalized = $optionsByMarker;
+        if (! is_array($normalized)) {
+            $normalized = array_fill(0, count($markers), []);
+        }
+
+        foreach ($markers as $index => $marker) {
+            $answer = trim((string) ($answerMap[$marker] ?? ''));
+            $options = $this->filterOptionArray($normalized[$index] ?? []);
+
+            if ($answer !== '' && ! $this->containsOption($options, $answer)) {
+                array_unshift($options, $answer);
+            }
+
+            $pool = $this->filterOptionArray(array_merge(
+                $fallbackOptions,
+                array_values($answerMap),
+                $this->grammarDistractorPool($answer)
+            ));
+
+            foreach ($pool as $candidate) {
+                if (count($options) >= $minimum) {
+                    break;
+                }
+                if (! $this->containsOption($options, $candidate)) {
+                    $options[] = $candidate;
+                }
+            }
+
+            $normalized[$index] = $options;
+        }
+
+        return $normalized;
+    }
+
+    private function containsOption(array $options, string $candidate): bool
+    {
+        $normalizedCandidate = mb_strtolower(trim($candidate));
+
+        foreach ($options as $option) {
+            if (mb_strtolower(trim((string) $option)) === $normalizedCandidate) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private function grammarDistractorPool(string $answer): array
+    {
+        $answer = trim($answer);
+        $pool = [
+            'do', 'does', 'did',
+            'am', 'is', 'are', 'was', 'were',
+            'have', 'has', 'had',
+            'will', 'would', 'can', 'could', 'should', 'must',
+            'not', 'never', 'always', 'usually', 'often',
+            'work', 'works', 'worked', 'working',
+            'go', 'goes', 'went', 'gone', 'going',
+            'study', 'studies', 'studied', 'studying',
+            'play', 'plays', 'played', 'playing',
+            'read', 'reads', 'reading',
+            'take', 'takes', 'took', 'taken', 'taking',
+        ];
+
+        if ($answer !== '') {
+            $pool[] = $answer.'s';
+            $pool[] = $answer.'ed';
+            $pool[] = $answer.'ing';
+
+            if (str_ends_with($answer, 's')) {
+                $pool[] = substr($answer, 0, -1);
+            }
+            if (str_ends_with($answer, 'es')) {
+                $pool[] = substr($answer, 0, -2);
+            }
+            if (str_ends_with($answer, 'ing')) {
+                $pool[] = substr($answer, 0, -3);
+            }
+            if (str_ends_with($answer, 'ed')) {
+                $pool[] = substr($answer, 0, -2);
+            }
+        }
+
+        return $pool;
     }
 
     private function filterOptionArray(array $options): array
