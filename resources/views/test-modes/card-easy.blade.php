@@ -351,6 +351,9 @@ async function init(forceFresh = false) {
         if (!Array.isArray(item.lastWrongBySlot)) {
           item.lastWrongBySlot = Array(markersCount).fill(null);
         }
+        if (typeof item.optionsExpanded !== 'boolean') {
+          item.optionsExpanded = false;
+        }
         if (typeof item.activeSlot !== 'number') {
           item.activeSlot = findFirstUnfilledSlot(item);
           if (item.activeSlot === -1) item.activeSlot = 0;
@@ -390,6 +393,7 @@ async function init(forceFresh = false) {
         manualInputsBySlot: Array(markersCount).fill(''),
         wordSuggestionsBySlot: Array(markersCount).fill(null).map(() => []),
         wordSearchRequestBySlot: Array(markersCount).fill(0),
+        optionsExpanded: false,
       };
     });
     state.correct = 0;
@@ -426,20 +430,10 @@ function rerenderCard(idx) {
     previewEl.innerHTML = renderPolyglotTranslationPreview(item, idx);
   }
   
-  // Update options
-  const group = container.querySelector('[role="group"]');
-  if (group) {
+  const optionsBlock = container.querySelector(`#options-block-${idx}`);
+  if (optionsBlock) {
     const activeOptions = getActiveOptions(item);
-    group.innerHTML = activeOptions.map((optText, i) => renderOptionButton(item, idx, optText, i)).join('');
-  }
-
-  const indicatorEl = container.querySelector(`#slot-indicator-${idx}`);
-  if (indicatorEl) {
-    indicatorEl.textContent = formatSlotIndicator(item);
-  }
-  const labelEl = container.querySelector(`#slot-label-${idx}`);
-  if (labelEl) {
-    labelEl.textContent = testUi('question.active_marker', { marker: getMarkerLabel(item, item.activeSlot) });
+    optionsBlock.innerHTML = renderOptionsBlock(item, idx, activeOptions);
   }
   
   // Update feedback
@@ -498,14 +492,8 @@ function renderQuestions(showOnlyWrong = false) {
         </div>
       </div>
 
-      <div class="flex items-center justify-between mb-2 sm:mb-3">
-        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-indigo-50 text-[12px] sm:text-sm font-semibold text-indigo-700 border border-indigo-100" id="slot-indicator-${idx}">
-          ${formatSlotIndicator(q)}
-        </span>
-        <span class="text-[12px] sm:text-sm text-gray-600 font-medium" id="slot-label-${idx}">${testUi('question.active_marker', { marker: getMarkerLabel(q, q.activeSlot) })}</span>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3" role="group" aria-label="${testUi('question.answer_options')}">
-        ${activeOptions.map((opt, i) => renderOptionButton(q, idx, opt, i)).join('')}
+      <div id="options-block-${idx}">
+        ${renderOptionsBlock(q, idx, activeOptions)}
       </div>
 
       <div class="mt-5 sm:mt-6" id="feedback-${idx}">${renderFeedback(q)}</div>
@@ -518,6 +506,16 @@ function renderQuestions(showOnlyWrong = false) {
         e.stopPropagation();
         const suggestionSlot = parseInt(suggestionBtn.dataset.gap ?? q.activeSlot, 10);
         submitManualAnswer(idx, isNaN(suggestionSlot) ? q.activeSlot : suggestionSlot, suggestionBtn.dataset.wordSuggestion || '');
+        return;
+      }
+
+      const optionsToggle = e.target.closest('button[data-options-toggle]');
+      if (optionsToggle) {
+        e.preventDefault();
+        e.stopPropagation();
+        q.optionsExpanded = !q.optionsExpanded;
+        rerenderCard(idx);
+        persistState(state);
         return;
       }
 
@@ -656,6 +654,39 @@ function renderQuestions(showOnlyWrong = false) {
   }
 }
 
+function renderOptionsBlock(q, idx, activeOptions = getActiveOptions(q)) {
+  const expanded = Boolean(q.optionsExpanded);
+  const toggleText = expanded
+    ? testUi('question.hide_options', {}, 'Сховати варіанти')
+    : testUi('question.show_options', {}, 'Показати варіанти');
+  const toggleHint = expanded
+    ? testUi('question.hide_options_hint', {}, 'Приховати готові варіанти відповідей')
+    : testUi('question.show_options_hint', {}, 'Відкрити готові варіанти відповідей');
+
+  return `
+    <div class="rounded-3xl border border-blue-100 bg-white/80 p-3 sm:p-4 shadow-sm">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div class="flex flex-wrap items-center gap-2.5">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-indigo-50 text-[12px] sm:text-sm font-semibold text-indigo-700 border border-indigo-100" id="slot-indicator-${idx}">
+            ${formatSlotIndicator(q)}
+          </span>
+          <span class="text-[12px] sm:text-sm text-gray-600 font-medium" id="slot-label-${idx}">${testUi('question.active_marker', { marker: getMarkerLabel(q, q.activeSlot) })}</span>
+        </div>
+        <button type="button" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-blue-200 bg-blue-50 px-3.5 py-2 text-sm font-semibold text-blue-700 transition hover:border-blue-300 hover:bg-blue-100 focus:outline-none focus:ring-4 focus:ring-blue-100" data-options-toggle="${idx}" aria-expanded="${expanded ? 'true' : 'false'}" title="${html(toggleHint)}">
+          <svg class="h-4 w-4 transition-transform ${expanded ? 'rotate-180' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+          <span>${html(toggleText)}</span>
+          <span class="rounded-full bg-white px-2 py-0.5 text-xs text-blue-600">${activeOptions.length}</span>
+        </button>
+      </div>
+      <div class="${expanded ? 'grid' : 'hidden'} grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 mt-3" role="group" aria-label="${testUi('question.answer_options')}">
+        ${activeOptions.map((opt, i) => renderOptionButton(q, idx, opt, i)).join('')}
+      </div>
+    </div>
+  `;
+}
+
 function renderOptionButton(q, idx, opt, i) {
   const base = 'group relative w-full text-left px-4 py-3 sm:px-5 sm:py-4 rounded-2xl border-2 transition-all duration-200 font-medium text-[15px] sm:text-base';
   let cls = 'border-gray-200 bg-white hover:border-indigo-300 hover:bg-indigo-50 hover:shadow-md transform hover:-translate-y-0.5';
@@ -752,6 +783,7 @@ function onChoose(idx, opt) {
       const nextSlot = findFirstUnfilledSlot(item);
       if (nextSlot !== -1) {
         item.activeSlot = nextSlot;
+        item.optionsExpanded = false;
       }
     }
   } else {
@@ -776,6 +808,7 @@ function onChoose(idx, opt) {
         const nextSlot = findFirstUnfilledSlot(item);
         if (nextSlot !== -1) {
           item.activeSlot = nextSlot;
+          item.optionsExpanded = false;
         }
       }
     } else {
@@ -1347,6 +1380,7 @@ function hookGlobalEvents() {
     const idx = state.activeCardIdx ?? 0;
     const item = state.items[idx];
     if (!item || item.done) return;
+    if (!item.optionsExpanded) return;
 
     const activeOptions = getActiveOptions(item);
     const opt = activeOptions[n - 1];

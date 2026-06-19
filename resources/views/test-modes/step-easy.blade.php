@@ -347,6 +347,9 @@ async function init(forceFresh = false) {
         if (!Array.isArray(item.lastWrongBySlot)) {
           item.lastWrongBySlot = Array(markersCount).fill(null);
         }
+        if (typeof item.optionsExpanded !== 'boolean') {
+          item.optionsExpanded = false;
+        }
         if (typeof item.activeSlot !== 'number') {
           item.activeSlot = findFirstUnfilledSlot(item);
           if (item.activeSlot === -1) item.activeSlot = 0;
@@ -386,6 +389,7 @@ async function init(forceFresh = false) {
         manualInputsBySlot: Array(markersCount).fill(''),
         wordSuggestionsBySlot: Array(markersCount).fill(null).map(() => []),
         wordSearchRequestBySlot: Array(markersCount).fill(0),
+        optionsExpanded: false,
       };
     });
     state.current = 0;
@@ -442,15 +446,7 @@ function render() {
           <div class="text-lg font-bold text-indigo-600">${state.current + 1}</div>
         </div>
       </div>
-      <div class="flex items-center justify-between mb-2 sm:mb-3">
-        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-indigo-50 text-[12px] sm:text-sm font-semibold text-indigo-700 border border-indigo-100" id="slot-indicator-${state.current}">
-          ${formatSlotIndicator(q)}
-        </span>
-        <span class="text-[12px] sm:text-sm text-gray-600 font-medium">${testUi('question.active_marker', { marker: getMarkerLabel(q, q.activeSlot) })}</span>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 mb-5 sm:mb-6" role="group" aria-label="${testUi('question.answer_options')}">
-        ${activeOptions.map((opt, i) => renderOptionButton(q, opt, i)).join('')}
-      </div>
+      ${renderOptionsBlock(q, activeOptions)}
       <div id="feedback">${renderFeedback(q)}</div>
     </article>
   `;
@@ -484,6 +480,16 @@ function render() {
         return;
       }
 
+      const optionsToggle = e.target.closest('button[data-options-toggle]');
+      if (optionsToggle) {
+        e.preventDefault();
+        e.stopPropagation();
+        currentQ.optionsExpanded = !currentQ.optionsExpanded;
+        render();
+        persistState(state);
+        return;
+      }
+
       const manualInput = e.target.closest('input[data-manual-gap]');
       if (manualInput) {
         e.stopPropagation();
@@ -514,6 +520,39 @@ function render() {
       }
     });
   }
+}
+
+function renderOptionsBlock(q, activeOptions = getActiveOptions(q)) {
+  const expanded = Boolean(q.optionsExpanded);
+  const toggleText = expanded
+    ? testUi('question.hide_options', {}, 'Сховати варіанти')
+    : testUi('question.show_options', {}, 'Показати варіанти');
+  const toggleHint = expanded
+    ? testUi('question.hide_options_hint', {}, 'Приховати готові варіанти відповідей')
+    : testUi('question.show_options_hint', {}, 'Відкрити готові варіанти відповідей');
+
+  return `
+    <div class="mb-5 sm:mb-6 rounded-3xl border border-blue-100 bg-white/80 p-3 sm:p-4 shadow-sm">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div class="flex flex-wrap items-center gap-2.5">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-indigo-50 text-[12px] sm:text-sm font-semibold text-indigo-700 border border-indigo-100" id="slot-indicator-${state.current}">
+            ${formatSlotIndicator(q)}
+          </span>
+          <span class="text-[12px] sm:text-sm text-gray-600 font-medium">${testUi('question.active_marker', { marker: getMarkerLabel(q, q.activeSlot) })}</span>
+        </div>
+        <button type="button" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-blue-200 bg-blue-50 px-3.5 py-2 text-sm font-semibold text-blue-700 transition hover:border-blue-300 hover:bg-blue-100 focus:outline-none focus:ring-4 focus:ring-blue-100" data-options-toggle="${state.current}" aria-expanded="${expanded ? 'true' : 'false'}" title="${html(toggleHint)}">
+          <svg class="h-4 w-4 transition-transform ${expanded ? 'rotate-180' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+          <span>${html(toggleText)}</span>
+          <span class="rounded-full bg-white px-2 py-0.5 text-xs text-blue-600">${activeOptions.length}</span>
+        </button>
+      </div>
+      <div class="${expanded ? 'grid' : 'hidden'} grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 mt-3" role="group" aria-label="${testUi('question.answer_options')}">
+        ${activeOptions.map((opt, i) => renderOptionButton(q, opt, i)).join('')}
+      </div>
+    </div>
+  `;
 }
 
 function renderOptionButton(q, opt, i) {
@@ -687,6 +726,7 @@ function onChoose(opt) {
       const nextSlot = findFirstUnfilledSlot(q);
       if (nextSlot !== -1) {
         q.activeSlot = nextSlot;
+        q.optionsExpanded = false;
       }
     }
   } else {
@@ -710,6 +750,7 @@ function onChoose(opt) {
         const nextSlot = findFirstUnfilledSlot(q);
         if (nextSlot !== -1) {
           q.activeSlot = nextSlot;
+          q.optionsExpanded = false;
         }
       }
     } else {
@@ -1279,6 +1320,7 @@ function hookGlobalEvents() {
     if (!Number.isInteger(n) || n < 1 || n > 4) return;
     const q = state.items[state.current];
     if (!q || q.done) return;
+    if (!q.optionsExpanded) return;
     const activeOptions = getActiveOptions(q);
     const opt = activeOptions[n - 1];
     if (opt) onChoose(opt);
