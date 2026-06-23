@@ -137,6 +137,9 @@
         $reportsCollection = collect($reports);
         $openCount = $reportsCollection->filter(fn ($report) => ($report['status'] ?? 'open') !== 'fixed')->count();
         $fixedCount = $reportsCollection->filter(fn ($report) => ($report['status'] ?? 'open') === 'fixed')->count();
+        $dbChangedOpenCount = $reportsCollection
+            ->filter(fn ($report) => ($report['status'] ?? 'open') !== 'fixed' && (bool) data_get($report, 'snapshot_diff.has_changes', false))
+            ->count();
         $snapshotCounts = $reportsCollection->countBy(fn ($report) => $report['snapshot_status'] ?? 'missing');
 
         // Unique seeders feeding the visible reports — used to render the
@@ -260,6 +263,13 @@
                 {{-- Toggled to "v2" by the V2 buttons just before submit. --}}
                 <input type="hidden" name="version" value="v1" id="question-report-prompt-version">
             </form>
+            <form
+                id="question-report-fix-db-changed-form"
+                method="POST"
+                action="{{ route('question-reports.fix-db-changed') }}"
+                onsubmit="return confirm('Позначити виконаними всі невиконані репорти з поміткою «Є зміни в БД»?');">
+                @csrf
+            </form>
 
             <section class="rounded-2xl border border-slate-200 bg-white shadow-sm">
                 {{-- Filter strip — narrows the visible list by seeder substring
@@ -369,9 +379,15 @@
                             class="inline-flex items-center justify-center rounded-lg bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800">
                             v2: з невиконаних
                         </button>
+                        <span class="ml-2 hidden text-xs font-bold uppercase tracking-wider text-amber-600 sm:inline">Статус</span>
+                        <button type="submit" form="question-report-fix-db-changed-form"
+                            @disabled($dbChangedOpenCount === 0)
+                            class="inline-flex items-center justify-center rounded-lg bg-amber-600 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-700 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-500">
+                            Позначити виконаними: Є зміни в БД ({{ $dbChangedOpenCount }})
+                        </button>
                     </div>
                     <div class="text-xs text-slate-500">
-                        v1 — короткий, українською, з seeder-sweep блоком. v2 — структурований English prompt, групування по сидерах, snapshot diff явно. Обидві генерації не змінюють статуси репортів.
+                        v1 — короткий, українською, з seeder-sweep блоком. v2 — структурований English prompt, групування по сидерах, snapshot diff явно. Кнопка статусу змінює тільки невиконані репорти з поміткою “Є зміни в БД”.
                     </div>
                 </div>
 

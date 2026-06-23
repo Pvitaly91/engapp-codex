@@ -333,6 +333,121 @@ class QuestionReportTest extends TestCase
             ->assertSee('Виправлено');
     }
 
+    public function test_admin_can_mark_all_db_changed_question_reports_as_fixed(): void
+    {
+        [$changedQuestion, $sameQuestion] = Question::withoutEvents(fn () => [
+            Question::create([
+                'uuid' => 'changed-question',
+                'question' => 'Current question text',
+                'difficulty' => 1,
+            ]),
+            Question::create([
+                'uuid' => 'same-question',
+                'question' => 'Same question text',
+                'difficulty' => 1,
+            ]),
+        ]);
+
+        Storage::disk('local')->put('question-reports/changed-report.json', json_encode([
+            'id' => 'changed-report',
+            'status' => 'open',
+            'reported_at' => '2026-05-04T12:00:00+03:00',
+            'question' => [
+                'id' => $changedQuestion->id,
+                'uuid' => $changedQuestion->uuid,
+                'text' => 'Legacy changed text',
+            ],
+            'question_snapshot' => [
+                'snapshot_source' => 'report_time_db_state',
+                'question' => [
+                    'id' => $changedQuestion->id,
+                    'uuid' => $changedQuestion->uuid,
+                    'text' => 'Original question text',
+                ],
+                'answers' => [],
+                'options' => [],
+                'verb_hints' => [],
+                'hints' => [],
+                'tags' => [],
+                'saved_tests' => [],
+            ],
+            'comment' => 'Changed in DB',
+            'file' => 'question-reports/changed-report.json',
+        ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
+        Storage::disk('local')->put('question-reports/same-report.json', json_encode([
+            'id' => 'same-report',
+            'status' => 'open',
+            'reported_at' => '2026-05-04T12:00:00+03:00',
+            'question' => [
+                'id' => $sameQuestion->id,
+                'uuid' => $sameQuestion->uuid,
+                'text' => $sameQuestion->question,
+            ],
+            'question_snapshot' => [
+                'snapshot_source' => 'report_time_db_state',
+                'question' => [
+                    'id' => $sameQuestion->id,
+                    'uuid' => $sameQuestion->uuid,
+                    'text' => $sameQuestion->question,
+                ],
+                'answers' => [],
+                'options' => [],
+                'verb_hints' => [],
+                'hints' => [],
+                'tags' => [],
+                'saved_tests' => [],
+            ],
+            'comment' => 'No DB changes',
+            'file' => 'question-reports/same-report.json',
+        ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
+        Storage::disk('local')->put('question-reports/already-fixed-report.json', json_encode([
+            'id' => 'already-fixed-report',
+            'status' => 'fixed',
+            'reported_at' => '2026-05-04T12:00:00+03:00',
+            'question' => [
+                'id' => $changedQuestion->id,
+                'uuid' => $changedQuestion->uuid,
+                'text' => 'Legacy fixed text',
+            ],
+            'question_snapshot' => [
+                'snapshot_source' => 'report_time_db_state',
+                'question' => [
+                    'id' => $changedQuestion->id,
+                    'uuid' => $changedQuestion->uuid,
+                    'text' => 'Another original text',
+                ],
+                'answers' => [],
+                'options' => [],
+                'verb_hints' => [],
+                'hints' => [],
+                'tags' => [],
+                'saved_tests' => [],
+            ],
+            'comment' => 'Already fixed',
+            'file' => 'question-reports/already-fixed-report.json',
+        ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->post(route('question-reports.fix-db-changed'));
+
+        $response->assertRedirect(route('question-reports.index'));
+        $response->assertSessionHas('status', 'Позначено виконаними репортів зі змінами в БД: 1.');
+
+        $changedPayload = json_decode(Storage::disk('local')->get('question-reports/changed-report.json'), true);
+        $samePayload = json_decode(Storage::disk('local')->get('question-reports/same-report.json'), true);
+        $alreadyFixedPayload = json_decode(Storage::disk('local')->get('question-reports/already-fixed-report.json'), true);
+
+        $this->assertSame('fixed', $changedPayload['status']);
+        $this->assertArrayHasKey('fixed_at', $changedPayload);
+        $this->assertArrayHasKey('fixed_by', $changedPayload);
+        $this->assertArrayNotHasKey('snapshot_diff', $changedPayload);
+        $this->assertSame('open', $samePayload['status']);
+        $this->assertSame('fixed', $alreadyFixedPayload['status']);
+        $this->assertArrayNotHasKey('fixed_at', $alreadyFixedPayload);
+    }
+
     public function test_admin_can_edit_question_report_issue_types_without_comment(): void
     {
         Storage::disk('local')->put('question-reports/report.json', json_encode([

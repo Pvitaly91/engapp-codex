@@ -99,6 +99,24 @@ class QuestionReportController extends Controller
             ->with('status', $message);
     }
 
+    public function markDbChangedAsFixed(Request $request, QuestionReportFileStore $reports): RedirectResponse
+    {
+        $stats = $reports->markReportsWithSnapshotChangesAsFixed($request);
+        $updated = (int) ($stats['updated'] ?? 0);
+
+        $message = $updated > 0
+            ? "Позначено виконаними репортів зі змінами в БД: {$updated}."
+            : 'Немає невиконаних репортів зі змінами в БД.';
+
+        if ((int) ($stats['failed'] ?? 0) > 0) {
+            $message .= ' Частину файлів не вдалося оновити: '.$stats['failed'].'.';
+        }
+
+        return redirect()
+            ->route('question-reports.index')
+            ->with('status', $message);
+    }
+
     public function destroy(string $report, QuestionReportFileStore $reports): RedirectResponse
     {
         $reports->delete($report);

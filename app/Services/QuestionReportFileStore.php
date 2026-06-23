@@ -101,6 +101,63 @@ class QuestionReportFileStore
         return $report;
     }
 
+    /**
+     * @return array{total:int,candidates:int,updated:int,skipped_fixed:int,failed:int}
+     */
+    public function markReportsWithSnapshotChangesAsFixed(Request $request): array
+    {
+        $stats = [
+            'total' => 0,
+            'candidates' => 0,
+            'updated' => 0,
+            'skipped_fixed' => 0,
+            'failed' => 0,
+        ];
+
+        if (! Storage::disk('local')->exists(self::DIRECTORY)) {
+            return $stats;
+        }
+
+        $now = Carbon::now()->toIso8601String();
+
+        foreach (Storage::disk('local')->files(self::DIRECTORY) as $path) {
+            if (! Str::endsWith($path, '.json')) {
+                continue;
+            }
+
+            $stats['total']++;
+            $report = $this->readReportFile($path);
+
+            if ($report === null) {
+                $stats['failed']++;
+                continue;
+            }
+
+            if (($report['status'] ?? 'open') === 'fixed') {
+                $stats['skipped_fixed']++;
+                continue;
+            }
+
+            if (! (bool) data_get($report, 'snapshot_diff.has_changes', false)) {
+                continue;
+            }
+
+            $stats['candidates']++;
+            $report['status'] = 'fixed';
+            $report['status_updated_at'] = $now;
+            $report['fixed_at'] = $now;
+            $report['fixed_by'] = $this->adminPayload($request);
+
+            if ($this->writeReportFile($path, $report)) {
+                $stats['updated']++;
+            } else {
+                $stats['failed']++;
+            }
+        }
+
+        return $stats;
+    }
+
     public function updateReport(string $reportId, array $data, Request $request): array
     {
         $path = $this->pathForReportId($reportId);
