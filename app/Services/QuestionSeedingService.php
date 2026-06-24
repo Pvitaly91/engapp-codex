@@ -146,8 +146,9 @@ class QuestionSeedingService
         QuestionAnswer::where('question_id', $question->id)->delete();
 
         $existingVerbHints = VerbHint::where('question_id', $question->id)->get();
+        $verbHintsHaveLocale = Schema::hasColumn('verb_hints', 'locale');
         $existingVerbHintMap = $existingVerbHints
-            ->mapWithKeys(fn (VerbHint $hint) => [$hint->marker.'|'.$hint->option_id => $hint]);
+            ->mapWithKeys(fn (VerbHint $hint) => [$this->verbHintKey($hint->marker, $hint->option_id, $verbHintsHaveLocale ? ($hint->locale ?? '') : '') => $hint]);
         $verbHintIdsToKeep = [];
 
         if (Schema::hasTable('question_variants')) {
@@ -178,7 +179,7 @@ class QuestionSeedingService
             }
 
             $hintOption = $hintOptions[$hint];
-            $hintKey = $ans['marker'].'|'.$hintOption->id;
+            $hintKey = $this->verbHintKey($ans['marker'], $hintOption->id, '');
 
             if (isset($existingVerbHintMap[$hintKey])) {
                 $verbHintIdsToKeep[] = $existingVerbHintMap[$hintKey]->id;
@@ -190,6 +191,46 @@ class QuestionSeedingService
                 $queuedVerbHints[$hintKey] = [
                     'question_id' => $question->id,
                     'marker' => $ans['marker'],
+                    'option_id' => $hintOption->id,
+                ];
+
+                if ($verbHintsHaveLocale) {
+                    $queuedVerbHints[$hintKey]['locale'] = '';
+                }
+            }
+        }
+
+        foreach ($data['verb_hints'] ?? [] as $hintPayload) {
+            if (! is_array($hintPayload)) {
+                continue;
+            }
+
+            $marker = trim((string) ($hintPayload['marker'] ?? ''));
+            $locale = $this->normalizeVerbHintLocale($hintPayload['locale'] ?? '');
+            $hint = trim((string) ($hintPayload['hint'] ?? ''));
+
+            if ($marker === '' || $locale === '' || $hint === '' || ! $verbHintsHaveLocale) {
+                continue;
+            }
+
+            if (! array_key_exists($hint, $hintOptions)) {
+                $hintOptions[$hint] = $this->attachOption($question, $hint, 1);
+            }
+
+            $hintOption = $hintOptions[$hint];
+            $hintKey = $this->verbHintKey($marker, $hintOption->id, $locale);
+
+            if (isset($existingVerbHintMap[$hintKey])) {
+                $verbHintIdsToKeep[] = $existingVerbHintMap[$hintKey]->id;
+
+                continue;
+            }
+
+            if (! array_key_exists($hintKey, $queuedVerbHints)) {
+                $queuedVerbHints[$hintKey] = [
+                    'question_id' => $question->id,
+                    'marker' => $marker,
+                    'locale' => $locale,
                     'option_id' => $hintOption->id,
                 ];
             }
@@ -227,6 +268,18 @@ class QuestionSeedingService
         }
 
         $question->tags()->sync($data['tag_ids'] ?? []);
+    }
+
+    private function verbHintKey(string $marker, int $optionId, ?string $locale): string
+    {
+        return strtoupper($marker).'|'.$this->normalizeVerbHintLocale($locale).'|'.$optionId;
+    }
+
+    private function normalizeVerbHintLocale(mixed $locale): string
+    {
+        $normalized = strtolower(trim((string) $locale));
+
+        return $normalized === 'ua' ? 'uk' : $normalized;
     }
 
     private function ensureCategoryExists(int $categoryId): void

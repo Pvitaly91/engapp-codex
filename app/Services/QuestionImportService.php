@@ -15,6 +15,7 @@ use App\Models\VerbHint;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Schema;
 use RuntimeException;
 
 class QuestionImportService
@@ -403,12 +404,25 @@ class QuestionImportService
                 continue;
             }
 
-            VerbHint::create([
+            $attributes = [
                 'question_id' => $question->id,
                 'marker' => strtoupper($marker),
                 'option_id' => $optionId,
-            ]);
+            ];
+
+            if (Schema::hasColumn('verb_hints', 'locale')) {
+                $attributes['locale'] = $this->normalizeLocale(Arr::get($verbHintData, 'locale', Arr::get($verbHintPayload, 'locale', '')));
+            }
+
+            VerbHint::create($attributes);
         }
+    }
+
+    protected function normalizeLocale(mixed $locale): string
+    {
+        $normalized = strtolower(trim((string) $locale));
+
+        return $normalized === 'ua' ? 'uk' : $normalized;
     }
 
     protected function syncVariants(Question $question, array $variantPayloads): void

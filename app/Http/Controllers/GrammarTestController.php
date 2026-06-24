@@ -432,6 +432,9 @@ class GrammarTestController extends Controller
 
         if (! is_array($questions) || ($showTechnicalInfo && ! $this->datasetContainsTechnicalInfo($questions, $test))) {
             $questions = $this->buildQuestionDataset($resolved, $savedState === null, $showTechnicalInfo);
+        } else {
+            $questions = $this->localizePersistedQuestionVerbHints($questions);
+            session([$this->jsQuestionDataSessionKey($test) => $questions]);
         }
 
         return view("engram.$view", [
@@ -542,7 +545,9 @@ class GrammarTestController extends Controller
 
         $controller = $this;
 
-        return $questions->map(function ($q) use ($controller, $technicalInfoByQuestionId) {
+        $preferredVerbHintLocales = $this->preferredVerbHintLocales();
+
+        return $questions->map(function ($q) use ($controller, $technicalInfoByQuestionId, $preferredVerbHintLocales) {
             $answers = $this->sortAnswersByMarker($q->answers)
                 ->map(function ($a) {
                     return [
@@ -565,9 +570,7 @@ class GrammarTestController extends Controller
                 }
             }
 
-            $verbHints = $q->verbHints
-                ->mapWithKeys(fn ($vh) => [$vh->marker => $vh->option->option ?? ''])
-                ->toArray();
+            $verbHints = $controller->localizedVerbHints($q->verbHints, $preferredVerbHintLocales);
             $optionsByMarker = $controller->normalizeOptionsByMarker($q->options_by_marker, $markers);
             $optionsByMarker = $controller->ensureMinimumOptionsByMarker(
                 $optionsByMarker,
@@ -780,6 +783,182 @@ class GrammarTestController extends Controller
         }
 
         return is_array($questionData) ? $questionData : null;
+    }
+
+    private function preferredVerbHintLocales(): array
+    {
+        $candidates = [
+            request()->query('locale'),
+            request()->query('language'),
+            session('locale'),
+            app()->getLocale(),
+            config('language-manager.fallback_locale'),
+            config('app.locale'),
+            '',
+        ];
+
+        $locales = [];
+
+        foreach ($candidates as $candidate) {
+            $locale = $this->normalizeVerbHintLocale($candidate);
+
+            if ($locale === '') {
+                continue;
+            }
+
+            if (! in_array($locale, $locales, true)) {
+                $locales[] = $locale;
+            }
+        }
+
+        if (! in_array('', $locales, true)) {
+            $locales[] = '';
+        }
+
+        return $locales;
+    }
+
+    private function localizedVerbHints($verbHints, array $preferredLocales): array
+    {
+        $priority = array_flip($preferredLocales);
+        $selected = [];
+
+        foreach ($verbHints as $verbHint) {
+            $marker = strtoupper((string) $verbHint->marker);
+            $text = trim((string) ($verbHint->option->option ?? ''));
+
+            if ($marker === '' || $text === '') {
+                continue;
+            }
+
+            $locale = $this->normalizeVerbHintLocale($verbHint->locale ?? '');
+            $rank = $priority[$locale] ?? PHP_INT_MAX;
+            $currentRank = $selected[$marker]['rank'] ?? PHP_INT_MAX;
+
+            if ($rank < $currentRank) {
+                $selected[$marker] = [
+                    'rank' => $rank,
+                    'text' => $text,
+                ];
+            }
+        }
+
+        return collect($selected)
+            ->mapWithKeys(fn (array $item, string $marker) => [strtolower($marker) => $item['text']])
+            ->all();
+    }
+
+    private function localizePersistedQuestionVerbHints(array $questionData): array
+    {
+        $questionIds = collect($questionData)
+            ->map(fn ($question) => data_get($question, 'id'))
+            ->filter(fn ($id) => filled($id))
+            ->map(fn ($id): int => (int) $id)
+            ->unique()
+            ->values()
+            ->all();
+
+        $questionUuids = collect($questionData)
+            ->map(fn ($question) => data_get($question, 'uuid'))
+            ->filter(fn ($uuid) => filled($uuid))
+            ->map(fn ($uuid): string => (string) $uuid)
+            ->unique()
+            ->values()
+            ->all();
+
+        if ($questionIds === [] && $questionUuids === []) {
+            return $questionData;
+        }
+
+        $models = Question::query()
+            ->with('verbHints.option')
+            ->where(function ($query) use ($questionIds, $questionUuids): void {
+                if ($questionIds !== []) {
+                    $query->whereIn('id', $questionIds);
+                }
+
+                if ($questionUuids !== []) {
+                    $method = $questionIds === [] ? 'whereIn' : 'orWhereIn';
+                    $query->{$method}('uuid', $questionUuids);
+                }
+            })
+            ->get();
+
+        if ($models->isEmpty()) {
+            return $questionData;
+        }
+
+        $byId = $models->keyBy(fn (Question $question): string => (string) $question->id);
+        $byUuid = $models->keyBy(fn (Question $question): string => (string) $question->uuid);
+        $preferredLocales = $this->preferredVerbHintLocales();
+
+        foreach ($questionData as $index => $question) {
+            if (! is_array($question)) {
+                continue;
+            }
+
+            $model = $byId->get((string) data_get($question, 'id'))
+                ?? $byUuid->get((string) data_get($question, 'uuid'));
+
+            if (! $model) {
+                continue;
+            }
+
+            $verbHints = $this->localizedVerbHints($model->verbHints, $preferredLocales);
+
+            if ($verbHints === []) {
+                continue;
+            }
+
+            $marker = $this->firstQuestionVerbHintMarker($question, $verbHints);
+
+            $question['verb_hints'] = $verbHints;
+            $question['verb_hint'] = $marker !== null
+                ? ($verbHints[$marker] ?? reset($verbHints) ?: '')
+                : '';
+
+            $questionData[$index] = $question;
+        }
+
+        return $questionData;
+    }
+
+    private function firstQuestionVerbHintMarker(array $question, array $verbHints): ?string
+    {
+        $markers = data_get($question, 'markers', []);
+
+        if (is_array($markers)) {
+            foreach ($markers as $marker) {
+                $marker = strtolower(trim((string) $marker));
+
+                if ($marker !== '') {
+                    return $marker;
+                }
+            }
+        }
+
+        $answerMap = data_get($question, 'answer_map', []);
+
+        if (is_array($answerMap)) {
+            foreach (array_keys($answerMap) as $marker) {
+                $marker = strtolower(trim((string) $marker));
+
+                if ($marker !== '') {
+                    return $marker;
+                }
+            }
+        }
+
+        $marker = array_key_first($verbHints);
+
+        return $marker === null ? null : strtolower((string) $marker);
+    }
+
+    private function normalizeVerbHintLocale(mixed $locale): string
+    {
+        $normalized = strtolower(trim((string) $locale));
+
+        return $normalized === 'ua' ? 'uk' : $normalized;
     }
 
     private function isAdminUser(): bool

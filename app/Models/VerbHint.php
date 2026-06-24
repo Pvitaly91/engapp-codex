@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class VerbHint extends Model
 {
-    protected $fillable = ['question_id','marker','option_id'];
+    protected $fillable = ['question_id','marker','locale','option_id'];
 
     public function question() { return $this->belongsTo(Question::class); }
     public function option() { return $this->belongsTo(QuestionOption::class); }

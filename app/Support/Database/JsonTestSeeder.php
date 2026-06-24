@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\ChatGPTExplanation;
 use App\Models\Question;
 use App\Models\QuestionHint;
+use App\Models\QuestionOption;
 use App\Models\SavedGrammarTest;
 use App\Models\Source;
 use App\Support\PromptGeneratorFilterNormalizer;
@@ -13,6 +14,7 @@ use App\Models\Tag;
 use Database\Seeders\QuestionSeeder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use RuntimeException;
 
@@ -653,19 +655,21 @@ abstract class JsonTestSeeder extends QuestionSeeder
             $provider = $provider !== '' ? $provider : 'chatgpt';
 
             $hints = $this->normalizeHints($payload['hints'] ?? [], $markers);
+            $verbHints = $this->normalizeLocalizedVerbHints($payload['verb_hints'] ?? [], $markers);
             $explanations = $this->normalizeLocalizedExplanations(
                 $payload['explanations'] ?? [],
                 $markers,
                 $optionMarkers
             );
 
-            if ($hints === [] && $explanations === []) {
+            if ($hints === [] && $verbHints === [] && $explanations === []) {
                 continue;
             }
 
             $normalized[$normalizedLocale] = [
                 'provider' => $provider,
                 'hints' => $hints,
+                'verb_hints' => $verbHints,
                 'explanations' => $explanations,
                 'answers' => $answersMap,
             ];
@@ -737,6 +741,29 @@ abstract class JsonTestSeeder extends QuestionSeeder
         foreach ($value as $item) {
             $this->appendHintFragments($normalized, $item);
         }
+    }
+
+    protected function normalizeLocalizedVerbHints(mixed $payload, array $markers): array
+    {
+        if (! is_array($payload) || $payload === []) {
+            return [];
+        }
+
+        $normalized = [];
+
+        foreach ($markers as $marker) {
+            if (! array_key_exists($marker, $payload)) {
+                continue;
+            }
+
+            $clean = trim((string) $payload[$marker]);
+
+            if ($clean !== '') {
+                $normalized[$marker] = $clean;
+            }
+        }
+
+        return $normalized;
     }
 
     protected function normalizeLocalizedExplanations(mixed $payload, array $markers, array $optionMarkers): array
@@ -901,6 +928,27 @@ abstract class JsonTestSeeder extends QuestionSeeder
                         ],
                         ['hint' => $hintText]
                     );
+                }
+
+                if (Schema::hasColumn('verb_hints', 'locale')) {
+                    foreach ($payload['verb_hints'] ?? [] as $marker => $hint) {
+                        $clean = trim((string) $hint);
+
+                        if ($clean === '') {
+                            continue;
+                        }
+
+                        $hintOption = QuestionOption::firstOrCreate(['option' => $clean]);
+
+                        \App\Models\VerbHint::updateOrCreate(
+                            [
+                                'question_id' => $question->id,
+                                'marker' => strtoupper((string) $marker),
+                                'locale' => $this->normalizeLocale((string) $locale),
+                            ],
+                            ['option_id' => $hintOption->id]
+                        );
+                    }
                 }
 
                 $answers = is_array($payload['answers'] ?? null) ? $payload['answers'] : [];

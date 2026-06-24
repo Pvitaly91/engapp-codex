@@ -5,9 +5,12 @@ namespace App\Support\Database;
 use App\Models\ChatGPTExplanation;
 use App\Models\Question;
 use App\Models\QuestionHint;
+use App\Models\QuestionOption;
+use App\Models\VerbHint;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use RuntimeException;
 use Symfony\Component\Finder\SplFileInfo;
@@ -123,6 +126,13 @@ class JsonTestLocalizationManager
                     $existingLocalePayload['hints'] = $payload['hints'];
                 }
 
+                if (array_key_exists('verb_hints', $payload)) {
+                    $existingLocalePayload['verb_hints'] = array_replace(
+                        is_array($existingLocalePayload['verb_hints'] ?? null) ? $existingLocalePayload['verb_hints'] : [],
+                        $payload['verb_hints']
+                    );
+                }
+
                 if (array_key_exists('explanations', $payload)) {
                     $existingLocalePayload['explanations'] = array_replace_recursive(
                         is_array($existingLocalePayload['explanations'] ?? null) ? $existingLocalePayload['explanations'] : [],
@@ -150,6 +160,7 @@ class JsonTestLocalizationManager
 
         $questionsUpdated = 0;
         $hintUpserts = 0;
+        $verbHintUpserts = 0;
         $explanationUpserts = 0;
         $missingQuestions = 0;
 
@@ -180,6 +191,29 @@ class JsonTestLocalizationManager
                 );
 
                 $hintUpserts++;
+            }
+
+            if (Schema::hasColumn('verb_hints', 'locale')) {
+                foreach ($payload['verb_hints'] as $marker => $hint) {
+                    $clean = trim((string) $hint);
+
+                    if ($clean === '') {
+                        continue;
+                    }
+
+                    $hintOption = QuestionOption::firstOrCreate(['option' => $clean]);
+
+                    VerbHint::updateOrCreate(
+                        [
+                            'question_id' => $question->id,
+                            'marker' => strtoupper((string) $marker),
+                            'locale' => $locale,
+                        ],
+                        ['option_id' => $hintOption->id]
+                    );
+
+                    $verbHintUpserts++;
+                }
             }
 
             foreach ($payload['explanations'] as $marker => $markerExplanations) {
@@ -230,6 +264,7 @@ class JsonTestLocalizationManager
             'locale' => $this->normalizeLocale((string) ($definition['locale'] ?? '')),
             'questions_updated' => $questionsUpdated,
             'hints_upserted' => $hintUpserts,
+            'verb_hints_upserted' => $verbHintUpserts,
             'explanations_upserted' => $explanationUpserts,
             'missing_questions' => $missingQuestions,
         ];
@@ -247,6 +282,7 @@ class JsonTestLocalizationManager
             ->keyBy('uuid');
 
         $deletedHints = 0;
+        $deletedVerbHints = 0;
         $deletedExplanations = 0;
 
         foreach ($resolvedQuestions as $resolvedQuestion) {
@@ -272,6 +308,13 @@ class JsonTestLocalizationManager
                 ->where('locale', $locale)
                 ->delete();
 
+            if (Schema::hasColumn('verb_hints', 'locale')) {
+                $deletedVerbHints += VerbHint::query()
+                    ->where('question_id', $question->id)
+                    ->where('locale', $locale)
+                    ->delete();
+            }
+
             if ($correctAnswers === []) {
                 continue;
             }
@@ -286,6 +329,7 @@ class JsonTestLocalizationManager
         return [
             'locale' => $this->normalizeLocale((string) ($definition['locale'] ?? '')),
             'deleted_hints' => $deletedHints,
+            'deleted_verb_hints' => $deletedVerbHints,
             'deleted_explanations' => $deletedExplanations,
         ];
     }
@@ -325,6 +369,7 @@ class JsonTestLocalizationManager
                     'question_id' => $questionsByUuid[$resolvedQuestion['uuid']] ?? null,
                     'database_exists' => $questionsByUuid->has($resolvedQuestion['uuid']),
                     'hints' => $payload['hints'],
+                    'verb_hints' => $payload['verb_hints'],
                     'answers' => collect($indexedQuestion['answers'] ?? [])
                         ->map(fn ($answer, $marker) => [
                             'marker' => $marker,
@@ -649,13 +694,14 @@ class JsonTestLocalizationManager
                 'locale' => $locale,
                 'hint_provider' => $this->resolveHintProvider($localizationDefinition, $questionDefinition),
                 'hints' => $this->normalizeHints($questionDefinition['hints'] ?? []),
+                'verb_hints' => $this->normalizeVerbHints($questionDefinition['verb_hints'] ?? [], $indexedQuestion),
                 'explanations' => $this->normalizeExplanations(
                     $questionDefinition['explanations'] ?? [],
                     $indexedQuestion
                 ),
             ];
 
-            if ($payload['hints'] === [] && $payload['explanations'] === []) {
+            if ($payload['hints'] === [] && $payload['verb_hints'] === [] && $payload['explanations'] === []) {
                 continue;
             }
 
@@ -716,6 +762,30 @@ class JsonTestLocalizationManager
         foreach ($value as $item) {
             $this->appendHintFragments($normalized, $item);
         }
+    }
+
+    private function normalizeVerbHints(mixed $payload, array $indexedQuestion): array
+    {
+        if (! is_array($payload) || $payload === []) {
+            return [];
+        }
+
+        $normalized = [];
+        $markers = $indexedQuestion['markers'] ?? [];
+
+        foreach ($markers as $marker) {
+            if (! array_key_exists($marker, $payload)) {
+                continue;
+            }
+
+            $clean = trim((string) $payload[$marker]);
+
+            if ($clean !== '') {
+                $normalized[$marker] = $clean;
+            }
+        }
+
+        return $normalized;
     }
 
     private function normalizeExplanations(mixed $payload, array $indexedQuestion): array
