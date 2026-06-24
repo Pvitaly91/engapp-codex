@@ -310,6 +310,31 @@ function ensureGlobalEvents() {
   globalEventsHooked = true;
 }
 
+function handleManualAnswerShortcut(e) {
+  if (e.isComposing || (e.key !== 'Enter' && e.key !== 'Tab')) return false;
+  if (!e.target || !e.target.closest) return false;
+
+  const manualInput = e.target.closest('input[data-manual-gap]');
+  if (!manualInput) return false;
+  if (!document.getElementById('question-card')?.contains(manualInput)) return false;
+
+  const value = String(manualInput.value ?? '').trim();
+  if (e.key === 'Tab' && value === '') {
+    return false;
+  }
+
+  const slotIndex = parseInt(manualInput.dataset.manualGap, 10);
+  if (isNaN(slotIndex)) return false;
+
+  e.preventDefault();
+  e.stopPropagation();
+  if (typeof e.stopImmediatePropagation === 'function') {
+    e.stopImmediatePropagation();
+  }
+  submitManualAnswer(state.current, slotIndex, value);
+  return true;
+}
+
 async function init(forceFresh = false) {
   const baseQuestions = await loadQuestions(forceFresh);
   QUESTIONS = Array.isArray(baseQuestions) ? baseQuestions : [];
@@ -652,9 +677,14 @@ document.getElementById('question-card').addEventListener('keydown', (e) => {
   const slotIndex = parseInt(manualInput.dataset.manualGap, 10);
   if (isNaN(slotIndex)) return;
 
-  if (e.key === 'Enter') {
+  if (e.key === 'Enter' || e.key === 'Tab') {
+    const value = String(manualInput.value ?? '').trim();
+    if (e.key === 'Tab' && value === '') {
+      return;
+    }
+
     e.preventDefault();
-    submitManualAnswer(state.current, slotIndex, manualInput.value);
+    submitManualAnswer(state.current, slotIndex, value);
   }
 
   if (e.key === 'Escape') {
@@ -726,7 +756,6 @@ function onChoose(opt) {
       const nextSlot = findFirstUnfilledSlot(q);
       if (nextSlot !== -1) {
         q.activeSlot = nextSlot;
-        q.optionsExpanded = false;
       }
     }
   } else {
@@ -750,7 +779,6 @@ function onChoose(opt) {
         const nextSlot = findFirstUnfilledSlot(q);
         if (nextSlot !== -1) {
           q.activeSlot = nextSlot;
-          q.optionsExpanded = false;
         }
       }
     } else {
@@ -1311,6 +1339,8 @@ function renderTheoryPanel(q) {
 }
 
 function hookGlobalEvents() {
+  document.addEventListener('keydown', handleManualAnswerShortcut, true);
+
   document.addEventListener('keydown', (e) => {
     if (e.target && e.target.closest && e.target.closest('input[data-manual-gap], textarea, select')) {
       return;

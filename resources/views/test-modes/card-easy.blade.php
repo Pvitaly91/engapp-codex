@@ -313,6 +313,33 @@ function ensureGlobalEvents() {
   globalEventsHooked = true;
 }
 
+function handleManualAnswerShortcut(e) {
+  if (e.isComposing || (e.key !== 'Enter' && e.key !== 'Tab')) return false;
+  if (!e.target || !e.target.closest) return false;
+
+  const manualInput = e.target.closest('input[data-manual-gap]');
+  if (!manualInput) return false;
+
+  const value = String(manualInput.value ?? '').trim();
+  if (e.key === 'Tab' && value === '') {
+    return false;
+  }
+
+  const slotIndex = parseInt(manualInput.dataset.manualGap, 10);
+  const inputQuestionIdx = parseInt(manualInput.dataset.question, 10);
+  const cardIdx = parseInt(manualInput.closest('article[data-idx]')?.dataset.idx, 10);
+  const idx = Number.isFinite(inputQuestionIdx) ? inputQuestionIdx : cardIdx;
+  if (!Number.isFinite(idx) || isNaN(slotIndex)) return false;
+
+  e.preventDefault();
+  e.stopPropagation();
+  if (typeof e.stopImmediatePropagation === 'function') {
+    e.stopImmediatePropagation();
+  }
+  submitManualAnswer(idx, slotIndex, value);
+  return true;
+}
+
 async function init(forceFresh = false) {
   const baseQuestions = await loadQuestions(forceFresh);
   QUESTIONS = Array.isArray(baseQuestions) ? baseQuestions : [];
@@ -576,9 +603,14 @@ function renderQuestions(showOnlyWrong = false) {
       const slotIndex = parseInt(manualInput.dataset.manualGap, 10);
       if (isNaN(slotIndex)) return;
 
-      if (e.key === 'Enter') {
+      if (e.key === 'Enter' || e.key === 'Tab') {
+        const value = String(manualInput.value ?? '').trim();
+        if (e.key === 'Tab' && value === '') {
+          return;
+        }
+
         e.preventDefault();
-        submitManualAnswer(idx, slotIndex, manualInput.value);
+        submitManualAnswer(idx, slotIndex, value);
       }
 
       if (e.key === 'Escape') {
@@ -783,7 +815,6 @@ function onChoose(idx, opt) {
       const nextSlot = findFirstUnfilledSlot(item);
       if (nextSlot !== -1) {
         item.activeSlot = nextSlot;
-        item.optionsExpanded = false;
       }
     }
   } else {
@@ -808,7 +839,6 @@ function onChoose(idx, opt) {
         const nextSlot = findFirstUnfilledSlot(item);
         if (nextSlot !== -1) {
           item.activeSlot = nextSlot;
-          item.optionsExpanded = false;
         }
       }
     } else {
@@ -1369,6 +1399,8 @@ function renderTheoryPanel(q, idx) {
 }
 
 function hookGlobalEvents() {
+  document.addEventListener('keydown', handleManualAnswerShortcut, true);
+
   document.addEventListener('keydown', (e) => {
     if (e.target && e.target.closest && e.target.closest('input[data-manual-gap], textarea, select')) {
       return;
