@@ -108,6 +108,66 @@ class PastSimpleTheoryPageTestsSeedersTest extends TestCase
         $this->assertAuditReportsPastSimpleRoutesAsOk();
     }
 
+    public function test_past_simple_all_level_packages_have_unique_level_appropriate_prompts(): void
+    {
+        $paths = [
+            'V3/Tenses/PastSimple/PastSimpleFormsAllLevelsV3Seeder/definition.json',
+            'V3/Tenses/PastSimple/PastSimpleNegativesAllLevelsV3Seeder/definition.json',
+            'V3/Tenses/PastSimple/PastSimpleQuestionsAllLevelsV3Seeder/definition.json',
+            'V3/Tenses/PastSimple/PastSimpleTimeExpressionsAllLevelsV3Seeder/definition.json',
+            'V3/Polyglot/PolyglotPastSimpleFormsAllLevelsLessonSeeder/definition.json',
+            'V3/Polyglot/PolyglotPastSimpleNegativesAllLevelsLessonSeeder/definition.json',
+            'V3/Polyglot/PolyglotPastSimpleQuestionsAllLevelsLessonSeeder/definition.json',
+            'V3/Polyglot/PolyglotPastSimpleTimeExpressionsAllLevelsLessonSeeder/definition.json',
+            'V3/Polyglot/PolyglotPastSimpleToBeLessonSeeder/definition.json',
+            'V3/Polyglot/PolyglotPastSimpleRegularVerbsLessonSeeder/definition.json',
+            'V3/Polyglot/PolyglotPastSimpleIrregularVerbsLessonSeeder/definition.json',
+        ];
+        $seenPrompts = [];
+
+        foreach ($paths as $relativePath) {
+            $definition = json_decode(
+                File::get(database_path('seeders/' . $relativePath)),
+                true,
+                flags: JSON_THROW_ON_ERROR
+            );
+            $questions = collect($definition['questions'] ?? []);
+
+            if (str_contains($relativePath, 'AllLevels')) {
+                $this->assertCount(72, $questions, $relativePath);
+                foreach (self::LEVELS as $level) {
+                    $this->assertCount(12, $questions->where('level', $level), $relativePath . ': ' . $level);
+                }
+            } else {
+                $this->assertCount(24, $questions, $relativePath);
+                $this->assertCount(24, $questions->where('level', 'A1'), $relativePath . ': A1');
+            }
+
+            foreach ($questions as $question) {
+                $normalized = mb_strtolower((string) preg_replace(
+                    '/[^\pL\pN{}]+/u',
+                    ' ',
+                    preg_replace('/\{a\d+\}/', '{}', (string) ($question['question'] ?? ''))
+                ));
+                $normalized = trim($normalized);
+
+                $this->assertNotSame('', $normalized, (string) ($question['uuid'] ?? $relativePath));
+                $this->assertArrayNotHasKey(
+                    $normalized,
+                    $seenPrompts,
+                    sprintf(
+                        'Duplicate Past Simple prompt: %s and %s.',
+                        $seenPrompts[$normalized] ?? 'unknown',
+                        $question['uuid'] ?? 'unknown'
+                    )
+                );
+                $seenPrompts[$normalized] = $question['uuid'] ?? $relativePath;
+            }
+        }
+
+        $this->assertCount(648, $seenPrompts);
+    }
+
     private function seedPastSimpleStack(): void
     {
         $this->seed([
