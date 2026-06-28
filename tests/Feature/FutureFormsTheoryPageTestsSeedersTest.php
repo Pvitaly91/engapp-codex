@@ -9,6 +9,7 @@ use App\Models\TextBlock;
 use App\Services\SavedTestResolver;
 use App\Services\TheoryPagePromptLinkedTestsService;
 use Database\Seeders\Page_V3\FutureForms\FutureFormsCategorySeeder;
+use Database\Seeders\Page_V3\FutureForms\FutureSimple\FutureSimpleCategorySeeder;
 use Database\Seeders\Page_V3\FutureForms\FutureFormsWillVsBeGoingToTheorySeeder;
 use Database\Seeders\Page_V3\FutureForms\FutureFormsPresentContinuousForFutureTheorySeeder;
 use Database\Seeders\Page_V3\FutureForms\FutureFormsChoosingTheRightFutureFormTheorySeeder;
@@ -108,6 +109,7 @@ class FutureFormsTheoryPageTestsSeedersTest extends TestCase
     {
         $this->seed([
             FutureFormsCategorySeeder::class,
+            FutureSimpleCategorySeeder::class,
             FutureFormsWillVsBeGoingToTheorySeeder::class,
             FutureFormsPresentContinuousForFutureTheorySeeder::class,
             FutureFormsChoosingTheRightFutureFormTheorySeeder::class,
@@ -138,7 +140,7 @@ class FutureFormsTheoryPageTestsSeedersTest extends TestCase
     {
         return [
             'will-vs-be-going-to' => [
-                'route' => '/theory/maibutni-formy/will-vs-be-going-to',
+                'route' => '/theory/maibutni-formy/future-simple/will-vs-be-going-to',
                 'page_slug' => 'will-vs-be-going-to',
                 'direct_slug' => 'polyglot-will-vs-be-going-to-all-levels',
                 'v3_seeder' => WillVsBeGoingToFutureFormsAllLevelsV3Seeder::class,
