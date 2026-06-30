@@ -35,6 +35,31 @@ class VirtualTestRegistry
         return $slug;
     }
 
+    public static function registerStatic(
+        string $slug,
+        string $name,
+        array $filters,
+        ?string $description = null,
+        ?int $totalQuestionsAvailable = null
+    ): string {
+        $slug = collect(explode('/', trim($slug, '/')))
+            ->map(fn (string $segment): string => Str::slug($segment))
+            ->filter()
+            ->implode('/');
+
+        $payload = [
+            'name' => $name,
+            'filters' => $filters,
+            'description' => $description,
+            'total_questions_available' => $totalQuestionsAvailable,
+        ];
+
+        Cache::put(self::cacheKey($slug), $payload, now()->addDays(14));
+        self::rememberSlug($slug);
+
+        return $slug;
+    }
+
     public static function rememberSlug(string $slug): void
     {
         Cache::put(self::accessCacheKey($slug), true, now()->addDays(14));
