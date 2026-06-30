@@ -9,10 +9,9 @@
     $adminDomainSwitcherVisible = $adminDomainSwitcherVisible
         || (bool) data_get(auth()->user(), 'is_admin', false);
 
-    $productionOrigin = 'https://gramlyze.com';
-    $testOrigin = 'http://engapp-codex.loc';
-    $productionHosts = ['gramlyze.com', 'www.gramlyze.com'];
-    $isProductionHost = in_array(strtolower(request()->getHost()), $productionHosts, true);
+    $productionOrigin = (string) config('site-mode.production_origin', 'https://gramlyze.com');
+    $testOrigin = (string) config('site-mode.development_origin', 'http://engapp-codex.loc');
+    $isProductionHost = app(\App\Support\SiteMode::class)->isProduction(request());
     $targetOrigin = $isProductionHost ? $testOrigin : $productionOrigin;
     $targetUrl = $targetOrigin . request()->getRequestUri();
 @endphp
@@ -151,6 +150,7 @@
         class="admin-domain-switcher"
         data-production-origin="{{ $productionOrigin }}"
         data-test-origin="{{ $testOrigin }}"
+        data-is-production="{{ $isProductionHost ? '1' : '0' }}"
     >
         <div class="admin-domain-switcher__inner">
             <div class="admin-domain-switcher__meta">
@@ -181,8 +181,7 @@
             const link = root.querySelector('[data-admin-domain-switcher-link]');
             const currentBadge = root.querySelector('[data-admin-domain-current]');
             const targetLabel = root.querySelector('[data-admin-domain-target]');
-            const productionHosts = ['gramlyze.com', 'www.gramlyze.com'];
-            const isProduction = productionHosts.includes(window.location.hostname.toLowerCase());
+            const isProduction = root.dataset.isProduction === '1';
             const targetOrigin = isProduction ? root.dataset.testOrigin : root.dataset.productionOrigin;
 
             if (currentBadge) {
