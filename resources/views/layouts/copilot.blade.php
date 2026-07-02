@@ -238,10 +238,12 @@
             {{-- Navigation --}}
             <nav class="flex-1 px-3 py-5 space-y-1">
                 <p class="px-3 pb-2 text-[0.65rem] uppercase font-semibold tracking-widest text-[var(--cp-muted)]">{{ __('public.nav.explore') }}</p>
-                <a href="{{ localized_route('catalog.tests-cards') }}" class="cp-nav-item">
-                    <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h10"/></svg>
-                    {{ __('public.nav.catalog') }}
-                </a>
+                @devMode
+                    <a href="{{ localized_route('catalog.tests-cards') }}" class="cp-nav-item">
+                        <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h10"/></svg>
+                        {{ __('public.nav.catalog') }}
+                    </a>
+                @enddevMode
                 <a href="{{ localized_route('copilot.theory.index') }}" class="cp-nav-item">
                     <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
                     {{ __('public.nav.theory') }}
@@ -342,10 +344,12 @@
             </div>
             <nav class="flex-1 overflow-y-auto px-3 py-5 space-y-1">
                 <p class="px-3 pb-2 text-[0.65rem] uppercase font-semibold tracking-widest text-[var(--cp-muted)]">{{ __('public.nav.explore') }}</p>
-                <a href="{{ localized_route('catalog.tests-cards') }}" @click="sidebarOpen=false" class="cp-nav-item">
-                    <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h10"/></svg>
-                    {{ __('public.nav.catalog') }}
-                </a>
+                @devMode
+                    <a href="{{ localized_route('catalog.tests-cards') }}" @click="sidebarOpen=false" class="cp-nav-item">
+                        <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h10"/></svg>
+                        {{ __('public.nav.catalog') }}
+                    </a>
+                @enddevMode
                 <a href="{{ localized_route('copilot.theory.index') }}" @click="sidebarOpen=false" class="cp-nav-item">
                     <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
                     {{ __('public.nav.theory') }}
@@ -423,7 +427,9 @@
                     <div class="space-y-2 text-sm">
                         <h3 class="font-semibold text-[var(--cp-fg)]">{{ __('public.footer.links') }}</h3>
                         <div class="flex flex-col gap-1.5 text-[var(--cp-muted)]">
-                            <a class="hover:text-pilot-600 transition-colors" href="{{ localized_route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
+                            @devMode
+                                <a class="hover:text-pilot-600 transition-colors" href="{{ localized_route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
+                            @enddevMode
                             <a class="hover:text-pilot-600 transition-colors" href="{{ localized_route('copilot.theory.index') }}">{{ __('public.nav.theory') }}</a>
                             <a class="hover:text-pilot-600 transition-colors" href="{{ localized_route('words.test') }}">{{ __('public.nav.words_test') }}</a>
                             <a class="hover:text-pilot-600 transition-colors" href="{{ localized_route('verbs.test') }}">{{ __('public.nav.verbs_test') }}</a>

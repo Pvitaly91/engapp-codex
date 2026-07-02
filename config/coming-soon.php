@@ -50,6 +50,21 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Development-only Bypass Prefixes
+    |--------------------------------------------------------------------------
+    |
+    | These paths bypass Coming Soon only on development hosts. Production
+    | hosts continue to receive the normal Coming Soon response.
+    |
+    */
+
+    'development_bypass_prefixes' => array_values(array_filter(array_map(
+        'trim',
+        explode(',', (string) env('COMING_SOON_DEV_BYPASS_PREFIXES', '/catalog/tests-cards'))
+    ))),
+
+    /*
+    |--------------------------------------------------------------------------
     | Public-ready Saved Test Slugs
     |--------------------------------------------------------------------------
     |

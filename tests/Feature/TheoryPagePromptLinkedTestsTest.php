@@ -420,6 +420,9 @@ class TheoryPagePromptLinkedTestsTest extends TestCase
         $response = $this->get(route('theory.show', [$category->slug, $page->slug]));
 
         $response->assertOk();
+        $response->assertSee('/test/questions-verb-to-be-present/verb-to-be-present"', false);
+        $response->assertSee('/test/questions-verb-to-be-present/verb-to-be-present/a1-a2"', false);
+        $response->assertDontSee('/test/theory-page-'.$page->id.'-', false);
         $response->assertViewHas('topicTests', function ($tests) use ($polyglotSeeder, $standardSeeder, $page) {
             if ($tests->count() !== 6) {
                 return false;
@@ -457,7 +460,9 @@ class TheoryPagePromptLinkedTestsTest extends TestCase
 
                 return ($filters['__meta']['theory_page_mixed_polyglot_test'] ?? false) === true;
             })
+                && $levelPairTests->first()->public_slug === 'questions-verb-to-be-present/verb-to-be-present/a1-a2'
                 && $mixedTest->slug === sprintf('theory-page-%d-mixed-a1-c2', $page->id)
+                && $mixedTest->public_slug === 'questions-verb-to-be-present/verb-to-be-present'
                 && ($mixedFilters['theory_page_mixed_all_levels'] ?? false) === true
                 && ($mixedFilters['theory_page_mixed_questions_per_level'] ?? null) === 14
                 && ($mixedFilters['num_questions'] ?? null) === 22
@@ -469,6 +474,11 @@ class TheoryPagePromptLinkedTestsTest extends TestCase
                     $standardSeeder,
                 ])->sort()->values()->all();
         });
+
+        $this->assertTrue(Str::endsWith(
+            (string) parse_url(route('test.show', ['slug' => 'questions-verb-to-be-present/verb-to-be-present']), PHP_URL_PATH),
+            '/test/questions-verb-to-be-present/verb-to-be-present'
+        ));
     }
 
     public function test_theory_page_prefers_all_level_polyglot_package_over_legacy_course_test(): void

@@ -1,0 +1,2125 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\FutureForms\\FutureSimple\\FutureSimpleTimeExpressionsAllLevelsV3Seeder",
+        "uuid_namespace": "future-simple-time-v3"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Future Forms / Future Simple"
+    },
+    "sources": {
+        "theory_page_future_simple_time": {
+            "name": "Future Simple: Time Expressions"
+        }
+    },
+    "tags": {
+        "future_simple": {
+            "name": "Future Simple",
+            "category": "tense"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "tomorrow_next": {
+            "name": "Tomorrow and Next",
+            "category": "topic"
+        },
+        "soon_later": {
+            "name": "Soon and Later",
+            "category": "topic"
+        },
+        "in_period": {
+            "name": "In + Period",
+            "category": "topic"
+        },
+        "future_marker": {
+            "name": "Future Time Markers",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "future_simple"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "fs-time-v3-a1-01",
+            "question": "I will call you {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "tomorrow",
+                    "options": [
+                        "tomorrow",
+                        "tonight",
+                        "next week"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "tomorrow_next"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tomorrow_next",
+                "level_a1"
+            ],
+            "variants": [
+                "I will call you {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 2,
+            "uuid": "fs-time-v3-a1-02",
+            "question": "You will help at home {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "tonight",
+                    "options": [
+                        "tonight",
+                        "next week",
+                        "soon"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "tomorrow_next"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tomorrow_next",
+                "level_a1"
+            ],
+            "variants": [
+                "You will help at home {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 3,
+            "uuid": "fs-time-v3-a1-03",
+            "question": "She will visit grandma {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "next week",
+                    "options": [
+                        "next week",
+                        "soon",
+                        "later"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "soon_later"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "soon_later",
+                "level_a1"
+            ],
+            "variants": [
+                "She will visit grandma {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 4,
+            "uuid": "fs-time-v3-a1-04",
+            "question": "He will play football {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "soon",
+                    "options": [
+                        "soon",
+                        "later",
+                        "in an hour"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "soon_later"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "soon_later",
+                "level_a1"
+            ],
+            "variants": [
+                "He will play football {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 5,
+            "uuid": "fs-time-v3-a1-05",
+            "question": "We will study English {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "later",
+                    "options": [
+                        "later",
+                        "in an hour",
+                        "on Monday"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "in_period"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_period",
+                "level_a1"
+            ],
+            "variants": [
+                "We will study English {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 6,
+            "uuid": "fs-time-v3-a1-06",
+            "question": "They will cook dinner {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "in an hour",
+                    "options": [
+                        "in an hour",
+                        "on Monday",
+                        "next month"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "in_period"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_period",
+                "level_a1"
+            ],
+            "variants": [
+                "They will cook dinner {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 7,
+            "uuid": "fs-time-v3-a1-07",
+            "question": "My sister {a1} watch the film on Monday",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_a1"
+            ],
+            "variants": [
+                "My sister {a1} watch the film on Monday"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 8,
+            "uuid": "fs-time-v3-a1-08",
+            "question": "Our teacher {a1} clean the room next month",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_a1"
+            ],
+            "variants": [
+                "Our teacher {a1} clean the room next month"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 9,
+            "uuid": "fs-time-v3-a1-09",
+            "question": "The team {a1} wait outside one day",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_a1"
+            ],
+            "variants": [
+                "The team {a1} wait outside one day"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 10,
+            "uuid": "fs-time-v3-a1-10",
+            "question": "The company {a1} work here this evening",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_a1"
+            ],
+            "variants": [
+                "The company {a1} work here this evening"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 11,
+            "uuid": "fs-time-v3-a1-11",
+            "question": "Researchers {a1} travel by train in two days",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_a1"
+            ],
+            "variants": [
+                "Researchers {a1} travel by train in two days"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 12,
+            "uuid": "fs-time-v3-a1-12",
+            "question": "The committee {a1} read this book next year",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_a1"
+            ],
+            "variants": [
+                "The committee {a1} read this book next year"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 13,
+            "uuid": "fs-time-v3-a2-01",
+            "question": "I will finish the report {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "tomorrow morning",
+                    "options": [
+                        "tomorrow morning",
+                        "later today",
+                        "next weekend"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "tomorrow_next"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tomorrow_next",
+                "level_a2"
+            ],
+            "variants": [
+                "I will finish the report {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 14,
+            "uuid": "fs-time-v3-a2-02",
+            "question": "You will meet our friends {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "later today",
+                    "options": [
+                        "later today",
+                        "next weekend",
+                        "very soon"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "tomorrow_next"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tomorrow_next",
+                "level_a2"
+            ],
+            "variants": [
+                "You will meet our friends {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 15,
+            "uuid": "fs-time-v3-a2-03",
+            "question": "She will repair the bicycle {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "next weekend",
+                    "options": [
+                        "next weekend",
+                        "very soon",
+                        "in a few minutes"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "soon_later"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "soon_later",
+                "level_a2"
+            ],
+            "variants": [
+                "She will repair the bicycle {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 16,
+            "uuid": "fs-time-v3-a2-04",
+            "question": "He will join the course {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "very soon",
+                    "options": [
+                        "very soon",
+                        "in a few minutes",
+                        "by then"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "soon_later"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "soon_later",
+                "level_a2"
+            ],
+            "variants": [
+                "He will join the course {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 17,
+            "uuid": "fs-time-v3-a2-05",
+            "question": "We will explain the rule {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "in a few minutes",
+                    "options": [
+                        "in a few minutes",
+                        "by then",
+                        "on Friday"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "in_period"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_period",
+                "level_a2"
+            ],
+            "variants": [
+                "We will explain the rule {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 18,
+            "uuid": "fs-time-v3-a2-06",
+            "question": "They will carry the bags {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "by then",
+                    "options": [
+                        "by then",
+                        "on Friday",
+                        "next summer"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "in_period"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_period",
+                "level_a2"
+            ],
+            "variants": [
+                "They will carry the bags {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 19,
+            "uuid": "fs-time-v3-a2-07",
+            "question": "My sister {a1} send the email on Friday",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_a2"
+            ],
+            "variants": [
+                "My sister {a1} send the email on Friday"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 20,
+            "uuid": "fs-time-v3-a2-08",
+            "question": "Our teacher {a1} organize the trip next summer",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_a2"
+            ],
+            "variants": [
+                "Our teacher {a1} organize the trip next summer"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 21,
+            "uuid": "fs-time-v3-a2-09",
+            "question": "The team {a1} choose another option in three weeks",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_a2"
+            ],
+            "variants": [
+                "The team {a1} choose another option in three weeks"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 22,
+            "uuid": "fs-time-v3-a2-10",
+            "question": "The company {a1} discuss the plan this afternoon",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_a2"
+            ],
+            "variants": [
+                "The company {a1} discuss the plan this afternoon"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 23,
+            "uuid": "fs-time-v3-a2-11",
+            "question": "Researchers {a1} improve the result before long",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_a2"
+            ],
+            "variants": [
+                "Researchers {a1} improve the result before long"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 24,
+            "uuid": "fs-time-v3-a2-12",
+            "question": "The committee {a1} return the book next term",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_a2"
+            ],
+            "variants": [
+                "The committee {a1} return the book next term"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 25,
+            "uuid": "fs-time-v3-b1-01",
+            "question": "I will prepare the presentation {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "by tomorrow",
+                    "options": [
+                        "by tomorrow",
+                        "later this week",
+                        "next quarter"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "tomorrow_next"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tomorrow_next",
+                "level_b1"
+            ],
+            "variants": [
+                "I will prepare the presentation {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 26,
+            "uuid": "fs-time-v3-b1-02",
+            "question": "You will support the proposal {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "later this week",
+                    "options": [
+                        "later this week",
+                        "next quarter",
+                        "in the near future"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "tomorrow_next"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tomorrow_next",
+                "level_b1"
+            ],
+            "variants": [
+                "You will support the proposal {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 27,
+            "uuid": "fs-time-v3-b1-03",
+            "question": "She will review the documents {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "next quarter",
+                    "options": [
+                        "next quarter",
+                        "in the near future",
+                        "within an hour"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "soon_later"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "soon_later",
+                "level_b1"
+            ],
+            "variants": [
+                "She will review the documents {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 28,
+            "uuid": "fs-time-v3-b1-04",
+            "question": "He will attend the workshop {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "in the near future",
+                    "options": [
+                        "in the near future",
+                        "within an hour",
+                        "by the deadline"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "soon_later"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "soon_later",
+                "level_b1"
+            ],
+            "variants": [
+                "He will attend the workshop {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 29,
+            "uuid": "fs-time-v3-b1-05",
+            "question": "We will solve the problem {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "within an hour",
+                    "options": [
+                        "within an hour",
+                        "by the deadline",
+                        "on the following day"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "in_period"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_period",
+                "level_b1"
+            ],
+            "variants": [
+                "We will solve the problem {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 30,
+            "uuid": "fs-time-v3-b1-06",
+            "question": "They will contact the manager {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "by the deadline",
+                    "options": [
+                        "by the deadline",
+                        "on the following day",
+                        "next academic year"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "in_period"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_period",
+                "level_b1"
+            ],
+            "variants": [
+                "They will contact the manager {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 31,
+            "uuid": "fs-time-v3-b1-07",
+            "question": "My sister {a1} update the schedule on the following day",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_b1"
+            ],
+            "variants": [
+                "My sister {a1} update the schedule on the following day"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 32,
+            "uuid": "fs-time-v3-b1-08",
+            "question": "Our teacher {a1} compare the results next academic year",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_b1"
+            ],
+            "variants": [
+                "Our teacher {a1} compare the results next academic year"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 33,
+            "uuid": "fs-time-v3-b1-09",
+            "question": "The team {a1} lead the discussion in several months",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_b1"
+            ],
+            "variants": [
+                "The team {a1} lead the discussion in several months"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 34,
+            "uuid": "fs-time-v3-b1-10",
+            "question": "The company {a1} expand the service towards the evening",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_b1"
+            ],
+            "variants": [
+                "The company {a1} expand the service towards the evening"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 35,
+            "uuid": "fs-time-v3-b1-11",
+            "question": "Researchers {a1} publish the findings eventually",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_b1"
+            ],
+            "variants": [
+                "Researchers {a1} publish the findings eventually"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 36,
+            "uuid": "fs-time-v3-b1-12",
+            "question": "The committee {a1} evaluate the evidence over the coming year",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_b1"
+            ],
+            "variants": [
+                "The committee {a1} evaluate the evidence over the coming year"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 37,
+            "uuid": "fs-time-v3-b2-01",
+            "question": "I will revise the strategy {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "by next Monday",
+                    "options": [
+                        "by next Monday",
+                        "later in the process",
+                        "during the next phase"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "tomorrow_next"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tomorrow_next",
+                "level_b2"
+            ],
+            "variants": [
+                "I will revise the strategy {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 38,
+            "uuid": "fs-time-v3-b2-02",
+            "question": "You will address the concern {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "later in the process",
+                    "options": [
+                        "later in the process",
+                        "during the next phase",
+                        "in the foreseeable future"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "tomorrow_next"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tomorrow_next",
+                "level_b2"
+            ],
+            "variants": [
+                "You will address the concern {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 39,
+            "uuid": "fs-time-v3-b2-03",
+            "question": "She will negotiate the contract {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "during the next phase",
+                    "options": [
+                        "during the next phase",
+                        "in the foreseeable future",
+                        "within two working days"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "soon_later"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "soon_later",
+                "level_b2"
+            ],
+            "variants": [
+                "She will negotiate the contract {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 40,
+            "uuid": "fs-time-v3-b2-04",
+            "question": "He will implement the reform {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "in the foreseeable future",
+                    "options": [
+                        "in the foreseeable future",
+                        "within two working days",
+                        "before the final review"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "soon_later"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "soon_later",
+                "level_b2"
+            ],
+            "variants": [
+                "He will implement the reform {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 41,
+            "uuid": "fs-time-v3-b2-05",
+            "question": "We will clarify the requirement {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "within two working days",
+                    "options": [
+                        "within two working days",
+                        "before the final review",
+                        "at the next meeting"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "in_period"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_period",
+                "level_b2"
+            ],
+            "variants": [
+                "We will clarify the requirement {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 42,
+            "uuid": "fs-time-v3-b2-06",
+            "question": "They will monitor the process {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "before the final review",
+                    "options": [
+                        "before the final review",
+                        "at the next meeting",
+                        "over the next decade"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "in_period"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_period",
+                "level_b2"
+            ],
+            "variants": [
+                "They will monitor the process {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 43,
+            "uuid": "fs-time-v3-b2-07",
+            "question": "My sister {a1} allocate the resources at the next meeting",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_b2"
+            ],
+            "variants": [
+                "My sister {a1} allocate the resources at the next meeting"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 44,
+            "uuid": "fs-time-v3-b2-08",
+            "question": "Our teacher {a1} assess the impact over the next decade",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_b2"
+            ],
+            "variants": [
+                "Our teacher {a1} assess the impact over the next decade"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 45,
+            "uuid": "fs-time-v3-b2-09",
+            "question": "The team {a1} coordinate the response in due course",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_b2"
+            ],
+            "variants": [
+                "The team {a1} coordinate the response in due course"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 46,
+            "uuid": "fs-time-v3-b2-10",
+            "question": "The company {a1} finance the project towards the end of July",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_b2"
+            ],
+            "variants": [
+                "The company {a1} finance the project towards the end of July"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 47,
+            "uuid": "fs-time-v3-b2-11",
+            "question": "Researchers {a1} verify the assumption sooner or later",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_b2"
+            ],
+            "variants": [
+                "Researchers {a1} verify the assumption sooner or later"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 48,
+            "uuid": "fs-time-v3-b2-12",
+            "question": "The committee {a1} recommend an alternative throughout the coming cycle",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_b2"
+            ],
+            "variants": [
+                "The committee {a1} recommend an alternative throughout the coming cycle"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 49,
+            "uuid": "fs-time-v3-c1-01",
+            "question": "I will reconsider the methodology {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "by the end of the week",
+                    "options": [
+                        "by the end of the week",
+                        "at a later stage",
+                        "during the forthcoming session"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "tomorrow_next"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tomorrow_next",
+                "level_c1"
+            ],
+            "variants": [
+                "I will reconsider the methodology {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 50,
+            "uuid": "fs-time-v3-c1-02",
+            "question": "You will challenge the interpretation {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "at a later stage",
+                    "options": [
+                        "at a later stage",
+                        "during the forthcoming session",
+                        "in the medium term"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "tomorrow_next"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tomorrow_next",
+                "level_c1"
+            ],
+            "variants": [
+                "You will challenge the interpretation {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 51,
+            "uuid": "fs-time-v3-c1-03",
+            "question": "She will oversee the transition {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "during the forthcoming session",
+                    "options": [
+                        "during the forthcoming session",
+                        "in the medium term",
+                        "within the stipulated period"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "soon_later"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "soon_later",
+                "level_c1"
+            ],
+            "variants": [
+                "She will oversee the transition {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 52,
+            "uuid": "fs-time-v3-c1-04",
+            "question": "He will mediate the dispute {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "in the medium term",
+                    "options": [
+                        "in the medium term",
+                        "within the stipulated period",
+                        "before the mandate expires"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "soon_later"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "soon_later",
+                "level_c1"
+            ],
+            "variants": [
+                "He will mediate the dispute {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 53,
+            "uuid": "fs-time-v3-c1-05",
+            "question": "We will articulate the objection {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "within the stipulated period",
+                    "options": [
+                        "within the stipulated period",
+                        "before the mandate expires",
+                        "at the subsequent hearing"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "in_period"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_period",
+                "level_c1"
+            ],
+            "variants": [
+                "We will articulate the objection {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 54,
+            "uuid": "fs-time-v3-c1-06",
+            "question": "They will scrutinize the evidence {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "before the mandate expires",
+                    "options": [
+                        "before the mandate expires",
+                        "at the subsequent hearing",
+                        "over the coming decades"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "in_period"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_period",
+                "level_c1"
+            ],
+            "variants": [
+                "They will scrutinize the evidence {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 55,
+            "uuid": "fs-time-v3-c1-07",
+            "question": "My sister {a1} reconcile the accounts at the subsequent hearing",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_c1"
+            ],
+            "variants": [
+                "My sister {a1} reconcile the accounts at the subsequent hearing"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 56,
+            "uuid": "fs-time-v3-c1-08",
+            "question": "Our teacher {a1} substantiate the claim over the coming decades",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_c1"
+            ],
+            "variants": [
+                "Our teacher {a1} substantiate the claim over the coming decades"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 57,
+            "uuid": "fs-time-v3-c1-09",
+            "question": "The team {a1} facilitate the negotiations in due time",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_c1"
+            ],
+            "variants": [
+                "The team {a1} facilitate the negotiations in due time"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 58,
+            "uuid": "fs-time-v3-c1-10",
+            "question": "The company {a1} diversify the portfolio towards the close of negotiations",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_c1"
+            ],
+            "variants": [
+                "The company {a1} diversify the portfolio towards the close of negotiations"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 59,
+            "uuid": "fs-time-v3-c1-11",
+            "question": "Researchers {a1} replicate the experiment ultimately",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_c1"
+            ],
+            "variants": [
+                "Researchers {a1} replicate the experiment ultimately"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 60,
+            "uuid": "fs-time-v3-c1-12",
+            "question": "The committee {a1} amend the recommendation throughout the next reporting period",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_c1"
+            ],
+            "variants": [
+                "The committee {a1} amend the recommendation throughout the next reporting period"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 61,
+            "uuid": "fs-time-v3-c2-01",
+            "question": "I will reassess the historical narrative {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "by the conclusion of proceedings",
+                    "options": [
+                        "by the conclusion of proceedings",
+                        "at some later juncture",
+                        "during the ensuing deliberations"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "tomorrow_next"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tomorrow_next",
+                "level_c2"
+            ],
+            "variants": [
+                "I will reassess the historical narrative {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 62,
+            "uuid": "fs-time-v3-c2-02",
+            "question": "You will contest the underlying premise {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "at some later juncture",
+                    "options": [
+                        "at some later juncture",
+                        "during the ensuing deliberations",
+                        "in the longer term"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "tomorrow_next"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tomorrow_next",
+                "level_c2"
+            ],
+            "variants": [
+                "You will contest the underlying premise {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 63,
+            "uuid": "fs-time-v3-c2-03",
+            "question": "She will safeguard institutional autonomy {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "during the ensuing deliberations",
+                    "options": [
+                        "during the ensuing deliberations",
+                        "in the longer term",
+                        "within the prescribed timeframe"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "soon_later"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "soon_later",
+                "level_c2"
+            ],
+            "variants": [
+                "She will safeguard institutional autonomy {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 64,
+            "uuid": "fs-time-v3-c2-04",
+            "question": "He will arbitrate the constitutional dispute {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "in the longer term",
+                    "options": [
+                        "in the longer term",
+                        "within the prescribed timeframe",
+                        "before the convention reconvenes"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "soon_later"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "soon_later",
+                "level_c2"
+            ],
+            "variants": [
+                "He will arbitrate the constitutional dispute {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 65,
+            "uuid": "fs-time-v3-c2-05",
+            "question": "We will elucidate the conceptual distinction {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "within the prescribed timeframe",
+                    "options": [
+                        "within the prescribed timeframe",
+                        "before the convention reconvenes",
+                        "at the subsequent plenary session"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "in_period"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_period",
+                "level_c2"
+            ],
+            "variants": [
+                "We will elucidate the conceptual distinction {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 66,
+            "uuid": "fs-time-v3-c2-06",
+            "question": "They will interrogate the prevailing orthodoxy {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "before the convention reconvenes",
+                    "options": [
+                        "before the convention reconvenes",
+                        "at the subsequent plenary session",
+                        "over generations to come"
+                    ],
+                    "verb_hint": "Оберіть часовий вираз, який логічно завершує речення.",
+                    "gap_tags": [
+                        "in_period"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_period",
+                "level_c2"
+            ],
+            "variants": [
+                "They will interrogate the prevailing orthodoxy {a1}"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 67,
+            "uuid": "fs-time-v3-c2-07",
+            "question": "My sister {a1} redress the structural imbalance at the subsequent plenary session",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_c2"
+            ],
+            "variants": [
+                "My sister {a1} redress the structural imbalance at the subsequent plenary session"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 68,
+            "uuid": "fs-time-v3-c2-08",
+            "question": "Our teacher {a1} corroborate the archival evidence over generations to come",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_c2"
+            ],
+            "variants": [
+                "Our teacher {a1} corroborate the archival evidence over generations to come"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 69,
+            "uuid": "fs-time-v3-c2-09",
+            "question": "The team {a1} orchestrate the diplomatic initiative in the fullness of time",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_c2"
+            ],
+            "variants": [
+                "The team {a1} orchestrate the diplomatic initiative in the fullness of time"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 70,
+            "uuid": "fs-time-v3-c2-10",
+            "question": "The company {a1} underwrite the long-term programme towards the culmination of the inquiry",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_c2"
+            ],
+            "variants": [
+                "The company {a1} underwrite the long-term programme towards the culmination of the inquiry"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 71,
+            "uuid": "fs-time-v3-c2-11",
+            "question": "Researchers {a1} recontextualize the findings eventually",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_c2"
+            ],
+            "variants": [
+                "Researchers {a1} recontextualize the findings eventually"
+            ],
+            "source": "theory_page_future_simple_time"
+        },
+        {
+            "id": 72,
+            "uuid": "fs-time-v3-c2-12",
+            "question": "The committee {a1} qualify the final judgment throughout the forthcoming constitutional cycle",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Маркер часу вказує на майбутню дію — оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "future_marker"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_marker",
+                "level_c2"
+            ],
+            "variants": [
+                "The committee {a1} qualify the final judgment throughout the forthcoming constitutional cycle"
+            ],
+            "source": "theory_page_future_simple_time"
+        }
+    ],
+    "saved_test": {
+        "uuid": "fs-time-v3-all-levels",
+        "slug": "future-simple-time-all-levels-v3",
+        "name": "Future Simple: Time Expressions: V3 All Levels",
+        "description": "Page-local V3 package for Future Simple: Time Expressions with A1-C2 coverage.",
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\FutureForms\\FutureSimple\\FutureSimpleTimeExpressionsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "future-simple-time-expressions",
+                    "title": "Future Simple: Time Expressions",
+                    "category_slug_path": "maibutni-formy/future-simple",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureSimple\\FutureSimpleTimeExpressionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/maibutni-formy/future-simple/future-simple-time-expressions"
+                }
+            }
+        }
+    }
+}

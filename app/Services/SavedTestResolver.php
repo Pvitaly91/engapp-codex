@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Models\Page;
+use App\Models\PageCategory;
 use App\Models\Question;
 use App\Models\SavedGrammarTest;
 use App\Models\Test;
@@ -21,6 +23,7 @@ class SavedTestResolver
 
     public function __construct(
         private GrammarTestFilterService $filterService,
+        private TheoryPagePromptLinkedTestsService $theoryPageTests,
     ) {}
 
     public function resolve(string $slug): ResolvedSavedTest
@@ -61,6 +64,11 @@ class SavedTestResolver
             return $virtualTest;
         }
 
+        $virtualTest = $this->resolveFromTheoryPageSlug($slug);
+        if ($virtualTest) {
+            return $virtualTest;
+        }
+
         // Try to resolve from query parameters (legacy virtual/filter-based links)
         $virtualTest = $this->resolveFromQueryParams($slug);
         if ($virtualTest) {
@@ -95,6 +103,60 @@ class SavedTestResolver
             $filters,
             $description,
             is_numeric($totalQuestionsAvailable) ? (int) $totalQuestionsAvailable : 0
+        );
+    }
+
+    private function resolveFromTheoryPageSlug(string $slug): ?ResolvedSavedTest
+    {
+        $segments = array_values(array_filter(explode('/', trim($slug, '/')), 'strlen'));
+
+        if (count($segments) < 2 || count($segments) > 3) {
+            return null;
+        }
+
+        [$topicSlug, $pageSegment] = $segments;
+        $category = PageCategory::query()->where('slug', $topicSlug)->first();
+
+        if (! $category) {
+            return null;
+        }
+
+        $candidateSlugs = array_values(array_unique([
+            $topicSlug.'-'.$pageSegment,
+            $pageSegment,
+        ]));
+
+        $pages = Page::query()
+            ->with('category')
+            ->where('page_category_id', $category->getKey())
+            ->whereIn('slug', $candidateSlugs)
+            ->get()
+            ->keyBy('slug');
+
+        $page = collect($candidateSlugs)
+            ->map(fn (string $candidate) => $pages->get($candidate))
+            ->filter()
+            ->first();
+
+        if (! $page instanceof Page) {
+            return null;
+        }
+
+        $test = $this->theoryPageTests
+            ->buildForPage($page)
+            ->first(fn (mixed $candidate): bool => $candidate instanceof VirtualSavedTest
+                && (string) $candidate->getAttribute('public_slug') === trim($slug, '/'));
+
+        if (! $test instanceof VirtualSavedTest) {
+            return null;
+        }
+
+        return $this->resolveVirtualTest(
+            trim($slug, '/'),
+            $test->name,
+            $test->filters,
+            $test->description,
+            $test->totalQuestionsAvailable
         );
     }
 

@@ -10,6 +10,7 @@ use App\Support\ComposeModeEligibility;
 use App\Support\Database\JsonTestSeeder;
 use App\Support\PromptGeneratorFilterNormalizer;
 use App\Support\SentenceBuilderBranding;
+use App\Support\TheoryPageTestSlug;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
@@ -455,6 +456,7 @@ class TheoryPagePromptLinkedTestsService
                 'theory_page_mixed_all_levels_test' => true,
                 'theory_page_mixed_questions_per_level' => self::MIXED_QUESTIONS_PER_LEVEL,
                 'theory_page_mixed_polyglot_test' => $containsComposeQuestions && $containsStandardQuestions,
+                'theory_page_static_slug' => true,
             ]
         );
 
@@ -462,7 +464,9 @@ class TheoryPagePromptLinkedTestsService
             sprintf('%s (Mixed A1-C2)', $page->title),
             sprintf('theory-page-%d-mixed-a1-c2', (int) $page->getKey()),
             $filters
-        ))->setTotalQuestionsAvailable($questionCount);
+        ))
+            ->setPublicSlug(TheoryPageTestSlug::forPage($page))
+            ->setTotalQuestionsAvailable($questionCount);
     }
 
     protected function mixedAllLevelsQuestionCount(Collection $questionRows, array $levels): int
@@ -534,6 +538,7 @@ class TheoryPagePromptLinkedTestsService
                 'aggregated_theory_page_test' => true,
                 'theory_page_id' => (int) $page->getKey(),
                 'theory_page_mixed_polyglot_test' => $isMixedPolyglotTest,
+                'theory_page_static_slug' => true,
             ]
         );
 
@@ -541,7 +546,9 @@ class TheoryPagePromptLinkedTestsService
             sprintf('%s (%s-%s)', $page->title, $levelFrom, $levelTo),
             sprintf('theory-page-%d-%s-%s', (int) $page->getKey(), strtolower($levelFrom), strtolower($levelTo)),
             $filters
-        ))->setTotalQuestionsAvailable($availableCount);
+        ))
+            ->setPublicSlug(TheoryPageTestSlug::forLevelPair($page, $levelFrom, $levelTo))
+            ->setTotalQuestionsAvailable($availableCount);
     }
 
     protected function buildCategoryLevelTest(PageCategory $category, Collection $pageGroups, string $level): ?VirtualSavedTest

@@ -73,6 +73,14 @@
         ],
     ];
 
+    if (app(\App\Support\SiteMode::class)->isProduction()) {
+        $catalogUrl = localized_route('catalog.tests-cards');
+        $pathCards = array_values(array_filter(
+            $pathCards,
+            fn (array $card): bool => $card['href'] !== $catalogUrl
+        ));
+    }
+
     $polyglotCourseCards = [
         [
             'href' => localized_route('courses.show', ['courseSlug' => 'sentence-builder-english-a1'], false),
@@ -118,9 +126,11 @@
                 </p>
 
                 <div class="mt-8 flex flex-col gap-4 sm:flex-row">
-                    <a href="{{ localized_route('catalog.tests-cards') }}" class="rounded-2xl bg-ocean px-6 py-4 text-center text-base font-extrabold text-white shadow-card transition hover:bg-[#245592]">
-                        {{ __('public.home.to_catalog') }}
-                    </a>
+                    @devMode
+                        <a href="{{ localized_route('catalog.tests-cards') }}" class="rounded-2xl bg-ocean px-6 py-4 text-center text-base font-extrabold text-white shadow-card transition hover:bg-[#245592]">
+                            {{ __('public.home.to_catalog') }}
+                        </a>
+                    @enddevMode
                     <a href="{{ localized_route('theory.index') }}" class="rounded-2xl bg-amber px-6 py-4 text-center text-base font-extrabold text-white shadow-card transition hover:bg-[#df8a24]">
                         {{ __('public.home.explore_theory') }}
                     </a>

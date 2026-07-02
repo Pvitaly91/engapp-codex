@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 /**
  * A virtual (non-persisted) representation of a grammar test.
- * 
+ *
  * This class mimics SavedGrammarTest but doesn't save to the database.
  * It's used for auto-generated tests on pages that should be displayed
  * based on filters without persisting to the database.
@@ -15,15 +15,23 @@ use Illuminate\Support\Str;
 class VirtualSavedTest
 {
     public readonly string $uuid;
+
     public readonly string $name;
+
     public readonly string $slug;
+
     public readonly array $filters;
+
     public readonly ?string $description;
+
     public readonly ?int $id;
+
     public readonly bool $exists;
 
     /** @var int Total questions available for this test */
     public int $totalQuestionsAvailable = 0;
+
+    private ?string $publicSlug = null;
 
     public function __construct(
         string $name,
@@ -75,6 +83,14 @@ class VirtualSavedTest
     public function setTotalQuestionsAvailable(int $count): self
     {
         $this->totalQuestionsAvailable = $count;
+
+        return $this;
+    }
+
+    public function setPublicSlug(string $slug): self
+    {
+        $this->publicSlug = trim($slug, '/');
+
         return $this;
     }
 
@@ -85,14 +101,15 @@ class VirtualSavedTest
     {
         // Whitelist of allowed attributes for Eloquent-style access
         $allowedAttributes = [
-            'total_questions_available' => fn() => $this->totalQuestionsAvailable,
-            'uuid' => fn() => $this->uuid,
-            'name' => fn() => $this->name,
-            'slug' => fn() => $this->slug,
-            'filters' => fn() => $this->filters,
-            'description' => fn() => $this->description,
-            'id' => fn() => $this->id,
-            'exists' => fn() => $this->exists,
+            'total_questions_available' => fn () => $this->totalQuestionsAvailable,
+            'uuid' => fn () => $this->uuid,
+            'name' => fn () => $this->name,
+            'slug' => fn () => $this->slug,
+            'public_slug' => fn () => $this->publicSlug,
+            'filters' => fn () => $this->filters,
+            'description' => fn () => $this->description,
+            'id' => fn () => $this->id,
+            'exists' => fn () => $this->exists,
         ];
 
         if (isset($allowedAttributes[$key])) {
@@ -119,6 +136,10 @@ class VirtualSavedTest
             return $this->getQuestionLinksAttribute();
         }
 
+        if ($name === 'public_slug') {
+            return $this->publicSlug;
+        }
+
         return null;
     }
 
@@ -127,6 +148,10 @@ class VirtualSavedTest
      */
     public function __isset(string $name): bool
     {
+        if ($name === 'public_slug') {
+            return $this->publicSlug !== null;
+        }
+
         return in_array($name, ['uuid', 'name', 'slug', 'filters', 'description', 'id', 'exists', 'questionLinks', 'totalQuestionsAvailable'], true);
     }
 

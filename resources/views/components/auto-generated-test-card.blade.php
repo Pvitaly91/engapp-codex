@@ -19,7 +19,10 @@
     
     // Build URL with server-side registered filters for virtual tests.
     if ($isVirtual) {
-        $publicSlug = \App\Support\VirtualTestRegistry::register(
+        $registerMethod = data_get($filters, '__meta.theory_page_static_slug') === true
+            ? 'registerStatic'
+            : 'register';
+        $publicSlug = \App\Support\VirtualTestRegistry::{$registerMethod}(
             $publicSlug,
             $publicName,
             is_array($filters) ? $filters : [],

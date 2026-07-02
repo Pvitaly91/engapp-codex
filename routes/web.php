@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CopilotTheoryController;
 use App\Http\Controllers\CourseCatalogController;
+use App\Http\Controllers\DevSiteModeController;
 use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HealthCheckController;
 use App\Http\Controllers\HomeController;
@@ -12,11 +13,13 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PolyglotCourseController;
 use App\Http\Controllers\PolyglotProgressController;
 use App\Http\Controllers\SiteSearchController;
-use App\Http\Controllers\TheoryCourseController;
 use App\Http\Controllers\TheoryController;
+use App\Http\Controllers\TheoryCourseController;
 use App\Http\Controllers\WordSearchController;
 use App\Http\Controllers\WordsTestController;
 use App\Modules\LanguageManager\Services\LocaleService;
+use App\Support\SiteMode;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,16 +39,26 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/health', HealthCheckController::class)->name('health');
 
+Route::get('/dev/site-mode', DevSiteModeController::class)
+    ->middleware('site.dev:mode-inspector')
+    ->name('dev.site-mode');
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Public locale switching route
-Route::get('/set-locale', function (\Illuminate\Http\Request $request) {
+Route::get('/set-locale', function (Request $request) {
     $lang = $request->input('lang', 'uk');
 
-    $supportedLocales = LocaleService::getSupportedLocaleCodes();
-    $defaultLocale = LocaleService::getDefaultLocaleCode();
+    $siteMode = app(SiteMode::class);
+    $supportedLocales = $siteMode->availableLocales(
+        LocaleService::getSupportedLocaleCodes(),
+        $request
+    );
+    $defaultLocale = $siteMode->isProduction($request)
+        ? $siteMode->defaultProductionLocale()
+        : LocaleService::getDefaultLocaleCode();
 
-    if (! in_array($lang, $supportedLocales)) {
+    if (! in_array($lang, $supportedLocales, true)) {
         $lang = $defaultLocale;
     }
     session(['locale' => $lang]);
@@ -143,18 +156,18 @@ Route::get('/copilot/theory/{categoryPath}/{pageSlug}', [CopilotTheoryController
 Route::get('/words', [WordSearchController::class, 'search'])->name('words.search');
 
 Route::prefix('test')->group(function () {
-    Route::post('/{slug}/state', [GrammarTestController::class, 'storeSavedTestJsState'])->name('test.js.state');
-    Route::get('/{slug}/questions', [GrammarTestController::class, 'fetchSavedTestJsQuestions'])->name('test.js.questions');
-    Route::get('/{slug}', [NewDesignTestController::class, 'showSavedTestJsNewDesign'])->name('test.show');
-    Route::get('/{slug}/step', [NewDesignTestController::class, 'showSavedTestJsStepNewDesign'])->name('test.step');
-    Route::get('/{slug}/step/input', [NewDesignTestController::class, 'showSavedTestJsStepInputNewDesign'])->name('test.step-input');
-    Route::get('/{slug}/step/manual', [NewDesignTestController::class, 'showSavedTestJsStepManualNewDesign'])->name('test.step-manual');
-    Route::get('/{slug}/step/select', [NewDesignTestController::class, 'showSavedTestJsStepSelectNewDesign'])->name('test.step-select');
-    Route::get('/{slug}/step/compose', [NewDesignTestController::class, 'showSavedTestJsStepComposeNewDesign'])->name('test.step-compose');
-    Route::get('/{slug}/select', [NewDesignTestController::class, 'showSavedTestJsSelectNewDesign'])->name('test.select');
-    Route::get('/{slug}/input', [NewDesignTestController::class, 'showSavedTestJsInputNewDesign'])->name('test.input');
-    Route::get('/{slug}/manual', [NewDesignTestController::class, 'showSavedTestJsManualNewDesign'])->name('test.manual');
-    Route::get('/{slug}/drag-drop', [NewDesignTestController::class, 'showSavedTestJsDragDropNewDesign'])->name('test.drag-drop');
-    Route::get('/{slug}/match', [NewDesignTestController::class, 'showSavedTestJsMatchNewDesign'])->name('test.match');
-    Route::get('/{slug}/dialogue', [NewDesignTestController::class, 'showSavedTestJsDialogueNewDesign'])->name('test.dialogue');
+    Route::post('/{slug}/state', [GrammarTestController::class, 'storeSavedTestJsState'])->where('slug', '.*')->name('test.js.state');
+    Route::get('/{slug}/questions', [GrammarTestController::class, 'fetchSavedTestJsQuestions'])->where('slug', '.*')->name('test.js.questions');
+    Route::get('/{slug}/step/input', [NewDesignTestController::class, 'showSavedTestJsStepInputNewDesign'])->where('slug', '.*')->name('test.step-input');
+    Route::get('/{slug}/step/manual', [NewDesignTestController::class, 'showSavedTestJsStepManualNewDesign'])->where('slug', '.*')->name('test.step-manual');
+    Route::get('/{slug}/step/select', [NewDesignTestController::class, 'showSavedTestJsStepSelectNewDesign'])->where('slug', '.*')->name('test.step-select');
+    Route::get('/{slug}/step/compose', [NewDesignTestController::class, 'showSavedTestJsStepComposeNewDesign'])->where('slug', '.*')->name('test.step-compose');
+    Route::get('/{slug}/step', [NewDesignTestController::class, 'showSavedTestJsStepNewDesign'])->where('slug', '.*')->name('test.step');
+    Route::get('/{slug}/select', [NewDesignTestController::class, 'showSavedTestJsSelectNewDesign'])->where('slug', '.*')->name('test.select');
+    Route::get('/{slug}/input', [NewDesignTestController::class, 'showSavedTestJsInputNewDesign'])->where('slug', '.*')->name('test.input');
+    Route::get('/{slug}/manual', [NewDesignTestController::class, 'showSavedTestJsManualNewDesign'])->where('slug', '.*')->name('test.manual');
+    Route::get('/{slug}/drag-drop', [NewDesignTestController::class, 'showSavedTestJsDragDropNewDesign'])->where('slug', '.*')->name('test.drag-drop');
+    Route::get('/{slug}/match', [NewDesignTestController::class, 'showSavedTestJsMatchNewDesign'])->where('slug', '.*')->name('test.match');
+    Route::get('/{slug}/dialogue', [NewDesignTestController::class, 'showSavedTestJsDialogueNewDesign'])->where('slug', '.*')->name('test.dialogue');
+    Route::get('/{slug}', [NewDesignTestController::class, 'showSavedTestJsNewDesign'])->where('slug', '.*')->name('test.show');
 });

@@ -26,6 +26,7 @@ use Database\Seeders\Page_V3\Articles\SomeAny\SomeAnyThingsTheorySeeder;
 use Database\Seeders\Page_V3\CommonMistakes\CommonMistakesArticlesTheorySeeder;
 use Database\Seeders\Page_V3\CommonMistakes\CommonMistakesCategorySeeder;
 use Database\Seeders\Page_V3\FutureForms\FutureFormsCategorySeeder;
+use Database\Seeders\Page_V3\FutureForms\FutureSimple\FutureSimpleCategorySeeder;
 use Database\Seeders\Page_V3\FutureForms\FutureContinuous\FutureContinuousCategorySeeder;
 use Database\Seeders\Page_V3\FutureForms\FutureContinuous\FutureContinuousFormsTheorySeeder;
 use Database\Seeders\Page_V3\FutureForms\FuturePerfect\FuturePerfectCategorySeeder;
@@ -231,7 +232,7 @@ class PolyglotTheoryPageTest extends TestCase
         $presentContinuousResponse = $this->get(route('theory.show', ['present-continuous', $presentContinuousPage->slug]));
         $pastToBeResponse = $this->get(route('theory.show', ['verb-to-be', $pastToBePage->slug]));
         $pastSimpleRegularResponse = $this->get(route('theory.show', ['past-simple', $pastSimpleRegularPage->slug]));
-        $futureSimpleResponse = $this->get(route('theory.show', ['maibutni-formy', $futureSimplePage->slug]));
+        $futureSimpleResponse = $this->get(route('theory.show', ['maibutni-formy/future-simple', $futureSimplePage->slug]));
         $firstConditionalResponse = $this->get(route('theory.show', ['conditionals', $firstConditionalPage->slug]));
         $articlesResponse = $this->get(route('theory.show', ['common-mistakes', $articlesPage->slug]));
         $someAnyResponse = $this->get(route('theory.show', ['some-any', $someAnyPage->slug]));
@@ -1367,6 +1368,7 @@ class PolyglotTheoryPageTest extends TestCase
         $this->seed(PresentSimpleCategorySeeder::class);
         $this->seed(ModalVerbsCategorySeeder::class);
         $this->seed(FutureFormsCategorySeeder::class);
+        $this->seed(FutureSimpleCategorySeeder::class);
         $this->seed(FutureContinuousCategorySeeder::class);
         $this->seed(FuturePerfectCategorySeeder::class);
         $this->seed(CommonMistakesCategorySeeder::class);

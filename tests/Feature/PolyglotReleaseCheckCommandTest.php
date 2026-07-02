@@ -23,6 +23,7 @@ use Database\Seeders\Page_V3\BasicGrammar\VerbToBe\VerbToBePresentTheorySeeder;
 use Database\Seeders\Page_V3\CommonMistakes\CommonMistakesArticlesTheorySeeder;
 use Database\Seeders\Page_V3\CommonMistakes\CommonMistakesCategorySeeder;
 use Database\Seeders\Page_V3\FutureForms\FutureFormsCategorySeeder;
+use Database\Seeders\Page_V3\FutureForms\FutureSimple\FutureSimpleCategorySeeder;
 use Database\Seeders\Page_V3\FutureForms\FutureFormsWillVsBeGoingToTheorySeeder;
 use Database\Seeders\Page_V3\ModalVerbs\ModalVerbsCanCouldTheorySeeder;
 use Database\Seeders\Page_V3\ModalVerbs\ModalVerbsCategorySeeder;
@@ -288,6 +289,7 @@ class PolyglotReleaseCheckCommandTest extends TestCase
         $this->seed(PresentSimpleCategorySeeder::class);
         $this->seed(ModalVerbsCategorySeeder::class);
         $this->seed(FutureFormsCategorySeeder::class);
+        $this->seed(FutureSimpleCategorySeeder::class);
         $this->seed(CommonMistakesCategorySeeder::class);
         $this->seed(SomeAnyCategorySeeder::class);
         $this->seed(NounsArticlesQuantityCategorySeeder::class);

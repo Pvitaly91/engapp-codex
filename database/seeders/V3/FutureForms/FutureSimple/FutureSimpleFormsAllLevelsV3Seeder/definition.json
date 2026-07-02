@@ -1,0 +1,2133 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\FutureForms\\FutureSimple\\FutureSimpleFormsAllLevelsV3Seeder",
+        "uuid_namespace": "future-simple-forms-v3"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Future Forms / Future Simple"
+    },
+    "sources": {
+        "theory_page_future_simple_forms": {
+            "name": "Future Simple: Forms and Use"
+        }
+    },
+    "tags": {
+        "future_simple": {
+            "name": "Future Simple",
+            "category": "tense"
+        },
+        "will_form": {
+            "name": "Will + V1",
+            "category": "topic"
+        },
+        "base_verb": {
+            "name": "Base Verb after Will",
+            "category": "topic"
+        },
+        "contractions": {
+            "name": "Future Simple Contractions",
+            "category": "topic"
+        },
+        "spontaneous_decision": {
+            "name": "Spontaneous Decisions",
+            "category": "topic"
+        },
+        "promise_offer": {
+            "name": "Promises and Offers",
+            "category": "topic"
+        },
+        "prediction": {
+            "name": "Predictions with Will",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "future_simple"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "fs-forms-v3-a1-01",
+            "question": "I {a1} call you tomorrow",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Оберіть допоміжну форму Future Simple, яка відповідає структурі речення.",
+                    "gap_tags": [
+                        "will_form"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_form",
+                "level_a1"
+            ],
+            "variants": [
+                "I {a1} call you tomorrow"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 2,
+            "uuid": "fs-forms-v3-a1-02",
+            "question": "She will {a1} us after class",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "help",
+                    "options": [
+                        "help",
+                        "helps",
+                        "to help"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_a1"
+            ],
+            "variants": [
+                "She will {a1} us after class"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 3,
+            "uuid": "fs-forms-v3-a1-03",
+            "question": "They {a1} arrive soon",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Оберіть допоміжну форму Future Simple, яка відповідає структурі речення.",
+                    "gap_tags": [
+                        "will_form"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_form",
+                "level_a1"
+            ],
+            "variants": [
+                "They {a1} arrive soon"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 4,
+            "uuid": "fs-forms-v3-a1-04",
+            "question": "{a1} open the door",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "I'll",
+                    "options": [
+                        "I'll",
+                        "I will to",
+                        "I am"
+                    ],
+                    "verb_hint": "Оберіть скорочену форму, що відповідає підмету та значенню речення.",
+                    "gap_tags": [
+                        "contractions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contractions",
+                "level_a1"
+            ],
+            "variants": [
+                "{a1} open the door"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 5,
+            "uuid": "fs-forms-v3-a1-05",
+            "question": "{a1} see you later",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "We'll",
+                    "options": [
+                        "We'll",
+                        "We will to",
+                        "We are"
+                    ],
+                    "verb_hint": "Оберіть скорочену форму, що відповідає підмету та значенню речення.",
+                    "gap_tags": [
+                        "contractions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contractions",
+                "level_a1"
+            ],
+            "variants": [
+                "{a1} see you later"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 6,
+            "uuid": "fs-forms-v3-a1-06",
+            "question": "It {a1} rain tomorrow",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Для прогнозу про майбутнє оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "prediction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "prediction",
+                "level_a1"
+            ],
+            "variants": [
+                "It {a1} rain tomorrow"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 7,
+            "uuid": "fs-forms-v3-a1-07",
+            "question": "I think he {a1} win",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Для прогнозу про майбутнє оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "prediction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "prediction",
+                "level_a1"
+            ],
+            "variants": [
+                "I think he {a1} win"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 8,
+            "uuid": "fs-forms-v3-a1-08",
+            "question": "I promise I {a1} listen",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Для обіцянки або пропозиції оберіть відповідну форму майбутнього часу.",
+                    "gap_tags": [
+                        "promise_offer"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "promise_offer",
+                "level_a1"
+            ],
+            "variants": [
+                "I promise I {a1} listen"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 9,
+            "uuid": "fs-forms-v3-a1-09",
+            "question": "The phone is ringing so {a1} answer",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "I'll",
+                    "options": [
+                        "I'll",
+                        "I will to",
+                        "I am"
+                    ],
+                    "verb_hint": "Для рішення, прийнятого в момент мовлення, оберіть відповідну форму майбутнього часу.",
+                    "gap_tags": [
+                        "spontaneous_decision"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "spontaneous_decision",
+                "level_a1"
+            ],
+            "variants": [
+                "The phone is ringing so {a1} answer"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 10,
+            "uuid": "fs-forms-v3-a1-10",
+            "question": "You {a1} like this book",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Для прогнозу про майбутнє оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "prediction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "prediction",
+                "level_a1"
+            ],
+            "variants": [
+                "You {a1} like this book"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 11,
+            "uuid": "fs-forms-v3-a1-11",
+            "question": "He will {a1} ready soon",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "be",
+                    "options": [
+                        "be",
+                        "is",
+                        "to be"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_a1"
+            ],
+            "variants": [
+                "He will {a1} ready soon"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 12,
+            "uuid": "fs-forms-v3-a1-12",
+            "question": "We will {a1} more time",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "need",
+                    "options": [
+                        "need",
+                        "needs",
+                        "to need"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_a1"
+            ],
+            "variants": [
+                "We will {a1} more time"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 13,
+            "uuid": "fs-forms-v3-a2-01",
+            "question": "{a1} carry this bag for you",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "I'll",
+                    "options": [
+                        "I'll",
+                        "I will to",
+                        "I am"
+                    ],
+                    "verb_hint": "Для обіцянки або пропозиції оберіть відповідну форму майбутнього часу.",
+                    "gap_tags": [
+                        "promise_offer"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "promise_offer",
+                "level_a2"
+            ],
+            "variants": [
+                "{a1} carry this bag for you"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 14,
+            "uuid": "fs-forms-v3-a2-02",
+            "question": "Do not worry she {a1} help you",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Для обіцянки або пропозиції оберіть відповідну форму майбутнього часу.",
+                    "gap_tags": [
+                        "promise_offer"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "promise_offer",
+                "level_a2"
+            ],
+            "variants": [
+                "Do not worry she {a1} help you"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 15,
+            "uuid": "fs-forms-v3-a2-03",
+            "question": "I think tomorrow {a1} be sunny",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Для прогнозу про майбутнє оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "prediction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "prediction",
+                "level_a2"
+            ],
+            "variants": [
+                "I think tomorrow {a1} be sunny"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 16,
+            "uuid": "fs-forms-v3-a2-04",
+            "question": "They {a1} probably agree",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Для прогнозу про майбутнє оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "prediction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "prediction",
+                "level_a2"
+            ],
+            "variants": [
+                "They {a1} probably agree"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 17,
+            "uuid": "fs-forms-v3-a2-05",
+            "question": "Someone is knocking so {a1} check",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "I'll",
+                    "options": [
+                        "I'll",
+                        "I will to",
+                        "I am"
+                    ],
+                    "verb_hint": "Для рішення, прийнятого в момент мовлення, оберіть відповідну форму майбутнього часу.",
+                    "gap_tags": [
+                        "spontaneous_decision"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "spontaneous_decision",
+                "level_a2"
+            ],
+            "variants": [
+                "Someone is knocking so {a1} check"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 18,
+            "uuid": "fs-forms-v3-a2-06",
+            "question": "We have no milk so {a1} buy some",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "I'll",
+                    "options": [
+                        "I'll",
+                        "I will to",
+                        "I am"
+                    ],
+                    "verb_hint": "Для рішення, прийнятого в момент мовлення, оберіть відповідну форму майбутнього часу.",
+                    "gap_tags": [
+                        "spontaneous_decision"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "spontaneous_decision",
+                "level_a2"
+            ],
+            "variants": [
+                "We have no milk so {a1} buy some"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 19,
+            "uuid": "fs-forms-v3-a2-07",
+            "question": "The meeting will {a1} at six",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "finish",
+                    "options": [
+                        "finish",
+                        "finishs",
+                        "to finish"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_a2"
+            ],
+            "variants": [
+                "The meeting will {a1} at six"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 20,
+            "uuid": "fs-forms-v3-a2-08",
+            "question": "This key will {a1} the door",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "open",
+                    "options": [
+                        "open",
+                        "opens",
+                        "to open"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_a2"
+            ],
+            "variants": [
+                "This key will {a1} the door"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 21,
+            "uuid": "fs-forms-v3-a2-09",
+            "question": "I believe the course {a1} be useful",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Для прогнозу про майбутнє оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "prediction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "prediction",
+                "level_a2"
+            ],
+            "variants": [
+                "I believe the course {a1} be useful"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 22,
+            "uuid": "fs-forms-v3-a2-10",
+            "question": "I promise I {a1} tell nobody",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Для обіцянки або пропозиції оберіть відповідну форму майбутнього часу.",
+                    "gap_tags": [
+                        "promise_offer"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "promise_offer",
+                "level_a2"
+            ],
+            "variants": [
+                "I promise I {a1} tell nobody"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 23,
+            "uuid": "fs-forms-v3-a2-11",
+            "question": "She will probably {a1} later",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "come",
+                    "options": [
+                        "come",
+                        "comes",
+                        "to come"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_a2"
+            ],
+            "variants": [
+                "She will probably {a1} later"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 24,
+            "uuid": "fs-forms-v3-a2-12",
+            "question": "One day you will {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "understand",
+                    "options": [
+                        "understand",
+                        "understands",
+                        "to understand"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_a2"
+            ],
+            "variants": [
+                "One day you will {a1}"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 25,
+            "uuid": "fs-forms-v3-b1-01",
+            "question": "I am sure the team {a1} win the final",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Для прогнозу про майбутнє оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "prediction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "prediction",
+                "level_b1"
+            ],
+            "variants": [
+                "I am sure the team {a1} win the final"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 26,
+            "uuid": "fs-forms-v3-b1-02",
+            "question": "Let me explain and {a1} make it clearer",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "I'll",
+                    "options": [
+                        "I'll",
+                        "I will to",
+                        "I am"
+                    ],
+                    "verb_hint": "Для рішення, прийнятого в момент мовлення, оберіть відповідну форму майбутнього часу.",
+                    "gap_tags": [
+                        "spontaneous_decision"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "spontaneous_decision",
+                "level_b1"
+            ],
+            "variants": [
+                "Let me explain and {a1} make it clearer"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 27,
+            "uuid": "fs-forms-v3-b1-03",
+            "question": "We promise we will {a1} your decision",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "support",
+                    "options": [
+                        "support",
+                        "supports",
+                        "to support"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_b1"
+            ],
+            "variants": [
+                "We promise we will {a1} your decision"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 28,
+            "uuid": "fs-forms-v3-b1-04",
+            "question": "Prices {a1} probably rise next year",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Для прогнозу про майбутнє оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "prediction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "prediction",
+                "level_b1"
+            ],
+            "variants": [
+                "Prices {a1} probably rise next year"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 29,
+            "uuid": "fs-forms-v3-b1-05",
+            "question": "I think the new system will {a1} time",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "save",
+                    "options": [
+                        "save",
+                        "saves",
+                        "to save"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_b1"
+            ],
+            "variants": [
+                "I think the new system will {a1} time"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 30,
+            "uuid": "fs-forms-v3-b1-06",
+            "question": "{a1} reply to the message now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "I'll",
+                    "options": [
+                        "I'll",
+                        "I will to",
+                        "I am"
+                    ],
+                    "verb_hint": "Для рішення, прийнятого в момент мовлення, оберіть відповідну форму майбутнього часу.",
+                    "gap_tags": [
+                        "spontaneous_decision"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "spontaneous_decision",
+                "level_b1"
+            ],
+            "variants": [
+                "{a1} reply to the message now"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 31,
+            "uuid": "fs-forms-v3-b1-07",
+            "question": "Do not worry everything will {a1} fine",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "be",
+                    "options": [
+                        "be",
+                        "is",
+                        "to be"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_b1"
+            ],
+            "variants": [
+                "Do not worry everything will {a1} fine"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 32,
+            "uuid": "fs-forms-v3-b1-08",
+            "question": "Perhaps he {a1} change his mind",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Для прогнозу про майбутнє оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "prediction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "prediction",
+                "level_b1"
+            ],
+            "variants": [
+                "Perhaps he {a1} change his mind"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 33,
+            "uuid": "fs-forms-v3-b1-09",
+            "question": "I will {a1} you prepare the presentation",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "help",
+                    "options": [
+                        "help",
+                        "helps",
+                        "to help"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_b1"
+            ],
+            "variants": [
+                "I will {a1} you prepare the presentation"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 34,
+            "uuid": "fs-forms-v3-b1-10",
+            "question": "This experience will {a1} useful later",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "become",
+                    "options": [
+                        "become",
+                        "becomes",
+                        "to become"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_b1"
+            ],
+            "variants": [
+                "This experience will {a1} useful later"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 35,
+            "uuid": "fs-forms-v3-b1-11",
+            "question": "I think they will {a1} this conversation",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "remember",
+                    "options": [
+                        "remember",
+                        "remembers",
+                        "to remember"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_b1"
+            ],
+            "variants": [
+                "I think they will {a1} this conversation"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 36,
+            "uuid": "fs-forms-v3-b1-12",
+            "question": "I promise I will {a1} the book tomorrow",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "return",
+                    "options": [
+                        "return",
+                        "returns",
+                        "to return"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_b1"
+            ],
+            "variants": [
+                "I promise I will {a1} the book tomorrow"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 37,
+            "uuid": "fs-forms-v3-b2-01",
+            "question": "In my view the reform {a1} improve the system",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Для прогнозу про майбутнє оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "prediction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "prediction",
+                "level_b2"
+            ],
+            "variants": [
+                "In my view the reform {a1} improve the system"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 38,
+            "uuid": "fs-forms-v3-b2-02",
+            "question": "I will {a1} responsibility for this decision",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "take",
+                    "options": [
+                        "take",
+                        "takes",
+                        "to take"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_b2"
+            ],
+            "variants": [
+                "I will {a1} responsibility for this decision"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 39,
+            "uuid": "fs-forms-v3-b2-03",
+            "question": "The results will probably {a1} a debate",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "trigger",
+                    "options": [
+                        "trigger",
+                        "triggers",
+                        "to trigger"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_b2"
+            ],
+            "variants": [
+                "The results will probably {a1} a debate"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 40,
+            "uuid": "fs-forms-v3-b2-04",
+            "question": "I promise we will {a1} every proposal",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "consider",
+                    "options": [
+                        "consider",
+                        "considers",
+                        "to consider"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_b2"
+            ],
+            "variants": [
+                "I promise we will {a1} every proposal"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 41,
+            "uuid": "fs-forms-v3-b2-05",
+            "question": "{a1} contact the supplier myself",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "I'll",
+                    "options": [
+                        "I'll",
+                        "I will to",
+                        "I am"
+                    ],
+                    "verb_hint": "Для рішення, прийнятого в момент мовлення, оберіть відповідну форму майбутнього часу.",
+                    "gap_tags": [
+                        "spontaneous_decision"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "spontaneous_decision",
+                "level_b2"
+            ],
+            "variants": [
+                "{a1} contact the supplier myself"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 42,
+            "uuid": "fs-forms-v3-b2-06",
+            "question": "I think the audience will {a1} this approach",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "appreciate",
+                    "options": [
+                        "appreciate",
+                        "appreciates",
+                        "to appreciate"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_b2"
+            ],
+            "variants": [
+                "I think the audience will {a1} this approach"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 43,
+            "uuid": "fs-forms-v3-b2-07",
+            "question": "The new rules will {a1} effect in July",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "take",
+                    "options": [
+                        "take",
+                        "takes",
+                        "to take"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_b2"
+            ],
+            "variants": [
+                "The new rules will {a1} effect in July"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 44,
+            "uuid": "fs-forms-v3-b2-08",
+            "question": "The change {a1} perhaps create new problems",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Для прогнозу про майбутнє оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "prediction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "prediction",
+                "level_b2"
+            ],
+            "variants": [
+                "The change {a1} perhaps create new problems"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 45,
+            "uuid": "fs-forms-v3-b2-09",
+            "question": "I will {a1} the report arrives on time",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "ensure",
+                    "options": [
+                        "ensure",
+                        "ensures",
+                        "to ensure"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_b2"
+            ],
+            "variants": [
+                "I will {a1} the report arrives on time"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 46,
+            "uuid": "fs-forms-v3-b2-10",
+            "question": "Without further evidence the case will {a1} disputed",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "remain",
+                    "options": [
+                        "remain",
+                        "remains",
+                        "to remain"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_b2"
+            ],
+            "variants": [
+                "Without further evidence the case will {a1} disputed"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 47,
+            "uuid": "fs-forms-v3-b2-11",
+            "question": "I am confident the investment will {a1} benefits",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "deliver",
+                    "options": [
+                        "deliver",
+                        "delivers",
+                        "to deliver"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_b2"
+            ],
+            "variants": [
+                "I am confident the investment will {a1} benefits"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 48,
+            "uuid": "fs-forms-v3-b2-12",
+            "question": "{a1} correct this mistake immediately",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "I'll",
+                    "options": [
+                        "I'll",
+                        "I will to",
+                        "I am"
+                    ],
+                    "verb_hint": "Для рішення, прийнятого в момент мовлення, оберіть відповідну форму майбутнього часу.",
+                    "gap_tags": [
+                        "spontaneous_decision"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "spontaneous_decision",
+                "level_b2"
+            ],
+            "variants": [
+                "{a1} correct this mistake immediately"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 49,
+            "uuid": "fs-forms-v3-c1-01",
+            "question": "The committee {a1} most likely reject the proposal",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Для прогнозу про майбутнє оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "prediction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "prediction",
+                "level_c1"
+            ],
+            "variants": [
+                "The committee {a1} most likely reject the proposal"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 50,
+            "uuid": "fs-forms-v3-c1-02",
+            "question": "I will personally {a1} the recommendations",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "oversee",
+                    "options": [
+                        "oversee",
+                        "oversees",
+                        "to oversee"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_c1"
+            ],
+            "variants": [
+                "I will personally {a1} the recommendations"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 51,
+            "uuid": "fs-forms-v3-c1-03",
+            "question": "Without intervention tensions will inevitably {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "escalate",
+                    "options": [
+                        "escalate",
+                        "escalates",
+                        "to escalate"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_c1"
+            ],
+            "variants": [
+                "Without intervention tensions will inevitably {a1}"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 52,
+            "uuid": "fs-forms-v3-c1-04",
+            "question": "I promise your identity will {a1} confidential",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "remain",
+                    "options": [
+                        "remain",
+                        "remains",
+                        "to remain"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_c1"
+            ],
+            "variants": [
+                "I promise your identity will {a1} confidential"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 53,
+            "uuid": "fs-forms-v3-c1-05",
+            "question": "{a1} rephrase the argument more precisely",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "I'll",
+                    "options": [
+                        "I'll",
+                        "I will to",
+                        "I am"
+                    ],
+                    "verb_hint": "Для рішення, прийнятого в момент мовлення, оберіть відповідну форму майбутнього часу.",
+                    "gap_tags": [
+                        "spontaneous_decision"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "spontaneous_decision",
+                "level_c1"
+            ],
+            "variants": [
+                "{a1} rephrase the argument more precisely"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 54,
+            "uuid": "fs-forms-v3-c1-06",
+            "question": "In my judgment this trend will {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "persist",
+                    "options": [
+                        "persist",
+                        "persists",
+                        "to persist"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_c1"
+            ],
+            "variants": [
+                "In my judgment this trend will {a1}"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 55,
+            "uuid": "fs-forms-v3-c1-07",
+            "question": "The new methodology will probably {a1} stronger results",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "yield",
+                    "options": [
+                        "yield",
+                        "yields",
+                        "to yield"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_c1"
+            ],
+            "variants": [
+                "The new methodology will probably {a1} stronger results"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 56,
+            "uuid": "fs-forms-v3-c1-08",
+            "question": "I will {a1} every objection is recorded",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "ensure",
+                    "options": [
+                        "ensure",
+                        "ensures",
+                        "to ensure"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_c1"
+            ],
+            "variants": [
+                "I will {a1} every objection is recorded"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 57,
+            "uuid": "fs-forms-v3-c1-09",
+            "question": "The market {a1} presumably respond cautiously",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Для прогнозу про майбутнє оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "prediction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "prediction",
+                "level_c1"
+            ],
+            "variants": [
+                "The market {a1} presumably respond cautiously"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 58,
+            "uuid": "fs-forms-v3-c1-10",
+            "question": "This precedent will {a1} future decisions",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "influence",
+                    "options": [
+                        "influence",
+                        "influences",
+                        "to influence"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_c1"
+            ],
+            "variants": [
+                "This precedent will {a1} future decisions"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 59,
+            "uuid": "fs-forms-v3-c1-11",
+            "question": "I undertake that I will {a1} you immediately",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "notify",
+                    "options": [
+                        "notify",
+                        "notifys",
+                        "to notify"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_c1"
+            ],
+            "variants": [
+                "I undertake that I will {a1} you immediately"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 60,
+            "uuid": "fs-forms-v3-c1-12",
+            "question": "The public will eventually {a1} the reform's value",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "recognize",
+                    "options": [
+                        "recognize",
+                        "recognizes",
+                        "to recognize"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_c1"
+            ],
+            "variants": [
+                "The public will eventually {a1} the reform's value"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 61,
+            "uuid": "fs-forms-v3-c2-01",
+            "question": "Historians {a1} likely reassess this event's significance",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Для прогнозу про майбутнє оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "prediction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "prediction",
+                "level_c2"
+            ],
+            "variants": [
+                "Historians {a1} likely reassess this event's significance"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 62,
+            "uuid": "fs-forms-v3-c2-02",
+            "question": "I will personally {a1} an impartial review",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "guarantee",
+                    "options": [
+                        "guarantee",
+                        "guarantees",
+                        "to guarantee"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_c2"
+            ],
+            "variants": [
+                "I will personally {a1} an impartial review"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 63,
+            "uuid": "fs-forms-v3-c2-03",
+            "question": "Without consensus the dispute will inevitably {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "persist",
+                    "options": [
+                        "persist",
+                        "persists",
+                        "to persist"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_c2"
+            ],
+            "variants": [
+                "Without consensus the dispute will inevitably {a1}"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 64,
+            "uuid": "fs-forms-v3-c2-04",
+            "question": "I pledge the committee will {a1} full transparency",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "maintain",
+                    "options": [
+                        "maintain",
+                        "maintains",
+                        "to maintain"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_c2"
+            ],
+            "variants": [
+                "I pledge the committee will {a1} full transparency"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 65,
+            "uuid": "fs-forms-v3-c2-05",
+            "question": "{a1} articulate the objection more precisely",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "I'll",
+                    "options": [
+                        "I'll",
+                        "I will to",
+                        "I am"
+                    ],
+                    "verb_hint": "Для рішення, прийнятого в момент мовлення, оберіть відповідну форму майбутнього часу.",
+                    "gap_tags": [
+                        "spontaneous_decision"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "spontaneous_decision",
+                "level_c2"
+            ],
+            "variants": [
+                "{a1} articulate the objection more precisely"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 66,
+            "uuid": "fs-forms-v3-c2-06",
+            "question": "Posterity {a1} perhaps judge this decision more harshly",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will to",
+                        "is"
+                    ],
+                    "verb_hint": "Для прогнозу про майбутнє оберіть відповідну допоміжну форму.",
+                    "gap_tags": [
+                        "prediction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "prediction",
+                "level_c2"
+            ],
+            "variants": [
+                "Posterity {a1} perhaps judge this decision more harshly"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 67,
+            "uuid": "fs-forms-v3-c2-07",
+            "question": "This interpretation will probably {a1} contentious",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "remain",
+                    "options": [
+                        "remain",
+                        "remains",
+                        "to remain"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_c2"
+            ],
+            "variants": [
+                "This interpretation will probably {a1} contentious"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 68,
+            "uuid": "fs-forms-v3-c2-08",
+            "question": "I will {a1} no evidence is overlooked",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "ensure",
+                    "options": [
+                        "ensure",
+                        "ensures",
+                        "to ensure"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_c2"
+            ],
+            "variants": [
+                "I will {a1} no evidence is overlooked"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 69,
+            "uuid": "fs-forms-v3-c2-09",
+            "question": "The reform's consequences will far {a1} initial forecasts",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "exceed",
+                    "options": [
+                        "exceed",
+                        "exceeds",
+                        "to exceed"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_c2"
+            ],
+            "variants": [
+                "The reform's consequences will far {a1} initial forecasts"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 70,
+            "uuid": "fs-forms-v3-c2-10",
+            "question": "I suspect later scholars will {a1} this assumption",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "challenge",
+                    "options": [
+                        "challenge",
+                        "challenges",
+                        "to challenge"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_c2"
+            ],
+            "variants": [
+                "I suspect later scholars will {a1} this assumption"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 71,
+            "uuid": "fs-forms-v3-c2-11",
+            "question": "{a1} resolve any ambiguity immediately",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "I'll",
+                    "options": [
+                        "I'll",
+                        "I will to",
+                        "I am"
+                    ],
+                    "verb_hint": "Для рішення, прийнятого в момент мовлення, оберіть відповідну форму майбутнього часу.",
+                    "gap_tags": [
+                        "spontaneous_decision"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "spontaneous_decision",
+                "level_c2"
+            ],
+            "variants": [
+                "{a1} resolve any ambiguity immediately"
+            ],
+            "source": "theory_page_future_simple_forms"
+        },
+        {
+            "id": 72,
+            "uuid": "fs-forms-v3-c2-12",
+            "question": "This policy will eventually {a1} a defining precedent",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "become",
+                    "options": [
+                        "become",
+                        "becomes",
+                        "to become"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова використайте початкову форму основного дієслова без to.",
+                    "gap_tags": [
+                        "base_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb",
+                "level_c2"
+            ],
+            "variants": [
+                "This policy will eventually {a1} a defining precedent"
+            ],
+            "source": "theory_page_future_simple_forms"
+        }
+    ],
+    "saved_test": {
+        "uuid": "fs-forms-v3-all-levels",
+        "slug": "future-simple-forms-all-levels-v3",
+        "name": "Future Simple Forms: V3 All Levels",
+        "description": "Page-local V3 package for Future Simple: Forms and Use with A1-C2 coverage.",
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\FutureForms\\FutureSimple\\FutureSimpleFormsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "future-simple-forms",
+                    "title": "Future Simple: Forms and Use",
+                    "category_slug_path": "maibutni-formy/future-simple",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureSimple\\FutureSimpleFormsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/maibutni-formy/future-simple/future-simple-forms"
+                }
+            }
+        }
+    }
+}

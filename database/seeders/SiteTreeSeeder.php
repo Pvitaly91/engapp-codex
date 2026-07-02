@@ -474,7 +474,17 @@ class SiteTreeSeeder extends Seeder
                 'title' => '7. Майбутні форми',
                 'level' => 'A2–B1',
                 'children' => [
-                    ['title' => 'Will vs Be Going To — яка різниця?', 'level' => 'A2–B1'],
+                    [
+                        'title' => 'Future Simple',
+                        'level' => 'A1–A2',
+                        'children' => [
+                            ['title' => 'Future Simple: Forms and Use', 'level' => 'A1–A2'],
+                            ['title' => 'Future Simple: Negatives', 'level' => 'A1–A2'],
+                            ['title' => 'Future Simple: Questions and Short Answers', 'level' => 'A1–A2'],
+                            ['title' => 'Future Simple: Time Expressions', 'level' => 'A1–A2'],
+                            ['title' => 'Will vs Be Going To — Вибір форми', 'level' => 'A2–B1'],
+                        ],
+                    ],
                 ],
             ],
             [

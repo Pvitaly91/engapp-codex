@@ -3,12 +3,15 @@
 namespace App\Modules\LanguageManager\Services;
 
 use App\Modules\LanguageManager\Models\Language;
+use App\Support\SiteMode;
 use Illuminate\Support\Facades\Schema;
 
 class LocaleService
 {
     protected static ?array $cachedLanguages = null;
+
     protected static ?Language $cachedDefault = null;
+
     protected static ?bool $cachedHasLanguagesTable = null;
 
     /**
@@ -82,7 +85,7 @@ class LocaleService
      */
     public static function getActiveLanguages()
     {
-        if (!self::hasLanguagesTable()) {
+        if (! self::hasLanguagesTable()) {
             return collect();
         }
 
@@ -102,7 +105,7 @@ class LocaleService
      */
     public static function getDefaultLanguage(): ?Language
     {
-        if (!self::hasLanguagesTable()) {
+        if (! self::hasLanguagesTable()) {
             return null;
         }
 
@@ -162,6 +165,7 @@ class LocaleService
      */
     public static function localizedUrl(string $locale, ?string $url = null): string
     {
+        $locale = self::allowedRequestLocale($locale);
         $url = $url ?? request()->url();
         $parsedUrl = parse_url($url);
         $path = $parsedUrl['path'] ?? '/';
@@ -172,7 +176,7 @@ class LocaleService
         $defaultCode = self::getDefaultLocaleCode();
 
         // Remove existing locale prefix if present
-        if (!empty($segments) && in_array($segments[0], $activeCodes)) {
+        if (! empty($segments) && in_array($segments[0], $activeCodes)) {
             array_shift($segments);
         }
 
@@ -181,12 +185,12 @@ class LocaleService
             array_unshift($segments, $locale);
         }
 
-        $newPath = '/' . implode('/', $segments);
-        
+        $newPath = '/'.implode('/', $segments);
+
         // Rebuild URL
         $scheme = $parsedUrl['scheme'] ?? request()->getScheme();
         $host = $parsedUrl['host'] ?? request()->getHost();
-        $query = isset($parsedUrl['query']) ? '?' . $parsedUrl['query'] : '';
+        $query = isset($parsedUrl['query']) ? '?'.$parsedUrl['query'] : '';
 
         return "{$scheme}://{$host}{$newPath}{$query}";
     }
@@ -215,6 +219,9 @@ class LocaleService
     public static function getLanguageSwitcherData(): array
     {
         $languages = self::getActiveLanguages();
+        $siteMode = app(SiteMode::class);
+        $allowedLocales = $siteMode->availableLocales($languages->pluck('code')->all());
+        $languages = $languages->whereIn('code', $allowedLocales)->values();
         $currentLocale = self::getCurrentLocale();
 
         return $languages->map(function ($language) use ($currentLocale) {
@@ -234,56 +241,69 @@ class LocaleService
 
     /**
      * Generate a localized route URL.
-     * 
-     * @param string $name Route name
-     * @param mixed $parameters Route parameters
-     * @param bool $absolute Whether to generate an absolute URL
-     * @param string|null $locale Locale code (uses current locale if null)
-     * @return string
+     *
+     * @param  string  $name  Route name
+     * @param  mixed  $parameters  Route parameters
+     * @param  bool  $absolute  Whether to generate an absolute URL
+     * @param  string|null  $locale  Locale code (uses current locale if null)
      */
     public static function localizedRoute(string $name, $parameters = [], bool $absolute = true, ?string $locale = null): string
     {
         $locale = $locale ?? self::getCurrentLocale();
+        $locale = self::allowedRequestLocale($locale);
         $defaultCode = self::getDefaultLocaleCode();
-        
+
         // Generate the base route URL
         $url = route($name, $parameters, $absolute);
-        
+
         // Parse the URL to extract components
         $parsedUrl = parse_url($url);
         $path = $parsedUrl['path'] ?? '/';
-        
+
         // Get current segments
         $segments = array_values(array_filter(explode('/', $path)));
         $activeCodes = self::getSupportedLocaleCodes();
-        
+
         // Always remove existing locale prefix if present (even for default language)
-        if (!empty($segments) && in_array($segments[0], $activeCodes)) {
+        if (! empty($segments) && in_array($segments[0], $activeCodes)) {
             array_shift($segments);
         }
 
         // Admin area should never be localized
-        if (!empty($segments) && $segments[0] === 'admin') {
-            $newPath = '/' . implode('/', $segments);
+        if (! empty($segments) && $segments[0] === 'admin') {
+            $newPath = '/'.implode('/', $segments);
             $scheme = $parsedUrl['scheme'] ?? 'http';
             $host = $parsedUrl['host'] ?? '';
-            $query = isset($parsedUrl['query']) ? '?' . $parsedUrl['query'] : '';
+            $query = isset($parsedUrl['query']) ? '?'.$parsedUrl['query'] : '';
 
-            return $absolute ? "{$scheme}://{$host}{$newPath}{$query}" : $newPath . $query;
+            return $absolute ? "{$scheme}://{$host}{$newPath}{$query}" : $newPath.$query;
         }
-        
+
         // Add locale prefix only if locale is not the default
         if ($locale !== $defaultCode) {
             array_unshift($segments, $locale);
         }
-        
-        $newPath = '/' . implode('/', $segments);
-        
+
+        $newPath = '/'.implode('/', $segments);
+
         // Rebuild URL
         $scheme = $parsedUrl['scheme'] ?? 'http';
         $host = $parsedUrl['host'] ?? '';
-        $query = isset($parsedUrl['query']) ? '?' . $parsedUrl['query'] : '';
-        
-        return $absolute ? "{$scheme}://{$host}{$newPath}{$query}" : $newPath . $query;
+        $query = isset($parsedUrl['query']) ? '?'.$parsedUrl['query'] : '';
+
+        return $absolute ? "{$scheme}://{$host}{$newPath}{$query}" : $newPath.$query;
+    }
+
+    private static function allowedRequestLocale(string $locale): string
+    {
+        if (! app()->bound('request')) {
+            return $locale;
+        }
+
+        $siteMode = app(SiteMode::class);
+
+        return $siteMode->localeAllowed($locale)
+            ? $locale
+            : $siteMode->defaultProductionLocale();
     }
 }

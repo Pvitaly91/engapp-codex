@@ -413,7 +413,7 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
         $this->assertSame(0, $exitCode);
         $this->assertFileExists($outputAbsolutePath);
         $this->assertStringContainsString('Resolved theory page: Will vs Be Going To — Вибір форми', $output);
-        $this->assertStringContainsString('/theory/maibutni-formy/will-vs-be-going-to', $output);
+        $this->assertStringContainsString('/theory/maibutni-formy/future-simple/will-vs-be-going-to', $output);
         $this->assertStringContainsString(
             'database/seeders/V3/Polyglot/PolyglotFutureSimpleWillLessonSeeder/definition.json',
             $output
@@ -819,7 +819,7 @@ class PolyglotGenerateV3PromptCommandTest extends TestCase
         $this->assertSame(0, $exitCode);
         $this->assertFileExists($outputAbsolutePath);
         $this->assertStringContainsString('Resolved theory page: Will vs Be Going To — Вибір форми', $output);
-        $this->assertStringContainsString('/theory/maibutni-formy/will-vs-be-going-to', $output);
+        $this->assertStringContainsString('/theory/maibutni-formy/future-simple/will-vs-be-going-to', $output);
         $this->assertStringContainsString(
             'database/seeders/V3/Polyglot/PolyglotBeGoingToLessonSeeder/definition.json',
             $output

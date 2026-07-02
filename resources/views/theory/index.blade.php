@@ -218,10 +218,12 @@
                         <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.section_badge') }}</p>
                         <h3 class="mt-2 font-display text-xl font-extrabold">{{ __('public.theory.all_categories') }}</h3>
                     </a>
-                    <a href="{{ localized_route('catalog.tests-cards') }}" class="rounded-[22px] border p-5 surface-card-strong" style="border-color: var(--line);">
-                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.nav.catalog') }}</p>
-                        <h3 class="mt-2 font-display text-xl font-extrabold">{{ __('public.home.to_catalog') }}</h3>
-                    </a>
+                    @devMode
+                        <a href="{{ localized_route('catalog.tests-cards') }}" class="rounded-[22px] border p-5 surface-card-strong" style="border-color: var(--line);">
+                            <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.nav.catalog') }}</p>
+                            <h3 class="mt-2 font-display text-xl font-extrabold">{{ __('public.home.to_catalog') }}</h3>
+                        </a>
+                    @enddevMode
                     <a href="{{ localized_route('home') }}" class="rounded-[22px] border p-5 surface-card-strong" style="border-color: var(--line);">
                         <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.home.new_design') }}</p>
                         <h3 class="mt-2 font-display text-xl font-extrabold">{{ __('public.home.title') }}</h3>
