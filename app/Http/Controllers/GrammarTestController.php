@@ -450,6 +450,16 @@ class GrammarTestController extends Controller
 
     public function fetchSavedTestJsQuestions(Request $request, string $slug)
     {
+        if ($request->query('source') === 'theory' || ! $request->wantsJson()) {
+            $theorySlug = trim($slug, '/').'/questions';
+            $theoryTest = $this->savedTestResolver->resolveTheoryPageSlug($theorySlug);
+
+            if ($theoryTest) {
+                return app(NewDesignTestController::class)
+                    ->showSavedTestJsNewDesign($theorySlug);
+            }
+        }
+
         $resolved = $this->savedTestResolver->resolve($slug);
         $test = $resolved->model;
         $mode = $request->query('mode');
@@ -1968,7 +1978,7 @@ class GrammarTestController extends Controller
         $selectedTags = (array) $request->input('tags', []);
         $selectedLevels = (array) $request->input('levels', []);
 
-        $tests = $this->allSavedTests();
+        $tests = $this->allSavedTests(false, (int) config('tests.catalog_max_tests', 100));
 
         $allQuestionIds = $tests->flatMap(fn ($t) => $t->question_ids ?? [])->unique();
         $questions = Question::with('tags')->whereIn('id', $allQuestionIds)->get()->keyBy('id');
@@ -1977,9 +1987,12 @@ class GrammarTestController extends Controller
         foreach ($tests as $test) {
             $questionIds = collect($test->question_ids ?? []);
             $testQuestions = $questionIds->map(fn ($id) => $questions[$id] ?? null)->filter();
-            $tagNames = $testQuestions->flatMap(fn ($q) => $q->tags->pluck('name'));
+            $tagNames = $testQuestions->flatMap(fn ($q) => $q->tags->pluck('name'))
+                ->concat($test->catalog_filter_tags ?? []);
             $test->tag_names = $tagNames->unique()->values();
-            $test->levels = $testQuestions->pluck('level')->unique()
+            $test->levels = $testQuestions->pluck('level')
+                ->concat($test->catalog_filter_levels ?? [])
+                ->unique()
                 ->sortBy(fn ($lvl) => $order[$lvl] ?? 99)
                 ->values();
         }
@@ -2043,7 +2056,7 @@ class GrammarTestController extends Controller
         $selectedTags = (array) $request->input('tags', []);
         $selectedLevels = (array) $request->input('levels', []);
 
-        $tests = $this->allSavedTests();
+        $tests = $this->allSavedTests(false, (int) config('tests.catalog_max_tests', 100));
 
         // Filter out auto-generated tests for theory pages (slug contains '-auto-')
         $tests = $tests->filter(function ($test) {
@@ -2074,7 +2087,8 @@ class GrammarTestController extends Controller
         foreach ($tests as $test) {
             $questionIds = collect($test->question_ids ?? []);
             $testQuestions = $questionIds->map(fn ($id) => $questions[$id] ?? null)->filter();
-            $tagNames = $testQuestions->flatMap(fn ($q) => $q->tags->pluck('name'));
+            $tagNames = $testQuestions->flatMap(fn ($q) => $q->tags->pluck('name'))
+                ->concat($test->catalog_filter_tags ?? []);
 
             // Map tags to their main tags ONLY if they're part of an aggregation
             // Filter out tags that are not in any aggregation
@@ -2086,7 +2100,9 @@ class GrammarTestController extends Controller
                 ->filter(); // Remove null values (non-aggregated tags)
 
             $test->tag_names = $aggregatedTagNames->unique()->values();
-            $test->levels = $testQuestions->pluck('level')->unique()
+            $test->levels = $testQuestions->pluck('level')
+                ->concat($test->catalog_filter_levels ?? [])
+                ->unique()
                 ->sortBy(fn ($lvl) => $order[$lvl] ?? 99)
                 ->values();
         }
@@ -2562,9 +2578,18 @@ class GrammarTestController extends Controller
         ]);
     }
 
-    private function allSavedTests(): Collection
+    private function allSavedTests(bool $resolveFilterQuestions = true, ?int $limit = null): Collection
     {
-        $legacyTests = Test::query()->latest()->get();
+        $legacyQuery = Test::query()->latest();
+        $uuidQuery = SavedGrammarTest::query()->with('questionLinks')->latest();
+
+        if ($limit !== null) {
+            $limit = max(1, $limit);
+            $legacyQuery->limit($limit);
+            $uuidQuery->limit($limit);
+        }
+
+        $legacyTests = $legacyQuery->get();
         $legacyTests->each(function (Test $test) {
             $questions = collect($test->questions ?? [])
                 ->filter(fn ($id) => filled($id))
@@ -2580,7 +2605,7 @@ class GrammarTestController extends Controller
             $this->decorateSavedTestPublicBranding($test);
         });
 
-        $uuidTests = SavedGrammarTest::query()->with('questionLinks')->latest()->get();
+        $uuidTests = $uuidQuery->get();
         $allUuids = $uuidTests->flatMap(fn ($test) => $test->questionLinks->pluck('question_uuid'))
             ->filter()
             ->unique()
@@ -2589,7 +2614,7 @@ class GrammarTestController extends Controller
             ? collect()
             : Question::whereIn('uuid', $allUuids)->pluck('id', 'uuid');
 
-        $uuidTests->each(function (SavedGrammarTest $test) use ($idMap) {
+        $uuidTests->each(function (SavedGrammarTest $test) use ($idMap, $resolveFilterQuestions) {
             $filters = $test->filters ?? [];
             if (is_string($filters)) {
                 $decoded = json_decode($filters, true);
@@ -2601,6 +2626,21 @@ class GrammarTestController extends Controller
 
             if ($isFilterBased) {
                 $normalized = $this->filterService->normalize($filters);
+
+                if (! $resolveFilterQuestions) {
+                    $test->setAttribute('questions', []);
+                    $test->setAttribute('question_ids', []);
+                    $test->setAttribute('question_uuids', []);
+                    $test->setAttribute('question_count', (int) ($normalized['num_questions'] ?? 0));
+                    $test->setAttribute('catalog_filter_tags', array_values((array) ($normalized['tags'] ?? [])));
+                    $test->setAttribute('catalog_filter_levels', array_values((array) ($normalized['levels'] ?? [])));
+                    $test->setAttribute('test_type', 'filter');
+                    $test->setAttribute('usesUuidLinks', true);
+                    $this->decorateSavedTestPublicBranding($test);
+
+                    return;
+                }
+
                 $questions = $this->filterService->questionsFromFilters($normalized);
 
                 $ids = $questions->pluck('id')
@@ -2639,7 +2679,9 @@ class GrammarTestController extends Controller
             $this->decorateSavedTestPublicBranding($test);
         });
 
-        return $legacyTests->merge($uuidTests)->sortByDesc('created_at')->values();
+        $tests = $legacyTests->merge($uuidTests)->sortByDesc('created_at')->values();
+
+        return $limit !== null ? $tests->take($limit)->values() : $tests;
     }
 
     private function decorateSavedTestPublicBranding(Test|SavedGrammarTest $test): void

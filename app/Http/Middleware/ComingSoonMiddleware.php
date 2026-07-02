@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 use App\Models\SavedGrammarTest;
+use App\Services\SavedTestResolver;
+use App\Support\SiteMode;
 use App\Support\VirtualTestRegistry;
 use Closure;
 use Illuminate\Http\Request;
@@ -13,12 +15,20 @@ class ComingSoonMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param  Closure(Request): (Response)  $next
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!config('coming-soon.enabled', false)) {
+        if (! config('coming-soon.enabled', false)) {
             return $next($request);
+        }
+
+        if ($this->shouldBypassInDevelopment($request)) {
+            return $next($request);
+        }
+
+        if ($this->shouldForceBlockInProduction($request)) {
+            return $this->comingSoonResponse();
         }
 
         // Skip Coming Soon for admin users
@@ -40,16 +50,51 @@ class ComingSoonMiddleware
 
         // Check if current path matches any prefix
         $prefixes = config('coming-soon.prefixes', []);
-        $currentPath = '/' . ltrim($request->path(), '/');
+        $currentPath = '/'.ltrim($request->path(), '/');
 
         foreach ($prefixes as $prefix) {
-            $normalizedPrefix = '/' . ltrim($prefix, '/');
+            $normalizedPrefix = '/'.ltrim($prefix, '/');
             if (str_starts_with($currentPath, $normalizedPrefix)) {
                 return $this->comingSoonResponse();
             }
         }
 
         return $next($request);
+    }
+
+    protected function shouldBypassInDevelopment(Request $request): bool
+    {
+        if (! app(SiteMode::class)->isDevelopment($request)) {
+            return false;
+        }
+
+        return $this->pathMatchesAny(
+            $request,
+            config('coming-soon.development_bypass_prefixes', [])
+        );
+    }
+
+    protected function shouldForceBlockInProduction(Request $request): bool
+    {
+        if (! app(SiteMode::class)->isProduction($request)) {
+            return false;
+        }
+
+        return $this->pathMatchesAny(
+            $request,
+            config('coming-soon.production_admin_blocked_prefixes', [])
+        );
+    }
+
+    protected function pathMatchesAny(Request $request, array $prefixes): bool
+    {
+        $currentPath = '/'.ltrim($request->path(), '/');
+
+        return collect($prefixes)->contains(function (mixed $prefix) use ($currentPath): bool {
+            $normalizedPrefix = '/'.ltrim(trim((string) $prefix), '/');
+
+            return $normalizedPrefix !== '/' && str_starts_with($currentPath, $normalizedPrefix);
+        });
     }
 
     /**
@@ -77,6 +122,16 @@ class ComingSoonMiddleware
             $this->rememberTheoryTestSlug($request, $slug);
 
             return true;
+        }
+
+        if ($routeName === 'test.js.questions' && ! $request->wantsJson()) {
+            $theorySlug = trim($slug, '/').'/questions';
+
+            if (app(SavedTestResolver::class)->resolveTheoryPageSlug($theorySlug)) {
+                $this->rememberTheoryTestSlug($request, $theorySlug);
+
+                return true;
+            }
         }
 
         if ($this->isRememberedTheoryTestSlug($request, $slug)) {

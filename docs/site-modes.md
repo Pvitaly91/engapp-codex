@@ -70,3 +70,12 @@ SITE_PRODUCTION_CACHE_EXCEPT=admin,admin/*,login,logout,test,test/*,api,api/*,he
 
 `/dev/site-mode` is a development-only diagnostics endpoint controlled by the
 `mode-inspector` feature.
+
+Coming Soon pages can be selectively opened on development hosts while staying
+closed in production:
+
+```dotenv
+COMING_SOON_DEV_BYPASS_PREFIXES=/catalog/tests-cards
+COMING_SOON_PROD_ADMIN_BLOCKED_PREFIXES=/catalog/tests-cards
+CATALOG_MAX_TESTS=100
+```

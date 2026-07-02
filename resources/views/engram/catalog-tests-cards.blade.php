@@ -86,7 +86,7 @@
                         <div class="font-bold text-lg mb-1">{{ $test->name }}</div>
                         <div class="text-xs text-muted-foreground mb-2">
                             {{ __('frontend.catalog.created') }}: {{ $test->created_at->format('d.m.Y') }}<br>
-                            {{ __('frontend.catalog.questions') }}: {{ count($test->questions) }}<br>
+                            {{ __('frontend.catalog.questions') }}: {{ $test->question_count ?? count($test->questions) }}<br>
                             @php
                                 $order = array_flip(['A1','A2','B1','B2','C1','C2']);
                                 $levels = $test->levels

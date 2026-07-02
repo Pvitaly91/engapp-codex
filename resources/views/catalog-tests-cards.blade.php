@@ -132,7 +132,7 @@
                                             {{ str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) }}
                                         </span>
                                         <span class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--muted);">
-                                            {{ count($test->questions) }} {{ __('frontend.tests.question.label') }}
+                                            {{ $test->question_count ?? count($test->questions) }} {{ __('frontend.tests.question.label') }}
                                         </span>
                                     </div>
                                     <h3 class="mt-5 font-display text-xl font-extrabold leading-tight">{{ $test->name }}</h3>
