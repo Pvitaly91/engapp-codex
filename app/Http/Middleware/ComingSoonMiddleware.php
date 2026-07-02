@@ -27,10 +27,6 @@ class ComingSoonMiddleware
             return $next($request);
         }
 
-        if ($this->shouldForceBlockInProduction($request)) {
-            return $this->comingSoonResponse();
-        }
-
         // Skip Coming Soon for admin users
         if ($request->hasSession() && $request->session()->get('admin_authenticated', false)) {
             return $next($request);
@@ -71,18 +67,6 @@ class ComingSoonMiddleware
         return $this->pathMatchesAny(
             $request,
             config('coming-soon.development_bypass_prefixes', [])
-        );
-    }
-
-    protected function shouldForceBlockInProduction(Request $request): bool
-    {
-        if (! app(SiteMode::class)->isProduction($request)) {
-            return false;
-        }
-
-        return $this->pathMatchesAny(
-            $request,
-            config('coming-soon.production_admin_blocked_prefixes', [])
         );
     }
 

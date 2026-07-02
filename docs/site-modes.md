@@ -46,11 +46,11 @@ Blade templates can use:
 ```blade
 @devMode
     <x-experimental-panel />
-@endDevMode
+@enddevMode
 
 @siteFeature('experimental-ui')
     <x-experimental-panel />
-@endSiteFeature
+@endsiteFeature
 ```
 
 Controllers and services can inject `App\Support\SiteMode` and call
@@ -76,6 +76,5 @@ closed in production:
 
 ```dotenv
 COMING_SOON_DEV_BYPASS_PREFIXES=/catalog/tests-cards
-COMING_SOON_PROD_ADMIN_BLOCKED_PREFIXES=/catalog/tests-cards
 CATALOG_MAX_TESTS=100
 ```

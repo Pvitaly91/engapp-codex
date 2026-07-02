@@ -63,11 +63,6 @@ return [
         explode(',', (string) env('COMING_SOON_DEV_BYPASS_PREFIXES', '/catalog/tests-cards'))
     ))),
 
-    'production_admin_blocked_prefixes' => array_values(array_filter(array_map(
-        'trim',
-        explode(',', (string) env('COMING_SOON_PROD_ADMIN_BLOCKED_PREFIXES', '/catalog/tests-cards'))
-    ))),
-
     /*
     |--------------------------------------------------------------------------
     | Public-ready Saved Test Slugs

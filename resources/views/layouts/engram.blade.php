@@ -69,7 +69,9 @@
                         @endif
                     </a>
                     <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold">
-                        <a class="hover:text-brand-600 transition" href="{{ localized_route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
+                        @devMode
+                            <a class="hover:text-brand-600 transition" href="{{ localized_route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
+                        @enddevMode
                         <a class="hover:text-brand-600 transition" href="{{ localized_route('theory.index') }}">{{ __('public.nav.theory') }}</a>
                         <a class="hover:text-brand-600 transition" href="{{ localized_route('words.test') }}">{{ __('public.nav.words_test') }}</a>
                         <a class="hover:text-brand-600 transition" href="{{ localized_route('verbs.test') }}">{{ __('public.nav.verbs_test') }}</a>
@@ -138,7 +140,9 @@
             <div x-show="mobile" x-transition class="lg:hidden border-t border-[var(--border)] bg-[var(--card)]/95 shadow-lg">
                 <div class="mx-auto max-w-6xl px-4 py-4 space-y-4">
                     <div class="flex flex-col gap-3 text-sm font-semibold">
-                        <a class="rounded-xl px-4 py-3 hover:bg-brand-50/80" href="{{ localized_route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
+                        @devMode
+                            <a class="rounded-xl px-4 py-3 hover:bg-brand-50/80" href="{{ localized_route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
+                        @enddevMode
                         <a class="rounded-xl px-4 py-3 hover:bg-brand-50/80" href="{{ localized_route('theory.index') }}">{{ __('public.nav.theory') }}</a>
                         <a class="rounded-xl px-4 py-3 hover:bg-brand-50/80" href="{{ localized_route('words.test') }}">{{ __('public.nav.words_test') }}</a>
                         <a class="rounded-xl px-4 py-3 hover:bg-brand-50/80" href="{{ localized_route('verbs.test') }}">{{ __('public.nav.verbs_test') }}</a>
@@ -194,7 +198,9 @@
                 <div class="space-y-2 text-sm">
                     <h3 class="font-semibold">{{ __('public.footer.links') }}</h3>
                     <div class="flex flex-col gap-2 text-[var(--muted)]">
-                        <a class="hover:text-brand-600" href="{{ localized_route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
+                        @devMode
+                            <a class="hover:text-brand-600" href="{{ localized_route('catalog.tests-cards') }}">{{ __('public.nav.catalog') }}</a>
+                        @enddevMode
                         <a class="hover:text-brand-600" href="{{ localized_route('theory.index') }}">{{ __('public.nav.theory') }}</a>
                         <a class="hover:text-brand-600" href="{{ localized_route('words.test') }}">{{ __('public.nav.words_test') }}</a>
                         <a class="hover:text-brand-600" href="{{ localized_route('verbs.test') }}">{{ __('public.nav.verbs_test') }}</a>

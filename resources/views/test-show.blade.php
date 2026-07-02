@@ -902,7 +902,9 @@
     <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="{{ __('public.common.breadcrumb') }}">
         <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">{{ __('public.common.home') }}</a>
         <span>/</span>
-        <a href="{{ localized_route('catalog.tests-cards') }}" class="transition hover:text-ocean">{{ __('public.nav.catalog') }}</a>
+        @devMode
+            <a href="{{ localized_route('catalog.tests-cards') }}" class="transition hover:text-ocean">{{ __('public.nav.catalog') }}</a>
+        @enddevMode
         @if(!empty(data_get($courseContext, 'course_url')) && !empty(data_get($courseContext, 'course_name')))
             <span>/</span>
             <a href="{{ data_get($courseContext, 'course_url') }}" class="transition hover:text-ocean">{{ data_get($courseContext, 'course_name') }}</a>

@@ -386,7 +386,9 @@
                     </div>
 
                     <nav class="hidden items-center gap-6 text-[15px] font-semibold xl:flex">
-                        <a href="{{ localized_route('catalog.tests-cards') }}" class="transition hover:text-ocean">{{ __('public.nav.catalog') }}</a>
+                        @devMode
+                            <a href="{{ localized_route('catalog.tests-cards') }}" class="transition hover:text-ocean">{{ __('public.nav.catalog') }}</a>
+                        @enddevMode
                         <a href="{{ localized_route('theory.index') }}" class="transition hover:text-ocean">{{ __('public.nav.theory') }}</a>
                         <a href="{{ localized_route('courses.index') }}" class="transition hover:text-ocean">{{ __('public.nav.courses') }}</a>
                         <a href="{{ localized_route('words.test') }}" class="transition hover:text-ocean">{{ __('public.nav.words_test') }}</a>
@@ -460,7 +462,9 @@
 
                 <div x-show="mobile" x-cloak x-transition class="mt-4 space-y-4 border-t pt-4 xl:hidden" style="border-color: var(--line);">
                     <nav class="grid gap-2 text-sm font-semibold">
-                        <a href="{{ localized_route('catalog.tests-cards') }}" class="rounded-2xl border px-4 py-3 transition hover:border-ocean surface-card-strong">{{ __('public.nav.catalog') }}</a>
+                        @devMode
+                            <a href="{{ localized_route('catalog.tests-cards') }}" class="rounded-2xl border px-4 py-3 transition hover:border-ocean surface-card-strong">{{ __('public.nav.catalog') }}</a>
+                        @enddevMode
                         <a href="{{ localized_route('theory.index') }}" class="rounded-2xl border px-4 py-3 transition hover:border-ocean surface-card-strong">{{ __('public.nav.theory') }}</a>
                         <a href="{{ localized_route('courses.index') }}" class="rounded-2xl border px-4 py-3 transition hover:border-ocean surface-card-strong">{{ __('public.nav.courses') }}</a>
                         <a href="{{ localized_route('words.test') }}" class="rounded-2xl border px-4 py-3 transition hover:border-ocean surface-card-strong">{{ __('public.nav.words_test') }}</a>
@@ -524,7 +528,9 @@
                     <div>
                         <h3 class="font-display text-lg font-extrabold">{{ __('public.footer.links') }}</h3>
                         <div class="mt-4 grid gap-3 text-sm text-white/80">
-                            <a href="{{ localized_route('catalog.tests-cards') }}" class="transition hover:text-white">{{ __('public.nav.catalog') }}</a>
+                            @devMode
+                                <a href="{{ localized_route('catalog.tests-cards') }}" class="transition hover:text-white">{{ __('public.nav.catalog') }}</a>
+                            @enddevMode
                             <a href="{{ localized_route('theory.index') }}" class="transition hover:text-white">{{ __('public.nav.theory') }}</a>
                             <a href="{{ localized_route('courses.index') }}" class="transition hover:text-white">{{ __('public.nav.courses') }}</a>
                             <a href="{{ localized_route('words.test') }}" class="transition hover:text-white">{{ __('public.nav.words_test') }}</a>

@@ -16,7 +16,6 @@ class ComingSoonMiddlewareTest extends TestCase
         config(['coming-soon.routes' => []]);
         config(['coming-soon.prefixes' => []]);
         config(['coming-soon.development_bypass_prefixes' => []]);
-        config(['coming-soon.production_admin_blocked_prefixes' => []]);
         parent::tearDown();
     }
 
@@ -152,12 +151,11 @@ class ComingSoonMiddlewareTest extends TestCase
         $this->assertSame(503, $response->getStatusCode());
     }
 
-    public function test_catalog_is_blocked_for_admin_on_production_host(): void
+    public function test_catalog_is_available_by_direct_url_for_admin_on_production_host(): void
     {
         config(['coming-soon.enabled' => true]);
         config(['coming-soon.prefixes' => ['/catalog/tests-cards']]);
         config(['coming-soon.development_bypass_prefixes' => ['/catalog/tests-cards']]);
-        config(['coming-soon.production_admin_blocked_prefixes' => ['/catalog/tests-cards']]);
         config(['site-mode.production_domains' => ['gramlyze.com', 'gramlyze.ub']]);
 
         $request = Request::create('http://gramlyze.ub/catalog/tests-cards', 'GET');
@@ -167,6 +165,6 @@ class ComingSoonMiddlewareTest extends TestCase
         $middleware = new ComingSoonMiddleware;
         $response = $middleware->handle($request, fn () => new Response('OK', 200));
 
-        $this->assertSame(503, $response->getStatusCode());
+        $this->assertSame(200, $response->getStatusCode());
     }
 }
