@@ -282,6 +282,25 @@ class PageController extends Controller
         return $this->show($category, $pageSlug);
     }
 
+    public function mobileNavigation()
+    {
+        $selectedCategoryId = request()->integer('category');
+        $currentPageId = request()->integer('page');
+        $variant = request()->string('variant')->toString() === 'desktop' ? 'desktop' : 'mobile';
+
+        return response()->view('theory.partials.mobile-navigation-content', [
+            'categories' => $this->categoryList(),
+            'selectedCategory' => $selectedCategoryId > 0
+                ? PageCategory::query()->find($selectedCategoryId)
+                : null,
+            'currentPage' => $currentPageId > 0
+                ? Page::query()->find($currentPageId)
+                : null,
+            'routePrefix' => $this->routePrefix,
+            'variant' => $variant,
+        ]);
+    }
+
     protected function resolvedSectionTitle(): string
     {
         if ($this->usesTheoryTopicTests()) {

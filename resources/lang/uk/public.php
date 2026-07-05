@@ -66,6 +66,8 @@ return [
         'tests_on_topic' => 'Тести по темі',
         'related_tests' => 'Пов\'язані тести',
         'quick_links' => 'Швидкі посилання',
+        'loading' => 'Завантаження…',
+        'error' => 'Не вдалося завантажити меню. Спробуйте ще раз.',
     ],
 
     // Slider (JS aria-labels)
@@ -117,6 +119,15 @@ return [
         'mobile_categories' => 'Теми',
         'theory_categories_mobile' => 'Теми граматики',
         'sections' => 'Теми',
+        'seo' => [
+            'index_title' => 'Теорія англійської граматики за темами | Gramlyze',
+            'index_description' => 'Вивчайте англійську граматику за структурованими темами: правила, зрозумілі пояснення, приклади та практичні вправи для рівнів A1–C2.',
+            'category_title' => ':category — англійська граматика | Gramlyze',
+            'category_description' => 'Вивчайте тему «:category»: :count структурованих уроків із правилами, поясненнями, прикладами та практикою англійської граматики.',
+            'page_title' => ':page — :category | Gramlyze',
+            'page_intro_description' => ':page — :category. :intro',
+            'page_description' => 'Вивчайте «:page» у розділі «:category»: правила, пояснення, приклади та вправи з англійської граматики.',
+        ],
     ],
 
     // Courses section

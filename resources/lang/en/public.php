@@ -66,6 +66,8 @@ return [
         'tests_on_topic' => 'Tests on this topic',
         'related_tests' => 'Related Tests',
         'quick_links' => 'Quick links',
+        'loading' => 'Loading…',
+        'error' => 'Could not load the menu. Please try again.',
     ],
 
     // Slider (JS aria-labels)
@@ -117,6 +119,15 @@ return [
         'mobile_categories' => 'Topics',
         'theory_categories_mobile' => 'Grammar topics',
         'sections' => 'Topics',
+        'seo' => [
+            'index_title' => 'English Grammar Theory by Topic | Gramlyze',
+            'index_description' => 'Learn English grammar through structured topics with clear rules, explanations, examples, and practical exercises for levels A1–C2.',
+            'category_title' => ':category — English Grammar | Gramlyze',
+            'category_description' => 'Learn :category through :count structured English grammar lessons with rules, clear explanations, examples, and practice.',
+            'page_title' => ':page — :category | Gramlyze',
+            'page_intro_description' => ':page — :category. :intro',
+            'page_description' => 'Learn :page in the :category section with English grammar rules, clear explanations, examples, and exercises.',
+        ],
     ],
 
     // Courses section

@@ -64,6 +64,8 @@ return [
         'tests_on_topic' => 'Testy na ten temat',
         'related_tests' => 'Powiązane testy',
         'quick_links' => 'Szybkie linki',
+        'loading' => 'Ładowanie…',
+        'error' => 'Nie udało się załadować menu. Spróbuj ponownie.',
     ],
     'slider' => [
         'go_to_slide' => 'Przejdź do slajdu',
@@ -109,6 +111,15 @@ return [
         'mobile_categories' => 'Tematy',
         'theory_categories_mobile' => 'Tematy gramatyczne',
         'sections' => 'Tematy',
+        'seo' => [
+            'index_title' => 'Teoria gramatyki angielskiej według tematów | Gramlyze',
+            'index_description' => 'Ucz się gramatyki angielskiej według uporządkowanych tematów: zasady, wyjaśnienia, przykłady i ćwiczenia dla poziomów A1–C2.',
+            'category_title' => ':category — gramatyka angielska | Gramlyze',
+            'category_description' => 'Poznaj temat „:category” w :count uporządkowanych lekcjach gramatyki angielskiej z zasadami, przykładami i ćwiczeniami.',
+            'page_title' => ':page — :category | Gramlyze',
+            'page_intro_description' => ':page — :category. :intro',
+            'page_description' => 'Poznaj „:page” w sekcji „:category”: zasady gramatyki angielskiej, wyjaśnienia, przykłady i ćwiczenia.',
+        ],
     ],
     'courses' => [
         'title' => 'Kursy — Gramlyze',

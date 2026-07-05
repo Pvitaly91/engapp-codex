@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CopilotTheoryController;
 use App\Http\Controllers\CourseCatalogController;
 use App\Http\Controllers\DevSiteModeController;
 use App\Http\Controllers\GrammarTestController;
@@ -13,6 +12,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PolyglotCourseController;
 use App\Http\Controllers\PolyglotProgressController;
 use App\Http\Controllers\SiteSearchController;
+use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\TheoryController;
 use App\Http\Controllers\TheoryCourseController;
 use App\Http\Controllers\WordSearchController;
@@ -44,6 +44,7 @@ Route::get('/dev/site-mode', DevSiteModeController::class)
     ->name('dev.site-mode');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
 
 // Public locale switching route
 Route::get('/set-locale', function (Request $request) {
@@ -111,6 +112,7 @@ Route::get('/pages/{category:slug}/{pageSlug}', [PageController::class, 'show'])
 
 // Public Theory pages routes (no authentication required)
 Route::get('/theory', [TheoryController::class, 'index'])->name('theory.index');
+Route::get('/theory/navigation', [TheoryController::class, 'mobileNavigation'])->name('theory.navigation');
 Route::get('/theory/{category:slug}', [TheoryController::class, 'category'])->name('theory.category');
 Route::get('/theory/{categoryPath}/{pageSlug}', [TheoryController::class, 'showByCategoryPath'])
     ->where('categoryPath', '.*')
@@ -144,15 +146,6 @@ Route::prefix('courses/{courseSlug}/progress')->name('courses.progress.')->group
         ->name('import');
 });
 
-// Copilot layout demo
-Route::get('/copilot', fn () => view('copilot.index'))->name('copilot.index');
-
-// Copilot – Theory section (same data as theory, new design under /copilot/theory)
-Route::get('/copilot/theory', [CopilotTheoryController::class, 'index'])->name('copilot.theory.index');
-Route::get('/copilot/theory/{category:slug}', [CopilotTheoryController::class, 'category'])->name('copilot.theory.category');
-Route::get('/copilot/theory/{categoryPath}/{pageSlug}', [CopilotTheoryController::class, 'showByCategoryPath'])
-    ->where('categoryPath', '.*')
-    ->name('copilot.theory.show');
 Route::get('/words', [WordSearchController::class, 'search'])->name('words.search');
 
 Route::prefix('test')->group(function () {

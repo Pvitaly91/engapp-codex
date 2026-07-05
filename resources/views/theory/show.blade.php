@@ -1,6 +1,26 @@
 @extends('layouts.catalog-public')
 
-@section('title', $page->title)
+@php
+    $seoHeroBlock = $page->textBlocks->firstWhere('type', 'hero-v2') ?? $page->textBlocks->firstWhere('type', 'hero');
+    $seoHeroData = $seoHeroBlock ? (json_decode($seoHeroBlock->body ?? '[]', true) ?? []) : [];
+    $seoIntro = is_string($seoHeroData['intro'] ?? null) ? $seoHeroData['intro'] : '';
+    $seoPlainIntro = trim((string) preg_replace('/\s+/u', ' ', html_entity_decode(strip_tags($seoIntro), ENT_QUOTES | ENT_HTML5)));
+    $seoDescription = $seoPlainIntro !== ''
+        ? \Illuminate\Support\Str::limit(__('public.theory.seo.page_intro_description', [
+            'page' => $page->title,
+            'category' => $selectedCategory->title ?? __('public.theory.title'),
+            'intro' => $seoPlainIntro,
+        ]), 159, '…')
+        : __('public.theory.seo.page_description', [
+            'page' => $page->title,
+            'category' => $selectedCategory->title ?? __('public.theory.title'),
+        ]);
+@endphp
+@section('title', __('public.theory.seo.page_title', [
+    'page' => $page->title,
+    'category' => $selectedCategory->title ?? __('public.theory.title'),
+]))
+@section('meta_description', $seoDescription)
 @section('body_class', 'scroll-optimized')
 
 @section('content')
@@ -123,18 +143,11 @@
                             </svg>
                         </button>
                     </div>
-                    @include('theory.partials.tree-nav-search', [
-                        'categories' => $categories,
-                        'searchId' => 'theory-sidebar-search-desktop',
+                    @include('theory.partials.desktop-navigation-loader', [
+                        'selectedCategory' => $selectedCategory ?? null,
+                        'currentPage' => $page,
+                        'routePrefix' => $routePrefix,
                     ])
-                    <div class="mt-4 min-h-0 flex-1 overflow-y-auto overscroll-contain pr-1 space-y-3" data-theory-sidebar-scroll style="scrollbar-color: color-mix(in srgb, var(--accent) 34%, transparent) transparent;">
-                        @include('theory.partials.tree-nav', [
-                            'categories' => $categories,
-                            'selectedCategory' => $selectedCategory ?? null,
-                            'currentPage' => $page,
-                            'routePrefix' => $routePrefix,
-                        ])
-                    </div>
                 </section>
 
                 @if($tocBlocks->isNotEmpty())

@@ -45,4 +45,28 @@ class TheoryCanonicalLessonUrlTest extends TestCase
         $response->assertSee('/theory/maibutni-formy/future-simple/future-simple-forms', false);
         $response->assertDontSee('/theory/future-simple/future-simple-forms', false);
     }
+
+    public function test_mobile_navigation_tree_is_loaded_on_demand(): void
+    {
+        $page = \App\Models\Page::query()->where('slug', 'future-simple-forms')->firstOrFail();
+        $category = $page->category;
+        $lessonUrl = '/theory/maibutni-formy/future-simple/future-simple-forms';
+
+        $initialHtml = $this->get($lessonUrl)->assertOk()->getContent();
+
+        $this->assertSame(0, substr_count($initialHtml, 'id="theory-sidebar-search-desktop"'));
+        $this->assertSame(0, substr_count($initialHtml, 'id="theory-sidebar-search-mobile"'));
+
+        $this->get('/theory/navigation?category='.$category->id.'&page='.$page->id)
+            ->assertOk()
+            ->assertHeader('X-Robots-Tag', 'noindex, nofollow, noarchive')
+            ->assertSee('id="theory-sidebar-search-mobile"', false)
+            ->assertSee($lessonUrl, false);
+
+        $this->get('/theory/navigation?variant=desktop&category='.$category->id.'&page='.$page->id)
+            ->assertOk()
+            ->assertHeader('X-Robots-Tag', 'noindex, nofollow, noarchive')
+            ->assertSee('id="theory-sidebar-search-desktop"', false)
+            ->assertSee($lessonUrl, false);
+    }
 }

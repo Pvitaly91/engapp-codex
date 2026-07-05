@@ -4,12 +4,53 @@
     $categoryPages = $categoryPages ?? collect();
     $currentPage = $currentPage ?? null;
     $routePrefix = $routePrefix ?? 'theory';
+    $mobileNavigationUrl = localized_route($routePrefix . '.navigation') . '?' . http_build_query(array_filter([
+        'category' => $selectedCategory?->getKey(),
+        'page' => $currentPage?->getKey(),
+    ]));
 @endphp
 
-<div class="mb-8 lg:hidden" x-data="{ open: false }">
+<div
+    class="mb-8 lg:hidden"
+    x-data="{
+        open: false,
+        loaded: false,
+        loading: false,
+        error: false,
+        async toggle() {
+            this.open = !this.open;
+
+            if (!this.open || this.loaded || this.loading) {
+                return;
+            }
+
+            this.loading = true;
+            this.error = false;
+
+            try {
+                const response = await fetch(@js($mobileNavigationUrl), {
+                    headers: { 'X-Requested-With': 'XMLHttpRequest' },
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+
+                this.$refs.content.innerHTML = await response.text();
+                window.Alpine?.initTree(this.$refs.content);
+                this.loaded = true;
+                this.$nextTick(() => window.initTheorySidebarSearch?.());
+            } catch (error) {
+                this.error = true;
+            } finally {
+                this.loading = false;
+            }
+        },
+    }"
+>
     <button
         type="button"
-        @click="open = !open"
+        @click="toggle()"
         class="flex w-full items-center justify-between rounded-[24px] border px-4 py-4 shadow-card surface-card-strong"
         style="border-color: var(--line);"
         data-theory-mobile-nav-toggle
@@ -24,18 +65,12 @@
     </button>
 
     <div x-show="open" x-transition x-cloak class="mt-5 flex max-h-[calc(100vh-8rem)] flex-col rounded-[24px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);" data-theory-sidebar data-theory-mobile-nav-panel>
-        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--muted);">{{ __('public.common.categories') }}</p>
-        @include('theory.partials.tree-nav-search', [
-            'categories' => $categories,
-            'searchId' => 'theory-sidebar-search-mobile',
-        ])
-        <div class="mt-4 min-h-0 flex-1 space-y-3 overflow-y-auto overscroll-contain pr-1" data-theory-sidebar-scroll style="scrollbar-color: color-mix(in srgb, var(--accent) 34%, transparent) transparent;">
-            @include('theory.partials.tree-nav-mobile', [
-                'categories' => $categories,
-                'selectedCategory' => $selectedCategory,
-                'currentPage' => $currentPage,
-                'routePrefix' => $routePrefix,
-            ])
+        <div x-show="loading" class="px-3 py-8 text-center text-sm" style="color: var(--muted);">
+            {{ __('public.common.loading') }}
         </div>
+        <div x-show="error" class="px-3 py-8 text-center text-sm" style="color: var(--muted);">
+            {{ __('public.common.error') }}
+        </div>
+        <div x-ref="content" class="contents"></div>
     </div>
 </div>
