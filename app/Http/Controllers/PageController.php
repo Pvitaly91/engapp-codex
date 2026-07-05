@@ -124,6 +124,10 @@ class PageController extends Controller
         $locales = array_unique([$preferredLocale, $fallbackLocale]);
 
         $categories = $this->categoryList();
+        $category->setAttribute(
+            'public_slug_path',
+            $this->routePrefix === 'pages' ? $category->slug : $this->categorySlugPath($category)
+        );
         $resolvedCategory = $categories->firstWhere('id', $category->getKey());
 
         if ($resolvedCategory instanceof PageCategory) {
@@ -198,23 +202,7 @@ class PageController extends Controller
             ->first();
 
         if (! $page) {
-            $canonicalPage = Page::query()
-                ->with('category.parent.parent.parent.parent.parent')
-                ->forType($this->pageType)
-                ->where('slug', $pageSlug)
-                ->firstOrFail();
-
-            $canonicalCategory = $canonicalPage->category;
-            abort_unless($canonicalCategory instanceof PageCategory, 404);
-
-            $categoryPath = $this->routePrefix === 'pages'
-                ? $canonicalCategory->slug
-                : $this->categorySlugPath($canonicalCategory);
-
-            return redirect()->to(localized_route($this->routePrefix . '.show', [
-                $categoryPath,
-                $canonicalPage->slug,
-            ]));
+            abort(404);
         }
 
         $allBlocks = $page->textBlocks;
@@ -305,7 +293,7 @@ class PageController extends Controller
 
     protected function usesTheoryTopicTests(): bool
     {
-        return $this->pageType === 'theory' || in_array($this->routePrefix, ['theory', 'copilot.theory'], true);
+        return $this->pageType === 'theory' || $this->routePrefix === 'theory';
     }
 
     protected function resolveCategoryBySlugPath(string $categoryPath): ?PageCategory
@@ -334,7 +322,7 @@ class PageController extends Controller
 
         return $candidates->first(
             fn (PageCategory $category) => $this->categorySlugPath($category) === $normalizedPath
-        ) ?? ($candidates->count() === 1 ? $candidates->first() : null);
+        );
     }
 
     protected function categorySlugPath(PageCategory $category): string
@@ -760,9 +748,15 @@ class PageController extends Controller
             $language ?? 'all',
         ]);
 
-        return Cache::remember($cacheKey, now()->addHour(), function () use ($language) {
+        $categories = Cache::remember($cacheKey, now()->addHour(), function () use ($language) {
             return $this->buildCategoryList($language);
         });
+
+        // Cached category trees created before this deployment may not have the
+        // computed path attribute yet, so attach it on every read as well.
+        $this->attachPublicSlugPaths($categories);
+
+        return $categories;
     }
 
     protected function buildCategoryList(?string $language): Collection
@@ -783,6 +777,7 @@ class PageController extends Controller
             ->orderBy('title')
             ->get();
 
+        $this->attachPublicSlugPaths($categories);
         $this->attachRecursivePageCounts($categories);
 
         if ($this->pageType !== 'theory') {
@@ -807,6 +802,22 @@ class PageController extends Controller
         foreach ($categories as $category) {
             if ($category instanceof PageCategory) {
                 $this->setRecursivePageCount($category);
+            }
+        }
+    }
+
+    protected function attachPublicSlugPaths(Collection $categories, string $parentPath = ''): void
+    {
+        foreach ($categories as $category) {
+            if (! $category instanceof PageCategory) {
+                continue;
+            }
+
+            $slugPath = $this->normalizeCategorySlugPath($parentPath.'/'.$category->slug);
+            $category->setAttribute('public_slug_path', $slugPath);
+
+            if ($category->relationLoaded('children')) {
+                $this->attachPublicSlugPaths($category->children, $slugPath);
             }
         }
     }

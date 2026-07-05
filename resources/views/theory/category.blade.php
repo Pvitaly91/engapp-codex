@@ -1,6 +1,14 @@
 @extends('layouts.catalog-public')
 
-@section('title', ($selectedCategory->title ?? __('frontend.copilot_theory.category')) . ' - ' . ($sectionTitle ?? __('frontend.copilot_theory.theory')))
+@php
+    $seoCategoryName = $selectedCategory->title ?? __('frontend.copilot_theory.category');
+    $seoCategoryCount = (int) ($selectedCategory->recursive_pages_count ?? $categoryPages->count());
+@endphp
+@section('title', __('public.theory.seo.category_title', ['category' => $seoCategoryName]))
+@section('meta_description', __('public.theory.seo.category_description', [
+    'category' => $seoCategoryName,
+    'count' => $seoCategoryCount,
+]))
 @section('body_class', 'scroll-optimized')
 
 @section('content')
@@ -155,7 +163,7 @@
                 @if($categoryPages->isNotEmpty())
                     <div class="mt-8 grid gap-5 md:grid-cols-2">
                         @foreach($categoryPages as $page)
-                            <a href="{{ localized_route($routePrefix . '.show', [$selectedCategory->slug, $page->slug]) }}" class="rounded-[24px] border p-5 shadow-card transition hover:-translate-y-1 surface-card" style="border-color: var(--line);">
+                            <a href="{{ localized_route($routePrefix . '.show', [$selectedCategory->public_slug_path ?? $selectedCategory->slug, $page->slug]) }}" class="rounded-[24px] border p-5 shadow-card transition hover:-translate-y-1 surface-card" style="border-color: var(--line);">
                                 <div class="flex items-center justify-between gap-4">
                                     <span class="inline-flex h-12 w-12 items-center justify-center rounded-[18px] bg-ocean text-sm font-extrabold text-white">
                                         {{ str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT) }}

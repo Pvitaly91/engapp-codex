@@ -1,6 +1,7 @@
 @extends('layouts.catalog-public')
 
-@section('title', $sectionTitle ?? __('public.theory.title'))
+@section('title', __('public.theory.seo.index_title'))
+@section('meta_description', __('public.theory.seo.index_description'))
 @section('body_class', 'scroll-optimized')
 
 @section('content')
@@ -151,7 +152,7 @@
                                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.common.section_pages') }}</p>
                                 <div class="mt-3 space-y-2">
                                     @foreach($category->pages->take(4) as $page)
-                                        <a href="{{ localized_route($routePrefix . '.show', [$category->slug, $page->slug]) }}" class="flex items-start gap-3 rounded-[18px] border px-3 py-3 text-sm transition hover:-translate-y-0.5 surface-card" style="border-color: var(--line); color: var(--muted);">
+                                        <a href="{{ localized_route($routePrefix . '.show', [$category->public_slug_path ?? $category->slug, $page->slug]) }}" class="flex items-start gap-3 rounded-[18px] border px-3 py-3 text-sm transition hover:-translate-y-0.5 surface-card" style="border-color: var(--line); color: var(--muted);">
                                             <span class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-ocean text-[10px] font-extrabold text-white">
                                                 P
                                             </span>

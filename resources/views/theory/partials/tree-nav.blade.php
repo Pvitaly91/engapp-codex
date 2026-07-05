@@ -345,7 +345,7 @@
                             @php($pageItem = $item['model'])
                             @php($isCurrentPage = $currentPage && $currentPage->is($pageItem))
                             <a
-                                href="{{ localized_route($routePrefix . '.show', [$category->slug, $pageItem->slug]) }}"
+                                href="{{ localized_route($routePrefix . '.show', [$category->public_slug_path ?? $category->slug, $pageItem->slug]) }}"
                                 class="group relative flex items-start gap-2.5 rounded-[16px] px-2.5 py-2.5 text-sm transition hover:bg-slate-100/80 dark:hover:bg-slate-800/40"
                                 style="{{ $isCurrentPage
                                     ? 'background: color-mix(in srgb, var(--accent-soft) 78%, white); color: var(--text);'
