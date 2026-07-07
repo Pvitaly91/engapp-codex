@@ -1,6 +1,7 @@
 @extends('layouts.engram')
 
 @section('title', $sectionTitle ?? __('public.pages.title'))
+@section('meta_description', __('public.pages.meta_description'))
 
 @section('content')
     @php($categoryPages = $categoryPages ?? collect())

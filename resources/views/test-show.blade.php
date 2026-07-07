@@ -1,6 +1,7 @@
 @extends('layouts.catalog-public')
 
 @section('title', $test->name)
+@section('meta_description', __('public.tests.meta_description', ['test' => $test->name]))
 
 @section('head')
 <style>

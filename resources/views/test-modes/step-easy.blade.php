@@ -652,6 +652,20 @@ document.getElementById('question-card').addEventListener('click', (e) => {
   onChoose(btn.dataset.opt);
 });
 
+// Commit an autocomplete choice before the input loses focus. On touch devices
+// the delayed click can otherwise lose a race to the focusout submission.
+document.getElementById('question-card').addEventListener('pointerdown', (e) => {
+  const suggestionBtn = e.target.closest('button[data-word-suggestion]');
+  if (!suggestionBtn) return;
+
+  e.preventDefault();
+  e.stopImmediatePropagation();
+  const q = state.items[state.current];
+  if (!q) return;
+  const slotIndex = parseInt(suggestionBtn.dataset.gap ?? q.activeSlot, 10);
+  submitManualAnswer(state.current, isNaN(slotIndex) ? q.activeSlot : slotIndex, suggestionBtn.dataset.wordSuggestion || '');
+});
+
 document.getElementById('question-card').addEventListener('input', (e) => {
   const manualInput = e.target.closest('input[data-manual-gap]');
   if (!manualInput) return;

@@ -1,6 +1,7 @@
 @extends('layouts.catalog-public')
 
 @section('title', __('verbs.title'))
+@section('meta_description', __('verbs.description'))
 
 @section('content')
   <div class="nd-page space-y-6 verbs-page">

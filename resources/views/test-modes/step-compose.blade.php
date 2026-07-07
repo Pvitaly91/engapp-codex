@@ -2763,6 +2763,23 @@ window.__POLYGLOT_WORD_SEARCH_URL__ = @json(localized_route('words.search'));
         }
     });
 
+    // Pointer selection must win over focusout, which clears the suggestions.
+    root.addEventListener('pointerdown', (event) => {
+        const suggestionButton = event.target.closest('[data-compose-word-suggestion]');
+        if (!suggestionButton) return;
+
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        const question = currentQuestion();
+        const slotIndex = sanitizeInteger(suggestionButton.getAttribute('data-compose-slot'), -1);
+        if (slotIndex < 0) return;
+
+        setManualSlotValue(question, slotIndex, suggestionButton.getAttribute('data-compose-word-suggestion') || '');
+        state.manualWordSuggestionsBySlot[slotIndex] = [];
+        render();
+        focusManualSlot(Math.min(slotIndex + 1, Math.max(0, state.answerSlots.length - 1)));
+    });
+
     root.addEventListener('input', (event) => {
         const input = event.target.closest('[data-compose-manual-slot]');
         if (!input) return;

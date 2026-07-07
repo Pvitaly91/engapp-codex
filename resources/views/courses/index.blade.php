@@ -1,6 +1,7 @@
 @extends('layouts.catalog-public')
 
 @section('title', __('public.courses.title'))
+@section('meta_description', __('public.courses.meta_description'))
 
 @section('content')
 @php

@@ -3,7 +3,7 @@
 return [
     'meta' => [
         'title' => 'Gramlyze — Platforma dla nauczycieli angielskiego',
-        'description' => 'Gramlyze pomaga tworzyć testy, analizować odpowiedzi i koordynować zespół nauczycieli angielskiego.',
+        'description' => 'Ucz się gramatyki angielskiej z Gramlyze dzięki uporządkowanej teorii, testom, kursom, słownictwu i czasownikom nieregularnym.',
     ],
     'nav' => [
         'catalog' => 'Katalog',
@@ -72,6 +72,7 @@ return [
     ],
     'pages' => [
         'title' => 'Teoria',
+        'meta_description' => 'Przeglądaj materiały Gramlyze według kategorii: zasady gramatyki angielskiej, przykłady, wyjaśnienia i ćwiczenia.',
         'materials_section' => 'Materiały sekcji',
         'select_category_hint' => 'Wybierz temat, aby zobaczyć lekcje.',
         'no_pages_in_category' => 'W tym temacie nie ma jeszcze lekcji.',
@@ -121,8 +122,14 @@ return [
             'page_description' => 'Poznaj „:page” w sekcji „:category”: zasady gramatyki angielskiej, wyjaśnienia, przykłady i ćwiczenia.',
         ],
     ],
+    'tests' => [
+        'meta_description' => ':test to interaktywny test angielskiego Gramlyze. Sprawdź wiedzę, wykonaj ćwiczenia i zobacz swój wynik.',
+    ],
+
     'courses' => [
         'title' => 'Kursy — Gramlyze',
+        'meta_description' => 'Wybierz kurs angielskiego w Gramlyze: Sentence Builder na poziomach A1–C2 lub systematyczny kurs teorii gramatyki.',
+        'course_meta_description' => ':course to uporządkowany kurs angielskiego Gramlyze z lekcjami, ćwiczeniami i śledzeniem postępów.',
         'breadcrumb' => 'Kursy',
         'badge' => 'Katalog kursów',
         'heading' => 'Wybierz kurs lub poziom nauki',

@@ -4,7 +4,7 @@ return [
     // Meta / Title / Description
     'meta' => [
         'title' => 'Gramlyze — Platform for English Teachers',
-        'description' => 'Gramlyze helps you create tests, analyze answers, and coordinate your English teaching team.',
+        'description' => 'Learn English grammar with Gramlyze through structured theory, interactive tests, courses, vocabulary practice, and irregular verbs.',
     ],
 
     // Navigation
@@ -78,6 +78,7 @@ return [
     // Pages section
     'pages' => [
         'title' => 'Theory',
+        'meta_description' => 'Browse Gramlyze materials by category with English grammar rules, examples, clear explanations, and practical exercises.',
         'materials_section' => 'Section materials',
         'select_category_hint' => 'Choose a topic to see its lessons.',
         'no_pages_in_category' => 'There are no lessons in this topic yet.',
@@ -130,9 +131,15 @@ return [
         ],
     ],
 
+    'tests' => [
+        'meta_description' => ':test is an interactive Gramlyze English test. Check your knowledge, complete the exercises, and review your result.',
+    ],
+
     // Courses section
     'courses' => [
         'title' => 'Courses — Gramlyze',
+        'meta_description' => 'Choose an English course on Gramlyze: Sentence Builder for levels A1–C2 or a systematic English grammar theory course.',
+        'course_meta_description' => ':course is a structured Gramlyze English course with lessons, practical exercises, and progress tracking.',
         'breadcrumb' => 'Courses',
         'badge' => 'Course catalog',
         'heading' => 'Choose a course or study level',

@@ -2,7 +2,6 @@
 
 @section('title', __('words_test.title'))
 
-@section('content')
 @php
     $difficulty = $difficulty ?? 'easy';
     $tabs = [
@@ -26,6 +25,9 @@
         ['label' => __('words_test.errors'), 'value' => '3 max', 'tone' => 'bg-slate-800 dark:bg-slate-200'],
     ];
 @endphp
+@section('meta_description', $heroDescription)
+
+@section('content')
 
 <div class="nd-page">
     <style>

@@ -582,6 +582,17 @@ function renderQuestions(showOnlyWrong = false) {
       onChoose(idx, btn.dataset.opt);
     });
 
+    // Select the suggestion before focusout can submit the partially typed value.
+    card.addEventListener('pointerdown', (e) => {
+      const suggestionBtn = e.target.closest('button[data-word-suggestion]');
+      if (!suggestionBtn) return;
+
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      const suggestionSlot = parseInt(suggestionBtn.dataset.gap ?? q.activeSlot, 10);
+      submitManualAnswer(idx, isNaN(suggestionSlot) ? q.activeSlot : suggestionSlot, suggestionBtn.dataset.wordSuggestion || '');
+    });
+
     card.addEventListener('input', (e) => {
       const manualInput = e.target.closest('input[data-manual-gap]');
       if (!manualInput) return;

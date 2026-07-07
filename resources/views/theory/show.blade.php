@@ -15,11 +15,9 @@
             'page' => $page->title,
             'category' => $selectedCategory->title ?? __('public.theory.title'),
         ]);
+    $seoTitle = \Illuminate\Support\Str::limit((string) $page->title, 48, '…') . ' | Gramlyze';
 @endphp
-@section('title', __('public.theory.seo.page_title', [
-    'page' => $page->title,
-    'category' => $selectedCategory->title ?? __('public.theory.title'),
-]))
+@section('title', $seoTitle)
 @section('meta_description', $seoDescription)
 @section('body_class', 'scroll-optimized')
 

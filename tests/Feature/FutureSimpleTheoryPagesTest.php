@@ -128,13 +128,19 @@ class FutureSimpleTheoryPagesTest extends TestCase
             $html = $this->get($path)->assertOk()->getContent();
             preg_match('/<title>(.*?)<\/title>/s', $html, $titleMatch);
             preg_match('/<meta name="description" content="([^"]*)"/s', $html, $descriptionMatch);
+            preg_match('/<meta property="og:title" content="([^"]*)"/s', $html, $openGraphTitleMatch);
+            preg_match('/<meta property="og:description" content="([^"]*)"/s', $html, $openGraphDescriptionMatch);
 
             $title = html_entity_decode($titleMatch[1] ?? '', ENT_QUOTES | ENT_HTML5);
             $description = html_entity_decode($descriptionMatch[1] ?? '', ENT_QUOTES | ENT_HTML5);
 
             $this->assertNotSame('', $title);
             $this->assertNotSame('', $description);
+            $this->assertLessThanOrEqual(60, mb_strlen($title));
             $this->assertLessThanOrEqual(160, mb_strlen($description));
+            $this->assertSame($title, html_entity_decode($openGraphTitleMatch[1] ?? '', ENT_QUOTES | ENT_HTML5));
+            $this->assertSame($description, html_entity_decode($openGraphDescriptionMatch[1] ?? '', ENT_QUOTES | ENT_HTML5));
+            $this->assertStringContainsString('<meta name="twitter:card" content="summary_large_image"', $html);
             $titles[] = $title;
             $descriptions[] = $description;
         }

@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>@yield('title', __('public.meta.title'))</title>
-    <meta name="description" content="{{ __('public.meta.description') }}" />
+    <meta name="description" content="@yield('meta_description', __('public.meta.description'))" />
+    @include('layouts.partials.social-meta')
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 

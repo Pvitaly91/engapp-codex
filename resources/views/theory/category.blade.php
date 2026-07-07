@@ -3,8 +3,13 @@
 @php
     $seoCategoryName = $selectedCategory->title ?? __('frontend.copilot_theory.category');
     $seoCategoryCount = (int) ($selectedCategory->recursive_pages_count ?? $categoryPages->count());
+    $seoCategoryLabel = __('frontend.copilot_theory.category');
+    $seoCategoryNameLimit = max(12, 60 - mb_strlen($seoCategoryLabel . ':  | Gramlyze'));
+    $seoCategoryTitle = $seoCategoryLabel . ': '
+        . \Illuminate\Support\Str::limit((string) $seoCategoryName, $seoCategoryNameLimit, '…')
+        . ' | Gramlyze';
 @endphp
-@section('title', __('public.theory.seo.category_title', ['category' => $seoCategoryName]))
+@section('title', $seoCategoryTitle)
 @section('meta_description', __('public.theory.seo.category_description', [
     'category' => $seoCategoryName,
     'count' => $seoCategoryCount,

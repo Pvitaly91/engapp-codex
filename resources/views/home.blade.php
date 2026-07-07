@@ -1,6 +1,7 @@
 @extends('layouts.catalog-public')
 
 @section('title', __('public.home.title'))
+@section('meta_description', __('public.meta.description'))
 
 @section('head')
 <style>
