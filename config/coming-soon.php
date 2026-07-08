@@ -79,16 +79,4 @@ return [
         'course-td-',
     ],
 
-    /*
-    |--------------------------------------------------------------------------
-    | Retry-After Header
-    |--------------------------------------------------------------------------
-    |
-    | Number of seconds to include in the Retry-After header.
-    | Default is 86400 (24 hours).
-    |
-    */
-
-    'retry_after' => 86400,
-
 ];

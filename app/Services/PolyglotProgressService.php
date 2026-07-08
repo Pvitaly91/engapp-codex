@@ -184,7 +184,7 @@ class PolyglotProgressService
         if (! $this->progressStorageAvailable()) {
             throw ValidationException::withMessages([
                 'progress_storage' => 'Polyglot server progress tables are missing. Run php artisan migrate.',
-            ])->status(503);
+            ]);
         }
 
         return DB::transaction(function () use ($user, $courseSlug, $payload, $lessons, $action, $lessonSlug, $lesson, $nextLesson) {

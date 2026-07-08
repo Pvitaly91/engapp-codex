@@ -86,11 +86,9 @@ class ComingSoonMiddleware
      */
     protected function comingSoonResponse(): Response
     {
-        $retryAfter = config('coming-soon.retry_after', 86400);
-
         return response()
-            ->view('coming-soon', [], 503)
-            ->header('Retry-After', $retryAfter);
+            ->view('errors.404', [], Response::HTTP_NOT_FOUND)
+            ->header('X-Robots-Tag', 'noindex, nofollow, noarchive');
     }
 
     protected function shouldBypassForAllowedTestSlug(Request $request): bool

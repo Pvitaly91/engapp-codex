@@ -35,11 +35,10 @@ class ComingSoonMiddlewareTest extends TestCase
         $this->assertEquals('OK', $response->getContent());
     }
 
-    public function test_middleware_returns_503_for_matching_prefix_when_enabled(): void
+    public function test_middleware_returns_404_for_matching_prefix_when_enabled(): void
     {
         config(['coming-soon.enabled' => true]);
         config(['coming-soon.prefixes' => ['/pricing']]);
-        config(['coming-soon.retry_after' => 86400]);
 
         $request = Request::create('/pricing', 'GET');
         $middleware = new ComingSoonMiddleware;
@@ -48,8 +47,8 @@ class ComingSoonMiddlewareTest extends TestCase
             return new Response('OK', 200);
         });
 
-        $this->assertEquals(503, $response->getStatusCode());
-        $this->assertEquals('86400', $response->headers->get('Retry-After'));
+        $this->assertEquals(404, $response->getStatusCode());
+        $this->assertEquals('noindex, nofollow, noarchive', $response->headers->get('X-Robots-Tag'));
     }
 
     public function test_middleware_allows_non_matching_paths(): void
@@ -71,7 +70,6 @@ class ComingSoonMiddlewareTest extends TestCase
     {
         config(['coming-soon.enabled' => true]);
         config(['coming-soon.prefixes' => ['/features']]);
-        config(['coming-soon.retry_after' => 3600]);
 
         $request = Request::create('/features/advanced', 'GET');
         $middleware = new ComingSoonMiddleware;
@@ -80,8 +78,7 @@ class ComingSoonMiddlewareTest extends TestCase
             return new Response('OK', 200);
         });
 
-        $this->assertEquals(503, $response->getStatusCode());
-        $this->assertEquals('3600', $response->headers->get('Retry-After'));
+        $this->assertEquals(404, $response->getStatusCode());
     }
 
     public function test_middleware_allows_admin_users(): void
@@ -118,7 +115,7 @@ class ComingSoonMiddlewareTest extends TestCase
             return new Response('OK', 200);
         });
 
-        $this->assertEquals(503, $response->getStatusCode());
+        $this->assertEquals(404, $response->getStatusCode());
     }
 
     public function test_catalog_bypasses_coming_soon_on_development_host(): void
@@ -148,7 +145,7 @@ class ComingSoonMiddlewareTest extends TestCase
 
         $response = $middleware->handle($request, fn () => new Response('OK', 200));
 
-        $this->assertSame(503, $response->getStatusCode());
+        $this->assertSame(404, $response->getStatusCode());
     }
 
     public function test_catalog_is_available_by_direct_url_for_admin_on_production_host(): void

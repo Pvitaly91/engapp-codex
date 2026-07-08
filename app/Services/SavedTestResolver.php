@@ -78,6 +78,11 @@ class SavedTestResolver
         throw new ModelNotFoundException("Saved test [{$slug}] not found.");
     }
 
+    public function resolveTheoryPageSlug(string $slug): ?ResolvedSavedTest
+    {
+        return $this->resolveFromTheoryPageSlug($slug);
+    }
+
     private function resolveFromRegistry(string $slug): ?ResolvedSavedTest
     {
         $payload = VirtualTestRegistry::resolve($slug);

@@ -3,6 +3,9 @@
 namespace App\Http;
 
 use App\Http\Middleware\AdminAuthenticate;
+use App\Http\Middleware\AddCanonicalUrl;
+use App\Http\Middleware\ApplySeoRobots;
+use App\Http\Middleware\AddStructuredData;
 use App\Http\Middleware\ApplySiteMode;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\ComingSoonMiddleware;
@@ -47,6 +50,7 @@ class Kernel extends HttpKernel
         // \App\Http\Middleware\TrustHosts::class,
         TrustProxies::class,
         ApplySiteMode::class,
+        ApplySeoRobots::class,
         HandleCors::class,
         PreventRequestsDuringMaintenance::class,
         ValidatePostSize::class,
@@ -71,6 +75,8 @@ class Kernel extends HttpKernel
             SubstituteBindings::class,
             SetLocale::class,
             ComingSoonMiddleware::class,
+            AddCanonicalUrl::class,
+            AddStructuredData::class,
         ],
 
         'api' => [

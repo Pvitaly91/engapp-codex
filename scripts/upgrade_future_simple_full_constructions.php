@@ -17,6 +17,44 @@ $packages = [
     'time' => $root.'/database/seeders/V3/FutureForms/FutureSimple/FutureSimpleTimeExpressionsAllLevelsV3Seeder',
 ];
 
+$translationOverrides = [
+    'uk' => [
+        'address' => 'розглянути', 'allocate' => 'виділити', 'answer' => 'відповісти',
+        'articulate' => 'сформулювати', 'assess' => 'оцінити', 'call' => 'зателефонувати',
+        'challenge' => 'поставити під сумнів', 'clean' => 'прибрати', 'compare' => 'порівняти',
+        'contact' => 'зв’язатися', 'contest' => 'оскаржити', 'cook' => 'приготувати',
+        'coordinate' => 'координувати', 'correct' => 'виправити', 'elucidate' => 'роз’яснити',
+        'ensure' => 'забезпечити', 'facilitate' => 'сприяти', 'finance' => 'фінансувати',
+        'guarantee' => 'гарантувати', 'influence' => 'вплинути', 'judge' => 'оцінити',
+        'like' => 'подобатися', 'listen' => 'слухати', 'mediate' => 'бути посередником',
+        'monitor' => 'відстежувати', 'need' => 'потребувати', 'open' => 'відкрити',
+        'orchestrate' => 'організувати', 'oversee' => 'контролювати', 'qualify' => 'відповідати вимогам',
+        'rain' => 'йти (про дощ)', 'recommend' => 'рекомендувати', 'recontextualize' => 'переосмислити в новому контексті',
+        'redress' => 'виправити', 'remain' => 'залишатися', 'remember' => 'пам’ятати',
+        'repair' => 'відремонтувати', 'rephrase' => 'перефразувати', 'resolve' => 'вирішити',
+        'return' => 'повернутися', 'review' => 'переглянути', 'safeguard' => 'захистити',
+        'study' => 'вивчати', 'support' => 'підтримати', 'travel' => 'подорожувати',
+        'trigger' => 'спричинити', 'underwrite' => 'фінансувати', 'update' => 'оновити',
+        'wait' => 'чекати', 'work' => 'працювати', 'yield' => 'дати результат',
+    ],
+];
+
+/** @return array<string, string> */
+function loadWordTranslations(string $path): array
+{
+    $payload = readJson($path);
+    $translations = [];
+    foreach ($payload['with_translation'] ?? [] as $row) {
+        $word = strtolower(trim((string) ($row['word'] ?? '')));
+        $translation = trim((string) ($row['translation'] ?? ''));
+        if ($word !== '' && $translation !== '' && ! isset($translations[$word])) {
+            $translations[$word] = $translation;
+        }
+    }
+
+    return $translations;
+}
+
 $localizedHints = [
     'forms' => [
         'uk' => 'Оберіть повну конструкцію Future Simple: will (або підмет + ’ll) + початкова форма дієслова без to.',
@@ -277,6 +315,23 @@ function upgradeQuestion(string $package, array &$question): ?array
     $marker =& $question['markers']['a1'];
     $answer = trim((string) ($marker['answer'] ?? ''));
 
+    $predictionRepairs = [
+        'fs-forms-v3-c1-01' => ['The committee {a1} the proposal', 'will most likely reject', 'reject'],
+        'fs-forms-v3-c1-09' => ['The market {a1} cautiously', 'will presumably respond', 'respond'],
+        'fs-forms-v3-c2-01' => ["Historians {a1} this event's significance", 'will likely reassess', 'reassess'],
+    ];
+    $predictionRepair = $package === 'forms'
+        ? ($predictionRepairs[(string) ($question['uuid'] ?? '')] ?? null)
+        : null;
+    if ($predictionRepair !== null && in_array($answer, ['will most', 'will presumably', 'will likely'], true)) {
+        [$newQuestion, $correct, $verb] = $predictionRepair;
+        $marker['answer'] = $correct;
+        $marker['options'] = affirmativeOptions($newQuestion, $correct, $verb);
+        replaceQuestionAndVariants($question, $newQuestion);
+
+        return ['type' => 'forms', 'hint' => ''];
+    }
+
     if ($package === 'forms' && preg_match('/^will\s+(probably|perhaps|personally|inevitably|eventually|far)$/i', $answer) === 1) {
         $consumed = consumeVerbAfterMarker((string) $question['question']);
         if ($consumed === null) {
@@ -449,13 +504,86 @@ function normalizeFullConstructionOptions(string $package, array &$question): vo
     $marker =& $question['markers']['a1'];
     $answer = trim((string) ($marker['answer'] ?? ''));
 
-    if (($package === 'forms' || $package === 'time') && preg_match("/^(?:will(?:\s+(?:probably|personally|inevitably|eventually|far))?|[A-Za-z]+'ll)\s+([A-Za-z-]+)$/i", $answer, $matches) === 1) {
+    if (($package === 'forms' || $package === 'time') && preg_match("/^(?:will(?:\s+(?:most likely|probably|perhaps|likely|presumably|personally|inevitably|eventually|far))?|[A-Za-z]+'ll)\s+([A-Za-z-]+)$/i", $answer, $matches) === 1) {
         $marker['options'] = affirmativeOptions((string) $question['question'], $answer, strtolower($matches[1]));
     }
 
     if ($package === 'negatives' && preg_match("/^(?:won't|will not)\s+([A-Za-z-]+)$/i", $answer, $matches) === 1) {
         $marker['options'] = negativeOptions((string) $question['question'], $answer, strtolower($matches[1]));
     }
+}
+
+function extractTargetVerb(string $package, array $question): string
+{
+    $marker = $question['markers']['a1'];
+    $answer = trim((string) $marker['answer']);
+    $gapType = (string) ($marker['gap_tags'][0] ?? '');
+
+    if (in_array($package, ['forms', 'negatives'], true) || ($package === 'time' && $gapType === 'future_marker')) {
+        if (preg_match('/([A-Za-z-]+)$/', $answer, $matches) === 1) {
+            return strtolower($matches[1]);
+        }
+    }
+
+    $subjects = 'my sister|our teacher|the team|the company|the committee|researchers|I|you|she|he|we|they|it';
+    if ($package === 'questions') {
+        $source = $gapType === 'short_answers' ? (string) $question['question'] : $answer;
+        if (preg_match('/^Will\s+(?:'.$subjects.')\s+([A-Za-z-]+)/i', $source, $matches) === 1
+            || preg_match('/^will\s+(?:'.$subjects.')\s+([A-Za-z-]+)/i', $source, $matches) === 1) {
+            return strtolower($matches[1]);
+        }
+    }
+
+    if ($package === 'time' && preg_match('/\bwill\s+([A-Za-z-]+)/i', (string) $question['question'], $matches) === 1) {
+        return strtolower($matches[1]);
+    }
+
+    throw new RuntimeException('Cannot determine the target verb for '.$question['uuid']);
+}
+
+/** @param array<string, array<string, string>> $dictionaries */
+function localizedVerbHint(string $package, string $gapType, string $verb, string $locale, array $dictionaries): string
+{
+    $translation = $locale === 'en' ? $verb : ($dictionaries[$locale][$verb] ?? $verb);
+    $label = match ($locale) {
+        'uk' => "Дієслово: «{$translation}». ",
+        'pl' => "Czasownik: „{$translation}”. ",
+        default => "Verb: “{$verb}”. ",
+    };
+
+    if ($package === 'negatives') {
+        return $label.match ($locale) {
+            'uk' => 'Оберіть повну заперечну конструкцію з will not / won’t.',
+            'pl' => 'Wybierz pełną konstrukcję przeczącą z will not / won’t.',
+            default => 'Choose the complete negative construction with will not / won’t.',
+        };
+    }
+    if ($package === 'questions') {
+        return $label.match ($locale) {
+            'uk' => $gapType === 'short_answers'
+                ? 'У короткій відповіді повторіть will або won’t.'
+                : 'Поставте will, підмет і це дієслово у правильному порядку.',
+            'pl' => $gapType === 'short_answers'
+                ? 'W krótkiej odpowiedzi powtórz will lub won’t.'
+                : 'Ustaw will, podmiot i ten czasownik we właściwej kolejności.',
+            default => $gapType === 'short_answers'
+                ? 'Repeat will or won’t in the short answer.'
+                : 'Put will, the subject, and this verb in the correct order.',
+        };
+    }
+    if ($package === 'time' && $gapType !== 'future_marker') {
+        return $label.match ($locale) {
+            'uk' => 'Оберіть часовий маркер, що відповідає контексту Future Simple.',
+            'pl' => 'Wybierz określenie czasu pasujące do kontekstu Future Simple.',
+            default => 'Choose the time expression that fits the Future Simple context.',
+        };
+    }
+
+    return $label.match ($locale) {
+        'uk' => 'Оберіть повну конструкцію з will.',
+        'pl' => 'Wybierz pełną konstrukcję z will.',
+        default => 'Choose the complete construction with will.',
+    };
 }
 
 function diversifyWhQuestions(string $package, array &$question): void
@@ -485,12 +613,20 @@ function diversifyWhQuestions(string $package, array &$question): void
     replaceQuestionAndVariants($question, $questionWord.' {a1}?');
 }
 
+$dictionaries = [
+    'uk' => loadWordTranslations($root.'/public/exports/words/words_uk.json'),
+    'pl' => loadWordTranslations($root.'/public/exports/words/words_pl.json'),
+];
+foreach ($translationOverrides as $locale => $overrides) {
+    $dictionaries[$locale] = array_replace($dictionaries[$locale] ?? [], $overrides);
+}
 $changesByPackage = [];
 
 foreach ($packages as $package => $directory) {
     $definitionPath = $directory.'/definition.json';
     $definition = readJson($definitionPath);
     $changes = [];
+    $verbs = [];
 
     foreach ($definition['questions'] as &$question) {
         $change = upgradeQuestion($package, $question);
@@ -499,6 +635,19 @@ foreach ($packages as $package => $directory) {
         }
         normalizeFullConstructionOptions($package, $question);
         diversifyWhQuestions($package, $question);
+        $uuid = (string) $question['uuid'];
+        $verb = extractTargetVerb($package, $question);
+        $verbs[$uuid] = [
+            'verb' => $verb,
+            'gap_type' => (string) ($question['markers']['a1']['gap_tags'][0] ?? ''),
+        ];
+        $question['markers']['a1']['verb_hint'] = localizedVerbHint(
+            $package,
+            $verbs[$uuid]['gap_type'],
+            $verb,
+            'uk',
+            $dictionaries
+        );
     }
     unset($question);
 
@@ -511,12 +660,18 @@ foreach ($packages as $package => $directory) {
 
         foreach ($localization['questions'] as &$localizedQuestion) {
             $uuid = (string) ($localizedQuestion['uuid'] ?? '');
-            $changeType = $changes[$uuid] ?? null;
-            if ($changeType === null) {
+            $verbData = $verbs[$uuid] ?? null;
+            if ($verbData === null) {
                 continue;
             }
 
-            $localizedQuestion['verb_hints']['a1'] = $localizedHints[$changeType][$locale];
+            $localizedQuestion['verb_hints']['a1'] = localizedVerbHint(
+                $package,
+                $verbData['gap_type'],
+                $verbData['verb'],
+                $locale,
+                $dictionaries
+            );
         }
         unset($localizedQuestion);
 

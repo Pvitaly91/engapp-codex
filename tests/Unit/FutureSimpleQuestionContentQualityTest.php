@@ -56,7 +56,7 @@ class FutureSimpleQuestionContentQualityTest extends TestCase
 
                 if ($type === 'forms') {
                     $this->assertMatchesRegularExpression(
-                        "/^(?:will(?:\\s+(?:probably|perhaps|personally|inevitably|eventually|far))?|[A-Za-z]+'ll)\\s+[A-Za-z-]+$/i",
+                        "/^(?:will(?:\\s+(?:most likely|likely|presumably|probably|perhaps|personally|inevitably|eventually|far))?|[A-Za-z]+'ll)\\s+[A-Za-z-]+$/i",
                         $answer,
                         "Incomplete affirmative construction for {$uuid}"
                     );
@@ -91,5 +91,37 @@ class FutureSimpleQuestionContentQualityTest extends TestCase
         }
 
         $this->assertCount(288, $allUuids);
+    }
+
+    public function test_each_question_has_a_localized_concrete_verb_hint(): void
+    {
+        $base = dirname(__DIR__, 2).'/database/seeders/V3/FutureForms/FutureSimple';
+        $packages = [
+            'FutureSimpleFormsAllLevelsV3Seeder',
+            'FutureSimpleNegativesAllLevelsV3Seeder',
+            'FutureSimpleQuestionsAllLevelsV3Seeder',
+            'FutureSimpleTimeExpressionsAllLevelsV3Seeder',
+        ];
+
+        foreach ($packages as $package) {
+            foreach (['uk' => 'Дієслово:', 'pl' => 'Czasownik:', 'en' => 'Verb:'] as $locale => $prefix) {
+                $path = "{$base}/{$package}/localizations/{$locale}.json";
+                $localization = json_decode(file_get_contents($path), true, 512, JSON_THROW_ON_ERROR);
+                $this->assertCount(72, $localization['questions']);
+
+                foreach ($localization['questions'] as $question) {
+                    $hint = $question['verb_hints']['a1'] ?? '';
+                    $this->assertStringStartsWith($prefix, $hint, "Missing localized verb hint for {$question['uuid']} ({$locale})");
+                    $this->assertMatchesRegularExpression(
+                        $locale === 'uk' ? '/«[^»]+»/u' : '/[„“][^”]+”/u',
+                        $hint,
+                        "Missing localized verb for {$question['uuid']} ({$locale})"
+                    );
+                    if ($locale !== 'en') {
+                        $this->assertDoesNotMatchRegularExpression('/\\([a-z-]+\\)/i', $hint, "English verb leaked into {$question['uuid']} ({$locale})");
+                    }
+                }
+            }
+        }
     }
 }

@@ -1053,7 +1053,7 @@ class PolyglotComposeModeTest extends TestCase
 
         $publicPolyglotResponse->assertOk();
         $publicPolyglotResponse->assertSee('window.__INITIAL_JS_TEST_QUESTIONS__', false);
-        $genericResponse->assertStatus(503);
+        $genericResponse->assertNotFound();
     }
 
     public function test_final_lesson_compose_route_exposes_course_complete_hooks(): void
