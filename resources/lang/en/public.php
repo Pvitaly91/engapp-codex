@@ -243,6 +243,25 @@ return [
         'dark' => 'Switch to dark mode',
     ],
 
+    'background' => [
+        'blue' => 'Switch to blue background',
+        'cards' => 'Switch to card-color background',
+        'custom' => 'Switch to custom background',
+        'widget' => 'Configure background',
+        'title' => 'Site background',
+        'description' => 'Choose a mode or set the colors manually.',
+        'blue_short' => 'Blue',
+        'cards_short' => 'Cards',
+        'custom_short' => 'Custom',
+        'ct' => 'CT color',
+        'cr' => 'CR color',
+        'th' => 'TH color',
+        'wd' => 'WD color',
+        'vb' => 'VB color',
+        'reset' => 'Reset colors',
+        'close' => 'Close',
+    ],
+
     // Beta
     'beta' => [
         'badge' => 'BETA',

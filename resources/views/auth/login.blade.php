@@ -16,7 +16,7 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('login.perform') }}" class="space-y-5">
+        <form method="POST" action="{{ url('/login') }}" class="space-y-5">
             @csrf
 
             <div>

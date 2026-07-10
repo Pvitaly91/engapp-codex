@@ -51,9 +51,10 @@ class AuthController extends Controller
         }
 
         $expectedUsername = config('admin.username');
+        $expectedPassword = config('admin.password');
         $expectedPasswordHash = config('admin.password_hash');
 
-        if ($credentials['username'] !== $expectedUsername || ! password_verify($credentials['password'], $expectedPasswordHash)) {
+        if ($credentials['username'] !== $expectedUsername || ! $this->passwordMatches($credentials['password'], $expectedPassword, $expectedPasswordHash)) {
             return Redirect::back()
                 ->withErrors(['username' => __('auth.failed')])
                 ->withInput($request->except('password'));
@@ -102,7 +103,18 @@ class AuthController extends Controller
 
     private function rememberToken(): string
     {
-        return hash('sha256', config('admin.username') . '|' . config('admin.password_hash'));
+        return hash('sha256', config('admin.username') . '|' . config('admin.password_signature'));
+    }
+
+    private function passwordMatches(string $candidate, ?string $expectedPassword, ?string $expectedPasswordHash): bool
+    {
+        if (is_string($expectedPassword) && $expectedPassword !== '') {
+            return hash_equals($expectedPassword, $candidate);
+        }
+
+        return is_string($expectedPasswordHash)
+            && $expectedPasswordHash !== ''
+            && password_verify($candidate, $expectedPasswordHash);
     }
 
     private function attachAdminUserToSession(Request $request): void

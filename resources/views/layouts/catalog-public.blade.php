@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ app()->getLocale() }}" class="h-full" x-data="themeController()" x-init="init()" x-bind:class="{ 'dark': isDark }">
+<html lang="{{ app()->getLocale() }}" class="h-full" x-data="themeController()" x-init="init()" x-bind:class="{ 'dark': isDark }" x-bind:data-background-mode="backgroundMode" x-bind:style="customBackgroundStyle()">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,6 +15,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
+    <script>
+        (() => {
+            try {
+                const mode = localStorage.getItem('backgroundMode');
+                if (['cards', 'custom'].includes(mode)) {
+                    document.documentElement.dataset.backgroundMode = mode;
+                }
+
+                const defaults = {
+                    ct: '#2f67b1',
+                    cr: '#4b55e8',
+                    th: '#f99a24',
+                    wd: '#172033',
+                    vb: '#12b982',
+                };
+                const savedColors = JSON.parse(localStorage.getItem('backgroundColors') || '{}');
+                Object.entries(defaults).forEach(([key, fallback]) => {
+                    const value = /^#[0-9a-f]{6}$/i.test(savedColors[key] || '') ? savedColors[key] : fallback;
+                    document.documentElement.style.setProperty(`--app-custom-${key}`, value);
+                });
+            } catch (error) {
+                document.documentElement.dataset.backgroundMode = 'blue';
+            }
+        })();
+    </script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -86,49 +111,267 @@
         }
 
         .app-fixed-background {
+            --app-bg-icon-primary: #2563eb;
+            --app-bg-icon-strong: #1d4ed8;
+            --app-bg-icon-soft: #93c5fd;
+            --app-bg-chat-from: #dff7ff;
+            --app-bg-chat-to: #dbeafe;
+            --app-bg-doc-from: #dfe7ff;
+            --app-bg-doc-to: #cfdcff;
+            --app-bg-check-from: #38d5ff;
+            --app-bg-check-to: #2563eb;
             position: fixed;
             inset: 0;
             pointer-events: none;
             background:
-                radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 28%),
-                radial-gradient(circle at bottom right, rgba(20,35,59,0.18), transparent 22%),
-                var(--app-bg);
+                radial-gradient(circle at 50% 45%, rgba(255,255,255,.99) 0 19%, rgba(244,250,255,.96) 38%, rgba(209,236,255,.84) 64%, rgba(160,214,255,.58) 86%, transparent 100%),
+                radial-gradient(circle at 0% 14%, rgba(23,184,255,.38), transparent 34%),
+                radial-gradient(circle at 100% 8%, rgba(37,140,255,.48), transparent 36%),
+                radial-gradient(circle at 4% 98%, rgba(0,132,255,.52), transparent 34%),
+                radial-gradient(circle at 96% 92%, rgba(0,178,255,.30), transparent 30%),
+                linear-gradient(135deg, #e4f6ff 0%, #fbfdff 42%, #d8efff 100%);
             transform: translateZ(0);
             overflow: hidden;
+        }
+
+        [data-background-mode="cards"] .app-fixed-background {
+            --app-bg-icon-primary: #2f67b1;
+            --app-bg-icon-strong: #1f4d8f;
+            --app-bg-icon-soft: rgba(75, 85, 232, .42);
+            --app-bg-chat-from: #eef4ff;
+            --app-bg-chat-to: #dbe9fb;
+            --app-bg-doc-from: #e8edf7;
+            --app-bg-doc-to: #d5deee;
+            --app-bg-check-from: #12b982;
+            --app-bg-check-to: #2f67b1;
+            background:
+                radial-gradient(circle at 50% 45%, rgba(255,255,255,.99) 0 18%, rgba(250,252,255,.97) 37%, rgba(239,245,252,.88) 60%, transparent 100%),
+                radial-gradient(circle at 12% 17%, rgba(47,103,177,.38), transparent 30%),
+                radial-gradient(circle at 32% 14%, rgba(75,85,232,.30), transparent 28%),
+                radial-gradient(circle at 52% 15%, rgba(249,154,36,.34), transparent 27%),
+                radial-gradient(circle at 72% 16%, rgba(23,32,51,.24), transparent 28%),
+                radial-gradient(circle at 90% 17%, rgba(18,185,130,.34), transparent 28%),
+                radial-gradient(circle at 8% 96%, rgba(47,103,177,.28), transparent 32%),
+                radial-gradient(circle at 92% 90%, rgba(18,185,130,.24), transparent 30%),
+                linear-gradient(135deg, #edf4fb 0%, #fffaf3 42%, #effaf5 100%);
+        }
+
+        [data-background-mode="custom"] .app-fixed-background {
+            --app-bg-icon-primary: var(--app-custom-ct, #2f67b1);
+            --app-bg-icon-strong: color-mix(in srgb, var(--app-custom-ct, #2f67b1) 76%, #172033);
+            --app-bg-icon-soft: color-mix(in srgb, var(--app-custom-cr, #4b55e8) 42%, transparent);
+            --app-bg-chat-from: color-mix(in srgb, var(--app-custom-ct, #2f67b1) 14%, #ffffff);
+            --app-bg-chat-to: color-mix(in srgb, var(--app-custom-cr, #4b55e8) 18%, #ffffff);
+            --app-bg-doc-from: color-mix(in srgb, var(--app-custom-wd, #172033) 9%, #ffffff);
+            --app-bg-doc-to: color-mix(in srgb, var(--app-custom-wd, #172033) 18%, #ffffff);
+            --app-bg-check-from: var(--app-custom-vb, #12b982);
+            --app-bg-check-to: var(--app-custom-ct, #2f67b1);
+            background:
+                radial-gradient(circle at 50% 45%, rgba(255,255,255,.99) 0 18%, rgba(250,252,255,.97) 37%, color-mix(in srgb, var(--app-custom-ct, #2f67b1) 6%, #eff5fc) 60%, transparent 100%),
+                radial-gradient(circle at 12% 17%, color-mix(in srgb, var(--app-custom-ct, #2f67b1) 38%, transparent), transparent 30%),
+                radial-gradient(circle at 32% 14%, color-mix(in srgb, var(--app-custom-cr, #4b55e8) 32%, transparent), transparent 28%),
+                radial-gradient(circle at 52% 15%, color-mix(in srgb, var(--app-custom-th, #f99a24) 36%, transparent), transparent 27%),
+                radial-gradient(circle at 72% 16%, color-mix(in srgb, var(--app-custom-wd, #172033) 26%, transparent), transparent 28%),
+                radial-gradient(circle at 90% 17%, color-mix(in srgb, var(--app-custom-vb, #12b982) 34%, transparent), transparent 28%),
+                radial-gradient(circle at 8% 96%, color-mix(in srgb, var(--app-custom-ct, #2f67b1) 28%, transparent), transparent 32%),
+                radial-gradient(circle at 92% 90%, color-mix(in srgb, var(--app-custom-vb, #12b982) 26%, transparent), transparent 30%),
+                linear-gradient(135deg,
+                    color-mix(in srgb, var(--app-custom-ct, #2f67b1) 9%, #f9fcff) 0%,
+                    color-mix(in srgb, var(--app-custom-th, #f99a24) 10%, #ffffff) 43%,
+                    color-mix(in srgb, var(--app-custom-vb, #12b982) 10%, #f8fffb) 100%);
         }
 
         .app-fixed-background::before {
             content: "";
             position: absolute;
-            inset: -6%;
-            background-image: url('{{ asset('engram-language-pattern.svg') }}');
-            background-position: center top;
-            background-repeat: repeat;
-            background-size: 720px 720px;
-            opacity: 0.22;
-            filter: saturate(1.05) contrast(1.08);
+            inset: 0;
+            background: url('{{ asset('gramlyze-background.svg') }}') center / cover no-repeat;
+            opacity: 1;
+            animation: gramlyze-background-float 9s ease-in-out infinite;
+        }
+
+        [data-background-mode="cards"] .app-fixed-background::before {
+            background: url('{{ asset('gramlyze-background-cards.svg') }}') center / cover no-repeat;
+        }
+
+        [data-background-mode="custom"] .app-fixed-background::before {
+            background: none;
         }
 
         .app-fixed-background::after {
             content: "";
             position: absolute;
             inset: 0;
-            background:
-                radial-gradient(circle at 14% 18%, rgba(255, 255, 255, 0.22), transparent 20%),
-                radial-gradient(circle at 78% 10%, rgba(245, 155, 47, 0.10), transparent 18%),
-                linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(19, 35, 59, 0.08));
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,.38), rgba(255,255,255,.12) 44%, transparent 76%);
+            inset: 10% 23%;
+        }
+
+        [data-background-mode="cards"] .app-fixed-background::after {
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,.48), rgba(255,255,255,.20) 46%, transparent 76%);
+        }
+
+        [data-background-mode="custom"] .app-fixed-background::after {
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,.48), rgba(255,255,255,.20) 46%, transparent 76%);
+        }
+
+        .app-bg-vector {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            pointer-events: none;
+            animation: gramlyze-background-float 9s ease-in-out infinite;
+        }
+
+        [data-background-mode="custom"] .app-bg-vector {
+            opacity: 1;
+        }
+
+        .app-bg-icon {
+            position: absolute;
+            z-index: 2;
+            transform: scale(var(--random-scale, 1));
+            transform-origin: center;
+            will-change: top, left, right, transform;
+        }
+
+        .app-bg-icon svg {
+            display: block;
+            width: 100%;
+            height: auto;
+            overflow: visible;
+        }
+
+        .app-bg-icon-inner {
+            animation: gramlyze-icon-float-y 7s ease-in-out infinite;
+            will-change: transform;
+        }
+
+        .app-bg-icon--slow .app-bg-icon-inner { animation-duration: 9s; }
+        .app-bg-icon--fast .app-bg-icon-inner { animation-duration: 5.4s; }
+        .app-bg-icon--shadow { filter: drop-shadow(0 18px 22px rgba(29, 78, 216, .13)); }
+
+        .app-bg-icon--chat { width: clamp(145px, 15vw, 230px); left: 4.7vw; top: 7vh; }
+        .app-bg-icon--aa { width: clamp(90px, 8vw, 125px); left: 4.5vw; top: 38vh; opacity: .40; }
+        .app-bg-icon--comma { width: clamp(58px, 5.2vw, 84px); left: 5.5vw; top: 59vh; opacity: .44; }
+        .app-bg-icon--dots-left { width: clamp(115px, 10vw, 155px); left: 4.9vw; top: 73vh; opacity: .31; }
+        .app-bg-icon--ring-left { width: clamp(34px, 3vw, 48px); left: 26vw; top: 88vh; opacity: .26; }
+        .app-bg-icon--quote { width: clamp(74px, 6.5vw, 108px); right: 18vw; top: 4.5vh; opacity: .46; }
+        .app-bg-icon--dots-right { width: clamp(120px, 11vw, 168px); right: 14vw; top: 13vh; opacity: .29; }
+        .app-bg-icon--ring-right { width: clamp(36px, 3.2vw, 52px); right: 9vw; top: 16vh; opacity: .36; }
+        .app-bg-icon--document { width: clamp(96px, 9vw, 138px); right: 5.2vw; top: 31vh; opacity: .70; }
+        .app-bg-icon--braces { width: clamp(92px, 8vw, 130px); right: 5.8vw; top: 59vh; opacity: .43; }
+        .app-bg-icon--check { width: clamp(110px, 10vw, 150px); right: 8vw; top: 78vh; }
+        .app-bg-icon--dots-low { width: clamp(95px, 8vw, 130px); right: 18vw; top: 76vh; opacity: .19; }
+
+        [data-background-mode="cards"] .app-bg-icon--chat {
+            --app-bg-icon-strong: #2f67b1;
+            --app-bg-chat-from: #edf5ff;
+            --app-bg-chat-to: #dbe8f8;
+        }
+
+        [data-background-mode="cards"] .app-bg-icon--aa {
+            --app-bg-icon-primary: #4b55e8;
+            --app-bg-icon-soft: rgba(75, 85, 232, .34);
+        }
+
+        [data-background-mode="cards"] .app-bg-icon--comma,
+        [data-background-mode="cards"] .app-bg-icon--quote {
+            --app-bg-icon-primary: #f99a24;
+        }
+
+        [data-background-mode="cards"] .app-bg-icon--dots-left,
+        [data-background-mode="cards"] .app-bg-icon--check {
+            --app-bg-icon-primary: #12b982;
+        }
+
+        [data-background-mode="cards"] .app-bg-icon--ring-left,
+        [data-background-mode="cards"] .app-bg-icon--dots-right {
+            --app-bg-icon-primary: #4b55e8;
+        }
+
+        [data-background-mode="cards"] .app-bg-icon--ring-right,
+        [data-background-mode="cards"] .app-bg-icon--braces,
+        [data-background-mode="cards"] .app-bg-icon--document {
+            --app-bg-icon-primary: #172033;
+            --app-bg-doc-from: #eef2f7;
+            --app-bg-doc-to: #d8e0ec;
+        }
+
+        [data-background-mode="cards"] .app-bg-icon--dots-low {
+            --app-bg-icon-primary: #2f67b1;
+        }
+
+        [data-background-mode="cards"] .app-bg-icon--check {
+            --app-bg-check-from: #12b982;
+            --app-bg-check-to: #2f67b1;
+        }
+
+        [data-background-mode="custom"] .app-bg-icon--chat {
+            --app-bg-icon-strong: var(--app-custom-ct, #2f67b1);
+            --app-bg-chat-from: color-mix(in srgb, var(--app-custom-ct, #2f67b1) 14%, #ffffff);
+            --app-bg-chat-to: color-mix(in srgb, var(--app-custom-cr, #4b55e8) 16%, #ffffff);
+        }
+
+        [data-background-mode="custom"] .app-bg-icon--aa,
+        [data-background-mode="custom"] .app-bg-icon--ring-left,
+        [data-background-mode="custom"] .app-bg-icon--dots-right {
+            --app-bg-icon-primary: var(--app-custom-cr, #4b55e8);
+            --app-bg-icon-soft: color-mix(in srgb, var(--app-custom-cr, #4b55e8) 34%, transparent);
+        }
+
+        [data-background-mode="custom"] .app-bg-icon--comma,
+        [data-background-mode="custom"] .app-bg-icon--quote {
+            --app-bg-icon-primary: var(--app-custom-th, #f99a24);
+        }
+
+        [data-background-mode="custom"] .app-bg-icon--ring-right,
+        [data-background-mode="custom"] .app-bg-icon--braces,
+        [data-background-mode="custom"] .app-bg-icon--document {
+            --app-bg-icon-primary: var(--app-custom-wd, #172033);
+            --app-bg-doc-from: color-mix(in srgb, var(--app-custom-wd, #172033) 9%, #ffffff);
+            --app-bg-doc-to: color-mix(in srgb, var(--app-custom-wd, #172033) 18%, #ffffff);
+        }
+
+        [data-background-mode="custom"] .app-bg-icon--dots-left,
+        [data-background-mode="custom"] .app-bg-icon--check {
+            --app-bg-icon-primary: var(--app-custom-vb, #12b982);
+        }
+
+        [data-background-mode="custom"] .app-bg-icon--dots-low {
+            --app-bg-icon-primary: var(--app-custom-ct, #2f67b1);
+        }
+
+        [data-background-mode="custom"] .app-bg-icon--check {
+            --app-bg-check-from: var(--app-custom-vb, #12b982);
+            --app-bg-check-to: var(--app-custom-ct, #2f67b1);
         }
 
         .dark .app-fixed-background::before {
-            opacity: 0.16;
-            filter: brightness(1.22) saturate(0.92) contrast(1.12);
+            opacity: 0.22;
+            filter: brightness(.75) saturate(.8);
         }
 
         .dark .app-fixed-background::after {
-            background:
-                radial-gradient(circle at 18% 18%, rgba(116, 169, 240, 0.10), transparent 22%),
-                radial-gradient(circle at 76% 10%, rgba(245, 155, 47, 0.06), transparent 18%),
-                linear-gradient(180deg, rgba(5, 11, 23, 0.04), rgba(5, 11, 23, 0.18));
+            background: radial-gradient(circle, rgba(15,28,48,.08), rgba(15,28,48,.26) 76%);
+        }
+
+        @keyframes gramlyze-background-float {
+            0%, 100% { transform: translateY(0) scale(1.01); }
+            50% { transform: translateY(-8px) scale(1.01); }
+        }
+
+        @keyframes gramlyze-icon-float-y {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .app-fixed-background::before { animation: none; }
+            .app-bg-vector { animation: none; }
+            .app-bg-icon-inner { animation: none; }
         }
 
         .catalog-shell {
@@ -362,7 +605,181 @@
 </head>
 <body class="min-h-full font-body antialiased @yield('body_class')">
     @include('components.admin-domain-switcher')
-    <div class="app-fixed-background" aria-hidden="true"></div>
+    @php
+        $backgroundWidgetVisible = (bool) session('admin_authenticated', false)
+            || (bool) session('admin_user_id', false)
+            || (bool) data_get(auth()->user(), 'is_admin', false);
+    @endphp
+    <div class="app-fixed-background" aria-hidden="true">
+        <svg class="app-bg-vector" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <linearGradient id="appCustomTopCards" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="var(--app-custom-cr, #4b55e8)"/>
+                    <stop offset=".34" stop-color="var(--app-custom-ct, #2f67b1)"/>
+                    <stop offset=".68" stop-color="var(--app-custom-vb, #12b982)"/>
+                    <stop offset="1" stop-color="var(--app-custom-th, #f99a24)"/>
+                </linearGradient>
+                <linearGradient id="appCustomBottomCards" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="var(--app-custom-th, #f99a24)"/>
+                    <stop offset=".45" stop-color="var(--app-custom-ct, #2f67b1)"/>
+                    <stop offset="1" stop-color="var(--app-custom-wd, #172033)"/>
+                </linearGradient>
+                <linearGradient id="appCustomBottomSoftCards" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="color-mix(in srgb, var(--app-custom-th, #f99a24) 28%, #ffffff)"/>
+                    <stop offset=".45" stop-color="color-mix(in srgb, var(--app-custom-ct, #2f67b1) 24%, #ffffff)"/>
+                    <stop offset="1" stop-color="color-mix(in srgb, var(--app-custom-vb, #12b982) 24%, #ffffff)"/>
+                </linearGradient>
+            </defs>
+
+            <path d="M1010 0h430v360c-42-38-79-82-122-119-58-50-116-69-186-88-82-22-128-65-146-153z" fill="url(#appCustomTopCards)" opacity=".92"/>
+            <path d="M1124 114c78 18 145 43 204 96 36 32 72 66 112 100v50c-42-38-79-82-122-119-58-50-116-69-186-88-82-22-128-65-146-153h86c14 51 30 88 52 114z" fill="#ffffff" opacity=".20"/>
+            <path d="M1184 78c82 16 168 55 256 128v68c-74-70-152-112-234-130-60-13-104-36-132-66z" fill="var(--app-custom-wd, #172033)" opacity=".10"/>
+
+            <path d="M0 668c90 12 156 44 214 84 52 36 120 63 166 63 45 1 84-21 120-53v138H0z" fill="url(#appCustomBottomSoftCards)" opacity=".84"/>
+            <path d="M0 711c84 10 145 45 205 83 61 38 118 66 182 58 43-5 80-27 113-54v102H0z" fill="url(#appCustomBottomCards)" opacity=".94"/>
+
+            <g fill="none" stroke-linecap="round" stroke-dasharray="9 14" opacity=".34">
+                <path d="M180 165c95-25 155 45 230 15" stroke="var(--app-custom-ct, #2f67b1)" stroke-width="3"/>
+                <path d="M1060 155c120-60 238-15 352 65" stroke="var(--app-custom-cr, #4b55e8)" stroke-width="3"/>
+                <path d="M165 840c120-50 215 70 335 45" stroke="var(--app-custom-th, #f99a24)" stroke-width="3"/>
+                <path d="M1040 815c120-50 220 40 380 25" stroke="var(--app-custom-vb, #12b982)" stroke-width="3"/>
+            </g>
+
+            <g opacity=".20">
+                <circle cx="122" cy="122" r="46" fill="var(--app-custom-ct, #2f67b1)"/>
+                <circle cx="306" cy="92" r="34" fill="var(--app-custom-cr, #4b55e8)"/>
+                <circle cx="540" cy="142" r="42" fill="var(--app-custom-th, #f99a24)"/>
+                <circle cx="910" cy="124" r="38" fill="var(--app-custom-wd, #172033)"/>
+                <circle cx="1260" cy="604" r="48" fill="var(--app-custom-vb, #12b982)"/>
+            </g>
+        </svg>
+
+        <div class="app-bg-icon app-bg-icon--chat app-bg-icon--shadow" data-app-bg-icon="chat" data-app-bg-side="left">
+            <div class="app-bg-icon-inner">
+                <svg viewBox="0 0 220 170" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="appChatGradient" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="var(--app-bg-chat-from, #dff7ff)"/>
+                            <stop offset="100%" stop-color="var(--app-bg-chat-to, #dbeafe)"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M0 37C0 15 15 0 37 0h145c22 0 37 15 37 37v65c0 22-15 37-37 37H78l-39 30c-8 6-18 1-17-9l3-22C10 130 0 118 0 102V37Z" fill="url(#appChatGradient)" opacity=".92"/>
+                    <circle cx="73" cy="69" r="10.5" fill="var(--app-bg-icon-strong, #1d4ed8)" opacity=".85"/>
+                    <circle cx="109" cy="69" r="10.5" fill="var(--app-bg-icon-strong, #1d4ed8)" opacity=".85"/>
+                    <circle cx="146" cy="69" r="10.5" fill="var(--app-bg-icon-strong, #1d4ed8)" opacity=".85"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="app-bg-icon app-bg-icon--aa app-bg-icon--slow" data-app-bg-icon="aa" data-app-bg-side="left">
+            <div class="app-bg-icon-inner">
+                <svg viewBox="0 0 125 112" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="74" font-family="Georgia, serif" font-size="82" fill="var(--app-bg-icon-primary, #2563eb)">Aa</text>
+                    <line x1="0" y1="95" x2="96" y2="95" stroke="var(--app-bg-icon-soft, #93c5fd)" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="app-bg-icon app-bg-icon--comma app-bg-icon--fast" data-app-bg-icon="comma" data-app-bg-side="left">
+            <div class="app-bg-icon-inner">
+                <svg viewBox="0 0 90 120" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="95" font-family="Georgia, serif" font-size="120" fill="var(--app-bg-icon-primary, #2563eb)">,</text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="app-bg-icon app-bg-icon--dots-left" data-app-bg-icon="dots" data-app-bg-side="left">
+            <div class="app-bg-icon-inner">
+                <svg viewBox="0 0 150 90" xmlns="http://www.w3.org/2000/svg" fill="var(--app-bg-icon-primary, #3b82f6)">
+                    <circle cx="0" cy="0" r="4"/><circle cx="30" cy="0" r="4"/><circle cx="60" cy="0" r="4"/><circle cx="90" cy="0" r="4"/><circle cx="120" cy="0" r="4"/>
+                    <circle cx="0" cy="30" r="4"/><circle cx="30" cy="30" r="4"/><circle cx="60" cy="30" r="4"/><circle cx="90" cy="30" r="4"/><circle cx="120" cy="30" r="4"/>
+                    <circle cx="0" cy="60" r="4"/><circle cx="30" cy="60" r="4"/><circle cx="60" cy="60" r="4"/><circle cx="90" cy="60" r="4"/><circle cx="120" cy="60" r="4"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="app-bg-icon app-bg-icon--ring-left app-bg-icon--slow" data-app-bg-icon="ring" data-app-bg-side="left">
+            <div class="app-bg-icon-inner">
+                <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="25" cy="25" r="18" fill="none" stroke="var(--app-bg-icon-primary, #60a5fa)" stroke-width="5"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="app-bg-icon app-bg-icon--quote app-bg-icon--fast" data-app-bg-icon="quote" data-app-bg-side="right">
+            <div class="app-bg-icon-inner">
+                <svg viewBox="0 0 110 100" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="82" font-family="Georgia, serif" font-size="104" font-weight="700" fill="var(--app-bg-icon-primary, #2563eb)">“</text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="app-bg-icon app-bg-icon--dots-right" data-app-bg-icon="dots" data-app-bg-side="right">
+            <div class="app-bg-icon-inner">
+                <svg viewBox="0 0 150 90" xmlns="http://www.w3.org/2000/svg" fill="var(--app-bg-icon-primary, #3b82f6)">
+                    <circle cx="0" cy="0" r="4"/><circle cx="30" cy="0" r="4"/><circle cx="60" cy="0" r="4"/><circle cx="90" cy="0" r="4"/><circle cx="120" cy="0" r="4"/>
+                    <circle cx="0" cy="30" r="4"/><circle cx="30" cy="30" r="4"/><circle cx="60" cy="30" r="4"/><circle cx="90" cy="30" r="4"/><circle cx="120" cy="30" r="4"/>
+                    <circle cx="0" cy="60" r="4"/><circle cx="30" cy="60" r="4"/><circle cx="60" cy="60" r="4"/><circle cx="90" cy="60" r="4"/><circle cx="120" cy="60" r="4"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="app-bg-icon app-bg-icon--ring-right app-bg-icon--fast" data-app-bg-icon="ring" data-app-bg-side="right">
+            <div class="app-bg-icon-inner">
+                <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="25" cy="25" r="18" fill="none" stroke="var(--app-bg-icon-primary, #60a5fa)" stroke-width="5"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="app-bg-icon app-bg-icon--document app-bg-icon--shadow" data-app-bg-icon="document" data-app-bg-side="right">
+            <div class="app-bg-icon-inner">
+                <svg viewBox="0 0 132 140" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="appDocGradient" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="var(--app-bg-doc-from, #dfe7ff)"/>
+                            <stop offset="100%" stop-color="var(--app-bg-doc-to, #cfdcff)"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="132" height="140" rx="22" fill="url(#appDocGradient)"/>
+                    <path d="M30 48h78M30 70h78M30 92h58" stroke="var(--app-bg-icon-primary, #2563eb)" stroke-width="6" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="app-bg-icon app-bg-icon--braces app-bg-icon--slow" data-app-bg-icon="braces" data-app-bg-side="right">
+            <div class="app-bg-icon-inner">
+                <svg viewBox="0 0 130 100" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="77" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="80" fill="var(--app-bg-icon-primary, #2563eb)">{ }</text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="app-bg-icon app-bg-icon--dots-low app-bg-icon--fast" data-app-bg-icon="dots-low" data-app-bg-side="right">
+            <div class="app-bg-icon-inner">
+                <svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" fill="var(--app-bg-icon-primary, #3b82f6)">
+                    <circle cx="0" cy="0" r="4"/><circle cx="30" cy="0" r="4"/><circle cx="60" cy="0" r="4"/><circle cx="90" cy="0" r="4"/>
+                    <circle cx="0" cy="30" r="4"/><circle cx="30" cy="30" r="4"/><circle cx="60" cy="30" r="4"/><circle cx="90" cy="30" r="4"/>
+                    <circle cx="0" cy="60" r="4"/><circle cx="30" cy="60" r="4"/><circle cx="60" cy="60" r="4"/><circle cx="90" cy="60" r="4"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="app-bg-icon app-bg-icon--check app-bg-icon--shadow" data-app-bg-icon="check" data-app-bg-side="right">
+            <div class="app-bg-icon-inner">
+                <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="appCheckGradient" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="var(--app-bg-check-from, #38d5ff)"/>
+                            <stop offset="100%" stop-color="var(--app-bg-check-to, #2563eb)"/>
+                        </linearGradient>
+                    </defs>
+                    <circle cx="75" cy="75" r="70" fill="url(#appCheckGradient)" opacity=".88"/>
+                    <path d="M42 75l24 25 46-55" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+    </div>
     <div class="catalog-frame relative mx-auto max-w-[1440px] px-0 py-0 lg:px-8 lg:py-6">
         <div id="catalog-shell" class="catalog-shell rounded-none border-0 shadow-none lg:rounded-[30px] lg:border lg:shadow-panel">
             <div id="shell-random-shapes" class="pointer-events-none" aria-hidden="true"></div>
@@ -443,6 +860,61 @@
                             </div>
                         </div>
 
+                        @if($backgroundWidgetVisible)
+                            <div class="relative" @click.outside="backgroundPanelOpen = false">
+                                <button data-testid="background-mode-toggle-desktop" @click="toggleBackgroundPanel" :aria-expanded="backgroundPanelOpen" class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border shadow-sm transition hover:border-ocean surface-card-strong" :aria-label="'{{ __('public.background.widget') }}'">
+                                    <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="7" cy="8" r="3.3" fill="var(--app-custom-ct, #2f67b1)" />
+                                        <circle cx="13.6" cy="6.4" r="3.3" fill="var(--app-custom-cr, #4b55e8)" />
+                                        <circle cx="17" cy="12.4" r="3.3" fill="var(--app-custom-th, #f99a24)" />
+                                        <circle cx="11.1" cy="17.2" r="3.3" fill="var(--app-custom-vb, #12b982)" />
+                                        <circle cx="6.6" cy="14.2" r="3.3" fill="var(--app-custom-wd, #172033)" />
+                                    </svg>
+                                </button>
+
+                                <div x-show="backgroundPanelOpen" x-cloak x-transition class="absolute right-0 top-full z-50 mt-2 w-80 rounded-[24px] border p-4 shadow-card surface-card-strong">
+                                    <div class="flex items-start justify-between gap-3">
+                                        <div>
+                                            <p class="text-sm font-extrabold">{{ __('public.background.title') }}</p>
+                                            <p class="mt-1 text-xs" style="color: var(--muted);">{{ __('public.background.description') }}</p>
+                                        </div>
+                                        <button type="button" @click="backgroundPanelOpen = false" class="rounded-xl px-2 py-1 text-xs font-bold soft-accent" style="color: var(--accent);">{{ __('public.background.close') }}</button>
+                                    </div>
+
+                                    <div class="mt-4 grid grid-cols-3 gap-2">
+                                        <button data-testid="background-mode-blue-desktop" type="button" @click="setBackgroundMode('blue')" class="rounded-2xl border px-3 py-2 text-left text-xs font-bold transition surface-card" :style="backgroundMode === 'blue' ? 'border-color: var(--accent); box-shadow: 0 0 0 2px rgba(47,103,177,.14)' : ''">
+                                            <span class="block h-4 rounded-full bg-gradient-to-r from-sky-300 to-blue-600"></span>
+                                            <span class="mt-2 block">{{ __('public.background.blue_short') }}</span>
+                                        </button>
+                                        <button data-testid="background-mode-cards-desktop" type="button" @click="setBackgroundMode('cards')" class="rounded-2xl border px-3 py-2 text-left text-xs font-bold transition surface-card" :style="backgroundMode === 'cards' ? 'border-color: var(--accent); box-shadow: 0 0 0 2px rgba(47,103,177,.14)' : ''">
+                                            <span class="block h-4 rounded-full" style="background: linear-gradient(90deg, #2f67b1, #4b55e8, #f99a24, #172033, #12b982);"></span>
+                                            <span class="mt-2 block">{{ __('public.background.cards_short') }}</span>
+                                        </button>
+                                        <button data-testid="background-mode-custom-desktop" type="button" @click="setBackgroundMode('custom')" class="rounded-2xl border px-3 py-2 text-left text-xs font-bold transition surface-card" :style="backgroundMode === 'custom' ? 'border-color: var(--accent); box-shadow: 0 0 0 2px rgba(47,103,177,.14)' : ''">
+                                            <span class="block h-4 rounded-full" :style="customPreviewGradient()"></span>
+                                            <span class="mt-2 block">{{ __('public.background.custom_short') }}</span>
+                                        </button>
+                                    </div>
+
+                                    <div x-show="backgroundMode === 'custom'" x-cloak class="mt-4 space-y-3">
+                                        <template x-for="control in backgroundColorControls" :key="control.key">
+                                            <label class="grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-2xl border p-2 surface-card" style="border-color: var(--line);">
+                                                <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl text-xs font-extrabold text-white" :style="`background: ${safeBackgroundColor(control.key)}`" x-text="control.short"></span>
+                                                <span>
+                                                    <span class="block text-xs font-bold" x-text="control.label"></span>
+                                                    <input :data-testid="`background-hex-${control.key}`" x-model="backgroundColors[control.key]" @input="saveBackgroundColors" class="mt-1 w-full rounded-xl border px-2 py-1 text-xs font-semibold uppercase outline-none surface-card-strong" style="border-color: var(--line);" maxlength="7">
+                                                </span>
+                                                <input :data-testid="`background-color-${control.key}`" type="color" x-model="backgroundColors[control.key]" @input="saveBackgroundColors" class="h-9 w-11 cursor-pointer rounded-xl border bg-transparent p-1" style="border-color: var(--line);">
+                                            </label>
+                                        </template>
+                                        <button type="button" @click="resetBackgroundColors" class="w-full rounded-2xl border px-3 py-2 text-xs font-bold transition hover:border-ocean surface-card">
+                                            {{ __('public.background.reset') }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
                         <button @click="toggleTheme" class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border shadow-sm transition hover:border-ocean surface-card-strong" :aria-label="isDark ? '{{ __('public.theme.light') }}' : '{{ __('public.theme.dark') }}'">
                             <template x-if="isDark">
                                 <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -472,7 +944,7 @@
                         <a href="{{ localized_route('verbs.test') }}" class="rounded-2xl border px-4 py-3 transition hover:border-ocean surface-card-strong">{{ __('public.nav.verbs_test') }}</a>
                     </nav>
 
-                    <div class="grid gap-3 md:grid-cols-[1fr_auto_auto]">
+                    <div class="grid gap-3 md:grid-cols-[1fr_auto_auto_auto]">
                         <div x-data="searchBox()" class="relative">
                             <form @submit.prevent="go">
                                 <input x-model="query" @input="autocomplete" @keydown.escape="open = false" type="search" placeholder="{{ __('public.search.placeholder') }}" class="w-full rounded-2xl border px-4 py-3 text-sm font-medium outline-none transition focus:border-ocean focus:ring-2 focus:ring-blue-100 surface-card-strong">
@@ -505,7 +977,62 @@
                             <span x-show="!isDark" x-cloak>☾</span>
                             <span x-show="isDark" x-cloak>☼</span>
                         </button>
+
+                        @if($backgroundWidgetVisible)
+                            <button data-testid="background-mode-toggle-mobile" @click="toggleBackgroundPanel" class="inline-flex h-full items-center justify-center rounded-2xl border px-4 py-3 surface-card-strong" :aria-label="'{{ __('public.background.widget') }}'">
+                                <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                                    <circle cx="7" cy="8" r="3.3" fill="var(--app-custom-ct, #2f67b1)" />
+                                    <circle cx="13.6" cy="6.4" r="3.3" fill="var(--app-custom-cr, #4b55e8)" />
+                                    <circle cx="17" cy="12.4" r="3.3" fill="var(--app-custom-th, #f99a24)" />
+                                    <circle cx="11.1" cy="17.2" r="3.3" fill="var(--app-custom-vb, #12b982)" />
+                                    <circle cx="6.6" cy="14.2" r="3.3" fill="var(--app-custom-wd, #172033)" />
+                                </svg>
+                            </button>
+                        @endif
                     </div>
+
+                    @if($backgroundWidgetVisible)
+                        <div x-show="backgroundPanelOpen" x-cloak x-transition class="rounded-[24px] border p-4 shadow-card surface-card-strong">
+                            <div class="flex items-start justify-between gap-3">
+                                <div>
+                                    <p class="text-sm font-extrabold">{{ __('public.background.title') }}</p>
+                                    <p class="mt-1 text-xs" style="color: var(--muted);">{{ __('public.background.description') }}</p>
+                                </div>
+                                <button type="button" @click="backgroundPanelOpen = false" class="rounded-xl px-2 py-1 text-xs font-bold soft-accent" style="color: var(--accent);">{{ __('public.background.close') }}</button>
+                            </div>
+
+                            <div class="mt-4 grid grid-cols-3 gap-2">
+                                <button data-testid="background-mode-blue-mobile" type="button" @click="setBackgroundMode('blue')" class="rounded-2xl border px-3 py-2 text-left text-xs font-bold transition surface-card" :style="backgroundMode === 'blue' ? 'border-color: var(--accent); box-shadow: 0 0 0 2px rgba(47,103,177,.14)' : ''">
+                                    <span class="block h-4 rounded-full bg-gradient-to-r from-sky-300 to-blue-600"></span>
+                                    <span class="mt-2 block">{{ __('public.background.blue_short') }}</span>
+                                </button>
+                                <button data-testid="background-mode-cards-mobile" type="button" @click="setBackgroundMode('cards')" class="rounded-2xl border px-3 py-2 text-left text-xs font-bold transition surface-card" :style="backgroundMode === 'cards' ? 'border-color: var(--accent); box-shadow: 0 0 0 2px rgba(47,103,177,.14)' : ''">
+                                    <span class="block h-4 rounded-full" style="background: linear-gradient(90deg, #2f67b1, #4b55e8, #f99a24, #172033, #12b982);"></span>
+                                    <span class="mt-2 block">{{ __('public.background.cards_short') }}</span>
+                                </button>
+                                <button data-testid="background-mode-custom-mobile" type="button" @click="setBackgroundMode('custom')" class="rounded-2xl border px-3 py-2 text-left text-xs font-bold transition surface-card" :style="backgroundMode === 'custom' ? 'border-color: var(--accent); box-shadow: 0 0 0 2px rgba(47,103,177,.14)' : ''">
+                                    <span class="block h-4 rounded-full" :style="customPreviewGradient()"></span>
+                                    <span class="mt-2 block">{{ __('public.background.custom_short') }}</span>
+                                </button>
+                            </div>
+
+                            <div x-show="backgroundMode === 'custom'" x-cloak class="mt-4 space-y-3">
+                                <template x-for="control in backgroundColorControls" :key="control.key">
+                                    <label class="grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-2xl border p-2 surface-card" style="border-color: var(--line);">
+                                        <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl text-xs font-extrabold text-white" :style="`background: ${safeBackgroundColor(control.key)}`" x-text="control.short"></span>
+                                        <span>
+                                            <span class="block text-xs font-bold" x-text="control.label"></span>
+                                            <input :data-testid="`background-mobile-hex-${control.key}`" x-model="backgroundColors[control.key]" @input="saveBackgroundColors" class="mt-1 w-full rounded-xl border px-2 py-1 text-xs font-semibold uppercase outline-none surface-card-strong" style="border-color: var(--line);" maxlength="7">
+                                        </span>
+                                        <input :data-testid="`background-mobile-color-${control.key}`" type="color" x-model="backgroundColors[control.key]" @input="saveBackgroundColors" class="h-9 w-11 cursor-pointer rounded-xl border bg-transparent p-1" style="border-color: var(--line);">
+                                    </label>
+                                </template>
+                                <button type="button" @click="resetBackgroundColors" class="w-full rounded-2xl border px-3 py-2 text-xs font-bold transition hover:border-ocean surface-card">
+                                    {{ __('public.background.reset') }}
+                                </button>
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </header>
 
@@ -558,14 +1085,111 @@
             return {
                 isDark: false,
                 mobile: false,
+                backgroundPanelOpen: false,
+                backgroundMode: 'blue',
+                backgroundColors: {
+                    ct: '#2f67b1',
+                    cr: '#4b55e8',
+                    th: '#f99a24',
+                    wd: '#172033',
+                    vb: '#12b982',
+                },
+                backgroundColorControls: [
+                    { key: 'ct', short: 'CT', label: @js(__('public.background.ct')) },
+                    { key: 'cr', short: 'CR', label: @js(__('public.background.cr')) },
+                    { key: 'th', short: 'TH', label: @js(__('public.background.th')) },
+                    { key: 'wd', short: 'WD', label: @js(__('public.background.wd')) },
+                    { key: 'vb', short: 'VB', label: @js(__('public.background.vb')) },
+                ],
                 init() {
                     const saved = localStorage.getItem('theme');
                     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
                     this.isDark = saved ? saved === 'dark' : prefersDark;
+                    const savedBackgroundMode = localStorage.getItem('backgroundMode');
+                    this.backgroundMode = ['blue', 'cards', 'custom'].includes(savedBackgroundMode) ? savedBackgroundMode : 'blue';
+                    this.backgroundColors = this.loadBackgroundColors();
                 },
                 toggleTheme() {
                     this.isDark = !this.isDark;
                     localStorage.setItem('theme', this.isDark ? 'dark' : 'light');
+                },
+                defaultBackgroundColors() {
+                    return {
+                        ct: '#2f67b1',
+                        cr: '#4b55e8',
+                        th: '#f99a24',
+                        wd: '#172033',
+                        vb: '#12b982',
+                    };
+                },
+                isHexColor(value) {
+                    return /^#[0-9a-f]{6}$/i.test(value || '');
+                },
+                loadBackgroundColors() {
+                    const defaults = this.defaultBackgroundColors();
+
+                    try {
+                        const saved = JSON.parse(localStorage.getItem('backgroundColors') || '{}');
+
+                        return Object.fromEntries(Object.entries(defaults).map(([key, fallback]) => [
+                            key,
+                            this.isHexColor(saved[key]) ? saved[key] : fallback,
+                        ]));
+                    } catch (error) {
+                        return defaults;
+                    }
+                },
+                safeBackgroundColor(key) {
+                    const defaults = this.defaultBackgroundColors();
+                    const value = this.backgroundColors[key];
+
+                    return this.isHexColor(value) ? value : defaults[key];
+                },
+                customBackgroundStyle() {
+                    return Object.keys(this.defaultBackgroundColors())
+                        .map((key) => `--app-custom-${key}: ${this.safeBackgroundColor(key)}`)
+                        .join('; ');
+                },
+                customPreviewGradient() {
+                    return `background: linear-gradient(90deg, ${this.safeBackgroundColor('ct')}, ${this.safeBackgroundColor('cr')}, ${this.safeBackgroundColor('th')}, ${this.safeBackgroundColor('wd')}, ${this.safeBackgroundColor('vb')});`;
+                },
+                saveBackgroundColors() {
+                    const colors = Object.fromEntries(Object.keys(this.defaultBackgroundColors()).map((key) => [
+                        key,
+                        this.safeBackgroundColor(key),
+                    ]));
+
+                    localStorage.setItem('backgroundColors', JSON.stringify(colors));
+                },
+                resetBackgroundColors() {
+                    this.backgroundColors = this.defaultBackgroundColors();
+                    this.saveBackgroundColors();
+                },
+                toggleBackgroundPanel() {
+                    this.backgroundPanelOpen = !this.backgroundPanelOpen;
+                },
+                setBackgroundMode(mode) {
+                    if (!['blue', 'cards', 'custom'].includes(mode)) {
+                        return;
+                    }
+
+                    this.backgroundMode = mode;
+                    localStorage.setItem('backgroundMode', mode);
+                    this.refreshBackgroundDecorations();
+                },
+                toggleBackground() {
+                    const nextMode = this.backgroundMode === 'blue'
+                        ? 'cards'
+                        : (this.backgroundMode === 'cards' ? 'custom' : 'blue');
+
+                    this.setBackgroundMode(nextMode);
+                },
+                refreshBackgroundDecorations() {
+                    window.requestAnimationFrame(() => {
+                        if (typeof randomizeAppBackgroundIcons === 'function') {
+                            randomizeAppBackgroundIcons();
+                        }
+                    });
                 }
             }
         }
@@ -1068,8 +1692,196 @@
             }
         }
 
+        function randomizeAppBackgroundIcons() {
+            const random = (min, max) => min + Math.random() * (max - min);
+
+            const shuffle = (items) => {
+                const copy = [...items];
+                for (let index = copy.length - 1; index > 0; index -= 1) {
+                    const swapIndex = Math.floor(Math.random() * (index + 1));
+                    [copy[index], copy[swapIndex]] = [copy[swapIndex], copy[index]];
+                }
+
+                return copy;
+            };
+
+            const slots = {
+                left: [
+                    [6, 12],
+                    [23, 30],
+                    [38, 45],
+                    [54, 61],
+                    [69, 76],
+                    [83, 88],
+                ],
+                right: [
+                    [4, 10],
+                    [15, 21],
+                    [28, 35],
+                    [42, 49],
+                    [56, 63],
+                    [70, 77],
+                    [84, 89],
+                ],
+            };
+
+            const horizontal = {
+                left: {
+                    chat: [3.2, 6.4],
+                    aa: [4, 9],
+                    comma: [5, 11],
+                    dots: [8.5, 13.5],
+                    ring: [14, 22],
+                },
+                right: {
+                    quote: [9, 14],
+                    dots: [9, 14],
+                    ring: [12, 18],
+                    document: [3.6, 6.8],
+                    braces: [8, 13],
+                    'dots-low': [10, 15],
+                    check: [5, 8.5],
+                },
+            };
+
+            const placeIcons = (side) => {
+                const icons = [...document.querySelectorAll(`[data-app-bg-side="${side}"]`)]
+                    .map((icon) => ({
+                        icon,
+                        width: icon.offsetWidth || icon.getBoundingClientRect().width || 1,
+                        height: icon.offsetHeight || icon.getBoundingClientRect().height || icon.offsetWidth || 1,
+                    }))
+                    .filter((item) => item.width > 1 && item.height > 1)
+                    .sort((first, second) => (second.width * second.height) - (first.width * first.height));
+
+                const viewport = {
+                    width: window.innerWidth || document.documentElement.clientWidth || 1,
+                    height: window.innerHeight || document.documentElement.clientHeight || 1,
+                };
+                const margin = 8;
+                const occupied = [];
+
+                const rectFromBase = (baseLeft, baseTop, width, height, scale) => {
+                    const scaledWidth = width * scale;
+                    const scaledHeight = height * scale;
+
+                    return {
+                        left: baseLeft - ((scaledWidth - width) / 2),
+                        top: baseTop - ((scaledHeight - height) / 2),
+                        right: baseLeft - ((scaledWidth - width) / 2) + scaledWidth,
+                        bottom: baseTop - ((scaledHeight - height) / 2) + scaledHeight,
+                        width: scaledWidth,
+                        height: scaledHeight,
+                    };
+                };
+
+                const clampCandidate = (candidate, width, height, scale) => {
+                    let rect = rectFromBase(candidate.left, candidate.top, width, height, scale);
+
+                    if (rect.left < margin) {
+                        candidate.left += margin - rect.left;
+                    }
+                    if (rect.right > viewport.width - margin) {
+                        candidate.left -= rect.right - (viewport.width - margin);
+                    }
+                    if (rect.top < margin) {
+                        candidate.top += margin - rect.top;
+                    }
+                    if (rect.bottom > viewport.height - margin) {
+                        candidate.top -= rect.bottom - (viewport.height - margin);
+                    }
+
+                    candidate.left = Math.max(margin, Math.min(candidate.left, viewport.width - width - margin));
+                    candidate.top = Math.max(margin, Math.min(candidate.top, viewport.height - height - margin));
+                    rect = rectFromBase(candidate.left, candidate.top, width, height, scale);
+
+                    return {
+                        ...candidate,
+                        rect,
+                    };
+                };
+
+                const overlapRatio = (first, second) => {
+                    const width = Math.max(0, Math.min(first.right, second.right) - Math.max(first.left, second.left));
+                    const height = Math.max(0, Math.min(first.bottom, second.bottom) - Math.max(first.top, second.top));
+                    const area = width * height;
+
+                    if (!area) {
+                        return 0;
+                    }
+
+                    const smallerArea = Math.max(1, Math.min(first.width * first.height, second.width * second.height));
+
+                    return area / smallerArea;
+                };
+
+                const buildCandidate = (item, slot) => {
+                    const name = item.icon.dataset.appBgIcon;
+                    const xRange = horizontal[side][name] || [4, 10];
+                    const scale = random(0.92, 1.08);
+                    const top = (random(slot[0], slot[1]) / 100) * viewport.height;
+                    const sideOffset = (random(xRange[0], xRange[1]) / 100) * viewport.width;
+                    const left = side === 'left'
+                        ? sideOffset
+                        : viewport.width - sideOffset - item.width;
+
+                    return clampCandidate({ left, top, scale }, item.width, item.height, scale);
+                };
+
+                icons.forEach((item, index) => {
+                    const sideSlots = shuffle(slots[side]);
+                    let best = null;
+
+                    for (let attempt = 0; attempt < 180; attempt += 1) {
+                        const slot = sideSlots[(index + attempt) % sideSlots.length];
+                        const candidate = buildCandidate(item, slot);
+                        const overlaps = occupied.map((rect) => overlapRatio(candidate.rect, rect));
+                        const maxOverlap = overlaps.length ? Math.max(...overlaps) : 0;
+                        const totalOverlap = overlaps.reduce((sum, value) => sum + value, 0);
+                        const score = (maxOverlap * 1000) + (totalOverlap * 100) + random(0, 1);
+
+                        if (!best || score < best.score) {
+                            best = {
+                                ...candidate,
+                                maxOverlap,
+                                totalOverlap,
+                                score,
+                            };
+                        }
+
+                        if (maxOverlap <= 0.08 && totalOverlap <= 0.14) {
+                            break;
+                        }
+                    }
+
+                    const chosen = best || buildCandidate(item, slots[side][index % slots[side].length]);
+                    item.icon.style.top = `${chosen.top.toFixed(0)}px`;
+                    item.icon.style.setProperty('--random-scale', chosen.scale.toFixed(2));
+
+                    if (side === 'left') {
+                        item.icon.style.left = `${chosen.left.toFixed(0)}px`;
+                        item.icon.style.right = 'auto';
+                    } else {
+                        item.icon.style.right = `${(viewport.width - chosen.left - item.width).toFixed(0)}px`;
+                        item.icon.style.left = 'auto';
+                    }
+
+                    const inner = item.icon.querySelector('.app-bg-icon-inner');
+                    if (inner) {
+                        inner.style.animationDelay = `-${random(0, 6).toFixed(2)}s`;
+                    }
+
+                    occupied.push(chosen.rect);
+                });
+            };
+
+            placeIcons('left');
+            placeIcons('right');
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             initStickyShellHeader();
+            randomizeAppBackgroundIcons();
             window.requestAnimationFrame(buildShellRandomShapes);
 
             let shellShapesResizeTimeout = null;
@@ -1078,8 +1890,15 @@
                 shellShapesResizeTimeout = window.setTimeout(buildShellRandomShapes, 180);
             };
 
+            let appBackgroundResizeTimeout = null;
+            const scheduleAppBackgroundIcons = () => {
+                window.clearTimeout(appBackgroundResizeTimeout);
+                appBackgroundResizeTimeout = window.setTimeout(randomizeAppBackgroundIcons, 180);
+            };
+
             window.addEventListener('load', scheduleShellShapes, { once: true });
             window.addEventListener('resize', scheduleShellShapes);
+            window.addEventListener('resize', scheduleAppBackgroundIcons);
         });
     </script>
     @livewireScripts

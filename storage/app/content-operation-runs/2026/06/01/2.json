@@ -1,0 +1,279 @@
+{
+    "deployment": {
+        "mode": "native",
+        "source_kind": "deploy",
+        "base_ref": "base-sha",
+        "head_ref": "head-sha",
+        "branch": "main",
+        "commit": null,
+        "content_apply_requested": true,
+        "content_apply_executed": false
+    },
+    "preview": {
+        "deployment": {
+            "mode": "native",
+            "source_kind": "deploy",
+            "base_ref": "base-sha",
+            "head_ref": "head-sha",
+            "branch": "main",
+            "commit": null,
+            "with_release_check": true,
+            "check_profile": "release",
+            "scope": {
+                "domains": [
+                    "v3",
+                    "page-v3"
+                ],
+                "resolved_roots": []
+            }
+        },
+        "content_plan": {
+            "summary": {
+                "changed_packages": 1,
+                "deleted_cleanup_candidates": 0,
+                "seed_candidates": 1,
+                "refresh_candidates": 0,
+                "skipped": 0,
+                "blocked": 0,
+                "warnings": 0
+            },
+            "phases": {
+                "cleanup_deleted": [],
+                "upsert_present": []
+            },
+            "packages": [],
+            "error": null
+        },
+        "content_sync": {
+            "domains": {
+                "v3": {
+                    "domain": "v3",
+                    "sync_state_ref": "v3-synced-sha",
+                    "fallback_base_ref": "base-sha",
+                    "effective_base_ref": "v3-synced-sha",
+                    "fallback_used": false,
+                    "drift_from_code_ref": true,
+                    "sync_state_uninitialized": false,
+                    "status": "drifted",
+                    "target_head_ref": "head-sha"
+                },
+                "page-v3": {
+                    "domain": "page-v3",
+                    "sync_state_ref": null,
+                    "fallback_base_ref": "base-sha",
+                    "effective_base_ref": "base-sha",
+                    "fallback_used": true,
+                    "drift_from_code_ref": false,
+                    "sync_state_uninitialized": true,
+                    "status": "uninitialized",
+                    "target_head_ref": "head-sha"
+                }
+            }
+        },
+        "gate": {
+            "strict": true,
+            "blocked": false,
+            "reasons": []
+        },
+        "error": null
+    },
+    "content_apply": {
+        "executed": true,
+        "dry_run": true,
+        "result": {
+            "diff": {
+                "mode": "refs",
+                "base": "base-sha",
+                "base_refs_by_domain": {
+                    "v3": "v3-synced-sha",
+                    "page-v3": "base-sha"
+                },
+                "head": "head-sha",
+                "include_untracked": false
+            },
+            "scope": {
+                "input": null,
+                "domains": [
+                    "v3",
+                    "page-v3"
+                ],
+                "resolved_roots": [],
+                "single_package": false,
+                "with_release_check": true,
+                "skip_release_check": false,
+                "check_profile": "release",
+                "strict": true
+            },
+            "plan": {
+                "summary": {
+                    "changed_packages": 1,
+                    "seed_candidates": 1,
+                    "refresh_candidates": 0,
+                    "deleted_cleanup_candidates": 0,
+                    "skipped": 0,
+                    "blocked": 0,
+                    "warnings": 0
+                },
+                "domains": {
+                    "v3": null,
+                    "page-v3": null
+                },
+                "phases": {
+                    "cleanup_deleted": [],
+                    "upsert_present": []
+                },
+                "packages": [],
+                "error": null
+            },
+            "preflight": {
+                "executed": true,
+                "summary": {
+                    "candidates": 1,
+                    "ok": 1,
+                    "warn": 0,
+                    "fail": 0,
+                    "skipped": 0
+                },
+                "packages": []
+            },
+            "execution": {
+                "dry_run": true,
+                "force": false,
+                "fail_fast": true,
+                "scope_transactional": false,
+                "cleanup_deleted": {
+                    "started": 0,
+                    "completed": 0,
+                    "succeeded": 0,
+                    "failed": 0,
+                    "stopped_on": null,
+                    "packages": []
+                },
+                "upsert_present": {
+                    "started": 0,
+                    "completed": 0,
+                    "succeeded": 0,
+                    "failed": 0,
+                    "stopped_on": null,
+                    "packages": []
+                }
+            },
+            "artifacts": {
+                "report_path": null
+            },
+            "error": null
+        }
+    },
+    "content_sync": {
+        "before": {
+            "domains": {
+                "v3": {
+                    "domain": "v3",
+                    "sync_state_ref": "v3-synced-sha",
+                    "fallback_base_ref": "base-sha",
+                    "effective_base_ref": "v3-synced-sha",
+                    "fallback_used": false,
+                    "drift_from_code_ref": true,
+                    "sync_state_uninitialized": false,
+                    "status": "drifted",
+                    "target_head_ref": "head-sha"
+                },
+                "page-v3": {
+                    "domain": "page-v3",
+                    "sync_state_ref": null,
+                    "fallback_base_ref": "base-sha",
+                    "effective_base_ref": "base-sha",
+                    "fallback_used": true,
+                    "drift_from_code_ref": false,
+                    "sync_state_uninitialized": true,
+                    "status": "uninitialized",
+                    "target_head_ref": "head-sha"
+                }
+            }
+        },
+        "after": {
+            "domains": {
+                "v3": {
+                    "domain": "v3",
+                    "sync_state_ref": "v3-synced-sha",
+                    "fallback_base_ref": "base-sha",
+                    "effective_base_ref": "v3-synced-sha",
+                    "fallback_used": false,
+                    "drift_from_code_ref": true,
+                    "sync_state_uninitialized": false,
+                    "status": "drifted",
+                    "target_head_ref": "head-sha"
+                },
+                "page-v3": {
+                    "domain": "page-v3",
+                    "sync_state_ref": null,
+                    "fallback_base_ref": "base-sha",
+                    "effective_base_ref": "base-sha",
+                    "fallback_used": true,
+                    "drift_from_code_ref": false,
+                    "sync_state_uninitialized": true,
+                    "status": "uninitialized",
+                    "target_head_ref": "head-sha"
+                }
+            }
+        },
+        "advanced_domains": []
+    },
+    "gate": {
+        "strict": true,
+        "blocked": false,
+        "reasons": []
+    },
+    "artifacts": {
+        "report_path": "/var/www/gramlyze.ub/storage/app/deployment-content-apply-reports/native-deploy-content-apply-dry-run-49364e18.md"
+    },
+    "status": "ready",
+    "error": null,
+    "lock": {
+        "acquired": true,
+        "status": "active",
+        "owner_token": "bb450364-cdce-4d3b-b179-c0ff02ff1078",
+        "operation_kind": "deployment_apply_changed",
+        "trigger_source": "deployment_ui",
+        "domains": [
+            "v3",
+            "page-v3"
+        ],
+        "content_operation_run_id": 2,
+        "acquired_at": "2026-06-01T18:51:08+03:00",
+        "heartbeat_at": "2026-06-01T18:51:08+03:00",
+        "expires_at": "2026-06-01T19:51:08+03:00",
+        "warnings": [],
+        "takeover": {
+            "requested": false,
+            "performed": false
+        },
+        "lock": {
+            "exists": true,
+            "id": 4,
+            "lock_key": "global_content_operations",
+            "owner_token": "bb450364-cdce-4d3b-b179-c0ff02ff1078",
+            "operation_kind": "deployment_apply_changed",
+            "trigger_source": "deployment_ui",
+            "domains": [
+                "v3",
+                "page-v3"
+            ],
+            "content_operation_run_id": 2,
+            "operator_user_id": null,
+            "acquired_at": "2026-06-01T18:51:08+03:00",
+            "heartbeat_at": "2026-06-01T18:51:08+03:00",
+            "expires_at": "2026-06-01T19:51:08+03:00",
+            "age_seconds": 0,
+            "heartbeat_age_seconds": 0,
+            "status": "active",
+            "meta": {
+                "deployment_mode": "native",
+                "source_kind": "deploy",
+                "base_ref": "base-sha",
+                "head_ref": "head-sha",
+                "dry_run": true
+            }
+        }
+    }
+}

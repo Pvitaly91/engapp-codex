@@ -285,6 +285,25 @@ return [
         'dark' => 'Przełącz na ciemny motyw',
     ],
 
+    'background' => [
+        'blue' => 'Przełącz na niebieskie tło',
+        'cards' => 'Przełącz na tło w kolorach kart',
+        'custom' => 'Przełącz na własne tło',
+        'widget' => 'Konfiguruj tło',
+        'title' => 'Tło strony',
+        'description' => 'Wybierz tryb albo ustaw kolory ręcznie.',
+        'blue_short' => 'Niebieskie',
+        'cards_short' => 'Karty',
+        'custom_short' => 'Własne',
+        'ct' => 'Kolor CT',
+        'cr' => 'Kolor CR',
+        'th' => 'Kolor TH',
+        'wd' => 'Kolor WD',
+        'vb' => 'Kolor VB',
+        'reset' => 'Resetuj kolory',
+        'close' => 'Zamknij',
+    ],
+
     // Beta
     'beta' => [
         'badge' => 'BETA',

@@ -39,7 +39,7 @@ class AdminDebugAccess
             return false;
         }
 
-        $expectedToken = hash('sha256', config('admin.username') . '|' . config('admin.password_hash'));
+        $expectedToken = hash('sha256', config('admin.username') . '|' . config('admin.password_signature'));
 
         return hash_equals($expectedToken, $rememberToken);
     }
