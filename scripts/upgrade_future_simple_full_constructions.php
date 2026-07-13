@@ -62,9 +62,9 @@ $localizedHints = [
         'pl' => 'Wybierz pełną konstrukcję Future Simple: will (lub podmiot + ’ll) + czasownik w formie podstawowej bez to.',
     ],
     'negatives' => [
-        'uk' => 'Оберіть повну заперечну конструкцію Future Simple: will not / won’t + початкова форма дієслова.',
-        'en' => 'Choose the complete negative Future Simple construction: will not / won’t + the base verb.',
-        'pl' => 'Wybierz pełną konstrukcję przeczącą Future Simple: will not / won’t + czasownik w formie podstawowej.',
+        'uk' => 'Доберіть форму, що логічно завершує речення.',
+        'en' => 'Choose the form that logically completes the sentence.',
+        'pl' => 'Wybierz formę, która logicznie uzupełnia zdanie.',
     ],
     'question_order' => [
         'uk' => 'Оберіть повне загальне питання: Will + підмет + початкова форма дієслова?',
@@ -396,7 +396,7 @@ function upgradeQuestion(string $package, array &$question): ?array
         $correct = $answer.' '.$verb;
         $marker['answer'] = $correct;
         $marker['options'] = negativeOptions($newQuestion, $correct, $verb);
-        $marker['verb_hint'] = 'Оберіть повну заперечну конструкцію Future Simple: will not / won’t + початкова форма дієслова.';
+        $marker['verb_hint'] = 'Доберіть форму, що логічно завершує речення.';
         replaceQuestionAndVariants($question, $newQuestion);
 
         return ['type' => 'negatives', 'hint' => $marker['verb_hint']];
@@ -413,7 +413,7 @@ function upgradeQuestion(string $package, array &$question): ?array
 
         $marker['answer'] = $correct;
         $marker['options'] = negativeOptions($newQuestion, $correct, strtolower($answer));
-        $marker['verb_hint'] = 'Оберіть повну заперечну конструкцію Future Simple: will not / won’t + початкова форма дієслова.';
+        $marker['verb_hint'] = 'Доберіть форму, що логічно завершує речення.';
         replaceQuestionAndVariants($question, $newQuestion);
 
         return ['type' => 'negatives', 'hint' => $marker['verb_hint']];
@@ -553,9 +553,9 @@ function localizedVerbHint(string $package, string $gapType, string $verb, strin
 
     if ($package === 'negatives') {
         return $label.match ($locale) {
-            'uk' => 'Оберіть повну заперечну конструкцію з will not / won’t.',
-            'pl' => 'Wybierz pełną konstrukcję przeczącą z will not / won’t.',
-            default => 'Choose the complete negative construction with will not / won’t.',
+            'uk' => 'Доберіть форму, що логічно завершує речення.',
+            'pl' => 'Wybierz formę, która logicznie uzupełnia zdanie.',
+            default => 'Choose the form that logically completes the sentence.',
         };
     }
     if ($package === 'questions') {
