@@ -239,6 +239,35 @@ class SavedTestJsStateTest extends TestCase
         );
     }
 
+    public function test_it_accepts_every_v2_state_mode(): void
+    {
+        $test = $this->createSavedTest();
+        $modes = [
+            'saved-test-js-v2',
+            'saved-test-js-step-v2',
+            'saved-test-js-step-input-v2',
+            'saved-test-js-step-manual-v2',
+            'saved-test-js-step-select-v2',
+            'saved-test-js-select-v2',
+            'saved-test-js-input-v2',
+            'saved-test-js-manual-v2',
+            'saved-test-js-step-compose-v2',
+        ];
+
+        foreach ($modes as $mode) {
+            $state = [
+                'items' => [['chosen' => ['answer']]],
+                '__meta' => ['started' => true],
+            ];
+
+            $this->postState($test, ['mode' => $mode, 'state' => $state])
+                ->assertNoContent();
+
+            $key = sprintf('saved_test_js_state:%s:%s', $test->slug, $mode);
+            $this->assertSame($state, session($key), $mode);
+        }
+    }
+
     public function test_it_does_not_store_unstarted_state_in_session(): void
     {
         $test = $this->createSavedTest();
@@ -397,7 +426,10 @@ class SavedTestJsStateTest extends TestCase
         $requestOne = Request::create(
             "/test/{$test->slug}/js/questions",
             'GET',
-            ['mode' => 'saved-test-js']
+            ['mode' => 'saved-test-js'],
+            [],
+            [],
+            ['HTTP_ACCEPT' => 'application/json']
         );
 
         $firstPayload = $controller->fetchSavedTestJsQuestions($requestOne, $test->slug)->getData(true);
@@ -406,7 +438,10 @@ class SavedTestJsStateTest extends TestCase
         $requestTwo = Request::create(
             "/test/{$test->slug}/js/questions",
             'GET',
-            ['mode' => 'saved-test-js']
+            ['mode' => 'saved-test-js'],
+            [],
+            [],
+            ['HTTP_ACCEPT' => 'application/json']
         );
 
         $secondPayload = $controller->fetchSavedTestJsQuestions($requestTwo, $test->slug)->getData(true);

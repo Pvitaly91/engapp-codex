@@ -228,7 +228,7 @@ function renderQuestion(idx) {
 function onCheck(idx) {
   const q = state.items[idx];
   if (q.isCorrect !== null) return;
-  q.isCorrect = q.answers.every((ans, i) => (q.chosen[i] || '').toLowerCase() === (ans || '').toLowerCase());
+  q.isCorrect = q.answers.every((ans, i) => testAnswerMatches(q, i, q.chosen[i] || ''));
   if (q.isCorrect) state.correct += 1;
   state.answered += 1;
   renderQuestion(idx);

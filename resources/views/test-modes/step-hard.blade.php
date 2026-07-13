@@ -318,9 +318,7 @@ function onCheck() {
   const valParts = q.inputs.map((words) => words.join(' ').trim());
   const val = valParts.join(' ');
   q.input = val;
-  q.isCorrect = q.answers.every((ans, i) =>
-    valParts[i].toLowerCase() === (ans || '').toLowerCase()
-  );
+  q.isCorrect = q.answers.every((ans, i) => testAnswerMatches(q, i, valParts[i]));
   if (q.isCorrect) {
     state.correct += 1;
   } else {

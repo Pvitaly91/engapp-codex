@@ -69,6 +69,57 @@ function shuffle(arr) {
 function pct(a, b) {
     return Math.round((a / (b || 1)) * 100);
 }
+
+function canonicalTestAnswer(value) {
+    return String(value ?? '')
+        .replace(/[‘’ʼ`]/g, "'")
+        .trim()
+        .replace(/\s+/g, ' ')
+        .toLowerCase()
+        .replace(/\bwill\s+not\b/g, "won't");
+}
+
+function acceptedTestAnswers(question, slotIndex) {
+    const markers = Array.isArray(question?.markers)
+        ? question.markers
+        : Object.keys(question?.answer_map || {});
+    const marker = markers[slotIndex] || `a${slotIndex + 1}`;
+    const byMarker = question?.accepted_answers_by_marker?.[marker];
+    const bySlot = Array.isArray(question?.accepted_answers)
+        ? question.accepted_answers[slotIndex]
+        : null;
+    const configured = Array.isArray(byMarker)
+        ? byMarker
+        : (Array.isArray(bySlot) ? bySlot : []);
+    const expected = String(question?.answers?.[slotIndex] ?? '').trim();
+    const variants = [...configured, expected];
+
+    variants.slice().forEach((variant) => {
+        const normalized = String(variant ?? '')
+            .replace(/[‘’ʼ`]/g, "'")
+            .trim()
+            .replace(/\s+/g, ' ');
+
+        if (/\bwon't\b/i.test(normalized)) {
+            variants.push(normalized.replace(/\bwon't\b/gi, 'will not'));
+        }
+        if (/\bwill\s+not\b/i.test(normalized)) {
+            variants.push(normalized.replace(/\bwill\s+not\b/gi, "won't"));
+        }
+    });
+
+    return variants
+        .map((variant) => String(variant ?? '').trim())
+        .filter((variant, index, all) => variant !== '' && all.indexOf(variant) === index);
+}
+
+function testAnswerMatches(question, slotIndex, value) {
+    const normalized = canonicalTestAnswer(value);
+
+    return acceptedTestAnswers(question, slotIndex)
+        .some((accepted) => canonicalTestAnswer(accepted) === normalized);
+}
+
 function html(str) {
     return String(str)
         .replaceAll('&', '&amp;')
@@ -989,6 +1040,7 @@ function prepareStateForPersistence(state) {
     const started = isStartedState(snapshot);
 
     meta.started = started;
+    meta.saved_at = new Date().toISOString();
 
     if (started) {
         const questionData = cloneState(window.__INITIAL_JS_TEST_QUESTIONS__);
@@ -1004,6 +1056,7 @@ function prepareStateForPersistence(state) {
 
 const JS_TEST_PERSISTENCE = window.JS_TEST_PERSISTENCE || null;
 let JS_TEST_SAVE_TIMER = null;
+let JS_TEST_SAVE_QUEUE = Promise.resolve();
 
 if (JS_TEST_PERSISTENCE && JS_TEST_PERSISTENCE.saved) {
     JS_TEST_PERSISTENCE.saved = cloneState(JS_TEST_PERSISTENCE.saved);
@@ -1068,16 +1121,23 @@ function getSavedState() {
         return null;
     }
 
-    if (JS_TEST_PERSISTENCE.saved) {
-        return cloneState(JS_TEST_PERSISTENCE.saved);
-    }
-
+    const serverState = JS_TEST_PERSISTENCE.saved
+        ? cloneState(JS_TEST_PERSISTENCE.saved)
+        : null;
     const localState = readLocalJsTestState();
-    if (localState) {
-        JS_TEST_PERSISTENCE.saved = cloneState(localState);
+    const savedAt = (value) => {
+        const timestamp = Date.parse(String(value?.__meta?.saved_at ?? ''));
+        return Number.isFinite(timestamp) ? timestamp : 0;
+    };
+    const selected = localState && (!serverState || savedAt(localState) > savedAt(serverState))
+        ? localState
+        : (serverState || localState);
+
+    if (selected) {
+        JS_TEST_PERSISTENCE.saved = cloneState(selected);
     }
 
-    return localState;
+    return selected ? cloneState(selected) : null;
 }
 
 function persistState(state, immediate = false) {
@@ -1101,16 +1161,21 @@ function persistState(state, immediate = false) {
     };
 
     const send = () => {
-        fetch(JS_TEST_PERSISTENCE.endpoint, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'X-CSRF-TOKEN': JS_TEST_PERSISTENCE.token,
-            },
-            credentials: 'same-origin',
-            body: JSON.stringify(payload),
-        }).catch(() => {});
+        JS_TEST_SAVE_QUEUE = JS_TEST_SAVE_QUEUE
+            .catch(() => {})
+            .then(() => fetch(JS_TEST_PERSISTENCE.endpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': JS_TEST_PERSISTENCE.token,
+                },
+                credentials: 'same-origin',
+                body: JSON.stringify(payload),
+            }))
+            .catch(() => {});
+
+        return JS_TEST_SAVE_QUEUE;
     };
 
     if (immediate || (started && !previousStarted)) {

@@ -216,7 +216,8 @@ class GrammarTestFilterService
                             $selectionQuery->get(),
                             $selectedLevels,
                             $selectedSeederClasses,
-                            $mixedAllLevelsQuestionsPerLevel
+                            $mixedAllLevelsQuestionsPerLevel,
+                            $randomizeFiltered
                         );
                     } elseif ($randomizeFiltered && $availableCount > $take) {
                         $selectionQuery->inRandomOrder();
@@ -429,7 +430,8 @@ class GrammarTestFilterService
         Collection $candidates,
         array $selectedLevels,
         array $selectedSeederClasses,
-        int $questionsPerLevel
+        int $questionsPerLevel,
+        bool $randomize
     ): Collection {
         if ($questionsPerLevel <= 0 || $candidates->isEmpty()) {
             return collect();
@@ -457,11 +459,20 @@ class GrammarTestFilterService
             $levelSelected = collect();
             $queues = [];
 
-            foreach (collect($seederOrder)->shuffle()->values() as $seeder) {
+            $orderedSeeders = collect($seederOrder);
+            if ($randomize) {
+                $orderedSeeders = $orderedSeeders->shuffle();
+            }
+
+            foreach ($orderedSeeders->values() as $seeder) {
                 $queue = $candidates
                     ->filter(fn (Question $question) => (string) $question->level === $level
                         && (string) $question->seeder === $seeder)
-                    ->shuffle()
+                    ->when(
+                        $randomize,
+                        fn (Collection $items): Collection => $items->shuffle(),
+                        fn (Collection $items): Collection => $items->sortBy('id')
+                    )
                     ->values();
 
                 if ($queue->isNotEmpty()) {

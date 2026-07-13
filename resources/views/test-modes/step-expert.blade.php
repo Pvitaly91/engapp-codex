@@ -223,7 +223,7 @@ function onCheck() {
     const el = document.getElementById(`input-${i}`);
     const val = (el.value || '').trim();
     q.chosen[i] = val;
-    if (val.toLowerCase() !== ans.toLowerCase()) {
+    if (!testAnswerMatches(q, i, val)) {
       allCorrect = false;
       el.classList.add('border-red-400');
       el.classList.remove('border-indigo-200');

@@ -106,6 +106,7 @@ return [
         'progress' => [
             'label' => 'Прогрес',
             'accuracy' => 'Точність',
+            'first_attempt_accuracy' => 'Точність із першої спроби',
             'default_progress' => '0 / 0',
             'accuracy_value' => 'Точність: :value%',
         ],
@@ -149,12 +150,14 @@ return [
             'incorrect' => 'Неправильно.',
             'incorrect_try_again' => 'Невірно. Спробуй ще раз!',
             'correct_answer' => 'Правильна відповідь: :answer',
+            'corrected_after_retry' => 'Тепер правильно. Для точності враховується перша спроба.',
             'incorrect_with_answer' => 'Неправильно. Правильна відповідь: :answer',
             'fill_all_fields' => 'Заповни всі поля перед перевіркою.',
         ],
 
         'summary' => [
             'score' => 'Ти дав :correct правильних відповідей із :total (:percent%)!',
+            'first_attempt_score' => 'З першої спроби правильно: :correct із :total (:percent%).',
         ],
 
         'hint' => [

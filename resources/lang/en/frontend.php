@@ -106,6 +106,7 @@ return [
         'progress' => [
             'label' => 'Progress',
             'accuracy' => 'Accuracy',
+            'first_attempt_accuracy' => 'First-attempt accuracy',
             'default_progress' => '0 / 0',
             'accuracy_value' => 'Accuracy: :value%',
         ],
@@ -149,12 +150,14 @@ return [
             'incorrect' => 'Incorrect.',
             'incorrect_try_again' => 'Incorrect. Try again!',
             'correct_answer' => 'Correct answer: :answer',
+            'corrected_after_retry' => 'Correct now. Accuracy is based on the first attempt.',
             'incorrect_with_answer' => 'Incorrect. Correct answer: :answer',
             'fill_all_fields' => 'Fill in all fields before checking.',
         ],
 
         'summary' => [
             'score' => 'You got :correct out of :total correct (:percent%)!',
+            'first_attempt_score' => 'Correct on the first attempt: :correct out of :total (:percent%).',
         ],
 
         'hint' => [

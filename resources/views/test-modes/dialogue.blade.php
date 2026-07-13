@@ -535,7 +535,7 @@ function handleCheck() {
         }
         const expected = normalizeAnswer(base.answers[blankIdx]);
         const valueNorm = normalizeAnswer(raw);
-        if (!raw || valueNorm !== expected) {
+        if (!raw || valueNorm === '' || expected === '' || !testAnswerMatches(base, blankIdx, raw)) {
             allCorrect = false;
             input.classList.add('incorrect');
         } else {

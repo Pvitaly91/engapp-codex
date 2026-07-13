@@ -55,7 +55,7 @@
                                     </div>
                                 </div>
                                 <div class="text-right space-y-0.5">
-                                    <div class="progress-label-text text-[11px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500 transition-all duration-300">{{ __('frontend.tests.progress.accuracy') }}</div>
+                                    <div class="progress-label-text text-[11px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500 transition-all duration-300">{{ __('frontend.tests.progress.first_attempt_accuracy') }}</div>
                                     <div id="score-label" class="progress-value text-base sm:text-xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent transition-all duration-300">0%</div>
                                 </div>
                             </div>
@@ -174,7 +174,15 @@ function buildShuffledOptions(options) {
 }
 
 function normalizeAnswer(value) {
-  return String(value ?? '').trim().toLowerCase();
+  return canonicalTestAnswer(value);
+}
+
+function acceptedAnswersForSlot(q, slotIndex) {
+  return acceptedTestAnswers(q, slotIndex);
+}
+
+function answerMatchesSlot(q, slotIndex, value) {
+  return testAnswerMatches(q, slotIndex, value);
 }
 
 function isPolyglotComposeQuestion(q) {
@@ -314,29 +322,40 @@ function ensureGlobalEvents() {
 }
 
 function handleManualAnswerShortcut(e) {
-  if (e.isComposing || (e.key !== 'Enter' && e.key !== 'Tab')) return false;
+  if (e.isComposing || e.key !== 'Enter') return false;
   if (!e.target || !e.target.closest) return false;
 
   const manualInput = e.target.closest('input[data-manual-gap]');
   if (!manualInput) return false;
 
-  const value = String(manualInput.value ?? '').trim();
-  if (e.key === 'Tab' && value === '') {
-    return false;
-  }
-
   const slotIndex = parseInt(manualInput.dataset.manualGap, 10);
+  const wordIndex = parseInt(manualInput.dataset.manualWord, 10);
   const inputQuestionIdx = parseInt(manualInput.dataset.question, 10);
   const cardIdx = parseInt(manualInput.closest('article[data-idx]')?.dataset.idx, 10);
   const idx = Number.isFinite(inputQuestionIdx) ? inputQuestionIdx : cardIdx;
   if (!Number.isFinite(idx) || isNaN(slotIndex)) return false;
+
+  const group = manualInput.closest('[data-manual-input-group]');
+  const inputs = group ? Array.from(group.querySelectorAll('input[data-manual-gap]')) : [manualInput];
+  const nextInput = Number.isInteger(wordIndex) ? inputs[wordIndex + 1] : null;
+  const answer = collectManualAnswer(group);
 
   e.preventDefault();
   e.stopPropagation();
   if (typeof e.stopImmediatePropagation === 'function') {
     e.stopImmediatePropagation();
   }
-  submitManualAnswer(idx, slotIndex, value);
+  if (manualAnswerIsComplete(state.items[idx], slotIndex, answer)) {
+    submitManualAnswer(idx, slotIndex, answer);
+    return true;
+  }
+  if (nextInput) {
+    nextInput.focus();
+    nextInput.select();
+    return true;
+  }
+
+  submitManualAnswer(idx, slotIndex, answer);
   return true;
 }
 
@@ -532,7 +551,8 @@ function renderQuestions(showOnlyWrong = false) {
         e.preventDefault();
         e.stopPropagation();
         const suggestionSlot = parseInt(suggestionBtn.dataset.gap ?? q.activeSlot, 10);
-        submitManualAnswer(idx, isNaN(suggestionSlot) ? q.activeSlot : suggestionSlot, suggestionBtn.dataset.wordSuggestion || '');
+        const suggestionWord = parseInt(suggestionBtn.dataset.word ?? '0', 10);
+        applyManualWordSuggestion(idx, isNaN(suggestionSlot) ? q.activeSlot : suggestionSlot, suggestionWord, suggestionBtn.dataset.wordSuggestion || '');
         return;
       }
 
@@ -590,7 +610,8 @@ function renderQuestions(showOnlyWrong = false) {
       e.preventDefault();
       e.stopImmediatePropagation();
       const suggestionSlot = parseInt(suggestionBtn.dataset.gap ?? q.activeSlot, 10);
-      submitManualAnswer(idx, isNaN(suggestionSlot) ? q.activeSlot : suggestionSlot, suggestionBtn.dataset.wordSuggestion || '');
+      const suggestionWord = parseInt(suggestionBtn.dataset.word ?? '0', 10);
+      applyManualWordSuggestion(idx, isNaN(suggestionSlot) ? q.activeSlot : suggestionSlot, suggestionWord, suggestionBtn.dataset.wordSuggestion || '');
     });
 
     card.addEventListener('input', (e) => {
@@ -602,7 +623,9 @@ function renderQuestions(showOnlyWrong = false) {
 
       ensureManualSlotState(q);
       q.activeSlot = slotIndex;
-      q.manualInputsBySlot[slotIndex] = manualInput.value;
+      manualInput.value = manualInput.value.replace(/\s+/g, '');
+      q.manualWordIndexBySlot[slotIndex] = parseInt(manualInput.dataset.manualWord ?? '0', 10) || 0;
+      q.manualInputsBySlot[slotIndex] = collectManualAnswer(manualInput.closest('[data-manual-input-group]'));
       searchManualWords(idx, slotIndex, manualInput.value);
       persistState(state);
     });
@@ -613,16 +636,6 @@ function renderQuestions(showOnlyWrong = false) {
 
       const slotIndex = parseInt(manualInput.dataset.manualGap, 10);
       if (isNaN(slotIndex)) return;
-
-      if (e.key === 'Enter' || e.key === 'Tab') {
-        const value = String(manualInput.value ?? '').trim();
-        if (e.key === 'Tab' && value === '') {
-          return;
-        }
-
-        e.preventDefault();
-        submitManualAnswer(idx, slotIndex, value);
-      }
 
       if (e.key === 'Escape') {
         ensureManualSlotState(q);
@@ -638,12 +651,13 @@ function renderQuestions(showOnlyWrong = false) {
       const slotIndex = parseInt(manualInput.dataset.manualGap, 10);
       if (isNaN(slotIndex)) return;
 
-      const value = String(manualInput.value ?? '').trim();
-      if (!value) return;
-
       window.setTimeout(() => {
         const item = state.items[idx];
         if (!item || item.done || item.chosen?.[slotIndex] !== null) return;
+        const group = manualInput.closest('[data-manual-input-group]');
+        if (!group || group.contains(document.activeElement)) return;
+        const value = collectManualAnswer(group);
+        if (!manualAnswerIsComplete(item, slotIndex, value)) return;
         submitManualAnswer(idx, slotIndex, value);
       }, 80);
     });
@@ -684,7 +698,7 @@ function renderQuestions(showOnlyWrong = false) {
 
   if (allDone) {
     const summaryText = document.getElementById('summary-text');
-    summaryText.textContent = testUi('summary.score', {
+    summaryText.textContent = testUi('summary.first_attempt_score', {
       correct: state.correct,
       total: state.items.length,
       percent: pct(state.correct, state.items.length),
@@ -767,6 +781,9 @@ function renderFeedback(q) {
     }
     return htmlStr;
   }
+  if (q.feedback === 'corrected') {
+    return `<div class="flex items-start gap-3 rounded-2xl border-2 border-amber-200 bg-gradient-to-r from-amber-50 to-yellow-50 p-3 sm:p-4"><div class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-amber-500 text-sm font-bold text-white">!</div><div class="flex-1"><div class="font-semibold text-amber-900">${html(testUi('status.corrected_after_retry'))}</div></div></div>`;
+  }
   if (q.feedback) {
     let htmlStr = `<div class="flex items-start gap-3 p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-red-50 to-rose-50 border-2 border-red-200"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-red-500 flex items-center justify-center"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></div><div class="flex-1"><div class="font-semibold text-red-800">${html(q.feedback)}</div></div></div>`;
     if (q.explanation) {
@@ -793,27 +810,18 @@ function onChoose(idx, opt) {
   // Check if slot is already filled
   if (item.chosen[slotIndex] !== null) return;
 
-  if (!item.explanationsCache) {
-    item.explanationsCache = {};
-  }
-
   const key = buildExplanationKey(opt, expected);
-  item.pendingExplanationKey = key;
-  if (Object.prototype.hasOwnProperty.call(item.explanationsCache, key)) {
-    item.explanation = item.explanationsCache[key];
-  } else {
-    item.explanation = '';
-  }
-
-  const explanationPromise = ensureExplanation(item, idx, opt, expected, key, slotIndex);
+  let explanationPromise = Promise.resolve('');
   item.manualInputsBySlot[slotIndex] = opt;
   item.wordSuggestionsBySlot[slotIndex] = [];
 
-  if (normalizeAnswer(opt) === normalizeAnswer(expected)) {
+  if (answerMatchesSlot(item, slotIndex, opt)) {
     item.chosen[slotIndex] = opt;
     item.attemptsBySlot[slotIndex] = 0;
     item.lastWrongBySlot[slotIndex] = null;
-    item.feedback = 'correct';
+    item.explanation = '';
+    item.pendingExplanationKey = null;
+    item.feedback = item.wrongAttempt ? 'corrected' : 'correct';
     
     // Check if all slots are filled
     const allFilled = item.chosen.every(c => c !== null);
@@ -829,6 +837,14 @@ function onChoose(idx, opt) {
       }
     }
   } else {
+    if (!item.explanationsCache) {
+      item.explanationsCache = {};
+    }
+    item.pendingExplanationKey = key;
+    item.explanation = Object.prototype.hasOwnProperty.call(item.explanationsCache, key)
+      ? item.explanationsCache[key]
+      : '';
+    explanationPromise = ensureExplanation(item, idx, opt, expected, key, slotIndex);
     item.wrongAttempt = true;
     item.lastWrongBySlot[slotIndex] = opt;
     item.attemptsBySlot[slotIndex] = (item.attemptsBySlot[slotIndex] || 0) + 1;
@@ -838,7 +854,7 @@ function onChoose(idx, opt) {
       item.chosen[slotIndex] = expected;
       item.attemptsBySlot[slotIndex] = 0;
       item.lastWrongBySlot[slotIndex] = null;
-      item.feedback = testUi('status.correct_answer', { answer: expected });
+      item.feedback = 'corrected';
       
       // Check if all slots are filled
       const allFilled = item.chosen.every(c => c !== null);
@@ -890,7 +906,7 @@ function updateProgress() {
   label.textContent = `${state.answered} / ${state.items.length}`;
 
   const score = document.getElementById('score-label');
-  const percent = state.answered ? pct(state.correct, state.items.length) : 0;
+  const percent = state.answered ? pct(state.correct, state.answered) : 0;
   score.textContent = `${percent}%`;
 
   const bar = document.getElementById('progress-bar');
@@ -915,17 +931,57 @@ function ensureManualSlotState(q) {
   if (!Array.isArray(q.wordSearchRequestBySlot)) {
     q.wordSearchRequestBySlot = Array(markersCount).fill(0);
   }
+  if (!Array.isArray(q.manualWordIndexBySlot)) {
+    q.manualWordIndexBySlot = Array(markersCount).fill(0);
+  }
 }
 
-function manualInputId(idx, slotIndex, context = 'sentence') {
-  return `manual-answer-${context}-${idx}-${slotIndex}`;
+function manualAnswerWords(q, slotIndex) {
+  if (isPolyglotComposeQuestion(q)) {
+    return [String(q?.answers?.[slotIndex] ?? '').trim()];
+  }
+
+  const longest = acceptedAnswersForSlot(q, slotIndex)
+    .sort((left, right) => right.split(/\s+/).length - left.split(/\s+/).length)[0] || '';
+  const words = longest.split(/\s+/).filter(Boolean);
+  return words.length ? words : [''];
+}
+
+function manualAnswerIsComplete(q, slotIndex, value) {
+  const answer = String(value ?? '').trim();
+  if (answerMatchesSlot(q, slotIndex, answer)) return true;
+
+  const words = answer.split(/\s+/).filter(Boolean);
+  const accepted = acceptedAnswersForSlot(q, slotIndex);
+  const canonical = canonicalTestAnswer(answer);
+  if (canonical !== '' && accepted.some((variant) => canonicalTestAnswer(variant).startsWith(`${canonical} `))) {
+    return false;
+  }
+  const acceptedLengths = accepted
+    .map((accepted) => accepted.split(/\s+/).filter(Boolean).length)
+    .filter((length) => length > 0);
+  const minimumLength = acceptedLengths.length ? Math.min(...acceptedLengths) : 1;
+
+  return words.length >= minimumLength;
+}
+
+function collectManualAnswer(group) {
+  if (!group) return '';
+  return Array.from(group.querySelectorAll('input[data-manual-gap]'))
+    .map((input) => String(input.value ?? '').trim())
+    .filter(Boolean)
+    .join(' ');
+}
+
+function manualInputId(idx, slotIndex, context = 'sentence', wordIndex = 0) {
+  return `manual-answer-${context}-${idx}-${slotIndex}-${wordIndex}`;
 }
 
 function manualSuggestionsId(idx, slotIndex, context = 'sentence') {
   return `manual-suggestions-${context}-${idx}-${slotIndex}`;
 }
 
-function renderWordSuggestionButtons(suggestions, idx, slotIndex) {
+function renderWordSuggestionButtons(suggestions, idx, slotIndex, wordIndex = 0) {
   if (!Array.isArray(suggestions) || suggestions.length === 0) {
     return '';
   }
@@ -940,12 +996,12 @@ function renderWordSuggestionButtons(suggestions, idx, slotIndex) {
     const formButtons = forms.slice(0, 6).map((form) => {
       const value = String(form).trim();
       if (!value) return '';
-      return `<button type="button" class="rounded-full bg-gray-100 px-2 py-1 text-[11px] font-semibold text-gray-600 hover:bg-indigo-100 hover:text-indigo-700" data-word-suggestion="${html(value)}" data-question="${idx}" data-gap="${slotIndex}">${html(value)}</button>`;
+      return `<button type="button" class="rounded-full bg-gray-100 px-2 py-1 text-[11px] font-semibold text-gray-600 hover:bg-indigo-100 hover:text-indigo-700" data-word-suggestion="${html(value)}" data-question="${idx}" data-gap="${slotIndex}" data-word="${wordIndex}">${html(value)}</button>`;
     }).join('');
 
     return `
       <div class="border-b border-gray-100 last:border-b-0 p-2.5">
-        <button type="button" class="flex w-full items-start justify-between gap-3 rounded-xl px-2 py-1.5 text-left hover:bg-indigo-50" data-word-suggestion="${html(word)}" data-question="${idx}" data-gap="${slotIndex}">
+        <button type="button" class="flex w-full items-start justify-between gap-3 rounded-xl px-2 py-1.5 text-left hover:bg-indigo-50" data-word-suggestion="${html(word)}" data-question="${idx}" data-gap="${slotIndex}" data-word="${wordIndex}">
           <span class="font-semibold text-gray-900">${html(word)}</span>
           ${translation ? `<span class="text-xs text-gray-500">${html(translation)}</span>` : ''}
         </button>
@@ -959,41 +1015,47 @@ function renderManualSuggestions(q, idx, slotIndex, context = 'sentence') {
   ensureManualSlotState(q);
   const suggestions = q.wordSuggestionsBySlot[slotIndex] || [];
   const hidden = suggestions.length ? '' : ' hidden';
+  const wordIndex = q.manualWordIndexBySlot[slotIndex] || 0;
 
-  return `<div id="${manualSuggestionsId(idx, slotIndex, context)}" class="absolute left-0 top-full z-[9999] mt-2 w-72 max-w-[80vw] overflow-hidden rounded-2xl border border-gray-200 bg-white text-sm shadow-2xl${hidden}" data-manual-suggestions data-question="${idx}" data-gap="${slotIndex}">${renderWordSuggestionButtons(suggestions, idx, slotIndex)}</div>`;
+  return `<div id="${manualSuggestionsId(idx, slotIndex, context)}" class="absolute left-0 top-full z-[9999] mt-2 w-72 max-w-[80vw] overflow-hidden rounded-2xl border border-gray-200 bg-white text-sm shadow-2xl${hidden}" data-manual-suggestions data-question="${idx}" data-gap="${slotIndex}">${renderWordSuggestionButtons(suggestions, idx, slotIndex, wordIndex)}</div>`;
 }
 
 function renderManualGapInput(q, idx, slotIndex, context = 'sentence') {
   ensureManualSlotState(q);
-  const value = q.manualInputsBySlot[slotIndex] || '';
+  const values = String(q.manualInputsBySlot[slotIndex] || '').trim().split(/\s+/).filter(Boolean);
+  const wordCount = manualAnswerWords(q, slotIndex).length;
   const isPreview = context === 'preview';
   const inputClass = isPreview
     ? 'min-h-[2.6rem] w-[4.6rem] rounded-xl border-2 border-indigo-300 bg-white px-2 py-2 text-center text-sm font-semibold text-gray-900 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 sm:w-[5.25rem] sm:text-base'
     : 'min-w-[5.5rem] max-w-[11rem] rounded-xl border-2 border-indigo-300 bg-white px-3 py-1 text-center text-base font-semibold text-gray-900 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100';
-
-  return `
-    <span class="relative inline-flex align-middle">
+  const inputs = Array.from({ length: wordCount }, (_, wordIndex) => `
       <input
-        id="${manualInputId(idx, slotIndex, context)}"
+        id="${manualInputId(idx, slotIndex, context, wordIndex)}"
         type="text"
-        value="${html(value)}"
+        value="${html(values[wordIndex] || '')}"
         data-manual-gap="${slotIndex}"
+        data-manual-word="${wordIndex}"
         data-question="${idx}"
         data-manual-context="${context}"
         autocomplete="off"
         class="${inputClass}"
         placeholder="${isPreview ? '...' : '____'}"
       >
+  `).join('');
+
+  return `
+    <span class="relative inline-flex flex-wrap items-center gap-1 align-middle" data-manual-input-group data-question="${idx}" data-gap="${slotIndex}" data-context="${context}">
+      ${inputs}
       ${renderManualSuggestions(q, idx, slotIndex, context)}
     </span>
   `;
 }
 
-function focusManualAnswer(idx, slotIndex, context = 'sentence') {
+function focusManualAnswer(idx, slotIndex, context = 'sentence', wordIndex = 0) {
   setTimeout(() => {
-    const input = document.getElementById(manualInputId(idx, slotIndex, context))
-      || document.getElementById(manualInputId(idx, slotIndex, 'sentence'))
-      || document.getElementById(manualInputId(idx, slotIndex, 'preview'));
+    const input = document.getElementById(manualInputId(idx, slotIndex, context, wordIndex))
+      || document.getElementById(manualInputId(idx, slotIndex, 'sentence', wordIndex))
+      || document.getElementById(manualInputId(idx, slotIndex, 'preview', wordIndex));
     if (!input) return;
     input.focus();
     input.select();
@@ -1006,12 +1068,38 @@ function updateManualSuggestionsDom(idx, slotIndex) {
   ensureManualSlotState(item);
 
   const suggestions = item.wordSuggestionsBySlot[slotIndex] || [];
+  const wordIndex = item.manualWordIndexBySlot[slotIndex] || 0;
   document
     .querySelectorAll(`[data-manual-suggestions][data-question="${idx}"][data-gap="${slotIndex}"]`)
     .forEach((list) => {
-      list.innerHTML = renderWordSuggestionButtons(suggestions, idx, slotIndex);
+      list.innerHTML = renderWordSuggestionButtons(suggestions, idx, slotIndex, wordIndex);
       list.classList.toggle('hidden', suggestions.length === 0);
     });
+}
+
+function applyManualWordSuggestion(idx, slotIndex, wordIndex, value) {
+  const item = state.items[idx];
+  if (!item || item.done) return;
+  const input = document.getElementById(manualInputId(idx, slotIndex, 'sentence', wordIndex))
+    || document.getElementById(manualInputId(idx, slotIndex, 'preview', wordIndex));
+  if (!input) return;
+
+  input.value = String(value ?? '').trim();
+  const group = input.closest('[data-manual-input-group]');
+  ensureManualSlotState(item);
+  item.manualWordIndexBySlot[slotIndex] = wordIndex;
+  item.manualInputsBySlot[slotIndex] = collectManualAnswer(group);
+  item.wordSuggestionsBySlot[slotIndex] = [];
+  updateManualSuggestionsDom(idx, slotIndex);
+  persistState(state);
+
+  const nextInput = group?.querySelector(`input[data-manual-word="${wordIndex + 1}"]`);
+  if (nextInput) {
+    nextInput.focus();
+    nextInput.select();
+  } else if (manualAnswerIsComplete(item, slotIndex, item.manualInputsBySlot[slotIndex])) {
+    submitManualAnswer(idx, slotIndex, item.manualInputsBySlot[slotIndex]);
+  }
 }
 
 async function searchManualWords(idx, slotIndex, query) {
@@ -1055,7 +1143,7 @@ function submitManualAnswer(idx, slotIndex, value) {
   const item = state.items[idx];
   if (!item || item.done) return;
   const answer = String(value ?? '').trim();
-  if (!answer) {
+  if (!manualAnswerIsComplete(item, slotIndex, answer)) {
     focusManualAnswer(idx, slotIndex);
     return;
   }

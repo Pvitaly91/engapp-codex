@@ -274,7 +274,7 @@ function onCheck(idx) {
   const q = state.items[idx];
   if (q.isCorrect !== null) return;
   const valParts = q.inputs.map(words => words.join(' ').trim());
-  q.isCorrect = q.answers.every((ans, i) => valParts[i].toLowerCase() === (ans || '').toLowerCase());
+  q.isCorrect = q.answers.every((ans, i) => testAnswerMatches(q, i, valParts[i]));
   if (q.isCorrect) state.correct += 1;
   state.answered += 1;
   renderQuestion(idx);

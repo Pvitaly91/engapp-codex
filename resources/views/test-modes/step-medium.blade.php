@@ -242,7 +242,7 @@ function render() {
 function onCheck() {
   const q = state.items[state.current];
   if (q.isCorrect !== null) return;
-  q.isCorrect = q.answers.every((ans, i) => (q.chosen[i] || '').toLowerCase() === (ans || '').toLowerCase());
+  q.isCorrect = q.answers.every((ans, i) => testAnswerMatches(q, i, q.chosen[i] || ''));
   if (q.isCorrect) {
     state.correct += 1;
   } else {

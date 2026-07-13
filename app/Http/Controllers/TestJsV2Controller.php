@@ -13,7 +13,10 @@ use App\Services\QuestionTechnicalInfoService;
 use App\Services\QuestionVariantService;
 use App\Services\SavedTestResolver;
 use App\Support\AdminDebugAccess;
+use App\Support\AcceptedAnswerVariants;
+use App\Support\AnswerOptionCase;
 use App\Support\ComposeModeEligibility;
+use App\Support\ComposeTokenCase;
 use App\Support\SavedTestJsState;
 use App\Support\SentenceBuilderBranding;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
@@ -255,7 +258,18 @@ class TestJsV2Controller extends Controller
                 ->mapWithKeys(fn ($ans) => [$ans['marker'] => $ans['value']])
                 ->toArray();
             $markers = array_keys($answerMap);
-            $answerList = array_map(fn ($marker) => $answerMap[$marker] ?? '', $markers);
+            $optionsByMarker = $controller->normalizeOptionsByMarker($q->options_by_marker, $markers);
+            if ((string) $q->type === (string) Question::TYPE_COMPOSE_TOKENS) {
+                $answerMap = AnswerOptionCase::align($answerMap, $markers, $optionsByMarker);
+                $answerList = ComposeTokenCase::normalize(array_values($answerMap));
+                $answerMap = array_combine($markers, $answerList) ?: [];
+            } else {
+                $answerMap = AnswerOptionCase::align($answerMap, $markers, $optionsByMarker);
+                $answerList = array_map(fn ($marker) => $answerMap[$marker] ?? '', $markers);
+            }
+            $acceptedAnswersByMarker = collect($answerMap)
+                ->map(fn ($answer): array => AcceptedAnswerVariants::for((string) $answer))
+                ->all();
 
             $options = $q->options->pluck('option')->toArray();
             foreach ($answerList as $ans) {
@@ -266,7 +280,6 @@ class TestJsV2Controller extends Controller
 
             $verbHints = $controller->localizedVerbHints($q->verbHints, $preferredVerbHintLocales);
 
-            $optionsByMarker = $controller->normalizeOptionsByMarker($q->options_by_marker, $markers);
             $optionsByMarker = $controller->ensureMinimumOptionsByMarker(
                 $optionsByMarker,
                 $markers,
@@ -325,6 +338,11 @@ class TestJsV2Controller extends Controller
                 'answer' => $answerList[0] ?? '',
                 'answers' => $answerList,
                 'answer_map' => $answerMap,
+                'accepted_answers' => array_map(
+                    fn ($marker): array => $acceptedAnswersByMarker[$marker] ?? [],
+                    $markers
+                ),
+                'accepted_answers_by_marker' => $acceptedAnswersByMarker,
                 'markers' => $markers,
                 'markers_count' => count($markers),
                 'options_by_marker' => $optionsByMarker,
@@ -406,6 +424,15 @@ class TestJsV2Controller extends Controller
 
     protected function localizePersistedQuestionVerbHints(array $questionData): array
     {
+        $questionData = array_map(
+            fn ($question) => ! is_array($question)
+                ? $question
+                : ((string) ($question['type'] ?? '') === (string) Question::TYPE_COMPOSE_TOKENS
+                    ? ComposeTokenCase::normalizeQuestionPayload($question)
+                    : AnswerOptionCase::normalizeQuestionPayload($question)),
+            $questionData
+        );
+
         $questionIds = collect($questionData)
             ->map(fn ($question) => data_get($question, 'id'))
             ->filter(fn ($id) => filled($id))
@@ -1020,6 +1047,8 @@ class TestJsV2Controller extends Controller
             ->values()
             ->all();
 
+        $correctTokens = ComposeTokenCase::normalize($correctTokens);
+
         if ($correctTokens === []) {
             return null;
         }
@@ -1121,12 +1150,12 @@ class TestJsV2Controller extends Controller
 
         $correctLookup = [];
         foreach ($instances as $instance) {
-            $correctLookup[$instance['value']] = true;
+            $correctLookup[strtolower($instance['value'])] = true;
         }
 
         $distractorIndex = 1;
         foreach ($this->filterOptionArray($optionValues) as $optionValue) {
-            if (isset($correctLookup[$optionValue])) {
+            if (isset($correctLookup[strtolower($optionValue)])) {
                 continue;
             }
 

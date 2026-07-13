@@ -80,11 +80,16 @@ class FutureSimpleQuestionContentQualityTest extends TestCase
                             "Incomplete Future Simple question for {$uuid}"
                         );
                     }
-                } elseif ($gapType === 'future_marker') {
+                } elseif ($type === 'time') {
                     $this->assertMatchesRegularExpression(
-                        '/^will\s+[A-Za-z-]+$/i',
+                        "/(?:\\bwill(?:\\s+not)?\\s|\\b[A-Za-z]+'ll\\s)/i",
+                        $question['question'],
+                        "Missing Future Simple construction in timed sentence {$uuid}"
+                    );
+                    $this->assertDoesNotMatchRegularExpression(
+                        '/^will\b/i',
                         $answer,
-                        "Incomplete timed Future Simple construction for {$uuid}"
+                        "Expected a time expression, not a Future Simple verb phrase, for {$uuid}"
                     );
                 }
             }
@@ -111,7 +116,18 @@ class FutureSimpleQuestionContentQualityTest extends TestCase
 
                 foreach ($localization['questions'] as $question) {
                     $hint = $question['verb_hints']['a1'] ?? '';
-                    $this->assertStringStartsWith($prefix, $hint, "Missing localized verb hint for {$question['uuid']} ({$locale})");
+                    $expectedPrefix = match ($package) {
+                        'FutureSimpleTimeExpressionsAllLevelsV3Seeder' => [
+                            'uk' => 'Часовий вираз:',
+                            'pl' => 'Określenie czasu:',
+                            'en' => 'Time expression:',
+                        ][$locale],
+                        default => $prefix,
+                    };
+                    if ($package === 'FutureSimpleQuestionsAllLevelsV3Seeder' && $locale === 'uk' && str_starts_with($hint, 'Фраза:')) {
+                        $expectedPrefix = 'Фраза:';
+                    }
+                    $this->assertStringStartsWith($expectedPrefix, $hint, "Missing localized verb hint for {$question['uuid']} ({$locale})");
                     $this->assertMatchesRegularExpression(
                         $locale === 'uk' ? '/«[^»]+»/u' : '/[„“][^”]+”/u',
                         $hint,

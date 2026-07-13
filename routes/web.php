@@ -148,6 +148,14 @@ Route::prefix('courses/{courseSlug}/progress')->name('courses.progress.')->group
 
 Route::get('/words', [WordSearchController::class, 'search'])->name('words.search');
 
+Route::get('/test/future-simple/time-expressions', [NewDesignTestController::class, 'showSavedTestJsNewDesign'])
+    ->defaults('slug', 'future-simple/time-expressions')
+    ->name('test.future-simple.time-expressions');
+
+Route::get('/test/future-simple/time-expressions/questions', [GrammarTestController::class, 'fetchSavedTestJsQuestions'])
+    ->defaults('slug', 'future-simple/time-expressions')
+    ->name('test.future-simple.time-expressions.questions');
+
 Route::prefix('test')->group(function () {
     Route::post('/{slug}/state', [GrammarTestController::class, 'storeSavedTestJsState'])->where('slug', '.*')->name('test.js.state');
     Route::get('/{slug}/questions', [GrammarTestController::class, 'fetchSavedTestJsQuestions'])->where('slug', '.*')->name('test.js.questions');

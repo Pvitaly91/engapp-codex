@@ -92,7 +92,7 @@ class ComposePayloadBuilderTest extends TestCase
         $payload = $this->buildComposePayload($question);
 
         $this->assertSame(
-            ['token-1', 'token-2', 'token-3', 'token-4', 'token-5', 'token-6', 'token-7', 'token-8', 'token-9', 'token-10'],
+            ['Token-1', 'token-2', 'token-3', 'token-4', 'token-5', 'token-6', 'token-7', 'token-8', 'token-9', 'token-10'],
             $payload['correctTokenValues']
         );
         $this->assertSame(
@@ -122,6 +122,26 @@ class ComposePayloadBuilderTest extends TestCase
         $this->assertSame(4, count(array_unique($payload['correctTokenIds'])));
         $this->assertCount(2, $areInstances);
         $this->assertTrue($areInstances->every(fn (array $token) => $token['isCorrect'] === true));
+    }
+
+    public function test_shared_option_case_is_repaired_in_compose_payload(): void
+    {
+        $question = $this->createComposeQuestion(
+            'Дослідники не телефонуватимуть вам.',
+            [
+                ['marker' => 'a1', 'value' => 'researchers'],
+                ['marker' => 'a2', 'value' => "won't"],
+                ['marker' => 'a3', 'value' => 'call'],
+                ['marker' => 'a4', 'value' => 'You'],
+            ],
+            ['researchers', "won't", 'call', 'You', 'will']
+        );
+
+        $payload = $this->buildComposePayload($question);
+
+        $this->assertSame(['Researchers', "won't", 'call', 'you'], $payload['correctTokenValues']);
+        $this->assertSame("Researchers won't call you.", $payload['correctText']);
+        $this->assertCount(4, collect($payload['tokenBank'])->where('isCorrect', true));
     }
 
     public function test_imported_lesson_payload_remains_compose_compatible(): void

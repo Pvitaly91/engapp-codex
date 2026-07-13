@@ -23,6 +23,9 @@ use App\Services\SavedTestResolver;
 use App\Services\TagAggregationService;
 use App\Services\TheoryBlockMatcherService;
 use App\Services\VirtualSavedTest;
+use App\Support\AcceptedAnswerVariants;
+use App\Support\AnswerOptionCase;
+use App\Support\ComposeTokenCase;
 use App\Support\SavedTestJsState;
 use App\Support\SentenceBuilderBranding;
 use Illuminate\Database\Eloquent\Model;
@@ -51,6 +54,14 @@ class GrammarTestController extends Controller
         'saved-test-js-drag-drop',
         'saved-test-js-match',
         'saved-test-js-dialogue',
+        'saved-test-js-v2',
+        'saved-test-js-step-v2',
+        'saved-test-js-step-input-v2',
+        'saved-test-js-step-manual-v2',
+        'saved-test-js-step-select-v2',
+        'saved-test-js-select-v2',
+        'saved-test-js-input-v2',
+        'saved-test-js-manual-v2',
         'saved-test-js-step-compose-v2',
     ];
 
@@ -571,7 +582,18 @@ class GrammarTestController extends Controller
                 ->mapWithKeys(fn ($ans) => [$ans['marker'] => $ans['value']])
                 ->toArray();
             $markers = array_keys($answerMap);
-            $answerList = array_map(fn ($marker) => $answerMap[$marker] ?? '', $markers);
+            $optionsByMarker = $controller->normalizeOptionsByMarker($q->options_by_marker, $markers);
+            if ((string) $q->type === (string) Question::TYPE_COMPOSE_TOKENS) {
+                $answerMap = AnswerOptionCase::align($answerMap, $markers, $optionsByMarker);
+                $answerList = ComposeTokenCase::normalize(array_values($answerMap));
+                $answerMap = array_combine($markers, $answerList) ?: [];
+            } else {
+                $answerMap = AnswerOptionCase::align($answerMap, $markers, $optionsByMarker);
+                $answerList = array_map(fn ($marker) => $answerMap[$marker] ?? '', $markers);
+            }
+            $acceptedAnswersByMarker = collect($answerMap)
+                ->map(fn ($answer): array => AcceptedAnswerVariants::for((string) $answer))
+                ->all();
 
             $options = $q->options->pluck('option')->toArray();
             foreach ($answerList as $ans) {
@@ -581,7 +603,6 @@ class GrammarTestController extends Controller
             }
 
             $verbHints = $controller->localizedVerbHints($q->verbHints, $preferredVerbHintLocales);
-            $optionsByMarker = $controller->normalizeOptionsByMarker($q->options_by_marker, $markers);
             $optionsByMarker = $controller->ensureMinimumOptionsByMarker(
                 $optionsByMarker,
                 $markers,
@@ -598,6 +619,11 @@ class GrammarTestController extends Controller
                 'answer' => $answerList[0] ?? '',
                 'answers' => $answerList,
                 'answer_map' => $answerMap,
+                'accepted_answers' => array_map(
+                    fn ($marker): array => $acceptedAnswersByMarker[$marker] ?? [],
+                    $markers
+                ),
+                'accepted_answers_by_marker' => $acceptedAnswersByMarker,
                 'markers' => $markers,
                 'markers_count' => count($markers),
                 'options_by_marker' => $optionsByMarker,
@@ -860,6 +886,15 @@ class GrammarTestController extends Controller
 
     private function localizePersistedQuestionVerbHints(array $questionData): array
     {
+        $questionData = array_map(
+            fn ($question) => ! is_array($question)
+                ? $question
+                : ((string) ($question['type'] ?? '') === (string) Question::TYPE_COMPOSE_TOKENS
+                    ? ComposeTokenCase::normalizeQuestionPayload($question)
+                    : AnswerOptionCase::normalizeQuestionPayload($question)),
+            $questionData
+        );
+
         $questionIds = collect($questionData)
             ->map(fn ($question) => data_get($question, 'id'))
             ->filter(fn ($id) => filled($id))

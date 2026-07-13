@@ -106,6 +106,7 @@ return [
         'progress' => [
             'label' => 'Postęp',
             'accuracy' => 'Dokładność',
+            'first_attempt_accuracy' => 'Dokładność pierwszej próby',
             'default_progress' => '0 / 0',
             'accuracy_value' => 'Dokładność: :value%',
         ],
@@ -149,12 +150,14 @@ return [
             'incorrect' => 'Niepoprawnie.',
             'incorrect_try_again' => 'Niepoprawnie. Spróbuj ponownie!',
             'correct_answer' => 'Poprawna odpowiedź: :answer',
+            'corrected_after_retry' => 'Teraz poprawnie. Dokładność jest liczona z pierwszej próby.',
             'incorrect_with_answer' => 'Niepoprawnie. Poprawna odpowiedź: :answer',
             'fill_all_fields' => 'Uzupełnij wszystkie pola przed sprawdzeniem.',
         ],
 
         'summary' => [
             'score' => 'Masz :correct poprawnych odpowiedzi z :total (:percent%)!',
+            'first_attempt_score' => 'Poprawnie za pierwszym razem: :correct z :total (:percent%).',
         ],
 
         'hint' => [

@@ -236,7 +236,7 @@ function onCheck(idx) {
     const el = document.getElementById(`input-${idx}-${i}`);
     const val = (el.value || '').trim();
     item.chosen[i] = val;
-    if (val.toLowerCase() !== ans.toLowerCase()) {
+    if (!testAnswerMatches(item, i, val)) {
       allCorrect = false;
       el.classList.add('border-red-400');
       el.classList.remove('border-indigo-200');
