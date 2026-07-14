@@ -31,6 +31,42 @@ final class ComposeTokenCase
             ->all();
     }
 
+    /**
+     * Build a compose token bank without losing repeated correct tokens.
+     * Database options are case-insensitively unique, so the ordered answer
+     * sequence is authoritative and distractors are appended afterwards.
+     *
+     * @param  array<int, mixed>  $options
+     * @param  array<int, mixed>  $correctTokens
+     * @return array<int, string>
+     */
+    public static function mergeOptions(array $options, array $correctTokens): array
+    {
+        $correct = self::normalize($correctTokens);
+        $merged = $correct;
+        $seen = [];
+
+        foreach ($correct as $token) {
+            if ($token !== '') {
+                $seen[mb_strtolower($token)] = true;
+            }
+        }
+
+        foreach ($options as $option) {
+            $value = trim((string) $option);
+            $key = mb_strtolower($value);
+
+            if ($value === '' || isset($seen[$key])) {
+                continue;
+            }
+
+            $seen[$key] = true;
+            $merged[] = $value;
+        }
+
+        return $merged;
+    }
+
     public static function normalizeQuestionPayload(array $question): array
     {
         if (! is_array($question['answers'] ?? null)) {
@@ -61,6 +97,10 @@ final class ComposeTokenCase
             $markers
         );
         $question['accepted_answers_by_marker'] = $accepted;
+
+        if (is_array($question['options'] ?? null)) {
+            $question['options'] = self::mergeOptions($question['options'], $answers);
+        }
 
         return $question;
     }

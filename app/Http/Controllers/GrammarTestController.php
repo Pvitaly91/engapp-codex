@@ -596,9 +596,13 @@ class GrammarTestController extends Controller
                 ->all();
 
             $options = $q->options->pluck('option')->toArray();
-            foreach ($answerList as $ans) {
-                if ($ans && ! in_array($ans, $options)) {
-                    $options[] = $ans;
+            if ((string) $q->type === (string) Question::TYPE_COMPOSE_TOKENS) {
+                $options = ComposeTokenCase::mergeOptions($options, $answerList);
+            } else {
+                foreach ($answerList as $ans) {
+                    if ($ans && ! in_array($ans, $options)) {
+                        $options[] = $ans;
+                    }
                 }
             }
 

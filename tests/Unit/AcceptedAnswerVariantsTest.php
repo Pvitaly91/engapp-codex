@@ -19,4 +19,40 @@ class AcceptedAnswerVariantsTest extends TestCase
             AcceptedAnswerVariants::for('  will   not travel  ')
         );
     }
+
+    public function test_it_accepts_contracted_and_uncontracted_present_perfect_negatives(): void
+    {
+        $this->assertSame(
+            ["haven't finished", 'have not finished'],
+            AcceptedAnswerVariants::for('haven’t finished')
+        );
+
+        $this->assertSame(
+            ['have not arrived', "haven't arrived"],
+            AcceptedAnswerVariants::for('  have   not arrived  ')
+        );
+
+        $this->assertSame(
+            ["hasn't called", 'has not called'],
+            AcceptedAnswerVariants::for('hasnʼt called')
+        );
+
+        $this->assertSame(
+            ['has not changed', "hasn't changed"],
+            AcceptedAnswerVariants::for('has not changed')
+        );
+    }
+
+    public function test_present_perfect_variants_keep_surrounding_case_and_punctuation(): void
+    {
+        $this->assertSame(
+            ["She hasn't finished.", 'She has not finished.'],
+            AcceptedAnswerVariants::for('She hasn’t finished.')
+        );
+
+        $this->assertSame(
+            ['THEY HAVE NOT LEFT!', "THEY haven't LEFT!"],
+            AcceptedAnswerVariants::for('THEY HAVE NOT LEFT!')
+        );
+    }
 }

@@ -76,7 +76,9 @@ function canonicalTestAnswer(value) {
         .trim()
         .replace(/\s+/g, ' ')
         .toLowerCase()
-        .replace(/\bwill\s+not\b/g, "won't");
+        .replace(/\bwill\s+not\b/g, "won't")
+        .replace(/\bhave\s+not\b/g, "haven't")
+        .replace(/\bhas\s+not\b/g, "hasn't");
 }
 
 function acceptedTestAnswers(question, slotIndex) {
@@ -105,6 +107,18 @@ function acceptedTestAnswers(question, slotIndex) {
         }
         if (/\bwill\s+not\b/i.test(normalized)) {
             variants.push(normalized.replace(/\bwill\s+not\b/gi, "won't"));
+        }
+        if (/\bhaven't\b/i.test(normalized)) {
+            variants.push(normalized.replace(/\bhaven't\b/gi, 'have not'));
+        }
+        if (/\bhave\s+not\b/i.test(normalized)) {
+            variants.push(normalized.replace(/\bhave\s+not\b/gi, "haven't"));
+        }
+        if (/\bhasn't\b/i.test(normalized)) {
+            variants.push(normalized.replace(/\bhasn't\b/gi, 'has not'));
+        }
+        if (/\bhas\s+not\b/i.test(normalized)) {
+            variants.push(normalized.replace(/\bhas\s+not\b/gi, "hasn't"));
         }
     });
 

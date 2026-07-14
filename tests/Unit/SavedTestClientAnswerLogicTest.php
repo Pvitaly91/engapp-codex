@@ -6,13 +6,17 @@ use PHPUnit\Framework\TestCase;
 
 class SavedTestClientAnswerLogicTest extends TestCase
 {
-    public function test_shared_answer_matcher_canonicalizes_future_negative_forms(): void
+    public function test_shared_answer_matcher_canonicalizes_supported_negative_forms(): void
     {
         $helper = file_get_contents($this->resourcePath('views/components/saved-test-js-helpers.blade.php'));
 
         $this->assertStringContainsString('function canonicalTestAnswer(value)', $helper);
         $this->assertStringContainsString('.replace(/[‘’ʼ`]/g, "\'")', $helper);
         $this->assertStringContainsString('.replace(/\\bwill\\s+not\\b/g, "won\'t")', $helper);
+        $this->assertStringContainsString('.replace(/\\bhave\\s+not\\b/g, "haven\'t")', $helper);
+        $this->assertStringContainsString('.replace(/\\bhas\\s+not\\b/g, "hasn\'t")', $helper);
+        $this->assertStringContainsString("normalized.replace(/\\bhaven't\\b/gi, 'have not')", $helper);
+        $this->assertStringContainsString("normalized.replace(/\\bhasn't\\b/gi, 'has not')", $helper);
         $this->assertStringContainsString('function testAnswerMatches(question, slotIndex, value)', $helper);
     }
 

@@ -28,6 +28,22 @@ final class AcceptedAnswerVariants
             $variants[] = preg_replace('/\\bwill\\s+not\\b/i', "won't", $answer) ?? $answer;
         }
 
+        if (preg_match("/\\bhaven't\\b/i", $answer) === 1) {
+            $variants[] = preg_replace("/\\bhaven't\\b/i", 'have not', $answer) ?? $answer;
+        }
+
+        if (preg_match('/\\bhave\\s+not\\b/i', $answer) === 1) {
+            $variants[] = preg_replace('/\\bhave\\s+not\\b/i', "haven't", $answer) ?? $answer;
+        }
+
+        if (preg_match("/\\bhasn't\\b/i", $answer) === 1) {
+            $variants[] = preg_replace("/\\bhasn't\\b/i", 'has not', $answer) ?? $answer;
+        }
+
+        if (preg_match('/\\bhas\\s+not\\b/i', $answer) === 1) {
+            $variants[] = preg_replace('/\\bhas\\s+not\\b/i', "hasn't", $answer) ?? $answer;
+        }
+
         return array_values(array_unique($variants));
     }
 

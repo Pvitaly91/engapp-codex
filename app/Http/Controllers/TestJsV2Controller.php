@@ -12,8 +12,8 @@ use App\Services\QuestionReportIssueCatalog;
 use App\Services\QuestionTechnicalInfoService;
 use App\Services\QuestionVariantService;
 use App\Services\SavedTestResolver;
-use App\Support\AdminDebugAccess;
 use App\Support\AcceptedAnswerVariants;
+use App\Support\AdminDebugAccess;
 use App\Support\AnswerOptionCase;
 use App\Support\ComposeModeEligibility;
 use App\Support\ComposeTokenCase;
@@ -272,9 +272,13 @@ class TestJsV2Controller extends Controller
                 ->all();
 
             $options = $q->options->pluck('option')->toArray();
-            foreach ($answerList as $ans) {
-                if ($ans && ! in_array($ans, $options)) {
-                    $options[] = $ans;
+            if ((string) $q->type === (string) Question::TYPE_COMPOSE_TOKENS) {
+                $options = ComposeTokenCase::mergeOptions($options, $answerList);
+            } else {
+                foreach ($answerList as $ans) {
+                    if ($ans && ! in_array($ans, $options)) {
+                        $options[] = $ans;
+                    }
                 }
             }
 

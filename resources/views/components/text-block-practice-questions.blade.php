@@ -570,17 +570,22 @@
                 },
 
                 composeTokenValues() {
-                    const correct = this.currentQuestion?.correct_tokens || [];
+                    const correct = (this.currentQuestion?.correct_tokens || [])
+                        .map(value => String(value || '').trim())
+                        .filter(Boolean);
                     const distractors = this.currentQuestion?.options || [];
-                    const seen = new Set();
+                    const seen = new Set(correct.map(value => value.toLowerCase()));
 
-                    return [...correct, ...distractors]
+                    const uniqueDistractors = distractors
                         .map(value => String(value || '').trim())
                         .filter(value => {
-                            if (!value || seen.has(value)) return false;
-                            seen.add(value);
+                            const normalized = value.toLowerCase();
+                            if (!value || seen.has(normalized)) return false;
+                            seen.add(normalized);
                             return true;
                         });
+
+                    return [...correct, ...uniqueDistractors];
                 },
 
                 shuffledTokens(tokens) {
