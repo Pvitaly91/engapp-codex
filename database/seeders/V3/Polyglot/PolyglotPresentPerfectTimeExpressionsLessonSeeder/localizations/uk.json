@@ -1,182 +1,38 @@
 {
-    "schema_version": 1,
-    "seeder": {
-        "class": "Database\\Seeders\\V3\\Localizations\\Uk\\Polyglot\\PolyglotPresentPerfectTimeExpressionsLessonLocalizationSeeder"
-    },
-    "target": {
-        "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentPerfectTimeExpressionsLessonSeeder",
-        "definition_path": "../definition.json"
-    },
-    "locale": "uk",
-    "hint_provider": "polyglot-v3",
-    "questions": [
-        {
-            "id": 1,
-            "hints": [
-                "Схема: have/has + V3 + for + duration"
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 2,
-            "hints": [
-                "Схема: have/has + V3 + since + starting point"
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 3,
-            "hints": [
-                "Схема: have/has + V3 + for + duration"
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 4,
-            "hints": [
-                "Lately часто вживається з Present Perfect."
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 5,
-            "hints": [
-                "This month = незавершений період → часто Present Perfect."
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 6,
-            "hints": [
-                "This year = незавершений період → часто Present Perfect."
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 7,
-            "hints": [
-                "This week = незавершений період → Present Perfect."
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 8,
-            "hints": [
-                "Recently часто вживається з Present Perfect."
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 9,
-            "hints": [
-                "Since + starting point."
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 10,
-            "hints": [
-                "For + duration."
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 11,
-            "hints": [
-                "Lately часто вживається з Present Perfect."
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 12,
-            "hints": [
-                "So far = досі / до цього моменту."
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 13,
-            "hints": [
-                "Питання: Have/Has + subject + V3 + for + duration?"
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 14,
-            "hints": [
-                "Питання: Have/Has + subject + V3 + since + point?"
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 15,
-            "hints": [
-                "Lately часто вживається з Present Perfect."
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 16,
-            "hints": [
-                "For + duration."
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 17,
-            "hints": [
-                "Recently часто вживається з Present Perfect."
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 18,
-            "hints": [
-                "Today може бути незавершеним періодом."
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 19,
-            "hints": [
-                "How long + have/has + subject + V3?"
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 20,
-            "hints": [
-                "How long + have/has + subject + V3?"
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 21,
-            "hints": [
-                "So far = досі / до цього моменту."
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 22,
-            "hints": [
-                "Today може бути незавершеним періодом."
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 23,
-            "hints": [
-                "Lately часто вживається з Present Perfect."
-            ],
-            "explanations": {}
-        },
-        {
-            "id": 24,
-            "hints": [
-                "This month = незавершений період."
-            ],
-            "explanations": {}
-        }
-    ]
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\Uk\\Polyglot\\PolyglotPresentPerfectTimeExpressionsLessonLocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentPerfectTimeExpressionsLessonSeeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "uk",
+  "hint_provider": "polyglot-v3",
+  "questions": [
+    {"id": 1, "hints": ["Ситуація почалася раніше й досі триває; у реченні вказано її тривалість."], "verb_hints": {"a3": "жити"}, "explanations": {}},
+    {"id": 2, "hints": ["У реченні названо момент, від якого ситуація триває донині."], "verb_hints": {"a3": "працювати"}, "explanations": {}},
+    {"id": 3, "hints": ["Описано стан, що почався в минулому й залишається актуальним."], "verb_hints": {"a3": "знати"}, "explanations": {}},
+    {"id": 4, "hints": ["Йдеться про нещодавній період, пов’язаний із теперішнім."], "verb_hints": {"a3": "бути"}, "explanations": {}},
+    {"id": 5, "hints": ["Поточний місяць ще не завершився."], "verb_hints": {"a3": "відвідати"}, "explanations": {}},
+    {"id": 6, "hints": ["Поточний рік подано як незавершений період."], "verb_hints": {"a3": "навчитися"}, "explanations": {}},
+    {"id": 7, "hints": ["Поточний тиждень ще триває, а дія до цього моменту не відбулася."], "verb_hints": {"a4": "телефонувати"}, "explanations": {}},
+    {"id": 8, "hints": ["Заперечення стосується недавнього періоду, пов’язаного з теперішнім."], "verb_hints": {"a4": "бачити"}, "explanations": {}},
+    {"id": 9, "hints": ["Понеділок є початковою точкою періоду, що триває."], "verb_hints": {"a4": "бути"}, "explanations": {}},
+    {"id": 10, "hints": ["Вказано тривалість періоду до теперішнього моменту."], "verb_hints": {"a4": "подорожувати"}, "explanations": {}},
+    {"id": 11, "hints": ["Описано повторювану ситуацію протягом недавнього періоду."], "verb_hints": {"a4": "спати"}, "explanations": {}},
+    {"id": 12, "hints": ["Результат підраховано на поточний момент."], "verb_hints": {"a3": "заощадити"}, "explanations": {}},
+    {"id": 13, "hints": ["Загальне питання стосується тривалості ситуації донині."], "verb_hints": {"a3": "жити"}, "explanations": {}},
+    {"id": 14, "hints": ["У питанні названо початковий момент тривалої ситуації."], "verb_hints": {"a3": "працювати"}, "explanations": {}},
+    {"id": 15, "hints": ["Питання охоплює недавній період, пов’язаний із теперішнім."], "verb_hints": {"a3": "бути"}, "explanations": {}},
+    {"id": 16, "hints": ["Питання перевіряє тривалість стану, який залишається актуальним."], "verb_hints": {"a3": "бути"}, "explanations": {}},
+    {"id": 17, "hints": ["Питання стосується недавнього досвіду без завершеного минулого часу."], "verb_hints": {"a3": "бачити"}, "explanations": {}},
+    {"id": 18, "hints": ["Сьогоднішній день прямо подано як незавершений."], "verb_hints": {"a3": "йти (про дощ)"}, "explanations": {}},
+    {"id": 19, "hints": ["Питальне слово просить назвати тривалість ситуації."], "verb_hints": {"a5": "жити"}, "explanations": {}},
+    {"id": 20, "hints": ["Потрібно запитати про тривалість роботи до теперішнього моменту."], "verb_hints": {"a5": "працювати"}, "explanations": {}},
+    {"id": 21, "hints": ["Потрібно запитати про сумарний результат станом на зараз."], "verb_hints": {"a6": "заощадити"}, "explanations": {}},
+    {"id": 22, "hints": ["Питання обмежене частиною сьогоднішнього дня, що вже минула."], "verb_hints": {"a4": "робити"}, "explanations": {}},
+    {"id": 23, "hints": ["Причину пов’язано зі станом, який спостерігається останнім часом."], "verb_hints": {"a4": "бути"}, "explanations": {}},
+    {"id": 24, "hints": ["Поточний місяць ще триває; запитується результат на цей момент."], "verb_hints": {"a6": "читати"}, "explanations": {}}
+  ]
 }

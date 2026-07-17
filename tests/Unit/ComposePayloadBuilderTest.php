@@ -1185,12 +1185,12 @@ class ComposePayloadBuilderTest extends TestCase
             $unfinishedTimePayload['correctTokenValues']
         );
         $this->assertSame(
-            ['How', 'many', 'books', 'have', 'they', 'read', 'this', 'month', 'has', 'last', 'did'],
+            ['How', 'many', 'books', 'have', 'they', 'read', 'this', 'month', 'has', 'last', 'reading'],
             collect($unfinishedTimePayload['tokenBank'])->pluck('value')->all()
         );
         $this->assertSame('How many books have they read this month?', $unfinishedTimePayload['correctText']);
         $this->assertSame(
-            'This month = незавершений період.',
+            'Поточний місяць ще триває; запитується результат на цей момент.',
             $unfinishedTimePayload['hintUk']
         );
     }

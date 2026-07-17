@@ -67,6 +67,23 @@ class PresentPerfectTheoryPageTestsSeedersTest extends TestCase
             $page = Page::query()->where('slug', $case['page_slug'])->firstOrFail();
             $directTest = SavedGrammarTest::query()->where('slug', $case['direct_slug'])->first();
 
+            $practiceBlocks = TextBlock::query()
+                ->where('page_id', $page->id)
+                ->where('type', 'practice-set')
+                ->get();
+
+            $this->assertCount(3, $practiceBlocks, $caseName . ': UK, EN, and PL practice blocks exist.');
+            $this->assertEqualsCanonicalizing(
+                ['uk', 'en', 'pl'],
+                $practiceBlocks->pluck('locale')->all(),
+                $caseName . ': practice is localized for every page locale.'
+            );
+            foreach ($practiceBlocks as $practiceBlock) {
+                $practiceBody = json_decode((string) $practiceBlock->body, true, 512, JSON_THROW_ON_ERROR);
+                $this->assertCount(2, $practiceBody['selects'] ?? [], $caseName . ': mini-practice selects.');
+                $this->assertCount(2, $practiceBody['inputs'] ?? [], $caseName . ': mini-practice inputs.');
+            }
+
             $this->assertNotNull($directTest, $caseName . ': direct Sentence Builder test exists.');
             $this->assertQuestionCountByLevel($case['v3_seeder'], $caseName . ': V3');
             $this->assertQuestionCountByLevel($case['polyglot_seeder'], $caseName . ': Polyglot');

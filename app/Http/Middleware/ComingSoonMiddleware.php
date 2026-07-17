@@ -106,6 +106,12 @@ class ComingSoonMiddleware
             return true;
         }
 
+        if (app(SavedTestResolver::class)->resolveTheoryPageSlug($slug)) {
+            $this->rememberTheoryTestSlug($request, $slug);
+
+            return true;
+        }
+
         if ($routeName === 'test.js.questions' && ! $request->wantsJson()) {
             $theorySlug = trim($slug, '/').'/questions';
 

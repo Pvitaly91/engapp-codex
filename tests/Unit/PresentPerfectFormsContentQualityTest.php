@@ -195,7 +195,7 @@ class PresentPerfectFormsContentQualityTest extends TestCase
         $this->assertCount(24, $definition['questions']);
         $questions = collect($definition['questions'])->keyBy('uuid');
         $this->assertSame(
-            'Що ти вже зробив сьогодні?',
+            'Що ти зробив сьогодні?',
             $questions['polyglot-present-perfect-basic-a2-q21']['question']
         );
 
