@@ -224,9 +224,21 @@ class PresentPerfectQuestionsContentQualityTest extends TestCase
                 $this->assertArrayNotHasKey($distractor, $correctLookup, "Distractor duplicates a correct token in {$uuid}");
             }
 
-            $hint = trim((string) ($question['verb_hints']['a1'] ?? ''));
-            $this->assertMatchesRegularExpression('/[А-Яа-яІіЇїЄєҐґ]/u', $hint, "Missing Ukrainian compose hint in {$uuid}");
-            $this->assertDoesNotMatchRegularExpression('/\b(?:have|has|did)\b/iu', $hint, "Compose hint reveals an auxiliary in {$uuid}");
+            $verbHints = $question['verb_hints'] ?? [];
+            if (str_ends_with($uuid, '-06')) {
+                $this->assertSame([], $verbHints, "Short answer must not attach a lexical hint to an auxiliary in {$uuid}");
+            } else {
+                $this->assertCount(1, $verbHints, "Expected one lexical verb hint in {$uuid}");
+                $marker = (string) array_key_first($verbHints);
+                $hint = trim((string) $verbHints[$marker]);
+                $this->assertArrayHasKey($marker, $question['answers'], "Hint marker is absent in {$uuid}");
+                $this->assertMatchesRegularExpression('/[А-Яа-яІіЇїЄєҐґ]/u', $hint, "Missing Ukrainian compose hint in {$uuid}");
+                $this->assertNotContains(
+                    mb_strtolower((string) $question['answers'][$marker]),
+                    ['have', 'has', "haven't", "hasn't", 'not'],
+                    "Compose hint is attached to an auxiliary in {$uuid}"
+                );
+            }
         }
     }
 

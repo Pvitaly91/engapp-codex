@@ -354,6 +354,32 @@ class PresentPerfectTheoryPageTestsSeedersTest extends TestCase
             );
         }
 
+        foreach (self::LEVELS as $level) {
+            $levelQuestions = $questions
+                ->filter(fn (Question $question): bool => (string) $question->level === $level)
+                ->values();
+            $this->assertSame(14, $levelQuestions->count(), "{$caseName}: {$level} mixed quota.");
+
+            $seederRuns = [];
+            foreach ($levelQuestions as $question) {
+                $seeder = (string) $question->seeder;
+                if (($seederRuns[count($seederRuns) - 1] ?? null) !== $seeder) {
+                    $seederRuns[] = $seeder;
+                }
+            }
+
+            $this->assertCount(
+                count($coveredSeeders),
+                $seederRuns,
+                "{$caseName}: {$level} parallel V3 and Sentence Builder questions must not alternate."
+            );
+            $this->assertEqualsCanonicalizing(
+                $coveredSeeders,
+                $seederRuns,
+                "{$caseName}: {$level} must retain both selected question banks."
+            );
+        }
+
         $this->assertTrue(
             $questions->contains(fn (Question $question): bool => (string) $question->type === Question::TYPE_COMPOSE_TOKENS),
             $caseName . ': mixed test should include compose questions.'

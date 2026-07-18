@@ -8,6 +8,8 @@ declare(strict_types=1);
  */
 
 $root = dirname(__DIR__);
+require_once __DIR__.'/lib/present_perfect_verb_hints.php';
+
 $standardPath = $root.'/database/seeders/V3/Tenses/PresentPerfect/PresentPerfectQuestionsAllLevelsV3Seeder/definition.json';
 $composePath = $root.'/database/seeders/V3/Polyglot/PolyglotPresentPerfectQuestionsAllLevelsLessonSeeder/definition.json';
 
@@ -77,7 +79,7 @@ $content = [
         ppQuestion('{a1} the welcome email yet?', 'Has Leo sent', ['Has Leo sent', 'Have Leo sent', 'Has Leo send', 'Has sent Leo', 'Has Leo sending'], 'Вітальний лист досі очікують, а Leo — одна людина.', 'Лео вже надіслав вітальний електронний лист?', 'Has Leo sent the welcome email yet?', ['Have', 'send', 'sending', 'sended', 'she']),
         ppQuestion('Have you seen the new schedule? — Yes, I {a1}.', 'have', ['have', 'has', 'did', 'do', 'am'], 'У короткій відповіді не повторюйте смислове дієслово.', 'Ти бачив новий розклад? — Так.', 'Yes, I have.', ['has', 'he', 'am', 'seen']),
         ppQuestion('{a1} the instructions?', 'Have they understood', ['Have they understood', 'Has they understood', 'Have they understand', 'Have understood they', 'Have they understanding'], 'Результат розуміння перевіряють зараз, а they позначає кількох людей.', 'Вони вже зрозуміли інструкції?', 'Have they understood the instructions?', ['Has', 'understand', 'understanding', 'them', 'understands']),
-        ppQuestion('{a1} the book yet?', 'Has Anna opened', ['Has Anna opened', 'Have Anna opened', 'Has Anna open', 'Has opened Anna', 'Has Anna opening'], 'Йдеться про Анну та очікуваний результат, якого перевіряють зараз.', 'Анна вже відкрила книжку?', 'Has Anna opened the book yet?', ['Have', 'open', 'opening', 'closed', 'she']),
+        ppQuestion('{a1} the book yet?', 'Has Anna opened', ['Has Anna opened', 'Have Anna opened', 'Has Anna open', 'Has opened Anna', 'Has Anna opening'], 'Йдеться про Анну та очікуваний результат, який перевіряють зараз.', 'Анна вже відкрила книжку?', 'Has Anna opened the book yet?', ['Have', 'open', 'opening', 'closed', 'she']),
         ppQuestion('{a1} the note that I need now?', 'Where have you put', ['Where have you put', 'Where has you put', 'Where have you putted', 'Where you have put', 'Where have put you'], 'Слово now підкреслює, що місце записки важливе саме тепер.', 'Куди ти поклав записку, яка потрібна мені зараз?', 'Where have you put the note that I need now?', ['has', 'putted', 'puts', 'When', 'there']),
         ppQuestion('{a1} anything like this before?', 'Have you ever seen', ['Have you ever seen', 'Has you ever seen', 'Have you ever saw', 'Have ever you seen', 'Have you ever seeing'], 'Запит стосується досвіду до теперішнього моменту.', 'Ти коли-небудь раніше бачив щось подібне?', 'Have you ever seen anything like this before?', ['Has', 'saw', 'seeing', 'something', 'often']),
         ppQuestion('{a1} the answer?', 'Has Mia already found', ['Has Mia already found', 'Have Mia already found', 'Has Mia already find', 'Has already Mia found', 'Has Mia already finding'], 'Already тут передає здивування через швидкий результат.', 'Невже Мія вже знайшла відповідь?', 'Has Mia already found the answer?', ['Have', 'find', 'finding', 'he', 'answers']),
@@ -88,7 +90,7 @@ $content = [
         ppQuestion('{a1} the message she needs to answer yet?', 'Has Nora read', ['Has Nora read', 'Have Nora read', 'Has Nora reads', 'Has read Nora', 'Has Nora reading'], 'Нора має відповісти зараз, тож перевіряється вже отриманий результат.', 'Нора вже прочитала повідомлення, на яке їй треба відповісти?', 'Has Nora read the message she needs to answer yet?', ['Have', 'reads', 'reading', 'he', 'messages']),
         ppQuestion('{a1} that has left blue marks on your hands?', 'What have you painted', ['What have you painted', 'What has you painted', 'What have you paint', 'What you have painted', 'What have painted you'], 'Сині сліди на руках є теперішнім наслідком недавньої дії.', 'Що ти пофарбував, якщо на руках залишилися сині сліди?', 'What have you painted that has left blue marks on your hands?', ['artist', 'paint', 'painting', 'Which', 'made']),
         ppQuestion('{a1} this song before?', 'Have you ever heard', ['Have you ever heard', 'Has you ever heard', 'Have you ever hear', 'Have ever you heard', 'Have you ever hearing'], 'Запит перевіряє попередній досвід без указаної дати.', 'Ти коли-небудь раніше чув цю пісню?', 'Have you ever heard this song before?', ['Has', 'hear', 'hearing', 'listened', 'songs']),
-        ppQuestion('{a1} the parcel we are still waiting for?', 'Has Daniel sent', ['Has Daniel sent', 'Have Daniel sent', 'Has Daniel send', 'Has sent Daniel', 'Has Daniel sending'], 'Посилку досі очікують, тому результат актуальний зараз.', 'Даніель уже надіслав посилку, яку ми досі чекаємо?', 'Has Daniel sent the parcel we are still waiting for?', ['Have', 'send', 'sending', 'received', 'parcels']),
+        ppQuestion('{a1} the parcel we are still waiting for?', 'Has Daniel sent', ['Has Daniel sent', 'Have Daniel sent', 'Has Daniel send', 'Has sent Daniel', 'Has Daniel sending'], 'Посилку досі очікують, тому результат актуальний зараз.', 'Даніель уже надіслав посилку, на яку ми досі чекаємо?', 'Has Daniel sent the parcel we are still waiting for?', ['Have', 'send', 'sending', 'received', 'parcels']),
         ppQuestion('Have your parents arrived? — No, they {a1}.', "haven't", ["haven't", "hasn't", "weren't", "aren't", "didn't"], 'У короткій відповіді використовується те саме допоміжне слово, що й у запитанні.', 'Твої батьки вже приїхали? — Ні.', "No, they haven't.", ["hasn't", 'he', 'arrived', 'are']),
         ppQuestion('{a1} the dinner that smells so good?', 'Have they cooked', ['Have they cooked', 'Has they cooked', 'Have they cook', 'Have cooked they', 'Have they cooking'], 'Запах є видимим теперішнім результатом завершеної дії.', 'Вони приготували вечерю, яка так смачно пахне?', 'Have they cooked the dinner that smells so good?', ['Has', 'cook', 'cooking', 'smelled', 'dinners']),
         ppQuestion('{a1} the cake on the table?', 'Has Mia baked', ['Has Mia baked', 'Have Mia baked', 'Has Mia bake', 'Has baked Mia', 'Has Mia baking'], 'Готовий пиріг на столі є результатом, який бачимо зараз.', 'Мія спекла пиріг, який стоїть на столі?', 'Has Mia baked the cake on the table?', ['Have', 'bake', 'baking', 'cooked', 'cakes']),
@@ -104,7 +106,7 @@ $content = [
         ppQuestion('{a1} in Berlin before?', 'Have you ever worked', ['Have you ever worked', 'Has you ever worked', 'Have you ever work', 'Have ever you worked', 'Have you ever working'], 'Знання місцевих звичаїв пов’язують із можливим попереднім досвідом.', 'Ти коли-небудь раніше працював у Берліні?', 'Have you ever worked in Berlin before?', ['Has', 'work', 'working', 'lived', 'from']),
         ppQuestion('{a1} to the invitation we sent last week yet?', 'Has he replied', ['Has he replied', 'Have he replied', 'Has he reply', 'Has replied he', 'Has he replying'], 'Запрошення надіслали раніше, але відповідь важлива станом на тепер.', 'Він уже відповів на запрошення, яке ми надіслали минулого тижня?', 'Has he replied to the invitation we sent last week yet?', ['Have', 'reply', 'replying', 'answered', 'invitations']),
         ppQuestion('Has the supplier confirmed the order? — Yes, it {a1}.', 'has', ['has', 'have', 'did', 'does', 'is'], 'У короткій відповіді смислову частину запитання не повторюють.', 'Постачальник підтвердив замовлення? — Так.', 'Yes, it has.', ['have', 'they', 'is', 'confirmed']),
-        ppQuestion('{a1} the same pattern in their data?', 'Have the other teams found', ['Have the other teams found', 'Has the other teams found', 'Have the other teams find', 'Have found the other teams', 'Have the other teams finding'], 'Порівнюються результати кількох команд станом на тепер.', 'Інші команди також виявили таку закономірність у своїх даних?', 'Have the other teams found the same pattern in their data?', ['Has', 'find', 'finding', 'team', 'patterns']),
+        ppQuestion('{a1} the same pattern in their data?', 'Have the other teams found', ['Have the other teams found', 'Has the other teams found', 'Have the other teams find', 'Have found the other teams', 'Have the other teams finding'], 'Порівнюються результати кількох команд станом на тепер.', 'Інші команди виявили таку закономірність у своїх даних?', 'Have the other teams found the same pattern in their data?', ['Has', 'find', 'finding', 'team', 'patterns']),
         ppQuestion('{a1} the contract that now carries both signatures?', 'Has Anna signed', ['Has Anna signed', 'Have Anna signed', 'Has Anna sign', 'Has signed Anna', 'Has Anna signing'], 'Обидва підписи на документі є актуальним результатом.', 'Анна підписала контракт, на якому тепер є обидва підписи?', 'Has Anna signed the contract that now carries both signatures?', ['Have', 'sign', 'signing', 'bought', 'contracts']),
         ppQuestion('{a1} the file that is missing from the shared folder?', 'Where have you saved', ['Where have you saved', 'Where has you saved', 'Where have you save', 'Where you have saved', 'Where have saved you'], 'Файл шукають зараз, тому запитують про його поточне місце.', 'Де ти зберіг файл, якого немає у спільній папці?', 'Where have you saved the file that is missing from the shared folder?', ['has', 'save', 'saving', 'When', 'deleted']),
         ppQuestion('{a1} anything comparable in our records before?', 'Have we ever recorded', ['Have we ever recorded', 'Has we ever recorded', 'Have we ever record', 'Have ever we recorded', 'Have we ever recording'], 'Запит порівнює нинішній результат з усім попереднім досвідом.', 'Ми коли-небудь раніше фіксували щось подібне у своїх записах?', 'Have we ever recorded anything comparable in our records before?', ['Has', 'record', 'recording', 'heard', 'comparisons']),
@@ -178,7 +180,7 @@ foreach ($standard['questions'] as &$question) {
         'a1' => [
             'answer' => $item['answer'],
             'options' => $item['options'],
-            'verb_hint' => $item['hint'],
+            'verb_hint' => presentPerfectVerbHint((string) $question['uuid'], $item['hint']),
             'gap_tags' => $gapTags,
         ],
     ];
@@ -219,7 +221,11 @@ foreach ($compose['questions'] as &$question) {
     $question['question'] = $item['prompt'];
     $question['answers'] = $answers;
     $question['options'] = array_merge($tokens, $item['distractors']);
-    $question['verb_hints'] = ['a1' => $item['hint']];
+    unset($question['verb_hints']);
+    $verbHint = presentPerfectQuestionPolyglotVerbHint((string) $question['uuid']);
+    if ($verbHint !== null) {
+        $question['verb_hints'] = [$verbHint['marker'] => $verbHint['verb']];
+    }
     $question['variants'] = [];
 }
 unset($question);

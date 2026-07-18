@@ -9,6 +9,8 @@ declare(strict_types=1);
  */
 
 $root = dirname(__DIR__);
+require_once __DIR__.'/lib/present_perfect_verb_hints.php';
+
 $standardPath = $root.'/database/seeders/V3/Tenses/PresentPerfect/PresentPerfectFormsAllLevelsV3Seeder/definition.json';
 $polyglotPath = $root.'/database/seeders/V3/Polyglot/PolyglotPresentPerfectFormsAllLevelsLessonSeeder/definition.json';
 $basicPath = $root.'/database/seeders/V3/Polyglot/PolyglotPresentPerfectBasicLessonSeeder/definition.json';
@@ -315,7 +317,7 @@ foreach ($content as $level => $items) {
         $question['question'] = $item['question'];
         $question['markers']['a1']['answer'] = $item['answer'];
         $question['markers']['a1']['options'] = $item['options'];
-        $question['markers']['a1']['verb_hint'] = $item['hint'];
+        $question['markers']['a1']['verb_hint'] = presentPerfectVerbHint($uuid, $item['hint']);
         $question['variants'] = [$item['question']];
         unset($question);
     }

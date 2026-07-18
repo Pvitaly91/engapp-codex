@@ -505,6 +505,18 @@ class GrammarTestFilterService
                 }
             }
 
+            // The round-robin pass above keeps the quota balanced, but paired
+            // V3 and Sentence Builder banks use parallel IDs. Rendering that
+            // order directly puts the same sentence in two formats back to
+            // back. Keep the selected membership unchanged and present each
+            // seeder as a stable block within the level instead.
+            $levelSelected = $orderedSeeders
+                ->values()
+                ->flatMap(fn (string $seeder): Collection => $levelSelected
+                    ->filter(fn (Question $question): bool => (string) $question->seeder === $seeder)
+                    ->values())
+                ->values();
+
             $selected = $selected->merge($levelSelected);
         }
 
