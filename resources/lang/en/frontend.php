@@ -149,6 +149,7 @@ return [
             'correct_long' => 'Correct! Well done!',
             'incorrect' => 'Incorrect.',
             'incorrect_try_again' => 'Incorrect. Try again!',
+            'submitted_answer' => 'Your answer: :answer',
             'correct_answer' => 'Correct answer: :answer',
             'corrected_after_retry' => 'Correct now. Accuracy is based on the first attempt.',
             'incorrect_with_answer' => 'Incorrect. Correct answer: :answer',

@@ -149,6 +149,7 @@ return [
             'correct_long' => 'Poprawnie! Świetna robota!',
             'incorrect' => 'Niepoprawnie.',
             'incorrect_try_again' => 'Niepoprawnie. Spróbuj ponownie!',
+            'submitted_answer' => 'Twoja odpowiedź: :answer',
             'correct_answer' => 'Poprawna odpowiedź: :answer',
             'corrected_after_retry' => 'Teraz poprawnie. Dokładność jest liczona z pierwszej próby.',
             'incorrect_with_answer' => 'Niepoprawnie. Poprawna odpowiedź: :answer',

@@ -149,6 +149,7 @@ return [
             'correct_long' => 'Правильно! Чудова робота!',
             'incorrect' => 'Неправильно.',
             'incorrect_try_again' => 'Невірно. Спробуй ще раз!',
+            'submitted_answer' => 'Ваша відповідь: :answer',
             'correct_answer' => 'Правильна відповідь: :answer',
             'corrected_after_retry' => 'Тепер правильно. Для точності враховується перша спроба.',
             'incorrect_with_answer' => 'Неправильно. Правильна відповідь: :answer',

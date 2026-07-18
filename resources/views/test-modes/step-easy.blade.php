@@ -264,13 +264,18 @@ function getActiveOptions(q) {
  */
 function findFirstUnfilledSlot(q) {
   for (let i = 0; i < q.answers.length; i++) {
-    if (q.chosen[i] === null) return i;
+    if (q.chosen?.[i] == null) return i;
   }
   return -1;
 }
 
 function clampActiveSlot(q) {
   const total = getMarkersCount(q);
+  const firstUnfilled = findFirstUnfilledSlot(q);
+  if (firstUnfilled !== -1) {
+    q.activeSlot = firstUnfilled;
+    return;
+  }
   if (!Number.isInteger(q.activeSlot) || q.activeSlot < 0) {
     q.activeSlot = 0;
   }
@@ -282,6 +287,10 @@ function clampActiveSlot(q) {
 function getMarkerLabel(q, idx) {
   const markers = Array.isArray(q.markers) ? q.markers : Object.keys(q.answer_map || {});
   return markers[idx] || `a${idx + 1}`;
+}
+
+function questionContainsSlotMarker(q, slotIndex) {
+  return String(q?.question ?? '').includes(`{${getMarkerLabel(q, slotIndex)}}`);
 }
 
 function formatSlotIndicator(q) {
@@ -311,7 +320,8 @@ function ensureGlobalEvents() {
 }
 
 function handleManualAnswerShortcut(e) {
-  if (e.isComposing || e.key !== 'Enter') return false;
+  const isCommitKey = e.key === 'Enter' || (e.key === 'Tab' && !e.shiftKey);
+  if (e.isComposing || !isCommitKey) return false;
   if (!e.target || !e.target.closest) return false;
 
   const manualInput = e.target.closest('input[data-manual-gap]');
@@ -322,27 +332,15 @@ function handleManualAnswerShortcut(e) {
   const wordIndex = parseInt(manualInput.dataset.manualWord, 10);
   if (isNaN(slotIndex)) return false;
 
-  const group = manualInput.closest('[data-manual-input-group]');
-  const inputs = group ? Array.from(group.querySelectorAll('input[data-manual-gap]')) : [manualInput];
-  const nextInput = Number.isInteger(wordIndex) ? inputs[wordIndex + 1] : null;
-  const answer = collectManualAnswer(group);
+  const item = state.items[state.current];
+  if (!item || item.done || !Number.isInteger(wordIndex)) return false;
 
   e.preventDefault();
   e.stopPropagation();
   if (typeof e.stopImmediatePropagation === 'function') {
     e.stopImmediatePropagation();
   }
-  if (manualAnswerIsComplete(state.items[state.current], slotIndex, answer)) {
-    submitManualAnswer(state.current, slotIndex, answer);
-    return true;
-  }
-  if (nextInput) {
-    nextInput.focus();
-    nextInput.select();
-    return true;
-  }
-
-  submitManualAnswer(state.current, slotIndex, answer);
+  commitManualWord(state.current, slotIndex, wordIndex);
   return true;
 }
 
@@ -377,6 +375,9 @@ async function init(forceFresh = false) {
         if (!Array.isArray(item.wordSearchRequestBySlot)) {
           item.wordSearchRequestBySlot = Array(markersCount).fill(0);
         }
+        if (!Array.isArray(item.manualWordIndexBySlot)) {
+          item.manualWordIndexBySlot = Array(markersCount).fill(0);
+        }
         if (!Array.isArray(item.attemptsBySlot)) {
           item.attemptsBySlot = Array(markersCount).fill(0);
         }
@@ -385,6 +386,9 @@ async function init(forceFresh = false) {
         }
         if (typeof item.optionsExpanded !== 'boolean') {
           item.optionsExpanded = false;
+        }
+        if (!item.feedbackMeta || typeof item.feedbackMeta !== 'object') {
+          item.feedbackMeta = null;
         }
         if (typeof item.activeSlot !== 'number') {
           item.activeSlot = findFirstUnfilledSlot(item);
@@ -416,6 +420,7 @@ async function init(forceFresh = false) {
         lastWrongBySlot: Array(markersCount).fill(null),
         lastWrong: null, // Keep for backward compatibility
         feedback: '',
+        feedbackMeta: null,
         attempts: 0,
         explanation: '',
         explanationsCache: {},
@@ -482,8 +487,8 @@ function render() {
           <div class="text-lg font-bold text-indigo-600">${state.current + 1}</div>
         </div>
       </div>
+      <div class="mb-5 empty:hidden sm:mb-6" id="feedback" role="status" aria-live="polite">${renderFeedback(q)}</div>
       ${renderOptionsBlock(q, activeOptions)}
-      <div id="feedback">${renderFeedback(q)}</div>
     </article>
   `;
 
@@ -521,6 +526,7 @@ function render() {
       if (optionsToggle) {
         e.preventDefault();
         e.stopPropagation();
+        dismissManualSuggestions(currentIdx, currentQ.activeSlot);
         currentQ.optionsExpanded = !currentQ.optionsExpanded;
         render();
         persistState(state);
@@ -533,18 +539,13 @@ function render() {
         return;
       }
 
-      // Handle gap click to switch active slot
+      // A gap click may only return focus to the one sequentially active slot.
       const gapBtn = e.target.closest('button[data-gap]');
       if (gapBtn) {
         e.stopPropagation();
         const gapIndex = parseInt(gapBtn.dataset.gap, 10);
-        if (!isNaN(gapIndex) && gapIndex !== currentQ.activeSlot) {
-          currentQ.activeSlot = gapIndex;
-          clampActiveSlot(currentQ);
-          render();
-          persistState(state);
-        }
-        focusManualAnswer(currentIdx, gapIndex);
+        clampActiveSlot(currentQ);
+        focusManualAnswer(currentIdx, !isNaN(gapIndex) && gapIndex === currentQ.activeSlot ? gapIndex : currentQ.activeSlot);
         return;
       }
 
@@ -569,7 +570,7 @@ function renderOptionsBlock(q, activeOptions = getActiveOptions(q)) {
     : testUi('question.show_options_hint', {}, 'Відкрити готові варіанти відповідей');
 
   return `
-    <div class="mb-5 sm:mb-6 rounded-3xl border border-blue-100 bg-white/80 p-3 sm:p-4 shadow-sm">
+    <div class="rounded-3xl border border-blue-100 bg-white/80 p-3 sm:p-4 shadow-sm">
       <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div class="flex flex-wrap items-center gap-2.5">
           <span class="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-indigo-50 text-[12px] sm:text-sm font-semibold text-indigo-700 border border-indigo-100" id="slot-indicator-${state.current}">
@@ -621,19 +622,61 @@ function renderOptionButton(q, opt, i) {
   `;
 }
 
+function rememberFeedbackAnswer(q, slotIndex, result, submittedAnswer, displayedAnswer = submittedAnswer, wordIndex = null) {
+  q.feedbackMeta = {
+    slotIndex,
+    result,
+    wordIndex: Number.isInteger(wordIndex) ? wordIndex : null,
+    submittedAnswer: String(submittedAnswer ?? '').trim(),
+    displayedAnswer: String(displayedAnswer ?? '').trim(),
+  };
+}
+
+function slotFeedbackState(q, slotIndex) {
+  const meta = q.feedbackMeta;
+  if (!meta || meta.slotIndex !== slotIndex || Number.isInteger(meta.wordIndex)) return '';
+  return meta.result === 'incorrect' ? 'incorrect' : 'correct';
+}
+
+function manualWordFeedbackState(q, slotIndex, wordIndex) {
+  const meta = q.feedbackMeta;
+  if (meta?.slotIndex === slotIndex && meta.wordIndex === wordIndex) {
+    return meta.result === 'incorrect' ? 'incorrect' : 'correct';
+  }
+
+  const activeWordIndex = Number(q.manualWordIndexBySlot?.[slotIndex] || 0);
+  const values = String(q.manualInputsBySlot?.[slotIndex] || '').trim().split(/\s+/).filter(Boolean);
+  return wordIndex < activeWordIndex && values[wordIndex] ? 'correct' : '';
+}
+
+function renderFeedbackAnswers(q, tone) {
+  const meta = q.feedbackMeta;
+  if (!meta || !meta.submittedAnswer) return '';
+
+  const colorClass = tone === 'correct' ? 'text-emerald-900' : 'text-red-900';
+  let answerHtml = `<div data-feedback-answer class="mt-1.5 text-sm font-medium ${colorClass}">${html(testUi('status.submitted_answer', { answer: meta.submittedAnswer }))}</div>`;
+  if (meta.result === 'corrected'
+      && meta.displayedAnswer
+      && canonicalTestAnswer(meta.displayedAnswer) !== canonicalTestAnswer(meta.submittedAnswer)) {
+    answerHtml += `<div data-feedback-correct-answer class="mt-1 text-sm font-semibold ${colorClass}">${html(testUi('status.correct_answer', { answer: meta.displayedAnswer }))}</div>`;
+  }
+
+  return answerHtml;
+}
+
 function renderFeedback(q) {
-  if (q.feedback === 'correct') {
-    let htmlStr = '<div class="flex items-start gap-3 p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><div class="flex-1"><div class="font-semibold text-emerald-800">' + html(testUi('status.correct')) + '</div></div></div>';
+  if (q.feedback === 'correct' || q.feedback === 'corrected') {
+    const message = q.feedback === 'corrected'
+      ? testUi('status.corrected_after_retry')
+      : testUi('status.correct');
+    let htmlStr = '<div class="flex items-start gap-3 p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><div class="flex-1"><div class="font-semibold text-emerald-800">' + html(message) + '</div>' + renderFeedbackAnswers(q, 'correct') + '</div></div>';
     if (q.explanation) {
       htmlStr += `<div class="mt-2.5 sm:mt-3 p-3 sm:p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-sm text-emerald-800 whitespace-pre-line leading-relaxed">${html(q.explanation)}</div>`;
     }
     return htmlStr;
   }
-  if (q.feedback === 'corrected') {
-    return `<div class="flex items-start gap-3 rounded-2xl border-2 border-amber-200 bg-gradient-to-r from-amber-50 to-yellow-50 p-3 sm:p-4"><div class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-amber-500 text-sm font-bold text-white">!</div><div class="flex-1"><div class="font-semibold text-amber-900">${html(testUi('status.corrected_after_retry'))}</div></div></div>`;
-  }
   if (q.feedback) {
-    let htmlStr = `<div class="flex items-start gap-3 p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-red-50 to-rose-50 border-2 border-red-200"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-red-500 flex items-center justify-center"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></div><div class="flex-1"><div class="font-semibold text-red-800">${html(q.feedback)}</div></div></div>`;
+    let htmlStr = `<div class="flex items-start gap-3 p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-red-50 to-rose-50 border-2 border-red-200"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-red-500 flex items-center justify-center"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></div><div class="flex-1"><div class="font-semibold text-red-800">${html(q.feedback)}</div>${renderFeedbackAnswers(q, 'incorrect')}</div></div>`;
     if (q.explanation) {
       htmlStr += `<div class="mt-2.5 sm:mt-3 p-3 sm:p-4 rounded-2xl bg-red-50 border border-red-200 text-sm text-red-800 whitespace-pre-line leading-relaxed">${html(q.explanation)}</div>`;
     }
@@ -668,8 +711,7 @@ document.getElementById('question-card').addEventListener('click', (e) => {
   onChoose(btn.dataset.opt);
 });
 
-// Commit an autocomplete choice before the input loses focus. On touch devices
-// the delayed click can otherwise lose a race to the focusout submission.
+// Commit an autocomplete choice before focusout dismisses the dropdown.
 document.getElementById('question-card').addEventListener('pointerdown', (e) => {
   const suggestionBtn = e.target.closest('button[data-word-suggestion]');
   if (!suggestionBtn) return;
@@ -693,9 +735,15 @@ document.getElementById('question-card').addEventListener('input', (e) => {
   if (isNaN(slotIndex)) return;
 
   ensureManualSlotState(q);
-  q.activeSlot = slotIndex;
+  clampActiveSlot(q);
+  const wordIndex = parseInt(manualInput.dataset.manualWord ?? '0', 10) || 0;
+  if (slotIndex !== q.activeSlot || wordIndex !== Number(q.manualWordIndexBySlot[slotIndex] || 0)) {
+    render();
+    focusManualAnswer(state.current, q.activeSlot);
+    return;
+  }
   manualInput.value = manualInput.value.replace(/\s+/g, '');
-  q.manualWordIndexBySlot[slotIndex] = parseInt(manualInput.dataset.manualWord ?? '0', 10) || 0;
+  q.manualWordIndexBySlot[slotIndex] = wordIndex;
   q.manualInputsBySlot[slotIndex] = collectManualAnswer(manualInput.closest('[data-manual-input-group]'));
   searchManualWords(state.current, slotIndex, manualInput.value);
   persistState(state);
@@ -711,9 +759,7 @@ document.getElementById('question-card').addEventListener('keydown', (e) => {
   if (isNaN(slotIndex)) return;
 
   if (e.key === 'Escape') {
-    ensureManualSlotState(q);
-    q.wordSuggestionsBySlot[slotIndex] = [];
-    updateManualSuggestionsDom(state.current, slotIndex);
+    dismissManualSuggestions(state.current, slotIndex);
   }
 });
 
@@ -724,15 +770,7 @@ document.getElementById('question-card').addEventListener('focusout', (e) => {
   const slotIndex = parseInt(manualInput.dataset.manualGap, 10);
   if (isNaN(slotIndex)) return;
 
-  window.setTimeout(() => {
-    const q = state.items[state.current];
-    if (!q || q.done || q.chosen?.[slotIndex] !== null) return;
-    const group = manualInput.closest('[data-manual-input-group]');
-    if (!group || group.contains(document.activeElement)) return;
-    const value = collectManualAnswer(group);
-    if (!manualAnswerIsComplete(q, slotIndex, value)) return;
-    submitManualAnswer(state.current, slotIndex, value);
-  }, 80);
+  dismissManualSuggestions(state.current, slotIndex);
 });
 
 function onChoose(opt) {
@@ -746,7 +784,7 @@ function onChoose(opt) {
   if (expected === undefined) return;
   
   // Check if slot is already filled
-  if (q.chosen[slotIndex] !== null) return;
+  if (q.chosen?.[slotIndex] != null) return;
 
   const key = buildExplanationKey(opt, expected);
   let explanationPromise = Promise.resolve('');
@@ -754,6 +792,7 @@ function onChoose(opt) {
   q.wordSuggestionsBySlot[slotIndex] = [];
 
   if (testAnswerMatches(q, slotIndex, opt)) {
+    rememberFeedbackAnswer(q, slotIndex, 'correct', opt);
     q.chosen[slotIndex] = opt;
     q.attemptsBySlot[slotIndex] = 0;
     q.lastWrongBySlot[slotIndex] = null;
@@ -762,7 +801,7 @@ function onChoose(opt) {
     q.feedback = q.wrongAttempt ? 'corrected' : 'correct';
     
     // Check if all slots are filled
-    const allFilled = q.chosen.every(c => c !== null);
+    const allFilled = q.chosen.every(c => c != null);
     if (allFilled) {
       q.done = true;
       if (!q.wrongAttempt) state.correct += 1;
@@ -774,6 +813,8 @@ function onChoose(opt) {
       }
     }
   } else {
+    rememberFeedbackAnswer(q, slotIndex, 'incorrect', opt);
+    q.manualWordIndexBySlot[slotIndex] = 0;
     if (!q.explanationsCache) {
       q.explanationsCache = {};
     }
@@ -792,9 +833,10 @@ function onChoose(opt) {
       q.attemptsBySlot[slotIndex] = 0;
       q.lastWrongBySlot[slotIndex] = null;
       q.feedback = 'corrected';
+      rememberFeedbackAnswer(q, slotIndex, 'corrected', opt, expected);
       
       // Check if all slots are filled
-      const allFilled = q.chosen.every(c => c !== null);
+      const allFilled = q.chosen.every(c => c != null);
       if (allFilled) {
         q.done = true;
       } else {
@@ -889,22 +931,31 @@ function manualAnswerWords(q, slotIndex) {
   return words.length ? words : [''];
 }
 
-function manualAnswerIsComplete(q, slotIndex, value) {
-  const answer = String(value ?? '').trim();
-  if (testAnswerMatches(q, slotIndex, answer)) return true;
+function manualAnswerProgress(q, slotIndex, value) {
+  const raw = String(value ?? '')
+    .replace(/[‘’ʼ`]/g, "'")
+    .trim()
+    .replace(/\s+/g, ' ')
+    .toLowerCase();
+  if (!raw) return 'empty';
+  if (testAnswerMatches(q, slotIndex, value)) return 'complete';
 
-  const words = answer.split(/\s+/).filter(Boolean);
+  const canonical = canonicalTestAnswer(value);
   const accepted = acceptedTestAnswers(q, slotIndex);
-  const canonical = canonicalTestAnswer(answer);
-  if (canonical !== '' && accepted.some((variant) => canonicalTestAnswer(variant).startsWith(`${canonical} `))) {
-    return false;
-  }
-  const acceptedLengths = accepted
-    .map((accepted) => accepted.split(/\s+/).filter(Boolean).length)
-    .filter((length) => length > 0);
-  const minimumLength = acceptedLengths.length ? Math.min(...acceptedLengths) : 1;
+  const hasRawPrefix = accepted.some((variant) => String(variant ?? '')
+    .replace(/[‘’ʼ`]/g, "'")
+    .trim()
+    .replace(/\s+/g, ' ')
+    .toLowerCase()
+    .startsWith(`${raw} `));
+  const hasCanonicalPrefix = accepted.some((variant) => canonicalTestAnswer(variant).startsWith(`${canonical} `));
+  if (hasRawPrefix || hasCanonicalPrefix) return 'prefix';
 
-  return words.length >= minimumLength;
+  return 'incorrect';
+}
+
+function manualAnswerIsComplete(q, slotIndex, value) {
+  return manualAnswerProgress(q, slotIndex, value) === 'complete';
 }
 
 function collectManualAnswer(group) {
@@ -966,30 +1017,58 @@ function renderManualGapInput(q, idx, slotIndex) {
   ensureManualSlotState(q);
   const values = String(q.manualInputsBySlot[slotIndex] || '').trim().split(/\s+/).filter(Boolean);
   const wordCount = manualAnswerWords(q, slotIndex).length;
-  const inputs = Array.from({ length: wordCount }, (_, wordIndex) => `
-      <input
-        id="${manualInputId(idx, slotIndex, wordIndex)}"
-        type="text"
-        value="${html(values[wordIndex] || '')}"
-        data-manual-gap="${slotIndex}"
-        data-manual-word="${wordIndex}"
-        autocomplete="off"
-        class="min-w-[5.5rem] max-w-[11rem] rounded-xl border-2 border-indigo-300 bg-white px-3 py-1 text-center text-base font-semibold text-gray-900 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
-        placeholder="____"
-      >
-  `).join('');
+  const requestedWordIndex = Number(q.manualWordIndexBySlot[slotIndex] || 0);
+  const activeWordIndex = Math.max(0, Math.min(wordCount - 1, requestedWordIndex));
+  q.manualWordIndexBySlot[slotIndex] = activeWordIndex;
+  const inputs = Array.from({ length: wordCount }, (_, wordIndex) => {
+    const feedbackState = manualWordFeedbackState(q, slotIndex, wordIndex);
+    const answerState = feedbackState
+      || (wordIndex < activeWordIndex ? 'correct' : (wordIndex === activeWordIndex ? 'active' : 'locked'));
+    const stateClass = feedbackState === 'correct'
+      ? 'border-emerald-400 bg-emerald-50 text-emerald-800 ring-4 ring-emerald-100 focus:border-emerald-500 focus:ring-emerald-100'
+      : feedbackState === 'incorrect'
+        ? 'border-red-400 bg-red-50 text-red-800 ring-4 ring-red-100 focus:border-red-500 focus:ring-red-100'
+        : 'border-indigo-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100';
+
+    return `
+      <span class="relative inline-flex align-middle" data-manual-word-wrap="${wordIndex}">
+        <input
+          id="${manualInputId(idx, slotIndex, wordIndex)}"
+          type="text"
+          value="${html(values[wordIndex] || '')}"
+          data-manual-gap="${slotIndex}"
+          data-manual-word="${wordIndex}"
+          data-manual-active="${wordIndex === activeWordIndex ? 'true' : 'false'}"
+          data-answer-slot="${slotIndex}"
+          data-answer-state="${answerState}"
+          autocomplete="off"
+          class="min-w-[5.5rem] max-w-[11rem] rounded-xl border-2 ${stateClass} bg-white px-3 py-1 text-center text-base font-semibold text-gray-900 shadow-sm outline-none transition disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 disabled:opacity-75"
+          placeholder="____"
+          ${wordIndex === activeWordIndex ? '' : 'disabled aria-disabled="true" tabindex="-1"'}
+        >
+        ${wordIndex === activeWordIndex ? renderManualSuggestions(q, idx, slotIndex) : ''}
+      </span>
+    `;
+  }).join('');
 
   return `
     <span class="relative inline-flex flex-wrap items-center gap-1 align-middle" data-manual-input-group data-question="${idx}" data-gap="${slotIndex}">
       ${inputs}
-      ${renderManualSuggestions(q, idx, slotIndex)}
     </span>
   `;
 }
 
-function focusManualAnswer(idx, slotIndex, wordIndex = 0) {
+function focusManualAnswer(idx, slotIndex, wordIndex = null) {
   setTimeout(() => {
-    const input = document.getElementById(manualInputId(idx, slotIndex, wordIndex));
+    const item = state.items[idx];
+    if (!item || item.done) return;
+    ensureManualSlotState(item);
+    clampActiveSlot(item);
+    const safeSlotIndex = item.activeSlot;
+    const safeWordIndex = Number.isInteger(wordIndex)
+      ? wordIndex
+      : Number(item.manualWordIndexBySlot[safeSlotIndex] || 0);
+    const input = document.getElementById(manualInputId(idx, safeSlotIndex, safeWordIndex));
     if (!input) return;
     input.focus();
     input.select();
@@ -1009,34 +1088,99 @@ function updateManualSuggestionsDom(idx, slotIndex) {
   list.classList.toggle('hidden', suggestions.length === 0);
 }
 
+function invalidateManualSuggestions(item, slotIndex) {
+  item.wordSearchRequestBySlot[slotIndex] = (item.wordSearchRequestBySlot[slotIndex] || 0) + 1;
+  item.wordSuggestionsBySlot[slotIndex] = [];
+}
+
+function dismissManualSuggestions(idx, slotIndex) {
+  const item = state.items[idx];
+  if (!item) return;
+  ensureManualSlotState(item);
+
+  invalidateManualSuggestions(item, slotIndex);
+  updateManualSuggestionsDom(idx, slotIndex);
+  persistState(state);
+}
+
+function commitManualWord(idx, slotIndex, wordIndex) {
+  const item = state.items[idx];
+  if (!item || item.done) return;
+  ensureManualSlotState(item);
+  clampActiveSlot(item);
+
+  if (slotIndex !== item.activeSlot || wordIndex !== Number(item.manualWordIndexBySlot[slotIndex] || 0)) {
+    render();
+    focusManualAnswer(idx, item.activeSlot);
+    return;
+  }
+
+  const input = document.getElementById(manualInputId(idx, slotIndex, wordIndex));
+  if (!input) return;
+
+  const currentWord = String(input.value ?? '').trim();
+  const group = input.closest('[data-manual-input-group]');
+  const answer = collectManualAnswer(group);
+  item.manualInputsBySlot[slotIndex] = answer;
+  invalidateManualSuggestions(item, slotIndex);
+
+  if (!currentWord) {
+    render();
+    focusManualAnswer(idx, slotIndex, wordIndex);
+    persistState(state);
+    return;
+  }
+
+  const progress = manualAnswerProgress(item, slotIndex, answer);
+  if (progress === 'complete') {
+    submitManualAnswer(idx, slotIndex, answer);
+    return;
+  }
+
+  item.explanation = '';
+  item.pendingExplanationKey = null;
+  if (progress === 'prefix') {
+    rememberFeedbackAnswer(item, slotIndex, 'correct', currentWord, currentWord, wordIndex);
+    item.feedback = 'correct';
+    item.manualWordIndexBySlot[slotIndex] = wordIndex + 1;
+  } else {
+    rememberFeedbackAnswer(item, slotIndex, 'incorrect', currentWord, currentWord, wordIndex);
+    item.feedback = testUi('status.incorrect_try_again');
+    item.wrongAttempt = true;
+    item.lastWrongBySlot[slotIndex] = answer;
+    item.manualWordIndexBySlot[slotIndex] = wordIndex;
+  }
+
+  render();
+  focusManualAnswer(idx, slotIndex, item.manualWordIndexBySlot[slotIndex]);
+  persistState(state);
+}
+
 function applyManualWordSuggestion(idx, slotIndex, wordIndex, value) {
   const item = state.items[idx];
   if (!item || item.done) return;
+  ensureManualSlotState(item);
+  clampActiveSlot(item);
+  if (slotIndex !== item.activeSlot || wordIndex !== Number(item.manualWordIndexBySlot[slotIndex] || 0)) {
+    render();
+    focusManualAnswer(idx, item.activeSlot);
+    return;
+  }
   const input = document.getElementById(manualInputId(idx, slotIndex, wordIndex));
   if (!input) return;
 
   input.value = String(value ?? '').trim();
   const group = input.closest('[data-manual-input-group]');
-  ensureManualSlotState(item);
-  item.manualWordIndexBySlot[slotIndex] = wordIndex;
   item.manualInputsBySlot[slotIndex] = collectManualAnswer(group);
-  item.wordSuggestionsBySlot[slotIndex] = [];
-  updateManualSuggestionsDom(idx, slotIndex);
-  persistState(state);
-
-  const nextInput = group?.querySelector(`input[data-manual-word="${wordIndex + 1}"]`);
-  if (nextInput) {
-    nextInput.focus();
-    nextInput.select();
-  } else if (manualAnswerIsComplete(item, slotIndex, item.manualInputsBySlot[slotIndex])) {
-    submitManualAnswer(idx, slotIndex, item.manualInputsBySlot[slotIndex]);
-  }
+  commitManualWord(idx, slotIndex, wordIndex);
 }
 
 async function searchManualWords(idx, slotIndex, query) {
   const item = state.items[idx];
   if (!item) return;
   ensureManualSlotState(item);
+  clampActiveSlot(item);
+  if (slotIndex !== item.activeSlot) return;
 
   const normalizedQuery = String(query ?? '').trim();
   const requestId = (item.wordSearchRequestBySlot[slotIndex] || 0) + 1;
@@ -1073,14 +1217,19 @@ async function searchManualWords(idx, slotIndex, query) {
 function submitManualAnswer(idx, slotIndex, value) {
   const item = state.items[idx];
   if (!item || item.done) return;
+  ensureManualSlotState(item);
+  clampActiveSlot(item);
+  if (slotIndex !== item.activeSlot || item.chosen?.[slotIndex] != null) {
+    render();
+    focusManualAnswer(idx, item.activeSlot);
+    return;
+  }
   const answer = String(value ?? '').trim();
   if (!manualAnswerIsComplete(item, slotIndex, answer)) {
     focusManualAnswer(idx, slotIndex);
     return;
   }
 
-  item.activeSlot = slotIndex;
-  ensureManualSlotState(item);
   item.manualInputsBySlot[slotIndex] = answer;
   item.wordSuggestionsBySlot[slotIndex] = [];
   onChoose(answer);
@@ -1093,16 +1242,20 @@ function renderSentence(q, idx) {
     const placeholder = marker || `a${i + 1}`;
     const regex = new RegExp(`\\{${placeholder}\\}`, 'g');
     const isActive = i === q.activeSlot;
+    const feedbackState = slotFeedbackState(q, i);
     let replacement;
     if (q.chosen[i]) {
       // Filled slot - show chosen answer
-      const filledClass = isActive ? 'ring-2 ring-indigo-300 ring-offset-1' : '';
-      replacement = `<mark class="px-2 py-1 rounded-lg bg-gradient-to-r from-amber-100 to-yellow-100 font-semibold ${filledClass}">${html(q.chosen[i])}</mark>`;
+      const filledClass = feedbackState === 'correct'
+        ? 'border-emerald-400 bg-emerald-50 text-emerald-800 ring-4 ring-emerald-100'
+        : feedbackState === 'incorrect'
+          ? 'border-red-400 bg-red-50 text-red-800 ring-4 ring-red-100'
+          : 'border-amber-200 bg-gradient-to-r from-amber-100 to-yellow-100 text-gray-900';
+      replacement = `<mark class="inline-flex rounded-lg border-2 px-2 py-1 font-semibold ${filledClass}" data-answer-slot="${i}" data-answer-state="${feedbackState || 'filled'}">${html(q.chosen[i])}</mark>`;
     } else if (isActive) {
       replacement = renderManualGapInput(q, idx, i);
     } else {
-      // Unfilled slot - make clickable
-      replacement = `<button type="button" class="gap-btn px-2 py-1 rounded-lg bg-gray-100 hover:bg-amber-100 font-semibold cursor-pointer transition-colors" data-gap="${i}">____</button>`;
+      replacement = `<span class="inline-flex cursor-not-allowed rounded-lg border-2 border-dashed border-gray-200 bg-gray-50 px-2 py-1 font-semibold text-gray-400 opacity-70" data-locked-gap="${i}" aria-disabled="true">____</span>`;
     }
     const hint = q.verb_hints && q.verb_hints[marker]
       ? ` <span class="verb-hint text-red-600 text-sm font-bold">( ${html(q.verb_hints[marker])} )</span>`
@@ -1131,23 +1284,29 @@ function renderPolyglotTranslationPreview(q) {
   const slots = q.answers.map((_, slotIndex) => {
     const isFilled = typeof q.chosen?.[slotIndex] === 'string' && q.chosen[slotIndex].trim() !== '';
     const isActive = slotIndex === q.activeSlot;
-    const value = isFilled
-      ? html(q.chosen[slotIndex])
-      : html(testUi('question.translation_slot_pending'));
-    const baseClass = 'inline-flex min-h-[2.6rem] items-center rounded-xl border px-3 py-2 text-sm sm:text-base font-semibold transition-all duration-200';
-    const stateClass = isFilled
-      ? (isActive
-          ? 'border-indigo-300 bg-gradient-to-r from-indigo-50 to-blue-50 text-indigo-700 ring-2 ring-indigo-100'
-          : 'border-gray-200 bg-white text-gray-800 hover:border-indigo-200 hover:bg-indigo-50')
-      : (isActive
-          ? 'border-indigo-300 bg-gradient-to-r from-amber-100 to-yellow-100 text-indigo-700 ring-2 ring-indigo-100'
-          : 'border-dashed border-gray-300 bg-gray-50 text-gray-400 hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-500');
+    const feedbackState = slotFeedbackState(q, slotIndex);
+    const baseClass = 'inline-flex min-h-[2.6rem] items-center rounded-xl border-2 px-3 py-2 text-sm sm:text-base font-semibold transition-all duration-200';
 
-    return `<button type="button"
+    if (!isFilled && isActive && !questionContainsSlotMarker(q, slotIndex)) {
+      return renderManualGapInput(q, state.current, slotIndex);
+    }
+
+    const value = isFilled ? html(q.chosen[slotIndex]) : html(testUi('question.translation_slot_pending'));
+    const stateClass = feedbackState === 'correct'
+      ? 'border-emerald-400 bg-emerald-50 text-emerald-800 ring-4 ring-emerald-100'
+      : feedbackState === 'incorrect'
+        ? 'border-red-400 bg-red-50 text-red-800 ring-4 ring-red-100'
+        : isFilled
+          ? 'border-gray-200 bg-white text-gray-800'
+          : isActive
+            ? 'border-indigo-300 bg-indigo-50 text-indigo-700 ring-4 ring-indigo-100'
+            : 'cursor-not-allowed border-dashed border-gray-200 bg-gray-50 text-gray-400 opacity-70';
+
+    return `<span
         class="${baseClass} ${stateClass}"
-        data-gap="${slotIndex}"
         data-polyglot-translation-slot="${slotIndex}"
-        aria-label="${html(testUi('question.gap', { label: getMarkerLabel(q, slotIndex), current: slotIndex + 1, total }))}">${value}</button>`;
+        data-answer-state="${feedbackState || (isFilled ? 'filled' : (isActive ? 'active' : 'locked'))}"
+        aria-label="${html(testUi('question.gap', { label: getMarkerLabel(q, slotIndex), current: slotIndex + 1, total }))}">${value}</span>`;
   }).join('');
 
   const completionNotice = q.done

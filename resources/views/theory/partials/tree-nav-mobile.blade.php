@@ -45,6 +45,7 @@
             <a
                 href="{{ localized_route($routePrefix . '.category', $category->slug) }}"
                 class="flex-1 rounded-[22px] border px-3.5 py-3 transition surface-card-strong"
+                @if($isActive) data-theory-nav-active="true" @endif
                 style="{{ $isActive
                     ? 'border-color: var(--accent); background: linear-gradient(180deg, color-mix(in srgb, var(--accent-soft) 86%, white) 0%, white 100%); box-shadow: inset 4px 0 0 var(--accent); color: var(--text);'
                     : ($hasSelectedDescendant
@@ -96,6 +97,7 @@
                                 ? 'background: color-mix(in srgb, var(--accent-soft) 78%, white); color: var(--text);'
                                 : 'color: var(--muted);' }}"
                             @if($isCurrentPage) aria-current="page" @endif
+                            @if($isCurrentPage) data-theory-nav-current-page="true" @endif
                             data-theory-sidebar-node
                         >
                             <span class="mt-1.5 inline-flex h-3 w-3 shrink-0 rounded-full border-2" style="border-color: {{ $isCurrentPage ? 'var(--accent)' : 'color-mix(in srgb, var(--line) 88%, var(--muted))' }}; background: {{ $isCurrentPage ? 'var(--accent)' : 'transparent' }};"></span>

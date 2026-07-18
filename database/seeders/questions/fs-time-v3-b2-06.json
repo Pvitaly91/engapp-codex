@@ -9,7 +9,7 @@
         "source_id": 404,
         "flag": 2,
         "created_at": "2026-07-08T17:07:57.000000Z",
-        "updated_at": "2026-07-08T17:07:57.000000Z"
+        "updated_at": "2026-07-10T20:09:07.000000Z"
     },
     "category": {
         "id": 78,
@@ -23,11 +23,173 @@
         "created_at": "2026-06-28T18:30:07.000000Z",
         "updated_at": "2026-06-28T18:30:07.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
-    "verb_hints": [],
-    "variants": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 57,
+                "name": "future simple",
+                "category": "tense",
+                "created_at": "2026-04-23T08:41:38.000000Z",
+                "updated_at": "2026-04-23T08:41:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 55802,
+                "tag_id": 57,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 82,
+                "name": "B2",
+                "category": null,
+                "created_at": "2026-04-23T09:59:15.000000Z",
+                "updated_at": "2026-04-23T09:59:15.000000Z"
+            },
+            "pivot": {
+                "question_id": 55802,
+                "tag_id": 82,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 3499,
+                "name": "In + Period",
+                "category": "topic",
+                "created_at": "2026-06-28T18:30:07.000000Z",
+                "updated_at": "2026-06-28T18:30:07.000000Z"
+            },
+            "pivot": {
+                "question_id": 55802,
+                "tag_id": 3499,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 33748,
+                "option": "before the final review",
+                "created_at": "2026-07-08T17:07:57.000000Z",
+                "updated_at": "2026-07-08T17:07:57.000000Z"
+            },
+            "pivot": {
+                "question_id": 55802,
+                "option_id": 33748,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 33750,
+                "option": "at the next meeting",
+                "created_at": "2026-07-08T17:07:57.000000Z",
+                "updated_at": "2026-07-08T17:07:57.000000Z"
+            },
+            "pivot": {
+                "question_id": 55802,
+                "option_id": 33750,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 33752,
+                "option": "over the next decade",
+                "created_at": "2026-07-08T17:07:57.000000Z",
+                "updated_at": "2026-07-08T17:07:57.000000Z"
+            },
+            "pivot": {
+                "question_id": 55802,
+                "option_id": 33752,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 34330,
+                "option": "in due course",
+                "created_at": "2026-07-10T20:09:07.000000Z",
+                "updated_at": "2026-07-10T20:09:07.000000Z"
+            },
+            "pivot": {
+                "question_id": 55802,
+                "option_id": 34330,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 279618,
+                "question_id": 55802,
+                "marker": "a1",
+                "option_id": 33748,
+                "created_at": "2026-07-10T20:10:25.000000Z",
+                "updated_at": "2026-07-10T20:10:25.000000Z"
+            },
+            "option": {
+                "id": 33748,
+                "option": "before the final review",
+                "created_at": "2026-07-08T17:07:57.000000Z",
+                "updated_at": "2026-07-08T17:07:57.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 27968,
+                "question_id": 55802,
+                "marker": "a1",
+                "option_id": 34333,
+                "created_at": "2026-07-10T20:10:25.000000Z",
+                "updated_at": "2026-07-10T20:10:25.000000Z"
+            },
+            "option": {
+                "id": 34333,
+                "option": "Часовий вираз: «до фінального перегляду». Оберіть англійський відповідник, який логічно завершує речення.",
+                "created_at": "2026-07-10T20:09:07.000000Z",
+                "updated_at": "2026-07-10T20:09:07.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 44258,
+            "question_id": 55802,
+            "text": "They will monitor the process {a1}",
+            "created_at": "2026-07-10T20:10:25.000000Z",
+            "updated_at": "2026-07-10T20:10:25.000000Z"
+        }
+    ],
     "hints": [],
-    "chatgpt_explanations": []
+    "chatgpt_explanations": [
+        {
+            "id": 36303,
+            "question": "They will monitor the process {a1}",
+            "wrong_answer": "at the next meeting",
+            "correct_answer": "before the final review",
+            "language": "ua",
+            "explanation": "Неправильно, бо «на наступній зустрічі» вказує на одноразову подію, тоді як моніторинг процесу має відбуватися до фінального перегляду — у період перед ним. Тобто часова прив’язка у хибній відповіді не збігається з правильною.",
+            "created_at": "2026-07-09T17:03:02.000000Z",
+            "updated_at": "2026-07-09T17:03:02.000000Z"
+        },
+        {
+            "id": 36304,
+            "question": "They will monitor the process {a1}",
+            "wrong_answer": "over the next decade",
+            "correct_answer": "before the final review",
+            "language": "ua",
+            "explanation": "«Over the next decade» є тривалою часовою тривалістю, тоді як у реченні потрібна межа до конкретної події — «before the final review». Тож воно не відображає потрібний часовий орієнтир.",
+            "created_at": "2026-07-09T17:03:05.000000Z",
+            "updated_at": "2026-07-09T17:03:05.000000Z"
+        }
+    ]
 }

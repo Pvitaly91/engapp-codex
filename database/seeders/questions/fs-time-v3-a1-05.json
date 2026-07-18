@@ -9,7 +9,7 @@
         "source_id": 404,
         "flag": 2,
         "created_at": "2026-07-08T17:07:53.000000Z",
-        "updated_at": "2026-07-08T17:07:53.000000Z"
+        "updated_at": "2026-07-10T20:09:01.000000Z"
     },
     "category": {
         "id": 78,
@@ -23,11 +23,163 @@
         "created_at": "2026-06-28T18:30:07.000000Z",
         "updated_at": "2026-06-28T18:30:07.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
-    "verb_hints": [],
-    "variants": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 44,
+                "name": "A1",
+                "category": "level",
+                "created_at": "2026-04-23T08:41:02.000000Z",
+                "updated_at": "2026-04-23T08:41:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 55765,
+                "tag_id": 44,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 57,
+                "name": "future simple",
+                "category": "tense",
+                "created_at": "2026-04-23T08:41:38.000000Z",
+                "updated_at": "2026-04-23T08:41:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 55765,
+                "tag_id": 57,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 3499,
+                "name": "In + Period",
+                "category": "topic",
+                "created_at": "2026-06-28T18:30:07.000000Z",
+                "updated_at": "2026-06-28T18:30:07.000000Z"
+            },
+            "pivot": {
+                "question_id": 55765,
+                "tag_id": 3499,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 142,
+                "option": "soon",
+                "created_at": "2026-04-23T08:40:06.000000Z",
+                "updated_at": "2026-04-23T08:40:06.000000Z"
+            },
+            "pivot": {
+                "question_id": 55765,
+                "option_id": 142,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 145,
+                "option": "tonight",
+                "created_at": "2026-04-23T08:40:06.000000Z",
+                "updated_at": "2026-04-23T08:40:06.000000Z"
+            },
+            "pivot": {
+                "question_id": 55765,
+                "option_id": 145,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 274,
+                "option": "later",
+                "created_at": "2026-04-23T08:40:21.000000Z",
+                "updated_at": "2026-04-23T08:40:21.000000Z"
+            },
+            "pivot": {
+                "question_id": 55765,
+                "option_id": 274,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 33661,
+                "option": "next week",
+                "created_at": "2026-07-08T17:07:53.000000Z",
+                "updated_at": "2026-07-08T17:07:53.000000Z"
+            },
+            "pivot": {
+                "question_id": 55765,
+                "option_id": 33661,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 279581,
+                "question_id": 55765,
+                "marker": "a1",
+                "option_id": 274,
+                "created_at": "2026-07-10T20:10:07.000000Z",
+                "updated_at": "2026-07-10T20:10:07.000000Z"
+            },
+            "option": {
+                "id": 274,
+                "option": "later",
+                "created_at": "2026-04-23T08:40:21.000000Z",
+                "updated_at": "2026-04-23T08:40:21.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 27931,
+                "question_id": 55765,
+                "marker": "a1",
+                "option_id": 34286,
+                "created_at": "2026-07-10T20:10:07.000000Z",
+                "updated_at": "2026-07-10T20:10:07.000000Z"
+            },
+            "option": {
+                "id": 34286,
+                "option": "Часовий вираз: «пізніше». Оберіть англійський відповідник, який логічно завершує речення.",
+                "created_at": "2026-07-10T20:09:01.000000Z",
+                "updated_at": "2026-07-10T20:09:01.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 44221,
+            "question_id": 55765,
+            "text": "We will study English {a1}",
+            "created_at": "2026-07-10T20:10:07.000000Z",
+            "updated_at": "2026-07-10T20:10:07.000000Z"
+        }
+    ],
     "hints": [],
-    "chatgpt_explanations": []
+    "chatgpt_explanations": [
+        {
+            "id": 36295,
+            "question": "We will study English {a1}",
+            "wrong_answer": "in an hour",
+            "correct_answer": "later",
+            "language": "ua",
+            "explanation": "Тут очікується невизначений прислівник часу — “later” (“пізніше”), тоді як “in an hour” задає конкретний проміжок і змінює зміст. До того ж, відповідь має бути одним словом, а не словосполученням.",
+            "created_at": "2026-07-09T16:56:48.000000Z",
+            "updated_at": "2026-07-09T16:56:48.000000Z"
+        }
+    ]
 }

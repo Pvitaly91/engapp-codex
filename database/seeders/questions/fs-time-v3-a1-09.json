@@ -2,14 +2,14 @@
     "question": {
         "id": 55769,
         "uuid": "fs-time-v3-a1-09",
-        "question": "The team {a1} outside one day",
+        "question": "The team will wait outside {a1}",
         "difficulty": 1,
         "level": "A1",
         "category_id": 78,
         "source_id": 404,
         "flag": 2,
         "created_at": "2026-07-08T17:07:54.000000Z",
-        "updated_at": "2026-07-08T17:07:54.000000Z"
+        "updated_at": "2026-07-10T20:09:01.000000Z"
     },
     "category": {
         "id": 78,
@@ -23,11 +23,163 @@
         "created_at": "2026-06-28T18:30:07.000000Z",
         "updated_at": "2026-06-28T18:30:07.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
-    "verb_hints": [],
-    "variants": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 44,
+                "name": "A1",
+                "category": "level",
+                "created_at": "2026-04-23T08:41:02.000000Z",
+                "updated_at": "2026-04-23T08:41:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 55769,
+                "tag_id": 44,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 57,
+                "name": "future simple",
+                "category": "tense",
+                "created_at": "2026-04-23T08:41:38.000000Z",
+                "updated_at": "2026-04-23T08:41:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 55769,
+                "tag_id": 57,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 2276,
+                "name": "Future Time Markers",
+                "category": "topic",
+                "created_at": "2026-05-18T18:14:13.000000Z",
+                "updated_at": "2026-05-18T18:14:13.000000Z"
+            },
+            "pivot": {
+                "question_id": 55769,
+                "tag_id": 2276,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 34280,
+                "option": "in two days",
+                "created_at": "2026-07-10T20:09:00.000000Z",
+                "updated_at": "2026-07-10T20:09:00.000000Z"
+            },
+            "pivot": {
+                "question_id": 55769,
+                "option_id": 34280,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 34281,
+                "option": "next year",
+                "created_at": "2026-07-10T20:09:00.000000Z",
+                "updated_at": "2026-07-10T20:09:00.000000Z"
+            },
+            "pivot": {
+                "question_id": 55769,
+                "option_id": 34281,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 34284,
+                "option": "one day",
+                "created_at": "2026-07-10T20:09:01.000000Z",
+                "updated_at": "2026-07-10T20:09:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 55769,
+                "option_id": 34284,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 34285,
+                "option": "this evening",
+                "created_at": "2026-07-10T20:09:01.000000Z",
+                "updated_at": "2026-07-10T20:09:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 55769,
+                "option_id": 34285,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 279585,
+                "question_id": 55769,
+                "marker": "a1",
+                "option_id": 34284,
+                "created_at": "2026-07-10T20:10:11.000000Z",
+                "updated_at": "2026-07-10T20:10:11.000000Z"
+            },
+            "option": {
+                "id": 34284,
+                "option": "one day",
+                "created_at": "2026-07-10T20:09:01.000000Z",
+                "updated_at": "2026-07-10T20:09:01.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 27935,
+                "question_id": 55769,
+                "marker": "a1",
+                "option_id": 34290,
+                "created_at": "2026-07-10T20:10:11.000000Z",
+                "updated_at": "2026-07-10T20:10:11.000000Z"
+            },
+            "option": {
+                "id": 34290,
+                "option": "Часовий вираз: «одного дня». Оберіть англійський відповідник, який логічно завершує речення.",
+                "created_at": "2026-07-10T20:09:01.000000Z",
+                "updated_at": "2026-07-10T20:09:01.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 44225,
+            "question_id": 55769,
+            "text": "The team will wait outside {a1}",
+            "created_at": "2026-07-10T20:10:11.000000Z",
+            "updated_at": "2026-07-10T20:10:11.000000Z"
+        }
+    ],
     "hints": [],
-    "chatgpt_explanations": []
+    "chatgpt_explanations": [
+        {
+            "id": 36292,
+            "question": "The team will wait outside {a1}",
+            "wrong_answer": "wait",
+            "correct_answer": "will wait",
+            "language": "ua",
+            "explanation": "\"One day\" вказує на майбутній час, тож форма Present Simple \"wait\" є некоректною. Треба вжити Future Simple — \"will wait\".",
+            "created_at": "2026-07-09T16:52:43.000000Z",
+            "updated_at": "2026-07-10T20:09:01.000000Z"
+        }
+    ]
 }

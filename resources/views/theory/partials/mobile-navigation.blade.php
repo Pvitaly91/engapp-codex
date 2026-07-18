@@ -39,7 +39,10 @@
                 this.$refs.content.innerHTML = await response.text();
                 window.Alpine?.initTree(this.$refs.content);
                 this.loaded = true;
-                this.$nextTick(() => window.initTheorySidebarSearch?.());
+                this.$nextTick(() => {
+                    window.initTheorySidebarSearch?.();
+                    window.initTheorySidebarAutoscroll?.();
+                });
             } catch (error) {
                 this.error = true;
             } finally {

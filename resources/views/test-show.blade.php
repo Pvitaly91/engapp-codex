@@ -737,6 +737,24 @@
         background: rgba(255, 255, 255, 0.75) !important;
     }
 
+    #new-design-test-shell article[data-idx] input[data-manual-gap][data-answer-state="correct"],
+    #new-design-test-shell article[data-idx] mark[data-answer-slot][data-answer-state="correct"] {
+        border-color: #10b981 !important;
+        background: #ecfdf5 !important;
+        color: #065f46 !important;
+        box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.16) !important;
+        opacity: 1 !important;
+    }
+
+    #new-design-test-shell article[data-idx] input[data-manual-gap][data-answer-state="incorrect"],
+    #new-design-test-shell article[data-idx] mark[data-answer-slot][data-answer-state="incorrect"] {
+        border-color: #ef4444 !important;
+        background: #fff1f2 !important;
+        color: #991b1b !important;
+        box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15) !important;
+        opacity: 1 !important;
+    }
+
     #new-design-test-shell article[data-idx] [id^="feedback-"] > div {
         border-radius: 22px !important;
         box-shadow: none !important;
