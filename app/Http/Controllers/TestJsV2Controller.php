@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Question;
+use App\Models\Page;
+use App\Models\PageCategory;
 use App\Models\TextBlock;
 use App\Services\MarkerTheoryMatcherService;
 use App\Services\PolyglotCourseManifestService;
@@ -17,8 +19,10 @@ use App\Support\AdminDebugAccess;
 use App\Support\AnswerOptionCase;
 use App\Support\ComposeModeEligibility;
 use App\Support\ComposeTokenCase;
+use App\Support\PromptGeneratorFilterNormalizer;
 use App\Support\SavedTestJsState;
 use App\Support\SentenceBuilderBranding;
+use App\Support\VirtualTestRegistry;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
@@ -109,6 +113,10 @@ class TestJsV2Controller extends Controller
         $resolved = $this->savedTestResolver->resolve($slug);
         $test = $resolved->model;
 
+        if ($redirect = $this->redirectToQueryFreeUrl($test)) {
+            return $redirect;
+        }
+
         if ($redirect = $this->redirectForUnsupportedMixedPolyglotMode($test, $mode)) {
             return $redirect;
         }
@@ -135,6 +143,7 @@ class TestJsV2Controller extends Controller
             'isAdmin' => $isAdmin,
             'showTechnicalInfo' => $showTechnicalInfo,
             'courseContext' => $courseContext,
+            'testBreadcrumbs' => $this->testBreadcrumbsForTest($test),
             'polyglotAdminDebugPayload' => $polyglotAdminDebugPayload,
         ], $this->questionReportViewData($questions, $isAdmin), $extra));
     }
@@ -143,6 +152,10 @@ class TestJsV2Controller extends Controller
     {
         $resolved = $this->savedTestResolver->resolve($slug);
         $test = $resolved->model;
+
+        if ($redirect = $this->redirectToQueryFreeUrl($test)) {
+            return $redirect;
+        }
 
         if ($redirect = $this->redirectForUnsupportedMixedPolyglotMode($test, $mode)) {
             return $redirect;
@@ -169,7 +182,168 @@ class TestJsV2Controller extends Controller
             'usesUuidLinks' => $resolved->usesUuidLinks,
             'isAdmin' => $isAdmin,
             'showTechnicalInfo' => $showTechnicalInfo,
+            'testBreadcrumbs' => $this->testBreadcrumbsForTest($test),
         ], $this->questionReportViewData($questions, $isAdmin), $extra));
+    }
+
+    /**
+     * Test pages always inherit their navigation from the linked theory page.
+     * The relation is read from persisted test metadata, so it also works for
+     * direct visits and does not require a `from` query parameter or Referer.
+     */
+    protected function testBreadcrumbsForTest(mixed $test): array
+    {
+        $page = $this->theoryPageForTest($test);
+
+        if (! $page instanceof Page || ! $page->category instanceof PageCategory) {
+            return $this->baseTheoryBreadcrumbs();
+        }
+
+        $breadcrumbs = $this->baseTheoryBreadcrumbs();
+        $categories = [];
+        $category = $page->category;
+
+        for ($depth = 0; $category && $depth < 8; $depth++) {
+            array_unshift($categories, $category);
+            $category = $category->parent;
+        }
+
+        foreach ($categories as $category) {
+            $breadcrumbs[] = [
+                'label' => $category->title,
+                'url' => localized_route('theory.category', $category->slug),
+            ];
+        }
+
+        $breadcrumbs[] = [
+            'label' => $page->title,
+            'url' => localized_route('theory.show', [
+                $this->categoryPathForBreadcrumb($page->category),
+                $page->slug,
+            ]),
+        ];
+
+        return $breadcrumbs;
+    }
+
+    protected function theoryPageForTest(mixed $test): ?Page
+    {
+        $filters = $this->normalizedTestFilters($test);
+        $promptGenerator = PromptGeneratorFilterNormalizer::normalize($filters['prompt_generator'] ?? null);
+        $promptGenerator = is_array($promptGenerator) ? $promptGenerator : [];
+        $theoryPage = is_array($promptGenerator['theory_page'] ?? null)
+            ? $promptGenerator['theory_page']
+            : [];
+
+        $seederClass = trim((string) ($theoryPage['page_seeder_class'] ?? ''));
+        if ($seederClass !== '') {
+            $page = Page::query()
+                ->with('category.parent.parent.parent.parent.parent.parent.parent')
+                ->where('seeder', $seederClass)
+                ->first();
+
+            if ($page instanceof Page) {
+                return $page;
+            }
+        }
+
+        $configuredPageIds = is_array($promptGenerator['theory_page_ids'] ?? null)
+            ? $promptGenerator['theory_page_ids']
+            : [];
+        $pageIds = collect([
+            $promptGenerator['theory_page_id'] ?? null,
+            $theoryPage['id'] ?? null,
+            ...$configuredPageIds,
+        ])->filter(fn ($id): bool => is_numeric($id) && (int) $id > 0)
+            ->map(fn ($id): int => (int) $id)
+            ->unique()
+            ->values();
+
+        if ($pageIds->isNotEmpty()) {
+            $page = Page::query()
+                ->with('category.parent.parent.parent.parent.parent.parent.parent')
+                ->whereIn('id', $pageIds)
+                ->first();
+
+            if ($page instanceof Page) {
+                return $page;
+            }
+        }
+
+        $pageSlug = trim((string) (
+            $theoryPage['slug']
+            ?? $filters['theory_page_slug']
+            ?? ''
+        ));
+        $categoryPath = trim((string) (
+            $theoryPage['category_slug_path']
+            ?? $filters['theory_category_path']
+            ?? $filters['theory_category_slug']
+            ?? ''
+        ), '/');
+
+        if ($pageSlug === '') {
+            return null;
+        }
+
+        return Page::query()
+            ->with('category.parent.parent.parent.parent.parent.parent.parent')
+            ->where('slug', $pageSlug)
+            ->get()
+            ->first(function (Page $page) use ($categoryPath): bool {
+                if (! $page->category instanceof PageCategory) {
+                    return false;
+                }
+
+                if ($categoryPath === '') {
+                    return true;
+                }
+
+                $actualPath = $this->categoryPathForBreadcrumb($page->category);
+
+                return $actualPath === $categoryPath
+                    || str_ends_with($actualPath, '/'.$categoryPath);
+            });
+    }
+
+    protected function baseTheoryBreadcrumbs(): array
+    {
+        return [
+            ['label' => __('public.common.home'), 'url' => localized_route('home')],
+            ['label' => __('frontend.copilot_theory.theory'), 'url' => localized_route('theory.index')],
+        ];
+    }
+
+    protected function redirectToQueryFreeUrl(mixed $test): ?RedirectResponse
+    {
+        if (request()->query() === []) {
+            return null;
+        }
+
+        if (method_exists($test, 'isVirtual') && $test->isVirtual()) {
+            VirtualTestRegistry::registerStatic(
+                (string) ($test->slug ?? request()->route('slug')),
+                (string) ($test->name ?? __('frontend.tests.hero.interactive')),
+                $this->normalizedTestFilters($test),
+                is_string($test->description ?? null) ? $test->description : null,
+                (int) data_get($test, 'total_questions_available', 0),
+            );
+        }
+
+        return redirect()->to(request()->url());
+    }
+
+    protected function categoryPathForBreadcrumb(PageCategory $category): string
+    {
+        $segments = [];
+        $current = $category;
+
+        for ($depth = 0; $current && $depth < 8; $depth++) {
+            array_unshift($segments, $current->slug);
+            $current = $current->parent;
+        }
+
+        return implode('/', $segments);
     }
 
     protected function questionReportViewData(array $questions, bool $isAdmin): array
@@ -923,11 +1097,6 @@ class TestJsV2Controller extends Controller
 
         $routeName = Str::contains($mode, 'step') ? 'test.step' : 'test.show';
         $url = localized_route($routeName, $test->slug);
-        $query = request()->only(['filters', 'name', 'launch']);
-
-        if ($query !== []) {
-            $url .= '?'.http_build_query($query);
-        }
 
         return redirect()->to($url);
     }

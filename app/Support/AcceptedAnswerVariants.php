@@ -44,6 +44,14 @@ final class AcceptedAnswerVariants
             $variants[] = preg_replace('/\\bhas\\s+not\\b/i', "hasn't", $answer) ?? $answer;
         }
 
+        if (preg_match("/\\bhadn't\\b/i", $answer) === 1) {
+            $variants[] = preg_replace("/\\bhadn't\\b/i", 'had not', $answer) ?? $answer;
+        }
+
+        if (preg_match('/\\bhad\\s+not\\b/i', $answer) === 1) {
+            $variants[] = preg_replace('/\\bhad\\s+not\\b/i', "hadn't", $answer) ?? $answer;
+        }
+
         return array_values(array_unique($variants));
     }
 

@@ -50,14 +50,9 @@
             'expert' => 'test.manual',
         ];
 
-    $preservedQuery = request()->only(['filters', 'name', 'launch']);
-    $testRoute = static function (string $name) use ($test, $preservedQuery): string {
+    $testRoute = static function (string $name) use ($test): string {
         $publicSlug = data_get($test, 'public_slug', \App\Support\SentenceBuilderBranding::canonicalLessonSlug($test->slug));
-        $url = localized_route($name, $publicSlug);
-
-        return $preservedQuery === []
-            ? $url
-            : $url . '?' . http_build_query($preservedQuery);
+        return localized_route($name, $publicSlug);
     };
 
     $pillClass = static function (bool $active, string $activeTheme = 'solid'): string {

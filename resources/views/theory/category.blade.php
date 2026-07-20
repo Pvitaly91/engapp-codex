@@ -39,37 +39,6 @@
         <span style="color: var(--text);">{{ $selectedCategory->title }}</span>
     </nav>
 
-    <section class="relative overflow-hidden rounded-[30px] border p-7 shadow-card surface-card-strong" style="border-color: var(--line);">
-        <div class="absolute -right-8 top-0 hidden h-32 w-32 rounded-full border-[18px] border-ocean/30 lg:block"></div>
-        <div class="absolute bottom-0 right-0 hidden h-40 w-12 rounded-tl-[2rem] bg-amber lg:block"></div>
-        <div class="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <div class="max-w-3xl">
-                <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.copilot_theory.category') }}</p>
-                <h1 class="mt-3 font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">{{ $selectedCategory->title }}</h1>
-                <p class="mt-4 max-w-2xl text-sm leading-7 sm:text-base" style="color: var(--muted);">
-                    {{ __('frontend.copilot_theory.materials_in_category', ['category' => $selectedCategory->title]) }}
-                </p>
-            </div>
-            <div class="grid gap-3 sm:grid-cols-2">
-                <div class="rounded-[22px] border px-5 py-4 surface-card" style="border-color: var(--line);">
-                    <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.lessons_count') }}</p>
-                    <p class="mt-2 font-display text-2xl font-extrabold leading-none">{{ $selectedCategory->recursive_pages_count ?? $categoryPages->count() }}</p>
-                </div>
-                <a href="{{ localized_route($routePrefix . '.index') }}" class="rounded-[22px] bg-ocean px-5 py-4 text-sm font-extrabold uppercase tracking-[0.18em] text-white shadow-card transition hover:bg-[#245592]">
-                    {{ __('public.theory.all_categories') }}
-                </a>
-            </div>
-        </div>
-    </section>
-
-    @include('theory.partials.mobile-navigation', [
-        'categories' => $categories,
-        'selectedCategory' => $selectedCategory,
-        'categoryPages' => $categoryPages,
-        'currentPage' => null,
-        'routePrefix' => $routePrefix,
-    ])
-
     <div
         x-data="{
             theorySidebarCollapsed: localStorage.getItem('theorySidebarCollapsed') === 'true',
@@ -142,6 +111,37 @@
         </aside>
 
         <div class="min-w-0 flex-1 space-y-8" data-theory-main>
+            <section class="relative overflow-hidden rounded-[30px] border p-7 shadow-card surface-card-strong" style="border-color: var(--line);">
+                <div class="absolute -right-8 top-0 hidden h-32 w-32 rounded-full border-[18px] border-ocean/30 lg:block"></div>
+                <div class="absolute bottom-0 right-0 hidden h-40 w-12 rounded-tl-[2rem] bg-amber lg:block"></div>
+                <div class="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                    <div class="max-w-3xl">
+                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.copilot_theory.category') }}</p>
+                        <h1 class="mt-3 font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">{{ $selectedCategory->title }}</h1>
+                        <p class="mt-4 max-w-2xl text-sm leading-7 sm:text-base" style="color: var(--muted);">
+                            {{ __('frontend.copilot_theory.materials_in_category', ['category' => $selectedCategory->title]) }}
+                        </p>
+                    </div>
+                    <div class="grid gap-3 sm:grid-cols-2">
+                        <div class="rounded-[22px] border px-5 py-4 surface-card" style="border-color: var(--line);">
+                            <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.theory.lessons_count') }}</p>
+                            <p class="mt-2 font-display text-2xl font-extrabold leading-none">{{ $selectedCategory->recursive_pages_count ?? $categoryPages->count() }}</p>
+                        </div>
+                        <a href="{{ localized_route($routePrefix . '.index') }}" class="rounded-[22px] bg-ocean px-5 py-4 text-sm font-extrabold uppercase tracking-[0.18em] text-white shadow-card transition hover:bg-[#245592]">
+                            {{ __('public.theory.all_categories') }}
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            @include('theory.partials.mobile-navigation', [
+                'categories' => $categories,
+                'selectedCategory' => $selectedCategory,
+                'categoryPages' => $categoryPages,
+                'currentPage' => null,
+                'routePrefix' => $routePrefix,
+            ])
+
             @if($categoryDescription['hasBlocks'] ?? false)
                 @include('theory.partials.category-description', [
                     'page' => $selectedCategory,

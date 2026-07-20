@@ -55,4 +55,22 @@ class AcceptedAnswerVariantsTest extends TestCase
             AcceptedAnswerVariants::for('THEY HAVE NOT LEFT!')
         );
     }
+
+    public function test_it_accepts_contracted_and_uncontracted_past_perfect_negatives(): void
+    {
+        $this->assertSame(
+            ["hadn't finished", 'had not finished'],
+            AcceptedAnswerVariants::for('hadn’t finished')
+        );
+
+        $this->assertSame(
+            ['had not arrived', "hadn't arrived"],
+            AcceptedAnswerVariants::for('  had   not arrived  ')
+        );
+
+        $this->assertSame(
+            ["She hadn't called.", 'She had not called.'],
+            AcceptedAnswerVariants::for('She hadnʼt called.')
+        );
+    }
 }

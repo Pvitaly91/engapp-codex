@@ -54,42 +54,6 @@
         <span style="color: var(--text);">{{ $page->title }}</span>
     </nav>
 
-    <section class="relative overflow-hidden rounded-[30px] border p-7 shadow-card surface-card-strong" style="border-color: var(--line);">
-        <div class="absolute -right-10 top-0 hidden h-36 w-36 rounded-full border-[18px] border-ocean/30 lg:block"></div>
-        <div class="absolute bottom-0 right-0 hidden h-44 w-14 rounded-tl-[2rem] bg-ocean lg:block"></div>
-        <div class="relative">
-            @if(!empty($heroData['level']))
-                <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.22em] soft-accent" style="border-color: var(--line); color: var(--accent);">
-                    {{ __('theory_blocks.hero.level', ['level' => $heroData['level']]) }}
-                </span>
-            @endif
-            <h1 class="mt-4 max-w-4xl font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">{{ $page->title }}</h1>
-            @if(!empty($heroData['intro']))
-                <div class="mt-5 max-w-3xl text-sm leading-7 sm:text-base" style="color: var(--muted);">
-                    {!! $heroData['intro'] !!}
-                </div>
-            @endif
-
-            @if(!empty($heroData['rules']))
-                <div class="mt-6 flex flex-wrap gap-2">
-                    @foreach($heroData['rules'] as $rule)
-                        <span class="rounded-full px-3 py-2 text-xs font-bold" style="background: var(--accent-soft); color: var(--text);">
-                            {{ $rule['label'] ?? '' }}
-                        </span>
-                    @endforeach
-                </div>
-            @endif
-        </div>
-    </section>
-
-    @include('theory.partials.mobile-navigation', [
-        'categories' => $categories,
-        'selectedCategory' => $selectedCategory ?? null,
-        'categoryPages' => $categoryPages,
-        'currentPage' => $page,
-        'routePrefix' => $routePrefix,
-    ])
-
     <div
         x-data="{
             theorySidebarCollapsed: localStorage.getItem('theorySidebarCollapsed') === 'true',
@@ -181,6 +145,32 @@
         </aside>
 
         <div class="min-w-0 flex-1 space-y-8" data-theory-main>
+            <section class="relative overflow-hidden rounded-[30px] border p-7 shadow-card surface-card-strong" style="border-color: var(--line);">
+                <div class="absolute -right-10 top-0 hidden h-36 w-36 rounded-full border-[18px] border-ocean/30 lg:block"></div>
+                <div class="absolute bottom-0 right-0 hidden h-44 w-14 rounded-tl-[2rem] bg-ocean lg:block"></div>
+                <div class="relative">
+                    @if(!empty($heroData['level']))
+                        <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.22em] soft-accent" style="border-color: var(--line); color: var(--accent);">
+                            {{ __('theory_blocks.hero.level', ['level' => $heroData['level']]) }}
+                        </span>
+                    @endif
+                    <h1 class="mt-4 max-w-4xl font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">{{ $page->title }}</h1>
+                    @if(!empty($heroData['intro']))
+                        <div class="mt-5 max-w-3xl text-sm leading-7 sm:text-base" style="color: var(--muted);">
+                            {!! $heroData['intro'] !!}
+                        </div>
+                    @endif
+                </div>
+            </section>
+
+            @include('theory.partials.mobile-navigation', [
+                'categories' => $categories,
+                'selectedCategory' => $selectedCategory ?? null,
+                'categoryPages' => $categoryPages,
+                'currentPage' => $page,
+                'routePrefix' => $routePrefix,
+            ])
+
             @if(!empty($heroData['rules']))
                 <section class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                     @foreach($heroData['rules'] as $rule)

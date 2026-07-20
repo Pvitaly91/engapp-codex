@@ -901,6 +901,7 @@
     $heroBadge = $heroBadge ?? __('frontend.tests.hero.interactive');
     $heroDescription = $heroDescription ?? __('frontend.tests.hero.card_description');
     $courseContext = $courseContext ?? null;
+    $testBreadcrumbs = $testBreadcrumbs ?? null;
     $levels = collect($questionData)->pluck('level')->filter()->unique()->values();
     $questionCount = count($questionData ?? []);
     $templatePath = resource_path('views/' . str_replace('.', '/', $templateView) . '.blade.php');
@@ -920,13 +921,22 @@
 <div class="nd-page">
     <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="{{ __('public.common.breadcrumb') }}">
         <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">{{ __('public.common.home') }}</a>
-        <span>/</span>
-        @devMode
-            <a href="{{ localized_route('catalog.tests-cards') }}" class="transition hover:text-ocean">{{ __('public.nav.catalog') }}</a>
-        @enddevMode
-        @if(!empty(data_get($courseContext, 'course_url')) && !empty(data_get($courseContext, 'course_name')))
+        @if($testBreadcrumbs)
+            @foreach(array_slice($testBreadcrumbs, 1) as $crumb)
+                <span>/</span>
+                <a href="{{ $crumb['url'] }}" class="transition hover:text-ocean">{{ $crumb['label'] }}</a>
+            @endforeach
+        @else
             <span>/</span>
-            <a href="{{ data_get($courseContext, 'course_url') }}" class="transition hover:text-ocean">{{ data_get($courseContext, 'course_name') }}</a>
+            <a href="{{ localized_route('theory.index') }}" class="transition hover:text-ocean">{{ __('frontend.copilot_theory.theory') }}</a>
+            @devMode
+                <span>/</span>
+                <a href="{{ localized_route('catalog.tests-cards') }}" class="transition hover:text-ocean">{{ __('public.nav.catalog') }}</a>
+            @enddevMode
+            @if(!empty(data_get($courseContext, 'course_url')) && !empty(data_get($courseContext, 'course_name')))
+                <span>/</span>
+                <a href="{{ data_get($courseContext, 'course_url') }}" class="transition hover:text-ocean">{{ data_get($courseContext, 'course_name') }}</a>
+            @endif
         @endif
         <span>/</span>
         <span style="color: var(--text);">{{ $test->name }}</span>

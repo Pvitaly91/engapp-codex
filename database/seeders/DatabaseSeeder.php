@@ -45,6 +45,7 @@ use Database\Seeders\V2\PastTimeClausesMixedTestSeeder;
 use Database\Seeders\V2\QuestionsDifferentTypesV2Seeder;
 use Database\Seeders\V2\SecondConditionalTestV2Seeder;
 use Database\Seeders\V2\ThirdConditionalPracticeV2Seeder;
+use Database\Seeders\V1\ToBe\DoDoesIsAreSeeder;
 use Database\Seeders\V3\WillVsBeGoingToFutureFormsV3Seeder;
 
 class DatabaseSeeder extends Seeder

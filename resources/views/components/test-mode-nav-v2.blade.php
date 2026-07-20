@@ -1,13 +1,8 @@
 <nav class="mb-8">
     @php
-        $preservedQuery = request()->only(['filters', 'name', 'launch']);
-        $testRoute = static function (string $name) use ($test, $preservedQuery): string {
+        $testRoute = static function (string $name) use ($test): string {
             $publicSlug = data_get($test, 'public_slug', \App\Support\SentenceBuilderBranding::canonicalLessonSlug($test->slug));
-            $url = localized_route($name, $publicSlug);
-
-            return $preservedQuery === []
-                ? $url
-                : $url . '?' . http_build_query($preservedQuery);
+            return localized_route($name, $publicSlug);
         };
     @endphp
     <div class="rounded-3xl border border-slate-200/80 bg-white/90 shadow-[0_10px_40px_rgba(15,23,42,0.08)] backdrop-blur">
