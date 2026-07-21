@@ -22,13 +22,47 @@ class SavedTestJsState
             return true;
         }
 
+        if (($state['completed'] ?? false) === true || ($state['evaluated'] ?? false) === true) {
+            return true;
+        }
+
+        if (self::positiveNumber($state['answered'] ?? null)
+            || self::positiveNumber($state['current'] ?? null)
+            || self::positiveNumber($state['activeCardIdx'] ?? null)) {
+            return true;
+        }
+
         foreach (Arr::get($state, 'items', []) as $item) {
             if (! is_array($item)) {
                 continue;
             }
 
-            if (self::hasAnswerValues($item['chosen'] ?? null) || self::hasAnswerValues($item['inputs'] ?? null)) {
+            if (self::hasAnswerValues($item['chosen'] ?? null)
+                || self::hasAnswerValues($item['inputs'] ?? null)
+                || self::hasAnswerValues($item['manualInputsBySlot'] ?? null)) {
                 return true;
+            }
+
+            if (($item['done'] ?? false) === true && ($item['status'] ?? null) !== 'auto') {
+                return true;
+            }
+
+            if (array_key_exists('isCorrect', $item) && $item['isCorrect'] !== null) {
+                return true;
+            }
+
+            if (array_key_exists('wasCorrect', $item) && $item['wasCorrect'] !== null) {
+                return true;
+            }
+
+            if (($item['wrongAttempt'] ?? false) === true || self::positiveNumber($item['attempts'] ?? null)) {
+                return true;
+            }
+
+            foreach (Arr::wrap($item['manualWordIndexBySlot'] ?? []) as $wordIndex) {
+                if (self::positiveNumber($wordIndex)) {
+                    return true;
+                }
             }
         }
 
@@ -73,5 +107,10 @@ class SavedTestJsState
         }
 
         return $value !== null && $value !== false;
+    }
+
+    protected static function positiveNumber(mixed $value): bool
+    {
+        return is_numeric($value) && (float) $value > 0;
     }
 }

@@ -151,7 +151,7 @@ return [
             'incorrect_try_again' => 'Niepoprawnie. Spróbuj ponownie!',
             'submitted_answer' => 'Twoja odpowiedź: :answer',
             'correct_answer' => 'Poprawna odpowiedź: :answer',
-            'corrected_after_retry' => 'Teraz poprawnie. Dokładność jest liczona z pierwszej próby.',
+            'corrected_after_retry' => 'Niepoprawnie.',
             'incorrect_with_answer' => 'Niepoprawnie. Poprawna odpowiedź: :answer',
             'fill_all_fields' => 'Uzupełnij wszystkie pola przed sprawdzeniem.',
         ],

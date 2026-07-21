@@ -151,7 +151,7 @@ return [
             'incorrect_try_again' => 'Невірно. Спробуй ще раз!',
             'submitted_answer' => 'Ваша відповідь: :answer',
             'correct_answer' => 'Правильна відповідь: :answer',
-            'corrected_after_retry' => 'Тепер правильно. Для точності враховується перша спроба.',
+            'corrected_after_retry' => 'Неправильно.',
             'incorrect_with_answer' => 'Неправильно. Правильна відповідь: :answer',
             'fill_all_fields' => 'Заповни всі поля перед перевіркою.',
         ],

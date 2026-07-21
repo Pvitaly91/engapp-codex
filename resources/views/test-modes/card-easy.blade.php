@@ -803,9 +803,7 @@ function renderFeedbackAnswers(q, tone) {
 
   const colorClass = tone === 'correct' ? 'text-emerald-900' : 'text-red-900';
   let answerHtml = `<div data-feedback-answer class="mt-1.5 text-sm font-medium ${colorClass}">${html(testUi('status.submitted_answer', { answer: meta.submittedAnswer }))}</div>`;
-  if (meta.result === 'corrected'
-      && meta.displayedAnswer
-      && canonicalTestAnswer(meta.displayedAnswer) !== canonicalTestAnswer(meta.submittedAnswer)) {
+  if (tone === 'incorrect' && meta.displayedAnswer) {
     answerHtml += `<div data-feedback-correct-answer class="mt-1 text-sm font-semibold ${colorClass}">${html(testUi('status.correct_answer', { answer: meta.displayedAnswer }))}</div>`;
   }
 
@@ -813,10 +811,8 @@ function renderFeedbackAnswers(q, tone) {
 }
 
 function renderFeedback(q) {
-  if (q.feedback === 'correct' || q.feedback === 'corrected') {
-    const message = q.feedback === 'corrected'
-      ? testUi('status.corrected_after_retry')
-      : testUi('status.correct');
+  if (q.feedback === 'correct') {
+    const message = testUi('status.correct');
     let htmlStr = '<div class="flex items-start gap-3 p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><div class="flex-1"><div class="font-semibold text-emerald-800">' + html(message) + '</div>' + renderFeedbackAnswers(q, 'correct') + '</div></div>';
     if (q.explanation) {
       htmlStr += `<div class="mt-2.5 sm:mt-3 p-3 sm:p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-sm text-emerald-800 whitespace-pre-line leading-relaxed">${html(q.explanation)}</div>`;
@@ -824,7 +820,8 @@ function renderFeedback(q) {
     return htmlStr;
   }
   if (q.feedback) {
-    let htmlStr = `<div class="flex items-start gap-3 p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-red-50 to-rose-50 border-2 border-red-200"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-red-500 flex items-center justify-center"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></div><div class="flex-1"><div class="font-semibold text-red-800">${html(q.feedback)}</div>${renderFeedbackAnswers(q, 'incorrect')}</div></div>`;
+    const message = testUi('status.incorrect');
+    let htmlStr = `<div class="flex items-start gap-3 p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-red-50 to-rose-50 border-2 border-red-200"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-red-500 flex items-center justify-center"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></div><div class="flex-1"><div class="font-semibold text-red-800">${html(message)}</div>${renderFeedbackAnswers(q, 'incorrect')}</div></div>`;
     if (q.explanation) {
       htmlStr += `<div class="mt-2.5 sm:mt-3 p-3 sm:p-4 rounded-2xl bg-red-50 border border-red-200 text-sm text-red-800 whitespace-pre-line leading-relaxed">${html(q.explanation)}</div>`;
     }
@@ -861,7 +858,7 @@ function onChoose(idx, opt) {
     item.lastWrongBySlot[slotIndex] = null;
     item.explanation = '';
     item.pendingExplanationKey = null;
-    item.feedback = item.wrongAttempt ? 'corrected' : 'correct';
+    item.feedback = 'correct';
     
     // Check if all slots are filled
     const allFilled = item.chosen.every(c => c != null);
@@ -877,7 +874,7 @@ function onChoose(idx, opt) {
       }
     }
   } else {
-    rememberFeedbackAnswer(item, slotIndex, 'incorrect', opt);
+    rememberFeedbackAnswer(item, slotIndex, 'incorrect', opt, expected);
     item.manualWordIndexBySlot[slotIndex] = 0;
     if (!item.explanationsCache) {
       item.explanationsCache = {};
@@ -896,8 +893,8 @@ function onChoose(idx, opt) {
       item.chosen[slotIndex] = expected;
       item.attemptsBySlot[slotIndex] = 0;
       item.lastWrongBySlot[slotIndex] = null;
-      item.feedback = 'corrected';
-      rememberFeedbackAnswer(item, slotIndex, 'corrected', opt, expected);
+      item.feedback = testUi('status.incorrect');
+      rememberFeedbackAnswer(item, slotIndex, 'incorrect', opt, expected);
       
       // Check if all slots are filled
       const allFilled = item.chosen.every(c => c != null);
@@ -912,7 +909,7 @@ function onChoose(idx, opt) {
         }
       }
     } else {
-      item.feedback = testUi('status.incorrect_try_again');
+      item.feedback = testUi('status.incorrect');
     }
   }
 
@@ -1219,8 +1216,9 @@ function commitManualWord(idx, slotIndex, wordIndex, context = 'sentence') {
     item.feedback = 'correct';
     item.manualWordIndexBySlot[slotIndex] = wordIndex + 1;
   } else {
-    rememberFeedbackAnswer(item, slotIndex, 'incorrect', currentWord, currentWord, wordIndex);
-    item.feedback = testUi('status.incorrect_try_again');
+    const expectedWord = manualAnswerWords(item, slotIndex)[wordIndex] || item.answers[slotIndex] || '';
+    rememberFeedbackAnswer(item, slotIndex, 'incorrect', currentWord, expectedWord, wordIndex);
+    item.feedback = testUi('status.incorrect');
     item.wrongAttempt = true;
     item.lastWrongBySlot[slotIndex] = answer;
     item.manualWordIndexBySlot[slotIndex] = wordIndex;

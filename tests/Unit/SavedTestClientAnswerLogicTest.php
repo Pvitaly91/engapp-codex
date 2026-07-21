@@ -40,7 +40,7 @@ class SavedTestClientAnswerLogicTest extends TestCase
         }
     }
 
-    public function test_easy_modes_use_live_first_attempt_accuracy_and_only_explain_wrong_answers(): void
+    public function test_easy_modes_keep_first_attempt_accuracy_but_report_the_current_step(): void
     {
         $views = [
             'card-easy.blade.php' => 'pct(state.correct, state.answered)',
@@ -53,11 +53,13 @@ class SavedTestClientAnswerLogicTest extends TestCase
             $this->assertStringContainsString("let explanationPromise = Promise.resolve('');", $source, $view);
             $this->assertStringContainsString('explanationPromise = ensureExplanation(', $source, $view);
             $this->assertStringContainsString($accuracyExpression, $source, $view);
-            $this->assertStringContainsString("testUi('status.corrected_after_retry')", $source, $view);
+            $this->assertStringContainsString("feedback = 'correct';", $source, $view);
+            $this->assertStringContainsString("testUi('status.incorrect')", $source, $view);
+            $this->assertStringNotContainsString("testUi('status.corrected_after_retry')", $source, $view);
         }
     }
 
-    public function test_easy_modes_render_green_feedback_above_answer_options(): void
+    public function test_easy_modes_render_current_step_feedback_above_answer_options(): void
     {
         $views = [
             'card-easy.blade.php' => [
@@ -84,18 +86,20 @@ class SavedTestClientAnswerLogicTest extends TestCase
                     : "document.getElementById('question-card').addEventListener('click'"
             );
 
-            $this->assertStringContainsString(
-                "q.feedback === 'correct' || q.feedback === 'corrected'",
-                $feedback,
-                $view
-            );
+            $this->assertStringContainsString("q.feedback === 'correct'", $feedback, $view);
             $this->assertStringContainsString("testUi('status.correct')", $feedback, $view);
-            $this->assertStringContainsString("testUi('status.corrected_after_retry')", $feedback, $view);
+            $this->assertStringContainsString("testUi('status.incorrect')", $feedback, $view);
+            $this->assertStringNotContainsString('corrected_after_retry', $feedback, $view);
             $this->assertStringContainsString('from-emerald-50 to-teal-50', $feedback, $view);
             $this->assertStringContainsString('border-emerald-200', $feedback, $view);
             $this->assertStringContainsString('bg-emerald-500', $feedback, $view);
             $this->assertStringContainsString('text-emerald-800', $feedback, $view);
             $this->assertStringContainsString('M5 13l4 4L19 7', $feedback, $view);
+            $this->assertStringContainsString('from-red-50 to-rose-50', $feedback, $view);
+            $this->assertStringContainsString('border-red-200', $feedback, $view);
+            $this->assertStringContainsString('bg-red-500', $feedback, $view);
+            $this->assertStringContainsString('text-red-800', $feedback, $view);
+            $this->assertStringContainsString('M6 18L18 6M6 6l12 12', $feedback, $view);
             $this->assertStringNotContainsString('amber-', $feedback, $view);
             $this->assertStringNotContainsString('yellow-', $feedback, $view);
 
@@ -178,7 +182,8 @@ class SavedTestClientAnswerLogicTest extends TestCase
             $this->assertStringContainsString('manualAnswerProgress(item, slotIndex, answer)', $commitWord, $view);
             $this->assertStringContainsString("progress === 'prefix'", $commitWord, $view);
             $this->assertStringContainsString("'correct', currentWord, currentWord, wordIndex", $commitWord, $view);
-            $this->assertStringContainsString("'incorrect', currentWord, currentWord, wordIndex", $commitWord, $view);
+            $this->assertStringContainsString('const expectedWord = manualAnswerWords(item, slotIndex)[wordIndex]', $commitWord, $view);
+            $this->assertStringContainsString("'incorrect', currentWord, expectedWord, wordIndex", $commitWord, $view);
             $this->assertStringContainsString('item.manualWordIndexBySlot[slotIndex] = wordIndex + 1;', $commitWord, $view);
             $this->assertStringContainsString('submitManualAnswer(', $commitWord, $view);
             $this->assertStringContainsString('const hasRawPrefix = accepted.some(', $answerProgress, $view);
@@ -222,21 +227,18 @@ class SavedTestClientAnswerLogicTest extends TestCase
             $this->assertStringContainsString('data-feedback-answer', $feedbackHelpers, $view);
             $this->assertStringContainsString("testUi('status.submitted_answer'", $feedbackHelpers, $view);
             $this->assertStringContainsString('data-feedback-correct-answer', $feedbackHelpers, $view);
+            $this->assertStringContainsString("tone === 'incorrect' && meta.displayedAnswer", $feedbackHelpers, $view);
             $this->assertStringContainsString(
                 "rememberFeedbackAnswer({$questionVariable}, slotIndex, 'correct', opt);",
                 $source,
                 $view
             );
             $this->assertStringContainsString(
-                "rememberFeedbackAnswer({$questionVariable}, slotIndex, 'incorrect', opt);",
+                "rememberFeedbackAnswer({$questionVariable}, slotIndex, 'incorrect', opt, expected);",
                 $source,
                 $view
             );
-            $this->assertStringContainsString(
-                "rememberFeedbackAnswer({$questionVariable}, slotIndex, 'corrected', opt, expected);",
-                $source,
-                $view
-            );
+            $this->assertStringNotContainsString("rememberFeedbackAnswer({$questionVariable}, slotIndex, 'corrected'", $source, $view);
             $this->assertStringContainsString('slotFeedbackState(q, slotIndex)', $source, $view);
             $this->assertStringContainsString('slotFeedbackState(q, i)', $source, $view);
             $this->assertStringContainsString('border-emerald-400', $source, $view);
@@ -269,6 +271,7 @@ class SavedTestClientAnswerLogicTest extends TestCase
         foreach (['uk', 'en', 'pl'] as $locale) {
             $translation = file_get_contents($this->resourcePath("lang/{$locale}/frontend.php"));
             $this->assertStringContainsString("'submitted_answer' =>", $translation, $locale);
+            $this->assertStringContainsString("'correct_answer' =>", $translation, $locale);
         }
     }
 
@@ -310,9 +313,17 @@ class SavedTestClientAnswerLogicTest extends TestCase
         $helper = file_get_contents($this->resourcePath('views/components/saved-test-js-helpers.blade.php'));
 
         $this->assertStringContainsString('meta.saved_at = new Date().toISOString();', $helper);
+        $this->assertStringContainsString('isFilledAnswerScalar(item.manualInputsBySlot)', $helper);
+        $this->assertStringContainsString('item.manualWordIndexBySlot.some((index) => Number(index) > 0)', $helper);
+        $this->assertStringContainsString('item.done === true', $helper);
+        $this->assertStringContainsString('Number(state.answered) > 0', $helper);
         $this->assertStringContainsString('savedAt(localState) > savedAt(serverState)', $helper);
         $this->assertStringContainsString('let JS_TEST_SAVE_QUEUE = Promise.resolve();', $helper);
         $this->assertStringContainsString('JS_TEST_SAVE_QUEUE = JS_TEST_SAVE_QUEUE', $helper);
+        $this->assertStringContainsString('let JS_TEST_LAST_SNAPSHOT = null;', $helper);
+        $this->assertStringContainsString("window.addEventListener('pagehide', flushJsTestStateBeforeUnload);", $helper);
+        $this->assertStringContainsString('writeLocalJsTestState(JS_TEST_LAST_SNAPSHOT);', $helper);
+        $this->assertStringContainsString('JS_TEST_LAST_SNAPSHOT = null;', $helper);
     }
 
     private function resourcePath(string $path): string

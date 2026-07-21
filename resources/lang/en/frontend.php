@@ -151,7 +151,7 @@ return [
             'incorrect_try_again' => 'Incorrect. Try again!',
             'submitted_answer' => 'Your answer: :answer',
             'correct_answer' => 'Correct answer: :answer',
-            'corrected_after_retry' => 'Correct now. Accuracy is based on the first attempt.',
+            'corrected_after_retry' => 'Incorrect.',
             'incorrect_with_answer' => 'Incorrect. Correct answer: :answer',
             'fill_all_fields' => 'Fill in all fields before checking.',
         ],

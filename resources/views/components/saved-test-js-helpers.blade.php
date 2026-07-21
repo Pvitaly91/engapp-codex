@@ -1020,6 +1020,14 @@ function isStartedState(state) {
         return false;
     }
 
+    if (state.completed === true || state.evaluated === true) {
+        return true;
+    }
+
+    if (Number(state.answered) > 0 || Number(state.current) > 0 || Number(state.activeCardIdx) > 0) {
+        return true;
+    }
+
     if (Array.isArray(state.connections) && state.connections.length > 0) {
         return true;
     }
@@ -1037,7 +1045,30 @@ function isStartedState(state) {
             return false;
         }
 
-        return isFilledAnswerScalar(item.chosen) || isFilledAnswerScalar(item.inputs);
+        if (isFilledAnswerScalar(item.chosen)
+            || isFilledAnswerScalar(item.inputs)
+            || isFilledAnswerScalar(item.manualInputsBySlot)) {
+            return true;
+        }
+
+        if (item.done === true && item.status !== 'auto') {
+            return true;
+        }
+
+        if (item.isCorrect !== null && item.isCorrect !== undefined) {
+            return true;
+        }
+
+        if (item.wasCorrect !== null && item.wasCorrect !== undefined) {
+            return true;
+        }
+
+        if (item.wrongAttempt === true || Number(item.attempts) > 0) {
+            return true;
+        }
+
+        return Array.isArray(item.manualWordIndexBySlot)
+            && item.manualWordIndexBySlot.some((index) => Number(index) > 0);
     });
 }
 
@@ -1071,9 +1102,11 @@ function prepareStateForPersistence(state) {
 const JS_TEST_PERSISTENCE = window.JS_TEST_PERSISTENCE || null;
 let JS_TEST_SAVE_TIMER = null;
 let JS_TEST_SAVE_QUEUE = Promise.resolve();
+let JS_TEST_LAST_SNAPSHOT = null;
 
 if (JS_TEST_PERSISTENCE && JS_TEST_PERSISTENCE.saved) {
     JS_TEST_PERSISTENCE.saved = cloneState(JS_TEST_PERSISTENCE.saved);
+    JS_TEST_LAST_SNAPSHOT = cloneState(JS_TEST_PERSISTENCE.saved);
 }
 
 function readLocalJsTestState() {
@@ -1163,6 +1196,7 @@ function persistState(state, immediate = false) {
     const snapshot = prepareStateForPersistence(state);
     const started = Boolean(snapshot?.__meta?.started);
     JS_TEST_PERSISTENCE.saved = snapshot;
+    JS_TEST_LAST_SNAPSHOT = snapshot;
     writeLocalJsTestState(snapshot);
 
     if (!JS_TEST_PERSISTENCE.endpoint) {
@@ -1269,6 +1303,7 @@ async function resetJsTestState() {
     }
 
     JS_TEST_PERSISTENCE.saved = null;
+    JS_TEST_LAST_SNAPSHOT = null;
     clearLocalJsTestState();
 
     if (!JS_TEST_PERSISTENCE.endpoint) {
@@ -1293,6 +1328,16 @@ async function resetJsTestState() {
         console.error(error);
     }
 }
+
+function flushJsTestStateBeforeUnload() {
+    if (!JS_TEST_PERSISTENCE || !JS_TEST_LAST_SNAPSHOT || !isStartedState(JS_TEST_LAST_SNAPSHOT)) {
+        return;
+    }
+
+    writeLocalJsTestState(JS_TEST_LAST_SNAPSHOT);
+}
+
+window.addEventListener('pagehide', flushJsTestStateBeforeUnload);
 
 async function restartJsTest(initFn, options = {}) {
     if (typeof initFn !== 'function') {
