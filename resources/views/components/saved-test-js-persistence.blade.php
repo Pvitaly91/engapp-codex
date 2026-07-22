@@ -17,7 +17,12 @@
         $questionsEndpoint .= '?' . $queryString;
     }
 
-    $storageKey = 'gramlyze:js-test-state:v1:' . hash('sha256', implode('|', [
+    $storageKey = 'gramlyze:js-test-state:v2:' . hash('sha256', implode('|', [
+        request()->getHost(),
+        $test->slug,
+        $mode,
+    ]));
+    $legacyStorageKey = 'gramlyze:js-test-state:v1:' . hash('sha256', implode('|', [
         request()->getHost(),
         $test->slug,
         $mode,
@@ -31,6 +36,7 @@ window.JS_TEST_PERSISTENCE = {
     token: '{{ csrf_token() }}',
     questionsEndpoint: @json($questionsEndpoint),
     storageKey: @json($storageKey),
+    storageKeys: @json(array_values(array_unique([$storageKey, $legacyStorageKey]))),
     saved: @json($savedState),
 };
 </script>

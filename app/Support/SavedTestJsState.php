@@ -6,6 +6,30 @@ use Illuminate\Support\Arr;
 
 class SavedTestJsState
 {
+    private const CURRENT_QUESTION_FIELDS = [
+        'id',
+        'uuid',
+        'type',
+        'question',
+        'answer',
+        'answers',
+        'answer_map',
+        'accepted_answers',
+        'accepted_answers_by_marker',
+        'markers',
+        'markers_count',
+        'options_by_marker',
+        'verb_hint',
+        'verb_hints',
+        'options',
+        'tense',
+        'level',
+        'theory_block',
+        'theory_blocks',
+        'marker_tags',
+        'tech_info',
+    ];
+
     public static function isStarted(mixed $state): bool
     {
         if (! is_array($state)) {
@@ -74,6 +98,63 @@ class SavedTestJsState
         $questionData = Arr::get(is_array($state) ? $state : [], '__meta.question_data');
 
         return is_array($questionData) ? $questionData : null;
+    }
+
+    /**
+     * Refresh authored question content without changing the user's progress.
+     */
+    public static function mergeCurrentQuestionData(?array $state, array $questions): ?array
+    {
+        if ($state === null) {
+            return null;
+        }
+
+        $byUuid = [];
+        $byId = [];
+
+        foreach ($questions as $question) {
+            if (! is_array($question)) {
+                continue;
+            }
+
+            $uuid = trim((string) ($question['uuid'] ?? ''));
+            $id = trim((string) ($question['id'] ?? ''));
+
+            if ($uuid !== '') {
+                $byUuid[$uuid] = $question;
+            }
+            if ($id !== '') {
+                $byId[$id] = $question;
+            }
+        }
+
+        if (is_array($state['items'] ?? null)) {
+            foreach ($state['items'] as $index => $item) {
+                if (! is_array($item)) {
+                    continue;
+                }
+
+                $uuid = trim((string) ($item['uuid'] ?? ''));
+                $id = trim((string) ($item['id'] ?? ''));
+                $current = $uuid !== ''
+                    ? ($byUuid[$uuid] ?? null)
+                    : ($id !== '' ? ($byId[$id] ?? null) : null);
+
+                if (! is_array($current)) {
+                    continue;
+                }
+
+                $state['items'][$index] = array_replace(
+                    $item,
+                    Arr::only($current, self::CURRENT_QUESTION_FIELDS)
+                );
+            }
+        }
+
+        $state['__meta'] = is_array($state['__meta'] ?? null) ? $state['__meta'] : [];
+        $state['__meta']['question_data'] = $questions;
+
+        return $state;
     }
 
     protected static function hasConnections(mixed $value): bool

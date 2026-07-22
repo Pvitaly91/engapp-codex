@@ -384,6 +384,7 @@
     @endphp
     window.__VERBS_I18N__ = @json($verbsI18n);
   </script>
+  @include('components.test-suggestion-keyboard')
   <script>
     (function () {
       const verbs = Array.isArray(window.__VERBS__) ? window.__VERBS__ : [];
@@ -710,8 +711,8 @@
 
       function hideSuggestions() {
           if (els.suggestionsBox) {
-              els.suggestionsBox.classList.add('hidden');
               els.suggestionsBox.innerHTML = '';
+              deactivateTestSuggestionList(els.answerInput, els.suggestionsBox, true);
           }
       }
 
@@ -744,6 +745,7 @@
               els.suggestionsBox.appendChild(btn);
           });
           els.suggestionsBox.classList.remove('hidden');
+          activateTestSuggestionList(els.answerInput, els.suggestionsBox, 'button');
       }
 
       function resetChoiceHighlights() {

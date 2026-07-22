@@ -308,6 +308,54 @@ class SavedTestClientAnswerLogicTest extends TestCase
         }
     }
 
+    public function test_manual_suggestion_lists_escape_cards_and_support_keyboard_selection_in_every_test_mode(): void
+    {
+        $helper = file_get_contents($this->resourcePath('views/components/test-suggestion-keyboard.blade.php'));
+
+        $this->assertStringContainsString('function activateTestSuggestionList(input, list, optionSelector)', $helper);
+        $this->assertStringContainsString("event.key === 'ArrowDown' || event.key === 'ArrowUp'", $helper);
+        $this->assertStringContainsString("event.key === 'Enter' && context.activeIndex >= 0", $helper);
+        $this->assertStringContainsString('event.stopImmediatePropagation();', $helper);
+        $this->assertStringContainsString('selected.click();', $helper);
+        $this->assertStringContainsString("input.setAttribute('aria-activedescendant', activeOption.id);", $helper);
+        $this->assertStringContainsString("option.setAttribute('aria-selected', active ? 'true' : 'false');", $helper);
+        $this->assertStringContainsString("activeOption.scrollIntoView({ block: 'nearest' });", $helper);
+
+        $views = [
+            'test-modes/card-easy.blade.php' => "activateTestSuggestionList(input, list, 'button[data-word-suggestion]')",
+            'test-modes/step-easy.blade.php' => "activateTestSuggestionList(input, list, 'button[data-word-suggestion]')",
+            'test-modes/card-hard.blade.php' => "activateTestSuggestionList(input, listEl, 'li[data-value]')",
+            'test-modes/step-hard.blade.php' => "activateTestSuggestionList(input, listEl, 'li[data-value]')",
+            'test-modes/step-compose.blade.php' => "activateTestSuggestionList(input, list, 'button[data-compose-word-suggestion]')",
+            'engram/saved-test-js-input.blade.php' => "activateTestSuggestionList(input, listEl, 'li[data-value]')",
+            'engram/saved-test-js-step-input.blade.php' => "activateTestSuggestionList(input, listEl, 'li[data-value]')",
+            'words/test.blade.php' => "activateTestSuggestionList(answerInput, suggestionsList, 'li')",
+            'verbs/test.blade.php' => "activateTestSuggestionList(els.answerInput, els.suggestionsBox, 'button')",
+        ];
+
+        foreach ($views as $view => $activation) {
+            $source = file_get_contents($this->resourcePath("views/{$view}"));
+            $this->assertStringContainsString($activation, $source, $view);
+            $this->assertStringContainsString('deactivateTestSuggestionList(', $source, $view);
+        }
+
+        foreach (['words/test.blade.php', 'verbs/test.blade.php'] as $view) {
+            $source = file_get_contents($this->resourcePath("views/{$view}"));
+            $this->assertStringContainsString("@include('components.test-suggestion-keyboard')", $source, $view);
+        }
+
+        $testPage = file_get_contents($this->resourcePath('views/test-show.blade.php'));
+        $questionCardCss = $this->sourceBetween(
+            $testPage,
+            '#new-design-test-shell article[data-idx] {',
+            '#new-design-test-shell article[data-idx]::before {'
+        );
+        $this->assertStringContainsString('overflow: visible;', $questionCardCss);
+        $this->assertStringNotContainsString('overflow: hidden;', $questionCardCss);
+        $this->assertStringContainsString('z-index: 40;', $testPage);
+        $this->assertStringContainsString('border-radius: 30px 30px 0 0;', $testPage);
+    }
+
     public function test_persistence_prefers_the_newest_snapshot_and_serializes_server_writes(): void
     {
         $helper = file_get_contents($this->resourcePath('views/components/saved-test-js-helpers.blade.php'));
@@ -318,12 +366,53 @@ class SavedTestClientAnswerLogicTest extends TestCase
         $this->assertStringContainsString('item.done === true', $helper);
         $this->assertStringContainsString('Number(state.answered) > 0', $helper);
         $this->assertStringContainsString('savedAt(localState) > savedAt(serverState)', $helper);
+        $this->assertStringContainsString('function mergeFreshQuestionContentIntoSavedState(state)', $helper);
+        $this->assertStringContainsString('const freshQuestions = cloneState(getTechnicalQuestions());', $helper);
+        $this->assertStringContainsString('const canonicalQuestionFields = [', $helper);
+        $this->assertStringContainsString("'verb_hint',", $helper);
+        $this->assertStringContainsString("'verb_hints',", $helper);
+        $this->assertStringContainsString("const freshQuestion = uuid !== ''", $helper);
+        $this->assertStringContainsString("? freshByUuid.get(uuid)", $helper);
+        $this->assertStringContainsString(": (id !== '' ? freshById.get(id) : null);", $helper);
+        $this->assertStringContainsString('const merged = { ...savedItem };', $helper);
+        $this->assertStringContainsString('merged[field] = cloneState(freshQuestion[field]);', $helper);
+        $canonicalFields = $this->sourceBetween(
+            $helper,
+            'const canonicalQuestionFields = [',
+            '];'
+        );
+        foreach (['chosen', 'done', 'inputs', 'manualInputsBySlot', 'manualWordIndexBySlot'] as $progressField) {
+            $this->assertStringNotContainsString("'{$progressField}'", $canonicalFields);
+        }
+        $this->assertStringContainsString('const refreshed = selected ? mergeFreshQuestionContentIntoSavedState(selected) : null;', $helper);
+        $this->assertStringContainsString('JS_TEST_LAST_SNAPSHOT = cloneState(refreshed);', $helper);
         $this->assertStringContainsString('let JS_TEST_SAVE_QUEUE = Promise.resolve();', $helper);
         $this->assertStringContainsString('JS_TEST_SAVE_QUEUE = JS_TEST_SAVE_QUEUE', $helper);
         $this->assertStringContainsString('let JS_TEST_LAST_SNAPSHOT = null;', $helper);
+        $this->assertStringContainsString('JS_TEST_PERSISTENCE.storageKeys', $helper);
+        $this->assertStringContainsString('!isStartedState(state)', $helper);
+        $this->assertStringContainsString('delete localState.__meta.question_data;', $helper);
+        $this->assertStringContainsString('window.localStorage.setItem(primaryKey, payload);', $helper);
+        $this->assertStringContainsString('legacyKeys.forEach((key) => storage.removeItem(key));', $helper);
+        $this->assertStringContainsString('window.sessionStorage.setItem(primaryKey, payload);', $helper);
+        $this->assertStringNotContainsString('storageKeys.forEach((key) => window.localStorage.setItem(key, payload));', $helper);
+        $this->assertStringContainsString('[window.localStorage, window.sessionStorage].forEach((storage)', $helper);
         $this->assertStringContainsString("window.addEventListener('pagehide', flushJsTestStateBeforeUnload);", $helper);
         $this->assertStringContainsString('writeLocalJsTestState(JS_TEST_LAST_SNAPSHOT);', $helper);
         $this->assertStringContainsString('JS_TEST_LAST_SNAPSHOT = null;', $helper);
+    }
+
+    public function test_persistence_component_uses_stable_storage_key_with_legacy_fallback(): void
+    {
+        $component = file_get_contents($this->resourcePath('views/components/saved-test-js-persistence.blade.php'));
+
+        $this->assertStringContainsString("'gramlyze:js-test-state:v2:'", $component);
+        $this->assertStringContainsString('$test->slug,', $component);
+        $this->assertStringContainsString('$mode,', $component);
+        $this->assertStringContainsString('$legacyStorageKey', $component);
+        $this->assertStringContainsString('$stateEndpoint,', $component);
+        $this->assertStringContainsString('storageKeys:', $component);
+        $this->assertStringContainsString('array_unique([$storageKey, $legacyStorageKey])', $component);
     }
 
     private function resourcePath(string $path): string

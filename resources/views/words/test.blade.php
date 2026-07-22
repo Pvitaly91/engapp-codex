@@ -443,6 +443,7 @@
         </div>
     </div>
 </div>
+@include('components.test-suggestion-keyboard')
 <script>
     window.wordsTestI18n = @json(__('words_test'));
 
@@ -817,7 +818,7 @@
       function hideSuggestions() {
         if (!suggestionsList) return;
         suggestionsList.innerHTML = '';
-        suggestionsList.classList.add('hidden');
+        deactivateTestSuggestionList(answerInput, suggestionsList, true);
       }
 
       function renderSuggestions(query) {
@@ -868,6 +869,7 @@
 
             if (suggestionsList.childElementCount > 0) {
               suggestionsList.classList.remove('hidden');
+              activateTestSuggestionList(answerInput, suggestionsList, 'li');
             } else {
               hideSuggestions();
             }
@@ -903,6 +905,7 @@
         answerInput.addEventListener('focus', () => {
           if (isMedium && suggestionsList && suggestionsList.childElementCount > 0) {
             suggestionsList.classList.remove('hidden');
+            activateTestSuggestionList(answerInput, suggestionsList, 'li');
           }
         });
       }

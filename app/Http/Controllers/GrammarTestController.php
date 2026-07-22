@@ -445,7 +445,13 @@ class GrammarTestController extends Controller
             $questions = $this->buildQuestionDataset($resolved, $savedState === null, $showTechnicalInfo);
         } else {
             $questions = $this->localizePersistedQuestionVerbHints($questions);
-            session([$this->jsQuestionDataSessionKey($test) => $questions]);
+        }
+
+        session([$this->jsQuestionDataSessionKey($test) => $questions]);
+
+        if ($savedState !== null) {
+            $savedState = SavedTestJsState::mergeCurrentQuestionData($savedState, $questions);
+            session([$stateKey => $savedState]);
         }
 
         return view("engram.$view", [
@@ -946,18 +952,16 @@ class GrammarTestController extends Controller
                 continue;
             }
 
-            $model = $byId->get((string) data_get($question, 'id'))
-                ?? $byUuid->get((string) data_get($question, 'uuid'));
+            $uuid = trim((string) data_get($question, 'uuid'));
+            $model = $uuid !== ''
+                ? $byUuid->get($uuid)
+                : $byId->get((string) data_get($question, 'id'));
 
             if (! $model) {
                 continue;
             }
 
             $verbHints = $this->localizedVerbHints($model->verbHints, $preferredLocales);
-
-            if ($verbHints === []) {
-                continue;
-            }
 
             $marker = $this->firstQuestionVerbHintMarker($question, $verbHints);
 

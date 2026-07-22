@@ -509,7 +509,7 @@
 
     #new-design-test-shell article[data-idx] {
         position: relative;
-        overflow: hidden;
+        overflow: visible;
         background: var(--surface-strong) !important;
         border: 1px solid var(--line) !important;
         border-radius: 30px !important;
@@ -522,12 +522,15 @@
         position: absolute;
         inset: 0 0 auto;
         height: 5px;
+        border-radius: 30px 30px 0 0;
         background: linear-gradient(90deg, #2f67b1 0%, #74a9f0 55%, #f59b2f 100%);
         opacity: 0.95;
+        pointer-events: none;
     }
 
     #new-design-test-shell article[data-idx]:hover,
     #new-design-test-shell article[data-idx]:focus-within {
+        z-index: 40;
         border-color: color-mix(in srgb, var(--accent) 35%, var(--line)) !important;
         box-shadow: 0 18px 40px rgba(17, 38, 63, 0.12) !important;
     }

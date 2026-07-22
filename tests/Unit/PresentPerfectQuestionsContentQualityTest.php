@@ -6,6 +6,8 @@ use App\Support\AcceptedAnswerVariants;
 use App\Support\ComposeTokenCase;
 use PHPUnit\Framework\TestCase;
 
+require_once dirname(__DIR__, 2).'/scripts/lib/present_perfect_verb_hints.php';
+
 class PresentPerfectQuestionsContentQualityTest extends TestCase
 {
     private const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
@@ -169,6 +171,101 @@ class PresentPerfectQuestionsContentQualityTest extends TestCase
         );
         $this->assertStringContainsString('been applied', $advanced, 'C2 bank lacks a passive question.');
         $this->assertStringContainsString('even though', $advanced, 'C2 bank lacks concessive context.');
+    }
+
+    public function test_every_hidden_question_opening_names_its_subject_without_revealing_the_auxiliary(): void
+    {
+        $questions = $this->readJson(self::STANDARD_DEFINITION)['questions'];
+        $questionsByUuid = [];
+        $hiddenSubjectHints = 0;
+
+        foreach ($questions as $question) {
+            $uuid = (string) $question['uuid'];
+            $questionsByUuid[$uuid] = $question;
+            $subject = presentPerfectQuestionSubject($uuid);
+            $openingIsHidden = str_starts_with((string) $question['question'], '{a1}');
+
+            if (! $openingIsHidden) {
+                $this->assertNull($subject, "Visible short-answer subject must not be duplicated in {$uuid}");
+                continue;
+            }
+
+            $this->assertNotNull($subject, "Missing canonical subject for {$uuid}");
+            $hint = (string) $question['markers']['a1']['verb_hint'];
+            $subjectPrefix = "Підмет у запитанні — «{$subject}».";
+            $this->assertStringContainsString($subjectPrefix, $hint, $uuid);
+            $this->assertSame(1, substr_count($hint, $subjectPrefix), "Subject prefix is duplicated in {$uuid}");
+            $this->assertDoesNotMatchRegularExpression(
+                '/Підмет у запитанні — «[^»]*[A-Za-z][^»]*»\./u',
+                $hint,
+                "English subject is duplicated in {$uuid}"
+            );
+
+            $prefixPosition = mb_strpos($hint, $subjectPrefix);
+            $this->assertIsInt($prefixPosition, "Missing subject prefix position in {$uuid}");
+            $context = trim(mb_substr($hint, $prefixPosition + mb_strlen($subjectPrefix)));
+            $this->assertDoesNotMatchRegularExpression(
+                '/(?<!\p{L})'.preg_quote($subject, '/').'(?!\p{L})/iu',
+                $context,
+                "Subject is repeated after its prefix in {$uuid}"
+            );
+
+            $pronounEchoes = [
+                'ти / ви' => '/(?<!\p{L})(?:ти|ви|тебе|вас|тобі|вам|тобою|вами|твій|твоя|твоє|твої|ваш|ваша|ваше|ваші)(?!\p{L})/iu',
+                'вона' => '/(?<!\p{L})(?:вона|її|нею)(?!\p{L})/iu',
+                'він' => '/(?<!\p{L})(?:він|його|ним)(?!\p{L})/iu',
+                'вони' => '/(?<!\p{L})(?:вони|їх|ними|їхній|їхня|їхнє|їхні)(?!\p{L})/iu',
+                'ми' => '/(?<!\p{L})(?:ми|нас|нам|нами|наш|наша|наше|наші)(?!\p{L})/iu',
+            ];
+            if (isset($pronounEchoes[$subject])) {
+                $this->assertDoesNotMatchRegularExpression(
+                    $pronounEchoes[$subject],
+                    $context,
+                    "Subject pronoun is repeated after its prefix in {$uuid}"
+                );
+            }
+
+            $subjectStemEchoes = [
+                'present-perfect-q-v3-b1-07' => '/команд/iu',
+                'present-perfect-q-v3-b2-07' => '/регіон/iu',
+                'present-perfect-q-v3-c1-03' => '/реценз/iu',
+                'present-perfect-q-v3-c1-07' => '/дослідж/iu',
+                'present-perfect-q-v3-c1-08' => '/редактор/iu',
+                'present-perfect-q-v3-c1-10' => '/суд/iu',
+                'present-perfect-q-v3-c2-01' => '/(?:доказ|дан)/iu',
+                'present-perfect-q-v3-c2-04' => '/доктрин/iu',
+            ];
+            if (isset($subjectStemEchoes[$uuid])) {
+                $this->assertDoesNotMatchRegularExpression(
+                    $subjectStemEchoes[$uuid],
+                    $context,
+                    "A declined or related form of the subject is repeated in {$uuid}"
+                );
+            }
+
+            $englishSubject = presentPerfectHiddenAnswerSubject($uuid);
+            $this->assertNotNull($englishSubject, "Missing answer subject for {$uuid}");
+            $this->assertStringContainsStringIgnoringCase(
+                $englishSubject,
+                (string) $question['markers']['a1']['answer'],
+                "Hint subject does not match the authored answer in {$uuid}"
+            );
+            $hiddenSubjectHints++;
+        }
+
+        $this->assertSame(66, $hiddenSubjectHints);
+        $this->assertSame(
+            'Дієслово: «зробити». Підмет у запитанні — «ти / ви». So far обмежує запит періодом від початку дня до цього моменту.',
+            $questionsByUuid['present-perfect-q-v3-a1-03']['markers']['a1']['verb_hint']
+        );
+        $this->assertSame(
+            'Дієслово: «бачити». Підмет у запитанні — «ти / ви». Запит стосується досвіду до теперішнього моменту.',
+            $questionsByUuid['present-perfect-q-v3-a1-10']['markers']['a1']['verb_hint']
+        );
+        $this->assertSame(
+            'Дієслово: «знайти». Підмет у запитанні — «Мія». Already тут передає здивування через швидкий результат.',
+            $questionsByUuid['present-perfect-q-v3-a1-11']['markers']['a1']['verb_hint']
+        );
     }
 
     public function test_sentence_builder_matches_standard_bank_and_uses_compact_atomic_options(): void

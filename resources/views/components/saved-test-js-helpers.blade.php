@@ -5,6 +5,8 @@
     $__questionReportUi = $__questionReportAdmin ? ($questionReportUi ?? []) : [];
 @endphp
 
+@include('components.test-suggestion-keyboard')
+
 <style>
     [data-question-reported="1"] {
         border-color: #f59e0b !important;
@@ -1110,57 +1112,210 @@ if (JS_TEST_PERSISTENCE && JS_TEST_PERSISTENCE.saved) {
 }
 
 function readLocalJsTestState() {
-    if (!JS_TEST_PERSISTENCE || !JS_TEST_PERSISTENCE.storageKey || !window.localStorage) {
+    if (!JS_TEST_PERSISTENCE || !JS_TEST_PERSISTENCE.storageKey) {
         return null;
     }
 
-    try {
-        const raw = window.localStorage.getItem(JS_TEST_PERSISTENCE.storageKey);
-        if (!raw) {
-            return null;
+    const storageKeys = Array.isArray(JS_TEST_PERSISTENCE.storageKeys) && JS_TEST_PERSISTENCE.storageKeys.length > 0
+        ? JS_TEST_PERSISTENCE.storageKeys
+        : [JS_TEST_PERSISTENCE.storageKey];
+    const savedAt = (state, fallback = '') => {
+        const timestamp = Date.parse(String(state?.__meta?.saved_at ?? fallback));
+        return Number.isFinite(timestamp) ? timestamp : 0;
+    };
+    let selected = null;
+    let selectedSavedAt = 0;
+
+    [window.localStorage, window.sessionStorage].forEach((storage) => {
+        if (!storage) {
+            return;
         }
 
-        const parsed = JSON.parse(raw);
-        if (!parsed || typeof parsed !== 'object' || !parsed.state) {
-            return null;
-        }
+        storageKeys.forEach((key) => {
+            try {
+                const raw = storage.getItem(key);
+                if (!raw) {
+                    return;
+                }
 
-        if (!isStartedState(parsed.state)) {
-            return null;
-        }
+                const parsed = JSON.parse(raw);
+                if (!parsed || typeof parsed !== 'object' || !parsed.state) {
+                    return;
+                }
 
-        return cloneState(parsed.state);
-    } catch (error) {
-        console.error(error);
-        return null;
-    }
+                if (!isStartedState(parsed.state)) {
+                    return;
+                }
+
+                const timestamp = savedAt(parsed.state, parsed.saved_at);
+                if (!selected || timestamp > selectedSavedAt) {
+                    selected = parsed.state;
+                    selectedSavedAt = timestamp;
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        });
+    });
+
+    return selected ? cloneState(selected) : null;
 }
 
 function writeLocalJsTestState(state) {
-    if (!JS_TEST_PERSISTENCE || !JS_TEST_PERSISTENCE.storageKey || !window.localStorage) {
+    if (!JS_TEST_PERSISTENCE || !JS_TEST_PERSISTENCE.storageKey || !isStartedState(state)) {
         return;
     }
 
+    const primaryKey = JS_TEST_PERSISTENCE.storageKey;
+    const storageKeys = Array.isArray(JS_TEST_PERSISTENCE.storageKeys) && JS_TEST_PERSISTENCE.storageKeys.length > 0
+        ? JS_TEST_PERSISTENCE.storageKeys
+        : [primaryKey];
+    const legacyKeys = storageKeys.filter((key) => key !== primaryKey);
+    const localState = cloneState(state);
+
+    if (localState?.__meta && typeof localState.__meta === 'object') {
+        delete localState.__meta.question_data;
+    }
+
+    const payload = JSON.stringify({
+        saved_at: new Date().toISOString(),
+        state: localState,
+    });
+    const removeLegacyKeys = (storage) => {
+        legacyKeys.forEach((key) => storage.removeItem(key));
+    };
+
     try {
-        window.localStorage.setItem(JS_TEST_PERSISTENCE.storageKey, JSON.stringify({
-            saved_at: new Date().toISOString(),
-            state,
-        }));
+        window.localStorage.setItem(primaryKey, payload);
+        removeLegacyKeys(window.localStorage);
+        window.sessionStorage.removeItem(primaryKey);
+        removeLegacyKeys(window.sessionStorage);
+        return;
+    } catch (error) {
+        console.error(error);
+    }
+
+    try {
+        removeLegacyKeys(window.localStorage);
+        window.localStorage.setItem(primaryKey, payload);
+        window.sessionStorage.removeItem(primaryKey);
+        removeLegacyKeys(window.sessionStorage);
+        return;
+    } catch (error) {
+        console.error(error);
+    }
+
+    try {
+        window.sessionStorage.setItem(primaryKey, payload);
+        removeLegacyKeys(window.sessionStorage);
     } catch (error) {
         console.error(error);
     }
 }
 
 function clearLocalJsTestState() {
-    if (!JS_TEST_PERSISTENCE || !JS_TEST_PERSISTENCE.storageKey || !window.localStorage) {
+    if (!JS_TEST_PERSISTENCE || !JS_TEST_PERSISTENCE.storageKey) {
         return;
     }
 
-    try {
-        window.localStorage.removeItem(JS_TEST_PERSISTENCE.storageKey);
-    } catch (error) {
-        console.error(error);
+    const storageKeys = Array.isArray(JS_TEST_PERSISTENCE.storageKeys) && JS_TEST_PERSISTENCE.storageKeys.length > 0
+        ? JS_TEST_PERSISTENCE.storageKeys
+        : [JS_TEST_PERSISTENCE.storageKey];
+
+    [window.localStorage, window.sessionStorage].forEach((storage) => {
+        if (!storage) {
+            return;
+        }
+
+        storageKeys.forEach((key) => {
+            try {
+                storage.removeItem(key);
+            } catch (error) {
+                console.error(error);
+            }
+        });
+    });
+}
+
+function mergeFreshQuestionContentIntoSavedState(state) {
+    const restored = cloneState(state);
+    const freshQuestions = cloneState(getTechnicalQuestions());
+    const canonicalQuestionFields = [
+        'id',
+        'uuid',
+        'type',
+        'question',
+        'answer',
+        'answers',
+        'answer_map',
+        'accepted_answers',
+        'accepted_answers_by_marker',
+        'markers',
+        'markers_count',
+        'options_by_marker',
+        'verb_hint',
+        'verb_hints',
+        'options',
+        'tense',
+        'level',
+        'theory_block',
+        'theory_blocks',
+        'marker_tags',
+        'tech_info',
+    ];
+
+    if (!restored || typeof restored !== 'object'
+        || !Array.isArray(restored.items)
+        || !Array.isArray(freshQuestions)
+        || freshQuestions.length === 0) {
+        return restored;
     }
+
+    const freshByUuid = new Map();
+    const freshById = new Map();
+    freshQuestions.forEach((question) => {
+        if (!question || typeof question !== 'object') {
+            return;
+        }
+
+        const uuid = String(question.uuid ?? '').trim();
+        const id = String(question.id ?? '').trim();
+        if (uuid !== '') freshByUuid.set(uuid, question);
+        if (id !== '') freshById.set(id, question);
+    });
+
+    restored.items = restored.items.map((savedItem) => {
+        if (!savedItem || typeof savedItem !== 'object') {
+            return savedItem;
+        }
+
+        const uuid = String(savedItem.uuid ?? '').trim();
+        const id = String(savedItem.id ?? '').trim();
+        const freshQuestion = uuid !== ''
+            ? freshByUuid.get(uuid)
+            : (id !== '' ? freshById.get(id) : null);
+
+        if (!freshQuestion) {
+            return savedItem;
+        }
+
+        // Keep answer/progress-only fields from the snapshot, but always use
+        // the current question, options, theory and verb hints from the page.
+        const merged = { ...savedItem };
+        canonicalQuestionFields.forEach((field) => {
+            if (Object.prototype.hasOwnProperty.call(freshQuestion, field)) {
+                merged[field] = cloneState(freshQuestion[field]);
+            }
+        });
+
+        return merged;
+    });
+
+    if (restored.__meta && typeof restored.__meta === 'object') {
+        restored.__meta.question_data = cloneState(freshQuestions);
+    }
+
+    return restored;
 }
 
 function getSavedState() {
@@ -1180,11 +1335,14 @@ function getSavedState() {
         ? localState
         : (serverState || localState);
 
-    if (selected) {
-        JS_TEST_PERSISTENCE.saved = cloneState(selected);
+    const refreshed = selected ? mergeFreshQuestionContentIntoSavedState(selected) : null;
+
+    if (refreshed) {
+        JS_TEST_PERSISTENCE.saved = cloneState(refreshed);
+        JS_TEST_LAST_SNAPSHOT = cloneState(refreshed);
     }
 
-    return selected ? cloneState(selected) : null;
+    return refreshed ? cloneState(refreshed) : null;
 }
 
 function persistState(state, immediate = false) {

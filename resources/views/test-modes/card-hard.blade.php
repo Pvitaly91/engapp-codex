@@ -252,13 +252,14 @@ function renderQuestion(idx) {
         const el = getListEl();
         if (!el) return;
         setTimeout(() => {
-          el.classList.add('hidden');
+          deactivateTestSuggestionList(inp, el, true);
         }, 150);
       });
       inp.addEventListener('focus', () => {
         const el = getListEl();
         if (!el || el.dataset.hasOptions !== '1') return;
         el.classList.remove('hidden');
+        activateTestSuggestionList(inp, el, 'li[data-value]');
       });
     });
     card.querySelectorAll('button[data-add]').forEach(btn => {
@@ -301,7 +302,7 @@ function fetchSuggestions(input, qIdx, idx, widx) {
   if (!listEl) return;
   const hideList = () => {
     listEl.innerHTML = '';
-    listEl.classList.add('hidden');
+    deactivateTestSuggestionList(input, listEl, true);
     listEl.dataset.hasOptions = '0';
     listEl.dataset.pendingQuery = '';
     listEl.dataset.ignoreQuery = '';
@@ -336,6 +337,7 @@ function fetchSuggestions(input, qIdx, idx, widx) {
       listEl.scrollTop = 0;
       if (document.activeElement === input) {
         listEl.classList.remove('hidden');
+        activateTestSuggestionList(input, listEl, 'li[data-value]');
       }
       if (input.dataset.list) {
         const width = input.style.width || input.getBoundingClientRect().width + 'px';

@@ -1004,10 +1004,9 @@ function renderWordSuggestionButtons(suggestions, idx, slotIndex, wordIndex = 0)
 function renderManualSuggestions(q, idx, slotIndex) {
   ensureManualSlotState(q);
   const suggestions = q.wordSuggestionsBySlot[slotIndex] || [];
-  const hidden = suggestions.length ? '' : ' hidden';
   const wordIndex = q.manualWordIndexBySlot[slotIndex] || 0;
 
-  return `<div id="${manualSuggestionsId(idx, slotIndex)}" class="absolute left-0 top-full z-[9999] mt-2 w-72 max-w-[80vw] overflow-hidden rounded-2xl border border-gray-200 bg-white text-sm shadow-2xl${hidden}" data-manual-suggestions>${renderWordSuggestionButtons(suggestions, idx, slotIndex, wordIndex)}</div>`;
+  return `<div id="${manualSuggestionsId(idx, slotIndex)}" class="absolute left-0 top-full z-[9999] mt-2 hidden max-h-72 w-72 max-w-[80vw] overflow-x-hidden overflow-y-auto rounded-2xl border border-gray-200 bg-white text-sm shadow-2xl" data-manual-suggestions>${renderWordSuggestionButtons(suggestions, idx, slotIndex, wordIndex)}</div>`;
 }
 
 function renderManualGapInput(q, idx, slotIndex) {
@@ -1082,7 +1081,14 @@ function updateManualSuggestionsDom(idx, slotIndex) {
   const suggestions = item.wordSuggestionsBySlot[slotIndex] || [];
   const wordIndex = item.manualWordIndexBySlot[slotIndex] || 0;
   list.innerHTML = renderWordSuggestionButtons(suggestions, idx, slotIndex, wordIndex);
-  list.classList.toggle('hidden', suggestions.length === 0);
+  const input = list.parentElement?.querySelector('input[data-manual-gap]');
+  const shouldOpen = suggestions.length > 0 && input === document.activeElement;
+  list.classList.toggle('hidden', !shouldOpen);
+  if (shouldOpen) {
+    activateTestSuggestionList(input, list, 'button[data-word-suggestion]');
+  } else {
+    deactivateTestSuggestionList(input, list, true);
+  }
 }
 
 function invalidateManualSuggestions(item, slotIndex) {

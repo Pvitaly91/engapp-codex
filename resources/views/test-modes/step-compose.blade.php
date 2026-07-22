@@ -2411,9 +2411,8 @@ window.__POLYGLOT_WORD_SEARCH_URL__ = @json(localized_route('words.search'));
 
     function renderManualSuggestions(slotIndex) {
         const suggestions = state.manualWordSuggestionsBySlot[slotIndex] || [];
-        const hidden = suggestions.length ? '' : ' hidden';
 
-        return `<div id="${composeManualSuggestionsId(slotIndex)}" class="absolute left-0 top-full z-[9999] mt-2 w-72 max-w-[80vw] overflow-hidden rounded-2xl border border-gray-200 bg-white text-sm shadow-2xl${hidden}" data-compose-manual-suggestions>${renderWordSuggestionButtons(suggestions, slotIndex)}</div>`;
+        return `<div id="${composeManualSuggestionsId(slotIndex)}" class="absolute left-0 top-full z-[9999] mt-2 hidden max-h-72 w-72 max-w-[80vw] overflow-x-hidden overflow-y-auto rounded-2xl border border-gray-200 bg-white text-sm shadow-2xl" data-compose-manual-suggestions>${renderWordSuggestionButtons(suggestions, slotIndex)}</div>`;
     }
 
     function updateManualSuggestionsDom(slotIndex) {
@@ -2422,7 +2421,14 @@ window.__POLYGLOT_WORD_SEARCH_URL__ = @json(localized_route('words.search'));
 
         const suggestions = state.manualWordSuggestionsBySlot[slotIndex] || [];
         list.innerHTML = renderWordSuggestionButtons(suggestions, slotIndex);
-        list.classList.toggle('hidden', suggestions.length === 0);
+        const input = document.getElementById(composeManualInputId(slotIndex));
+        const shouldOpen = suggestions.length > 0 && input === document.activeElement;
+        list.classList.toggle('hidden', !shouldOpen);
+        if (shouldOpen) {
+            activateTestSuggestionList(input, list, 'button[data-compose-word-suggestion]');
+        } else {
+            deactivateTestSuggestionList(input, list, true);
+        }
     }
 
     async function searchManualWords(slotIndex, query) {

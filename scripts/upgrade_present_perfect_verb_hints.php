@@ -3,8 +3,9 @@
 declare(strict_types=1);
 
 /**
- * Add explicit Ukrainian lexical verbs to every Present Perfect verb gap and
- * normalize Sentence Builder hints. Deterministic and safe to run repeatedly.
+ * Add explicit Ukrainian lexical verbs to every Present Perfect verb gap,
+ * identify subjects hidden inside question openings, and normalize Sentence
+ * Builder hints. Deterministic and safe to run repeatedly.
  */
 
 require_once __DIR__.'/lib/present_perfect_verb_hints.php';
