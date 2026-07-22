@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\PublicFlows;
 
+use Illuminate\Routing\Middleware\ThrottleRequests;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\DB;
 use Tests\Support\PublicRouteMatrix;
@@ -88,8 +89,6 @@ class PublicSearchSmokeTest extends SeededPublicFlowTestCase
         $cacheControl = (string) $response->headers->get('Cache-Control');
         $this->assertStringContainsString('public', $cacheControl);
         $this->assertStringContainsString('max-age=300', $cacheControl);
-        $response->assertHeader('X-RateLimit-Limit', '300');
-
         $wordQueries = collect(DB::getQueryLog())->filter(function (array $query): bool {
             $sql = strtolower((string) ($query['query'] ?? ''));
 
@@ -100,5 +99,6 @@ class PublicSearchSmokeTest extends SeededPublicFlowTestCase
         $route = app('router')->getRoutes()->getByName('api.words.search');
         $this->assertNotNull($route);
         $this->assertNotContains(StartSession::class, app('router')->gatherRouteMiddleware($route));
+        $this->assertNotContains(ThrottleRequests::class . ':api', app('router')->gatherRouteMiddleware($route));
     }
 }

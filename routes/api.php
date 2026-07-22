@@ -3,6 +3,7 @@
 use App\Http\Controllers\MarkerTheoryTagController;
 use App\Http\Controllers\WordSearchController;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Middleware\ThrottleRequests;
 use Illuminate\Support\Facades\Route;
 use App\Models\Word;
 /*
@@ -37,10 +38,11 @@ Route::get('/search', function (\Illuminate\Http\Request $request) {
     });
 })->name('api.search');
 
-// Test autocomplete must stay outside the web/session middleware. Test
-// progress is saved in parallel and a file-backed session would otherwise
-// serialize both requests, making the dropdown wait for the state write.
+// Test autocomplete must stay outside both file-backed session and rate-limit
+// locks. The lookup is read-only, indexed, capped at ten rows and browser
+// cached; progress writes can otherwise make the dropdown wait for seconds.
 Route::get('/word-search/{lang?}', [WordSearchController::class, 'search'])
     ->where('lang', 'uk|en|pl')
+    ->withoutMiddleware(ThrottleRequests::class . ':api')
     ->name('api.words.search');
 
