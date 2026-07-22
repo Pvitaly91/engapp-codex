@@ -2,6 +2,8 @@
 
 namespace Tests\Feature\PublicFlows;
 
+use Illuminate\Session\Middleware\StartSession;
+use Illuminate\Support\Facades\DB;
 use Tests\Support\PublicRouteMatrix;
 
 class PublicSearchSmokeTest extends SeededPublicFlowTestCase
@@ -57,5 +59,46 @@ class PublicSearchSmokeTest extends SeededPublicFlowTestCase
         $go = $this->assertJsonItemExists($response->json(), 'en', 'go');
 
         $this->assertSame('йти', $go['translation']);
+    }
+
+    public function test_stateless_word_search_returns_rich_cached_results_without_query_fanout(): void
+    {
+        DB::flushQueryLog();
+        DB::enableQueryLog();
+
+        $response = $this->getJson(
+            'http://gramlyze.ub/api/word-search/uk?q=' . PublicRouteMatrix::WORD_QUERY
+        );
+
+        $response->assertOk();
+        $response->assertJsonStructure([
+            '*' => [
+                'word',
+                'translation',
+                'translation_lang',
+                'forms' => ['base', 'past', 'participle'],
+            ],
+        ]);
+
+        $go = $this->assertJsonItemExists($response->json(), 'word', 'go');
+        $this->assertSame('йти', $go['translation']);
+        $this->assertSame(['went'], $go['forms']['past']);
+        $this->assertSame(['gone'], $go['forms']['participle']);
+
+        $cacheControl = (string) $response->headers->get('Cache-Control');
+        $this->assertStringContainsString('public', $cacheControl);
+        $this->assertStringContainsString('max-age=300', $cacheControl);
+        $response->assertHeader('X-RateLimit-Limit', '300');
+
+        $wordQueries = collect(DB::getQueryLog())->filter(function (array $query): bool {
+            $sql = strtolower((string) ($query['query'] ?? ''));
+
+            return str_contains($sql, '`words`') || str_contains($sql, '`translates`');
+        });
+        $this->assertLessThanOrEqual(3, $wordQueries->count());
+
+        $route = app('router')->getRoutes()->getByName('api.words.search');
+        $this->assertNotNull($route);
+        $this->assertNotContains(StartSession::class, app('router')->gatherRouteMiddleware($route));
     }
 }

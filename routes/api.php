@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MarkerTheoryTagController;
+use App\Http\Controllers\WordSearchController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Word;
@@ -34,5 +35,12 @@ Route::get('/search', function (\Illuminate\Http\Request $request) {
             'translation' => optional($word->translates->first())->translation ?? '',
         ];
     });
-})->name('words.search');
+})->name('api.search');
+
+// Test autocomplete must stay outside the web/session middleware. Test
+// progress is saved in parallel and a file-backed session would otherwise
+// serialize both requests, making the dropdown wait for the state write.
+Route::get('/word-search/{lang?}', [WordSearchController::class, 'search'])
+    ->where('lang', 'uk|en|pl')
+    ->name('api.words.search');
 

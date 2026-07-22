@@ -25,7 +25,7 @@
                 'score' => __('theory_blocks.practice.score'),
                 'answer' => __('theory_blocks.practice.answer'),
             ],
-            'wordSearchEndpoint' => localized_route('words.search'),
+            'wordSearchEndpoint' => route('api.words.search', ['lang' => app()->getLocale() === 'ua' ? 'uk' : app()->getLocale()]),
         ]))"
         class="rounded-2xl border border-border/60 bg-card overflow-visible"
     >

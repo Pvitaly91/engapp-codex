@@ -137,7 +137,7 @@ const JS_IS_ADMIN = Boolean(@json($isAdmin ?? false));
 window.__IS_ADMIN__ = JS_IS_ADMIN;
 const EXPLAIN_URL = '{{ localized_route('question.explain') }}';
 const MARKER_THEORY_URL = '{{ localized_route('question.marker-theory') }}';
-const WORD_SEARCH_URL = '{{ localized_route('words.search') }}';
+const WORD_SEARCH_URL = @json(route('api.words.search', ['lang' => app()->getLocale() === 'ua' ? 'uk' : app()->getLocale()]));
 const TEST_SLUG = @json($test->slug);
 const IS_POLYGLOT_STEP_PREVIEW = @json(\Illuminate\Support\Str::startsWith((string) $test->slug, 'polyglot-'));
 const COMPOSE_TOKENS_QUESTION_TYPE = @json((string) \App\Models\Question::TYPE_COMPOSE_TOKENS);

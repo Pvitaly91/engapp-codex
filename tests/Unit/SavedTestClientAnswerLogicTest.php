@@ -430,4 +430,22 @@ class SavedTestClientAnswerLogicTest extends TestCase
 
         return substr($source, $startPosition, $endPosition - $startPosition);
     }
+
+    public function test_rich_manual_word_suggestions_use_the_stateless_api_route(): void
+    {
+        $views = [
+            $this->resourcePath('views/test-modes/card-easy.blade.php'),
+            $this->resourcePath('views/test-modes/step-easy.blade.php'),
+            $this->resourcePath('views/test-modes/step-compose.blade.php'),
+            $this->resourcePath('views/components/word-search.blade.php'),
+            $this->resourcePath('views/engram/theory/blocks-v3/practice-set.blade.php'),
+        ];
+
+        foreach ($views as $view) {
+            $source = file_get_contents($view);
+
+            $this->assertStringContainsString("route('api.words.search'", $source, $view);
+            $this->assertStringNotContainsString("localized_route('words.search')", $source, $view);
+        }
+    }
 }

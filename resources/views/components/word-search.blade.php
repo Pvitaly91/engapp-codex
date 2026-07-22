@@ -35,7 +35,7 @@
 </div>
 <script>
 function wordSearch() {
-    const endpoint = @json(localized_route('words.search'));
+    const endpoint = @json(route('api.words.search', ['lang' => app()->getLocale() === 'ua' ? 'uk' : app()->getLocale()]));
 
     return {
         query: '',

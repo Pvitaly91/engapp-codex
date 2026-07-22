@@ -730,7 +730,7 @@
 window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
 window.__POLYGLOT_COMPOSE_CONFIG__ = @json($composeConfig);
 window.__POLYGLOT_PROGRESS_SYNC__ = @json($progressSyncPayload);
-window.__POLYGLOT_WORD_SEARCH_URL__ = @json(localized_route('words.search'));
+window.__POLYGLOT_WORD_SEARCH_URL__ = @json(route('api.words.search', ['lang' => app()->getLocale() === 'ua' ? 'uk' : app()->getLocale()]));
 </script>
 @include('components.saved-test-js-helpers')
 <script>

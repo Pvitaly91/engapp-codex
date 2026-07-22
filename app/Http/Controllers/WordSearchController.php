@@ -9,38 +9,67 @@ class WordSearchController extends Controller
 {
     public function search(Request $request)
     {
-        $query = $request->query('q', '');
+        $query = trim((string) $request->query('q', ''));
 
-        if (strlen($query) < 2) {
+        if (mb_strlen($query) < 2) {
             return response()->json([]);
         }
 
-        $locale = app()->getLocale();
+        $locale = strtolower((string) ($request->route('lang') ?: app()->getLocale()));
+        $locale = $locale === 'ua' ? 'uk' : $locale;
+        if (! in_array($locale, ['uk', 'en', 'pl'], true)) {
+            $locale = 'uk';
+        }
 
-        $words = Word::with('translate')
-            ->where('word', 'like', $query . '%')
+        $escapedQuery = addcslashes(mb_substr($query, 0, 64), '\\%_');
+
+        $words = Word::query()
+            ->with(['translates' => fn ($builder) => $builder
+                ->where('lang', $locale)
+                ->orderBy('id')])
+            ->where('word', 'like', $escapedQuery . '%')
             ->orderBy('word')
             ->limit(10)
             ->get();
 
-        $results = $words->map(function ($word) use ($locale) {
-            $translation = optional($word->translate)->translation;
-            $translationLang = optional($word->translate)->lang ?? $locale;
+        $translations = $words
+            ->map(fn (Word $word) => $word->translates->first()?->translation)
+            ->filter(fn ($translation) => filled($translation))
+            ->unique()
+            ->values();
 
-            $forms = [];
-            if ($word->type) {
-                $forms = Word::whereHas('translate', function ($q) use ($translation, $locale) {
-                        $q->where('lang', $locale)->where('translation', $translation);
-                    })
-                    ->get()
+        $formsByTranslation = $translations->isEmpty()
+            ? collect()
+            : Word::query()
+                ->join('translates', 'translates.word_id', '=', 'words.id')
+                ->where('translates.lang', $locale)
+                ->whereIn('translates.translation', $translations)
+                ->whereNotNull('words.type')
+                ->get([
+                    'words.word',
+                    'words.type',
+                    'translates.translation',
+                ])
+                ->groupBy('translation')
+                ->map(fn ($rows) => $rows
                     ->groupBy('type')
-                    ->map(fn($group) => $group->pluck('word')->all())
-                    ->toArray();
+                    ->map(fn ($forms) => $forms->pluck('word')->unique()->values()->all())
+                    ->all());
 
+        $results = $words->map(function (Word $word) use ($formsByTranslation, $locale) {
+            $translationModel = $word->translates->first();
+            $translation = $translationModel?->translation;
+            $translationLang = $translationModel?->lang ?? $locale;
+
+            $forms = $word->type && filled($translation)
+                ? ($formsByTranslation->get($translation, []))
+                : [];
+
+            if ($word->type) {
                 if (isset($forms[$word->type])) {
                     $forms[$word->type] = array_values(array_filter(
                         $forms[$word->type],
-                        fn($w) => $w !== $word->word
+                        fn ($form) => $form !== $word->word
                     ));
                     if (empty($forms[$word->type])) {
                         unset($forms[$word->type]);
@@ -60,7 +89,11 @@ class WordSearchController extends Controller
             ];
         })->values();
 
-        return response()->json($results);
+        return response()
+            ->json($results)
+            ->setPublic()
+            ->setMaxAge(300)
+            ->setSharedMaxAge(300);
     }
 }
 
