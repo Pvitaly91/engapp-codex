@@ -130,6 +130,32 @@
                                 @if(!empty($item['after']))
                                     <span class="font-semibold text-foreground">{!! $item['after'] !!}</span>
                                 @endif
+                                @if(!empty($item['before']) && is_string($item['before']) && str_contains($item['before'], '/'))
+                                    <div class="w-full">
+                                        <p class="mb-1.5 text-xs font-semibold text-muted-foreground flex items-center gap-2">
+                                            <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                                            {{ __('frontend.compose.token_bank') }}
+                                        </p>
+                                        <div class="flex flex-wrap items-center gap-1.5">
+                                            <template x-for="token in inputTokenBank({{ $index }})" :key="token.id">
+                                                <button
+                                                    type="button"
+                                                    @click="appendInputToken('inputs', {{ $index }}, token)"
+                                                    :disabled="token.used"
+                                                    :class="token.used
+                                                        ? 'border-emerald-200 bg-white/60 text-muted-foreground/80 cursor-not-allowed'
+                                                        : 'border-emerald-200 bg-white text-emerald-700 hover:bg-emerald-50 hover:text-emerald-900'"
+                                                    class="rounded-lg border px-3 py-1.5 text-sm font-semibold transition"
+                                                >
+                                                    <span x-text="token.value"></span>
+                                                </button>
+                                            </template>
+                                            <p x-show="isInputTokenBankEmpty({{ $index }})" class="text-xs text-muted-foreground">
+                                                {{ __('frontend.compose.empty_pool') }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                @endif
                                 <div class="relative min-w-[220px] flex-1 sm:max-w-md" @click.outside="closeWordSuggestions('inputs', {{ $index }})">
                                     <input
                                         type="text"
@@ -296,11 +322,96 @@
                 selectAnswers: {},
                 inputAnswers: {},
                 rephraseAnswers: {},
+                inputTokenBanks: {},
                 checkedGroups: {},
                 wordSuggestionResults: {},
                 wordSuggestionOpen: {},
                 wordSuggestionRanges: {},
                 wordSuggestionRequestIds: {},
+
+                init() {
+                    this.initInputTokenBanks();
+                },
+
+                initInputTokenBanks() {
+                    const banks = {};
+                    const inputItems = Array.isArray(this.inputs) ? this.inputs : [];
+
+                    inputItems.forEach((item, index) => {
+                        const tokens = this.extractInputTokens(item?.before);
+
+                        if (tokens.length === 0) {
+                            return;
+                        }
+
+                        banks[index] = tokens.map((value, tokenIndex) => ({
+                            id: `input-${index}-${tokenIndex}-${tokens.length}`,
+                            value,
+                            used: false,
+                        }));
+                    });
+
+                    this.inputTokenBanks = banks;
+                },
+
+                extractInputTokens(raw) {
+                    if (!raw || typeof raw !== 'string') return [];
+
+                    const tokens = String(raw)
+                        .split('/')
+                        .map((token) => String(token || '').trim())
+                        .filter((token) => token !== '');
+
+                    return tokens.length > 1 ? tokens : [];
+                },
+
+                inputTokenBank(index) {
+                    return this.inputTokenBanks[index] || [];
+                },
+
+                isInputTokenBankEmpty(index) {
+                    const bank = this.inputTokenBank(index);
+                    return bank.length > 0 && bank.every((token) => token.used);
+                },
+
+                resetInputTokenBanks() {
+                    const next = {};
+
+                    Object.keys(this.inputTokenBanks).forEach((key) => {
+                        next[key] = (this.inputTokenBanks[key] || []).map((token) => ({
+                            ...token,
+                            used: false,
+                        }));
+                    });
+
+                    this.inputTokenBanks = next;
+                },
+
+                appendInputToken(group, index, token) {
+                    if (group !== 'inputs') return;
+
+                    const bank = this.inputTokenBank(index);
+                    if (!Array.isArray(bank) || bank.length === 0) return;
+
+                    const tokenIndex = bank.findIndex((item) => item.id === token.id);
+
+                    if (tokenIndex < 0 || bank[tokenIndex]?.used) return;
+
+                    const nextBank = bank.map((item) => item.id === token.id ? { ...item, used: true } : item);
+                    const value = String(token?.value || '').trim();
+                    const current = String(this.inputAnswers[index] || '').trim();
+
+                    this.inputTokenBanks = { ...this.inputTokenBanks, [index]: nextBank };
+                    this.inputAnswers[index] = current ? `${current} ${value}` : value;
+
+                    this.$nextTick(() => {
+                        const input = document.querySelector(`[data-word-suggestion-input=\"inputs-${index}\"]`);
+
+                        if (!input) return;
+
+                        input.focus();
+                    });
+                },
 
                 check(group) {
                     this.checkedGroups[group] = true;
@@ -315,6 +426,7 @@
 
                     if (group === 'selects') this.selectAnswers = {};
                     if (group === 'inputs') this.inputAnswers = {};
+                    if (group === 'inputs') this.resetInputTokenBanks();
                     if (group === 'rephrase') this.rephraseAnswers = {};
                     this.closeAllWordSuggestions();
                 },
