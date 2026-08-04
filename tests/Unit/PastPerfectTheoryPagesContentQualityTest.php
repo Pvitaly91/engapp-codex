@@ -181,13 +181,53 @@ class PastPerfectTheoryPagesContentQualityTest extends TestCase
 
             $question = $practice['inputs'][1] ?? [];
             $this->assertSame(
-                'why / had / they / gone / home / before / the concert ended',
+                'home / the concert ended / why / gone / before / they / had',
                 $question['before'] ?? null
             );
             $this->assertSame(
                 'Why had they gone home before the concert ended?',
                 $question['answer'] ?? null
             );
+        }
+    }
+
+    public function test_word_order_fragments_are_scrambled_on_every_page_and_locale(): void
+    {
+        $expected = [
+            'PastPerfectFormsTheorySeeder' => [
+                'started / we arrived / the film / before / had',
+                'the report / began / Maya / Friday’s meeting / had / before / completed',
+            ],
+            'PastPerfectNegativesTheorySeeder' => [
+                "the door / before he left / hadn't / he / locked",
+                'found / a solution / the team / by midnight that night / had not',
+            ],
+            'PastPerfectQuestionsTheorySeeder' => [
+                'finished / by noon that day / you / had',
+                'home / the concert ended / why / gone / before / they / had',
+            ],
+            'PastPerfectTimeExpressionsTheorySeeder' => [
+                'already / before noon that day / left / they / had',
+                'closed / the shop / we arrived / had / by the time',
+            ],
+        ];
+
+        foreach ($expected as $directory => $scrambledInputs) {
+            $definition = $this->readJson(self::DIRECTORY.'/'.$directory.'/definition.json');
+            $practices = [$this->decodeBody($definition['page']['blocks'][5])];
+
+            foreach (['en', 'pl'] as $locale) {
+                $localization = $this->readJson(
+                    self::DIRECTORY.'/'.$directory.'/localizations/'.$locale.'.json'
+                );
+                $practices[] = $this->decodeBody(
+                    $this->blockAtIndex($localization['blocks'] ?? [], 6) ?? []
+                );
+            }
+
+            foreach ($practices as $practice) {
+                $this->assertSame($scrambledInputs, array_column($practice['inputs'] ?? [], 'before'));
+            }
         }
     }
 
