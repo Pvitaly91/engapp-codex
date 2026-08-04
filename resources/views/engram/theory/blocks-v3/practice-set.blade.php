@@ -134,7 +134,7 @@
                                     <div class="w-full">
                                         <p class="mb-1.5 text-xs font-semibold text-muted-foreground flex items-center gap-2">
                                             <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                                            {{ __('frontend.compose.token_bank') }}
+                                            {{ __('frontend.tests.compose.token_bank') }}
                                         </p>
                                         <div class="flex flex-wrap items-center gap-1.5">
                                             <template x-for="token in inputTokenBank({{ $index }})" :key="token.id">
@@ -151,7 +151,7 @@
                                                 </button>
                                             </template>
                                             <p x-show="isInputTokenBankEmpty({{ $index }})" class="text-xs text-muted-foreground">
-                                                {{ __('frontend.compose.empty_pool') }}
+                                                {{ __('frontend.tests.compose.empty_pool') }}
                                             </p>
                                         </div>
                                     </div>
@@ -161,8 +161,8 @@
                                         type="text"
                                         x-model="inputAnswers[{{ $index }}]"
                                         :class="fieldClass('inputs', {{ $index }})"
+                                        @input="syncInputTokenBank({{ $index }})"
                                         @input.debounce.150ms="searchWordSuggestions('inputs', {{ $index }}, $event)"
-                                        @focus="searchWordSuggestions('inputs', {{ $index }}, $event)"
                                         @keydown.escape.stop.prevent="closeWordSuggestions('inputs', {{ $index }})"
                                         @keydown.enter="maybeSelectFirstWordSuggestion('inputs', {{ $index }}, $event)"
                                         data-word-suggestion-input="inputs-{{ $index }}"
@@ -374,6 +374,47 @@
                     return bank.length > 0 && bank.every((token) => token.used);
                 },
 
+                syncInputTokenBank(index) {
+                    const bank = this.inputTokenBank(index);
+                    if (!Array.isArray(bank) || bank.length === 0) return;
+
+                    const words = this.inputTokenWords(this.inputAnswers[index]);
+                    const usedIds = new Set();
+
+                    for (let wordIndex = 0; wordIndex < words.length;) {
+                        const matchingToken = bank.find((token) => {
+                            if (usedIds.has(token.id)) return false;
+
+                            const tokenWords = this.inputTokenWords(token.value);
+
+                            return tokenWords.length > 0
+                                && tokenWords.every((word, offset) => words[wordIndex + offset] === word);
+                        });
+
+                        if (!matchingToken) {
+                            wordIndex += 1;
+                            continue;
+                        }
+
+                        usedIds.add(matchingToken.id);
+                        wordIndex += this.inputTokenWords(matchingToken.value).length;
+                    }
+
+                    this.inputTokenBanks = {
+                        ...this.inputTokenBanks,
+                        [index]: bank.map((token) => ({ ...token, used: usedIds.has(token.id) })),
+                    };
+                },
+
+                inputTokenWords(value) {
+                    return String(value || '')
+                        .toLocaleLowerCase()
+                        .replace(/[.,!?;:()]+/g, ' ')
+                        .trim()
+                        .split(/\s+/)
+                        .filter(Boolean);
+                },
+
                 resetInputTokenBanks() {
                     const next = {};
 
@@ -389,6 +430,8 @@
 
                 appendInputToken(group, index, token) {
                     if (group !== 'inputs') return;
+
+                    this.closeWordSuggestions(group, index);
 
                     const bank = this.inputTokenBank(index);
                     if (!Array.isArray(bank) || bank.length === 0) return;
@@ -525,6 +568,9 @@
 
                 closeWordSuggestions(group, index) {
                     const key = this.suggestionKey(group, index);
+                    const requestId = (this.wordSuggestionRequestIds[key] || 0) + 1;
+
+                    this.wordSuggestionRequestIds = { ...this.wordSuggestionRequestIds, [key]: requestId };
                     this.wordSuggestionOpen = { ...this.wordSuggestionOpen, [key]: false };
                 },
 
