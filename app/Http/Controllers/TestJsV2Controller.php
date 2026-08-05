@@ -21,6 +21,7 @@ use App\Support\ComposeModeEligibility;
 use App\Support\ComposeTokenCase;
 use App\Support\PromptGeneratorFilterNormalizer;
 use App\Support\SavedTestJsState;
+use App\Support\SentenceReorderQuestionFactory;
 use App\Support\SentenceBuilderBranding;
 use App\Support\VirtualTestRegistry;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
@@ -424,7 +425,7 @@ class TestJsV2Controller extends Controller
 
         $preferredVerbHintLocales = $this->preferredVerbHintLocales();
 
-        return $questions->map(function ($q) use ($controller, $technicalInfoByQuestionId, $preferredVerbHintLocales) {
+        $payload = $questions->map(function ($q) use ($controller, $technicalInfoByQuestionId, $preferredVerbHintLocales) {
             $answers = $controller->sortAnswersByMarker($q->answers)
                 ->map(function ($a) {
                     return [
@@ -541,6 +542,11 @@ class TestJsV2Controller extends Controller
                 'tech_info' => $technicalInfoByQuestionId[$q->id] ?? null,
             ];
         })->values()->all();
+
+        return SentenceReorderQuestionFactory::addToMixedTheoryTest(
+            $payload,
+            $this->normalizedTestFilters($test)
+        );
     }
 
     protected function preferredVerbHintLocales(): array

@@ -144,6 +144,7 @@ const COMPOSE_TOKENS_QUESTION_TYPE = @json((string) \App\Models\Question::TYPE_C
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
 @include('components.saved-test-js-helpers')
+@include('components.sentence-reorder-question-js')
 @include('components.marker-theory-js')
 <script>
 const POLYGLOT_OPTIONS_PER_SLOT = 4;
@@ -512,6 +513,21 @@ function render() {
       const currentQ = state.items[currentIdx];
       if (!currentQ) return;
 
+      const reorderButton = e.target.closest('button[data-reorder-action]');
+      if (reorderButton) {
+        e.preventDefault();
+        e.stopPropagation();
+        const result = applySentenceReorderAction(currentQ, reorderButton);
+        if (!result) return;
+        if (result === 'checked' && currentQ.feedback === 'correct') {
+          state.correct += 1;
+        }
+        render();
+        updateProgress();
+        persistState(state);
+        return;
+      }
+
       const suggestionBtn = e.target.closest('button[data-word-suggestion]');
       if (suggestionBtn) {
         e.preventDefault();
@@ -561,6 +577,10 @@ function render() {
 }
 
 function renderOptionsBlock(q, activeOptions = getActiveOptions(q)) {
+  if (isSentenceReorderQuestion(q)) {
+    return '';
+  }
+
   const expanded = Boolean(q.optionsExpanded);
   const toggleText = expanded
     ? testUi('question.hide_options', {}, 'Сховати варіанти')
@@ -1240,6 +1260,10 @@ function submitManualAnswer(idx, slotIndex, value) {
 }
 
 function renderSentence(q, idx) {
+  if (isSentenceReorderQuestion(q)) {
+    return renderSentenceReorderQuestion(q);
+  }
+
   let text = q.question;
   q.answers.forEach((ans, i) => {
     const marker = getMarkerLabel(q, i);

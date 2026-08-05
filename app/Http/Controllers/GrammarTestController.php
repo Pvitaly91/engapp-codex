@@ -27,6 +27,7 @@ use App\Support\AcceptedAnswerVariants;
 use App\Support\AnswerOptionCase;
 use App\Support\ComposeTokenCase;
 use App\Support\SavedTestJsState;
+use App\Support\SentenceReorderQuestionFactory;
 use App\Support\SentenceBuilderBranding;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -574,7 +575,7 @@ class GrammarTestController extends Controller
 
         $preferredVerbHintLocales = $this->preferredVerbHintLocales();
 
-        return $questions->map(function ($q) use ($controller, $technicalInfoByQuestionId, $preferredVerbHintLocales) {
+        $payload = $questions->map(function ($q) use ($controller, $technicalInfoByQuestionId, $preferredVerbHintLocales) {
             $answers = $this->sortAnswersByMarker($q->answers)
                 ->map(function ($a) {
                     return [
@@ -645,6 +646,8 @@ class GrammarTestController extends Controller
                 'tech_info' => $technicalInfoByQuestionId[$q->id] ?? null,
             ];
         })->values()->all();
+
+        return SentenceReorderQuestionFactory::addToMixedTheoryTest($payload, $testFilters);
     }
 
     private function normalizeOptionsByMarker($rawOptions, array $markers): ?array
