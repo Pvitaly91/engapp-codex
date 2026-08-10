@@ -75,6 +75,7 @@ class FuturePerfectTheoryPagesContentQualityTest extends TestCase
 
         $practice = $this->decodeBody($blocks[$practicePosition]);
         $this->assertSame($ukrainianTitle, $practice['title'] ?? null);
+        $this->assertSame('Вправа 3. Поліглот', $practice['rephrase_title'] ?? null);
         $this->assertPracticeIsCheckableAndScrambled($practice);
         $this->assertCurrentLesson(
             $this->decodeBody($blocks[$practicePosition + 1]),
@@ -117,6 +118,10 @@ class FuturePerfectTheoryPagesContentQualityTest extends TestCase
                 array_column($practice['inputs'], 'answer'),
                 array_column($localizedPractice['inputs'], 'answer')
             );
+            $this->assertSame(
+                array_column($practice['rephrase'], 'answer'),
+                array_column($localizedPractice['rephrase'], 'answer')
+            );
 
             $this->assertCurrentLesson(
                 $this->decodeBody($localizedNavigationBlock),
@@ -131,6 +136,8 @@ class FuturePerfectTheoryPagesContentQualityTest extends TestCase
         $this->assertSame(['a', 'b'], $practice['options'] ?? null);
         $this->assertCount(2, $practice['selects'] ?? []);
         $this->assertCount(2, $practice['inputs'] ?? []);
+        $this->assertNotSame('', trim((string) ($practice['rephrase_intro'] ?? '')));
+        $this->assertCount(3, $practice['rephrase'] ?? []);
 
         foreach ($practice['selects'] as $select) {
             $this->assertContains($select['answer'] ?? null, $practice['options']);
@@ -163,6 +170,15 @@ class FuturePerfectTheoryPagesContentQualityTest extends TestCase
                 $this->normalizeSentence($answer),
                 'The token bank must not start in the correct answer order.'
             );
+        }
+
+        $example = $practice['rephrase'][0] ?? [];
+        $this->assertNotSame('', trim((string) ($example['example_original'] ?? '')));
+        $this->assertNotSame('', trim((string) ($example['example_target'] ?? '')));
+
+        foreach (array_slice($practice['rephrase'], 1) as $item) {
+            $this->assertNotSame('', trim((string) ($item['original'] ?? '')));
+            $this->assertNotSame('', trim((string) ($item['answer'] ?? '')));
         }
     }
 
