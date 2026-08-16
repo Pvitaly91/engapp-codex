@@ -94,6 +94,8 @@ class FuturePerfectTheoryPagesContentQualityTest extends TestCase
         $practice = $this->decodeBody($blocks[$practicePosition]);
         $this->assertSame($ukrainianTitle, $practice['title'] ?? null);
         $this->assertPracticeUsesLinkedSentenceBuilder($practice, $questionSeeder, 'uk');
+        $this->assertSame('Вправа 2. Побудуй речення', $practice['linked_practice']['title'] ?? null);
+        $this->assertSame('Постав слова у правильному порядку.', $practice['linked_practice']['intro'] ?? null);
         $this->assertCurrentLessonAndCanonicalRoutes(
             $this->decodeBody($blocks[$practicePosition + 1]),
             $currentLesson,
