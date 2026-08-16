@@ -75,7 +75,7 @@ class FuturePerfectTheoryPagesContentQualityTest extends TestCase
 
         $practice = $this->decodeBody($blocks[$practicePosition]);
         $this->assertSame($ukrainianTitle, $practice['title'] ?? null);
-        $this->assertSame('Вправа 3. Поліглот', $practice['rephrase_title'] ?? null);
+        $this->assertSame('Вправа 3. Переклади речення', $practice['rephrase_title'] ?? null);
         $this->assertPracticeIsCheckableAndScrambled($practice);
         $this->assertCurrentLesson(
             $this->decodeBody($blocks[$practicePosition + 1]),
