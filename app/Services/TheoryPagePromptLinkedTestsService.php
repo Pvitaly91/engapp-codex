@@ -404,7 +404,13 @@ class TheoryPagePromptLinkedTestsService
         Collection $linkedTests,
         Collection $definitionsBySeeder
     ): ?VirtualSavedTest {
-        $seederClasses = $this->aggregateSeederClassesForPage($linkedTests, $definitionsBySeeder);
+        $defaultSeederClasses = $this->aggregateSeederClassesForPage($linkedTests, $definitionsBySeeder);
+        $seederClasses = $this->applyLocaleMixedSeederOverrides($defaultSeederClasses, $linkedTests);
+
+        if ($seederClasses->all() !== $defaultSeederClasses->all()
+            && ! $this->everySeederHasQuestions($seederClasses)) {
+            $seederClasses = $defaultSeederClasses;
+        }
 
         if ($seederClasses->isEmpty()) {
             return null;
@@ -493,6 +499,82 @@ class TheoryPagePromptLinkedTestsService
 
         return Str::contains($normalized, '\\v3\\')
             && ! Str::contains($normalized, '\\v3\\polyglot\\');
+    }
+
+    protected function applyLocaleMixedSeederOverrides(
+        Collection $seederClasses,
+        Collection $linkedTests,
+        ?string $locale = null
+    ): Collection
+    {
+        $normalizedLocale = Str::lower(trim((string) ($locale ?? app()->getLocale())));
+        $normalizedLocale = $normalizedLocale === 'ua' ? 'uk' : $normalizedLocale;
+
+        if ($normalizedLocale === '') {
+            return $seederClasses->values();
+        }
+
+        $overrides = [];
+
+        foreach ($linkedTests as $test) {
+            if (! $test instanceof SavedGrammarTest) {
+                continue;
+            }
+
+            $filters = is_array($test->filters) ? $test->filters : [];
+            $localeOverrides = Arr::get(
+                $filters,
+                '__meta.theory_page_mixed_locale_seeder_overrides.' . $normalizedLocale,
+                []
+            );
+
+            if (! is_array($localeOverrides)) {
+                continue;
+            }
+
+            foreach ($localeOverrides as $sourceSeeder => $replacementSeeder) {
+                $source = trim((string) $sourceSeeder);
+                $replacement = trim((string) $replacementSeeder);
+
+                if ($source !== '' && $replacement !== '') {
+                    $overrides[Str::lower($source)] = $replacement;
+                }
+            }
+        }
+
+        if ($overrides === []) {
+            return $seederClasses->values();
+        }
+
+        return $seederClasses
+            ->map(function ($className) use ($overrides): string {
+                $className = trim((string) $className);
+
+                return $overrides[Str::lower($className)] ?? $className;
+            })
+            ->filter()
+            ->unique(fn (string $className) => Str::lower($className))
+            ->values();
+    }
+
+    protected function everySeederHasQuestions(Collection $seederClasses): bool
+    {
+        if ($seederClasses->isEmpty()) {
+            return false;
+        }
+
+        $availableSeeders = Question::query()
+            ->whereIn('seeder', $seederClasses->all())
+            ->distinct()
+            ->pluck('seeder')
+            ->map(fn ($className) => Str::lower(trim((string) $className)))
+            ->filter()
+            ->all();
+
+        return $seederClasses
+            ->map(fn ($className) => Str::lower(trim((string) $className)))
+            ->filter()
+            ->every(fn (string $className): bool => in_array($className, $availableSeeders, true));
     }
 
     protected function referenceFiltersForAggregatedTests(Collection $linkedTests, Collection $definitionsBySeeder): array

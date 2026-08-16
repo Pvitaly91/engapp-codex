@@ -92,6 +92,18 @@ class SavedTestResolver
         }
 
         $filters = $payload['filters'] ?? null;
+
+        // Static theory-page Mixed slugs are shared by every interface locale.
+        // Rebuild their filters from the page so a cached UK selection cannot
+        // leak into EN/PL (or preserve an older, pre-override UK selection).
+        if (is_array($filters) && $this->shouldResolveFreshTheoryPageMixedTest($filters)) {
+            $freshTheoryPageTest = $this->resolveFromTheoryPageSlug($slug);
+
+            if ($freshTheoryPageTest) {
+                return $freshTheoryPageTest;
+            }
+        }
+
         if (! is_array($filters) || ! $this->validateFilterStructure($filters)) {
             return null;
         }
@@ -109,6 +121,12 @@ class SavedTestResolver
             $description,
             is_numeric($totalQuestionsAvailable) ? (int) $totalQuestionsAvailable : 0
         );
+    }
+
+    protected function shouldResolveFreshTheoryPageMixedTest(array $filters): bool
+    {
+        return Arr::get($filters, '__meta.theory_page_static_slug') === true
+            && Arr::get($filters, '__meta.theory_page_mixed_all_levels_test') === true;
     }
 
     private function resolveFromTheoryPageSlug(string $slug): ?ResolvedSavedTest
