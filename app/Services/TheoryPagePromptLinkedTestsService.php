@@ -53,7 +53,7 @@ class TheoryPagePromptLinkedTestsService
         $definitionsBySeeder = $linkedSeederClasses->isNotEmpty()
             ? collect()
             : $this->promptLinkedSeederDefinitionsForPage($page);
-        $mixedAllLevelsTest = $this->buildMixedAllLevelsTestForPage($page, $allLinkedTests, $definitionsBySeeder);
+        $mixedAllLevelsTest = $this->buildMixedAllLevelsTestForPage($page, $linkedTests, $definitionsBySeeder);
 
         if ($this->shouldReturnDirectLinkedTests($linkedTests, $directLinkedTests)) {
             return $this->appendMixedAllLevelsTest($directLinkedTests->values(), $mixedAllLevelsTest);

@@ -59,6 +59,113 @@ class TextBlockToQuestionsMatcherTest extends TestCase
     }
 
     /** @test */
+    public function explicit_linked_practice_uses_the_exact_untagged_page_pool_while_tag_fallback_stays_unchanged(): void
+    {
+        $pageCategory = PageCategory::create([
+            'title' => 'Grammar',
+            'slug' => 'grammar',
+            'language' => 'en',
+        ]);
+        $page = Page::create([
+            'title' => 'Exact practice',
+            'slug' => 'exact-practice',
+            'page_category_id' => $pageCategory->id,
+        ]);
+        $linkedTheoryBlock = TextBlock::create([
+            'uuid' => (string) Str::uuid(),
+            'body' => json_encode(['title' => 'Theory']),
+            'page_id' => $page->id,
+            'page_category_id' => $pageCategory->id,
+            'sort_order' => 1,
+        ]);
+        $practiceBlock = TextBlock::create([
+            'uuid' => (string) Str::uuid(),
+            'type' => 'practice-set',
+            'body' => json_encode([
+                'linked_practice' => [
+                    'source' => 'theory_links',
+                    'question_types' => [Question::TYPE_COMPOSE_TOKENS],
+                    'seeder_classes' => ['ExactPracticeSeeder'],
+                ],
+            ]),
+            'page_id' => $page->id,
+            'page_category_id' => $pageCategory->id,
+            'sort_order' => 2,
+        ]);
+        $otherPage = Page::create([
+            'title' => 'Other practice',
+            'slug' => 'other-practice',
+            'page_category_id' => $pageCategory->id,
+        ]);
+        $otherBlock = TextBlock::create([
+            'uuid' => (string) Str::uuid(),
+            'body' => json_encode(['title' => 'Other theory']),
+            'page_id' => $otherPage->id,
+            'page_category_id' => $pageCategory->id,
+            'sort_order' => 1,
+        ]);
+        $category = Category::create(['name' => 'Test Category']);
+
+        $expected = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Build the exact sentence',
+            'difficulty' => 1,
+            'type' => Question::TYPE_COMPOSE_TOKENS,
+            'category_id' => $category->id,
+            'seeder' => 'ExactPracticeSeeder',
+        ]);
+        $wrongType = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Wrong type',
+            'difficulty' => 1,
+            'type' => '0',
+            'category_id' => $category->id,
+            'seeder' => 'ExactPracticeSeeder',
+        ]);
+        $wrongSeeder = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Wrong seeder',
+            'difficulty' => 1,
+            'type' => Question::TYPE_COMPOSE_TOKENS,
+            'category_id' => $category->id,
+            'seeder' => 'SiblingPracticeSeeder',
+        ]);
+        $wrongPage = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Wrong page',
+            'difficulty' => 1,
+            'type' => Question::TYPE_COMPOSE_TOKENS,
+            'category_id' => $category->id,
+            'seeder' => 'ExactPracticeSeeder',
+        ]);
+
+        DB::table('question_theory_text_blocks')->insert([
+            $this->theoryLink($expected, $linkedTheoryBlock),
+            $this->theoryLink($wrongType, $linkedTheoryBlock),
+            $this->theoryLink($wrongSeeder, $linkedTheoryBlock),
+            $this->theoryLink($wrongPage, $otherBlock),
+        ]);
+
+        $result = $this->service->findQuestionsForTextBlocks(
+            TextBlock::query()->whereKey($practiceBlock->id)->get(),
+            10
+        );
+
+        $this->assertArrayHasKey($practiceBlock->uuid, $result);
+        $this->assertSame([$expected->id], $result[$practiceBlock->uuid]->pluck('id')->all());
+
+        $plainUntaggedBlock = TextBlock::create([
+            'uuid' => (string) Str::uuid(),
+            'body' => json_encode(['title' => 'No opt-in']),
+            'page_id' => $page->id,
+            'page_category_id' => $pageCategory->id,
+            'sort_order' => 3,
+        ]);
+
+        $this->assertTrue($this->service->findBestQuestionsForTextBlock($plainUntaggedBlock)->isEmpty());
+    }
+
+    /** @test */
     public function it_finds_questions_matching_block_tags(): void
     {
         $pageCategory = PageCategory::create([
@@ -680,7 +787,25 @@ class TextBlockToQuestionsMatcherTest extends TestCase
                 $table->string('theory_text_block_uuid', 36)->nullable();
                 $table->unsignedBigInteger('category_id')->nullable();
                 $table->string('seeder')->nullable();
+                $table->string('type')->nullable();
                 $table->timestamps();
+            });
+        }
+
+        if (! Schema::hasColumn('questions', 'type')) {
+            Schema::table('questions', function (Blueprint $table) {
+                $table->string('type')->nullable();
+            });
+        }
+
+        if (! Schema::hasTable('question_theory_text_blocks')) {
+            Schema::create('question_theory_text_blocks', function (Blueprint $table) {
+                $table->id();
+                $table->uuid('question_uuid');
+                $table->uuid('text_block_uuid');
+                $table->unsignedInteger('position')->default(0);
+                $table->timestamps();
+                $table->unique(['question_uuid', 'text_block_uuid'], 'qttb_matcher_question_block_unique');
             });
         }
 
@@ -758,6 +883,7 @@ class TextBlockToQuestionsMatcherTest extends TestCase
     {
         foreach ([
             'question_answers',
+            'question_theory_text_blocks',
             'question_option_question',
             'question_options',
             'question_marker_tag',
@@ -776,5 +902,17 @@ class TextBlockToQuestionsMatcherTest extends TestCase
                 DB::table($table)->delete();
             }
         }
+    }
+
+    /** @return array<string, mixed> */
+    private function theoryLink(Question $question, TextBlock $block): array
+    {
+        return [
+            'question_uuid' => $question->uuid,
+            'text_block_uuid' => $block->uuid,
+            'position' => 0,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ];
     }
 }

@@ -40,5 +40,8 @@ return [
         'next_question' => 'Następne pytanie',
         'start_over' => 'Zacznij od nowa',
         'footer' => 'Pytania praktyczne dopasowane według tagów tematu',
+        'compose_prompt' => 'Ułóż zdanie z poniższych tokenów',
+        'compose_empty' => 'Odpowiedź nie została ułożona',
+        'your_answer' => 'Twoja odpowiedź',
     ],
 ];

@@ -4,6 +4,7 @@
     $inputs = $data['inputs'] ?? [];
     $rephrase = $data['rephrase'] ?? [];
     $options = $data['options'] ?? [];
+    $linkedPractice = is_array($data['linked_practice'] ?? null) ? $data['linked_practice'] : [];
     $practiceSetId = 'practice-set-' . ($block->uuid ?? $block->id);
     $hasCheckableSelects = collect($selects)->contains(fn ($item) => !empty($item['answer']) || !empty($item['accepted']));
     $hasCheckableInputs = collect($inputs)->contains(fn ($item) => !empty($item['answer']) || !empty($item['accepted']));
@@ -305,7 +306,13 @@
             <x-text-block-tags :block="$block" />
 
             {{-- Practice Questions --}}
-            <x-text-block-practice-questions :questions="$practiceQuestions ?? collect()" :blockUuid="$block->uuid" />
+            <x-text-block-practice-questions
+                :questions="$practiceQuestions ?? collect()"
+                :blockUuid="$block->uuid"
+                :title="$linkedPractice['title'] ?? null"
+                :intro="$linkedPractice['intro'] ?? null"
+                :footer="$linkedPractice['footer'] ?? null"
+            />
         </div>
     </div>
 </section>

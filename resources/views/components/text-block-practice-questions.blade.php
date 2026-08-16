@@ -1,4 +1,10 @@
-@props(['questions', 'blockUuid' => null])
+@props([
+    'questions',
+    'blockUuid' => null,
+    'title' => null,
+    'intro' => null,
+    'footer' => null,
+])
 
 @php
     $questions = $questions ?? collect();
@@ -94,14 +100,22 @@
             })
             ->values();
         
+        $correctTokens = $answers->pluck('correct')->filter()->values()->toArray();
+        $options = $q->options->pluck('option')->toArray();
+
+        if ((string) $q->type === (string) \App\Models\Question::TYPE_COMPOSE_TOKENS) {
+            $correctTokens = \App\Support\ComposeTokenCase::normalize($correctTokens);
+            $options = \App\Support\ComposeTokenCase::mergeOptions($options, $correctTokens);
+        }
+
         return [
             'id' => $q->id,
             'type' => (string) $q->type,
             'question' => $q->question,
             'level' => $q->level,
-            'options' => $q->options->pluck('option')->toArray(),
+            'options' => $options,
             'answers' => $answers->toArray(),
-            'correct_tokens' => $answers->pluck('correct')->filter()->values()->toArray(),
+            'correct_tokens' => $correctTokens,
             'verb_hints' => $verbHints,
             'hints' => $hints,
             'tags' => $tags->toArray(),
@@ -122,6 +136,9 @@
         'next_question' => __('theory_blocks.practice_questions.next_question'),
         'start_over' => __('theory_blocks.practice_questions.start_over'),
         'footer' => __('theory_blocks.practice_questions.footer'),
+        'compose_prompt' => __('theory_blocks.practice_questions.compose_prompt'),
+        'compose_empty' => __('theory_blocks.practice_questions.compose_empty'),
+        'your_answer' => __('theory_blocks.practice_questions.your_answer'),
     ];
 @endphp
 
@@ -130,16 +147,22 @@
         <div 
             x-data="practiceQuestion_{{ str_replace('-', '_', $uniqueId) }}()"
             x-init="init()"
+            data-sentence-builder
             class="rounded-xl border border-dashed border-border/60 bg-gradient-to-br from-primary/5 to-transparent p-4"
         >
             {{-- Header --}}
-            <div class="flex items-center justify-between mb-4">
-                <h4 class="flex items-center gap-2 text-sm font-semibold text-foreground">
-                    <svg class="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                    </svg>
-                    {{ __('theory_blocks.practice_questions.title') }}
-                </h4>
+            <div class="mb-4 flex items-start justify-between gap-4">
+                <div>
+                    <h4 class="flex items-center gap-2 text-sm font-semibold text-foreground">
+                        <svg class="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                        {{ $title ?: __('theory_blocks.practice_questions.title') }}
+                    </h4>
+                    @if(filled($intro))
+                        <p class="mt-1 text-xs text-muted-foreground">{{ $intro }}</p>
+                    @endif
+                </div>
                 <div class="flex items-center gap-2 text-xs text-muted-foreground">
                     <span x-text="practiceI18n.question_prefix + (currentIndex + 1) + '/' + questions.length"></span>
                     <span class="text-emerald-600 font-medium" x-show="correctCount > 0" x-text="'✓ ' + correctCount"></span>
@@ -220,10 +243,10 @@
             <div class="mb-4 space-y-3" x-show="isComposeQuestion()">
                 <div class="min-h-[48px] rounded-lg border border-border/70 bg-background px-3 py-2">
                     <template x-if="selectedTokens.length === 0 && !answered">
-                        <span class="text-xs text-muted-foreground">Складіть переклад речення з токенів нижче</span>
+                        <span class="text-xs text-muted-foreground">{{ __('theory_blocks.practice_questions.compose_prompt') }}</span>
                     </template>
                     <template x-if="selectedTokens.length === 0 && answered">
-                        <span class="text-xs text-muted-foreground">Відповідь не складена</span>
+                        <span class="text-xs text-muted-foreground">{{ __('theory_blocks.practice_questions.compose_empty') }}</span>
                     </template>
                     <div class="flex flex-wrap gap-2" x-show="selectedTokens.length > 0">
                         <template x-for="token in selectedTokens" :key="token.id">
@@ -315,7 +338,7 @@
                 {{-- Explanation/Hint (shown after answering) --}}
                 <template x-if="isComposeQuestion()">
                     <div class="rounded-lg border border-border/70 bg-background p-3 text-sm">
-                        <div class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-muted-foreground">Твоя відповідь</div>
+                        <div class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-muted-foreground">{{ __('theory_blocks.practice_questions.your_answer') }}</div>
                         <div class="mt-1 font-semibold text-foreground" x-text="composeSelectedText() || '—'"></div>
                     </div>
                 </template>
@@ -348,7 +371,7 @@
             
             {{-- Footer --}}
             <p class="text-[10px] text-muted-foreground/70 text-center">
-                {{ __('theory_blocks.practice_questions.footer') }}
+                {{ $footer ?: __('theory_blocks.practice_questions.footer') }}
             </p>
         </div>
     </div>
@@ -596,6 +619,13 @@
                         [items[i], items[j]] = [items[j], items[i]];
                     }
 
+                    if (
+                        items.length > 1
+                        && items.every((item, index) => item.value === tokens[index])
+                    ) {
+                        items.push(items.shift());
+                    }
+
                     return items;
                 },
 
@@ -614,24 +644,53 @@
                 },
 
                 composeCorrectText() {
-                    const text = (this.currentQuestion?.correct_tokens || [])
+                    const tokens = (this.currentQuestion?.correct_tokens || [])
                         .map(value => String(value || '').trim())
-                        .filter(Boolean)
-                        .join(' ');
+                        .filter(Boolean);
 
-                    if (!text) return '';
-
-                    const punctuation = String(this.currentQuestion?.question || '').trim().endsWith('?') ? '?' : '.';
-                    return `${text}${punctuation}`.replace(/\s+([?.!,;:])/g, '$1');
+                    return this.composeTextFromTokens(tokens);
                 },
 
                 composeSelectedText() {
-                    const text = this.selectedTokens.map(token => token.value).join(' ').trim();
+                    return this.composeTextFromTokens(
+                        this.selectedTokens.map(token => String(token.value || '').trim()).filter(Boolean)
+                    );
+                },
 
-                    if (!text) return '';
+                composeTextFromTokens(tokens) {
+                    if (!Array.isArray(tokens) || tokens.length === 0) return '';
 
-                    const punctuation = String(this.currentQuestion?.question || '').trim().endsWith('?') ? '?' : '.';
+                    const shortAnswerIndex = tokens.findIndex((token, index) => (
+                        index > 0 && /^(?:yes|no)$/i.test(token)
+                    ));
+
+                    if (shortAnswerIndex > 0) {
+                        const question = tokens.slice(0, shortAnswerIndex).join(' ');
+                        const answerTokens = tokens.slice(shortAnswerIndex);
+                        const answerLead = String(answerTokens.shift() || '');
+                        const formattedAnswerLead = answerLead.charAt(0).toUpperCase() + answerLead.slice(1).toLowerCase();
+                        const answer = answerTokens.join(' ');
+
+                        return `${question}? ${formattedAnswerLead}, ${answer}.`
+                            .replace(/\s+([?.!,;:])/g, '$1');
+                    }
+
+                    const text = tokens.join(' ').trim();
+                    const punctuation = this.composePunctuation(text);
+
                     return `${text}${punctuation}`.replace(/\s+([?.!,;:])/g, '$1');
+                },
+
+                composePunctuation(text) {
+                    const source = String(this.currentQuestion?.question || '').trim();
+                    const normalized = String(text || '').trim();
+
+                    if (/[?.!]$/.test(normalized)) return '';
+                    if (source.endsWith('?')) return '?';
+
+                    return /^(?:(?:by\s+(?:when|what\s+time))|will|what|when|where|why|who|which|how)\b/i.test(normalized)
+                        ? '?'
+                        : '.';
                 },
 
                 normalizeAnswer(value) {

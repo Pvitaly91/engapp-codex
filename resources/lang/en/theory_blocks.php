@@ -40,5 +40,8 @@ return [
         'next_question' => 'Next question',
         'start_over' => 'Start over',
         'footer' => 'Practice questions matched by topic tags',
+        'compose_prompt' => 'Build the sentence from the tokens below',
+        'compose_empty' => 'No answer has been built',
+        'your_answer' => 'Your answer',
     ],
 ];

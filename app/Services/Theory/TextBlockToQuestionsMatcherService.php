@@ -15,6 +15,8 @@ class TextBlockToQuestionsMatcherService
 
     private static ?bool $hasQuestionTagTable = null;
 
+    private static ?bool $hasQuestionTheoryTextBlocksTable = null;
+
     private static ?bool $hasQuestionLevelColumn = null;
 
     private static ?bool $hasQuestionSeederColumn = null;
@@ -30,6 +32,17 @@ class TextBlockToQuestionsMatcherService
         int $limit = 5,
         array $excludeQuestionIds = []
     ): Collection {
+        $linkedPractice = $this->linkedPracticeConfig($block);
+
+        if (($linkedPractice['source'] ?? null) === 'theory_links') {
+            return $this->loadExplicitlyLinkedQuestions(
+                $block,
+                $limit,
+                $excludeQuestionIds,
+                $linkedPractice
+            );
+        }
+
         if (! $block->relationLoaded('tags')) {
             $block->load('tags:id,name');
         }
@@ -92,6 +105,116 @@ class TextBlockToQuestionsMatcherService
         });
     }
 
+    /**
+     * Read the opt-in practice selection contract from a structured theory block.
+     *
+     * @return array{source?: string, question_types?: array<int, string>, seeder_classes?: array<int, string>}
+     */
+    private function linkedPracticeConfig(TextBlock $block): array
+    {
+        $body = json_decode((string) $block->body, true);
+        $config = is_array($body) && is_array($body['linked_practice'] ?? null)
+            ? $body['linked_practice']
+            : [];
+
+        $source = strtolower(trim((string) ($config['source'] ?? '')));
+        $questionTypes = collect($config['question_types'] ?? [])
+            ->map(fn ($type): string => trim((string) $type))
+            ->filter()
+            ->unique()
+            ->values()
+            ->all();
+        $seederClasses = collect($config['seeder_classes'] ?? [])
+            ->map(fn ($class): string => trim((string) $class))
+            ->filter()
+            ->unique()
+            ->values()
+            ->all();
+
+        return array_filter([
+            'source' => $source,
+            'question_types' => $questionTypes,
+            'seeder_classes' => $seederClasses,
+        ], static fn ($value): bool => $value !== '' && $value !== []);
+    }
+
+    /**
+     * Load the curated pool attached to any theory block on this page, then
+     * narrow it through the practice contract instead of broad page tags.
+     *
+     * @param  array<int>  $excludeQuestionIds
+     * @param  array{question_types?: array<int, string>, seeder_classes?: array<int, string>}  $config
+     */
+    private function loadExplicitlyLinkedQuestions(
+        TextBlock $block,
+        int $limit,
+        array $excludeQuestionIds,
+        array $config
+    ): Collection {
+        if (! $this->hasQuestionsTable() || ! $this->hasQuestionTheoryTextBlocksTable()) {
+            return collect();
+        }
+
+        $linkedBlockUuids = collect([(string) $block->uuid]);
+
+        if ((int) $block->page_id > 0) {
+            $linkedBlockUuids = TextBlock::query()
+                ->where('page_id', $block->page_id)
+                ->pluck('uuid')
+                ->map(fn ($uuid): string => (string) $uuid)
+                ->filter()
+                ->unique()
+                ->values();
+        }
+
+        $query = Question::query()
+            ->with([
+                'tags:id,name',
+                'options',
+                'answers.option',
+                'verbHints.option',
+                'hints',
+                'markerTags:id,name,category',
+            ])
+            ->whereHas('theoryTextBlocks', function ($query) use ($linkedBlockUuids): void {
+                $query->whereIn('text_blocks.uuid', $linkedBlockUuids->all());
+            })
+            ->orderBy('questions.uuid');
+
+        $questionTypes = $config['question_types'] ?? [];
+        if ($questionTypes !== []) {
+            $query->whereIn('questions.type', $questionTypes);
+        }
+
+        $seederClasses = $config['seeder_classes'] ?? [];
+        if ($seederClasses !== [] && ! $this->hasQuestionSeederColumn()) {
+            return collect();
+        }
+
+        if ($seederClasses !== []) {
+            $query->whereIn('questions.seeder', $seederClasses);
+        }
+
+        if ($block->level && $this->hasQuestionLevelColumn()) {
+            $query->where('questions.level', $block->level);
+        }
+
+        if ($excludeQuestionIds !== []) {
+            $query->whereNotIn('questions.id', $excludeQuestionIds);
+        }
+
+        return $query
+            ->limit(max(1, $limit))
+            ->get()
+            ->map(function (Question $question): Question {
+                $question->setAttribute('match_score', null);
+                $question->setAttribute('matched_tag_ids', []);
+                $question->setAttribute('marker_tags', $this->groupMarkerTags($question));
+
+                return $question;
+            });
+    }
+
     private function topScoringWindow(array $scored, int $limit): array
     {
         if (count($scored) <= $limit) {
@@ -135,10 +258,6 @@ class TextBlockToQuestionsMatcherService
         $blocks->load('tags:id,name');
 
         foreach ($blocks as $block) {
-            if ($block->tags->isEmpty()) {
-                continue;
-            }
-
             $questions = $this->findBestQuestionsForTextBlock($block, $limitPerBlock, $usedQuestionIds);
 
             if ($questions->isNotEmpty()) {
@@ -159,7 +278,7 @@ class TextBlockToQuestionsMatcherService
     private function loadCandidateQuestions(array $blockTagIds, array $excludeQuestionIds, ?string $blockLevel): EloquentCollection
     {
         if (! $this->hasQuestionsTable() || ! $this->hasQuestionTagTable()) {
-            return new EloquentCollection();
+            return new EloquentCollection;
         }
 
         $minimumSharedTags = min(2, count($blockTagIds));
@@ -315,6 +434,11 @@ class TextBlockToQuestionsMatcherService
         return self::$hasQuestionTagTable ??= Schema::hasTable('question_tag');
     }
 
+    private function hasQuestionTheoryTextBlocksTable(): bool
+    {
+        return self::$hasQuestionTheoryTextBlocksTable ??= Schema::hasTable('question_theory_text_blocks');
+    }
+
     private function hasQuestionLevelColumn(): bool
     {
         return self::$hasQuestionLevelColumn ??= Schema::hasColumn('questions', 'level');
@@ -325,4 +449,3 @@ class TextBlockToQuestionsMatcherService
         return self::$hasQuestionSeederColumn ??= Schema::hasColumn('questions', 'seeder');
     }
 }
-

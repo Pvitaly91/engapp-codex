@@ -9,8 +9,10 @@ class FuturePerfectTheoryPagesContentQualityTest extends TestCase
 {
     private const DIRECTORY = 'database/seeders/Page_V3/FutureForms/FuturePerfect';
 
+    private const ROUTE_PREFIX = '/theory/maibutni-formy/future-perfect/';
+
     /**
-     * @return array<string, array{0: string, 1: string, 2: int, 3: int, 4: int, 5: string, 6: int}>
+     * @return array<string, array{0: string, 1: string, 2: int, 3: int, 4: int, 5: string, 6: int, 7: string, 8: class-string, 9: string}
      */
     public static function pageProvider(): array
     {
@@ -23,6 +25,9 @@ class FuturePerfectTheoryPagesContentQualityTest extends TestCase
                 8,
                 '6. Практика',
                 0,
+                'future-perfect-forms',
+                'Database\\Seeders\\V3\\Polyglot\\PolyglotFuturePerfectFormsAllLevelsLessonSeeder',
+                'future-perfect-forms-theory-links.json',
             ],
             'negatives' => [
                 'FuturePerfectNegativesTheorySeeder',
@@ -32,6 +37,9 @@ class FuturePerfectTheoryPagesContentQualityTest extends TestCase
                 8,
                 '6. Практика',
                 1,
+                'future-perfect-negatives',
+                'Database\\Seeders\\V3\\Polyglot\\PolyglotFuturePerfectNegativesAllLevelsLessonSeeder',
+                'future-perfect-negatives-theory-links.json',
             ],
             'questions' => [
                 'FuturePerfectQuestionsTheorySeeder',
@@ -41,6 +49,9 @@ class FuturePerfectTheoryPagesContentQualityTest extends TestCase
                 8,
                 '6. Практика',
                 2,
+                'future-perfect-questions',
+                'Database\\Seeders\\V3\\Polyglot\\PolyglotFuturePerfectQuestionsAllLevelsLessonSeeder',
+                'future-perfect-questions-theory-links.json',
             ],
             'time expressions' => [
                 'FuturePerfectTimeExpressionsTheorySeeder',
@@ -50,21 +61,28 @@ class FuturePerfectTheoryPagesContentQualityTest extends TestCase
                 7,
                 '5. Практика',
                 3,
+                'future-perfect-time-expressions',
+                'Database\\Seeders\\V3\\Polyglot\\PolyglotFuturePerfectTimeExpressionsAllLevelsLessonSeeder',
+                'future-perfect-time-expressions-theory-links.json',
             ],
         ];
     }
 
     #[DataProvider('pageProvider')]
-    public function test_every_lesson_has_localized_checkable_practice(
+    public function test_every_lesson_uses_a_localized_topic_specific_sentence_builder(
         string $directory,
         string $practiceUuid,
         int $practicePosition,
         int $localizedPracticeIndex,
         int $localizedNavigationIndex,
         string $ukrainianTitle,
-        int $currentLesson
+        int $currentLesson,
+        string $slug,
+        string $questionSeeder,
+        string $manifestName,
     ): void {
-        $definition = $this->readJson(self::DIRECTORY.'/'.$directory.'/definition.json');
+        $definitionPath = self::DIRECTORY.'/'.$directory.'/definition.json';
+        $definition = $this->readJson($definitionPath);
         $blocks = $definition['page']['blocks'] ?? [];
 
         $this->assertCount($practicePosition + 2, $blocks);
@@ -75,17 +93,17 @@ class FuturePerfectTheoryPagesContentQualityTest extends TestCase
 
         $practice = $this->decodeBody($blocks[$practicePosition]);
         $this->assertSame($ukrainianTitle, $practice['title'] ?? null);
-        $this->assertSame('Вправа 3. Переклади речення', $practice['rephrase_title'] ?? null);
-        $this->assertPracticeIsCheckableAndScrambled($practice);
-        $this->assertCurrentLesson(
+        $this->assertPracticeUsesLinkedSentenceBuilder($practice, $questionSeeder, 'uk');
+        $this->assertCurrentLessonAndCanonicalRoutes(
             $this->decodeBody($blocks[$practicePosition + 1]),
-            $currentLesson
+            $currentLesson,
+            ''
         );
+        $this->assertNoManualTranslationSource($definitionPath);
 
         foreach (['en', 'pl'] as $locale) {
-            $localization = $this->readJson(
-                self::DIRECTORY.'/'.$directory.'/localizations/'.$locale.'.json'
-            );
+            $localizationPath = self::DIRECTORY.'/'.$directory.'/localizations/'.$locale.'.json';
+            $localization = $this->readJson($localizationPath);
             $localizedPracticeBlock = $this->blockAtIndex(
                 $localization['blocks'] ?? [],
                 $localizedPracticeIndex
@@ -95,100 +113,80 @@ class FuturePerfectTheoryPagesContentQualityTest extends TestCase
                 $localizedNavigationIndex
             );
 
-            $this->assertNotNull(
-                $localizedPracticeBlock,
-                strtoupper($locale).' practice is missing for '.$directory.'.'
-            );
-            $this->assertNotNull(
-                $localizedNavigationBlock,
-                strtoupper($locale).' navigation is missing for '.$directory.'.'
-            );
+            $this->assertNotNull($localizedPracticeBlock, strtoupper($locale).' practice is missing for '.$directory.'.');
+            $this->assertNotNull($localizedNavigationBlock, strtoupper($locale).' navigation is missing for '.$directory.'.');
 
             $localizedPractice = $this->decodeBody($localizedPracticeBlock);
-            $this->assertPracticeIsCheckableAndScrambled($localizedPractice);
+            $this->assertPracticeUsesLinkedSentenceBuilder($localizedPractice, $questionSeeder, $locale);
             $this->assertSame(
                 array_column($practice['selects'], 'answer'),
                 array_column($localizedPractice['selects'], 'answer')
             );
-            $this->assertSame(
-                array_column($practice['inputs'], 'before'),
-                array_column($localizedPractice['inputs'], 'before')
-            );
-            $this->assertSame(
-                array_column($practice['inputs'], 'answer'),
-                array_column($localizedPractice['inputs'], 'answer')
-            );
-            $this->assertSame(
-                array_column($practice['rephrase'], 'answer'),
-                array_column($localizedPractice['rephrase'], 'answer')
-            );
-
-            $this->assertCurrentLesson(
+            $this->assertCurrentLessonAndCanonicalRoutes(
                 $this->decodeBody($localizedNavigationBlock),
-                $currentLesson
+                $currentLesson,
+                '/'.$locale
             );
+            $this->assertNoManualTranslationSource($localizationPath);
         }
+
+        $manifest = $this->readJson('database/seeders/V3/TheoryLinks/data/'.$manifestName);
+        $this->assertSame(self::ROUTE_PREFIX.$slug, $manifest['page']['route'] ?? null);
+        $directBuilder = collect($manifest['tests_on_page'] ?? [])->firstWhere('kind', 'direct_sentence_builder');
+        $this->assertIsArray($directBuilder);
+        $this->assertSame($questionSeeder, $directBuilder['seeder_class'] ?? null);
+        $this->assertCount(72, $directBuilder['question_links'] ?? []);
     }
 
-    private function assertPracticeIsCheckableAndScrambled(array $practice): void
-    {
+    private function assertPracticeUsesLinkedSentenceBuilder(
+        array $practice,
+        string $questionSeeder,
+        string $locale,
+    ): void {
         $this->assertNotSame('', trim((string) ($practice['title'] ?? '')));
         $this->assertSame(['a', 'b'], $practice['options'] ?? null);
         $this->assertCount(2, $practice['selects'] ?? []);
-        $this->assertCount(2, $practice['inputs'] ?? []);
-        $this->assertNotSame('', trim((string) ($practice['rephrase_intro'] ?? '')));
-        $this->assertCount(3, $practice['rephrase'] ?? []);
+
+        foreach (['input_title', 'input_intro', 'inputs', 'rephrase_title', 'rephrase_intro', 'rephrase'] as $removedKey) {
+            $this->assertArrayNotHasKey($removedKey, $practice);
+        }
 
         foreach ($practice['selects'] as $select) {
             $this->assertContains($select['answer'] ?? null, $practice['options']);
-            $this->assertMatchesRegularExpression(
-                '/^a\).+\s\/\sb\).+/u',
-                (string) ($select['label'] ?? '')
-            );
+            $this->assertMatchesRegularExpression('/^a\).+\s\/\sb\).+/u', (string) ($select['label'] ?? ''));
         }
 
-        foreach ($practice['inputs'] as $input) {
-            $before = trim((string) ($input['before'] ?? ''));
-            $answer = trim((string) ($input['answer'] ?? ''));
-            $fragments = preg_split('/\s*\/\s*/u', $before) ?: [];
-
-            $this->assertNotSame('', $answer);
-            $this->assertGreaterThanOrEqual(3, count($fragments));
-
-            foreach ($fragments as $fragment) {
-                $words = preg_split('/\s+/u', trim($fragment)) ?: [];
-                $this->assertGreaterThanOrEqual(1, count($words));
-                $this->assertLessThanOrEqual(
-                    3,
-                    count($words),
-                    'Each clickable token must contain between one and three words.'
-                );
-            }
-
-            $this->assertNotSame(
-                $this->normalizeSentence(implode(' ', $fragments)),
-                $this->normalizeSentence($answer),
-                'The token bank must not start in the correct answer order.'
-            );
-        }
-
-        $example = $practice['rephrase'][0] ?? [];
-        $this->assertNotSame('', trim((string) ($example['example_original'] ?? '')));
-        $this->assertNotSame('', trim((string) ($example['example_target'] ?? '')));
-
-        foreach (array_slice($practice['rephrase'], 1) as $item) {
-            $this->assertNotSame('', trim((string) ($item['original'] ?? '')));
-            $this->assertNotSame('', trim((string) ($item['answer'] ?? '')));
-        }
+        $linked = $practice['linked_practice'] ?? null;
+        $this->assertIsArray($linked);
+        $this->assertSame('theory_links', $linked['source'] ?? null);
+        $this->assertSame(['4'], $linked['question_types'] ?? null);
+        $this->assertSame([$questionSeeder], $linked['seeder_classes'] ?? null);
+        $this->assertNotSame('', trim((string) ($linked['title'] ?? '')), "$locale builder title");
+        $this->assertNotSame('', trim((string) ($linked['intro'] ?? '')), "$locale builder intro");
+        $this->assertNotSame('', trim((string) ($linked['footer'] ?? '')), "$locale builder footer");
+        $this->assertStringNotContainsStringIgnoringCase('polyglot', implode(' ', [
+            (string) $linked['title'],
+            (string) $linked['intro'],
+            (string) $linked['footer'],
+        ]));
     }
 
-    private function normalizeSentence(string $sentence): string
+    private function assertNoManualTranslationSource(string $relativePath): void
     {
-        return preg_replace(
-            '/[^\p{L}\p{N}\']+/u',
-            ' ',
-            mb_strtolower(trim($sentence))
-        ) ?? '';
+        $source = (string) file_get_contents($this->rootPath().'/'.$relativePath);
+
+        foreach ([
+            'rephrase_title',
+            'rephrase_intro',
+            'Напиши англійською',
+            'Переклади речення',
+            'Write in English',
+            'Translate the sentence',
+            'Napisz po angielsku',
+            'Przetłumacz zdanie',
+        ] as $removedText) {
+            $this->assertStringNotContainsString($removedText, $source, $relativePath);
+        }
     }
 
     private function rootPath(): string
@@ -223,8 +221,11 @@ class FuturePerfectTheoryPagesContentQualityTest extends TestCase
         return null;
     }
 
-    private function assertCurrentLesson(array $navigation, int $currentLesson): void
-    {
+    private function assertCurrentLessonAndCanonicalRoutes(
+        array $navigation,
+        int $currentLesson,
+        string $localePrefix,
+    ): void {
         $items = $navigation['items'] ?? [];
         $current = array_keys(array_filter(
             $items,
@@ -232,5 +233,10 @@ class FuturePerfectTheoryPagesContentQualityTest extends TestCase
         ));
 
         $this->assertSame([$currentLesson], $current);
+        $this->assertCount(4, $items);
+
+        foreach ($items as $item) {
+            $this->assertStringStartsWith($localePrefix.self::ROUTE_PREFIX, (string) ($item['url'] ?? ''));
+        }
     }
 }
