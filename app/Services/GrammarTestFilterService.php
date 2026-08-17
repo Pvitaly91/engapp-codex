@@ -55,6 +55,7 @@ class GrammarTestFilterService
             1,
             (int) ($filters['theory_page_mixed_questions_per_level'] ?? self::MIXED_ALL_LEVELS_QUESTIONS_PER_LEVEL)
         );
+        $mixedAllLevelsInterleaveQuestionTypes = (bool) ($filters['theory_page_mixed_interleave_question_types'] ?? false);
         $isTheoryCategoryPageTest = (bool) ($filters['theory_category_page_test'] ?? false);
         $theoryCategoryQuestionsPerPage = max(1, (int) ($filters['theory_category_questions_per_page'] ?? 4));
         $theoryCategoryPageGroups = is_array($filters['theory_category_page_groups'] ?? null)
@@ -217,7 +218,8 @@ class GrammarTestFilterService
                             $selectedLevels,
                             $selectedSeederClasses,
                             $mixedAllLevelsQuestionsPerLevel,
-                            $randomizeFiltered
+                            $randomizeFiltered,
+                            $mixedAllLevelsInterleaveQuestionTypes
                         );
                     } elseif ($randomizeFiltered && $availableCount > $take) {
                         $selectionQuery->inRandomOrder();
@@ -402,6 +404,13 @@ class GrammarTestFilterService
                 ),
                 self::MIXED_ALL_LEVELS_QUESTIONS_PER_LEVEL
             )),
+            'theory_page_mixed_interleave_question_types' => $this->toBool(
+                Arr::get(
+                    $input,
+                    'theory_page_mixed_interleave_question_types',
+                    Arr::get($input, '__meta.theory_page_mixed_interleave_question_types', false)
+                )
+            ),
             'theory_category_page_test' => $this->toBool(
                 Arr::get($input, 'theory_category_page_test', Arr::get($input, '__meta.aggregated_theory_category_test', false))
             ),
@@ -431,7 +440,8 @@ class GrammarTestFilterService
         array $selectedLevels,
         array $selectedSeederClasses,
         int $questionsPerLevel,
-        bool $randomize
+        bool $randomize,
+        bool $interleaveQuestionTypes = false
     ): Collection {
         if ($questionsPerLevel <= 0 || $candidates->isEmpty()) {
             return collect();
@@ -505,22 +515,81 @@ class GrammarTestFilterService
                 }
             }
 
-            // The round-robin pass above keeps the quota balanced, but paired
-            // V3 and Sentence Builder banks use parallel IDs. Rendering that
-            // order directly puts the same sentence in two formats back to
-            // back. Keep the selected membership unchanged and present each
-            // seeder as a stable block within the level instead.
-            $levelSelected = $orderedSeeders
-                ->values()
-                ->flatMap(fn (string $seeder): Collection => $levelSelected
-                    ->filter(fn (Question $question): bool => (string) $question->seeder === $seeder)
-                    ->values())
-                ->values();
+            if ($interleaveQuestionTypes) {
+                // Future Perfect explicitly opts into format interleaving.
+                // The secondary type is rotated first because the V3 and
+                // Sentence Builder banks use parallel IDs for equivalent
+                // source sentences.
+                $levelSelected = $this->interleaveMixedQuestionTypes($levelSelected);
+            } else {
+                // Preserve the established ordering for every other mixed
+                // theory test: stable seeder blocks within each CEFR level.
+                $levelSelected = $orderedSeeders
+                    ->values()
+                    ->flatMap(fn (string $seeder): Collection => $levelSelected
+                        ->filter(fn (Question $question): bool => (string) $question->seeder === $seeder)
+                        ->values())
+                    ->values();
+            }
 
             $selected = $selected->merge($levelSelected);
         }
 
         return $selected->values();
+    }
+
+    private function interleaveMixedQuestionTypes(Collection $questions): Collection
+    {
+        if ($questions->count() < 2) {
+            return $questions->values();
+        }
+
+        $typeOrder = $questions
+            ->map(fn (Question $question): string => (string) ($question->type ?? '0'))
+            ->unique()
+            ->values();
+
+        if ($typeOrder->count() < 2) {
+            return $questions->values();
+        }
+
+        $queues = [];
+
+        foreach ($typeOrder as $typeIndex => $type) {
+            $queue = $questions
+                ->filter(fn (Question $question): bool => (string) ($question->type ?? '0') === $type)
+                ->values();
+
+            if ($typeIndex > 0 && $queue->count() > 2) {
+                $offset = intdiv($queue->count(), 2);
+                $queue = $queue->slice($offset)
+                    ->concat($queue->slice(0, $offset))
+                    ->values();
+            }
+
+            $queues[$type] = $queue;
+        }
+
+        $interleaved = collect();
+
+        do {
+            $pickedInPass = false;
+
+            foreach ($typeOrder as $type) {
+                /** @var Collection<int, Question> $queue */
+                $queue = $queues[$type] ?? collect();
+
+                if ($queue->isEmpty()) {
+                    continue;
+                }
+
+                $interleaved->push($queue->shift());
+                $queues[$type] = $queue;
+                $pickedInPass = true;
+            }
+        } while ($pickedInPass);
+
+        return $interleaved->values();
     }
 
     private function selectTheoryCategoryPageQuestions(

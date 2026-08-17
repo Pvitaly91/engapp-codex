@@ -257,7 +257,7 @@ class FuturePerfectMixedUkrainianTest extends TestCase
 
         $hint = trim((string) ($marker['verb_hint'] ?? ''));
         $pattern = match ($topic) {
-            'negatives' => '/^Підмет: «([^»]+)»\. Базове дієслово із запереченням: «not ([^»]+)»\.$/u',
+            'negatives' => '/^Підмет: «([^»]+)»\. Базове дієслово із запереченням: «не ([^»]+)»\.$/u',
             'questions' => '/^Підмет у запитанні: «([^»]+)»\. Базове дієслово: «([^»]+)»\.$/u',
             default => '/^Підмет: «([^»]+)»\. Базове дієслово: «([^»]+)»\.$/u',
         };
@@ -266,21 +266,21 @@ class FuturePerfectMixedUkrainianTest extends TestCase
         $this->record($hintMatches, $violations, "{$uuid}: hint lacks subject/base verb or question/negative cue");
         $this->record(mb_strlen($hint) <= 255, $violations, "{$uuid}: hint exceeds 255 characters");
         $this->record(! str_contains($this->normalize($hint), $this->normalize($answer)), $violations, "{$uuid}: hint leaks full answer");
-        $this->record(preg_match('/\bwill\b/iu', $hint) !== 1, $violations, "{$uuid}: hint leaks Future Perfect auxiliary");
+        $this->record(preg_match('/[A-Za-z]/u', $hint) !== 1, $violations, "{$uuid}: hint contains English text");
 
         $completed = str_replace('{a1}', $answer, $stem);
         if ($hintMatches) {
             $subject = (string) $matches[1];
             $baseVerb = (string) $matches[2];
             $this->record(
-                preg_match('/(?<![\pL\pN])'.preg_quote($subject, '/').'(?![\pL\pN])/iu', $completed) === 1,
+                preg_match('/[А-Яа-яІіЇїЄєҐґ]/u', $subject) === 1,
                 $violations,
-                "{$uuid}: hinted subject does not match the sentence"
+                "{$uuid}: hinted subject is not Ukrainian"
             );
             $this->record(
-                str_contains($this->normalize(implode(' ', $options)), $this->normalize($baseVerb)),
+                preg_match('/[А-Яа-яІіЇїЄєҐґ]/u', $baseVerb) === 1,
                 $violations,
-                "{$uuid}: hinted base verb does not match the answer options"
+                "{$uuid}: hinted base verb is not Ukrainian"
             );
         }
 

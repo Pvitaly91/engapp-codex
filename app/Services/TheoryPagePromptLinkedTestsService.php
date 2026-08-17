@@ -453,6 +453,7 @@ class TheoryPagePromptLinkedTestsService
         $filters['randomize_filtered'] = false;
         $filters['theory_page_mixed_all_levels'] = true;
         $filters['theory_page_mixed_questions_per_level'] = self::MIXED_QUESTIONS_PER_LEVEL;
+        $filters['theory_page_mixed_interleave_question_types'] = $this->usesUkrainianFuturePerfectMixedSeeders($seederClasses);
         $filters['__meta'] = array_merge(
             is_array($filters['__meta'] ?? null) ? $filters['__meta'] : [],
             [
@@ -461,6 +462,7 @@ class TheoryPagePromptLinkedTestsService
                 'theory_page_id' => (int) $page->getKey(),
                 'theory_page_mixed_all_levels_test' => true,
                 'theory_page_mixed_questions_per_level' => self::MIXED_QUESTIONS_PER_LEVEL,
+                'theory_page_mixed_interleave_question_types' => $this->usesUkrainianFuturePerfectMixedSeeders($seederClasses),
                 'theory_page_mixed_polyglot_test' => $containsComposeQuestions && $containsStandardQuestions,
                 'theory_page_static_slug' => true,
             ]
@@ -499,6 +501,24 @@ class TheoryPagePromptLinkedTestsService
 
         return Str::contains($normalized, '\\v3\\')
             && ! Str::contains($normalized, '\\v3\\polyglot\\');
+    }
+
+    /**
+     * Only the dedicated Ukrainian Future Perfect mixed banks opt into
+     * alternating question formats. Other theory-page mixed tests retain
+     * their existing presentation unchanged.
+     *
+     * @param Collection<int, string> $seederClasses
+     */
+    protected function usesUkrainianFuturePerfectMixedSeeders(Collection $seederClasses): bool
+    {
+        return $seederClasses->isNotEmpty()
+            && $seederClasses->every(
+                fn (string $className): bool => Str::contains(
+                    Str::lower($className),
+                    'ukrainianmixedfutureperfect'
+                )
+            );
     }
 
     protected function applyLocaleMixedSeederOverrides(
