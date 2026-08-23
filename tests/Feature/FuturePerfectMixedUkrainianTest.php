@@ -7,6 +7,7 @@ use App\Services\SavedTestResolver;
 use App\Services\TheoryPagePromptLinkedTestsService;
 use App\Support\AcceptedAnswerVariants;
 use App\Support\ComposeTokenCase;
+use App\Support\SentenceReorderQuestionFactory;
 use Illuminate\Support\Collection;
 use Tests\TestCase;
 
@@ -22,6 +23,68 @@ class FuturePerfectMixedUkrainianTest extends TestCase
         'C1' => 5,
         'C2' => 5,
     ];
+
+    public function test_all_mixed_banks_have_the_same_even_question_type_distribution_at_every_level(): void
+    {
+        $expectedOrder = [
+            'gap', 'builder', 'reorder', 'builder', 'gap', 'builder', 'reorder',
+            'builder', 'gap', 'builder', 'reorder', 'builder', 'gap', 'builder',
+        ];
+
+        foreach ($this->cases() as $case) {
+            $standardByLevel = collect($this->definition($case['standard_path'])['questions'] ?? [])
+                ->groupBy('level');
+            $builderByLevel = collect($this->definition($case['builder_path'])['questions'] ?? [])
+                ->groupBy('level');
+            $questions = [];
+
+            foreach (self::LEVELS as $level) {
+                $standard = $standardByLevel->get($level, collect())->values();
+                $builders = $builderByLevel->get($level, collect())->values();
+                $this->assertCount(7, $standard, $case['slug']." {$level}: missing gap-fill questions");
+                $this->assertCount(7, $builders, $case['slug']." {$level}: missing sentence-builder questions");
+
+                for ($index = 0; $index < 7; $index++) {
+                    $gap = $standard[$index];
+                    $gap['type'] = '0';
+                    $gap['answer_map'] = array_map(
+                        static fn (array $marker): string => trim((string) ($marker['answer'] ?? '')),
+                        (array) ($gap['markers'] ?? [])
+                    );
+                    $questions[] = $gap;
+                    $questions[] = $builders[$index];
+                }
+            }
+
+            $presented = collect(SentenceReorderQuestionFactory::addToMixedTheoryTest($questions, [
+                '__meta' => [
+                    'theory_page_mixed_polyglot_test' => true,
+                    'theory_page_mixed_interleave_question_types' => true,
+                ],
+            ]));
+
+            foreach (self::LEVELS as $level) {
+                $actualOrder = $presented
+                    ->where('level', $level)
+                    ->values()
+                    ->map(static function (array $question): string {
+                        if ((string) ($question['type'] ?? '') === '4') {
+                            return 'builder';
+                        }
+
+                        return ($question['presentation'] ?? null) === SentenceReorderQuestionFactory::PRESENTATION
+                            ? 'reorder'
+                            : 'gap';
+                    })
+                    ->all();
+
+                $this->assertSame($expectedOrder, $actualOrder, $case['slug']." {$level}: uneven type order");
+                $this->assertSame(7, count(array_keys($actualOrder, 'builder', true)));
+                $this->assertSame(4, count(array_keys($actualOrder, 'gap', true)));
+                $this->assertSame(3, count(array_keys($actualOrder, 'reorder', true)));
+            }
+        }
+    }
 
     public function test_all_ukrainian_future_perfect_mixed_banks_are_isolated_unique_and_unambiguous(): void
     {
@@ -267,6 +330,33 @@ class FuturePerfectMixedUkrainianTest extends TestCase
         $this->record(mb_strlen($hint) <= 255, $violations, "{$uuid}: hint exceeds 255 characters");
         $this->record(! str_contains($this->normalize($hint), $this->normalize($answer)), $violations, "{$uuid}: hint leaks full answer");
         $this->record(preg_match('/[A-Za-z]/u', $hint) !== 1, $violations, "{$uuid}: hint contains English text");
+
+        $answerSubjectPattern = $topic === 'questions'
+            ? '/^will\s+(.+?)\s+have\b/iu'
+            : '/^(.+?)\s+(?:will(?:\s+(?:not|already))?|won[’\']t)\s+have\b/iu';
+        $answerSubjectMatches = [];
+        $answerContainsSubject = preg_match($answerSubjectPattern, $answer, $answerSubjectMatches) === 1;
+        $this->record($answerContainsSubject, $violations, "{$uuid}: subject is not part of the answer");
+
+        if ($answerContainsSubject) {
+            $answerSubject = trim((string) $answerSubjectMatches[1]);
+            $this->record($answerSubject !== '', $violations, "{$uuid}: empty English subject in the answer");
+            $this->record(
+                preg_match('/'.preg_quote($answerSubject, '/').'\s+\{a1\}/iu', $stem) !== 1,
+                $violations,
+                "{$uuid}: subject is duplicated before the answer gap"
+            );
+
+            if ($topic !== 'questions') {
+                foreach ($options as $option) {
+                    $this->record(
+                        str_starts_with($this->normalize($option), $this->normalize($answerSubject).' '),
+                        $violations,
+                        "{$uuid}: option does not include the hinted subject: {$option}"
+                    );
+                }
+            }
+        }
 
         $completed = str_replace('{a1}', $answer, $stem);
         if ($hintMatches) {

@@ -93,9 +93,10 @@ class FuturePerfectTheoryPagesContentQualityTest extends TestCase
 
         $practice = $this->decodeBody($blocks[$practicePosition]);
         $this->assertSame($ukrainianTitle, $practice['title'] ?? null);
+        $this->assertPracticeHasWordOrderExercise($practice);
         $this->assertPracticeUsesLinkedSentenceBuilder($practice, $questionSeeder, 'uk');
-        $this->assertSame('Вправа 2. Побудуй речення', $practice['linked_practice']['title'] ?? null);
-        $this->assertSame('Постав слова у правильному порядку.', $practice['linked_practice']['intro'] ?? null);
+        $this->assertSame('Вправа 3. Побудуй речення', $practice['linked_practice']['title'] ?? null);
+        $this->assertSame('Склади речення, клікаючи на слова.', $practice['linked_practice']['intro'] ?? null);
         $this->assertCurrentLessonAndCanonicalRoutes(
             $this->decodeBody($blocks[$practicePosition + 1]),
             $currentLesson,
@@ -149,7 +150,7 @@ class FuturePerfectTheoryPagesContentQualityTest extends TestCase
         $this->assertSame(['a', 'b'], $practice['options'] ?? null);
         $this->assertCount(2, $practice['selects'] ?? []);
 
-        foreach (['input_title', 'input_intro', 'inputs', 'rephrase_title', 'rephrase_intro', 'rephrase'] as $removedKey) {
+        foreach (['rephrase_title', 'rephrase_intro', 'rephrase'] as $removedKey) {
             $this->assertArrayNotHasKey($removedKey, $practice);
         }
 
@@ -171,6 +172,19 @@ class FuturePerfectTheoryPagesContentQualityTest extends TestCase
             (string) $linked['intro'],
             (string) $linked['footer'],
         ]));
+    }
+
+    private function assertPracticeHasWordOrderExercise(array $practice): void
+    {
+        $this->assertStringStartsWith('Вправа 2. Побудуй', (string) ($practice['input_title'] ?? ''));
+        $this->assertSame('Постав слова у правильному порядку.', $practice['input_intro'] ?? null);
+        $this->assertCount(2, $practice['inputs'] ?? []);
+
+        foreach ($practice['inputs'] as $input) {
+            $this->assertStringContainsString(' / ', (string) ($input['before'] ?? ''));
+            $this->assertSame('→', $input['after'] ?? null);
+            $this->assertMatchesRegularExpression('/[.!?]$/', (string) ($input['answer'] ?? ''));
+        }
     }
 
     private function assertNoManualTranslationSource(string $relativePath): void

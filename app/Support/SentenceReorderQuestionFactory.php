@@ -42,17 +42,28 @@ class SentenceReorderQuestionFactory
             return $questions;
         }
 
-        // Pick roughly half of the regular gap-fill questions. The stable
-        // ordering prevents the exercise type from changing during a reload.
-        usort($eligible, fn (int $left, int $right): int => strcmp(
-            self::stableKey($questions[$left], $left),
-            self::stableKey($questions[$right], $right)
-        ));
+        $spreadAcrossLevels = (bool) data_get(
+            $filters,
+            '__meta.theory_page_mixed_interleave_question_types',
+            $filters['theory_page_mixed_interleave_question_types'] ?? false
+        );
 
-        $count = max(1, (int) floor(count($eligible) / 2));
+        if ($spreadAcrossLevels) {
+            $selectedIndexes = self::spreadEligibleIndexesAcrossLevels($questions, $eligible);
+        } else {
+            // Preserve the existing selection for mixed tests that do not opt
+            // into level-aware presentation balancing.
+            usort($eligible, fn (int $left, int $right): int => strcmp(
+                self::stableKey($questions[$left], $left),
+                self::stableKey($questions[$right], $right)
+            ));
 
-        foreach (array_slice($eligible, 0, $count) as $index) {
-            $reorder = self::build($questions[$index], $index);
+            $count = max(1, (int) floor(count($eligible) / 2));
+            $selectedIndexes = array_slice($eligible, 0, $count);
+        }
+
+        foreach ($selectedIndexes as $index) {
+            $reorder = self::build($questions[$index], $index, $spreadAcrossLevels);
 
             if ($reorder !== null) {
                 $questions[$index] = array_merge($questions[$index], $reorder);
@@ -60,6 +71,44 @@ class SentenceReorderQuestionFactory
         }
 
         return $questions;
+    }
+
+    /**
+     * Keep genuine gap-fill questions available at every CEFR level. For the
+     * seven standard questions used by each Future Perfect level, positions
+     * 2, 4 and 6 become sentence-order tasks while 1, 3, 5 and 7 remain gaps.
+     *
+     * @param array<int, array<string, mixed>> $questions
+     * @param array<int, int> $eligible
+     * @return array<int, int>
+     */
+    private static function spreadEligibleIndexesAcrossLevels(array $questions, array $eligible): array
+    {
+        $byLevel = [];
+
+        foreach ($eligible as $index) {
+            $level = strtoupper(trim((string) ($questions[$index]['level'] ?? '')));
+            $byLevel[$level !== '' ? $level : '__unknown'][] = $index;
+        }
+
+        $selected = [];
+
+        foreach ($byLevel as $indexes) {
+            usort($indexes, fn (int $left, int $right): int => strcmp(
+                self::stableKey($questions[$left], $left),
+                self::stableKey($questions[$right], $right)
+            ));
+
+            $available = count($indexes);
+            $count = max(1, (int) floor($available / 2));
+
+            for ($pick = 0; $pick < $count; $pick++) {
+                $position = (int) floor((($pick + 0.5) * $available) / $count);
+                $selected[] = $indexes[min($position, $available - 1)];
+            }
+        }
+
+        return $selected;
     }
 
     /** @param array<string, mixed> $question */
@@ -78,7 +127,7 @@ class SentenceReorderQuestionFactory
      * @param array<string, mixed> $question
      * @return array<string, mixed>|null
      */
-    private static function build(array $question, int $index): ?array
+    private static function build(array $question, int $index, bool $useGroupedTokenLimit = false): ?array
     {
         $sentence = (string) $question['question'];
         $answers = Arr::map((array) $question['answer_map'], fn ($answer) => trim((string) $answer));
@@ -95,7 +144,7 @@ class SentenceReorderQuestionFactory
 
         $tokens = preg_split('/\s+/u', $sentence, -1, PREG_SPLIT_NO_EMPTY) ?: [];
 
-        if (count($tokens) < 3 || count($tokens) > 18) {
+        if (count($tokens) < 3 || (! $useGroupedTokenLimit && count($tokens) > 18)) {
             return null;
         }
 
@@ -104,6 +153,14 @@ class SentenceReorderQuestionFactory
             (string) ($question['level'] ?? ''),
             self::stableKey($question, $index)
         );
+
+        // Level-balanced Future Perfect tests display grouped chunks rather
+        // than raw words. Apply their UI-size limit after grouping so longer
+        // advanced sentences are not silently left as gap-fill questions.
+        if ($useGroupedTokenLimit && count($groups) > 18) {
+            return null;
+        }
+
         $shuffled = self::shuffleTokens($groups, self::stableKey($question, $index));
 
         return [
