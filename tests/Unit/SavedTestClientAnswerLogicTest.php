@@ -20,6 +20,28 @@ class SavedTestClientAnswerLogicTest extends TestCase
         $this->assertStringContainsString('function testAnswerMatches(question, slotIndex, value)', $helper);
     }
 
+    public function test_easy_modes_show_synonyms_but_keep_the_canonical_click_value(): void
+    {
+        $helper = file_get_contents($this->resourcePath('views/components/saved-test-js-helpers.blade.php'));
+
+        $this->assertStringContainsString('function formatAnswerOptionLabel(question, slotIndex, option)', $helper);
+        $this->assertStringContainsString('question?.answer_synonyms_by_marker?.[marker]', $helper);
+        $this->assertStringContainsString('question?.answer_synonym_tokens_by_marker?.[marker]', $helper);
+        $this->assertStringContainsString("`\${token} (\${aliases.join(', ')})`", $helper);
+        $this->assertStringContainsString("`\${option} (\${synonyms.join(', ')})`", $helper);
+
+        foreach (['card-easy.blade.php', 'step-easy.blade.php'] as $view) {
+            $source = file_get_contents($this->resourcePath("views/test-modes/{$view}"));
+
+            $this->assertStringContainsString('data-opt="${html(opt)}"', $source, $view);
+            $this->assertStringContainsString(
+                '${html(formatAnswerOptionLabel(q, q.activeSlot, opt))}',
+                $source,
+                $view
+            );
+        }
+    }
+
     public function test_all_new_answer_checking_modes_use_the_shared_matcher(): void
     {
         $views = [

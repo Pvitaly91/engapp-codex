@@ -49,12 +49,12 @@ final class AnswerOptionCase
             : array_keys(is_array($question['answer_map'] ?? null) ? $question['answer_map'] : []);
 
         if ($answers === [] || count($markers) !== count($answers)) {
-            return $question;
+            return FuturePerfectAnswerSynonyms::decorate($question);
         }
 
         $rawOptions = $question['options_by_marker'] ?? $question['optionsBySlot'] ?? null;
         if (! is_array($rawOptions)) {
-            return $question;
+            return FuturePerfectAnswerSynonyms::decorate($question);
         }
 
         $optionsByMarker = array_map(
@@ -80,6 +80,6 @@ final class AnswerOptionCase
         );
         $question['accepted_answers_by_marker'] = $accepted;
 
-        return $question;
+        return FuturePerfectAnswerSynonyms::decorate($question);
     }
 }

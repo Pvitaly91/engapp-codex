@@ -636,7 +636,7 @@ function renderOptionButton(q, opt, i) {
         <span class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-xl border-2 font-bold text-sm ${iconColor} transition-colors">
           ${hotkey}
         </span>
-        <span class="flex-1">${opt}</span>
+        <span class="flex-1">${html(formatAnswerOptionLabel(q, q.activeSlot, opt))}</span>
       </div>
     </button>
   `;

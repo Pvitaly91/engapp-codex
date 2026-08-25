@@ -16,6 +16,8 @@ class SavedTestJsState
         'answer_map',
         'accepted_answers',
         'accepted_answers_by_marker',
+        'answer_synonyms_by_marker',
+        'answer_synonym_tokens_by_marker',
         'markers',
         'markers_count',
         'options_by_marker',

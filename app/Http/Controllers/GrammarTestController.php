@@ -26,6 +26,7 @@ use App\Services\VirtualSavedTest;
 use App\Support\AcceptedAnswerVariants;
 use App\Support\AnswerOptionCase;
 use App\Support\ComposeTokenCase;
+use App\Support\FuturePerfectAnswerSynonyms;
 use App\Support\SavedTestJsState;
 use App\Support\SentenceReorderQuestionFactory;
 use App\Support\SentenceBuilderBranding;
@@ -645,7 +646,9 @@ class GrammarTestController extends Controller
                 'level' => $q->level ?? '',
                 'tech_info' => $technicalInfoByQuestionId[$q->id] ?? null,
             ];
-        })->values()->all();
+        })->map(
+            static fn (array $question): array => FuturePerfectAnswerSynonyms::decorate($question)
+        )->values()->all();
 
         return SentenceReorderQuestionFactory::addToMixedTheoryTest($payload, $testFilters);
     }

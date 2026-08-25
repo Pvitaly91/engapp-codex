@@ -1,6 +1,6 @@
 # Theory Page Tests Unification Audit
 
-- Generated at: `2026-05-26T17:44:04+03:00`
+- Generated at: `2026-08-10T12:42:34+03:00`
 - Total theory pages audited: 6
 - Pages already OK: 6
 - Pages missing only theory links: 0

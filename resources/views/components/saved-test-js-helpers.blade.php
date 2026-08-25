@@ -136,6 +136,57 @@ function testAnswerMatches(question, slotIndex, value) {
         .some((accepted) => canonicalTestAnswer(accepted) === normalized);
 }
 
+function formatAnswerOptionLabel(question, slotIndex, option) {
+    const markers = Array.isArray(question?.markers)
+        ? question.markers
+        : Object.keys(question?.answer_map || {});
+    const marker = markers[slotIndex] || `a${slotIndex + 1}`;
+    const expected = String(question?.answers?.[slotIndex] ?? '').trim();
+
+    if (canonicalTestAnswer(option) !== canonicalTestAnswer(expected)) {
+        return String(option ?? '');
+    }
+
+    const configuredTokens = question?.answer_synonym_tokens_by_marker?.[marker];
+
+    if (configuredTokens && typeof configuredTokens === 'object' && !Array.isArray(configuredTokens)) {
+        return String(option ?? '')
+            .split(/(\s+)/)
+            .map((token) => {
+                const entry = Object.entries(configuredTokens)
+                    .find(([canonical]) => canonicalTestAnswer(canonical) === canonicalTestAnswer(token));
+
+                if (!entry || !Array.isArray(entry[1])) {
+                    return token;
+                }
+
+                const aliases = entry[1]
+                    .map((synonym) => String(synonym ?? '').trim())
+                    .filter((synonym, index, all) => synonym !== ''
+                        && canonicalTestAnswer(synonym) !== canonicalTestAnswer(token)
+                        && all.findIndex((candidate) => canonicalTestAnswer(candidate) === canonicalTestAnswer(synonym)) === index);
+
+                return aliases.length > 0 ? `${token} (${aliases.join(', ')})` : token;
+            })
+            .join('');
+    }
+
+    const configured = question?.answer_synonyms_by_marker?.[marker];
+    if (!Array.isArray(configured)) {
+        return String(option ?? '');
+    }
+
+    const synonyms = configured
+        .map((synonym) => String(synonym ?? '').trim())
+        .filter((synonym, index, all) => synonym !== ''
+            && canonicalTestAnswer(synonym) !== canonicalTestAnswer(option)
+            && all.findIndex((candidate) => canonicalTestAnswer(candidate) === canonicalTestAnswer(synonym)) === index);
+
+    return synonyms.length > 0
+        ? `${option} (${synonyms.join(', ')})`
+        : String(option ?? '');
+}
+
 function html(str) {
     return String(str)
         .replaceAll('&', '&amp;')
@@ -1250,6 +1301,8 @@ function mergeFreshQuestionContentIntoSavedState(state) {
         'answer_map',
         'accepted_answers',
         'accepted_answers_by_marker',
+        'answer_synonyms_by_marker',
+        'answer_synonym_tokens_by_marker',
         'markers',
         'markers_count',
         'options_by_marker',

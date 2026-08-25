@@ -102,7 +102,7 @@ final class ComposeTokenCase
             $question['options'] = self::mergeOptions($question['options'], $answers);
         }
 
-        return $question;
+        return FuturePerfectAnswerSynonyms::decorate($question);
     }
 
     private static function uppercaseFirst(string $value): string

@@ -19,6 +19,7 @@ use App\Support\AdminDebugAccess;
 use App\Support\AnswerOptionCase;
 use App\Support\ComposeModeEligibility;
 use App\Support\ComposeTokenCase;
+use App\Support\FuturePerfectAnswerSynonyms;
 use App\Support\PromptGeneratorFilterNormalizer;
 use App\Support\SavedTestJsState;
 use App\Support\SentenceReorderQuestionFactory;
@@ -541,7 +542,9 @@ class TestJsV2Controller extends Controller
                 'marker_tags' => $markerTags,
                 'tech_info' => $technicalInfoByQuestionId[$q->id] ?? null,
             ];
-        })->values()->all();
+        })->map(
+            static fn (array $question): array => FuturePerfectAnswerSynonyms::decorate($question)
+        )->values()->all();
 
         return SentenceReorderQuestionFactory::addToMixedTheoryTest(
             $payload,
