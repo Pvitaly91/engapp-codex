@@ -318,6 +318,29 @@ class FuturePerfectMixedUkrainianTest extends TestCase
             $this->record(! in_array($distractor, $accepted, true), $violations, "{$uuid}: accepted answer variant used as distractor");
         }
 
+        if ($topic === 'time-expressions') {
+            $completed = str_replace('{a1}', $answer, $stem);
+            $allowedAnswers = [
+                'by', 'by then', 'by the time', 'before', 'by the end of',
+                'within', 'already', 'no later than',
+            ];
+
+            $hint = trim((string) ($marker['verb_hint'] ?? ''));
+            $this->record($hint !== '', $violations, "{$uuid}: contextual time-expression hint is missing");
+            $this->record(preg_match('/[А-Яа-яІіЇїЄєҐґ]/u', $hint) === 1, $violations, "{$uuid}: time-expression hint is not Ukrainian");
+            $this->record(! str_contains($hint, 'Підмет:'), $violations, "{$uuid}: obsolete subject hint returned");
+            $this->record(! str_contains($hint, 'Базове дієслово'), $violations, "{$uuid}: obsolete base-verb hint returned");
+            $this->record(in_array($this->normalize($answer), $allowedAnswers, true), $violations, "{$uuid}: answer is not a time expression");
+            $this->record(preg_match('/\b(?:will|have)\b/iu', $answer) !== 1, $violations, "{$uuid}: answer still tests Future Perfect form");
+            $this->record(
+                preg_match('/\bwill\s+(?:already\s+)?have\s+\p{L}+/iu', $completed) === 1,
+                $violations,
+                "{$uuid}: full Future Perfect form is not visible"
+            );
+
+            return $completed;
+        }
+
         $hint = trim((string) ($marker['verb_hint'] ?? ''));
         $pattern = match ($topic) {
             'negatives' => '/^Підмет: «([^»]+)»\. Базове дієслово із запереченням: «не ([^»]+)»\.$/u',

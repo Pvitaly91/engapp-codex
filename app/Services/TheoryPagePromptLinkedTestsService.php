@@ -350,6 +350,10 @@ class TheoryPagePromptLinkedTestsService
     protected function aggregateBaseFilters(Page $page, Collection $linkedTests, Collection $definitionsBySeeder): array
     {
         $referenceFilters = $this->referenceFiltersForAggregatedTests($linkedTests, $definitionsBySeeder);
+        $interleaveQuestionTypes = $this->mixedInterleaveQuestionTypesEnabled(
+            $linkedTests,
+            $definitionsBySeeder
+        );
         $promptGenerator = PromptGeneratorFilterNormalizer::normalize($referenceFilters['prompt_generator'] ?? null);
 
         if (! is_array($promptGenerator)) {
@@ -383,6 +387,7 @@ class TheoryPagePromptLinkedTestsService
             'blank_count_from' => Arr::get($referenceFilters, 'blank_count_from'),
             'blank_count_to' => Arr::get($referenceFilters, 'blank_count_to'),
             'preferred_view' => Arr::get($referenceFilters, 'preferred_view'),
+            'theory_page_mixed_interleave_question_types' => $interleaveQuestionTypes,
             'prompt_generator' => $promptGenerator,
         ], fn ($value) => $value !== null);
     }
@@ -445,6 +450,11 @@ class TheoryPagePromptLinkedTestsService
             ->contains(fn ($row) => (string) ($row->type ?? '') !== Question::TYPE_COMPOSE_TOKENS);
 
         $questionCount = $this->mixedAllLevelsQuestionCount($questionRows, $levels);
+        $interleaveQuestionTypes = (bool) Arr::get(
+            $baseFilters,
+            'theory_page_mixed_interleave_question_types',
+            false
+        ) || $this->usesUkrainianFuturePerfectMixedSeeders($seederClasses);
 
         $filters = $baseFilters;
         $filters['levels'] = $levels !== [] ? $levels : self::LEVEL_ORDER;
@@ -453,7 +463,7 @@ class TheoryPagePromptLinkedTestsService
         $filters['randomize_filtered'] = false;
         $filters['theory_page_mixed_all_levels'] = true;
         $filters['theory_page_mixed_questions_per_level'] = self::MIXED_QUESTIONS_PER_LEVEL;
-        $filters['theory_page_mixed_interleave_question_types'] = $this->usesUkrainianFuturePerfectMixedSeeders($seederClasses);
+        $filters['theory_page_mixed_interleave_question_types'] = $interleaveQuestionTypes;
         $filters['__meta'] = array_merge(
             is_array($filters['__meta'] ?? null) ? $filters['__meta'] : [],
             [
@@ -462,7 +472,7 @@ class TheoryPagePromptLinkedTestsService
                 'theory_page_id' => (int) $page->getKey(),
                 'theory_page_mixed_all_levels_test' => true,
                 'theory_page_mixed_questions_per_level' => self::MIXED_QUESTIONS_PER_LEVEL,
-                'theory_page_mixed_interleave_question_types' => $this->usesUkrainianFuturePerfectMixedSeeders($seederClasses),
+                'theory_page_mixed_interleave_question_types' => $interleaveQuestionTypes,
                 'theory_page_mixed_polyglot_test' => $containsComposeQuestions && $containsStandardQuestions,
                 'theory_page_static_slug' => true,
             ]
@@ -504,9 +514,9 @@ class TheoryPagePromptLinkedTestsService
     }
 
     /**
-     * Only the dedicated Ukrainian Future Perfect mixed banks opt into
-     * alternating question formats. Other theory-page mixed tests retain
-     * their existing presentation unchanged.
+     * Backward-compatible opt-in for the original Ukrainian Future Perfect
+     * banks. New topic packages should use the declarative filter metadata
+     * consumed by mixedInterleaveQuestionTypesEnabled().
      *
      * @param Collection<int, string> $seederClasses
      */
@@ -616,6 +626,23 @@ class TheoryPagePromptLinkedTestsService
         }
 
         return [];
+    }
+
+    protected function mixedInterleaveQuestionTypesEnabled(
+        Collection $linkedTests,
+        Collection $definitionsBySeeder
+    ): bool {
+        $filters = $linkedTests
+            ->map(fn (SavedGrammarTest $test): array => is_array($test->filters) ? $test->filters : [])
+            ->merge($definitionsBySeeder->map(
+                fn ($definition): array => $this->definitionFilters(is_array($definition) ? $definition : [])
+            ));
+
+        return $filters->contains(static fn (array $filter): bool => (bool) Arr::get(
+            $filter,
+            '__meta.theory_page_mixed_interleave_question_types',
+            Arr::get($filter, 'theory_page_mixed_interleave_question_types', false)
+        ));
     }
 
     protected function buildAggregatedVirtualTest(

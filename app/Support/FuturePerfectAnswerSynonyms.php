@@ -6,7 +6,8 @@ final class FuturePerfectAnswerSynonyms
 {
     /**
      * Context-specific, single-token alternatives for the Ukrainian
-     * Future Perfect sentence-builder banks.
+     * Future Perfect sentence-builder banks. Present Perfect Continuous uses
+     * a separate catalogue below but shares the same safe runtime decorator.
      *
      * The first-level key is the authored type-4 question UUID. Paired
      * type-0 gap questions use the same entry through their deterministic
@@ -286,11 +287,185 @@ final class FuturePerfectAnswerSynonyms
     ];
 
     /**
+     * Context-specific alternatives for the Ukrainian Present Perfect
+     * Continuous mixed banks. Entries remain scoped to one authored UUID;
+     * the paired `-v3-` gap question is resolved through the same mapping as
+     * Future Perfect, while words outside its answer marker are ignored.
+     *
+     * @var array<string, array<string, array<int, string>>>
+     */
+    private const PRESENT_PERFECT_CONTINUOUS_CATALOG = [
+        // Forms.
+        'ukm-ppcf-poly-a1-01' => [
+            'studying' => ['learning'],
+            'cleaning' => ['tidying'],
+        ],
+        'ukm-ppcf-poly-a2-01' => [
+            'practising' => ['practicing'],
+            'renovating' => ['refurbishing'],
+        ],
+        'ukm-ppcf-poly-a2-02' => ['practising' => ['practicing']],
+        'ukm-ppcf-poly-a2-04' => ['fixing' => ['repairing']],
+        'ukm-ppcf-poly-b1-03' => [
+            'reviewing' => ['examining'],
+            'researching' => ['investigating'],
+        ],
+        'ukm-ppcf-poly-b1-05' => [
+            'discussing' => ['debating'],
+            'correcting' => ['revising'],
+        ],
+        'ukm-ppcf-poly-b2-03' => [
+            'examining' => ['analysing', 'analyzing'],
+            'debating' => ['discussing'],
+        ],
+        'ukm-ppcf-poly-b2-04' => ['running' => ['conducting']],
+        'ukm-ppcf-poly-b2-05' => [
+            'monitoring' => ['tracking'],
+        ],
+        'ukm-ppcf-poly-b2-06' => ['revising' => ['reviewing']],
+        'ukm-ppcf-poly-c1-01' => [
+            'assessing' => ['evaluating'],
+            'examining' => ['reviewing'],
+        ],
+        'ukm-ppcf-poly-c1-02' => ['tracking' => ['monitoring']],
+        'ukm-ppcf-poly-c1-03' => [
+            'evaluating' => ['assessing', 'analysing', 'analyzing'],
+            'modelling' => ['modeling'],
+        ],
+        'ukm-ppcf-poly-c1-07' => ['scrutinising' => ['scrutinizing', 'examining']],
+        'ukm-ppcf-poly-c2-01' => ['scrutinising' => ['scrutinizing', 'analysing', 'analyzing', 'examining']],
+        'ukm-ppcf-poly-c2-06' => ['interrogating' => ['questioning', 'examining']],
+        'ukm-ppcf-poly-c2-07' => [
+            'probing' => ['investigating', 'examining'],
+            'recalibrating' => ['adjusting'],
+        ],
+
+        // Negatives.
+        'ukm-ppcn-poly-a1-01' => ['studying' => ['learning']],
+        'ukm-ppcn-poly-a2-01' => ['practising' => ['practicing']],
+        'ukm-ppcn-poly-a2-04' => [
+            'fixing' => ['repairing'],
+            'checking' => ['monitoring'],
+        ],
+        'ukm-ppcn-poly-b1-03' => [
+            'reviewing' => ['examining'],
+            'inspecting' => ['examining'],
+        ],
+        'ukm-ppcn-poly-b1-07' => ['discussing' => ['debating']],
+        'ukm-ppcn-poly-b2-03' => ['examining' => ['analysing', 'analyzing']],
+        'ukm-ppcn-poly-b2-04' => [
+            'running' => ['conducting'],
+            'recording' => ['logging'],
+        ],
+        'ukm-ppcn-poly-b2-07' => [
+            'monitoring' => ['tracking'],
+            'timetable' => ['schedule'],
+        ],
+        'ukm-ppcn-poly-c1-01' => ['assessing' => ['evaluating']],
+        'ukm-ppcn-poly-c1-03' => ['evaluating' => ['assessing', 'analysing', 'analyzing']],
+        'ukm-ppcn-poly-c2-01' => ['scrutinising' => ['scrutinizing', 'analysing', 'analyzing', 'examining']],
+        'ukm-ppcn-poly-c2-05' => [
+            'interrogating' => ['questioning', 'examining'],
+            'distinguishing' => ['differentiating'],
+        ],
+        'ukm-ppcn-poly-c2-06' => [
+            'probing' => ['investigating', 'examining'],
+            'disclosing' => ['revealing'],
+        ],
+
+        // Questions.
+        'ukm-ppcq-poly-a1-01' => ['studying' => ['learning']],
+        'ukm-ppcq-poly-a2-01' => [
+            'practising' => ['practicing'],
+            'repairing' => ['fixing'],
+        ],
+        'ukm-ppcq-poly-b1-02' => [
+            'reviewing' => ['examining'],
+        ],
+        'ukm-ppcq-poly-b1-07' => [
+            'discussing' => ['debating'],
+            'storing' => ['keeping'],
+        ],
+        'ukm-ppcq-poly-b2-02' => [
+            'examining' => ['analysing', 'analyzing'],
+            'comparing' => ['contrasting'],
+        ],
+        'ukm-ppcq-poly-b2-04' => [
+            'revising' => ['reviewing'],
+            'challenging' => ['questioning'],
+        ],
+        'ukm-ppcq-poly-b2-05' => ['monitoring' => ['tracking']],
+        'ukm-ppcq-poly-c1-01' => [
+            'assessing' => ['evaluating'],
+            'reviewing' => ['examining'],
+        ],
+        'ukm-ppcq-poly-c1-02' => [
+            'evaluating' => ['assessing', 'analysing', 'analyzing'],
+            'tracing' => ['tracking'],
+        ],
+        'ukm-ppcq-poly-c1-06' => ['handling' => ['managing', 'absorbing']],
+        'ukm-ppcq-poly-c2-01' => [
+            'scrutinising' => ['scrutinizing', 'analysing', 'analyzing', 'examining'],
+            'reassessing' => ['reevaluating', 're-evaluating'],
+        ],
+        'ukm-ppcq-poly-c2-04' => [
+            'interrogating' => ['questioning', 'examining'],
+            'investigating' => ['examining'],
+        ],
+        'ukm-ppcq-poly-c2-06' => [
+            'absorbing' => ['handling', 'managing'],
+            'tempering' => ['softening'],
+        ],
+        'ukm-ppcq-poly-c2-07' => [
+            'probing' => ['investigating', 'examining'],
+            'documenting' => ['recording'],
+        ],
+
+        // Time expressions. Lexical keys intentionally omit sentence-final
+        // punctuation; the decorator preserves it in accepted answers.
+        'ukm-ppcte-poly-a1-04' => [
+            'recently' => ['lately'],
+            'lately' => ['recently'],
+        ],
+        'ukm-ppcte-poly-a1-06' => ['fixing' => ['repairing']],
+        'ukm-ppcte-poly-a2-04' => [
+            'lately' => ['recently'],
+            'renovating' => ['refurbishing'],
+        ],
+        'ukm-ppcte-poly-a2-05' => ['practising' => ['practicing']],
+        'ukm-ppcte-poly-a2-07' => ['timetable' => ['schedule']],
+        'ukm-ppcte-poly-b1-03' => ['following' => ['tracking']],
+        'ukm-ppcte-poly-b2-01' => ['evaluating' => ['assessing']],
+        'ukm-ppcte-poly-b2-04' => [
+            'recently' => ['lately'],
+            'revising' => ['reviewing'],
+        ],
+        'ukm-ppcte-poly-c1-02' => ['stabilising' => ['stabilizing']],
+        'ukm-ppcte-poly-c1-03' => ['redrafting' => ['revising']],
+        'ukm-ppcte-poly-c1-04' => [
+            'lately' => ['recently'],
+            'validating' => ['verifying'],
+        ],
+        'ukm-ppcte-poly-c2-01' => ['scrutinising' => ['scrutinizing', 'examining', 'analysing', 'analyzing']],
+        'ukm-ppcte-poly-c2-04' => ['cataloguing' => ['cataloging']],
+        'ukm-ppcte-poly-c2-06' => ['contesting' => ['challenging']],
+        'ukm-ppcte-poly-c2-07' => ['absorbing' => ['handling']],
+    ];
+
+    /**
      * @return array<string, array<string, array<int, string>>>
      */
     public static function catalog(): array
     {
         return self::CATALOG;
+    }
+
+    /**
+     * @return array<string, array<string, array<int, string>>>
+     */
+    public static function presentPerfectContinuousCatalog(): array
+    {
+        return self::PRESENT_PERFECT_CONTINUOUS_CATALOG;
     }
 
     /**
@@ -387,22 +562,31 @@ final class FuturePerfectAnswerSynonyms
             return [];
         }
 
+        $available = self::catalogEntry($catalogUuid);
         $key = mb_strtolower(AcceptedAnswerVariants::normalizeTypography($answer));
 
-        return self::CATALOG[$catalogUuid][$key] ?? [];
+        return $available[$key] ?? $available[self::lexicalToken($key)] ?? [];
     }
 
     private static function catalogUuid(string $questionUuid): ?string
     {
         $questionUuid = trim($questionUuid);
 
-        if (isset(self::CATALOG[$questionUuid])) {
+        if (self::catalogEntry($questionUuid) !== []) {
             return $questionUuid;
         }
 
         $builderUuid = str_replace('-v3-', '-poly-', $questionUuid);
 
-        return isset(self::CATALOG[$builderUuid]) ? $builderUuid : null;
+        return self::catalogEntry($builderUuid) !== [] ? $builderUuid : null;
+    }
+
+    /** @return array<string, array<int, string>> */
+    private static function catalogEntry(string $questionUuid): array
+    {
+        return self::CATALOG[$questionUuid]
+            ?? self::PRESENT_PERFECT_CONTINUOUS_CATALOG[$questionUuid]
+            ?? [];
     }
 
     /**
@@ -410,7 +594,7 @@ final class FuturePerfectAnswerSynonyms
      */
     private static function synonymTokensForAnswer(string $catalogUuid, string $answer): array
     {
-        $available = self::CATALOG[$catalogUuid] ?? [];
+        $available = self::catalogEntry($catalogUuid);
         $tokens = preg_split('/\s+/u', AcceptedAnswerVariants::normalizeTypography($answer)) ?: [];
         $matched = [];
 
@@ -419,6 +603,14 @@ final class FuturePerfectAnswerSynonyms
 
             if (isset($available[$key])) {
                 $matched[$key] = $available[$key];
+
+                continue;
+            }
+
+            $lexicalKey = self::lexicalToken($key);
+
+            if ($lexicalKey !== '' && isset($available[$lexicalKey])) {
+                $matched[$lexicalKey] = $available[$lexicalKey];
             }
         }
 
@@ -456,14 +648,34 @@ final class FuturePerfectAnswerSynonyms
         $parts = preg_split('/(\s+)/u', $answer, -1, PREG_SPLIT_DELIM_CAPTURE) ?: [$answer];
 
         foreach ($parts as $index => $part) {
-            if (mb_strtolower(AcceptedAnswerVariants::normalizeTypography($part)) !== $canonical) {
+            $normalizedPart = AcceptedAnswerVariants::normalizeTypography($part);
+            $normalizedKey = mb_strtolower($normalizedPart);
+
+            if ($normalizedKey === $canonical) {
+                $parts[$index] = self::matchTokenCase($normalizedPart, $replacement);
+
                 continue;
             }
 
-            $parts[$index] = self::matchTokenCase($part, $replacement);
+            if (self::lexicalToken($normalizedKey) !== self::lexicalToken($canonical)) {
+                continue;
+            }
+
+            if (preg_match('/^([^\pL\pN]*)(.*?)([^\pL\pN]*)$/u', $normalizedPart, $matches) !== 1) {
+                continue;
+            }
+
+            $parts[$index] = $matches[1].self::matchTokenCase($matches[2], $replacement).$matches[3];
         }
 
         return implode('', $parts);
+    }
+
+    private static function lexicalToken(string $token): string
+    {
+        $token = AcceptedAnswerVariants::normalizeTypography($token);
+
+        return mb_strtolower(preg_replace('/^[^\pL\pN]+|[^\pL\pN]+$/u', '', $token) ?? $token);
     }
 
     private static function matchTokenCase(string $canonical, string $replacement): string

@@ -516,10 +516,9 @@ class GrammarTestFilterService
             }
 
             if ($interleaveQuestionTypes) {
-                // Future Perfect explicitly opts into format interleaving.
-                // The secondary type is rotated first because the V3 and
-                // Sentence Builder banks use parallel IDs for equivalent
-                // source sentences.
+                // Topic packages can explicitly opt into format interleaving.
+                // The secondary type is rotated first because the standard
+                // and Sentence Builder banks can use parallel source items.
                 $levelSelected = $this->interleaveMixedQuestionTypes($levelSelected);
             } else {
                 // Preserve the established ordering for every other mixed

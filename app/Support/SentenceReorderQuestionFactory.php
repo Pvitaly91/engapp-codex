@@ -74,9 +74,9 @@ class SentenceReorderQuestionFactory
     }
 
     /**
-     * Keep genuine gap-fill questions available at every CEFR level. For the
-     * seven standard questions used by each Future Perfect level, positions
-     * 2, 4 and 6 become sentence-order tasks while 1, 3, 5 and 7 remain gaps.
+     * Keep genuine gap-fill questions available at every CEFR level. For a
+     * seven-question standard bank, positions 2, 4 and 6 become
+     * sentence-order tasks while 1, 3, 5 and 7 remain gaps.
      *
      * @param array<int, array<string, mixed>> $questions
      * @param array<int, int> $eligible
@@ -154,9 +154,9 @@ class SentenceReorderQuestionFactory
             self::stableKey($question, $index)
         );
 
-        // Level-balanced Future Perfect tests display grouped chunks rather
-        // than raw words. Apply their UI-size limit after grouping so longer
-        // advanced sentences are not silently left as gap-fill questions.
+        // Level-balanced mixed tests display grouped chunks rather than raw
+        // words. Apply their UI-size limit after grouping so longer advanced
+        // sentences are not silently left as gap-fill questions.
         if ($useGroupedTokenLimit && count($groups) > 18) {
             return null;
         }

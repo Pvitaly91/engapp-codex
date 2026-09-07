@@ -1,20 +1,27 @@
 @php
     $data = $data ?? json_decode($block->body ?? '[]', true) ?? [];
     $selects = $data['selects'] ?? [];
+    $choices = $data['choices'] ?? [];
     $inputs = $data['inputs'] ?? [];
     $rephrase = $data['rephrase'] ?? [];
     $options = $data['options'] ?? [];
+    $choiceOptions = $data['choice_options'] ?? ['a', 'b'];
     $linkedPractice = is_array($data['linked_practice'] ?? null) ? $data['linked_practice'] : [];
     $practiceSetId = 'practice-set-' . ($block->uuid ?? $block->id);
     $hasCheckableSelects = collect($selects)->contains(fn ($item) => !empty($item['answer']) || !empty($item['accepted']));
+    $hasCheckableChoices = collect($choices)->contains(fn ($item) => !empty($item['answer']) || !empty($item['accepted']));
     $hasCheckableInputs = collect($inputs)->contains(fn ($item) => !empty($item['answer']) || !empty($item['accepted']));
     $hasCheckableRephrase = collect($rephrase)->contains(fn ($item) => !empty($item['answer']) || !empty($item['accepted']));
+    $choiceExerciseNumber = !empty($selects) ? 2 : 1;
+    $inputExerciseNumber = 1 + (!empty($selects) ? 1 : 0) + (!empty($choices) ? 1 : 0);
+    $rephraseExerciseNumber = $inputExerciseNumber + (!empty($inputs) ? 1 : 0);
 @endphp
 
 <section id="block-{{ $block->id }}" class="scroll-mt-24">
     <div
         x-data="theoryPracticeSet(@js([
             'selects' => $selects,
+            'choices' => $choices,
             'inputs' => $inputs,
             'rephrase' => $rephrase,
             'i18n' => [
@@ -109,12 +116,79 @@
                 </div>
             @endif
 
+            {{-- Choice Exercise --}}
+            @if(!empty($choices))
+                <div class="rounded-xl border border-amber-100 bg-amber-50/30 overflow-hidden">
+                    <div class="border-b border-amber-100 bg-amber-50/50 px-4 py-3">
+                        <h3 class="font-semibold text-foreground text-sm flex items-center gap-2">
+                            <span class="flex h-5 w-5 items-center justify-center rounded bg-amber-500 text-white text-[10px]">{{ $choiceExerciseNumber }}</span>
+                            {{ $data['choice_title'] ?? __('theory_blocks.practice.select_title') }}
+                        </h3>
+                        @if(!empty($data['choice_intro']))
+                            <p class="text-xs text-muted-foreground mt-1">{!! $data['choice_intro'] !!}</p>
+                        @endif
+                    </div>
+                    <div class="p-4 space-y-3">
+                        @foreach($choices as $index => $item)
+                            <div class="flex flex-col sm:flex-row sm:items-center gap-2 bg-white/60 rounded-lg p-3 border border-white">
+                                <span class="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-700 text-[10px] font-bold">
+                                    {{ chr(97 + $index) }}
+                                </span>
+                                <div class="flex-1">
+                                    <label class="block text-sm text-foreground/80 mb-1.5">
+                                        {!! $item['label'] ?? '' !!}
+                                    </label>
+                                    @if(!empty($item['prompt']))
+                                        <p class="mb-2 text-xs text-muted-foreground">{!! $item['prompt'] !!}</p>
+                                    @endif
+                                    <div class="flex flex-wrap gap-2">
+                                        @foreach($choiceOptions as $option)
+                                            <button
+                                                type="button"
+                                                @click="choiceAnswers[{{ $index }}] = @js($option)"
+                                                class="min-w-12 rounded-xl border px-4 py-2 text-sm font-extrabold uppercase transition"
+                                                :class="[
+                                                    choiceAnswers[{{ $index }}] === @js($option)
+                                                        ? 'border-amber-600 bg-amber-600 text-white shadow-sm'
+                                                        : 'border-amber-200 bg-white text-amber-700 hover:border-amber-400 hover:bg-amber-50',
+                                                    isChecked('choices') && hasAnswer('choices', {{ $index }}) && choiceAnswers[{{ $index }}] === @js($option)
+                                                        ? (isCorrect('choices', {{ $index }}) ? 'ring-2 ring-emerald-300' : 'ring-2 ring-rose-300')
+                                                        : ''
+                                                ].join(' ')"
+                                            >
+                                                {{ $option }}
+                                            </button>
+                                        @endforeach
+                                    </div>
+                                    <div x-show="isChecked('choices') && hasAnswer('choices', {{ $index }})" class="mt-2 text-xs font-semibold" :class="isCorrect('choices', {{ $index }}) ? 'text-emerald-700' : 'text-rose-700'">
+                                        <span x-text="feedbackText('choices', {{ $index }})"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                        @if($hasCheckableChoices)
+                            <div class="flex flex-col gap-2 pt-1 sm:flex-row sm:items-center sm:justify-between">
+                                <p x-show="isChecked('choices')" class="text-xs font-semibold text-amber-700" x-text="scoreText('choices')"></p>
+                                <div class="flex gap-2 sm:ml-auto">
+                                    <button type="button" @click="resetGroup('choices')" x-show="isChecked('choices')" class="rounded-lg border border-amber-200 bg-white px-4 py-2 text-sm font-semibold text-amber-700 transition hover:bg-amber-50">
+                                        {{ __('theory_blocks.practice.reset') }}
+                                    </button>
+                                    <button type="button" @click="check('choices')" class="rounded-lg bg-amber-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-amber-700">
+                                        {{ __('theory_blocks.practice.check') }}
+                                    </button>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            @endif
+
             {{-- Input Exercise --}}
             @if(!empty($inputs))
                 <div class="rounded-xl border border-emerald-100 bg-emerald-50/30 overflow-visible">
                     <div class="border-b border-emerald-100 bg-emerald-50/50 px-4 py-3">
                         <h3 class="font-semibold text-foreground text-sm flex items-center gap-2">
-                            <span class="flex h-5 w-5 items-center justify-center rounded bg-emerald-500 text-white text-[10px]">2</span>
+                            <span class="flex h-5 w-5 items-center justify-center rounded bg-emerald-500 text-white text-[10px]">{{ $inputExerciseNumber }}</span>
                             {{ $data['input_title'] ?? __('theory_blocks.practice.input_title') }}
                         </h3>
                         @if(!empty($data['input_intro']))
@@ -123,15 +197,22 @@
                     </div>
                     <div class="p-4 space-y-3">
                         @foreach($inputs as $index => $item)
+                            @php
+                                $hasInputTokenBank = !empty($item['before'])
+                                    && is_string($item['before'])
+                                    && str_contains($item['before'], '/');
+                            @endphp
                             <div class="relative flex flex-wrap items-center gap-2 text-sm text-foreground/80 bg-white/60 rounded-lg p-3 border border-white">
                                 <span class="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 text-[10px] font-bold">
                                     {{ chr(97 + $index) }}
                                 </span>
-                                <span>{!! $item['before'] ?? '' !!}</span>
+                                @unless($hasInputTokenBank)
+                                    <span>{!! $item['before'] ?? '' !!}</span>
+                                @endunless
                                 @if(!empty($item['after']))
                                     <span class="font-semibold text-foreground">{!! $item['after'] !!}</span>
                                 @endif
-                                @if(!empty($item['before']) && is_string($item['before']) && str_contains($item['before'], '/'))
+                                @if($hasInputTokenBank)
                                     <div class="w-full">
                                         <p class="mb-1.5 text-xs font-semibold text-muted-foreground flex items-center gap-2">
                                             <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
@@ -160,36 +241,44 @@
                                 <div class="relative min-w-[220px] flex-1 sm:max-w-md" @click.outside="closeWordSuggestions('inputs', {{ $index }})">
                                     <input
                                         type="text"
+                                        autocomplete="off"
+                                        autocorrect="off"
+                                        autocapitalize="none"
+                                        spellcheck="false"
                                         x-model="inputAnswers[{{ $index }}]"
                                         :class="fieldClass('inputs', {{ $index }})"
                                         @input="syncInputTokenBank({{ $index }})"
-                                        @input.debounce.150ms="searchWordSuggestions('inputs', {{ $index }}, $event)"
-                                        @keydown.escape.stop.prevent="closeWordSuggestions('inputs', {{ $index }})"
-                                        @keydown.enter="maybeSelectFirstWordSuggestion('inputs', {{ $index }}, $event)"
+                                        @unless($hasInputTokenBank)
+                                            @input.debounce.150ms="searchWordSuggestions('inputs', {{ $index }}, $event)"
+                                            @keydown.escape.stop.prevent="closeWordSuggestions('inputs', {{ $index }})"
+                                            @keydown.enter="maybeSelectFirstWordSuggestion('inputs', {{ $index }}, $event)"
+                                        @endunless
                                         data-word-suggestion-input="inputs-{{ $index }}"
                                         class="w-full rounded-xl border border-emerald-300 bg-white px-3.5 py-2 text-sm font-semibold text-foreground shadow-sm placeholder:text-slate-400 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition-all"
                                         placeholder="..."
                                     />
-                                    <div
-                                        x-cloak
-                                        x-show="isWordSuggestionOpen('inputs', {{ $index }})"
-                                        x-transition.opacity.duration.100ms
-                                        class="absolute left-0 top-full z-[9999] mt-1 w-72 max-w-[calc(100vw-2rem)] overflow-hidden rounded-xl border border-border/70 bg-white shadow-2xl shadow-slate-900/15"
-                                    >
-                                        <template x-for="item in wordSuggestions('inputs', {{ $index }})" :key="item.word + '-' + (item.translation || '')">
-                                            <button
-                                                type="button"
-                                                @mousedown.prevent="applyWordSuggestion('inputs', {{ $index }}, item)"
-                                                class="flex w-full items-start justify-between gap-3 px-3 py-2 text-left text-sm transition hover:bg-brand-50 focus:bg-brand-50 focus:outline-none"
-                                            >
-                                                <span class="min-w-0">
-                                                    <span class="block truncate font-semibold text-foreground" x-text="item.word"></span>
-                                                    <span class="block truncate text-xs text-muted-foreground" x-text="item.translation || ''"></span>
-                                                </span>
-                                                <span class="shrink-0 rounded-full bg-brand-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-brand-700" x-text="item.translation_lang || ''"></span>
-                                            </button>
-                                        </template>
-                                    </div>
+                                    @unless($hasInputTokenBank)
+                                        <div
+                                            x-cloak
+                                            x-show="isWordSuggestionOpen('inputs', {{ $index }})"
+                                            x-transition.opacity.duration.100ms
+                                            class="absolute left-0 top-full z-[9999] mt-1 w-72 max-w-[calc(100vw-2rem)] overflow-hidden rounded-xl border border-border/70 bg-white shadow-2xl shadow-slate-900/15"
+                                        >
+                                            <template x-for="item in wordSuggestions('inputs', {{ $index }})" :key="item.word + '-' + (item.translation || '')">
+                                                <button
+                                                    type="button"
+                                                    @mousedown.prevent="applyWordSuggestion('inputs', {{ $index }}, item)"
+                                                    class="flex w-full items-start justify-between gap-3 px-3 py-2 text-left text-sm transition hover:bg-brand-50 focus:bg-brand-50 focus:outline-none"
+                                                >
+                                                    <span class="min-w-0">
+                                                        <span class="block truncate font-semibold text-foreground" x-text="item.word"></span>
+                                                        <span class="block truncate text-xs text-muted-foreground" x-text="item.translation || ''"></span>
+                                                    </span>
+                                                    <span class="shrink-0 rounded-full bg-brand-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-brand-700" x-text="item.translation_lang || ''"></span>
+                                                </button>
+                                            </template>
+                                        </div>
+                                    @endunless
                                 </div>
                                 <span x-show="isChecked('inputs') && hasAnswer('inputs', {{ $index }})" class="basis-full pl-7 text-xs font-semibold" :class="isCorrect('inputs', {{ $index }}) ? 'text-emerald-700' : 'text-rose-700'" x-text="feedbackText('inputs', {{ $index }})"></span>
                             </div>
@@ -216,7 +305,7 @@
                 <div class="rounded-xl border border-purple-100 bg-purple-50/30 overflow-visible">
                     <div class="border-b border-purple-100 bg-purple-50/50 px-4 py-3">
                         <h3 class="font-semibold text-foreground text-sm flex items-center gap-2">
-                            <span class="flex h-5 w-5 items-center justify-center rounded bg-purple-500 text-white text-[10px]">3</span>
+                            <span class="flex h-5 w-5 items-center justify-center rounded bg-purple-500 text-white text-[10px]">{{ $rephraseExerciseNumber }}</span>
                             {{ $data['rephrase_title'] ?? __('theory_blocks.practice.rephrase_title') }}
                         </h3>
                         @if(!empty($data['rephrase_intro']))
@@ -250,6 +339,10 @@
                                     <div class="relative" @click.outside="closeWordSuggestions('rephrase', {{ $index }})">
                                         <input
                                             type="text"
+                                            autocomplete="off"
+                                            autocorrect="off"
+                                            autocapitalize="none"
+                                            spellcheck="false"
                                             x-model="rephraseAnswers[{{ $index }}]"
                                             :class="fieldClass('rephrase', {{ $index }})"
                                             @input.debounce.150ms="searchWordSuggestions('rephrase', {{ $index }}, $event)"
@@ -322,11 +415,13 @@
         document.addEventListener('alpine:init', () => {
             Alpine.data('theoryPracticeSet', (config) => ({
                 selects: config.selects || [],
+                choices: config.choices || [],
                 inputs: config.inputs || [],
                 rephrase: config.rephrase || [],
                 i18n: config.i18n || {},
                 wordSearchEndpoint: config.wordSearchEndpoint || '',
                 selectAnswers: {},
+                choiceAnswers: {},
                 inputAnswers: {},
                 rephraseAnswers: {},
                 inputTokenBanks: {},
@@ -475,6 +570,7 @@
                     this.checkedGroups[group] = false;
 
                     if (group === 'selects') this.selectAnswers = {};
+                    if (group === 'choices') this.choiceAnswers = {};
                     if (group === 'inputs') this.inputAnswers = {};
                     if (group === 'inputs') this.resetInputTokenBanks();
                     if (group === 'rephrase') this.rephraseAnswers = {};
@@ -488,6 +584,7 @@
                 answerSource(group) {
                     return {
                         selects: this.selectAnswers,
+                        choices: this.choiceAnswers,
                         inputs: this.inputAnswers,
                         rephrase: this.rephraseAnswers,
                     }[group] || {};
@@ -568,6 +665,8 @@
                 },
 
                 isWordSuggestionOpen(group, index) {
+                    if (group === 'inputs' && this.inputTokenBank(index).length > 0) return false;
+
                     const key = this.suggestionKey(group, index);
 
                     return this.wordSuggestionOpen[key] === true && this.wordSuggestions(group, index).length > 0;
@@ -618,6 +717,11 @@
                 },
 
                 async searchWordSuggestions(group, index, event) {
+                    if (group === 'inputs' && this.inputTokenBank(index).length > 0) {
+                        this.closeWordSuggestions(group, index);
+                        return;
+                    }
+
                     if (!this.wordSearchEndpoint || !['inputs', 'rephrase'].includes(group)) return;
 
                     const key = this.suggestionKey(group, index);
