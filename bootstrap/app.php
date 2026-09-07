@@ -1,5 +1,7 @@
 <?php
 
+App\Support\ThreadSafeEnvironment::configure((bool) PHP_ZTS, PHP_SAPI);
+
 /*
 |--------------------------------------------------------------------------
 | Create The Application

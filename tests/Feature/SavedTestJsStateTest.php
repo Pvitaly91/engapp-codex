@@ -24,6 +24,14 @@ class SavedTestJsStateTest extends TestCase
     {
         parent::setUp();
 
+        if (! app()->environment('testing') || DB::connection()->getDriverName() !== 'sqlite'
+            || DB::connection()->getDatabaseName() !== ':memory:'
+            || config('cache.default') !== 'array' || config('session.driver') !== 'array') {
+            throw new \RuntimeException('State fixtures require isolated SQLite memory and array cache/session before schema writes.');
+        }
+        // This suite exercises persistence, not authored-content snapshot exports.
+        Question::flushEventListeners();
+
         if (! Schema::hasTable('tests')) {
             Artisan::call('migrate', ['--path' => 'database/migrations/2025_07_20_184450_create_tests_table.php']);
             Artisan::call('migrate', ['--path' => 'database/migrations/2025_08_04_000002_add_description_to_tests_table.php']);
@@ -237,6 +245,22 @@ class SavedTestJsStateTest extends TestCase
             $payload['state']['__meta']['question_data'],
             session(sprintf('saved_test_js_questions:%s', $test->slug))
         );
+    }
+
+    public function test_successful_204_has_no_body_and_preserves_exact_newest_state_per_test_and_mode(): void
+    {
+        $test = $this->createSavedTest();
+        $other = $this->createSavedTest();
+        $mode = 'saved-test-js-v2';
+        $first = ['answered' => 1, 'activeCardIdx' => 1, 'items' => [['chosen' => ['one']]], '__meta' => ['started' => true]];
+        $latest = ['answered' => 2, 'activeCardIdx' => 4, 'items' => [['chosen' => ['one']], ['chosen' => ['two']]], '__meta' => ['started' => true]];
+        $this->postState($test, ['mode' => $mode, 'state' => $first])->assertNoContent()->assertContent('');
+        $this->postState($test, ['mode' => $mode, 'state' => $latest])->assertNoContent()->assertContent('');
+        $this->assertSame($latest, session("saved_test_js_state:{$test->slug}:{$mode}"));
+        $this->assertNull(session("saved_test_js_state:{$other->slug}:{$mode}"));
+        $this->assertNull(session("saved_test_js_state:{$test->slug}:saved-test-js-step-v2"));
+        session()->flush();
+        $this->assertNull(session("saved_test_js_state:{$test->slug}:{$mode}"));
     }
 
     public function test_it_accepts_every_v2_state_mode(): void
