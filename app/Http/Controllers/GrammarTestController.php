@@ -27,6 +27,7 @@ use App\Support\AcceptedAnswerVariants;
 use App\Support\AnswerOptionCase;
 use App\Support\ComposeTokenCase;
 use App\Support\FuturePerfectAnswerSynonyms;
+use App\Support\ResolvedHtmlTest;
 use App\Support\SavedTestJsState;
 use App\Support\SentenceReorderQuestionFactory;
 use App\Support\SentenceBuilderBranding;
@@ -474,8 +475,12 @@ class GrammarTestController extends Controller
             $theoryTest = $this->savedTestResolver->resolveTheoryPageSlug($theorySlug);
 
             if ($theoryTest) {
-                return app(NewDesignTestController::class)
+                $response = app(NewDesignTestController::class)
                     ->showSavedTestJsNewDesign($theorySlug);
+
+                ResolvedHtmlTest::remember($request, $theorySlug);
+
+                return $response;
             }
         }
 

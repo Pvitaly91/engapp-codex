@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Support\HtmlResponseContent;
+use App\Support\ResolvedHtmlTest;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -49,7 +50,9 @@ class ApplySeoRobots
     public function handle(Request $request, Closure $next): Response
     {
         $response = $next($request);
-        $directive = $this->directive($request);
+        $directive = ResolvedHtmlTest::slugFor($request, $response) !== null
+            ? null
+            : $this->directive($request);
 
         if ($directive === null) {
             return $response;

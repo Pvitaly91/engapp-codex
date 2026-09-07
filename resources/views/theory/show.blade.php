@@ -180,7 +180,7 @@
                             @endif
                             <div class="mt-3 text-sm leading-6" style="color: var(--text);">{!! $rule['text'] ?? '' !!}</div>
                             @if(!empty($rule['example']))
-                                <code class="mt-4 block rounded-[16px] px-3 py-2 text-xs" style="background: var(--accent-soft); color: var(--text);">{{ $rule['example'] }}</code>
+                                <code class="mt-4 block rounded-[16px] px-3 py-2 text-xs" style="background: var(--accent-soft); color: var(--text);">{{ \App\Support\TheoryInlineHtml::render($rule['example']) }}</code>
                             @endif
                         </article>
                     @endforeach

@@ -37,11 +37,11 @@
                             <tr class="hover:bg-muted/30 transition-colors">
                                 <td class="py-3 px-4">
                                     <code class="font-mono text-sm font-semibold text-foreground">
-                                        {{ $row['en'] ?? '' }}
+                                        {{ \App\Support\TheoryInlineHtml::render($row['en'] ?? '') }}
                                     </code>
                                 </td>
                                 <td class="py-3 px-4 text-muted-foreground">
-                                    {{ $row['ua'] ?? '' }}
+                                    {{ \App\Support\TheoryInlineHtml::render($row['ua'] ?? '') }}
                                 </td>
                                 <td class="py-3 px-4">
                                     <span class="text-sm text-foreground/70">
