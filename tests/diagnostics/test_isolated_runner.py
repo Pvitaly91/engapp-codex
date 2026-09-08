@@ -116,6 +116,26 @@ class IsolatedRunnerTest(unittest.TestCase):
             self.assertEqual(1, len(set(scans)), 'The startup override must reach preflight and every PHPUnit child.')
             self.assertTrue(scans[0].endswith(str(Path(record['runtime']) / 'php-ini')))
 
+    def test_courses_matrix_runs_individual_combined_and_reversed_in_private_children(self):
+        responses = [subprocess.CompletedProcess([], 0, b'{}', b'')]
+        responses += [subprocess.CompletedProcess([], 0, b'OK', b'') for _ in range(4)]
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            with patch.object(RUNNER, 'REPO', root), \
+                    patch.object(RUNNER, 'fingerprint_files', return_value={'actual': 'same'}) as fingerprints, \
+                    patch.object(RUNNER.subprocess, 'run', side_effect=responses), \
+                    patch('sys.argv', ['runner', '--matrix', 'courses']), \
+                    patch('sys.stdout', io.StringIO()), patch('sys.stderr', io.StringIO()):
+                with self.assertRaises(SystemExit) as raised: RUNNER.main()
+            self.assertEqual(0, raised.exception.code)
+            record = json.loads(next(root.rglob('*-result.json')).read_text(encoding='utf-8'))
+            self.assertEqual(2, fingerprints.call_count)
+            self.assertEqual(['blueprint', 'landing', 'courses-combined', 'courses-reversed'], [run['name'] for run in record['runs']])
+            self.assertEqual(4, len({run['runtime'] for run in record['runs']}))
+            for index, run in enumerate(record['runs']):
+                self.assertEqual(index == 3, '--order-by=reverse' in run['command'])
+                self.assertIn('--log-junit', run['command'])
+
 
 if __name__ == '__main__':
     unittest.main()

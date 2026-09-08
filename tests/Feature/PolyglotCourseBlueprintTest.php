@@ -3,53 +3,12 @@
 namespace Tests\Feature;
 
 use App\Services\PolyglotCourseBlueprintService;
-use Database\Seeders\V2\Polyglot\PolyglotCanCannotLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotArticlesAAnTheLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotBeGoingToLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotComparativesLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotFinalDrillLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotGerundVsInfinitiveLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotMustHaveToLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotPastContinuousLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotPassiveVoiceBasicsLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotFinalDrillA2LessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectTimeExpressionsLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotQuestionTagsBasicsLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotReportedSpeechBasicsLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotRelativeClausesLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotSecondConditionalBasicsLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotShouldOughtToLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotUsedToLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotFutureSimpleWillLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotHaveGotHasGotLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotFirstConditionalLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectBasicLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectContinuousBasicsLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotPresentPerfectVsPastSimpleLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotPastPerfectBasicsLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotNarrativeTensesBasicsLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotFutureContinuousBasicsLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotFuturePerfectBasicsLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotPassiveVoiceWithModalsLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotReportedQuestionsLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotReportedCommandsAndRequestsLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotSuperlativesLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotPastSimpleIrregularVerbsLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotSomeAnyLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotMuchManyALotOfLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotPresentContinuousLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotPastSimpleRegularVerbsLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotPastSimpleToBeLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotPresentSimpleVerbsLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotThereIsThereAreLessonSeeder;
-use Database\Seeders\V2\Polyglot\PolyglotToBeLessonSeeder;
-use Tests\Support\RebuildsComposeTestSchema;
+use Tests\Support\PreparesPolyglotCourseFixtures;
 use Tests\TestCase;
 
 class PolyglotCourseBlueprintTest extends TestCase
 {
-    use RebuildsComposeTestSchema;
+    use PreparesPolyglotCourseFixtures;
 
     protected function setUp(): void
     {
@@ -60,48 +19,9 @@ class PolyglotCourseBlueprintTest extends TestCase
             'tests.tech_info_enabled' => false,
         ]);
 
-        $this->rebuildComposeTestSchema();
-        $this->seed(PolyglotToBeLessonSeeder::class);
-        $this->seed(PolyglotThereIsThereAreLessonSeeder::class);
-        $this->seed(PolyglotHaveGotHasGotLessonSeeder::class);
-        $this->seed(PolyglotPresentSimpleVerbsLessonSeeder::class);
-        $this->seed(PolyglotCanCannotLessonSeeder::class);
-        $this->seed(PolyglotPresentContinuousLessonSeeder::class);
-        $this->seed(PolyglotPastSimpleToBeLessonSeeder::class);
-        $this->seed(PolyglotPastSimpleRegularVerbsLessonSeeder::class);
-        $this->seed(PolyglotPastSimpleIrregularVerbsLessonSeeder::class);
-        $this->seed(PolyglotFutureSimpleWillLessonSeeder::class);
-        $this->seed(PolyglotArticlesAAnTheLessonSeeder::class);
-        $this->seed(PolyglotSomeAnyLessonSeeder::class);
-        $this->seed(PolyglotMuchManyALotOfLessonSeeder::class);
-        $this->seed(PolyglotComparativesLessonSeeder::class);
-        $this->seed(PolyglotSuperlativesLessonSeeder::class);
-        $this->seed(PolyglotFinalDrillLessonSeeder::class);
-        $this->seed(PolyglotPresentPerfectBasicLessonSeeder::class);
-        $this->seed(PolyglotPresentPerfectVsPastSimpleLessonSeeder::class);
-        $this->seed(PolyglotFirstConditionalLessonSeeder::class);
-        $this->seed(PolyglotBeGoingToLessonSeeder::class);
-        $this->seed(PolyglotShouldOughtToLessonSeeder::class);
-        $this->seed(PolyglotMustHaveToLessonSeeder::class);
-        $this->seed(PolyglotGerundVsInfinitiveLessonSeeder::class);
-        $this->seed(PolyglotPastContinuousLessonSeeder::class);
-        $this->seed(PolyglotPresentPerfectTimeExpressionsLessonSeeder::class);
-        $this->seed(PolyglotRelativeClausesLessonSeeder::class);
-        $this->seed(PolyglotPassiveVoiceBasicsLessonSeeder::class);
-        $this->seed(PolyglotReportedSpeechBasicsLessonSeeder::class);
-        $this->seed(PolyglotUsedToLessonSeeder::class);
-        $this->seed(PolyglotQuestionTagsBasicsLessonSeeder::class);
-        $this->seed(PolyglotSecondConditionalBasicsLessonSeeder::class);
-        $this->seed(PolyglotFinalDrillA2LessonSeeder::class);
-        $this->seed(PolyglotPresentPerfectContinuousBasicsLessonSeeder::class);
-        $this->seed(PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder::class);
-        $this->seed(PolyglotPastPerfectBasicsLessonSeeder::class);
-        $this->seed(PolyglotNarrativeTensesBasicsLessonSeeder::class);
-        $this->seed(PolyglotFutureContinuousBasicsLessonSeeder::class);
-        $this->seed(PolyglotFuturePerfectBasicsLessonSeeder::class);
-        $this->seed(PolyglotPassiveVoiceWithModalsLessonSeeder::class);
-        $this->seed(PolyglotReportedQuestionsLessonSeeder::class);
-        $this->seed(PolyglotReportedCommandsAndRequestsLessonSeeder::class);
+        if (! str_contains($this->name(), '_blueprint_file_')) {
+            $this->preparePolyglotCourseFixtures();
+        }
     }
 
     public function test_blueprint_file_loads_with_unique_lesson_orders_and_slugs(): void
@@ -124,7 +44,7 @@ class PolyglotCourseBlueprintTest extends TestCase
         $this->assertSame('implemented', $lessonSixteen['status']);
         $this->assertSame('polyglot-superlatives-a1', $lessonSixteen['previous_lesson_slug']);
         $this->assertNull($lessonSixteen['next_lesson_slug']);
-        $this->assertSame('basic-grammar', $lessonSixteen['theory_category_slug']);
+        $this->assertSame('mixed-revision', $lessonSixteen['theory_category_slug']);
         $this->assertSame('a1-mixed-revision', $lessonSixteen['theory_page_slug']);
     }
 
@@ -297,7 +217,7 @@ class PolyglotCourseBlueprintTest extends TestCase
         $this->assertSame('implemented', $lessonSixteen['status']);
         $this->assertSame('polyglot-second-conditional-basics-a2', $lessonSixteen['previous_lesson_slug']);
         $this->assertNull($lessonSixteen['next_lesson_slug']);
-        $this->assertSame('basic-grammar', $lessonSixteen['theory_category_slug']);
+        $this->assertSame('mixed-revision', $lessonSixteen['theory_category_slug']);
         $this->assertSame('a2-mixed-revision', $lessonSixteen['theory_page_slug']);
         $this->assertFalse(collect($blueprint['lessons'])->contains(
             fn (array $lesson) => ($lesson['status'] ?? null) === 'planned'
@@ -416,14 +336,14 @@ class PolyglotCourseBlueprintTest extends TestCase
         $this->assertSame('reported-commands-and-requests', $lessonNine['theory_page_slug']);
         $this->assertIsArray($lessonSixteen);
         $this->assertSame(16, $lessonSixteen['lesson_order']);
-        $this->assertSame('planned', $lessonSixteen['status']);
+        $this->assertSame('implemented', $lessonSixteen['status']);
         $this->assertSame('polyglot-linking-words-and-contrast-b1', $lessonSixteen['previous_lesson_slug']);
         $this->assertNull($lessonSixteen['next_lesson_slug']);
         $this->assertFalse(collect($blueprint['lessons'])->contains(
             fn (array $lesson) => ($lesson['lesson_order'] ?? null) <= 9 && ($lesson['status'] ?? null) !== 'implemented'
         ));
         $this->assertFalse(collect($blueprint['lessons'])->contains(
-            fn (array $lesson) => ($lesson['lesson_order'] ?? null) >= 10 && ($lesson['status'] ?? null) !== 'planned'
+            fn (array $lesson) => ($lesson['lesson_order'] ?? null) >= 10 && ($lesson['status'] ?? null) !== 'implemented'
         ));
     }
 
@@ -439,7 +359,20 @@ class PolyglotCourseBlueprintTest extends TestCase
             'polyglot-non-defining-relative-clauses-b1',
             $status['next_planned_lesson']['slug'] ?? null
         );
-        $this->assertSame([], $status['missing_lessons']);
+        // This fixture intentionally installs nine lessons, while the current
+        // blueprint declares all sixteen implemented. Retain the partial-course
+        // scenario and prove the seven missing records instead of hiding them.
+        $this->assertSame([
+            'polyglot-non-defining-relative-clauses-b1',
+            'polyglot-wish-if-only-basics-b1',
+            'polyglot-third-conditional-basics-b1',
+            'polyglot-causative-have-get-b1',
+            'polyglot-modal-verbs-of-deduction-b1',
+            'polyglot-linking-words-and-contrast-b1',
+            'polyglot-final-drill-b1',
+        ], array_column($status['missing_lessons'], 'slug'));
+        $this->assertSame(range(10, 16), array_column($status['missing_lessons'], 'lesson_order'));
+        $this->assertSame(['missing'], array_values(array_unique(array_column($status['missing_lessons'], 'availability_status'))));
         $this->assertSame([], $status['validation']['broken_previous_refs']);
         $this->assertSame([], $status['validation']['broken_next_refs']);
     }

@@ -13,8 +13,17 @@ class SitemapController extends Controller
     public function __invoke(
         TheoryPagePromptLinkedTestsService $theoryTests,
         CourseSitemapMetadataService $courses,
-    ): Response
-    {
+    ): Response {
+        return $this->renderSitemap($theoryTests, $courses);
+    }
+
+    /** Optional checkpoints are supplied only by the local CLI profiler. */
+    public function renderSitemap(
+        TheoryPagePromptLinkedTestsService $theoryTests,
+        CourseSitemapMetadataService $courses,
+        ?\Closure $checkpoint = null,
+    ): Response {
+        $checkpoint?->__invoke('categories_pages', 0);
         $origin = rtrim((string) config('site-mode.production_origin', 'https://gramlyze.com'), '/');
         $urls = collect([
             $this->entry($origin.'/', '1.0'),
@@ -60,13 +69,15 @@ class SitemapController extends Controller
 
         // Only stable main tests reconstructed from persistent theory metadata.
         // This path does not render cards or populate VirtualTestRegistry.
-        foreach ($theoryTests->mainSitemapTests($pages, 'uk') as $test) {
+        $checkpoint?->__invoke('main_start', $categories->count() + $pages->count());
+        foreach ($theoryTests->mainSitemapTests($pages, 'uk', $checkpoint) as $test) {
             $urls->push($this->entry(
                 $origin.'/test/'.$this->encodePath((string) $test->getAttribute('public_slug')),
                 '0.6'
             ));
         }
 
+        $checkpoint?->__invoke('course_readiness', 0);
         $coursePaths = $courses->eligiblePaths();
         if ($coursePaths !== []) {
             if ($courses->catalogueEligible()) {
@@ -77,9 +88,13 @@ class SitemapController extends Controller
             }
         }
 
-        return response()
+        $checkpoint?->__invoke('xml', count($coursePaths));
+        $response = response()
             ->view('sitemap', ['urls' => $urls->unique('loc')->values()])
             ->header('Content-Type', 'application/xml; charset=UTF-8');
+        $checkpoint?->__invoke('complete', $urls->count());
+
+        return $response;
     }
 
     private function categoryPath(PageCategory $category): string

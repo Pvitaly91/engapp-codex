@@ -7,17 +7,20 @@ use App\Models\PageCategory;
 use App\Models\Question;
 use App\Models\QuestionOption;
 use App\Models\SavedGrammarTest;
+use App\Models\Tag;
 use App\Models\Test;
 use App\Models\TextBlock;
 use App\Services\CourseSitemapMetadataService;
 use App\Services\GrammarTestFilterService;
 use App\Services\SavedTestResolver;
+use App\Services\TagAggregationService;
 use App\Services\TheoryPagePromptLinkedTestsService;
 use App\Support\VirtualTestRegistry;
 use Illuminate\Cache\Events\KeyWritten;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use Tests\Support\RebuildsComposeTestSchema;
 use Tests\TestCase;
@@ -57,7 +60,9 @@ class MainTheoryTestSitemapReadinessTest extends TestCase
         Cache::flush();
         session()->flush();
         $writes = [];
-        Event::listen(KeyWritten::class, function (KeyWritten $event) use (&$writes): void { $writes[] = $event->key; });
+        Event::listen(KeyWritten::class, function (KeyWritten $event) use (&$writes): void {
+            $writes[] = $event->key;
+        });
         DB::enableQueryLog();
         DB::flushQueryLog();
         $tests = $service->mainSitemapTests(collect([$other, $page]));
@@ -97,7 +102,7 @@ class MainTheoryTestSitemapReadinessTest extends TestCase
                 $response->assertOk()->assertViewIs('test-show')->assertSee('She', false);
                 $this->assertStringNotContainsString('noindex', (string) $response->headers->get('X-Robots-Tag'));
                 $this->assertDoesNotMatchRegularExpression('/<meta\b[^>]*name=["\']robots["\'][^>]*noindex/i', $response->getContent());
-                $document = new \DOMDocument();
+                $document = new \DOMDocument;
                 @$document->loadHTML($response->getContent());
                 $canonical = (new \DOMXPath($document))->query('//link[@rel="canonical"]');
                 $this->assertCount(1, $canonical);
@@ -235,7 +240,8 @@ class MainTheoryTestSitemapReadinessTest extends TestCase
             $this->assertCount((int) ceil($target / 40), $readinessQueries);
             foreach ($readinessQueries as $query) {
                 $this->assertStringNotContainsString('union', strtolower($query['query']), 'Readiness scans questions once per chunk, not per candidate.');
-                $this->assertStringContainsString('SUM(CASE WHEN', $query['query']);
+                $this->assertStringContainsString('MIN(CASE WHEN', $query['query']);
+                $this->assertStringNotContainsString('AS unusable_', $query['query'], 'One matching predicate per candidate, not two.');
             }
             foreach ($queries as $query) {
                 $this->assertDoesNotMatchRegularExpression('/select\s+["`]?questions["`]?\.\*|select\s+\*\s+from\s+["`]?questions["`]?/i', $query['query']);
@@ -305,6 +311,7 @@ class MainTheoryTestSitemapReadinessTest extends TestCase
             ->first(fn ($test): bool => $test->filters['theory_page_mixed_all_levels'] ?? false))
             ->filter(function ($test) use ($filters): bool {
                 $matching = $filters->matchingQuestionsQuery($test->filters);
+
                 return $filters->constrainUsableQuestions(clone $matching)->exists()
                     && ! (clone $matching)->whereNot(fn ($query) => $filters->constrainUsableQuestions($query))->exists();
             })->pluck('public_slug')->sort()->values()->all();
@@ -390,6 +397,171 @@ class MainTheoryTestSitemapReadinessTest extends TestCase
             ->mainSitemapTests(collect([$foreignAncestor, $orphan, $cycle, $good]))->pluck('public_slug')->all());
     }
 
+    public function test_request_local_partitions_preserve_overlapping_seeders_and_reflect_changes_and_deletions(): void
+    {
+        $a = $this->lesson('partition-topic', 'first', ['difficulty_to' => 3]);
+        $b = $this->lesson('partition-topic', 'second', ['difficulty_from' => 5]);
+        $aTests = SavedGrammarTest::where('filters->prompt_generator->theory_page_id', $a->id)->get();
+        $shared = $aTests->flatMap(fn ($test) => $test->filters['seeder_classes'])->all();
+        foreach (SavedGrammarTest::where('filters->prompt_generator->theory_page_id', $b->id)->get() as $saved) {
+            $filters = $saved->filters;
+            $filters['seeder_classes'] = $shared;
+            $saved->update(['filters' => $filters]);
+        }
+        $service = app(TheoryPagePromptLinkedTestsService::class);
+        $pages = collect([$b, $a]);
+        $this->assertSame(['partition-topic/first'], $service->mainSitemapTests($pages)->pluck('public_slug')->all());
+        Question::withoutEvents(fn () => Question::whereIn('seeder', $shared)->update(['difficulty' => 6]));
+        $this->assertSame(['partition-topic/second'], $service->mainSitemapTests($pages)->pluck('public_slug')->all());
+        Question::withoutEvents(fn () => Question::whereIn('seeder', $shared)->delete());
+        $this->assertSame([], $service->mainSitemapTests($pages)->pluck('public_slug')->all());
+    }
+
+    public function test_partitioned_metadata_matches_slow_reference_with_tags_sources_and_answer_multiplicity(): void
+    {
+        $aggregation = \Mockery::mock(TagAggregationService::class);
+        $aggregation->shouldReceive('getAggregations')->andReturn([
+            ['main_tag' => 'group', 'similar_tags' => ['similar']],
+        ]);
+        $this->app->instance(TagAggregationService::class, $aggregation);
+        $page = $this->lesson('differential-topic', 'forms', [
+            'tags' => ['first', 'second'], 'aggregated_tags' => ['group'],
+            'sources' => [57], 'categories' => [91], 'difficulty_from' => 1, 'difficulty_to' => 3,
+            'blank_count_from' => 2, 'blank_count_to' => 2, 'question_types' => ['0'],
+        ]);
+        $questions = Question::all();
+        foreach ($questions as $question) {
+            Question::withoutEvents(fn () => $question->update(['source_id' => 57, 'category_id' => 91]));
+            foreach (['first', 'second', 'similar'] as $tag) {
+                $question->tags()->attach(Tag::firstOrCreate(['name' => $tag])->id);
+            }
+            // Distinct options let both markers become blank later without
+            // violating the fixture's (question, marker, option) unique key.
+            $question->answers()->create(['marker' => 'a2', 'option_id' => QuestionOption::firstOrCreate(['option' => 'will have completed'])->id]);
+        }
+        $service = app(TheoryPagePromptLinkedTestsService::class);
+        $filters = app(GrammarTestFilterService::class);
+        $reference = $service->buildForPage($page)->first(fn ($test) => $test->public_slug === 'differential-topic/forms');
+        $this->assertNotNull($reference);
+        $matching = $filters->matchingQuestionsQuery($reference->filters);
+        $this->assertSame(2, $matching->count(), 'Multiple matching tags/answers must not multiply questions.');
+        $this->assertSame(2, $filters->constrainUsableQuestions(clone $matching)->count());
+        $actual = $service->mainSitemapTests(collect([$page]))->first();
+        $this->assertNotNull($actual);
+        $this->assertSame($reference->filters, $actual->filters);
+        foreach (['source_id' => 99, 'category_id' => 99, 'difficulty' => 8, 'type' => '4', 'flag' => 7] as $field => $value) {
+            $outside = $questions->first()->replicate();
+            $outside->uuid = (string) Str::uuid();
+            $outside->{$field} = $value;
+            Question::withoutEvents(fn () => $outside->save());
+            // No answers/tags; this unrelated unusable row cannot veto readiness.
+            $this->assertCount(1, $service->mainSitemapTests(collect([$page])));
+        }
+        $questions->first()->answers()->update(['marker' => '   ']);
+        $this->assertSame(1, (clone $matching)->whereNot(fn ($query) => $filters->constrainUsableQuestions($query))->count());
+        $this->assertCount(0, $service->mainSitemapTests(collect([$page])));
+    }
+
+    public function test_nullable_and_empty_readiness_fields_follow_the_same_reference_predicate(): void
+    {
+        // Nullable compatibility schema exists only inside the guarded SQLite DB.
+        foreach (['question_answers', 'question_options', 'questions'] as $table) {
+            Schema::drop($table);
+        }
+        Schema::create('questions', function ($table) {
+            $table->id();
+            foreach (['uuid', 'question', 'level', 'seeder', 'type', 'options_by_marker'] as $name) {
+                $table->text($name)->nullable();
+            }
+            foreach (['difficulty', 'flag', 'category_id', 'source_id'] as $name) {
+                $table->integer($name)->nullable();
+            }
+            $table->timestamps();
+        });
+        Schema::create('question_options', function ($table) {
+            $table->id();
+            $table->text('option')->nullable();
+            $table->timestamps();
+        });
+        Schema::create('question_answers', function ($table) {
+            $table->id();
+            $table->integer('question_id');
+            $table->integer('option_id')->nullable();
+            $table->text('marker')->nullable();
+            $table->timestamps();
+        });
+        $page = $this->lesson('nullable-topic', 'forms');
+        $service = app(TheoryPagePromptLinkedTestsService::class);
+        $filter = app(GrammarTestFilterService::class);
+        $question = Question::first();
+        foreach (['uuid', 'question', 'marker', 'option'] as $field) {
+            $table = match ($field) {
+                'marker' => 'question_answers', 'option' => 'question_options', default => 'questions'
+            };
+            $id = match ($table) {
+                'question_answers' => $question->answers->first()->id,
+                'question_options' => $question->answers->first()->option_id,
+                default => $question->id,
+            };
+            $original = DB::table($table)->where('id', $id)->value($field);
+            foreach ([null, '', '   '] as $value) {
+                DB::table($table)->where('id', $id)->update([$field => $value]);
+                $this->assertFalse($filter->constrainUsableQuestions(Question::whereKey($question->id))->exists(), $field);
+                $this->assertCount(0, $service->mainSitemapTests(collect([$page])), $field);
+            }
+            DB::table($table)->where('id', $id)->update([$field => $original]);
+            $this->assertCount(1, $service->mainSitemapTests(collect([$page])));
+        }
+    }
+
+    public function test_primary_link_prefilter_remains_a_superset_of_the_original_sql_predicate(): void
+    {
+        $pages = collect();
+        $cases = ['id', 'nested', 'ids', 'string-id', 'float-id', 'scalar-ids', 'seeder', 'slug', 'wrong-category', 'unicode', 'legacy'];
+        foreach ($cases as $case) {
+            $page = $this->lesson('link-topic', $case);
+            $page->update(['seeder' => 'Database\\Seeders\\Page_V3\\Link'.$page->id]);
+            foreach (SavedGrammarTest::where('filters->prompt_generator->theory_page_id', $page->id)->get() as $saved) {
+                $filters = $saved->filters;
+                $filters['prompt_generator'] = match ($case) {
+                    'id' => ['theory_page_id' => $page->id],
+                    'nested' => ['theory_page' => ['id' => $page->id]],
+                    'ids' => ['theory_page_ids' => [$page->id, 99999]],
+                    'string-id' => ['theory_page_id' => (string) $page->id],
+                    'float-id' => ['theory_page_id' => $page->id + 0.0],
+                    'scalar-ids' => ['theory_page_ids' => $page->id],
+                    'seeder' => ['theory_page' => ['page_seeder_class' => $page->seeder]],
+                    'slug' => ['theory_page' => ['slug' => $page->slug, 'category_slug_path' => 'root/link-topic']],
+                    'wrong-category' => ['theory_page' => ['slug' => $page->slug, 'category_slug_path' => 'wrong']],
+                    'unicode' => ['theory_page_id' => $page->id, 'theory_page' => ['slug' => 'незвична-назва']],
+                    'legacy' => 'source_type=theory_page; theory_page_id='.$page->id,
+                };
+                $saved->update(['filters' => $filters]);
+            }
+            $pages->push($page);
+        }
+        $reference = new class extends TheoryPagePromptLinkedTestsService
+        {
+            public function primaryIds(Page $page): array
+            {
+                return $this->linkedTestsQueryForPage($page)->pluck('id')->sort()->values()->all();
+            }
+        };
+        $prefilter = new \ReflectionMethod(TheoryPagePromptLinkedTestsService::class, 'possiblePrimarySitemapLinks');
+        $candidateIds = $prefilter->invoke($reference, $pages, SavedGrammarTest::all());
+        foreach ($pages as $page) {
+            $oldIds = $reference->primaryIds($page);
+            $this->assertSame([], array_diff($oldIds, $candidateIds[$page->id]), $page->slug);
+        }
+        $expected = $pages->map(fn ($page) => $reference->buildForPage($page)
+            ->first(fn ($test) => $test->filters['theory_page_mixed_all_levels'] ?? false))
+            ->filter()->pluck('public_slug')->sort()->values()->all();
+        $this->assertSame($expected, $reference->mainSitemapTests($pages)->pluck('public_slug')->all());
+        // Removing persistent links must be visible even on the same service instance.
+        SavedGrammarTest::query()->delete();
+        $this->assertSame([], $reference->mainSitemapTests($pages)->all());
+    }
+
     private function lesson(string $topic, string $segment, array $extraFilters = [], bool $answers = true, bool $mixed = true): Page
     {
         $category = PageCategory::firstOrCreate(['slug' => $topic], ['title' => $topic, 'language' => 'uk', 'type' => 'theory']);
@@ -412,6 +584,7 @@ class MainTheoryTestSitemapReadinessTest extends TestCase
             ]);
             $saved->questionLinks()->create(['question_uuid' => $question->uuid, 'position' => 1]);
         }
+
         return $page;
     }
 }

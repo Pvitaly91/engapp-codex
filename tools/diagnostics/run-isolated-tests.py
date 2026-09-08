@@ -112,7 +112,7 @@ def main():
     parser.add_argument('--include-m2', action='store_true')
     parser.add_argument('--reverse', action='store_true', help='Reverse PHPUnit execution order (including methods).')
     parser.add_argument('--preflight-only', action='store_true')
-    parser.add_argument('--matrix', choices=['individual', 'smoke'],
+    parser.add_argument('--matrix', choices=['individual', 'smoke', 'courses'],
                         help='Run isolated child suites under one complete before/after file inventory.')
     parser.add_argument('tests', nargs='*')
     args = parser.parse_args()
@@ -136,7 +136,13 @@ def main():
         record['preflight'] = json.loads(preflight['stdout'])
         if not args.preflight_only:
             smoke = ['tests/Feature/PublicFlows', 'tests/Feature/Theory', 'tests/Feature/AdminFlows']
-            if args.matrix:
+            if args.matrix == 'courses':
+                courses = ['tests/Feature/PolyglotCourseBlueprintTest.php', 'tests/Feature/PolyglotCourseLandingPageTest.php']
+                plan = [('blueprint', courses[:1], False), ('landing', courses[1:], False),
+                        ('courses-combined', courses, False), ('courses-reversed', courses, True)]
+                if args.tests:
+                    plan.insert(0, ('regressions', args.tests, False))
+            elif args.matrix:
                 plan = [('isolation', ['tests/Feature/SmokeIsolationTest.php'], False)]
                 plan += [(Path(path).name.lower(), [path], False) for path in smoke]
                 if args.matrix == 'smoke':
