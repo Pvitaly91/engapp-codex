@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\Category;
 use App\Models\Question;
 use App\Models\QuestionOption;
+use Illuminate\Testing\TestResponse;
 use Tests\Support\RebuildsComposeTestSchema;
 use Tests\TestCase;
 
@@ -68,7 +69,7 @@ class MixedTheoryPageTestRenderTest extends TestCase
             'name' => 'Mixed theory test',
         ];
 
-        $showResponse = $this->get(route('test.show', 'mixed-theory-test').'?'.http_build_query($query));
+        $showResponse = $this->getQueryFreeLegacyTest('test.show', 'mixed-theory-test', $query);
 
         $showResponse->assertOk();
         $showResponse->assertViewHas('questionData', function ($questionData) {
@@ -80,9 +81,9 @@ class MixedTheoryPageTestRenderTest extends TestCase
                 && $items->pluck('type')->contains(Question::TYPE_COMPOSE_TOKENS);
         });
 
-        $selectResponse = $this->get(route('test.select', 'mixed-theory-test').'?'.http_build_query($query));
+        $selectResponse = $this->getQueryFreeLegacyTest('test.select', 'mixed-theory-test', $query);
 
-        $selectResponse->assertRedirect(localized_route('test.show', 'mixed-theory-test').'?'.http_build_query($query));
+        $selectResponse->assertRedirect(localized_route('test.show', 'mixed-theory-test'));
     }
 
     public function test_mixed_all_levels_virtual_test_orders_questions_from_a1_to_c2(): void
@@ -130,7 +131,7 @@ class MixedTheoryPageTestRenderTest extends TestCase
             'name' => 'Mixed all levels theory test',
         ];
 
-        $response = $this->get(route('test.show', 'mixed-all-levels-theory-test').'?'.http_build_query($query));
+        $response = $this->getQueryFreeLegacyTest('test.show', 'mixed-all-levels-theory-test', $query);
 
         $response->assertOk();
         $response->assertViewHas('questionData', function ($questionData) {
@@ -207,7 +208,7 @@ class MixedTheoryPageTestRenderTest extends TestCase
             'name' => 'Mixed all levels capped theory test',
         ];
 
-        $response = $this->get(route('test.show', 'mixed-all-levels-capped-theory-test').'?'.http_build_query($query));
+        $response = $this->getQueryFreeLegacyTest('test.show', 'mixed-all-levels-capped-theory-test', $query);
 
         $response->assertOk();
         $response->assertViewHas('questionData', function ($questionData) {
@@ -287,8 +288,8 @@ class MixedTheoryPageTestRenderTest extends TestCase
             'name' => 'Theory category A1 aggregate',
         ];
 
-        $response = $this->withSession(['admin_authenticated' => true])
-            ->get(route('test.show', 'theory-category-a1-aggregate').'?'.http_build_query($query));
+        $this->withSession(['admin_authenticated' => true]);
+        $response = $this->getQueryFreeLegacyTest('test.show', 'theory-category-a1-aggregate', $query);
 
         $response->assertOk();
         $response->assertViewHas('questionData', function ($questionData) {
@@ -307,6 +308,16 @@ class MixedTheoryPageTestRenderTest extends TestCase
                 && $secondItems->every(fn (array $item) => data_get($item, 'tech_info.theory_page.slug') === 'second-topic')
                 && $uuids->filter(fn (string $uuid) => str_starts_with($uuid, 'outside-a1-'))->isEmpty();
         });
+    }
+
+    private function getQueryFreeLegacyTest(string $routeName, string $slug, array $query): TestResponse
+    {
+        $url = route($routeName, $slug);
+        // Legacy filter links register their virtual test, then redirect before rendering.
+        $this->get($url.'?'.http_build_query($query))
+            ->assertStatus(302)->assertRedirect($url);
+
+        return $this->get($url);
     }
 
     protected function createQuestion(

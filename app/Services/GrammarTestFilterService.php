@@ -9,6 +9,7 @@ use App\Models\Tag;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Eloquent\Builder;
 
 class GrammarTestFilterService
 {
@@ -98,109 +99,13 @@ class GrammarTestFilterService
                     $remaining--;
                 }
 
-                $query = Question::with(['category', 'answers.option', 'options', 'verbHints.option', 'source'])
-                    ->whereBetween('difficulty', [$difficultyFrom, $difficultyTo]);
-
-                if (! empty($selectedLevels)) {
-                    $query->whereIn('level', $selectedLevels);
-                }
+                $query = $this->matchingQuestionsQuery($filters)
+                    ->with(['category', 'answers.option', 'options', 'verbHints.option', 'source']);
 
                 if ($groupBy === 'source_id' && $group !== null) {
                     $query->where('source_id', $group);
                 } elseif ($groupBy === 'category_id' && $group !== null) {
                     $query->where('category_id', $group);
-                }
-
-                if (! empty($selectedSeederClasses)) {
-                    $query->whereIn('seeder', $selectedSeederClasses);
-                }
-
-                if (! empty($selectedQuestionTypes) && Schema::hasColumn('questions', 'type')) {
-                    $query->whereIn('type', $selectedQuestionTypes);
-                }
-
-                if (! empty($selectedSources) && $groupBy !== 'source_id') {
-                    $query->whereIn('source_id', $selectedSources);
-                }
-
-                if (! empty($selectedCategories) && $groupBy !== 'category_id') {
-                    $query->whereIn('category_id', $selectedCategories);
-                }
-
-                if (! empty($selectedTags)) {
-                    $query->whereHas('tags', fn ($q) => $q->whereIn('name', $selectedTags));
-                }
-
-                if ($blankCountFrom !== null) {
-                    $query->has('answers', '>=', $blankCountFrom);
-                }
-
-                if ($blankCountTo !== null) {
-                    $query->has('answers', '<=', $blankCountTo);
-                }
-
-                // Handle aggregated tags filtering
-                if (! empty($selectedAggregatedTags)) {
-                    $aggregations = $this->aggregationService->getAggregations();
-
-                    // Build a lookup map for efficient tag expansion
-                    $mainTagToSimilarTags = [];
-                    foreach ($aggregations as $aggregation) {
-                        $mainTagToSimilarTags[$aggregation['main_tag']] = $aggregation['similar_tags'] ?? [];
-                    }
-
-                    // Build a list of all tags that should be matched
-                    $tagsToMatch = [];
-                    foreach ($selectedAggregatedTags as $mainTag) {
-                        // Add the main tag itself
-                        $tagsToMatch[] = $mainTag;
-
-                        // Add similar tags from the lookup map
-                        if (isset($mainTagToSimilarTags[$mainTag])) {
-                            $tagsToMatch = array_merge($tagsToMatch, $mainTagToSimilarTags[$mainTag]);
-                        }
-                    }
-
-                    $tagsToMatch = array_unique($tagsToMatch);
-
-                    if (! empty($tagsToMatch)) {
-                        $query->whereHas('tags', fn ($q) => $q->whereIn('name', $tagsToMatch));
-                    }
-                }
-
-                $onlyFlags = [];
-                if ($onlyAi) {
-                    $onlyFlags[] = 1;
-                }
-                if ($onlyAiV2) {
-                    $onlyFlags[] = 2;
-                }
-
-                if (! empty($onlyFlags)) {
-                    if (count($onlyFlags) === 1) {
-                        $query->where('flag', $onlyFlags[0]);
-                    } else {
-                        $query->whereIn('flag', $onlyFlags);
-                    }
-                } else {
-                    $allowedFlags = [0];
-                    if ($isAggregatedTheoryPageTest) {
-                        $allowedFlags[] = 2;
-                    }
-                    if ($includeAi) {
-                        $allowedFlags[] = 1;
-                    }
-                    if ($includeAiV2) {
-                        $allowedFlags[] = 2;
-                    }
-
-                    $allowedFlags = array_values(array_unique($allowedFlags));
-
-                    if (count($allowedFlags) === 1) {
-                        $query->where('flag', $allowedFlags[0]);
-                    } elseif (count($allowedFlags) < 3) {
-                        $query->whereIn('flag', $allowedFlags);
-                    }
                 }
 
                 $availableCount = (clone $query)->count();
@@ -433,6 +338,59 @@ class GrammarTestFilterService
         $data = $this->prepare($filters);
 
         return $data['questions'];
+    }
+
+    /** Shared filter predicate, without question/answer hydration or selection side effects. */
+    public function matchingQuestionsQuery(array $input, ?bool $supportsQuestionTypes = null): Builder
+    {
+        $filters = $this->normalize($input);
+        $query = Question::query()->whereBetween('difficulty', [
+            $filters['difficulty_from'], $filters['difficulty_to'],
+        ]);
+
+        foreach (['levels' => 'level', 'seeder_classes' => 'seeder', 'sources' => 'source_id', 'categories' => 'category_id'] as $key => $column) {
+            if ($filters[$key] !== []) {
+                $query->whereIn($column, $filters[$key]);
+            }
+        }
+        if ($filters['question_types'] !== [] && ($supportsQuestionTypes ?? Schema::hasColumn('questions', 'type'))) {
+            $query->whereIn('type', $filters['question_types']);
+        }
+        if ($filters['tags'] !== []) {
+            $query->whereHas('tags', fn ($tags) => $tags->whereIn('name', $filters['tags']));
+        }
+        if ($filters['aggregated_tags'] !== []) {
+            $tags = $this->expandedAggregatedTags($filters['aggregated_tags']);
+            if ($tags !== []) {
+                $query->whereHas('tags', fn ($query) => $query->whereIn('name', $tags));
+            }
+        }
+        if ($filters['blank_count_from'] !== null) {
+            $query->has('answers', '>=', $filters['blank_count_from']);
+        }
+        if ($filters['blank_count_to'] !== null) {
+            $query->has('answers', '<=', $filters['blank_count_to']);
+        }
+        // The ordinary selection path historically enables flag 2 only for
+        // aggregated theory-page tests. Category-group selection has its own
+        // separate predicate below; a category flag with no groups is not one.
+        $flagFilters = $filters;
+        $flagFilters['theory_category_page_test'] = false;
+        $this->applyQuestionFlagFilters($query, $flagFilters);
+
+        return $query;
+    }
+
+    /** Conservative sitemap readiness; does not change which questions a test selects. */
+    public function constrainUsableQuestions(Builder $query): Builder
+    {
+        return $query
+            ->whereNotNull('questions.uuid')->whereRaw("TRIM(questions.uuid) <> ''")
+            ->whereNotNull('questions.question')->whereRaw("TRIM(questions.question) <> ''")
+            ->whereHas('answers', fn (Builder $answers) => $answers
+                ->whereNotNull('marker')->whereRaw("TRIM(marker) <> ''")
+                ->whereHas('option', fn (Builder $options) => $options
+                    ->whereNotNull('option')->whereRaw("TRIM(option) <> ''")));
     }
 
     private function selectMixedAllLevelsQuestions(

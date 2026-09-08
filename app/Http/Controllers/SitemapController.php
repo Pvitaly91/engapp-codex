@@ -4,16 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Page;
 use App\Models\PageCategory;
+use App\Services\CourseSitemapMetadataService;
+use App\Services\TheoryPagePromptLinkedTestsService;
 use Illuminate\Http\Response;
 
 class SitemapController extends Controller
 {
-    public function __invoke(): Response
+    public function __invoke(
+        TheoryPagePromptLinkedTestsService $theoryTests,
+        CourseSitemapMetadataService $courses,
+    ): Response
     {
         $origin = rtrim((string) config('site-mode.production_origin', 'https://gramlyze.com'), '/');
         $urls = collect([
-            $this->entry($origin.'/', null, '1.0'),
-            $this->entry($origin.'/theory', null, '0.9'),
+            $this->entry($origin.'/', '1.0'),
+            $this->entry($origin.'/theory', '0.9'),
         ]);
 
         $categories = PageCategory::query()
@@ -25,7 +30,6 @@ class SitemapController extends Controller
 
         $urls->push(...$categories->map(fn (PageCategory $category): array => $this->entry(
             $origin.'/theory/'.rawurlencode((string) $category->slug),
-            $category->updated_at,
             '0.8'
         )));
 
@@ -33,23 +37,45 @@ class SitemapController extends Controller
             fn (PageCategory $category): array => [$category->getKey() => $this->categoryPath($category)]
         );
 
-        Page::query()
+        $pages = Page::query()
             ->forType('theory')
             ->whereIn('page_category_id', $categoryPaths->keys())
             ->orderBy('id')
-            ->each(function (Page $page) use ($origin, $categoryPaths, $urls): void {
-                $categoryPath = $categoryPaths->get($page->page_category_id);
+            ->get();
+        $categoriesById = $categories->keyBy('id');
 
-                if (! is_string($categoryPath) || $categoryPath === '') {
-                    return;
-                }
+        $pages->each(function (Page $page) use ($origin, $categoryPaths, $categoriesById, $urls): void {
+            $page->setRelation('category', $categoriesById->get($page->page_category_id));
+            $categoryPath = $categoryPaths->get($page->page_category_id);
 
-                $urls->push($this->entry(
-                    $origin.'/theory/'.$this->encodePath($categoryPath).'/'.rawurlencode((string) $page->slug),
-                    $page->updated_at,
-                    '0.7'
-                ));
-            });
+            if (! is_string($categoryPath) || $categoryPath === '') {
+                return;
+            }
+
+            $urls->push($this->entry(
+                $origin.'/theory/'.$this->encodePath($categoryPath).'/'.rawurlencode((string) $page->slug),
+                '0.7'
+            ));
+        });
+
+        // Only stable main tests reconstructed from persistent theory metadata.
+        // This path does not render cards or populate VirtualTestRegistry.
+        foreach ($theoryTests->mainSitemapTests($pages, 'uk') as $test) {
+            $urls->push($this->entry(
+                $origin.'/test/'.$this->encodePath((string) $test->getAttribute('public_slug')),
+                '0.6'
+            ));
+        }
+
+        $coursePaths = $courses->eligiblePaths();
+        if ($coursePaths !== []) {
+            if ($courses->catalogueEligible()) {
+                $urls->push($this->entry($origin.'/courses', '0.8'));
+            }
+            foreach ($coursePaths as $path) {
+                $urls->push($this->entry($origin.$path, '0.7'));
+            }
+        }
 
         return response()
             ->view('sitemap', ['urls' => $urls->unique('loc')->values()])
@@ -78,11 +104,13 @@ class SitemapController extends Controller
         return collect(explode('/', $path))->map('rawurlencode')->implode('/');
     }
 
-    private function entry(string $location, mixed $updatedAt, string $priority): array
+    private function entry(string $location, string $priority): array
     {
         return [
             'loc' => $location,
-            'lastmod' => $updatedAt?->toAtomString(),
+            // Parent timestamps do not track block/question/pivot edits or deletions.
+            // Omit optional lastmod until a reliable content revision is available.
+            'lastmod' => null,
             'priority' => $priority,
         ];
     }

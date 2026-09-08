@@ -122,6 +122,10 @@ class TheoryPagePromptLinkedTestsTest extends TestCase
         );
         $resolver = \Mockery::mock(SavedTestResolver::class);
         $resolver->shouldReceive('resolveTheoryPageSlug')
+            ->once()
+            ->with('past-simple')
+            ->andReturnNull();
+        $resolver->shouldReceive('resolveTheoryPageSlug')
             ->twice()
             ->with('past-simple/questions')
             ->andReturn($resolved);
@@ -599,8 +603,8 @@ class TheoryPagePromptLinkedTestsTest extends TestCase
                 && ($mixedTest->getAttribute('total_questions_available') ?? 0) === 84
                 && ($mixedFilters['randomize_filtered'] ?? true) === false
                 && ($mixedFilters['levels'] ?? []) === ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
+                && ! in_array($legacyA1Seeder, $mixedFilters['seeder_classes'] ?? [], true)
                 && collect($mixedFilters['seeder_classes'] ?? [])->sort()->values()->all() === collect([
-                    $legacyA1Seeder,
                     $allLevelsSeeder,
                     $standardSeeder,
                 ])->sort()->values()->all();
