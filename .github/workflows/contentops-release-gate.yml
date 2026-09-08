@@ -83,6 +83,9 @@ jobs:
         if: hashFiles('package-lock.json') != ''
         run: npm ci
 
+      - name: Build manifest assets required by public views
+        run: npm run build
+
       - name: Prepare isolated CI environment
         shell: bash
         run: |

@@ -61,6 +61,17 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-interaction --prefer-dist --no-progress
 
+      - name: Set up Node.js for Vite assets
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Build manifest assets required by public views
+        run: |
+          npm ci
+          npm run build
+
       - name: Generate application key
         run: php artisan key:generate --ansi
 
