@@ -36,7 +36,13 @@ on:
       - 'resources/views/verbs/**'
       - 'resources/views/words/**'
       - 'tests/Feature/PublicFlows/**'
+      - 'tests/Feature/SmokeIsolationTest.php'
+      - 'tests/diagnostics/test_isolated_runner.py'
       - 'tests/Support/PublicRouteMatrix.php'
+      - 'tests/Support/IsolatedTestEnvironment.php'
+      - 'tests/bootstrap.php'
+      - 'tests/CreatesApplication.php'
+      - 'tools/diagnostics/run-isolated-tests.py'
       - 'tests/TestCase.php'
   pull_request:
     branches:
@@ -80,8 +86,11 @@ jobs:
           npm ci
           npm run build
 
-      - name: Generate application key
-        run: php artisan key:generate --ansi
+      - name: Verify diagnostic runner output and startup isolation
+        run: python3 -B -m unittest discover -s tests/diagnostics -p test_isolated_runner.py
+
+      - name: Verify isolated smoke runtime and observer paths
+        run: python3 tools/diagnostics/run-isolated-tests.py --label ci-isolation tests/Feature/SmokeIsolationTest.php
 
       - name: Run public learner-flow smoke suite
-        run: php artisan test tests/Feature/PublicFlows
+        run: python3 tools/diagnostics/run-isolated-tests.py --label ci-public tests/Feature/PublicFlows

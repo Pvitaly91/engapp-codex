@@ -3,6 +3,10 @@ const path=require('node:path');
 const assert=require('node:assert/strict');
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const {prepare,loaded,stabilizeDecoration,root,base}=require('./public-assets-browser.cjs');
+const phase=process.argv[2]||'renderers';
+assert.match(phase,/^[a-z0-9_-]+$/i);
+const evidence=path.join(root,`${phase}-renderers.json`);
+assert.ok(!fs.existsSync(evidence),'Evidence exists; supply a new phase');
 const targets=[
  ['hero-rules','/theory/tenses/present-perfect/present-perfect-forms','[data-theory-main] > section.grid'],
  ['forms-grid','/theory/basic-grammar/verb-to-be/verb-to-be-future','section[id^="block-"]:has(h2:has-text("Форма will be"))'],
@@ -28,10 +32,10 @@ const targets=[
     assert.ok(r.details.visible&&r.details.textLength>60);assert.ok(r.details.strong+r.details.code+r.details.bold>0);
     const text=await block.innerText();assert.doesNotMatch(text,/<\/?(?:strong|span)\b/);
     r.shifts=await page.evaluate(()=>window.__m3shifts);
-    await page.screenshot({path:path.join(root,`renderer-${name}-${mobile?'mobile':'desktop'}.png`)});
+    await page.screenshot({path:path.join(root,`${phase}-renderer-${name}-${mobile?'mobile':'desktop'}.png`)});
     assert.equal(r.blocked.length,0);r.pass=true;
    }catch(e){r.error=e.message;r.pass=false}
-   finally{await context.close();rows.push(r);fs.writeFileSync(path.join(root,'renderers.json'),JSON.stringify(rows,null,2));}
+   finally{await context.close();rows.push(r);fs.writeFileSync(evidence,JSON.stringify(rows,null,2));}
    console.log(JSON.stringify({name,mobile,pass:r.pass,details:r.details,error:r.error}));
   }
  }finally{await browser.close()}

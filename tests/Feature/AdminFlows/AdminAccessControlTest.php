@@ -28,4 +28,25 @@ class AdminAccessControlTest extends SeededAdminFlowTestCase
         $response->assertRedirect(route('site-tree.index'));
         $response->assertSessionHas('admin_authenticated', true);
     }
+
+    public function test_plaintext_host_password_must_not_override_the_isolated_hash_fixture(): void
+    {
+        $this->assertNull(config('admin.password'));
+        $credentials = [
+            'username' => AdminRouteMatrix::ADMIN_USERNAME,
+            'password' => AdminRouteMatrix::ADMIN_PASSWORD,
+        ];
+
+        // Reproduce the historical isolation mechanism with synthetic credentials only:
+        // the controller intentionally gives an explicit plaintext password precedence.
+        config(['admin.password' => 'unrelated-host-password']);
+        $this->post(route('login.perform'), $credentials)
+            ->assertSessionHasErrors('username')
+            ->assertSessionMissing('admin_authenticated');
+
+        config(['admin.password' => null]);
+        $this->post(route('login.perform'), $credentials)
+            ->assertRedirect(route('admin.dashboard'))
+            ->assertSessionHas('admin_authenticated', true);
+    }
 }

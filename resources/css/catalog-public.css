@@ -33,6 +33,18 @@
 
 [x-cloak] { display: none !important; }
 
+/* Keep the existing viewport-sized navigation footprint through AJAX states.
+   The mobile panel still has display:none while closed (Alpine x-show). */
+@media (min-width: 1024px) {
+    [data-theory-aside] [data-theory-sidebar] {
+        block-size: calc(100vh - 7rem);
+    }
+}
+
+[data-theory-mobile-nav-panel] {
+    block-size: calc(100vh - 8rem);
+}
+
 body {
     margin: 0;
     background: var(--app-bg);

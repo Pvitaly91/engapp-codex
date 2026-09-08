@@ -19,6 +19,8 @@
             try {
                 const theme = localStorage.getItem('theme');
                 document.documentElement.classList.toggle('dark', theme ? theme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches);
+                // Reserve the saved sidebar width before delayed Alpine initialization.
+                document.documentElement.dataset.theorySidebarCollapsed = String(localStorage.getItem('theorySidebarCollapsed') === 'true');
                 const mode = localStorage.getItem('backgroundMode');
                 if (['cards', 'custom'].includes(mode)) {
                     document.documentElement.dataset.backgroundMode = mode;

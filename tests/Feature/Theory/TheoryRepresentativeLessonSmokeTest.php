@@ -15,7 +15,7 @@ class TheoryRepresentativeLessonSmokeTest extends SeededTheoryTestCase
 
             $response = $this->get(TheoryRouteMatrix::localizedPath(
                 $case['locale'],
-                $case['category_slug'],
+                $case['category_path'],
                 $case['page_slug']
             ));
 

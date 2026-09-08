@@ -25,9 +25,8 @@ class TheoryInlineHtmlRenderingTest extends TestCase
 
         $this->assertSame('sqlite', config('database.default'));
         $this->assertSame(':memory:', config('database.connections.sqlite.database'));
-        $compiled = storage_path('app/seo-audit-20260907/test-richtext/views');
-        File::ensureDirectoryExists($compiled);
-        config(['view.compiled' => $compiled, 'cache.default' => 'array', 'session.driver' => 'array']);
+        // The compiler path is fixed before providers boot; do not retarget its singleton.
+        \Tests\Support\IsolatedTestEnvironment::assertOwnedPath(config('view.compiled'));
         app()->setLocale('uk');
     }
 

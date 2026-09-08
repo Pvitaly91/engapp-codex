@@ -5,6 +5,10 @@ const crypto = require('node:crypto');
 const {spawnSync} = require('node:child_process');
 const repo = path.resolve(__dirname, '../..');
 const out = path.join(repo, 'storage/app/seo-m3-local');
+const label = process.argv[2] || 'clean-build';
+if (!/^[a-z0-9_-]+$/i.test(label)) throw new Error('Supply a simple evidence label');
+const evidence = path.join(out, label + '.json');
+if (fs.existsSync(evidence)) throw new Error('Evidence exists; supply a new label');
 const clean = path.join(out, 'clean-build-' + crypto.randomUUID());
 fs.mkdirSync(clean, {recursive: true});
 const inputs = ['package.json', 'package-lock.json', 'vite.config.js', 'postcss.config.js',
@@ -23,7 +27,7 @@ for (const args of [['ci', '--no-audit', '--no-fund'], ['run', 'build']]) {
     record.commands.push({args, exit: run.status, stdout: run.stdout, stderr: run.stderr});
     console.log(run.stdout || ''); console.log(run.stderr || '');
     if (run.status !== 0) {
-        fs.writeFileSync(path.join(out, 'clean-build.json'), JSON.stringify(record, null, 2));
+        fs.writeFileSync(evidence, JSON.stringify(record, null, 2));
         process.exit(run.status || 1);
     }
 }
@@ -33,5 +37,5 @@ record.assets = Object.fromEntries(Object.entries(manifest).map(([entry, value])
     return [entry, {file: value.file, bytes: data.length, sha256: crypto.createHash('sha256').update(data).digest('hex')}];
 }));
 record.finished = new Date().toISOString();
-fs.writeFileSync(path.join(out, 'clean-build.json'), JSON.stringify(record, null, 2));
+fs.writeFileSync(evidence, JSON.stringify(record, null, 2));
 console.log(JSON.stringify(record.assets, null, 2));

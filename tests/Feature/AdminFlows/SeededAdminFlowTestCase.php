@@ -32,13 +32,12 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Testing\TestResponse;
 use Mockery;
 use Tests\Support\AdminRouteMatrix;
+use Tests\Support\IsolatedTestEnvironment;
 use Tests\TestCase;
 
 abstract class SeededAdminFlowTestCase extends TestCase
 {
     private static bool $fixtureBootstrapped = false;
-
-    private static bool $compiledViewsRefreshed = false;
 
     private static ?string $databasePath = null;
 
@@ -47,20 +46,23 @@ abstract class SeededAdminFlowTestCase extends TestCase
         parent::setUp();
 
         $this->usePersistentSqliteDatabase();
-        $this->prepareCompiledViews();
         $this->bindServiceMocks();
 
         config([
-            'app.url' => 'http://localhost',
+            'app.url' => 'http://gramlyze.loc',
             'coming-soon.enabled' => false,
             'tests.tech_info_enabled' => false,
             'admin.username' => AdminRouteMatrix::ADMIN_USERNAME,
+            'admin.password' => null,
             'admin.password_hash' => password_hash(AdminRouteMatrix::ADMIN_PASSWORD, PASSWORD_BCRYPT),
+            'admin.password_signature' => 'isolated-admin-smoke-signature',
+            'admin.user_email' => 'admin-smoke@example.test',
         ]);
 
         if (! self::$fixtureBootstrapped) {
             $this->rebuildMinimalSchema();
-            $this->seedAdminFixture();
+            // These content-management fixtures do not exercise question exports.
+            Question::withoutEvents(fn () => $this->seedAdminFixture());
             self::$fixtureBootstrapped = true;
         }
     }
@@ -133,34 +135,7 @@ abstract class SeededAdminFlowTestCase extends TestCase
 
         DB::purge('sqlite');
         DB::reconnect('sqlite');
-    }
-
-    private function prepareCompiledViews(): void
-    {
-        $defaultViewsPath = storage_path('framework/views');
-        $viewsPath = storage_path('framework/views-admin-flow-tests');
-
-        foreach ([$defaultViewsPath, $viewsPath] as $path) {
-            if (! is_dir($path)) {
-                mkdir($path, 0777, true);
-            }
-        }
-
-        config(['view.compiled' => $viewsPath]);
-
-        if (! self::$compiledViewsRefreshed) {
-            $this->flushCompiledViews($defaultViewsPath);
-            $this->flushCompiledViews($viewsPath);
-
-            self::$compiledViewsRefreshed = true;
-        }
-    }
-
-    private function flushCompiledViews(string $path): void
-    {
-        foreach (glob($path . DIRECTORY_SEPARATOR . '*.php') ?: [] as $compiledView) {
-            @unlink($compiledView);
-        }
+        IsolatedTestEnvironment::assertSafeDatabase(DB::connection());
     }
 
     private function bindServiceMocks(): void
@@ -236,9 +211,11 @@ abstract class SeededAdminFlowTestCase extends TestCase
 
     private function rebuildMinimalSchema(): void
     {
+        IsolatedTestEnvironment::assertSafeDatabase(DB::connection());
         Schema::disableForeignKeyConstraints();
 
         foreach ([
+            'content_operation_runs',
             'seed_runs',
             'saved_grammar_test_questions',
             'saved_grammar_tests',
@@ -263,6 +240,12 @@ abstract class SeededAdminFlowTestCase extends TestCase
         }
 
         Schema::enableForeignKeyConstraints();
+
+        // The dashboard reads an empty latest-run list; it performs no content operation.
+        Schema::create('content_operation_runs', function (Blueprint $table) {
+            $table->id();
+            $table->timestamp('started_at');
+        });
 
         Schema::create('backup_branches', function (Blueprint $table) {
             $table->id();

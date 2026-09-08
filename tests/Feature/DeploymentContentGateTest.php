@@ -7,8 +7,12 @@ use App\Modules\GitDeployment\Services\ChangedContentDeploymentApplyService;
 use App\Modules\GitDeployment\Services\ChangedContentDeploymentPreviewService;
 use App\Modules\GitDeployment\Services\NativeGitDeploymentService;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Schema;
 use Mockery;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
+use Symfony\Component\Process\Process;
 use Tests\TestCase;
 
 class DeploymentContentGateTest extends TestCase
@@ -16,6 +20,16 @@ class DeploymentContentGateTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        // These fixtures never inherit operator credentials or perform network requests.
+        config([
+            'git-deployment.git_mode' => 'api',
+            'git-deployment.github.owner' => null,
+            'git-deployment.github.repo' => null,
+            'git-deployment.github.token' => null,
+            'git-deployment.contentops_ci_status.required_for_deploy' => false,
+        ]);
+        Http::preventStrayRequests();
 
         $this->ensureDeploymentTables();
         $this->ensureContentOperationLocksTable();
@@ -32,8 +46,15 @@ class DeploymentContentGateTest extends TestCase
         parent::tearDown();
     }
 
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function test_shell_deploy_is_blocked_before_git_update_starts(): void
     {
+        // Install the fail-closed process guard before selecting the shell fixture.
+        $this->assertFalse(class_exists(Process::class, false));
+        Mockery::mock('overload:'.Process::class)->shouldReceive('__construct')->never();
+        config()->set('git-deployment.git_mode', 'ssh');
+
         $previewService = Mockery::mock(ChangedContentDeploymentPreviewService::class);
         $previewService->shouldReceive('preview')->once()->andReturn($this->blockedPreview());
         $previewService->shouldReceive('gateBlocks')->once()->andReturn(true);

@@ -3,12 +3,14 @@
 namespace Tests\Support;
 
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 trait RebuildsComposeTestSchema
 {
     protected function rebuildComposeTestSchema(): void
     {
+        IsolatedTestEnvironment::assertSafeDatabase(DB::connection());
         Schema::disableForeignKeyConstraints();
 
         foreach ([

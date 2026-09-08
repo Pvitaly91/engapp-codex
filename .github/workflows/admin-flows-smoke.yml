@@ -38,6 +38,9 @@ on:
       - 'resources/views/components/test-mode-nav*.blade.php'
       - 'tests/Feature/AdminFlows/**'
       - 'tests/Support/AdminRouteMatrix.php'
+      - 'tests/Support/IsolatedTestEnvironment.php'
+      - 'tests/bootstrap.php'
+      - 'tools/diagnostics/run-isolated-tests.py'
       - 'tests/CreatesApplication.php'
       - 'tests/TestCase.php'
   pull_request:
@@ -82,8 +85,5 @@ jobs:
           npm ci
           npm run build
 
-      - name: Generate application key
-        run: php artisan key:generate --ansi
-
       - name: Run admin content-management smoke suite
-        run: php artisan test --stop-on-failure tests/Feature/AdminFlows
+        run: python3 tools/diagnostics/run-isolated-tests.py --label ci-admin tests/Feature/AdminFlows

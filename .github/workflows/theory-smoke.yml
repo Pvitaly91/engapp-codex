@@ -29,6 +29,11 @@ on:
       - 'resources/views/theory/**'
       - 'tests/Feature/Theory/**'
       - 'tests/Support/TheoryRouteMatrix.php'
+      - 'tests/Support/IsolatedTestEnvironment.php'
+      - 'tests/Support/RebuildsComposeTestSchema.php'
+      - 'tests/bootstrap.php'
+      - 'tests/CreatesApplication.php'
+      - 'tools/diagnostics/run-isolated-tests.py'
       - 'tests/TestCase.php'
   pull_request:
     branches:
@@ -72,8 +77,5 @@ jobs:
           npm ci
           npm run build
 
-      - name: Generate application key
-        run: php artisan key:generate --ansi
-
       - name: Run theory smoke and regression suite
-        run: php artisan test tests/Feature/Theory
+        run: python3 tools/diagnostics/run-isolated-tests.py --label ci-theory tests/Feature/Theory

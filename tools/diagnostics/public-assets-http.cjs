@@ -3,6 +3,10 @@ const path=require('node:path');
 const assert=require('node:assert/strict');
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const {prepare,root,base}=require('./public-assets-browser.cjs');
+const phase=process.argv[2]||'built';
+assert.match(phase,/^[a-z0-9_-]+$/i);
+const evidence=path.join(root,`${phase}-http-nojs.json`);
+assert.ok(!fs.existsSync(evidence),'Evidence exists; supply a new phase');
 const paths=['/','/theory','/theory/future-perfect','/theory/basic-grammar/sentence-types',
  '/theory/tenses/present-perfect/present-perfect-forms','/test/future-perfect/questions',
  '/courses/english-grammar-theory','/courses/english-grammar-theory/lesson/basic-grammar/sentence-types'];
@@ -31,7 +35,7 @@ const paths=['/','/theory','/theory/future-perfect','/theory/basic-grammar/sente
     }
     assert.equal(r.blocked.length,0);r.pass=true;
    }catch(error){r.error=error.message;r.pass=false}
-   finally{await context.close();rows.push(r);fs.writeFileSync(path.join(root,'built-http-nojs.json'),JSON.stringify(rows,null,2));}
+   finally{await context.close();rows.push(r);fs.writeFileSync(evidence,JSON.stringify(rows,null,2));}
    console.log(JSON.stringify({path:url,pass:r.pass,html:r.html,error:r.error}));
   }
  }finally{await browser.close()}

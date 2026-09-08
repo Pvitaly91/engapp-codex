@@ -14,6 +14,7 @@
                 inline-size: 390px;
             }
 
+            html[data-theory-sidebar-collapsed="true"] [data-theory-layout]:not([data-collapsed]) [data-theory-aside],
             [data-theory-layout][data-collapsed="true"] [data-theory-aside] {
                 inline-size: 116px;
             }
@@ -24,6 +25,7 @@
                 inline-size: 410px;
             }
 
+            html[data-theory-sidebar-collapsed="true"] [data-theory-layout]:not([data-collapsed]) [data-theory-aside],
             [data-theory-layout][data-collapsed="true"] [data-theory-aside] {
                 inline-size: 116px;
             }
@@ -38,6 +40,7 @@
             will-change: transform;
         }
 
+        html[data-theory-sidebar-collapsed="true"] [data-theory-layout]:not([data-collapsed]) .theory-sidebar-expanded-only,
         [data-theory-layout][data-settled="false"] [data-theory-sidebar] .theory-sidebar-expanded-only,
         [data-theory-layout][data-settled="false"] [data-theory-sidebar] .theory-nav-label,
         [data-theory-layout][data-settled="false"] [data-theory-sidebar] .theory-nav-count,

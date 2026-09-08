@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Modules\GitDeployment\Services\NativeGitDeploymentService;
 use App\Services\ContentDeployment\ContentOpsCiDispatchService;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Schema;
 use Mockery;
 use Tests\TestCase;
@@ -14,6 +15,16 @@ class DeploymentContentCiDispatchTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        // These fixtures never inherit operator credentials or perform network requests.
+        config([
+            'git-deployment.git_mode' => 'api',
+            'git-deployment.github.owner' => null,
+            'git-deployment.github.repo' => null,
+            'git-deployment.github.token' => null,
+            'git-deployment.contentops_ci_status.required_for_deploy' => false,
+        ]);
+        Http::preventStrayRequests();
 
         $this->ensureDeploymentTables();
     }
@@ -118,6 +129,14 @@ class DeploymentContentCiDispatchTest extends TestCase
 
     private function ensureDeploymentTables(): void
     {
+        // The dashboard's empty recent-runs query orders by started_at and id.
+        if (! Schema::hasTable('content_operation_runs')) {
+            Schema::create('content_operation_runs', function (Blueprint $table): void {
+                $table->id();
+                $table->timestamp('started_at')->nullable();
+            });
+        }
+
         if (! Schema::hasTable('backup_branches')) {
             Schema::create('backup_branches', function (Blueprint $table): void {
                 $table->id();
