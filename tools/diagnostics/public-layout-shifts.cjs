@@ -33,8 +33,9 @@ const safeUrl = value => {
 // Registered before goto/reload; a fresh document owns a fresh trace/metric epoch.
 // Capture all entries, including recent input. Never record text, HTML, cookies,
 // request bodies, headers, query parameters, storage values or lesson answers.
-function installObserver({windowMs, sidebarExpected}) {
-    if (window !== top || location.origin !== 'http://gramlyze.loc') return;
+function installObserver({windowMs, sidebarExpected, allowedOrigin = 'http://gramlyze.loc', diagnosticTimeline = false}) {
+    if (window !== top || location.origin !== allowedOrigin
+        || !/^http:\/\/(gramlyze\.loc|127\.0\.0\.1:\d+)$/.test(allowedOrigin)) return;
     const trace = window.__m31 = {
         timeOrigin: performance.timeOrigin,
         requestedStart: 0, requestedEnd: windowMs,
@@ -44,6 +45,9 @@ function installObserver({windowMs, sidebarExpected}) {
         unsupported: [], visibility: [{timestamp: performance.now(), state: document.visibilityState}],
         complete: false,
     };
+    trace.events = [];
+    trace.longTasks = [];
+    trace.observerCost = {installMs: 0, inspectMs: 0, inspectCalls: 0, inspectMaxMs: 0, callbackMs: 0};
     let stopped = false;
     const observers = [];
     const rect = value => value ? Object.fromEntries(['x', 'y', 'width', 'height', 'top', 'right', 'bottom', 'left'].map(k => [k, value[k]])) : null;
@@ -54,19 +58,49 @@ function installObserver({windowMs, sidebarExpected}) {
     } : null;
     function observe(type, callback) {
         if (!PerformanceObserver.supportedEntryTypes.includes(type)) { trace.unsupported.push(type); return; }
-        const observer = new PerformanceObserver(list => list.getEntries().forEach(callback));
+        const observer = new PerformanceObserver(list => {
+            const start = performance.now(); list.getEntries().forEach(callback);
+            trace.observerCost.callbackMs += performance.now() - start;
+        });
         observer.observe({type, buffered: true});
         observers.push({observer, callback});
     }
     observe('layout-shift', entry => trace.shifts.push({
         timestamp: entry.startTime, value: entry.value, hadRecentInput: entry.hadRecentInput,
+        lastInputTime: entry.lastInputTime,
         sources: (entry.sources || []).map(source => ({node: node(source.node), previousRect: rect(source.previousRect), currentRect: rect(source.currentRect)})),
     }));
-    observe('largest-contentful-paint', entry => trace.lcpEntries.push({timestamp: entry.startTime, size: entry.size, node: node(entry.element)}));
+    observe('largest-contentful-paint', entry => {
+        trace.lcpEntries.push({timestamp: entry.startTime, size: entry.size, node: node(entry.element),
+            renderTime: entry.renderTime, loadTime: entry.loadTime});
+        if (diagnosticTimeline) window.__m32LcpElement = entry.element;
+    });
+    if (diagnosticTimeline) {
+        observe('longtask', entry => trace.longTasks.push({timestamp: entry.startTime, duration: entry.duration, name: entry.name}));
+        const viewport = () => ({width: innerWidth, height: innerHeight,
+            visualWidth: visualViewport?.width ?? null, visualHeight: visualViewport?.height ?? null,
+            scale: visualViewport?.scale ?? null, orientation: screen.orientation?.type ?? null});
+        const event = (type, details = {}) => {
+            if (!stopped) trace.events.push({timestamp: performance.now(), type, ...details});
+        };
+        event('observer-install', {viewport: viewport(), focused: document.hasFocus(), visibility: document.visibilityState});
+        for (const type of ['pointerdown', 'pointerup', 'pointermove', 'touchstart', 'touchend', 'touchmove', 'keydown', 'keyup', 'click', 'wheel', 'beforeinput', 'input', 'change']) {
+            addEventListener(type, e => event(type, {isTrusted: e.isTrusted, pointerType: e.pointerType || null,
+                targetTag: e.target?.tagName || null}), {capture: true, passive: true});
+        }
+        for (const type of ['focus', 'blur', 'focusin', 'focusout', 'pageshow', 'pagehide', 'popstate', 'hashchange']) {
+            addEventListener(type, e => event(type, {isTrusted: e.isTrusted, focused: document.hasFocus()}), {capture: true});
+        }
+        addEventListener('resize', e => event('window-resize', {isTrusted: e.isTrusted, viewport: viewport()}));
+        addEventListener('orientationchange', e => event('orientationchange', {isTrusted: e.isTrusted, viewport: viewport()}));
+        visualViewport?.addEventListener('resize', e => event('visual-viewport-resize', {isTrusted: e.isTrusted, viewport: viewport()}));
+        document.addEventListener('visibilitychange', e => event('visibilitychange', {isTrusted: e.isTrusted, visibility: document.visibilityState}));
+    }
     const targets = '[data-theory-aside], [data-theory-main], [data-theory-toc-card], [data-theory-sidebar], [data-theory-desktop-navigation-loader], main';
     let previousGeometry = '', previousSidebar = '', readyScheduled = false;
     function inspect(reason) {
         if (stopped) return;
+        const inspectStart = performance.now();
         const timestamp = performance.now();
         const boxes = [...document.querySelectorAll(targets)].map(element => ({
             node: node(element), rect: rect(element.getBoundingClientRect()),
@@ -98,6 +132,9 @@ function installObserver({windowMs, sidebarExpected}) {
                 }));
             }
         }
+        const elapsed = performance.now() - inspectStart;
+        trace.observerCost.inspectMs += elapsed; trace.observerCost.inspectCalls++;
+        trace.observerCost.inspectMaxMs = Math.max(trace.observerCost.inspectMaxMs, elapsed);
     }
     let inspectionPending = false;
     function scheduleInspection(reason) {
@@ -143,16 +180,19 @@ function installObserver({windowMs, sidebarExpected}) {
         trace.fcp = performance.getEntriesByName('first-contentful-paint')[0]?.startTime ?? null;
         trace.resources = performance.getEntriesByType('resource').map(entry => ({
             url: new URL(entry.name).origin + new URL(entry.name).pathname,
-            initiatorType: entry.initiatorType, startTime: entry.startTime, responseEnd: entry.responseEnd,
+            initiatorType: entry.initiatorType, startTime: entry.startTime, fetchStart: entry.fetchStart,
+            requestStart: entry.requestStart, responseStart: entry.responseStart, responseEnd: entry.responseEnd,
             duration: entry.duration, transferSize: entry.transferSize, decodedBodySize: entry.decodedBodySize,
         }));
         trace.alpineVersion = window.Alpine?.version ?? null;
         trace.livewire = !!window.Livewire;
         trace.fontStatus = document.fonts.status;
+        if (diagnosticTimeline) trace.fontFaces = [...document.fonts].map(face => ({family: face.family, style: face.style, weight: face.weight, status: face.status}));
         trace.iframeCount = document.querySelectorAll('iframe').length;
         trace.overflow = Math.max(0, document.documentElement.scrollWidth - innerWidth);
         trace.complete = true;
     }, Math.max(0, windowMs - performance.now()));
+    trace.observerCost.installMs = performance.now() - trace.observerInstalledAt;
 }
 
 function assessMeasurement(trace, {status = 200, blocked = [], pageErrors = 0} = {}) {
@@ -211,6 +251,110 @@ function summarizeRecords(records) {
     return groups;
 }
 
+// M3.2 orchestration reuses this observer and metric contract. Origin guards are
+// installed before navigation; body reads / platform-font inspection happen only
+// after the fixed performance window, not on the critical rendering path.
+async function measureColdNavigation(browser, {base = BASE, name, url, viewport = 'mobile', ...identity}) {
+    assert.match(base, /^http:\/\/(gramlyze\.loc|127\.0\.0\.1:\d+)$/);
+    assert.ok(PAGES.some(([n, p]) => n === name && p === url), 'Unexpected diagnostic page');
+    assert.ok(['desktop', 'mobile'].includes(viewport));
+    const mobile = viewport === 'mobile';
+    const row = {...identity, name, url, viewport, cache: 'cold', startedAt: new Date().toISOString(),
+        contextId: crypto.randomUUID(), blocked: [], guardErrors: 0, network: [], networkFailures: [],
+        fontResources: [], pageErrors: 0, consoleCounts: {warning: 0, error: 0}, automation: []};
+    const action = type => row.automation.push({timestamp: Date.now(), type});
+    action(`newContext:${viewport}-viewport-touch-${mobile}-locale-light`);
+    const context = await browser.newContext({viewport: {width: mobile ? 390 : 1440, height: mobile ? 844 : 1000},
+        isMobile: mobile, hasTouch: mobile, locale: 'uk-UA', colorScheme: 'light', serviceWorkers: 'block'});
+    try {
+        action('newPage');
+        const page = await context.newPage(), cdp = await context.newCDPSession(page);
+        const requests = new Map(), responses = new Map();
+        action('CDP:Network-Performance-enable-and-production-guard');
+        await cdp.send('Network.enable', {maxTotalBufferSize: 20000000, maxResourceBufferSize: 5000000});
+        await cdp.send('Performance.enable');
+        cdp.on('Fetch.requestPaused', async event => {
+            row.blocked.push(safeUrl(event.request.url));
+            try { await cdp.send('Fetch.failRequest', {requestId: event.requestId, errorReason: 'BlockedByClient'}); }
+            catch { row.guardErrors++; }
+        });
+        const denied = base === BASE ? BLOCKED_PATTERNS : [...BLOCKED_PATTERNS,
+            '*://gramlyze.loc/*', '*://*.gramlyze.loc/*', '*://127.0.0.1/*', '*://localhost/*'];
+        await cdp.send('Fetch.enable', {patterns: denied.map(urlPattern => ({urlPattern, requestStage: 'Request'}))});
+        cdp.on('Network.requestWillBeSent', event => requests.set(event.requestId, {
+            requestWallTime: event.wallTime * 1000, requestMonotonicTime: event.timestamp,
+            initiator: event.initiator.type,
+        }));
+        cdp.on('Network.responseReceived', event => {
+            const r = event.response;
+            const entry = {url: safeUrl(r.url), type: event.type, status: r.status, diskCache: !!r.fromDiskCache,
+                serviceWorker: !!r.fromServiceWorker, mime: r.mimeType, timing: r.timing || null,
+                responseMonotonicTime: event.timestamp, ...requests.get(event.requestId)};
+            responses.set(event.requestId, entry); row.network.push(entry);
+        });
+        cdp.on('Network.loadingFinished', event => {
+            const entry = responses.get(event.requestId);
+            if (entry) { entry.wireBytes = event.encodedDataLength; entry.finishedMonotonicTime = event.timestamp; }
+        });
+        page.on('pageerror', () => row.pageErrors++);
+        page.on('console', message => { if (['warning', 'error'].includes(message.type())) row.consoleCounts[message.type()]++; });
+        page.on('requestfailed', request => row.networkFailures.push({url: safeUrl(request.url()), error: request.failure()?.errorText}));
+        action('addInitScript:observer');
+        await context.addInitScript(installObserver, {windowMs: WINDOW_MS, sidebarExpected: name !== 'questions',
+            allowedOrigin: base, diagnosticTimeline: true});
+        action('goto:commit');
+        try {
+            const response = await page.goto(base + url, {waitUntil: 'commit', timeout: 30000});
+            row.httpStatus = response?.status() ?? null;
+            if (base !== BASE && response) row.standResponse = {
+                sapi: response.headers()['x-m32-sapi'] || null, php: response.headers()['x-m32-php'] || null,
+                dataReadOnly: response.headers()['x-m32-data-readonly'] || null,
+            };
+            assert.equal(new URL(page.url()).origin, base, 'Unexpected navigation origin');
+            action('waitForFunction:observer-complete-no-UI-action');
+            await page.waitForFunction(() => window.__m31?.complete === true, null, {timeout: WINDOW_MS + 10000});
+            row.trace = await page.evaluate(() => window.__m31);
+            action('fixed-window-complete:collect-CDP-and-font-bodies');
+            const {metrics} = await cdp.send('Performance.getMetrics');
+            row.cdpMetrics = Object.fromEntries(metrics.filter(m => ['LayoutCount', 'RecalcStyleCount', 'LayoutDuration',
+                'RecalcStyleDuration', 'ScriptDuration', 'TaskDuration', 'JSHeapUsedSize', 'Nodes'].includes(m.name)).map(m => [m.name, m.value]));
+            for (const [requestId, entry] of responses) {
+                const font = /^(fonts\.googleapis\.com|fonts\.gstatic\.com)$/.test(new URL(entry.url).hostname);
+                const asset = entry.url.startsWith(base + '/build/');
+                if (!font && !asset) continue;
+                try {
+                    const body = await cdp.send('Network.getResponseBody', {requestId});
+                    const bytes = Buffer.from(body.body, body.base64Encoded ? 'base64' : 'utf8');
+                    entry.sha256 = crypto.createHash('sha256').update(bytes).digest('hex'); entry.bodyBytes = bytes.length;
+                    if (font) row.fontResources.push({kind: entry.type === 'Font' ? 'font' : 'stylesheet',
+                        url: entry.url, status: entry.status, mime: entry.mime, sha256: entry.sha256, bytes: bytes.length});
+                } catch { row.bodyReadErrors = (row.bodyReadErrors || 0) + 1; }
+            }
+            // CSS.getPlatformFontsForNode reports fonts actually used for glyphs,
+            // unlike computed font-family or FontFaceSet.status alone.
+            row.usedFontsSample = {timestamp: await page.evaluate(() => performance.now()),
+                phase: 'after-fixed-window; final LCP node glyphs, not retrospective fonts at earlier LCP candidates'};
+            await cdp.send('DOM.enable'); await cdp.send('CSS.enable'); await cdp.send('DOM.getDocument');
+            const {result} = await cdp.send('Runtime.evaluate', {expression: 'window.__m32LcpElement', returnByValue: false});
+            if (result.objectId) {
+                const {nodeId} = await cdp.send('DOM.requestNode', {objectId: result.objectId});
+                row.usedFonts = (await cdp.send('CSS.getPlatformFontsForNode', {nodeId})).fonts;
+                await cdp.send('Runtime.releaseObject', {objectId: result.objectId});
+            } else row.usedFonts = [];
+        } catch (error) {
+            row.error = error.name || 'measurement-error';
+            try { row.trace = await page.evaluate(() => window.__m31 || null); } catch { row.trace = null; }
+        }
+        row.metric = assessMeasurement(row.trace, {status: row.httpStatus, blocked: row.blocked, pageErrors: row.pageErrors});
+        if (row.error || row.guardErrors || row.bodyReadErrors) {
+            row.metric.status = 'incomplete'; row.metric.reasons.push(row.error ? 'browser-operation-failed' : row.guardErrors ? 'network-guard-error' : 'resource-body-unavailable');
+        }
+        row.finishedAt = new Date().toISOString();
+        action('closeContext:after-cutoff');
+        return row;
+    } finally { await context.close(); }
+}
+
 async function main() {
     const label = process.argv[2];
     assert.match(label || '', /^[a-z0-9][a-z0-9_-]*$/i, 'Supply a unique evidence label');
@@ -232,6 +376,7 @@ async function main() {
         packageLockSha256: crypto.createHash('sha256').update(fs.readFileSync('package-lock.json')).digest('hex'),
         sourceSha256: Object.fromEntries([
             'public/build/manifest.json', 'resources/css/catalog-public.css',
+            'resources/views/layouts/catalog-public.blade.php',
             'resources/views/theory/partials/desktop-navigation-loader.blade.php',
             'resources/views/theory/partials/mobile-navigation.blade.php',
             'resources/views/theory/show.blade.php', 'resources/views/theory/partials/tree-nav.blade.php',
@@ -315,5 +460,5 @@ async function main() {
     console.log(`Evidence: ${output}`);
 }
 
-module.exports = {installObserver, assessMeasurement, summarizeRecords, distribution, WINDOW_MS, SETTLED_MS, BLOCKED_PATTERNS};
+module.exports = {installObserver, assessMeasurement, summarizeRecords, distribution, measureColdNavigation, PAGES, WINDOW_MS, SETTLED_MS, BLOCKED_PATTERNS};
 if (require.main === module) main().catch(error => { console.error(error.message); process.exitCode = 1; });

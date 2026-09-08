@@ -177,11 +177,241 @@ function verifyComparison(baseline, after) {
     return result;
 }
 
-module.exports = {verifyComparison, recompute, distribution};
+const PAIRED_SHAS = {A: '7c649117e747fb922da166c2e1fba59474fee203', B: '54d34083a67e30084b967b572cc5a6b93c2eaf99'};
+const SHA256 = /^[a-f0-9]{64}$/i;
+const nonempty = value => typeof value === 'string' && value.trim().length > 0;
+const asArray = value => Array.isArray(value) ? value : [];
+const origin = value => { try { return new URL(value).origin; } catch { return null; } };
+const quantile = (sorted, p) => {
+    const index = (sorted.length - 1) * p, low = Math.floor(index), high = Math.ceil(index);
+    return sorted[low] + (sorted[high] - sorted[low]) * (index - low);
+};
+const spread = values => {
+    if (!values.length) return null;
+    const sorted = [...values].sort((a, b) => a - b);
+    return {...distribution(sorted), q1: quantile(sorted, 0.25), q3: quantile(sorted, 0.75),
+        iqr: quantile(sorted, 0.75) - quantile(sorted, 0.25)};
+};
+
+// Resample whole A/B pairs, never independently resample the two variants. The
+// fixed PRNG and percentile interpolation make the uncertainty reproducible.
+function bootstrapPairedStats(pairs) {
+    if (!Array.isArray(pairs) || pairs.some(pair => !Number.isFinite(pair?.A) || pair.A <= 0
+        || !Number.isFinite(pair?.B) || pair.B <= 0)) throw new TypeError('Expected finite positive paired LCP values');
+    const deltas = pairs.map(pair => ({...pair, deltaMs: pair.B - pair.A, deltaPercent: (pair.B - pair.A) / pair.A * 100}));
+    const result = {n: pairs.length, pairs: deltas, A: spread(pairs.map(pair => pair.A)), B: spread(pairs.map(pair => pair.B)),
+        deltaMs: spread(deltas.map(pair => pair.deltaMs)), deltaPercent: spread(deltas.map(pair => pair.deltaPercent)),
+        bootstrap: {method: 'paired nonparametric percentile bootstrap of the median; linear-interpolated quantiles',
+            resamples: 10000, seed: 32032, confidence: 0.95, unit: 'whole A/B pair'},
+        limitations: ['Ten planned pairs per page are a small sample; percentile intervals may be unstable and assume exchangeable independent pairs.',
+            'AB/BA balances order but does not eliminate time dependence. A CI crossing zero is not proof of equivalence or no regression.']};
+    if (!pairs.length) return result;
+    let state = 32032;
+    const random = () => {
+        state = (state + 0x6D2B79F5) | 0;
+        let value = Math.imul(state ^ state >>> 15, 1 | state);
+        value ^= value + Math.imul(value ^ value >>> 7, 61 | value);
+        return ((value ^ value >>> 14) >>> 0) / 4294967296;
+    };
+    const milliseconds = [], percentages = [];
+    for (let sample = 0; sample < 10000; sample++) {
+        const selected = Array.from({length: pairs.length}, () => deltas[Math.floor(random() * pairs.length)]);
+        milliseconds.push(distribution(selected.map(pair => pair.deltaMs)).median);
+        percentages.push(distribution(selected.map(pair => pair.deltaPercent)).median);
+    }
+    for (const [key, values] of [['deltaMs', milliseconds], ['deltaPercent', percentages]]) {
+        values.sort((a, b) => a - b);
+        result[key].ci95 = {low: quantile(values, 0.025), high: quantile(values, 0.975)};
+    }
+    return result;
+}
+
+function pairedSchedule() {
+    const schedule = [];
+    for (let run = 1; run <= 10; run++) for (const [name, path] of PAGES.slice(0, 2)) {
+        schedule.push({pairId: `pair-${run}-${name}`, name, path, order: run % 2 ? 'AB' : 'BA'});
+    }
+    return schedule;
+}
+
+function verifyPairedRow(row, variant, fontMode) {
+    const reasons = [], check = (ok, message) => { if (!ok) reasons.push(message); };
+    check(row.standResponse?.sapi === variant?.sapi && row.standResponse?.php === variant?.php
+        && row.standResponse?.dataReadOnly === 'sqlite-mode-ro-query-only',
+    'actual stand response does not match declared PHP/SAPI/read-only data policy');
+    check(!row.error && row.httpStatus === 200 && row.pageErrors === 0 && row.guardErrors === 0
+        && Array.isArray(row.blocked) && row.blocked.length === 0 && !row.bodyReadErrors,
+    'HTTP/page/guard/body error or missing evidence');
+    const trace = row.trace;
+    check(trace?.complete === true && trace.requestedStart === 0 && trace.requestedEnd === 12000
+        && trace.observationEndedAt >= 12000 && trace.observationEndedAt <= 12250, 'invalid observation window');
+    for (const key of ['load', 'fontsReady', 'alpineInitialized', 'sidebarReady']) {
+        check(Number.isFinite(trace?.timings?.[key]) && trace.timings[key] >= 0
+            && trace.timings[key] <= 10000, `${key} did not settle before cutoff`);
+    }
+    check(trace?.timings?.alpineInit?.length === 1 && trace?.fontStatus === 'loaded'
+        && Array.isArray(trace?.unsupported) && trace.unsupported.length === 0
+        && Array.isArray(trace?.visibility) && trace.visibility.length > 0
+        && trace.visibility.every(event => event?.state === 'visible') && trace?.iframeCount === 0,
+    'invalid readiness/visibility/API evidence');
+    check(Number.isFinite(trace?.fcp) && trace.fcp > 0 && trace.fcp <= 12000, 'missing/invalid FCP');
+    const lcpEntries = asArray(trace?.lcpEntries);
+    check(lcpEntries.length > 0 && lcpEntries.every((entry, index) => Number.isFinite(entry?.timestamp)
+        && entry.timestamp > 0 && (index === 0 || entry.timestamp >= lcpEntries[index - 1].timestamp)), 'invalid raw LCP entries');
+    const lcp = lcpEntries.filter(entry => entry?.timestamp <= 12000).at(-1)?.timestamp;
+    check(Number.isFinite(lcp) && lcp > 0 && close(lcp, row.metric?.lcp), 'LCP does not match raw entries');
+    let metric = null;
+    try {
+        metric = {...recompute(trace?.shifts, trace?.requestedEnd), lcp};
+        for (const key of Object.keys(metric)) check(close(metric[key], row.metric?.[key]), `${key} does not match raw entries`);
+    } catch (error) { check(false, error.message); }
+    check(Array.isArray(row.network) && Array.isArray(row.networkFailures), 'missing network evidence');
+    // The fixed two-theory-page plan has no Questions /state endpoint. Its old
+    // narrowly matched Fetch204 exemption remains in verifyReport, not broadened.
+    for (const failure of asArray(row.networkFailures)) check(false, `unexpected resource failure: ${failure?.url} (${failure?.error})`);
+    const responses = asArray(row.network);
+    for (const response of responses) {
+        check(response && Number.isInteger(response.status) && response.status >= 200 && response.status < 400,
+            `unsuccessful resource response: ${response?.url} (${response?.status})`);
+        check(origin(response?.url) === variant?.base || ['https://fonts.googleapis.com', 'https://fonts.gstatic.com'].includes(origin(response?.url)),
+            `unexpected/forbidden-origin response: ${response?.url}`);
+        check(response?.diskCache !== true && response?.serviceWorker !== true, 'cold navigation used disk cache or service worker');
+    }
+    const resources = asArray(row.fontResources);
+    check(resources.some(resource => resource?.kind === 'stylesheet') && resources.some(resource => resource?.kind === 'font'),
+        'missing font stylesheet or binary body evidence');
+    for (const resource of resources) {
+        const font = resource?.kind === 'font', style = resource?.kind === 'stylesheet';
+        check((font || style) && resource.status === 200 && SHA256.test(resource.sha256 || '')
+            && Number.isInteger(resource.bytes) && resource.bytes > 0
+            && (font ? /^(font\/|application\/.*font)/i.test(resource.mime || '') : resource.mime === 'text/css'),
+        'invalid font body hash/bytes/status/MIME evidence');
+        check(fontMode === 'local-identical' ? origin(resource?.url) === variant?.base
+            : host(resource?.url) === (font ? 'fonts.gstatic.com' : 'fonts.googleapis.com'), 'font resource origin does not match font mode');
+        check(responses.some(response => response?.url === resource?.url && response.status === 200
+            && response.type === (font ? 'Font' : 'Stylesheet') && response.mime === resource.mime
+            && response.sha256 === resource.sha256 && response.bodyBytes === resource.bytes), 'font body lacks matching successful network response');
+    }
+    // A hash for one selected font must not conceal another unverified response.
+    for (const response of responses.filter(response => response?.type === 'Font'
+        || host(response?.url) === 'fonts.googleapis.com')) {
+        check(resources.some(resource => resource?.url === response.url && resource.sha256 === response.sha256
+            && resource.bytes === response.bodyBytes), 'font network response omitted from body evidence');
+    }
+    check(Array.isArray(row.usedFonts) && row.usedFonts.length > 0 && row.usedFonts.every(font => nonempty(font?.familyName)
+        && typeof font.isCustomFont === 'boolean' && Number.isFinite(font.glyphCount) && font.glyphCount > 0),
+    'missing/invalid actually used platform-font evidence');
+    return {reasons, metric, fontIdentity: resources.map(resource => ({kind: resource?.kind, sha256: resource?.sha256,
+        bytes: resource?.bytes, mime: resource?.mime})).sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b)))};
+}
+
+function verifyPairedComparison(report) {
+    const errors = [], check = (ok, message) => { if (!ok) errors.push(message); };
+    check(report?.schema === 'gramlyze-isolated-paired-m32-v1', 'unsupported/missing paired schema');
+    check(nonempty(report?.label), 'missing label');
+    for (const key of ['browser', 'playwright', 'node']) check(nonempty(report?.[key]), `missing ${key} version`);
+    check(['natural-network', 'local-identical'].includes(report?.fontMode), 'missing/invalid separate font mode');
+    const start = Date.parse(report?.startedAt), finish = Date.parse(report?.finishedAt), frozen = Date.parse(report?.plan?.frozenAt);
+    check(Number.isFinite(start) && Number.isFinite(finish) && finish >= start, 'missing/invalid report timestamps');
+    check(Number.isFinite(frozen) && frozen <= start, 'plan not frozen before run');
+    const expected = pairedSchedule();
+    check(report?.plan?.pairsPerPage === 10 && report.plan.cache === 'cold' && report.plan.windowMs === 12000
+        && report.plan.settledMs === 2000 && isDeepStrictEqual(report.plan.viewport, {width: 390, height: 844, mobile: true}),
+    'unexpected paired measurement contract');
+    check(isDeepStrictEqual(report?.plan?.schedule, expected), 'schedule must be the fixed ten-pair/page alternating AB/BA plan');
+    const variants = report?.variants || {};
+    for (const name of ['A', 'B']) {
+        const variant = variants[name];
+        check(variant?.gitSha === PAIRED_SHAS[name], `${name}: incorrect source git SHA`);
+        check(/^http:\/\/127\.0\.0\.1:[1-9]\d{0,4}$/.test(variant?.base || '') && origin(variant?.base) === variant?.base,
+            `${name}: expected isolated loopback origin`);
+        for (const key of ['php', 'sapi', 'storageId', 'sessionId', 'buildId']) check(nonempty(variant?.[key]), `${name}: missing ${key}`);
+        for (const key of ['packageLockSha256', 'composerLockSha256', 'runtimePolicySha256', 'dataSha256']) {
+            check(SHA256.test(variant?.[key] || ''), `${name}: invalid ${key}`);
+        }
+        check(variant?.dependencies && typeof variant.dependencies === 'object' && !Array.isArray(variant.dependencies)
+            && Object.keys(variant.dependencies).length > 0 && Object.values(variant.dependencies).every(nonempty), `${name}: missing/invalid dependencies`);
+        check(variant?.probeSha256 && typeof variant.probeSha256 === 'object' && !Array.isArray(variant.probeSha256)
+            && PROBE_FILES.every(file => SHA256.test(variant.probeSha256[file] || ''))
+            && Object.values(variant.probeSha256).every(value => SHA256.test(value || '')), `${name}: missing/invalid probe hashes`);
+    }
+    for (const key of ['php', 'sapi', 'dependencies', 'packageLockSha256', 'composerLockSha256', 'probeSha256', 'runtimePolicySha256', 'dataSha256']) {
+        check(variants.A?.[key] !== undefined && isDeepStrictEqual(variants.A[key], variants.B?.[key]), `parity: ${key} differs or is missing`);
+    }
+    for (const key of ['base', 'storageId', 'sessionId', 'buildId']) check(variants.A?.[key] !== variants.B?.[key], `isolation: shared ${key}`);
+    const safety = report?.safety;
+    check(SHA256.test(safety?.workingFilesBeforeSha256 || '') && safety.workingFilesBeforeSha256 === safety.workingFilesAfterSha256
+        && Array.isArray(safety.workingFilesChanged) && safety.workingFilesChanged.length === 0, 'working-file safety inventory missing or changed');
+    check(safety?.dataReadOnly === true && safety?.noParallelWork === true, 'missing read-only data / no-parallel-work safety evidence');
+    const records = asArray(report?.records), actual = [], contexts = new Set();
+    const execution = expected.flatMap((pair, index) => [...pair.order].map(variant => ({...pair, variant, run: Math.floor(index / 2) + 1})));
+    check(records.length === 40, `expected exactly 40 planned navigation attempts, got ${records.length}`);
+    let previousFinish = start;
+    const fontIdentities = new Map();
+    for (const [index, value] of records.entries()) {
+        const row = value && typeof value === 'object' ? value : {}, id = `${row.pairId}/${row.variant}`, rowErrors = [];
+        const rowCheck = (ok, message) => { if (!ok) { rowErrors.push(`${id}: ${message}`); check(false, `${id}: ${message}`); } };
+        const planned = execution[index];
+        rowCheck(!!planned && row.pairId === planned.pairId && row.name === planned.name && row.url === planned.path
+            && row.variant === planned.variant && row.run === planned.run && row.cache === 'cold' && row.viewport === 'mobile', 'unexpected navigation identity/order');
+        rowCheck(nonempty(row.contextId) && !contexts.has(row.contextId), 'missing/reused cold browser context'); contexts.add(row.contextId);
+        const rowStart = Date.parse(row.startedAt), rowFinish = Date.parse(row.finishedAt);
+        rowCheck(Number.isFinite(rowStart) && Number.isFinite(rowFinish) && rowStart >= previousFinish && rowFinish >= rowStart
+            && rowFinish <= finish, 'invalid/overlapping navigation timestamps');
+        previousFinish = rowFinish;
+        const validation = verifyPairedRow(row, variants[row.variant], report?.fontMode);
+        for (const reason of validation.reasons) rowCheck(false, reason);
+        // Compare bytes (including the stylesheet), not just stable-looking URLs.
+        // Byte-parity failure blocks the comparison, but must not cherry-pick a
+        // successfully measured slower/different-font run out of its statistics.
+        if (validation.fontIdentity.length && validation.reasons.length === 0) {
+            if (!fontIdentities.has(row.name)) fontIdentities.set(row.name, validation.fontIdentity);
+            else check(isDeepStrictEqual(fontIdentities.get(row.name), validation.fontIdentity), `${id}: font CSS/binary byte identity differs across attempts`);
+        }
+        const storedReasons = asArray(row.metric?.reasons);
+        rowCheck(Array.isArray(row.metric?.reasons) && storedReasons.every(nonempty), 'missing/invalid stored reason evidence');
+        const invalidBeforeStatus = rowErrors.length > 0;
+        rowCheck(row.metric?.status === 'complete' ? !invalidBeforeStatus && storedReasons.length === 0
+            : row.metric?.status === 'incomplete' && storedReasons.length > 0, 'stored completion/reasons disagree with evidence');
+        if (row.metric?.status !== 'complete') rowCheck(false, `declared incomplete: ${storedReasons.join(', ') || 'no reason'}`);
+        actual.push({index, pairId: row.pairId ?? null, variant: row.variant ?? null, name: row.name ?? null,
+            contextId: row.contextId ?? null, valid: rowErrors.length === 0, reasons: rowErrors, storedReasons: [...storedReasons],
+            lcp: validation.metric?.lcp ?? null, clsSessionWindow: validation.metric?.clsSessionWindow ?? null,
+            legacyShiftSum: validation.metric?.legacyShiftSum ?? null,
+            recentInputShifts: asArray(row.trace?.shifts).filter(entry => entry?.hadRecentInput === true).map(entry => ({timestamp: entry.timestamp, value: entry.value}))});
+    }
+    const pages = PAGES.slice(0, 2).map(([name, path]) => {
+        const rows = actual.filter(row => row.name === name), validRows = rows.filter(row => row.valid), pairs = [];
+        const incompletePairs = [];
+        for (const plan of expected.filter(pair => pair.name === name)) {
+            const a = validRows.filter(row => row.pairId === plan.pairId && row.variant === 'A');
+            const b = validRows.filter(row => row.pairId === plan.pairId && row.variant === 'B');
+            if (a.length === 1 && b.length === 1) pairs.push({pairId: plan.pairId, order: plan.order, A: a[0].lcp, B: b[0].lcp});
+            else incompletePairs.push({pairId: plan.pairId, validVariants: [...a, ...b].map(row => row.variant)});
+        }
+        return {name, path, attempted: rows.length, valid: validRows.length, invalid: rows.length - validRows.length,
+            validRuns: validRows.map(row => ({pairId: row.pairId, variant: row.variant, lcp: row.lcp})),
+            allValidA: spread(validRows.filter(row => row.variant === 'A').map(row => row.lcp)),
+            allValidB: spread(validRows.filter(row => row.variant === 'B').map(row => row.lcp)),
+            incompletePairs, paired: bootstrapPairedStats(pairs)};
+    });
+    return {schema: 'gramlyze-paired-comparison-verification-v1', pass: errors.length === 0, errors,
+        fontMode: report?.fontMode ?? null, attempts: actual, verifiedRecords: actual.filter(row => row.valid).length, pages,
+        limitations: ['Isolated loopback A/B only, not main Apache performance or production/field CWV.',
+            'All attempts are retained. Valid unpaired runs remain in per-variant summaries; only complete valid pairs enter paired statistics.',
+            'Cross-run parity failures block comparison acceptance without selectively removing otherwise valid measurements from descriptive statistics.',
+            'A passing verifier establishes evidence integrity, not an improvement, causal mechanism, equivalence, or absence of a regression.',
+            'Standard CLS preserves hadRecentInput exclusions; zero standard CLS does not mean no physical movement.',
+            'Safety hashes and runtime identities verify recorded evidence; this read-only verifier does not itself sandbox or fingerprint the running stands.']};
+}
+
+module.exports = {verifyComparison, verifyPairedComparison, bootstrapPairedStats, recompute, distribution};
 if (require.main === module) {
     try {
-        if (process.argv.length !== 4) throw new Error('Usage: node verify-layout-comparison.cjs BASELINE-perf.json AFTER-perf.json');
-        const result = verifyComparison(...process.argv.slice(2).map(file => JSON.parse(fs.readFileSync(file, 'utf8'))));
+        if (process.argv.length !== 4) throw new Error('Usage: node verify-layout-comparison.cjs BASELINE-perf.json AFTER-perf.json | --paired PAIRED.json');
+        const result = process.argv[2] === '--paired'
+            ? verifyPairedComparison(JSON.parse(fs.readFileSync(process.argv[3], 'utf8')))
+            : verifyComparison(...process.argv.slice(2).map(file => JSON.parse(fs.readFileSync(file, 'utf8'))));
         console.log(JSON.stringify(result, null, 2));
         if (!result.pass) process.exitCode = 1;
     } catch (error) { console.error(error.message); process.exitCode = 1; }
