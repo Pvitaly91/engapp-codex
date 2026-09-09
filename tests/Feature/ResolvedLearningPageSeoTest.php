@@ -9,6 +9,8 @@ use App\Models\QuestionOption;
 use App\Models\SavedGrammarTest;
 use App\Models\TextBlock;
 use App\Services\PolyglotCourseManifestService;
+use App\Support\PageMetadata;
+use App\Support\TheoryEditorialDescriptions;
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Env;
@@ -324,6 +326,95 @@ class ResolvedLearningPageSeoTest extends TestCase
         $xpath = new \DOMXPath($doc);
         $this->assertSame('Social & "quotes"', $xpath->evaluate('string(//meta[@property="og:title"]/@content)'));
         $this->assertSame('Опис & апостроф\'s', $xpath->evaluate('string(//meta[@name="twitter:description"]/@content)'));
+    }
+
+    public function test_every_editorial_description_reaches_one_meta_and_both_social_tags_only(): void
+    {
+        $response = $this->get(self::HOST.'/theory/maibutni-formy/future-perfect/future-perfect-questions')->assertOk();
+        $data = $response->baseResponse->original->getData();
+        $before = $this->metadataFromHtml($response->getContent());
+        foreach (TheoryEditorialDescriptions::UK as $seeder => $description) {
+            // Render the same already-resolved view context with each portable stored identity.
+            $data['page']->setRawAttributes([...$data['page']->getAttributes(), 'seeder' => $seeder], true);
+            $html = view('theory.show', $data)->render();
+            $metadata = $this->metadataFromHtml($html);
+            $this->assertSame($description, $metadata['description'], $seeder);
+            foreach (['title', 'h1', 'og:title', 'twitter:title'] as $key) {
+                $this->assertSame($before[$key], $metadata[$key], $seeder.' '.$key);
+            }
+            $this->assertStringContainsString('Навчальний матеріал: Future Perfect Questions.', $html);
+        }
+    }
+
+    public function test_editorial_identity_is_resolved_from_page_not_short_slug_query_or_session(): void
+    {
+        $one = 'Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesOneOnesTheorySeeder';
+        $other = 'Database\\Seeders\\Page_V3\\Tenses\\TensesNarrativeTensesTheorySeeder';
+        $page = Page::where('slug', 'future-perfect-questions')->firstOrFail();
+        $page->update(['seeder' => $one]);
+        $collision = Page::where('slug', 'past-simple-questions')->firstOrFail();
+        $collision->update(['slug' => $page->slug, 'seeder' => $other]);
+        $query = http_build_query(['seeder' => $other, 'pageSeeder' => $other, 'description' => 'SPOOF', 'locale' => 'pl']);
+        $this->withSession(['seeder' => $other, 'pageSeeder' => $other, 'description' => 'SPOOF']);
+        $first = $this->get(self::HOST.'/theory/maibutni-formy/future-perfect/'.$page->slug.'?'.$query)->assertOk();
+        $this->assertSame(TheoryEditorialDescriptions::UK[$one], $this->metadataFromHtml($first->getContent())['description']);
+        $this->assertCanonical($first, '/theory/maibutni-formy/future-perfect/'.$page->slug);
+        $this->assertNoRobotsMeta($first);
+        $this->app['session']->flush();
+        $second = $this->get(self::HOST.'/theory/past-simple/'.$page->slug)->assertOk();
+        $this->assertSame(TheoryEditorialDescriptions::UK[$other], $this->metadataFromHtml($second->getContent())['description']);
+        $page->update(['seeder' => 'Unknown\\'.$one]);
+        $unknown = $this->get('http://gramlyze.loc/theory/maibutni-formy/future-perfect/'.$page->slug)->assertOk();
+        $unknown->assertHeader('X-Robots-Tag', 'noindex, nofollow, noarchive');
+        $this->assertSame(PageMetadata::theory('Future Perfect Questions')['description'], $this->metadataFromHtml($unknown->getContent())['description']);
+    }
+
+    public function test_editorial_fallback_yields_to_intro_and_does_not_leak_to_other_representations(): void
+    {
+        $page = Page::where('slug', 'future-perfect-questions')->firstOrFail();
+        $seeder = array_key_first(TheoryEditorialDescriptions::UK);
+        $page->update(['seeder' => $seeder]);
+        $intro = '<p>Лапки &quot;так&quot;, апостроф\'s &amp; <strong>зміст</strong>.</p><script>bad()</script>';
+        TextBlock::create(['uuid' => (string) Str::uuid(), 'page_id' => $page->id, 'locale' => 'uk', 'type' => 'hero',
+            'body' => json_encode(['intro' => $intro]), 'column' => 'header']);
+        $response = $this->get('http://gramlyze.loc/theory/maibutni-formy/future-perfect/'.$page->slug)->assertOk();
+        $meta = $this->metadataFromHtml($response->getContent());
+        $this->assertSame('Future Perfect: питальні речення. Лапки "так", апостроф\'s & зміст.', $meta['description']);
+        $this->assertStringNotContainsString('bad()', $meta['description']);
+        $this->assertStringNotContainsString('<strong>', $meta['description']);
+        $data = $response->baseResponse->original->getData();
+        // Existing EN/PL template behavior is preserved, independent of the UK registry.
+        $data['page']->setRelation('textBlocks', collect());
+        foreach (['en', 'pl'] as $locale) {
+            app()->setLocale($locale);
+            $localized = $this->metadataFromHtml(view('theory.show', $data)->render());
+            $this->assertNotSame(TheoryEditorialDescriptions::UK[$seeder], $localized['description']);
+            $this->assertDoesNotMatchRegularExpression('/[а-яіїєґ]/ui', $localized['description']);
+        }
+        app()->setLocale('uk');
+        $data['page']->setRawAttributes([...$data['page']->getAttributes(), 'type' => null], true);
+        $this->assertSame(PageMetadata::theory('Future Perfect Questions')['description'], $this->metadataFromHtml(view('theory.show', $data)->render())['description']);
+        $test = $this->get('http://gramlyze.loc/test/future-perfect/questions')->assertOk();
+        $this->assertStringStartsWith('Тест «', $this->metadataFromHtml($test->getContent())['description']);
+        $course = $this->get('http://gramlyze.loc/courses/english-grammar-theory/lesson/maibutni-formy/future-perfect/'.$page->slug)->assertOk();
+        $this->assertNotSame(TheoryEditorialDescriptions::UK[$seeder], $this->metadataFromHtml($course->getContent())['description']);
+    }
+
+    public function test_explicit_social_description_override_remains_safe_and_authoritative(): void
+    {
+        $description = TheoryEditorialDescriptions::UK[array_key_first(TheoryEditorialDescriptions::UK)];
+        $social = 'Свідомий опис: "лапки", апостроф\'s & уточнення.';
+        $html = \Illuminate\Support\Facades\Blade::render(
+            '@section("title", "Title") @section("meta_description", $description) @section("social_description", $social) @include("layouts.partials.social-meta")',
+            compact('description', 'social')
+        );
+        $doc = new \DOMDocument();
+        @$doc->loadHTML('<?xml encoding="UTF-8">'.$html);
+        $xpath = new \DOMXPath($doc);
+        foreach (['//meta[@property="og:description"]', '//meta[@name="twitter:description"]'] as $selector) {
+            $this->assertCount(1, $xpath->query($selector));
+            $this->assertSame($social, $xpath->evaluate('string('.$selector.'/@content)'));
+        }
     }
 
     private function metadataFromHtml(string $html): array

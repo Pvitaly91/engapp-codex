@@ -18,7 +18,13 @@
     $seoTitle = (string) $page->title . ' | Gramlyze';
     if (app()->getLocale() === 'uk') {
         // The display title may be shortened/localized in memory by the controller; keep the full stored identity for UK SEO only.
-        $seo = \App\Support\PageMetadata::theory((string) ($page->getRawOriginal('title') ?: $page->title), (string) ($selectedCategory->title ?? ''), $seoIntro);
+        $seo = \App\Support\PageMetadata::theory(
+            (string) ($page->getRawOriginal('title') ?: $page->title),
+            (string) ($selectedCategory->title ?? ''),
+            $seoIntro,
+            $page->type === 'theory' ? (string) $page->getRawOriginal('seeder') : '',
+            app()->getLocale()
+        );
         $seoTitle = $seo['title'];
         $seoDescription = $seo['description'];
     }

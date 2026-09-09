@@ -71,14 +71,14 @@ final class PageMetadata
         return rtrim($intro, '.').'.';
     }
 
-    public static function theory(string $name, string $category = '', string $intro = ''): array
+    public static function theory(string $name, string $category = '', string $intro = '', string $pageSeeder = '', string $locale = 'uk'): array
     {
         $topic = self::topic($name, $category);
         $topic = $topic !== '' ? $topic : (self::plain($category) ?: 'Англійська граматика');
         $summary = self::summary($intro);
         $description = $summary !== ''
             ? (str_starts_with(mb_strtolower($summary), mb_strtolower($topic)) ? $summary : $topic.'. '.$summary)
-            : 'Пояснення теми «'.$topic.'» в англійській граматиці.';
+            : (self::plain(TheoryEditorialDescriptions::forPageSeeder($pageSeeder, $locale)) ?: 'Пояснення теми «'.$topic.'» в англійській граматиці.');
 
         return ['title' => self::title($topic, 'правила'), 'description' => $description];
     }
