@@ -15,7 +15,13 @@
             'page' => $page->title,
             'category' => $selectedCategory->title ?? __('public.theory.title'),
         ]);
-    $seoTitle = \Illuminate\Support\Str::limit((string) $page->title, 48, '…') . ' | Gramlyze';
+    $seoTitle = (string) $page->title . ' | Gramlyze';
+    if (app()->getLocale() === 'uk') {
+        // The display title may be shortened/localized in memory by the controller; keep the full stored identity for UK SEO only.
+        $seo = \App\Support\PageMetadata::theory((string) ($page->getRawOriginal('title') ?: $page->title), (string) ($selectedCategory->title ?? ''), $seoIntro);
+        $seoTitle = $seo['title'];
+        $seoDescription = $seo['description'];
+    }
 @endphp
 @section('title', $seoTitle)
 @section('meta_description', $seoDescription)

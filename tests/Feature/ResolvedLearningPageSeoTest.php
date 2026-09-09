@@ -240,6 +240,111 @@ class ResolvedLearningPageSeoTest extends TestCase
         $this->assertStringNotContainsString('canonical', $response->getContent());
     }
 
+    public function test_metadata_preserves_complete_questions_identity_and_h1_across_sessions(): void
+    {
+        $path = '/test/future-perfect/questions';
+        $first = $this->get(self::HOST.$path, ['Accept' => 'text/html'])->assertOk();
+        $metadata = $this->metadataFromHtml($first->getContent());
+        $this->assertSame('Future Perfect: питальні речення — тест | Gramlyze', $metadata['title']);
+        $this->assertSame($first->viewData('test')->name, $metadata['h1']);
+        $this->assertStringContainsString('побудову питальних речень', $metadata['description']);
+        $this->assertCanonical($first, $path);
+        $this->assertNoRobotsMeta($first);
+        $this->app['session']->flush();
+        Question::query()->update(['updated_at' => now()->subDay()]);
+        $second = $this->get(self::HOST.$path, ['Accept' => 'text/html'])->assertOk();
+        $this->assertSame($metadata, $this->metadataFromHtml($second->getContent()));
+
+        $theory = $this->get(self::HOST.'/theory/maibutni-formy/future-perfect/future-perfect-questions')->assertOk();
+        $theoryMeta = $this->metadataFromHtml($theory->getContent());
+        $this->assertSame('Future Perfect: питальні речення — правила | Gramlyze', $theoryMeta['title']);
+        $this->assertSame('Future Perfect Questions', $theoryMeta['h1']);
+        $this->assertStringContainsString('Future Perfect: питальні речення', $theoryMeta['description']);
+    }
+
+    public function test_metadata_escapes_unsafe_source_without_changing_visible_identity(): void
+    {
+        $name = 'Future Perfect: "Quotes" & <script>attack()</script><b>тема</b>';
+        Page::where('slug', 'future-perfect-questions')->update(['title' => $name]);
+        $response = $this->get(self::HOST.'/test/future-perfect/questions')->assertOk();
+        $meta = $this->metadataFromHtml($response->getContent());
+        $this->assertStringContainsString('"Quotes" & тема', $meta['title']);
+        $this->assertStringNotContainsString('attack()', $meta['title']);
+        $this->assertStringNotContainsString('<b>', $meta['description']);
+        $document = new \DOMDocument();
+        @$document->loadHTML('<?xml encoding="UTF-8">'.$response->getContent());
+        $head = $document->getElementsByTagName('head')->item(0);
+        $this->assertStringNotContainsString('<script>attack()', $document->saveHTML($head));
+    }
+
+    public function test_theory_metadata_uses_full_stored_name_without_changing_short_display_title(): void
+    {
+        $page = Page::where('slug', 'future-perfect-questions')->firstOrFail();
+        $page->update(['title' => 'Future Perfect: Questions and Short Answers']);
+        TextBlock::create([
+            'uuid' => (string) Str::uuid(), 'page_id' => $page->id, 'page_category_id' => $page->page_category_id,
+            'locale' => 'uk', 'type' => 'subtitle', 'column' => 'left',
+            'body' => '<strong>Future Perfect</strong> — питання про завершені майбутні дії.',
+        ]);
+        $response = $this->get(self::HOST.'/theory/maibutni-formy/future-perfect/future-perfect-questions')->assertOk();
+        $meta = $this->metadataFromHtml($response->getContent());
+        $this->assertSame('Future Perfect', $meta['h1']);
+        $this->assertSame('Future Perfect: питання та короткі відповіді — правила | Gramlyze', $meta['title']);
+        $this->assertSame('Future Perfect: Questions and Short Answers', $page->fresh()->title);
+    }
+
+    public function test_shared_metadata_templates_do_not_leak_ukrainian_into_english_or_polish(): void
+    {
+        $data = $this->get(self::HOST.'/test/future-perfect/questions')->assertOk()->baseResponse->original->getData();
+        $theoryData = $this->get(self::HOST.'/theory/maibutni-formy/future-perfect/future-perfect-questions')->assertOk()->baseResponse->original->getData();
+        $categoryData = $this->get(self::HOST.'/theory/future-perfect')->assertOk()->baseResponse->original->getData();
+        foreach (['en', 'pl'] as $locale) {
+            app()->setLocale($locale);
+            $meta = $this->metadataFromHtml(view('test-show', $data)->render());
+            $this->assertSame($data['test']->name, $meta['title']);
+            $this->assertSame(__('public.tests.meta_description', ['test' => $data['test']->name]), $meta['description']);
+            $this->assertDoesNotMatchRegularExpression('/[а-яіїєґ]/ui', $meta['title'].' '.$meta['description']);
+            $theory = $this->metadataFromHtml(view('theory.show', $theoryData)->render());
+            $this->assertSame('Future Perfect Questions | Gramlyze', $theory['title']);
+            $this->assertDoesNotMatchRegularExpression('/[а-яіїєґ]/ui', $theory['title'].' '.$theory['description']);
+            $category = $this->metadataFromHtml(view('theory.category', $categoryData)->render());
+            $this->assertStringContainsString('future-perfect', $category['title']);
+            $this->assertDoesNotMatchRegularExpression('/[а-яіїєґ]/ui', $category['title'].' '.$category['description']);
+        }
+    }
+
+    public function test_social_sections_keep_intentional_overrides_and_decode_blade_once(): void
+    {
+        $html = \Illuminate\Support\Facades\Blade::render(
+            '@section("title", $title) @section("meta_description", $description) @section("social_title", $social) @include("layouts.partials.social-meta")',
+            ['title' => 'Title & "quotes"', 'description' => 'Опис & апостроф\'s', 'social' => 'Social & "quotes"']
+        );
+        $doc = new \DOMDocument();
+        @$doc->loadHTML('<?xml encoding="UTF-8">'.$html);
+        $xpath = new \DOMXPath($doc);
+        $this->assertSame('Social & "quotes"', $xpath->evaluate('string(//meta[@property="og:title"]/@content)'));
+        $this->assertSame('Опис & апостроф\'s', $xpath->evaluate('string(//meta[@name="twitter:description"]/@content)'));
+    }
+
+    private function metadataFromHtml(string $html): array
+    {
+        $document = new \DOMDocument();
+        @$document->loadHTML('<?xml encoding="UTF-8">'.$html);
+        $xpath = new \DOMXPath($document);
+        $values = [];
+        foreach (['title' => '//head/title', 'description' => '//head/meta[@name="description"]', 'h1' => '//h1', 'og:title' => '//head/meta[@property="og:title"]', 'og:description' => '//head/meta[@property="og:description"]', 'twitter:title' => '//head/meta[@name="twitter:title"]', 'twitter:description' => '//head/meta[@name="twitter:description"]'] as $key => $selector) {
+            $nodes = $xpath->query($selector);
+            $this->assertCount(1, $nodes, $key);
+            $values[$key] = trim(in_array($key, ['title', 'h1']) ? $nodes->item(0)->textContent : $nodes->item(0)->getAttribute('content'));
+        }
+        $this->assertSame($values['title'], $values['og:title']);
+        $this->assertSame($values['title'], $values['twitter:title']);
+        $this->assertSame($values['description'], $values['og:description']);
+        $this->assertSame($values['description'], $values['twitter:description']);
+
+        return $values;
+    }
+
     private function assertCanonical(TestResponse $response, string $path): void
     {
         $document = new \DOMDocument();

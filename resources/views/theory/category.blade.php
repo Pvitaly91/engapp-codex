@@ -4,16 +4,19 @@
     $seoCategoryName = $selectedCategory->title ?? __('frontend.copilot_theory.category');
     $seoCategoryCount = (int) ($selectedCategory->recursive_pages_count ?? $categoryPages->count());
     $seoCategoryLabel = __('frontend.copilot_theory.category');
-    $seoCategoryNameLimit = max(12, 60 - mb_strlen($seoCategoryLabel . ':  | Gramlyze'));
-    $seoCategoryTitle = $seoCategoryLabel . ': '
-        . \Illuminate\Support\Str::limit((string) $seoCategoryName, $seoCategoryNameLimit, '…')
-        . ' | Gramlyze';
+    $seoCategoryTitle = $seoCategoryLabel . ': ' . $seoCategoryName . ' | Gramlyze';
+    $seoCategoryDescription = __('public.theory.seo.category_description', ['category' => $seoCategoryName, 'count' => $seoCategoryCount]);
+    if (app()->getLocale() === 'uk') {
+        $seoBlocks = collect($categoryDescription['blocks'] ?? []);
+        $seoHero = $seoBlocks->firstWhere('type', 'hero-v2') ?? $seoBlocks->firstWhere('type', 'hero');
+        $seoData = $seoHero ? (json_decode($seoHero->body ?? '[]', true) ?? []) : [];
+        $seo = \App\Support\PageMetadata::category((string) $seoCategoryName, is_string($seoData['intro'] ?? null) ? $seoData['intro'] : '', $categoryPages->pluck('title')->all());
+        $seoCategoryTitle = $seo['title'];
+        $seoCategoryDescription = $seo['description'];
+    }
 @endphp
 @section('title', $seoCategoryTitle)
-@section('meta_description', __('public.theory.seo.category_description', [
-    'category' => $seoCategoryName,
-    'count' => $seoCategoryCount,
-]))
+@section('meta_description', $seoCategoryDescription)
 @section('body_class', 'scroll-optimized')
 
 @section('content')
