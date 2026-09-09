@@ -389,8 +389,11 @@ class GrammarTestFilterService
             ->whereNotNull('questions.question')->whereRaw("TRIM(questions.question) <> ''")
             ->whereHas('answers', fn (Builder $answers) => $answers
                 ->whereNotNull('marker')->whereRaw("TRIM(marker) <> ''")
-                ->whereHas('option', fn (Builder $options) => $options
-                    ->whereNotNull('option')->whereRaw("TRIM(option) <> ''")));
+                ->whereHas('option', function (Builder $options): void {
+                    // OPTION is reserved in MySQL; raw expressions need grammar quoting too.
+                    $column = $options->getQuery()->getGrammar()->wrap($options->qualifyColumn('option'));
+                    $options->whereNotNull('option')->whereRaw("TRIM({$column}) <> ''");
+                }));
     }
 
     private function selectMixedAllLevelsQuestions(

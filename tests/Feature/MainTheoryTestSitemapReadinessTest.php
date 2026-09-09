@@ -464,7 +464,7 @@ class MainTheoryTestSitemapReadinessTest extends TestCase
 
     public function test_nullable_and_empty_readiness_fields_follow_the_same_reference_predicate(): void
     {
-        // Nullable compatibility schema exists only inside the guarded SQLite DB.
+        // Nullable compatibility schema exists only inside the guarded test DB.
         foreach (['question_answers', 'question_options', 'questions'] as $table) {
             Schema::drop($table);
         }

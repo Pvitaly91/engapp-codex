@@ -10,7 +10,7 @@ trait RebuildsComposeTestSchema
 {
     protected function rebuildComposeTestSchema(): void
     {
-        IsolatedTestEnvironment::assertSafeDatabase(DB::connection());
+        $this->assertComposeTestDatabase();
         Schema::disableForeignKeyConstraints();
 
         foreach ([
@@ -215,9 +215,15 @@ trait RebuildsComposeTestSchema
 
         Schema::create('chatgpt_explanations', function (Blueprint $table) {
             $table->id();
-            $table->text('question');
-            $table->text('wrong_answer');
-            $table->text('correct_answer');
+            // MySQL cannot index TEXT without a prefix. These synthetic fields
+            // are unrelated to readiness; retain the ordinary SQLite schema.
+            foreach (['question', 'wrong_answer', 'correct_answer'] as $column) {
+                if (DB::connection()->getDriverName() === 'mysql') {
+                    $table->string($column, 128);
+                } else {
+                    $table->text($column);
+                }
+            }
             $table->string('language')->default('uk');
             $table->text('explanation');
             $table->timestamps();
@@ -310,5 +316,10 @@ trait RebuildsComposeTestSchema
             $table->unsignedInteger('sort_order')->default(0);
             $table->timestamps();
         });
+    }
+
+    protected function assertComposeTestDatabase(): void
+    {
+        IsolatedTestEnvironment::assertSafeDatabase(DB::connection());
     }
 }
