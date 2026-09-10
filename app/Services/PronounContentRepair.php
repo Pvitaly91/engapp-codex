@@ -46,6 +46,7 @@ class PronounContentRepair
     public function plan(bool $lock = false): array
     {
         $plan = ['repair' => self::ID, 'version' => 1, 'connection' => $this->connection(), 'sources' => [], 'pages' => [], 'changes' => []];
+        $targetCount = 0;
         foreach (self::NAMES as $name) {
             $seeder = self::PREFIX.$name.'TheorySeeder';
             $relative = 'seeders/Page_V3/PronounsDemonstratives/PronounsDemonstratives'.$name.'TheorySeeder/definition.json';
@@ -79,6 +80,7 @@ class PronounContentRepair
                 // Only legacy structures identified in these two sources. Subtitle and
                 // established comparison/navigation tables are never candidates.
                 if (!isset($block['layout'])) { continue; }
+                $targetCount++;
                 if (isset($block['uuid']) || isset($block['uuid_key'])
                     || ($block['type'] ?? '') !== 'box' || !is_string($block['body'] ?? null) || trim($block['body']) === '') {
                     throw new RuntimeException('Source is not normalized or changes block identity: '.$name.' #'.($index + 1));
@@ -102,6 +104,9 @@ class PronounContentRepair
                 $plan['changes'][] = ['id' => $row['id'], 'uuid' => $uuid, 'seeder' => $seeder, 'sort_order' => $index + 1,
                     'before' => $before, 'after' => $after, 'before_sha256' => self::digest($before), 'after_sha256' => self::digest($after)];
             }
+        }
+        if ($plan['changes'] && count($plan['changes']) !== $targetCount) {
+            throw new RuntimeException('Mixed empty/repaired pronoun blocks; inspect the partial state separately. No writes.');
         }
         $plan['sha256'] = self::digest($plan);
         return $plan;

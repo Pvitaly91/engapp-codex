@@ -261,6 +261,32 @@ class OneOnesEditorialPatchTest extends TestCase
         $repair->plan(); // M8 must NOT become an editor of already nonempty old content.
     }
 
+    #[DataProvider('mixedStates')]
+    public function test_m9_mixed_editions_refuse_a_new_plan_without_writes(string $edition, int $updated): void
+    {
+        $this->importEdition($edition);
+        $service = $edition === 'legacy'
+            ? new PronounContentRepair(DB::connection(), database_path(), database_path())
+            : $this->editorial();
+        $approved = $service->savePlan($this->path('approved'));
+        // Simulate an unknown partial operation, never an actual repair of working data.
+        foreach (array_slice($approved['changes'], 0, $updated) as $change) {
+            DB::table('text_blocks')->where('id', $change['id'])->update($change['after']);
+        }
+        $before = $this->snapshot();
+        $this->assertConflict(fn () => $service->savePlan($this->path('mixed')), 'Mixed');
+        $this->assertConflict(fn () => $service->apply($this->path('approved'), $this->path('backup')), 'Mixed');
+        self::assertSame($before, $this->snapshot());
+        self::assertFileDoesNotExist($this->path('mixed'));
+        self::assertFileDoesNotExist($this->path('backup'));
+    }
+
+    public static function mixedStates(): array
+    {
+        return ['one repaired block' => ['legacy', 1], 'only one repaired lesson' => ['legacy', 9],
+            'one editorial body' => ['m8', 1], 'four editorial bodies' => ['m8', 4]];
+    }
+
     public function test_missing_ambiguous_pages_and_default_cli_preview(): void
     {
         $this->importEdition(); $before = $this->snapshot();

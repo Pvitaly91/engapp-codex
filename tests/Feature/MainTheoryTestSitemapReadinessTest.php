@@ -81,6 +81,23 @@ class MainTheoryTestSitemapReadinessTest extends TestCase
         $this->assertFalse(VirtualTestRegistry::has('future-perfect/forms'));
     }
 
+    public function test_m9_usable_builder_quotes_reserved_option_with_each_driver_grammar(): void
+    {
+        $db = DB::connection();
+        $original = $db->getQueryGrammar();
+        try {
+            foreach ([new \Illuminate\Database\Query\Grammars\SQLiteGrammar(), new \Illuminate\Database\Query\Grammars\MySqlGrammar()] as $grammar) {
+                // Compile only; the MySQL grammar never opens a MySQL connection.
+                $db->setQueryGrammar($grammar);
+                $query = app(GrammarTestFilterService::class)->constrainUsableQuestions(Question::query());
+                self::assertStringContainsString('TRIM('.$grammar->wrap('question_options.option').") <> ''", $query->toSql());
+                self::assertStringNotContainsString('TRIM(option)', $query->toSql());
+            }
+        } finally {
+            $db->setQueryGrammar($original);
+        }
+    }
+
     public function test_cold_direct_and_cold_sitemap_then_direct_are_indexable_on_two_topics_including_questions(): void
     {
         $paths = [];

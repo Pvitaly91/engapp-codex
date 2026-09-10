@@ -91,6 +91,9 @@ class OneOnesEditorialPatch
             $plan['changes'][] = ['id' => $row['id'], 'uuid' => $row['uuid'], 'seeder' => self::SEEDER, 'sort_order' => $entry['sort_order'],
                 'before' => ['body' => $row['body']], 'after' => ['body' => $entry['after_body']]];
         }
+        if ($plan['changes'] && count($plan['changes']) !== count(self::ORDERS)) {
+            throw new RuntimeException('Mixed M8/M8.1 bodies; inspect the partial state separately. No writes.');
+        }
         $plan['sha256'] = PronounContentRepair::digest($plan);
         return $plan;
     }
