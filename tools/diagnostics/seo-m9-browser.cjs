@@ -1,5 +1,5 @@
 'use strict';
-// Eight fresh local guests. No performance measurements, external navigation or repairs.
+// Fresh local guests only. No performance measurements, external navigation or repairs.
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -10,6 +10,28 @@ const QUESTIONS = '/test/future-perfect/questions';
 const THEORY = '/theory/basic-grammar/sentence-types';
 const ONE = '/theory/zaimennyky-ta-vkazivni-slova/one-ones';
 const COURSE = '/courses/english-grammar-theory';
+
+function scenarioKinds(mode) {
+    if (mode === undefined) return ['theory', 'questions', 'course', 'one-ones'];
+    if (mode === '--questions-course-only') return ['questions', 'course'];
+    if (mode === '--theory-questions-only') return ['theory', 'questions'];
+    if (mode === '--handler-acceptance') return ['theory', 'questions', 'course'];
+    throw new Error('Unknown bounded scenario mode');
+}
+
+function removeOwnSnapshots({keys, local = localStorage, session = sessionStorage}) {
+    if (!Array.isArray(keys) || !keys.length || keys.some(key => typeof key !== 'string' || !key)) throw new Error('Exact own snapshot keys required');
+    const snapshot = storage => Object.fromEntries(Array.from({length: storage.length}, (_, i) => storage.key(i))
+        .filter(key => !keys.includes(key)).map(key => [key, storage.getItem(key)]));
+    const before = [snapshot(local), snapshot(session)];
+    let removed = 0;
+    for (const storage of [local, session]) for (const key of keys) {
+        if (storage.getItem(key) !== null) removed++;
+        storage.removeItem(key);
+    }
+    return {removed, unrelatedStoragePreserved: JSON.stringify(before) === JSON.stringify([snapshot(local), snapshot(session)]),
+        snapshotsAbsent: [local, session].every(storage => keys.every(key => storage.getItem(key) === null))};
+}
 
 function decision(value, navigation, redirected, allowed, method = 'GET', stateAllowed = false) {
     const reason = requestDecision(value);
@@ -31,16 +53,15 @@ async function progress(page) {
             manual: q.manualInputsBySlot?.map(v => v ?? ''), done: q.done, activeSlot: q.activeSlot}))}));
 }
 
-async function main(label, httpFile, followup) {
+async function main(label, httpFile, mode) {
     assert.match(label || '', /^[a-z0-9-]+$/);
     const accepted = JSON.parse(fs.readFileSync(httpFile));
     assert.equal(accepted.pass, true, 'Completed local GET acceptance required');
     assert.equal(accepted.base, BASE);
-    assert.ok(followup === undefined || followup === '--questions-course-only');
-    const kinds = followup ? ['questions', 'course'] : ['theory', 'questions', 'course', 'one-ones'];
-    const coursePath = accepted.course_path;
-    assert.ok(/^\/courses\/english-grammar-theory\/lesson\/[a-z0-9/-]+\/one-ones$/.test(coursePath));
-    const out = path.resolve(__dirname, '../../storage/app/seo-m9-local');
+    const kinds = scenarioKinds(mode);
+    const coursePath = kinds.includes('course') ? accepted.course_path : null;
+    if (kinds.includes('course')) assert.ok(/^\/courses\/english-grammar-theory\/lesson\/[a-z0-9/-]+\/one-ones$/.test(coursePath || ''));
+    const out = path.resolve(__dirname, '../../storage/app', ['--theory-questions-only', '--handler-acceptance'].includes(mode) ? 'seo-m9-4-local' : 'seo-m9-local');
     const file = path.join(out, label + '-browser.json');
     const report = {startedAt: new Date().toISOString(), base: BASE, rows: []};
     fs.mkdirSync(out, {recursive: true});
@@ -117,6 +138,15 @@ async function main(label, httpFile, followup) {
                     await page.reload({waitUntil: 'load'});
                     assert.ok(await page.evaluate(() => document.documentElement.classList.contains('dark') && localStorage.getItem('theme') === 'dark'));
                     row.themeRestored = true;
+                    if (mobile) await page.locator('[data-theory-mobile-nav-toggle]').click();
+                    await page.waitForFunction(mobile => {
+                        const root = mobile ? document.querySelector('[data-theory-mobile-nav-toggle]')?.parentElement : document.querySelector('[data-theory-desktop-navigation-loader]');
+                        const data = root?._x_dataStack?.[0];
+                        return data && !data.loading && !data.error && (mobile ? data.loaded : root.querySelector('[x-ref="content"] a'));
+                    }, mobile);
+                    assert.ok(await nav.locator('[data-theory-nav-current-page="true"]').count());
+                    row.navigationRestored = true;
+                    if (mobile) await page.locator('[data-theory-mobile-nav-toggle]').click();
                 } else if (kind === 'questions') {
                     const count = accepted.rows.find(r => r.path === QUESTIONS + '/questions').question_count;
                     await page.waitForFunction(count => typeof state !== 'undefined' && state.items.length === count, count);
@@ -141,14 +171,22 @@ async function main(label, httpFile, followup) {
                     await page.reload({waitUntil: 'load'});
                     await page.waitForFunction(count => typeof state !== 'undefined' && state.items.length === count, count); await settled(page);
                     row.reload = progressEvidence(await progress(page)); assert.deepEqual(row.reload, row.saved);
+                    const snapshotKeys = await page.evaluate(() => JS_TEST_PERSISTENCE.storageKeys?.length
+                        ? [...JS_TEST_PERSISTENCE.storageKeys] : [JS_TEST_PERSISTENCE.storageKey]);
                     await page.goto(BASE + '/theory', {waitUntil: 'load'});
-                    await page.evaluate(() => { localStorage.clear(); sessionStorage.clear(); });
+                    const cookiesBeforeRemoval = await context.cookies(BASE);
+                    row.snapshotRemoval = await page.evaluate(removeOwnSnapshots, {keys: snapshotKeys});
+                    assert.ok(row.snapshotRemoval.removed > 0 && row.snapshotRemoval.unrelatedStoragePreserved && row.snapshotRemoval.snapshotsAbsent);
+                    assert.deepEqual(await context.cookies(BASE), cookiesBeforeRemoval);
+                    row.cookiesPreserved = true;
                     const restored = await page.goto(BASE + QUESTIONS, {waitUntil: 'load'});
                     row.serverBootstrap = serverBootstrapEvidence(await restored.text());
                     await page.waitForFunction(count => typeof state !== 'undefined' && state.items.length === count, count); await settled(page);
                     row.restored = progressEvidence(await progress(page));
                     assert.deepEqual(row.serverBootstrap, row.saved); assert.deepEqual(row.restored, row.saved);
                     row.serverOnlyRestored = true;
+                    await page.locator(`article[data-idx="${index}"]`).scrollIntoViewIfNeeded();
+                    await screenshot('server-restored');
                 } else if (kind === 'course') {
                     await page.waitForFunction(() => !!window.TheoryCourseProgress);
                     row.progress = await page.evaluate(target => {
@@ -168,6 +206,10 @@ async function main(label, httpFile, followup) {
                     await page.waitForURL(BASE + coursePath); await page.locator('[data-theory-lesson-content]').waitFor({state: 'visible'});
                     assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), 'https://gramlyze.com' + ONE);
                     row.nativeNavigation = true;
+                    await page.reload({waitUntil: 'load'});
+                    await page.locator('[data-theory-lesson-content]').waitFor({state: 'visible'});
+                    assert.equal(page.url(), BASE + coursePath);
+                    row.courseReload = true;
                 }
                 if (kind === 'one-ones' || kind === 'course') {
                     const source = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../database/seeders/Page_V3/PronounsDemonstratives/PronounsDemonstrativesOneOnesTheorySeeder/definition.json')));
@@ -218,6 +260,6 @@ async function main(label, httpFile, followup) {
     return report.pass;
 }
 
-module.exports = {decision};
+module.exports = {decision, scenarioKinds, removeOwnSnapshots};
 if (require.main === module) main(process.argv[2], process.argv[3], process.argv[4]).then(ok => { process.exitCode = ok ? 0 : 1; })
     .catch(error => { console.error(diagnosticError(error)); process.exitCode = 1; });
