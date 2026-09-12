@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use App\Support\PageMetadata;
 use App\Support\TheoryEditorialDescriptions;
 use Illuminate\Support\Facades\DB;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
 
 class TheoryEditorialDescriptionsTest extends TestCase
@@ -19,7 +20,7 @@ class TheoryEditorialDescriptionsTest extends TestCase
         return $cases;
     }
 
-    /** @dataProvider descriptions */
+    #[DataProvider('descriptions')]
     public function test_each_registered_identity_uses_its_exact_copy_without_changing_title(string $seeder, string $description): void
     {
         // The versioned definition establishes the page identity, not a guessed short URL slug.

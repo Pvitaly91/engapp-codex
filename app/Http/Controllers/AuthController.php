@@ -3,22 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Barryvdh\Debugbar\Facades\Debugbar;
+use Fruitcake\LaravelDebugbar\Facades\Debugbar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
     public function showLoginForm(Request $request)
     {
-        if (class_exists(Debugbar::class)) {
-            Debugbar::disable();
+        $debugbar = class_exists(Debugbar::class)
+            ? Debugbar::class
+            : 'Barryvdh\\Debugbar\\Facades\\Debugbar';
+        if (class_exists($debugbar)) {
+            $debugbar::disable();
         }
 
         if ($request->session()->get('admin_authenticated', false)) {
@@ -103,7 +106,7 @@ class AuthController extends Controller
 
     private function rememberToken(): string
     {
-        return hash('sha256', config('admin.username') . '|' . config('admin.password_signature'));
+        return hash('sha256', config('admin.username').'|'.config('admin.password_signature'));
     }
 
     private function passwordMatches(string $candidate, ?string $expectedPassword, ?string $expectedPasswordHash): bool

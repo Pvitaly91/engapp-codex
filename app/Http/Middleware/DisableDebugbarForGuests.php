@@ -3,8 +3,8 @@
 namespace App\Http\Middleware;
 
 use App\Support\SiteMode;
-use Barryvdh\Debugbar\Facades\Debugbar;
 use Closure;
+use Fruitcake\LaravelDebugbar\Facades\Debugbar;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -19,13 +19,16 @@ class DisableDebugbarForGuests
     public function handle(Request $request, Closure $next): Response
     {
         // Debugbar is never available on a production host, even for admins.
-        if (class_exists(Debugbar::class)) {
+        $debugbar = class_exists(Debugbar::class)
+            ? Debugbar::class
+            : 'Barryvdh\\Debugbar\\Facades\\Debugbar';
+        if (class_exists($debugbar)) {
             $adminAuthenticated = $request->session()->get('admin_authenticated', false);
 
             if ($this->siteMode->isProduction($request) || ! $adminAuthenticated) {
-                Debugbar::disable();
+                $debugbar::disable();
             } elseif ((bool) config('debugbar.enabled', false)) {
-                Debugbar::enable();
+                $debugbar::enable();
             }
         }
 

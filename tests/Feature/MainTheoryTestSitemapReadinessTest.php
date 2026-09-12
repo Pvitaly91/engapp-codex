@@ -17,6 +17,8 @@ use App\Services\TagAggregationService;
 use App\Services\TheoryPagePromptLinkedTestsService;
 use App\Support\VirtualTestRegistry;
 use Illuminate\Cache\Events\KeyWritten;
+use Illuminate\Database\Query\Grammars\MySqlGrammar;
+use Illuminate\Database\Query\Grammars\SQLiteGrammar;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
@@ -86,7 +88,8 @@ class MainTheoryTestSitemapReadinessTest extends TestCase
         $db = DB::connection();
         $original = $db->getQueryGrammar();
         try {
-            foreach ([new \Illuminate\Database\Query\Grammars\SQLiteGrammar(), new \Illuminate\Database\Query\Grammars\MySqlGrammar()] as $grammar) {
+            foreach ([SQLiteGrammar::class, MySqlGrammar::class] as $grammarClass) {
+                $grammar = new $grammarClass($db);
                 // Compile only; the MySQL grammar never opens a MySQL connection.
                 $db->setQueryGrammar($grammar);
                 $query = app(GrammarTestFilterService::class)->constrainUsableQuestions(Question::query());
@@ -252,7 +255,10 @@ class MainTheoryTestSitemapReadinessTest extends TestCase
             $queries = DB::getQueryLog();
             DB::disableQueryLog();
             $this->assertCount($target, $ready);
-            $this->assertLessThanOrEqual($target === 2 ? 8 : 10, count($queries));
+            // Laravel 13 resolves the actual schema once before composing the
+            // aggregate. This fixed capability probe is not per candidate and
+            // keeps the chunking contract bounded as the page count grows.
+            $this->assertLessThanOrEqual($target === 2 ? 9 : 11, count($queries));
             $readinessQueries = collect($queries)->filter(fn (array $query): bool => str_contains($query['query'], 'AS matched_0'));
             $this->assertCount((int) ceil($target / 40), $readinessQueries);
             foreach ($readinessQueries as $query) {
