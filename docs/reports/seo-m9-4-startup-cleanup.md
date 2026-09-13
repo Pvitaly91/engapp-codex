@@ -1,156 +1,170 @@
 # M9.4 — запуск через apache_start.bat
 
-13.09.2026. База: `452b100b0797089fa8d12e89277eeb8810ce2758`.
-Гілка: `codex/seo-m9-4-xampp-curl-tls`. Робота лише в локальних Gramlyze/XAMPP.
-
-**Статус: причину доведено; ремонт запуску НЕ застосовано і НЕ прийнято.**
-Підготовлений кандидат замінює дві Apache OpenSSL DLL. Це межа окремого
-погодження з пункту 2 завдання. Чинний Apache працює з несправним shared cURL;
-успішні GET Gramlyze не доводять відсутності Windows-діалогу під час cold start.
+13.09.2026. База `452b100b0797089fa8d12e89277eeb8810ce2758`, гілка
+`codex/seo-m9-4-xampp-curl-tls`. **Ремонт застосовано та прийнято:** повний cold
+start через незмінений `apache_start.bat` пройшов без Entry Point Not Found.
+Shared mod_php збережено; Gramlyze залишається на прийнятому NTS/FastCGI.
 
 ## Фактичний запуск і причина
 
-`C:/Program Files/xampp/apache_start.bat:2,8` виконує `cd /D %~dp0`, потім
-`apache\bin\httpd.exe`, без аргументів або зміни environment. Чинний parent
-`16388`, creation UTC `2026-09-13T11:15:16.9979120Z`, запущений `cmd.exe` PID
-`26296` з `/C "C:\Program Files\xampp\apache_start.bat"`; child `37964` має
-`-d "C:/Program Files/xampp/apache"`. Owner — звичайний локальний admin, не SYSTEM.
-Ці PID — evidence, а не параметри майбутнього restart; elevation/error mode
-початкової консолі не виміряні.
+`C:/Program Files/xampp/apache_start.bat:2,8`: `cd /D %~dp0`, потім
+`apache\bin\httpd.exe`, без параметрів або environment overrides. Cwd — XAMPP;
+фактичні ServerRoot/config — `C:/Program Files/xampp/apache` і `conf/httpd.conf`.
+Це підтвердили process parameters, `-V`, `-t -D DUMP_INCLUDES` із cwd bat;
+конфіг збігається з M9.4. Apache 2.4.58 VS17 x64.
 
-Читання поточних process parameters підтвердило cwd `C:/Program Files/xampp/`
-і успадкований PATH із `C:/Program Files/xampp/php`. Process-level `PHPRC`,
-`PHP_INI_SCAN_DIR`, `OPENSSL_CONF`, `OPENSSL_MODULES` відсутні. Це відрізняється
-від Apache request-level `SetEnv` у `httpd-xampp.conf:5–12`:
-`PHPRC=\xampp\php`, `OPENSSL_CONF=C:/Program Files/xampp/apache/bin/openssl.cnf`.
-Приватний snapshot містить тільки дозволені PATH/PHP/OpenSSL/system fields;
-інші environment values не виводилися.
+Початкові PID перечитані: parent 16388, creation UTC
+`2026-09-13T11:15:16.9979120Z`, cmd parent 26296 із запуском bat, child 37964
+із `-d "C:/Program Files/xampp/apache"`. Обидва завантажили Apache OpenSSL 3.1.3
+та shared PHP 8.5.10 TS, але не `php_curl.dll`. PATH містив shared PHP;
+process-level PHPRC/PHP_INI_SCAN_DIR/OPENSSL_CONF/OPENSSL_MODULES були відсутні.
+Request-level SetEnv у xampp config не дорівнює process environment.
 
-`apache\bin\httpd.exe -V` підтвердив Apache 2.4.58 VS17 x64 і compiled
-`SERVER_CONFIG_FILE=conf/httpd.conf`. Запуск із cwd bat без `-d/-f` із
-`-t -D DUMP_INCLUDES` фактично прочитав
-`C:/Program Files/xampp/apache/conf/httpd.conf`; ServerRoot у ньому той самий.
-Отже, знайдений config збігається з M9.4, хоча спосіб запуску інший.
-Всі 29 системних hashes baseline M9.4 збігаються.
+PE-аудит і runtime isolation довели два конфлікти однойменних DLL:
 
-В обох живих httpd завантажені `apache/bin/libssl-3-x64.dll` і
-`libcrypto-3-x64.dll` **3.1.3**, `mod_ssl.so` 2.4.58, shared `php8ts.dll` і
-`php8apache2_4.dll` **8.5.10**. `php_curl.dll` відсутня серед модулів.
-PE-аудит доводить її імпорт `SSL_get0_group_name` саме з `libssl-3-x64.dll`:
-Apache DLL не експортує символ, PHP DLL 3.5.7 експортує. Символ додано в
-[OpenSSL 3.2](https://docs.openssl.org/3.5/man3/SSL_get0_group_name/).
-[Windows loader](https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-search-order)
-повторно використовує вже завантажену однойменну DLL; PATH або PHPIniDir не
-додають до неї відсутній export.
+- Apache libssl 3.1.3 не має `SSL_get0_group_name`, який імпортує PHP cURL;
+  символ додано в [OpenSSL 3.2](https://docs.openssl.org/3.5/man3/SSL_get0_group_name/).
+  [Windows loader](https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-search-order)
+  повторно використовує вже завантажену однойменну DLL.
+- Після заміни OpenSSL-пари в ізоляції виявлено Apache libssh2 1.10.0:
+  відсутні `libssh2_crypto_engine`, `libssh2_session_callback_set2`,
+  `libssh2_session_set_read_timeout`. Кандидат 1.11.1 задовольняє імпорти cURL
+  і зберігає старі named exports. Серед перевірених Apache bin/modules та cURL
+  прямий libssh2-споживач — php_curl.dll; nghttp2 змінювати не потрібно.
 
-Початковий діалог зафіксований як повідомлення користувача, не як новий screenshot.
-`initial-error.json` зберігає його текст, offset/час log і відповідні рядки:
-після bat-start parent `16388` та child `37964` записали `PHP Startup: Unable to
-load dynamic library 'curl' ... specified procedure could not be found`;
-parent продовжив роботу о 14:17:17, child — о 14:17:19 за локальним часом.
-Ці події були до нашого втручання; новий cold start не виконувався.
+Початковий діалог збережений приватно як повідомлення користувача, без заяви
+про screenshot. `initial-error.json` містить також відповідні log entries:
+`PHP Startup: Unable to load dynamic library 'curl' ... specified procedure
+could not be found` для початкових parent/child.
 
-## Активні handlers і споживачі
+## Точний diff і споживачі
 
-У `apache/conf/extra/httpd-xampp.conf:17–27,41,45` активні три LoadFile
-(`php8ts.dll`, `libpq.dll`, `libsqlite3.dll`), `LoadModule php_module`,
-`PHPINIDir C:/Program Files/xampp/php`, `.php → application/x-httpd-php`,
-`.phps → application/x-httpd-php-source`, AddType. Shared ini має
-`extension_dir="ext"`, `extension=curl`, `extension=openssl`.
+**Текстовий config diff порожній.** Bat, Apache directives/includes,
+shared/NTS php.ini, PHP handlers, httpd.exe та mod_ssl.so не змінені.
+Після окремого погодження бібліотек і додаткового погодження локальної
+сертифікатної пари замінено рівно п'ять файлів під `C:/Program Files/xampp/`:
 
-| Споживач shared mod_php | Конфіг / фактичний стан |
+| Файл | Було → стало |
 | --- | --- |
-| `lara.loc`, HTTP localhost/unmatched host | `httpd-vhosts.conf:44`; перший `*:80`, PHP entrypoint існує |
-| `adminer.loc`, `diyxml.loc`, `xml-mapper.loc`, `e-shpop.loc` | vhosts `72,85,99,112`; PHP entrypoints існують |
-| `vs.loc`, `/admin` | vhosts `158,165`; frontend/backend PHP існує |
-| `/phpmyadmin`, `/webalizer` | xampp `91,98`; глобальні aliases, PHP файли існують, зокрема через HTTPS і host Gramlyze |
-| default HTTPS `_default_:443` | ssl `121`; XAMPP htdocs існує і містить PHP |
-| `vsemerch.loc`, `/admin` | vhosts `124,131`; обидва налаштовані корені відсутні |
+| `apache/bin/libssl-3-x64.dll` | OpenSSL 3.1.3 → 3.5.7 |
+| `apache/bin/libcrypto-3-x64.dll` | OpenSSL 3.1.3 → 3.5.7 |
+| `apache/bin/libssh2.dll` | 1.10.0 → 1.11.1 |
+| `apache/conf/ssl.crt/server.crt` | Прострочений 2019 року RSA1024 без SAN → self-signed RSA3072/SHA256, до 13.09.2027 |
+| `apache/conf/ssl.key/server.key` | Відповідний новий локальний RSA3072 ключ |
 
-`/php-cgi/` — окремий ScriptAlias із доступом тільки до `php-cgi.exe`;
-`/cgi-bin/` задає `cgi-script` для PHP, але PHP файлів там немає. `/icons/`,
-`/licenses` не містять PHP. Залежні `php_admin_flag` є в xampp `69–70,101–102`.
-Handler/ini overrides у перевірених `.htaccess` consumer roots та ancestors
-не знайдені. Shared PHP глобально вимикати не можна.
+SAN: localhost, gramlyze.loc, www.gramlyze.loc, 127.0.0.1, ::1; сертифікат
+використовують обидва наявні HTTPS vhosts. Trust store не змінено.
+Три DLL — з уже наявного офіційного PHP 8.5.10 TS VS17 x64 ZIP, SHA-256
+`a6bc8b2f3d7bfb397ccb973db2f959e61e530e0986c9cea262dd4a317ec599d8`,
+звіреного з [офіційним SBOM](https://downloads.php.net/~windows/releases/archives/php-8.5.10-Win32-vs17-x64.zip.cdx.json).
+Повні before/after hashes DLL закріплені в інструменті та приватному manifest;
+сертифіката/ключа — лише в приватному manifest/evidence.
 
-Активний include tree: mpm, autoindex, languages, userdir, info, vhosts, proxy,
-default, xampp, ssl, ajp. Userdir-блок неактивний без модуля; `proxy-html.conf`
-не включається без `proxy_html_module`. Gramlyze include активний двічі:
-vhosts `70` і ssl `308`; `fcgid_module` — main config `149`.
-Gramlyze public має власний NTS wrapper, PATH/PHPRC/scan-dir, recycling і
-allowlist. Новий worker `34288` після локального GET завантажив cURL/OpenSSL
-із `php-8.5.10-nts-gramlyze`, як у прийнятій M9.4 базі.
+Shared LoadModule php_module, LoadFile php8ts/libpq/libsqlite3, PHPINIDir,
+`.php → application/x-httpd-php`, `.phps → application/x-httpd-php-source`
+активні у `httpd-xampp.conf:17–45`; curl/openssl extensions увімкнені.
 
-## Точний diff і обсяг окремого погодження
-
-**Застосований config diff: порожній.** `apache_start.bat`, shared/NTS ini,
-Apache configs і binaries не змінено. Ніякі придушення Windows-діалогів,
-вимкнення extensions, зміни LoadFile або служб не застосовувалися.
-
-Кандидат на наступний погоджений етап: після ізольованої runtime/TLS перевірки
-замінити лише цю пару в `C:/Program Files/xampp/apache/bin/`:
-
-| Файл | Поточний SHA-256 | Кандидат SHA-256 |
-| --- | --- | --- |
-| `libssl-3-x64.dll` | `cf0e4d008a748057a3dd638496a2c4c033a7d33ea4f4cd96f2f747a61f9d4748` | `dd76bebb8a13731a1bd047232c77299e7fa1fe9c8ef6d1563ca059473088630a` |
-| `libcrypto-3-x64.dll` | `8bb143f97cb31089d50f59be1846a8e163fa8ac215792e5fa51dc92a7b5152e9` | `4978b06f18c1d092e4f7c8c864cc814db2ff4535baa2de54937348ffe14aae5e` |
-
-Джерело — вже наявний PHP 8.5.10 TS VS17 x64 archive, SHA-256
-`a6bc8b2f3d7bfb397ccb973db2f959e61e530e0986c9cea262dd4a317ec599d8`;
-hash повторно збігається з [офіційним SBOM](https://downloads.php.net/~windows/releases/archives/php-8.5.10-Win32-vs17-x64.zip.cdx.json).
-Обидва DLL із archive побайтово збігаються зі shared PHP. Нічого не встановлено.
-
-Усі перевірені OpenSSL-імпорти curl, php_openssl, libpq, mod_ssl, apr_crypto_openssl
-задовольняються новою парою; старій бракує curl-символу. Нова libssl потребує
-21 crypto-символ, яких немає у старій libcrypto: одиночна заміна непридатна.
-[Політика OpenSSL](https://openssl-library.org/policies/general/versioning-policy/)
-підтримує API/ABI сумісність у напрямку старий споживач → новіша minor library;
-це передумова, а не доказ Windows runtime acceptance. Обсяг впливу — весь
-Apache TLS/shared PHP, включно з aliases і сторонніми сайтами.
-
-Альтернатива — окремий maintained shared TS PHP 8.4 runtime/ini, але вона
-змінює PHP для всіх shared consumers і потребує їх перевірки сумісності.
-Сайти Laravel 12 вимагають PHP ≥8.2; повернення до старого XAMPP PHP 8.0/8.1
-неприпустиме. Цю міграцію також не виконували.
-
-## Backup, перевірки та залишкові умови
-
-Новий приватний backup:
-`storage/app/seo-m9-4-startup-local/backup-20260913-143341-225/`.
-10 копій перевірено SHA-256: bat, main/xampp/vhosts/ssl/fcgi configs, shared/NTS
-ini, дві старі Apache DLL. Старі backups M9.4 не перезаписані.
-Поруч `rollback-openssl.ps1`: без параметрів перевіряє hashes; `-Restore`
-повертає лише дві DLL після окремої адресної зупинки Apache, відмовляє за
-живого instance/невідомого hash. Verification пройшов; restore не виконувався.
-Перед майбутнім застосуванням повторити inventory і створити свіжий backup.
-
-| Перевірка цього етапу | Результат |
+| Фактичний shared споживач | Перевірка / стан |
 | --- | --- |
-| Фактичний config `httpd -t` із cwd bat | exit 0, Syntax OK, окремий AH00112 |
-| CLI PHP / `tools/composer.cmd --version` | exit 0; 8.5.10 TS / Composer 2.10.3 |
-| 7 GET: головна, теорія, Questions HTML/JSON, course, sitemap, 404 | PASS; порівняння з фінальною M9.4 базою без змін |
-| Повний ordered sitemap | 554 loc; ordered equality, added/removed 0 |
-| Новий PE-аудитор | 7 unit tests PASS; фактичні DLL прочитані без виконання |
-| Збереження системи й сторонньої роботи | 69 protected files без змін; 81 809 сторонніх Git status entries збігаються |
-| Cold start через нову адміністративну консоль/bat | НЕ ВИКОНАНО: зупинка перед погодженням заміни Apache DLL |
-| Відсутність нового shared cURL warning після ремонту | НЕ ПРИЙНЯТО: ремонт не застосовано |
-| Прямий cURL HTTPS через .loc, TLS negative test, save/reload, сторонні PHP HTTP/HTTPS після ремонту | НЕ ПОВТОРЮВАЛИСЯ; обов'язкові на етапі застосування |
+| lara.loc, HTTP localhost/unmatched host | Перший *:80; PHP працює, app 200 |
+| adminer.loc, diyxml.loc, xml-mapper.loc, e-shpop.loc | PHP працює; початкові app statuses збережені |
+| vs.loc, /admin | Обидва PHP handlers працюють; наявні app 500/302 збережені |
+| /phpmyadmin, /webalizer | Глобальні aliases, також на host Gramlyze та HTTPS; PHP збережено |
+| Default HTTPS _default_:443 | XAMPP htdocs, PHP і перевірений HTTPS працюють |
+| vsemerch.loc, /admin | Налаштовані корені відсутні; попередні 403, див. окремий статус |
 
-Приватні evidence — у `storage/app/seo-m9-4-startup-local/`; HTTP comparison —
-`storage/app/seo-m9-4-local/startup-initial-20260913-http.json`.
-Тимчасових web endpoints/fixtures не створено. Apache і MariaDB не зупинялися.
-Чужі початкові помилки сайтів не оголошені виправленими.
+`/php-cgi/` — explicit CGI ScriptAlias; `/cgi-bin/` не містить PHP;
+`/icons/` і `/licenses` також без PHP. Залежні php_admin_flag збережені;
+consumer .htaccess PHP overrides не знайдені. Shared mod_php вимикати не можна.
+Активні includes: mpm, autoindex, languages, userdir, info, vhosts, proxy,
+default, xampp, ssl, ajp; userdir-блок і proxy-html залежать від неактивних модулів.
+Gramlyze FastCGI include лишився у HTTP vhost:70 та SSL config:308, із власними
+NTS wrapper/PATH/PHPRC/scan-dir/CA/allowlist; повторної інсталяції не було.
 
-**DocumentRoot: НЕ ВИПРАВЛЕНО окремо.** `httpd-vhosts.conf:126` задає
-`D:/DEV/htdocs/vsemerch.loc/frontend/web`; пов'язані paths — `131,133,144`.
-Frontend/backend відсутні. Наявний `vs.loc` уже має власний vhost і hosts entry,
-тому це не доведена заміна адреси. Vhost/Include збережені; потрібна фактична
-адреса або підтвердження виведення сайту з експлуатації.
+## Cold start і приймання
 
-Початковий Git status збережено приватно: 46 646 видалень question JSON,
-3 сторонні modified paths і 35 160 untracked entries при `-uall`
-(включно з щойно створеним status evidence). Reset/stash/clean не виконувалися.
-До commit входять лише ignore для нової приватної папки, PE-аудитор, його тести
-і цей звіт; staged diff перевіряється явно. SHA commit/push та remote equality
-повідомляються після публікації у цю робочу гілку. PR, main push, merge, SSH,
-production requests і деплой не виконуються.
+Лише вихідний Apache адресно зупинено через його native WinNT shutdown event,
+з перевіркою owner, exe, parent/child, held process handle і точного native
+creation FILETIME; дочекалися завершення Apache/NTS workers та звільнення портів.
+MariaDB PID 6964, creation UTC `2026-09-12T09:13:41.1571930Z`, залишився тим самим.
+
+Перша повна спроба лише з трьома DLL завершилася `AH02562 / ee key too small`:
+новий OpenSSL відхилив старий ключ. DLL негайно повернуто з backup. Повна
+ізольована копія конфігурації відтворила цю помилку і пройшла з новою парою
+сертифікат/ключ, shared PHP та NTS через HTTP/TLS 1.2/1.3.
+
+Прийнятий запуск: **13:45:47 UTC (16:45:47 Київ)**, нова видима elevated
+PowerShell 7 консоль PID 8252, звичайний admin, ErrorMode **0**. Нормальний
+user environment від Windows без успадкування agent environment; stdio не
+перенаправлено. Консоль виконала саме незмінений bat. Нові Apache PID
+14076/33656 перейшли до normal operations за ~1,5 с; cURL та всі три потрібні
+DLL завантажені в обох. Діалогу не виявлено; автоматичного натискання OK не було.
+Нічого не пригнічувалося через SetErrorMode, приховування або stderr.
+
+| Перевірка після bat cold start | Результат |
+| --- | --- |
+| Фактичний config syntax | Syntax OK; AH00112 окремо |
+| Нові main/Gramlyze SSL/shared PHP logs від записаних offsets | Жодного cURL load / entry point / fatal TLS startup error |
+| Gramlyze runtime | PHP 8.5.10 NTS cgi-fcgi, 15 config checks; живі workers завантажують власні NTS DLL |
+| Прямий cURL через .loc | PHP.net/getcomposer 200, verify result 0; Laravel HTTP 200 із verification |
+| TLS позитивний / негативний | Локальний 204/verify 0; wrong hostname відхилено, errno 60 |
+| CLI / tools/composer.cmd --version | PHP 8.5.10 TS / Composer 2.10.3, exit 0 |
+| Головна, теорія, Questions HTML/JSON, course, sitemap, 404 | 7/7 GET; page/metadata comparison без змін |
+| Повний ordered sitemap | 554 → 554, точна ordered equality, added/removed 0 |
+| Desktop/mobile theory/Questions | 4/4 browser scenarios; реальні POST 204, reload і окремий server restore |
+| Shared PHP | 13/13 HTTP + 3/3 HTTPS probes; apache2handler 8.5.10, cURL завантажений, наявні extensions збережені |
+| Shared cURL HTTPS | PHP.net 200, errno 0, verify result 0; peer=true, host=2 |
+| Сторонні apps | Усі 10 app statuses дорівнюють BEFORE; початкові app errors не ремонтувалися |
+| Інструменти | 20 Python unit tests + 8 filesystem transaction tests PASS, PowerShell parse PASS |
+| Збереження роботи | 81 809 сторонніх Git entries однакові; 67/69 protected hashes незмінні, дві очікувані OpenSSL зміни; усі 5 replacements перевірені |
+
+## Backup, rollback та обмеження
+
+Остаточний приватний run/backup:
+`storage/app/seo-m9-4-startup-local/apply-20260913-162158-183-cc97de63/`.
+13 SHA-перевірених копій: 8 bat/config/ini + 5 змінюваних файлів. Усі попередні
+M9.4 backups та backup невдалої спроби збережено. Транзакція перевіряє всі
+джерела/цілі/backups до першого запису; помилка копіювання повертає весь набір.
+Rollback при реальному блокуванні третього й п'ятого файлів перевірений тестами.
+
+Адресний rollback із кореня repo в адміністративному PowerShell:
+
+```powershell
+$startupRun = 'D:\DEV\htdocs\gramlyze.loc\storage\app\seo-m9-4-startup-local\apply-20260913-162158-183-cc97de63'
+$startupTool = '.\tools\diagnostics\xampp-startup\maintain-runtime.ps1'
+& $startupTool -Phase StopCurrent -RunDirectory $startupRun -ExpectedOwner 'DESKTOP-3C05HGF\admin'
+& $startupTool -Phase Wait -RunDirectory $startupRun -ExpectedOwner 'DESKTOP-3C05HGF\admin'
+# Виконати Restore тільки після успішного Wait.
+& $startupTool -Phase Restore -RunDirectory $startupRun -ExpectedOwner 'DESKTOP-3C05HGF\admin'
+& $startupTool -Phase Start -RunDirectory $startupRun -ExpectedOwner 'DESKTOP-3C05HGF\admin' -LaunchLabel rollback
+```
+
+Rollback відновлює початкові п'ять файлів, отже поверне і початковий cURL-діалог;
+це аварійне повернення baseline. StopCurrent щоразу перечитує ідентичність
+живого bat instance, не використовує PID зі звіту. Для завершеного застосування
+rollback достатньо цього run з manifest/apply і backups; тимчасовий ізольований
+стенд не є його залежністю.
+
+Тимчасові PHP probes/route/nonce/fixtures прибрані; routes/api.php відновлений
+byte-for-byte зі сторонніми змінами користувача, діагностичний endpoint — 404.
+Приватні runtime/browser/log докази й backups не входять у Git. Browser мав
+блокування Google Fonts; 8 ERR_ABORTED state requests зіставлено з POST 204 і
+server restore; неочікуваних failures/page errors/HTTP ≥400 — 0.
+
+**DocumentRoot: не виправлено, окремо.** `httpd-vhosts.conf:126` задає відсутній
+`D:/DEV/htdocs/vsemerch.loc/frontend/web`; пов'язані paths:131,133,144. Правильний
+шлях не доведений; vs.loc уже має власний vhost. Vhost/Include збережено,
+потрібна фактична адреса або підтвердження, що vsemerch більше не потрібний.
+
+Локальний сертифікат self-signed: OS/browser trust не встановлювався; перевірки
+довіряли лише точному cert із hostname validation. Залишається AH01909 для
+старого default ServerName www.example.com:443; його не змінювали. Перевірено
+PHP виконання та незмінні app statuses споживачів, не всі їхні бізнес-сценарії.
+Apache 2.4.58 лишився без загального оновлення XAMPP.
+
+До публікації обираються явно лише очищені diagnostics/templates, їхні тести
+та цей звіт; staged diff і git diff --check перевіряються перед commit.
+Laravel/vendor/lock, навчальні дані, дизайн і стороння робота не входять до
+commit. Push — лише в поточну M9.4-гілку з перевіркою remote SHA = HEAD; без
+main/force push, PR, merge, production .com/.ub, SSH або деплою.
+Підсумковий SHA наведено у відповіді.
