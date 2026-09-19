@@ -1156,6 +1156,7 @@ const JS_TEST_PERSISTENCE = window.JS_TEST_PERSISTENCE || null;
 let JS_TEST_SAVE_TIMER = null;
 let JS_TEST_SAVE_QUEUE = Promise.resolve();
 let JS_TEST_LAST_SNAPSHOT = null;
+let JS_TEST_RESTARTING = false;
 
 if (JS_TEST_PERSISTENCE && JS_TEST_PERSISTENCE.saved) {
     JS_TEST_PERSISTENCE.saved = cloneState(JS_TEST_PERSISTENCE.saved);
@@ -1399,7 +1400,7 @@ function getSavedState() {
 }
 
 function persistState(state, immediate = false) {
-    if (!JS_TEST_PERSISTENCE) {
+    if (!JS_TEST_PERSISTENCE || JS_TEST_RESTARTING) {
         return;
     }
 
@@ -1509,20 +1510,17 @@ async function loadQuestions(forceFresh = false) {
 }
 
 async function resetJsTestState() {
-    if (!JS_TEST_PERSISTENCE) {
-        return;
+    if (JS_TEST_SAVE_TIMER) {
+        clearTimeout(JS_TEST_SAVE_TIMER);
+        JS_TEST_SAVE_TIMER = null;
     }
 
-    JS_TEST_PERSISTENCE.saved = null;
-    JS_TEST_LAST_SNAPSHOT = null;
-    clearLocalJsTestState();
+    // Finish already queued writes before clearing the server snapshot. Otherwise
+    // a slow autosave could restore the previous attempt after the reset request.
+    await JS_TEST_SAVE_QUEUE.catch(() => {});
 
-    if (!JS_TEST_PERSISTENCE.endpoint) {
-        return;
-    }
-
-    try {
-        await fetch(JS_TEST_PERSISTENCE.endpoint, {
+    if (JS_TEST_PERSISTENCE?.endpoint) {
+        const response = await fetch(JS_TEST_PERSISTENCE.endpoint, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -1535,13 +1533,22 @@ async function resetJsTestState() {
                 state: null,
             }),
         });
-    } catch (error) {
-        console.error(error);
+
+        if (!response.ok || response.redirected) {
+            throw new Error('Failed to reset test progress');
+        }
     }
+
+    // Keep the local recovery copy until the server confirms the reset.
+    if (JS_TEST_PERSISTENCE) {
+        JS_TEST_PERSISTENCE.saved = null;
+    }
+    JS_TEST_LAST_SNAPSHOT = null;
+    clearLocalJsTestState();
 }
 
 function flushJsTestStateBeforeUnload() {
-    if (!JS_TEST_PERSISTENCE || !JS_TEST_LAST_SNAPSHOT || !isStartedState(JS_TEST_LAST_SNAPSHOT)) {
+    if (JS_TEST_RESTARTING || !JS_TEST_PERSISTENCE || !JS_TEST_LAST_SNAPSHOT || !isStartedState(JS_TEST_LAST_SNAPSHOT)) {
         return;
     }
 
@@ -1550,11 +1557,14 @@ function flushJsTestStateBeforeUnload() {
 
 window.addEventListener('pagehide', flushJsTestStateBeforeUnload);
 
-async function restartJsTest(initFn, options = {}) {
-    if (typeof initFn !== 'function') {
+// Keep the first argument for existing mode-specific callers; rebuilding in
+// place is deliberately replaced with a full document reload.
+async function restartJsTest(_initFn, options = {}) {
+    if (JS_TEST_RESTARTING) {
         return;
     }
 
+    JS_TEST_RESTARTING = true;
     const { showLoaderFn, button } = options;
     const toggleLoader = (value) => {
         if (typeof showLoaderFn === 'function') {
@@ -1574,15 +1584,20 @@ async function restartJsTest(initFn, options = {}) {
     try {
         toggleLoader(true);
         await resetJsTestState();
-        await initFn(true);
+        // Reload the same mode/query with a clean server session and browser
+        // snapshot, including when the controls have moved into the site header.
+        window.history.scrollRestoration = 'manual';
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        window.location.reload();
     } catch (error) {
+        JS_TEST_RESTARTING = false;
         console.error(error);
-    } finally {
         toggleLoader(false);
         if (button) {
             button.disabled = false;
             button.classList.remove('opacity-50');
         }
+        window.alert(testUi('status.restart_failed'));
     }
 }
 </script>
