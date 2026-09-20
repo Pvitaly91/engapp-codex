@@ -124,6 +124,18 @@ const negatives = [
 ];
 
 for (const mode of ['card-easy', 'step-easy']) {
+    for (const [expected, answer] of [['minute.', 'minute'], ['ready?', 'ready'], ['stop!', 'stop'], ['wait…', 'wait']]) {
+        test(`${mode}: manual ${answer} completes the ${expected} slot without punctuation`, t => {
+            const f = fixture(t, mode, expected);
+            assert.equal(f.progress(answer), 'complete');
+            f.commit(answer);
+            assert.deepEqual(f.choices, [{ slot: 1, answer }]);
+            assert.equal(f.question().wrongAttempt, false);
+            assert.equal(f.question().activeSlot, 2);
+            assert.equal(f.question().answers[1], expected, 'Canonical punctuation remains unchanged');
+        });
+    }
+
     for (const { contracted, auxiliary } of negatives) {
         test(`${mode}: ${auxiliary} opens an active not field without completing ${contracted}`, t => {
             const f = fixture(t, mode, contracted);

@@ -77,6 +77,10 @@ function canonicalTestAnswer(value) {
         .replace(/[‘’ʼ`]/g, "'")
         .trim()
         .replace(/\s+/g, ' ')
+        // Sentence-ending punctuation is optional when entering a word/answer.
+        // Keep internal punctuation, apostrophes and decimal separators intact.
+        .replace(/[.!?…]+$/u, '')
+        .trim()
         .toLowerCase()
         .replace(/\bwill\s+not\b/g, "won't")
         .replace(/\bhave\s+not\b/g, "haven't")
@@ -139,7 +143,7 @@ function acceptedTestAnswers(question, slotIndex) {
 function testAnswerMatches(question, slotIndex, value) {
     const normalized = canonicalTestAnswer(value);
 
-    return acceptedTestAnswers(question, slotIndex)
+    return normalized !== '' && acceptedTestAnswers(question, slotIndex)
         .some((accepted) => canonicalTestAnswer(accepted) === normalized);
 }
 
