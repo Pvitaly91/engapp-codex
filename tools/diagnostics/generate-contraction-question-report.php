@@ -7,6 +7,9 @@ require __DIR__.'/../../vendor/autoload.php';
 $app = require __DIR__.'/../../bootstrap/app.php';
 $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
+use App\Models\Page;
+use App\Services\GrammarTestFilterService;
+use App\Services\TheoryPagePromptLinkedTestsService;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -15,11 +18,6 @@ use Illuminate\Support\Facades\DB;
  * alter questions, tests, snapshots, or the database.
  */
 $contractionPattern = "(^|[^A-Za-z])([A-Za-z]+(n't|'m|'re|'ve|'ll|'s|'d|'d've|n't've)|am[[:space:]]+not|are[[:space:]]+not|is[[:space:]]+not|was[[:space:]]+not|were[[:space:]]+not|have[[:space:]]+not|has[[:space:]]+not|had[[:space:]]+not|will[[:space:]]+not|would[[:space:]]+not|shall[[:space:]]+not|should[[:space:]]+not|could[[:space:]]+not|can[[:space:]]+not|do[[:space:]]+not|does[[:space:]]+not|did[[:space:]]+not|might[[:space:]]+not|must[[:space:]]+not|may[[:space:]]+not|need[[:space:]]+not|dare[[:space:]]+not|ought[[:space:]]+not|let[[:space:]]+us)([^A-Za-z]|$)";
-
-$tests = DB::table('tests')->select('slug', 'questions')->get()->map(static fn ($test) => [
-    'slug' => $test->slug,
-    'questions' => json_decode($test->questions ?: '[]', true) ?: [],
-]);
 
 $rows = DB::table('questions as q')
     ->join('question_answers as a', 'a.question_id', '=', 'q.id')
@@ -30,7 +28,7 @@ $rows = DB::table('questions as q')
     ->orderBy('q.id')
     ->get();
 
-$items = $rows->groupBy('id')->map(function ($answers) use ($tests): array {
+$itemsById = $rows->groupBy('id')->map(function ($answers): array {
     $first = $answers->first();
 
     return [
@@ -40,10 +38,36 @@ $items = $rows->groupBy('id')->map(function ($answers) use ($tests): array {
             ->map(static fn ($answer) => [(string) $answer->marker, (string) $answer->answer])->values()->all(),
         'category' => (string) ($first->category ?? ''),
         'seeder' => (string) ($first->seeder ?? ''),
-        'tests' => $tests->filter(static fn (array $test) => in_array((int) $first->id, $test['questions'], true))
-            ->pluck('slug')->values()->all(),
     ];
-})->values();
+});
+
+$filterService = app(GrammarTestFilterService::class);
+$theoryPageTests = app(TheoryPagePromptLinkedTestsService::class);
+$testGroups = Page::query()->with('category')->orderBy('id')->get()
+    ->flatMap(function (Page $page) use ($filterService, $theoryPageTests, $itemsById) {
+        return $theoryPageTests->buildForPage($page)
+            ->filter(static fn ($test): bool => (bool) data_get($test->filters ?? [], '__meta.theory_page_mixed_all_levels_test'))
+            ->map(function ($test) use ($page, $filterService, $itemsById): ?array {
+                $filters = $test->filters ?? [];
+                $candidateIds = $filterService->matchingQuestionsQuery($filters)->pluck('id');
+                $questions = $candidateIds->map(fn ($id) => $itemsById->get((int) $id))->filter()->values();
+                if ($questions->isEmpty()) {
+                    return null;
+                }
+                $path = trim((string) data_get($filters, 'prompt_generator.theory_page.category_slug_path', ''));
+                $theoryUrl = 'http://gramlyze.loc/theory/'.trim($path.'/'.$page->slug, '/');
+
+                return [
+                    'slug' => trim((string) ($test->public_slug ?? $test->slug), '/'),
+                    'name' => (string) $test->name,
+                    'theory_url' => $theoryUrl,
+                    'questions' => $questions,
+                ];
+            })
+            ->filter();
+    })
+    ->sortBy('slug')
+    ->values();
 
 $escape = static fn (string $value): string => str_replace(['|', "\r", "\n"], ['\\|', '', '<br>'], $value);
 $lines = [
@@ -51,36 +75,28 @@ $lines = [
     '',
     'Згенеровано локально: '.now()->toIso8601String().'. Джерело: канонічні записи `questions` + `question_answers` + `question_options` локальної БД.',
     '',
-    'У списку **'.$items->count().' питань**. Для кожного перелічено саме текст питання та канонічну відповідь, для якої механізм тепер приймає еквівалентну повну або скорочену форму. Питання не переписувалися: змінилася лише перевірка введення.',
+    'У списку **'.$testGroups->count().' mixed-тестів**. Під кожним URL наведено фактичні питання з його повного пулу, для яких механізм тепер приймає еквівалентну повну або скорочену форму. Питання не переписувалися: змінилася лише перевірка введення.',
     '',
-    'Якщо колонка «Статичний тест» порожня, питання потрапляє до тесту через його фільтри/змішану добірку; точний набір такого тесту залежить від режиму, рівня та випадкового порядку. Інакше вказано прямий локальний URL.',
-    '',
-    '## Розподіл за темою',
-    '',
-    '| Тема (категорія) | Питань |',
-    '| --- | ---: |',
+    'Mixed-тест показує обмежену добірку за рівнями, тому будь-яке питання з відповідного списку **може з’явитися** після нового запуску тесту. Списки не приховують питання через поточний випадковий порядок.',
 ];
 
-foreach ($items->groupBy('category')->sortKeys() as $category => $questions) {
-    $lines[] = '| '.$escape((string) ($category ?: 'Без категорії')).' | '.$questions->count().' |';
-}
-
-$lines[] = '';
-$lines[] = '## Повний перелік';
-$lines[] = '';
-$lines[] = '| ID | Категорія | Питання | Маркер → канонічна відповідь | Статичний тест |';
-$lines[] = '| ---: | --- | --- | --- | --- |';
-
-foreach ($items as $item) {
-    $answers = implode('<br>', array_map(static fn (array $answer): string => '`'.$answer[0].'` → `'.$answer[1].'`', $item['answers']));
-    $urls = $item['tests'] === []
-        ? '—'
-        : implode('<br>', array_map(static fn (string $slug): string => '[`/test/'.$slug.'`](http://gramlyze.loc/test/'.$slug.')', $item['tests']));
-    $lines[] = '| '.$item['id'].' | '.$escape($item['category'] ?: 'Без категорії').' | '
-        .$escape($item['question']).' | '.$escape($answers).' | '.$urls.' |';
+foreach ($testGroups as $test) {
+    $lines[] = '';
+    $lines[] = '## ['.$escape($test['name']).'](http://gramlyze.loc/test/'.$test['slug'].')';
+    $lines[] = '';
+    $lines[] = 'Теорія: ['.$escape($test['theory_url']).']('.$test['theory_url'].')<br>';
+    $lines[] = 'Питань у пулі з підтримкою альтернативної форми: **'.$test['questions']->count().'**.';
+    $lines[] = '';
+    $lines[] = '| ID | Категорія | Питання | Маркер → канонічна відповідь |';
+    $lines[] = '| ---: | --- | --- | --- |';
+    foreach ($test['questions'] as $item) {
+        $answers = implode('<br>', array_map(static fn (array $answer): string => '`'.$answer[0].'` → `'.$answer[1].'`', $item['answers']));
+        $lines[] = '| '.$item['id'].' | '.$escape($item['category'] ?: 'Без категорії').' | '
+            .$escape($item['question']).' | '.$escape($answers).' |';
+    }
 }
 
 $reportPath = dirname(__DIR__, 2).'/docs/reports/english-contractions-questions.md';
 file_put_contents($reportPath, implode("\n", $lines)."\n");
 
-fwrite(STDOUT, "Generated {$items->count()} questions: {$reportPath}".PHP_EOL);
+fwrite(STDOUT, "Generated {$testGroups->count()} test URL groups: {$reportPath}".PHP_EOL);
