@@ -138,7 +138,7 @@ function onCheck() {
     const el = document.getElementById(`input-${i}`);
     const val = (el.value || '').trim();
     q.chosen[i] = val;
-    if (val.toLowerCase() !== ans.toLowerCase()) {
+    if (!testAnswerMatches(q, i, val)) {
       allCorrect = false;
       el.classList.add('border-rose-400');
     } else {

@@ -44,6 +44,7 @@ function fixture(t, mode, expected, overrides = {}) {
     const state = { items: [question], current: 0, answered: 0, correct: 0 };
     const choices = [];
     const context = vm.createContext({
+        EnglishAnswerVariants: require('./load-answer-variants.cjs'),
         window: dom.window,
         document: dom.window.document,
         console,
@@ -117,6 +118,9 @@ function fixture(t, mode, expected, overrides = {}) {
 }
 
 const negatives = [
+    ...Object.entries(require('../../public/data/english-contractions.json').negative)
+        .filter(([short]) => !["can't", "haven't", "hasn't", "won't", "hadn't"].includes(short))
+        .map(([contracted, full]) => ({ contracted, auxiliary: full.split(' ')[0] })),
     { contracted: "haven't", auxiliary: 'have' },
     { contracted: "hasn't", auxiliary: 'has' },
     { contracted: "won't", auxiliary: 'will' },
@@ -124,6 +128,14 @@ const negatives = [
 ];
 
 for (const mode of ['card-easy', 'step-easy']) {
+    for (const [short, full, after] of [["can't", 'can not', 'swim'], ["I'll", 'I will', 'call'], ["I'm", 'I am', 'working'], ["we've", 'we have', 'finished'], ["she's", 'she is', 'working'], ["she'd", 'she had', 'better'], ["you'd", 'you would', 'rather']]) {
+        test(`${mode}: ${short} accepts the full ${full} with extra fields`, t => {
+            const f = fixture(t, mode, short, { answers: ['Yes,', short, after] });
+            for (const word of full.split(' ')) f.commit(word);
+            assert.deepEqual(f.choices, [{ slot: 1, answer: full }]);
+            assert.equal(f.question().wrongAttempt, false);
+        });
+    }
     for (const [expected, answer] of [['minute.', 'minute'], ['ready?', 'ready'], ['stop!', 'stop'], ['wait…', 'wait']]) {
         test(`${mode}: manual ${answer} completes the ${expected} slot without punctuation`, t => {
             const f = fixture(t, mode, expected);

@@ -5,7 +5,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 
 const source = fs.readFileSync(path.join(__dirname, '../../resources/views/components/saved-test-js-helpers.blade.php'), 'utf8');
-const context = vm.createContext({});
+const context = vm.createContext({ EnglishAnswerVariants: require('./load-answer-variants.cjs') });
 vm.runInContext(source.slice(source.indexOf('function canonicalTestAnswer('), source.indexOf('function composeManualAnswerWords(')), context);
 const matches = (expected, answer, extra = {}) => context.testAnswerMatches({ answers: [expected], ...extra }, 0, answer);
 

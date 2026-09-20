@@ -1219,7 +1219,8 @@ class GrammarTestController extends Controller
             $given = trim($given);
             $givenAnswers[$ans->marker] = $given;
             $correctValue = $ans->option->option ?? $ans->answer;
-            $isCorrectAnswer = mb_strtolower($given) === mb_strtolower($correctValue);
+            $parts = explode('{'.$ans->marker.'}', (string) $question->question, 2);
+            $isCorrectAnswer = AcceptedAnswerVariants::matches($correctValue, $given, $parts[1] ?? '', $parts[0] ?? '');
             if (! $isCorrectAnswer) {
                 $correct = false;
                 $explanations[$ans->marker] = $gpt->explainWrongAnswer($question->question, $given, $correctValue);
@@ -1957,7 +1958,8 @@ class GrammarTestController extends Controller
             $answerRow = $question->answers->where('marker', $marker)->first();
             $correctValue = $answerRow?->option?->option ?? '';
             $correctArr[$marker] = $correctValue;
-            if (! $answerRow || mb_strtolower(trim($answer)) !== mb_strtolower($correctValue)) {
+            $parts = explode('{'.$marker.'}', (string) $question->question, 2);
+            if (! $answerRow || ! AcceptedAnswerVariants::matches($correctValue, (string) $answer, $parts[1] ?? '', $parts[0] ?? '')) {
                 $allCorrect = false;
             }
         }
@@ -2001,7 +2003,8 @@ class GrammarTestController extends Controller
                 }
                 $userAnswers[$ans->marker] = $userAnswer;
                 $correctValue = $ans->option->option;
-                if (strtolower(trim($userAnswer)) === strtolower($correctValue)) {
+                $parts = explode('{'.$ans->marker.'}', (string) $question->question, 2);
+                if (AcceptedAnswerVariants::matches($correctValue, $userAnswer, $parts[1] ?? '', $parts[0] ?? '')) {
                     $correctCount++;
                 } else {
                     $explanations[$ans->marker] = $gpt->explainWrongAnswer($question->question, $userAnswer, $correctValue);

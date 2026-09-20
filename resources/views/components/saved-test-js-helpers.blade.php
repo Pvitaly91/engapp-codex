@@ -6,6 +6,7 @@
 @endphp
 
 @include('components.test-suggestion-keyboard')
+@include('components.english-answer-variants')
 
 <style>
     [data-question-reported="1"] {
@@ -101,39 +102,12 @@ function acceptedTestAnswers(question, slotIndex) {
         ? byMarker
         : (Array.isArray(bySlot) ? bySlot : []);
     const expected = String(question?.answers?.[slotIndex] ?? '').trim();
-    const variants = [...configured, expected];
-
-    variants.slice().forEach((variant) => {
-        const normalized = String(variant ?? '')
-            .replace(/[‘’ʼ`]/g, "'")
-            .trim()
-            .replace(/\s+/g, ' ');
-
-        if (/\bwon't\b/i.test(normalized)) {
-            variants.push(normalized.replace(/\bwon't\b/gi, 'will not'));
-        }
-        if (/\bwill\s+not\b/i.test(normalized)) {
-            variants.push(normalized.replace(/\bwill\s+not\b/gi, "won't"));
-        }
-        if (/\bhaven't\b/i.test(normalized)) {
-            variants.push(normalized.replace(/\bhaven't\b/gi, 'have not'));
-        }
-        if (/\bhave\s+not\b/i.test(normalized)) {
-            variants.push(normalized.replace(/\bhave\s+not\b/gi, "haven't"));
-        }
-        if (/\bhasn't\b/i.test(normalized)) {
-            variants.push(normalized.replace(/\bhasn't\b/gi, 'has not'));
-        }
-        if (/\bhas\s+not\b/i.test(normalized)) {
-            variants.push(normalized.replace(/\bhas\s+not\b/gi, "hasn't"));
-        }
-        if (/\bhadn't\b/i.test(normalized)) {
-            variants.push(normalized.replace(/\bhadn't\b/gi, 'had not'));
-        }
-        if (/\bhad\s+not\b/i.test(normalized)) {
-            variants.push(normalized.replace(/\bhad\s+not\b/gi, "hadn't"));
-        }
-    });
+    const context = EnglishAnswerVariants.contextFor(question, slotIndex);
+    const withoutContext = EnglishAnswerVariants.variants(expected).map(EnglishAnswerVariants.normalize);
+    const contextual = EnglishAnswerVariants.variants(expected, context).map(EnglishAnswerVariants.normalize);
+    const aliases = configured.filter(variant => !withoutContext.includes(EnglishAnswerVariants.normalize(variant))
+        || contextual.includes(EnglishAnswerVariants.normalize(variant)));
+    const variants = [...aliases, expected].flatMap(variant => EnglishAnswerVariants.variants(variant, context));
 
     return variants
         .map((variant) => String(variant ?? '').trim())
@@ -144,7 +118,7 @@ function testAnswerMatches(question, slotIndex, value) {
     const normalized = canonicalTestAnswer(value);
 
     return normalized !== '' && acceptedTestAnswers(question, slotIndex)
-        .some((accepted) => canonicalTestAnswer(accepted) === normalized);
+        .some((accepted) => EnglishAnswerVariants.normalize(accepted) === EnglishAnswerVariants.normalize(value));
 }
 
 function composeManualAnswerWords(question, slotIndex) {
@@ -276,7 +250,7 @@ function renderTechnicalInfoField(label, value, options = {}) {
 
 function getTechnicalQuestions() {
     return Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
-        ? window.__INITIAL_JS_TEST_QUESTIONS__
+        ? window.__INITIAL_JS_TEST_QUESTIONS__.map(EnglishAnswerVariants.prepareQuestion)
         : [];
 }
 
@@ -1345,6 +1319,7 @@ function mergeFreshQuestionContentIntoSavedState(state) {
         'answer_synonym_tokens_by_marker',
         'markers',
         'markers_count',
+        'contraction_slots_version',
         'options_by_marker',
         'verb_hint',
         'verb_hints',
@@ -1378,6 +1353,7 @@ function mergeFreshQuestionContentIntoSavedState(state) {
     });
 
     restored.items = restored.items.map((savedItem) => {
+        savedItem = EnglishAnswerVariants.prepareQuestion(savedItem);
         if (!savedItem || typeof savedItem !== 'object') {
             return savedItem;
         }
@@ -1493,7 +1469,7 @@ function persistState(state, immediate = false) {
 
 async function loadQuestions(forceFresh = false) {
     const current = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
-        ? window.__INITIAL_JS_TEST_QUESTIONS__
+        ? window.__INITIAL_JS_TEST_QUESTIONS__.map(EnglishAnswerVariants.prepareQuestion)
         : [];
 
     if (!forceFresh) {
@@ -1532,9 +1508,9 @@ async function loadQuestions(forceFresh = false) {
         if (payload && Array.isArray(payload.questions)) {
             JS_TEST_PERSISTENCE.saved = null;
             clearLocalJsTestState();
-            window.__INITIAL_JS_TEST_QUESTIONS__ = payload.questions;
+            window.__INITIAL_JS_TEST_QUESTIONS__ = payload.questions.map(EnglishAnswerVariants.prepareQuestion);
 
-            return payload.questions;
+            return window.__INITIAL_JS_TEST_QUESTIONS__;
         }
     } catch (error) {
         console.error(error);

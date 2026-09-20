@@ -13,6 +13,7 @@ function fixture(fetchImplementation){
  const navigation={reloads:0,scroll:null,alerts:[],errors:[]};
  Object.assign(window,{history:{scrollRestoration:'auto'},scrollTo:position=>navigation.scroll=position,location:{href:'http://gramlyze.loc/test/fixture/step?source=theory',reload:()=>navigation.reloads++},alert:message=>navigation.alerts.push(message)});
  const context=vm.createContext({window,console:{...console,error:error=>navigation.errors.push(error.message)},testUi:key=>key,Date,URL,setTimeout:fn=>{timers.set(++serial,fn);return serial},clearTimeout:id=>timers.delete(id),fetch:async(url,options)=>{const value=JSON.parse(options.body);calls.push(value);return fetchImplementation?fetchImplementation(value):{status:204,ok:true,json:()=>{throw Error('Must not parse a 204')}}},getTechnicalQuestions:()=>window.__INITIAL_JS_TEST_QUESTIONS__});
+ context.EnglishAnswerVariants=require('./load-answer-variants.cjs');
  vm.runInContext(persistence,context);
  const evaluate=expression=>vm.runInContext(expression,context);
  return {window,calls,listeners,context,evaluate,navigation,timers,async drain(){for(const [id,fn] of [...timers]){timers.delete(id);fn()}await evaluate('JS_TEST_SAVE_QUEUE')},persist(value,immediate=false){context.input=value;evaluate(`persistState(input, ${immediate})`)}};

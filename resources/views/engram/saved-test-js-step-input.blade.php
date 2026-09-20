@@ -217,7 +217,7 @@ function onCheck() {
   const val = valParts.join(' ');
   q.input = val;
   q.isCorrect = q.answers.every((ans, i) =>
-    valParts[i].toLowerCase() === (ans || '').toLowerCase()
+    testAnswerMatches(q, i, valParts[i])
   );
   if (q.isCorrect) {
     state.correct += 1;

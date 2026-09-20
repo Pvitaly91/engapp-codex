@@ -1,3 +1,4 @@
+@include('components.english-answer-variants')
 @php
     $data = $data ?? json_decode($block->body ?? '[]', true) ?? [];
     $selects = $data['selects'] ?? [];
@@ -629,7 +630,8 @@
                     if (!answer || !this.hasAnswer(group, index)) return false;
 
                     return this.acceptedAnswers(group, index)
-                        .some((accepted) => this.normalize(accepted) === answer);
+                        .some((accepted) => window.EnglishAnswerVariants.variants(accepted)
+                            .some((variant) => this.normalize(variant) === answer));
                 },
 
                 fieldClass(group, index) {

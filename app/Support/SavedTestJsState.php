@@ -146,6 +146,13 @@ class SavedTestJsState
                     continue;
                 }
 
+                // Client-side contraction groups can span several source
+                // markers. Keep their progress aligned until the browser merges
+                // the freshly prepared question dataset into this snapshot.
+                if (($item['contraction_slots_version'] ?? null) === 1) {
+                    continue;
+                }
+
                 $state['items'][$index] = array_replace(
                     $item,
                     Arr::only($current, self::CURRENT_QUESTION_FIELDS)

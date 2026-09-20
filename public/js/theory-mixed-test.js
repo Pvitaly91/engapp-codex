@@ -298,7 +298,7 @@ function standardChoose(value) {
     const marker = activeMarker(item);
     const expected = answerForMarker(item, marker);
 
-    if (normalizeCompare(value) === normalizeCompare(expected)) {
+    if (window.EnglishAnswerVariants.matches(expected, value, window.EnglishAnswerVariants.contextFor(item, item.activeSlot))) {
         item.chosen[item.activeSlot] = value;
         item.feedback = 'correct';
         item.feedbackText = text('correct', 'Correct');
@@ -334,9 +334,7 @@ function composeCheck() {
         return;
     }
 
-    const expected = normalizeCompare(item.correctText);
-
-    if (composeSentence(item) === expected) {
+    if (window.EnglishAnswerVariants.matches(item.correctText, composeSentence(item))) {
         item.feedback = 'correct';
         item.feedbackText = text('correct', 'Correct');
         markCurrentDone(!item.wrong);

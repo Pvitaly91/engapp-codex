@@ -247,6 +247,31 @@ class SavedTestJsStateTest extends TestCase
         );
     }
 
+    public function test_server_answer_checker_accepts_equivalent_contractions_but_not_incomplete_negatives(): void
+    {
+        [$question] = $this->createQuestionWithVariants();
+        $optionId = $question->answers()->first()->option_id;
+        foreach ([
+            ['She {a1} today.', "hasn't eaten", 'has not eaten', 'correct'],
+            ['She {a1} today.', 'has not eaten', 'hasn’t eaten', 'correct'],
+            ['She {a1} today.', "hasn't eaten", 'has eaten', 'incorrect'],
+            ['{a1} call tomorrow.', "I'll", 'I will', 'correct'],
+            ['{a1} a singer.', "She's", 'She is', 'correct'],
+            ['{a1} a singer.', "She's", 'She has', 'incorrect'],
+            ['{a1} swim.', "can't", 'can not', 'correct'],
+            ['{a1} swim.', "can't", 'can', 'incorrect'],
+            ['{a1} know?', "Don't you", 'Do you not', 'correct'],
+            ['{a1} know?', "Don't you", 'Do not you', 'incorrect'],
+        ] as [$text, $expected, $answer, $result]) {
+            DB::table('questions')->where('id', $question->id)->update(['question' => $text]);
+            DB::table('question_options')->where('id', $optionId)->update(['option' => $expected]);
+            $response = app(GrammarTestController::class)->checkOneAnswer(Request::create('/admin/grammar-test-check-answer', 'POST', [
+                'question_id' => $question->id, 'answers' => ['a1' => $answer],
+            ]));
+            $this->assertSame($result, $response->getData(true)['result'], $expected.' -> '.$answer);
+        }
+    }
+
     public function test_successful_204_has_no_body_and_preserves_exact_newest_state_per_test_and_mode(): void
     {
         $test = $this->createSavedTest();

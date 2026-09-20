@@ -152,5 +152,6 @@
 <script>
 window.__THEORY_MIXED_TEST__ = @json($manifestPayload);
 </script>
+@include('components.english-answer-variants')
 <script type="module" src="{{ asset('js/theory-mixed-test.js') }}@if($theoryMixedVersion)?v={{ $theoryMixedVersion }}@endif"></script>
 @endsection
