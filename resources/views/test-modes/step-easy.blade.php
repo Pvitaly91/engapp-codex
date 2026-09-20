@@ -939,7 +939,7 @@ function ensureManualSlotState(q) {
 
 function manualAnswerWords(q, slotIndex) {
   if (isPolyglotComposeQuestion(q)) {
-    return [String(q?.answers?.[slotIndex] ?? '').trim()];
+    return composeManualAnswerWords(q, slotIndex);
   }
 
   const longest = acceptedTestAnswers(q, slotIndex)

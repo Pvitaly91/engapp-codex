@@ -80,7 +80,8 @@ function canonicalTestAnswer(value) {
         .toLowerCase()
         .replace(/\bwill\s+not\b/g, "won't")
         .replace(/\bhave\s+not\b/g, "haven't")
-        .replace(/\bhas\s+not\b/g, "hasn't");
+        .replace(/\bhas\s+not\b/g, "hasn't")
+        .replace(/\bhad\s+not\b/g, "hadn't");
 }
 
 function acceptedTestAnswers(question, slotIndex) {
@@ -122,6 +123,12 @@ function acceptedTestAnswers(question, slotIndex) {
         if (/\bhas\s+not\b/i.test(normalized)) {
             variants.push(normalized.replace(/\bhas\s+not\b/gi, "hasn't"));
         }
+        if (/\bhadn't\b/i.test(normalized)) {
+            variants.push(normalized.replace(/\bhadn't\b/gi, 'had not'));
+        }
+        if (/\bhad\s+not\b/i.test(normalized)) {
+            variants.push(normalized.replace(/\bhad\s+not\b/gi, "hadn't"));
+        }
     });
 
     return variants
@@ -134,6 +141,34 @@ function testAnswerMatches(question, slotIndex, value) {
 
     return acceptedTestAnswers(question, slotIndex)
         .some((accepted) => canonicalTestAnswer(accepted) === normalized);
+}
+
+function composeManualAnswerWords(question, slotIndex) {
+    const expected = String(question?.answers?.[slotIndex] ?? '').trim();
+    const wordIndex = Number(question?.manualWordIndexBySlot?.[slotIndex] || 0);
+    if (!Number.isInteger(wordIndex) || wordIndex <= 0) {
+        return [expected];
+    }
+
+    const normalize = (value) => String(value ?? '')
+        .replace(/[‘’ʼ`]/g, "'")
+        .trim()
+        .replace(/\s+/g, ' ')
+        .toLowerCase();
+    const confirmedWords = normalize(question?.manualInputsBySlot?.[slotIndex])
+        .split(' ')
+        .slice(0, wordIndex)
+        .join(' ');
+
+    // One logical answer may take several words (haven't / have not). Follow
+    // the spelling the learner started, adding the next field only after a
+    // correct prefix. An incorrect current word must not change that spelling.
+    const variants = acceptedTestAnswers(question, slotIndex);
+    const matching = variants.find((variant) => normalize(variant).startsWith(`${confirmedWords} `));
+    const words = String(matching ?? expected).split(/\s+/).filter(Boolean);
+
+    // Keep markers/options unchanged: extra inputs belong to the same answer.
+    return words.length ? words.slice(0, wordIndex + 1) : [''];
 }
 
 function formatAnswerOptionLabel(question, slotIndex, option) {
