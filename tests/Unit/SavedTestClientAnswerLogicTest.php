@@ -155,7 +155,7 @@ class SavedTestClientAnswerLogicTest extends TestCase
             );
 
             $this->assertStringContainsString(
-                "const isCommitKey = e.key === 'Enter' || (e.key === 'Tab' && !e.shiftKey);",
+                'const isCommitKey = isTestAnswerCommitKey(e);',
                 $shortcut,
                 $view
             );

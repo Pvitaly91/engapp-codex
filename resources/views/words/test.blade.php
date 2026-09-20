@@ -896,6 +896,12 @@
       }
 
       if (answerInput && !isEasy) {
+        answerInput.addEventListener('keydown', (event) => {
+          if (event.key === 'Tab' && isTestAnswerCommitKey(event)) {
+            event.preventDefault();
+            answerForm.requestSubmit();
+          }
+        });
         answerInput.addEventListener('input', (event) => {
           if (isMedium) {
             renderSuggestions(event.target.value);

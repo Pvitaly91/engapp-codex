@@ -11,6 +11,11 @@
 <script>
 let ACTIVE_TEST_SUGGESTION_LIST = null;
 
+function isTestAnswerCommitKey(event) {
+    return !event.defaultPrevented && !event.isComposing && !event.ctrlKey && !event.altKey && !event.metaKey
+        && (event.key === 'Enter' || (event.key === 'Tab' && !event.shiftKey));
+}
+
 function testSuggestionOptions(context = ACTIVE_TEST_SUGGESTION_LIST) {
     if (!context?.list || !context.optionSelector) {
         return [];
@@ -119,20 +124,25 @@ function activateTestSuggestionList(input, list, optionSelector) {
 
 document.addEventListener('keydown', (event) => {
     const context = ACTIVE_TEST_SUGGESTION_LIST;
-    if (!context || event.target !== context.input || event.isComposing) {
+    if (!context || event.target !== context.input || event.isComposing
+        || event.ctrlKey || event.altKey || event.metaKey) {
         return;
     }
 
     const options = testSuggestionOptions(context);
-    if (options.length === 0) {
+    if (options.length === 0 || !context.list.isConnected || context.list.hidden
+        || context.list.classList.contains('hidden') || context.input.getAttribute('aria-expanded') === 'false') {
         deactivateTestSuggestionList(context.input, context.list, true);
         return;
     }
 
-    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+    // Handle the popup before answer handlers (including document capture
+    // handlers) so Tab cannot both navigate suggestions and submit an answer.
+    const isNextSuggestion = event.key === 'Tab' && !event.shiftKey;
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp' || isNextSuggestion) {
         event.preventDefault();
         event.stopImmediatePropagation();
-        const direction = event.key === 'ArrowDown' ? 1 : -1;
+        const direction = event.key === 'ArrowUp' ? -1 : 1;
         const nextIndex = context.activeIndex < 0
             ? (direction > 0 ? 0 : options.length - 1)
             : context.activeIndex + direction;

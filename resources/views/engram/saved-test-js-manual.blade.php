@@ -113,6 +113,12 @@ function renderQuestions(showOnlyWrong = false) {
 
     wrap.appendChild(card);
     card.querySelectorAll('input[data-question][data-slot]').forEach(inp => {
+      inp.addEventListener('keydown', e => {
+        if (isTestAnswerCommitKey(e)) {
+          e.preventDefault();
+          onCheck(idx);
+        }
+      });
       if (!inp.dataset.minWidth) inp.dataset.minWidth = inp.offsetWidth;
       const handle = () => {
         autoResize(inp);

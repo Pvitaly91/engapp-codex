@@ -199,7 +199,12 @@ function render() {
   document.getElementById('check').addEventListener('click', onCheck);
   wrap.querySelectorAll('input').forEach(inp => {
     if (!inp.dataset.minWidth) inp.dataset.minWidth = inp.offsetWidth;
-    inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') onCheck(); });
+    inp.addEventListener('keydown', (e) => {
+      if (isTestAnswerCommitKey(e)) {
+        e.preventDefault();
+        onCheck();
+      }
+    });
     const handle = () => {
       autoResize(inp);
       const slot = Number(inp.dataset.slot);

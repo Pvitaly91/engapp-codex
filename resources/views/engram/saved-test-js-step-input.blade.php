@@ -144,7 +144,10 @@ function render() {
       const widx = parseInt(inp.dataset.word);
       inp.addEventListener('keydown', (e) => {
         if (e.key === ' ') e.preventDefault();
-        if (e.key === 'Enter') onCheck();
+        if (isTestAnswerCommitKey(e)) {
+          e.preventDefault();
+          onCheck();
+        }
       });
       const handle = () => {
         const val = inp.value.replace(/\s+/g, '');

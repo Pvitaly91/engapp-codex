@@ -116,6 +116,10 @@ function renderQuestion(idx) {
       const wIdx = parseInt(inp.dataset.word);
       inp.addEventListener('keydown', e => {
         if (e.key === ' ') e.preventDefault();
+        if (isTestAnswerCommitKey(e)) {
+          e.preventDefault();
+          onCheck(idx);
+        }
       });
       const handle = () => {
         const val = inp.value.replace(/\s+/g, '');

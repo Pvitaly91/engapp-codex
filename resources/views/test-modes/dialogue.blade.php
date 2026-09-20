@@ -671,7 +671,8 @@ if (checkBtn) {
 }
 
 document.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter' && !event.shiftKey) {
+    const answerInput = event.target?.matches('input[data-blank-index]');
+    if (isTestAnswerCommitKey(event) && !event.shiftKey && (event.key === 'Enter' || answerInput)) {
         const active = document.activeElement;
         if (active && active.tagName === 'TEXTAREA') {
             return;
