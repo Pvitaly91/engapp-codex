@@ -7,6 +7,7 @@
 @endphp
 
 @once
+    @include('components.theory-search')
     <style>
         @media (min-width: 1024px) {
             [data-theory-aside] {
@@ -161,7 +162,12 @@
                     return;
                 }
 
-                const normalize = (value) => String(value || '').toLocaleLowerCase().trim();
+                const {normalize, rank, createSorter} = window.GramlyzeTheorySearch;
+                const sortNodes = createSorter(allNodes);
+                const titles = new Map(allNodes.map(node => [node,
+                    node.querySelector('[data-theory-sidebar-highlight]')?.textContent || '']));
+                const parents = new Map(allNodes.map(node => [node,
+                    node.parentElement.closest('[data-theory-sidebar-node]')]));
 
                 const clearHighlight = (element) => {
                     element.textContent = element.dataset.theorySidebarOriginalText || element.textContent;
@@ -217,10 +223,20 @@
 
                     sidebar.dataset.theorySidebarSearching = query ? 'true' : 'false';
 
+                    const scores = new Map(allNodes.map(node => [node, rank(titles.get(node), query)]));
+                    // A matching lesson keeps its ancestors visible and gives
+                    // the whole branch the relevance of its best title.
+                    [...allNodes].reverse().forEach(node => {
+                        const parent = parents.get(node);
+                        if (scores.has(parent)) {
+                            scores.set(parent, Math.max(scores.get(parent), scores.get(node)));
+                        }
+                    });
                     allNodes.forEach((node) => {
-                        const matched = !query || normalize(node.textContent).includes(query);
+                        const matched = !query || scores.get(node) > 0;
                         node.classList.toggle('hidden', !matched);
                     });
+                    sortNodes(node => scores.get(node));
 
                     topNodes.forEach((node) => {
                         if (!node.classList.contains('hidden')) {
