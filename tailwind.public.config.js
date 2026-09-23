@@ -24,7 +24,7 @@ export default {
             colors: {
                 brand: {50: '#eef2ff', 100: '#e0e7ff', 600: '#4350e6', 700: '#3730a3'},
                 steel: '#5d7185', night: '#13233b', ocean: '#2f67b1',
-                amber: '#f59b2f', mist: '#f5fbff', shell: '#fffefd', line: '#d8e2ee',
+                amber: {DEFAULT: '#f59b2f'}, mist: '#f5fbff', shell: '#fffefd', line: '#d8e2ee',
             },
             fontFamily: {display: ['Archivo', 'sans-serif'], body: ['Manrope', 'sans-serif']},
             boxShadow: {
