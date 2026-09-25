@@ -23,9 +23,32 @@ class PageV3UnseedFolderCommandTest extends TestCase
      */
     private array $cleanupPaths = [];
 
+    private string $isolatedStorageRoot;
+
     protected function setUp(): void
     {
         parent::setUp();
+
+        if (! app()->environment('testing') || DB::connection()->getDriverName() !== 'sqlite'
+            || DB::connection()->getDatabaseName() !== ':memory:'
+            || config('cache.default') !== 'array' || config('session.driver') !== 'array') {
+            throw new \RuntimeException('Page folder fixtures require testing, SQLite :memory:, and array cache/session before schema operations.');
+        }
+        foreach (DB::connection()->select('PRAGMA database_list') as $database) {
+            if ($database->name === 'main' && $database->file !== '') {
+                throw new \RuntimeException('Page folder fixtures refuse file-backed SQLite databases.');
+            }
+        }
+
+        // Storage::fake('local') clears the shared testing disk, which can contain
+        // checked-in diagnostic reports. Replace only this test's disk adapter.
+        $this->isolatedStorageRoot = sys_get_temp_dir().'/gramlyze-page-v3-unseed-'.bin2hex(random_bytes(12));
+        if (File::exists($this->isolatedStorageRoot)) {
+            throw new \RuntimeException('Refusing to reuse an existing test storage directory.');
+        }
+        File::makeDirectory($this->isolatedStorageRoot, 0700, true);
+        $this->cleanupPaths[] = $this->isolatedStorageRoot;
+        Storage::set('local', Storage::build(['driver' => 'local', 'root' => $this->isolatedStorageRoot]));
 
         $this->rebuildMinimalSchema();
     }
@@ -84,8 +107,6 @@ class PageV3UnseedFolderCommandTest extends TestCase
 
     public function test_dry_run_preflights_full_page_v3_scope_and_keeps_db_unchanged(): void
     {
-        Storage::fake('local');
-
         $generated = $this->writeNewCategoryPage(
             'Page Folder Unseed Dry Run',
             'Tests\\CodexFeature\\PageUnseedFolderDryRun',
@@ -145,14 +166,15 @@ class PageV3UnseedFolderCommandTest extends TestCase
             ->orderBy('id')
             ->firstOrFail();
 
-        Question::query()->create([
+        // This fixture tests unseed references, not the production snapshot observer.
+        Question::withoutEvents(fn () => Question::query()->create([
             'uuid' => 'page-folder-unseed-guard-question',
             'question' => 'Question linked to package page block.',
             'difficulty' => 1,
             'level' => 'A1',
             'theory_text_block_uuid' => (string) $textBlock->uuid,
             'seeder' => 'Tests\\Seeders\\ExternalQuestionSeeder',
-        ]);
+        ]));
 
         $pageCount = Page::query()->count();
         $categoryCount = PageCategory::query()->count();

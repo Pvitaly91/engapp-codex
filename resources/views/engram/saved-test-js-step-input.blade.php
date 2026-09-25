@@ -144,7 +144,10 @@ function render() {
       const widx = parseInt(inp.dataset.word);
       inp.addEventListener('keydown', (e) => {
         if (e.key === ' ') e.preventDefault();
-        if (e.key === 'Enter') onCheck();
+        if (isTestAnswerCommitKey(e)) {
+          e.preventDefault();
+          onCheck();
+        }
       });
       const handle = () => {
         const val = inp.value.replace(/\s+/g, '');
@@ -217,7 +220,7 @@ function onCheck() {
   const val = valParts.join(' ');
   q.input = val;
   q.isCorrect = q.answers.every((ans, i) =>
-    valParts[i].toLowerCase() === (ans || '').toLowerCase()
+    testAnswerMatches(q, i, valParts[i])
   );
   if (q.isCorrect) {
     state.correct += 1;

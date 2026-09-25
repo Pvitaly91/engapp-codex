@@ -2,11 +2,14 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Page;
 use App\Modules\LanguageManager\Services\LocaleService;
 use App\Support\HtmlResponseContent;
+use App\Support\ResolvedHtmlTest;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
 use Symfony\Component\HttpFoundation\Response;
 
 class AddCanonicalUrl
@@ -39,7 +42,7 @@ class AddCanonicalUrl
             return $response;
         }
 
-        $canonical = htmlspecialchars($this->canonicalUrl($request), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+        $canonical = htmlspecialchars($this->canonicalUrl($request, $response), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
         $tag = '<link rel="canonical" href="'.$canonical.'">';
 
         // The middleware is the single source of truth if a legacy layout already has a tag.
@@ -66,10 +69,19 @@ class AddCanonicalUrl
             );
     }
 
-    private function canonicalUrl(Request $request): string
+    private function canonicalUrl(Request $request, Response $response): string
     {
         $origin = rtrim((string) config('site-mode.production_origin', 'https://gramlyze.com'), '/');
         $routeName = (string) $request->route()?->getName();
+
+        if (($resolvedSlug = ResolvedHtmlTest::slugFor($request, $response)) !== null) {
+            return $origin.'/test/'.$this->encodePath($resolvedSlug);
+        }
+
+        if ($routeName === 'courses.theory.lesson'
+            && ($theoryPath = $this->courseTheoryPath($response)) !== null) {
+            return $origin.$theoryPath;
+        }
 
         if (Str::is('test.*', $routeName)
             && $routeName !== 'test.show'
@@ -77,7 +89,39 @@ class AddCanonicalUrl
             return $origin.'/test/'.$this->encodePath($request->route('slug'));
         }
 
-        $segments = $request->segments();
+        return $origin.$this->publicPath($request->segments());
+    }
+
+    private function courseTheoryPath(Response $response): ?string
+    {
+        $view = method_exists($response, 'getOriginalContent') ? $response->getOriginalContent() : null;
+        if (! $view instanceof View) {
+            return null;
+        }
+
+        $data = $view->getData();
+        $page = $data['page'] ?? null;
+        $lesson = $data['lesson'] ?? null;
+        if (! $page instanceof Page || ! is_array($lesson)
+            || (int) $page->getKey() <= 0
+            || (int) ($lesson['page_id'] ?? 0) !== (int) $page->getKey()
+            || ! is_string($lesson['theory_url'] ?? null)) {
+            return null;
+        }
+
+        // Use the controller's resolved Page/manifest mapping, never request query input.
+        $path = parse_url($lesson['theory_url'], PHP_URL_PATH);
+        if (! is_string($path)) {
+            return null;
+        }
+
+        $path = $this->publicPath(array_map('rawurldecode', explode('/', trim($path, '/'))));
+
+        return str_starts_with($path, '/theory/') ? $path : null;
+    }
+
+    private function publicPath(array $segments): string
+    {
         $supportedLocales = array_map(
             static fn (mixed $locale): string => Str::lower((string) $locale),
             LocaleService::getSupportedLocaleCodes()
@@ -89,7 +133,7 @@ class AddCanonicalUrl
 
         $path = collect($segments)->map('rawurlencode')->implode('/');
 
-        return $origin.($path === '' ? '/' : '/'.$path);
+        return $path === '' ? '/' : '/'.$path;
     }
 
     private function encodePath(string $path): string

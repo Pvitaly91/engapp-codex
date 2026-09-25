@@ -38,6 +38,9 @@ on:
       - 'resources/views/components/test-mode-nav*.blade.php'
       - 'tests/Feature/AdminFlows/**'
       - 'tests/Support/AdminRouteMatrix.php'
+      - 'tests/Support/IsolatedTestEnvironment.php'
+      - 'tests/bootstrap.php'
+      - 'tools/diagnostics/run-isolated-tests.py'
       - 'tests/CreatesApplication.php'
       - 'tests/TestCase.php'
   pull_request:
@@ -60,7 +63,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2'
+          php-version: '8.5'
           coverage: none
           tools: composer:v2
           extensions: mbstring, dom, fileinfo, sqlite3, pdo_sqlite
@@ -71,8 +74,16 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-interaction --prefer-dist --no-progress
 
-      - name: Generate application key
-        run: php artisan key:generate --ansi
+      - name: Set up Node.js for Vite assets
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Build manifest assets required by public views
+        run: |
+          npm ci
+          npm run build
 
       - name: Run admin content-management smoke suite
-        run: php artisan test --stop-on-failure tests/Feature/AdminFlows
+        run: python3 tools/diagnostics/run-isolated-tests.py --label ci-admin tests/Feature/AdminFlows

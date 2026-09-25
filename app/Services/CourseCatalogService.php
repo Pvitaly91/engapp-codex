@@ -6,6 +6,27 @@ use App\Support\SentenceBuilderBranding;
 
 class CourseCatalogService
 {
+    /** Actual course destinations, independent of the request's localized URLs. @return list<string> */
+    public function canonicalCourseSlugs(): array
+    {
+        $slugs = [];
+        foreach ($this->courses() as $course) {
+            $destinations = ($course['kind'] ?? null) === 'levels'
+                ? array_column($course['levels'] ?? [], 'course_slug')
+                : [($course['slug'] ?? '')];
+            foreach ($destinations as $slug) {
+                $canonical = SentenceBuilderBranding::canonicalCourseSlug((string) $slug);
+                if (preg_match('/^[a-z0-9]+(?:-[a-z0-9]+)*$/D', $canonical) === 1) {
+                    $slugs[$canonical] = true;
+                }
+            }
+        }
+        $result = array_keys($slugs);
+        sort($result, SORT_STRING);
+
+        return $result;
+    }
+
     /**
      * @return array<int, array<string, mixed>>
      */

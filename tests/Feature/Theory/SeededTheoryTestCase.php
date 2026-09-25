@@ -10,13 +10,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Mockery;
 use Tests\Support\TheoryRouteMatrix;
+use Tests\Support\IsolatedTestEnvironment;
 use Tests\TestCase;
 
 abstract class SeededTheoryTestCase extends TestCase
 {
     private static bool $fixtureBootstrapped = false;
-
-    private static bool $compiledViewsRefreshed = false;
 
     private static ?string $databasePath = null;
 
@@ -25,7 +24,6 @@ abstract class SeededTheoryTestCase extends TestCase
         parent::setUp();
 
         $this->usePersistentSqliteDatabase();
-        $this->prepareCompiledViews();
         $this->bindTheoryServiceMocks();
 
         if (! self::$fixtureBootstrapped) {
@@ -96,36 +94,7 @@ abstract class SeededTheoryTestCase extends TestCase
 
         DB::purge('sqlite');
         DB::reconnect('sqlite');
-    }
-
-    private function prepareCompiledViews(): void
-    {
-        $defaultViewsPath = storage_path('framework/views');
-        $viewsPath = storage_path('framework/views-theory-tests');
-
-        foreach ([$defaultViewsPath, $viewsPath] as $path) {
-            if (! is_dir($path)) {
-                mkdir($path, 0777, true);
-            }
-        }
-
-        config(['view.compiled' => $viewsPath]);
-
-        if (! self::$compiledViewsRefreshed) {
-            // Clear stale compiled Blade views so Livewire directives are recompiled
-            // against the currently installed version instead of cached legacy output.
-            $this->flushCompiledViews($defaultViewsPath);
-            $this->flushCompiledViews($viewsPath);
-
-            self::$compiledViewsRefreshed = true;
-        }
-    }
-
-    private function flushCompiledViews(string $path): void
-    {
-        foreach (glob($path.DIRECTORY_SEPARATOR.'*.php') ?: [] as $compiledView) {
-            @unlink($compiledView);
-        }
+        IsolatedTestEnvironment::assertSafeDatabase(DB::connection());
     }
 
     private function bindTheoryServiceMocks(): void
@@ -154,6 +123,7 @@ abstract class SeededTheoryTestCase extends TestCase
 
     private function rebuildMinimalSchema(): void
     {
+        IsolatedTestEnvironment::assertSafeDatabase(DB::connection());
         Schema::disableForeignKeyConstraints();
 
         foreach ([

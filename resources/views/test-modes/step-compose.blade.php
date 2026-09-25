@@ -2655,7 +2655,7 @@ window.__POLYGLOT_WORD_SEARCH_URL__ = @json(route('api.words.search', ['lang' =>
 
         const question = currentQuestion();
         const submitted = sentenceFromCurrentSlots(question);
-        const isCorrect = normalizeCompare(submitted) === normalizeCompare(question.correctText);
+        const isCorrect = EnglishAnswerVariants.matches(question.correctText, submitted);
 
         if (isCorrect) {
             markAttempt(5, question, submitted);
@@ -2806,7 +2806,7 @@ window.__POLYGLOT_WORD_SEARCH_URL__ = @json(route('api.words.search', ['lang' =>
         const slotIndex = sanitizeInteger(input.getAttribute('data-compose-manual-slot'), -1);
         if (slotIndex < 0) return;
 
-        if (event.key === 'Enter') {
+        if (isTestAnswerCommitKey(event)) {
             event.preventDefault();
             setManualSlotValue(question, slotIndex, input.value);
             checkAnswer();

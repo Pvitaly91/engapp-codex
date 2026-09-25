@@ -1,7 +1,12 @@
 @extends('layouts.catalog-public')
 
-@section('title', $test->name)
-@section('meta_description', __('public.tests.meta_description', ['test' => $test->name]))
+@php
+    $seo = app()->getLocale() === 'uk'
+        ? \App\Support\PageMetadata::test((string) $test->name, $testBreadcrumbs ?? [])
+        : ['title' => $test->name, 'description' => __('public.tests.meta_description', ['test' => $test->name])];
+@endphp
+@section('title', $seo['title'])
+@section('meta_description', $seo['description'])
 
 @section('head')
 <style>

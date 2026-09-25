@@ -57,6 +57,8 @@
         class="flex w-full items-center justify-between rounded-[24px] border px-4 py-4 shadow-card surface-card-strong"
         style="border-color: var(--line);"
         data-theory-mobile-nav-toggle
+        :aria-expanded="open.toString()"
+        aria-controls="theory-mobile-navigation"
     >
         <div class="text-left">
             <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.copilot_theory.map') }}</p>
@@ -67,13 +69,13 @@
         </svg>
     </button>
 
-    <div x-show="open" x-transition x-cloak class="mt-5 flex max-h-[calc(100vh-8rem)] flex-col rounded-[24px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);" data-theory-sidebar data-theory-mobile-nav-panel>
+    <div x-show="open" x-transition x-cloak class="mt-5 flex max-h-[calc(100vh-8rem)] flex-col rounded-[24px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);" data-theory-sidebar data-theory-mobile-nav-panel id="theory-mobile-navigation" :aria-busy="loading.toString()">
         <div x-show="loading" class="px-3 py-8 text-center text-sm" style="color: var(--muted);">
             {{ __('public.common.loading') }}
         </div>
-        <div x-show="error" class="px-3 py-8 text-center text-sm" style="color: var(--muted);">
+        <div x-show="error" x-cloak class="px-3 py-8 text-center text-sm" style="color: var(--muted);" role="alert">
             {{ __('public.common.error') }}
         </div>
-        <div x-ref="content" class="contents"></div>
+        <div x-ref="content" x-show="loaded && !loading && !error" x-cloak class="flex min-h-0 flex-1 flex-col overflow-hidden"></div>
     </div>
 </div>

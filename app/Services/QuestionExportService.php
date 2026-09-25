@@ -203,7 +203,7 @@ class QuestionExportService
 
     private function writeJson(string $uuid, array $payload): void
     {
-        $directory = database_path('seeders/questions');
+        $directory = config('questions.export_path', database_path('seeders/questions'));
         File::ensureDirectoryExists($directory);
 
         $path = $directory . DIRECTORY_SEPARATOR . $uuid . '.json';

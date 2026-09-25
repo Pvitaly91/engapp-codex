@@ -5,8 +5,12 @@ namespace Tests\Feature;
 use App\Modules\GitDeployment\Services\NativeGitDeploymentService;
 use App\Services\ContentDeployment\ContentOperationsDoctorService;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Schema;
 use Mockery;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
+use Symfony\Component\Process\Process;
 use Tests\TestCase;
 
 class DeploymentContentDoctorTest extends TestCase
@@ -22,11 +26,28 @@ class DeploymentContentDoctorTest extends TestCase
     {
         parent::setUp();
 
+        // These fixtures never inherit operator credentials or perform network requests.
+        config([
+            'git-deployment.git_mode' => 'api',
+            'git-deployment.github.owner' => null,
+            'git-deployment.github.repo' => null,
+            'git-deployment.github.token' => null,
+            'git-deployment.contentops_ci_status.required_for_deploy' => false,
+        ]);
+        Http::preventStrayRequests();
+
         $this->ensureDeploymentTables();
     }
 
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function test_shell_doctor_endpoint_returns_json_payload(): void
     {
+        // Install the fail-closed process guard before selecting the shell fixture.
+        $this->assertFalse(class_exists(Process::class, false));
+        Mockery::mock('overload:'.Process::class)->shouldReceive('__construct')->never();
+        config()->set('git-deployment.git_mode', 'ssh');
+
         $doctorService = Mockery::mock(ContentOperationsDoctorService::class);
         $doctorService->shouldReceive('run')
             ->once()
@@ -104,6 +125,14 @@ class DeploymentContentDoctorTest extends TestCase
 
     private function ensureDeploymentTables(): void
     {
+        // The dashboard's empty recent-runs query orders by started_at and id.
+        if (! Schema::hasTable('content_operation_runs')) {
+            Schema::create('content_operation_runs', function (Blueprint $table): void {
+                $table->id();
+                $table->timestamp('started_at')->nullable();
+            });
+        }
+
         if (! Schema::hasTable('backup_branches')) {
             Schema::create('backup_branches', function (Blueprint $table): void {
                 $table->id();

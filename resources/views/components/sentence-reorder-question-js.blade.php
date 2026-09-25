@@ -143,7 +143,7 @@ function applySentenceReorderAction(q, button) {
 
     q.reorderAttempted = true;
     q.done = true;
-    q.feedback = canonicalTestAnswer(submitted) === canonicalTestAnswer(q.reorder_answer) ? 'correct' : testUi('status.incorrect');
+    q.feedback = EnglishAnswerVariants.matches(q.reorder_answer, submitted) ? 'correct' : testUi('status.incorrect');
     q.wrongAttempt = q.feedback !== 'correct';
     q.feedbackMeta = {
       submittedAnswer: submitted,

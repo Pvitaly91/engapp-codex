@@ -1,6 +1,6 @@
-import tailwindcss from '@tailwindcss/postcss';
+import tailwindByEntry from './tools/build/tailwind-by-entry.js';
 import autoprefixer from 'autoprefixer';
 
 export default {
-  plugins: [tailwindcss(), autoprefixer()],
+  plugins: [tailwindByEntry(), autoprefixer()],
 };

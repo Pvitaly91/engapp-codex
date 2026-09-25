@@ -142,6 +142,7 @@ return [
         ],
 
         'status' => [
+            'restart_failed' => 'Unable to restart the test. Check your connection and try again.',
             'completed' => 'Test completed',
             'completed_celebration' => 'Test completed!',
             'loading' => 'Loading...',

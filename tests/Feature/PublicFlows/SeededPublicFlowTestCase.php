@@ -21,13 +21,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Mockery;
 use Tests\Support\PublicRouteMatrix;
+use Tests\Support\IsolatedTestEnvironment;
 use Tests\TestCase;
 
 abstract class SeededPublicFlowTestCase extends TestCase
 {
     private static bool $fixtureBootstrapped = false;
-
-    private static bool $compiledViewsRefreshed = false;
 
     private static ?string $databasePath = null;
 
@@ -36,7 +35,6 @@ abstract class SeededPublicFlowTestCase extends TestCase
         parent::setUp();
 
         $this->usePersistentSqliteDatabase();
-        $this->prepareCompiledViews();
         $this->bindServiceMocks();
 
         config([
@@ -46,7 +44,8 @@ abstract class SeededPublicFlowTestCase extends TestCase
 
         if (! self::$fixtureBootstrapped) {
             $this->rebuildMinimalSchema();
-            $this->seedPublicFixture();
+            // This fixture tests learner routes, not the question export observer.
+            Question::withoutEvents(fn () => $this->seedPublicFixture());
             self::$fixtureBootstrapped = true;
         }
     }
@@ -116,34 +115,7 @@ abstract class SeededPublicFlowTestCase extends TestCase
 
         DB::purge('sqlite');
         DB::reconnect('sqlite');
-    }
-
-    private function prepareCompiledViews(): void
-    {
-        $defaultViewsPath = storage_path('framework/views');
-        $viewsPath = storage_path('framework/views-public-flow-tests');
-
-        foreach ([$defaultViewsPath, $viewsPath] as $path) {
-            if (! is_dir($path)) {
-                mkdir($path, 0777, true);
-            }
-        }
-
-        config(['view.compiled' => $viewsPath]);
-
-        if (! self::$compiledViewsRefreshed) {
-            $this->flushCompiledViews($defaultViewsPath);
-            $this->flushCompiledViews($viewsPath);
-
-            self::$compiledViewsRefreshed = true;
-        }
-    }
-
-    private function flushCompiledViews(string $path): void
-    {
-        foreach (glob($path . DIRECTORY_SEPARATOR . '*.php') ?: [] as $compiledView) {
-            @unlink($compiledView);
-        }
+        IsolatedTestEnvironment::assertSafeDatabase(DB::connection());
     }
 
     private function bindServiceMocks(): void
@@ -169,9 +141,12 @@ abstract class SeededPublicFlowTestCase extends TestCase
 
     private function rebuildMinimalSchema(): void
     {
+        IsolatedTestEnvironment::assertSafeDatabase(DB::connection());
         Schema::disableForeignKeyConstraints();
 
         foreach ([
+            'question_theory_text_blocks',
+            'text_blocks',
             'saved_grammar_test_questions',
             'saved_grammar_tests',
             'tests',
@@ -249,6 +224,33 @@ abstract class SeededPublicFlowTestCase extends TestCase
             $table->unsignedBigInteger('question_id');
             $table->unsignedBigInteger('tag_id');
             $table->unique(['question_id', 'tag_id']);
+        });
+
+        // TestJsV2 eagerly loads the current UUID-based theory relation.
+        Schema::create('text_blocks', function (Blueprint $table) {
+            $table->id();
+            $table->uuid('uuid')->nullable()->unique();
+            $table->unsignedBigInteger('page_id')->nullable();
+            $table->unsignedBigInteger('page_category_id')->nullable();
+            $table->string('locale', 8)->nullable();
+            $table->string('type')->nullable();
+            $table->string('column')->nullable();
+            $table->string('heading')->nullable();
+            $table->string('css_class')->nullable();
+            $table->unsignedInteger('sort_order')->default(0);
+            $table->text('body')->nullable();
+            $table->string('level')->nullable();
+            $table->string('seeder')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('question_theory_text_blocks', function (Blueprint $table) {
+            $table->id();
+            $table->string('question_uuid', 36);
+            $table->string('text_block_uuid', 36);
+            $table->unsignedInteger('position')->default(0);
+            $table->timestamps();
+            $table->unique(['question_uuid', 'text_block_uuid']);
         });
 
         Schema::create('question_options', function (Blueprint $table) {

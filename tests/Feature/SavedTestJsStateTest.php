@@ -24,6 +24,14 @@ class SavedTestJsStateTest extends TestCase
     {
         parent::setUp();
 
+        if (! app()->environment('testing') || DB::connection()->getDriverName() !== 'sqlite'
+            || DB::connection()->getDatabaseName() !== ':memory:'
+            || config('cache.default') !== 'array' || config('session.driver') !== 'array') {
+            throw new \RuntimeException('State fixtures require isolated SQLite memory and array cache/session before schema writes.');
+        }
+        // This suite exercises persistence, not authored-content snapshot exports.
+        Question::flushEventListeners();
+
         if (! Schema::hasTable('tests')) {
             Artisan::call('migrate', ['--path' => 'database/migrations/2025_07_20_184450_create_tests_table.php']);
             Artisan::call('migrate', ['--path' => 'database/migrations/2025_08_04_000002_add_description_to_tests_table.php']);
@@ -237,6 +245,47 @@ class SavedTestJsStateTest extends TestCase
             $payload['state']['__meta']['question_data'],
             session(sprintf('saved_test_js_questions:%s', $test->slug))
         );
+    }
+
+    public function test_server_answer_checker_accepts_equivalent_contractions_but_not_incomplete_negatives(): void
+    {
+        [$question] = $this->createQuestionWithVariants();
+        $optionId = $question->answers()->first()->option_id;
+        foreach ([
+            ['She {a1} today.', "hasn't eaten", 'has not eaten', 'correct'],
+            ['She {a1} today.', 'has not eaten', 'hasn’t eaten', 'correct'],
+            ['She {a1} today.', "hasn't eaten", 'has eaten', 'incorrect'],
+            ['{a1} call tomorrow.', "I'll", 'I will', 'correct'],
+            ['{a1} a singer.', "She's", 'She is', 'correct'],
+            ['{a1} a singer.', "She's", 'She has', 'incorrect'],
+            ['{a1} swim.', "can't", 'can not', 'correct'],
+            ['{a1} swim.', "can't", 'can', 'incorrect'],
+            ['{a1} know?', "Don't you", 'Do you not', 'correct'],
+            ['{a1} know?', "Don't you", 'Do not you', 'incorrect'],
+        ] as [$text, $expected, $answer, $result]) {
+            DB::table('questions')->where('id', $question->id)->update(['question' => $text]);
+            DB::table('question_options')->where('id', $optionId)->update(['option' => $expected]);
+            $response = app(GrammarTestController::class)->checkOneAnswer(Request::create('/admin/grammar-test-check-answer', 'POST', [
+                'question_id' => $question->id, 'answers' => ['a1' => $answer],
+            ]));
+            $this->assertSame($result, $response->getData(true)['result'], $expected.' -> '.$answer);
+        }
+    }
+
+    public function test_successful_204_has_no_body_and_preserves_exact_newest_state_per_test_and_mode(): void
+    {
+        $test = $this->createSavedTest();
+        $other = $this->createSavedTest();
+        $mode = 'saved-test-js-v2';
+        $first = ['answered' => 1, 'activeCardIdx' => 1, 'items' => [['chosen' => ['one']]], '__meta' => ['started' => true]];
+        $latest = ['answered' => 2, 'activeCardIdx' => 4, 'items' => [['chosen' => ['one']], ['chosen' => ['two']]], '__meta' => ['started' => true]];
+        $this->postState($test, ['mode' => $mode, 'state' => $first])->assertNoContent()->assertContent('');
+        $this->postState($test, ['mode' => $mode, 'state' => $latest])->assertNoContent()->assertContent('');
+        $this->assertSame($latest, session("saved_test_js_state:{$test->slug}:{$mode}"));
+        $this->assertNull(session("saved_test_js_state:{$other->slug}:{$mode}"));
+        $this->assertNull(session("saved_test_js_state:{$test->slug}:saved-test-js-step-v2"));
+        session()->flush();
+        $this->assertNull(session("saved_test_js_state:{$test->slug}:{$mode}"));
     }
 
     public function test_it_accepts_every_v2_state_mode(): void

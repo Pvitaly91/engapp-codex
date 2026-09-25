@@ -321,7 +321,7 @@ function ensureGlobalEvents() {
 }
 
 function handleManualAnswerShortcut(e) {
-  const isCommitKey = e.key === 'Enter' || (e.key === 'Tab' && !e.shiftKey);
+  const isCommitKey = isTestAnswerCommitKey(e);
   if (e.isComposing || !isCommitKey) return false;
   if (!e.target || !e.target.closest) return false;
 
@@ -939,7 +939,7 @@ function ensureManualSlotState(q) {
 
 function manualAnswerWords(q, slotIndex) {
   if (isPolyglotComposeQuestion(q)) {
-    return [String(q?.answers?.[slotIndex] ?? '').trim()];
+    return composeManualAnswerWords(q, slotIndex);
   }
 
   const longest = acceptedTestAnswers(q, slotIndex)

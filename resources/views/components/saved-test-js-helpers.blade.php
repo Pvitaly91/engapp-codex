@@ -6,6 +6,7 @@
 @endphp
 
 @include('components.test-suggestion-keyboard')
+@include('components.english-answer-variants')
 
 <style>
     [data-question-reported="1"] {
@@ -77,10 +78,15 @@ function canonicalTestAnswer(value) {
         .replace(/[‘’ʼ`]/g, "'")
         .trim()
         .replace(/\s+/g, ' ')
+        // Sentence-ending punctuation is optional when entering a word/answer.
+        // Keep internal punctuation, apostrophes and decimal separators intact.
+        .replace(/[.!?…]+$/u, '')
+        .trim()
         .toLowerCase()
         .replace(/\bwill\s+not\b/g, "won't")
         .replace(/\bhave\s+not\b/g, "haven't")
-        .replace(/\bhas\s+not\b/g, "hasn't");
+        .replace(/\bhas\s+not\b/g, "hasn't")
+        .replace(/\bhad\s+not\b/g, "hadn't");
 }
 
 function acceptedTestAnswers(question, slotIndex) {
@@ -96,33 +102,12 @@ function acceptedTestAnswers(question, slotIndex) {
         ? byMarker
         : (Array.isArray(bySlot) ? bySlot : []);
     const expected = String(question?.answers?.[slotIndex] ?? '').trim();
-    const variants = [...configured, expected];
-
-    variants.slice().forEach((variant) => {
-        const normalized = String(variant ?? '')
-            .replace(/[‘’ʼ`]/g, "'")
-            .trim()
-            .replace(/\s+/g, ' ');
-
-        if (/\bwon't\b/i.test(normalized)) {
-            variants.push(normalized.replace(/\bwon't\b/gi, 'will not'));
-        }
-        if (/\bwill\s+not\b/i.test(normalized)) {
-            variants.push(normalized.replace(/\bwill\s+not\b/gi, "won't"));
-        }
-        if (/\bhaven't\b/i.test(normalized)) {
-            variants.push(normalized.replace(/\bhaven't\b/gi, 'have not'));
-        }
-        if (/\bhave\s+not\b/i.test(normalized)) {
-            variants.push(normalized.replace(/\bhave\s+not\b/gi, "haven't"));
-        }
-        if (/\bhasn't\b/i.test(normalized)) {
-            variants.push(normalized.replace(/\bhasn't\b/gi, 'has not'));
-        }
-        if (/\bhas\s+not\b/i.test(normalized)) {
-            variants.push(normalized.replace(/\bhas\s+not\b/gi, "hasn't"));
-        }
-    });
+    const context = EnglishAnswerVariants.contextFor(question, slotIndex);
+    const withoutContext = EnglishAnswerVariants.variants(expected).map(EnglishAnswerVariants.normalize);
+    const contextual = EnglishAnswerVariants.variants(expected, context).map(EnglishAnswerVariants.normalize);
+    const aliases = configured.filter(variant => !withoutContext.includes(EnglishAnswerVariants.normalize(variant))
+        || contextual.includes(EnglishAnswerVariants.normalize(variant)));
+    const variants = [...aliases, expected].flatMap(variant => EnglishAnswerVariants.variants(variant, context));
 
     return variants
         .map((variant) => String(variant ?? '').trim())
@@ -132,8 +117,36 @@ function acceptedTestAnswers(question, slotIndex) {
 function testAnswerMatches(question, slotIndex, value) {
     const normalized = canonicalTestAnswer(value);
 
-    return acceptedTestAnswers(question, slotIndex)
-        .some((accepted) => canonicalTestAnswer(accepted) === normalized);
+    return normalized !== '' && acceptedTestAnswers(question, slotIndex)
+        .some((accepted) => EnglishAnswerVariants.normalize(accepted) === EnglishAnswerVariants.normalize(value));
+}
+
+function composeManualAnswerWords(question, slotIndex) {
+    const expected = String(question?.answers?.[slotIndex] ?? '').trim();
+    const wordIndex = Number(question?.manualWordIndexBySlot?.[slotIndex] || 0);
+    if (!Number.isInteger(wordIndex) || wordIndex <= 0) {
+        return [expected];
+    }
+
+    const normalize = (value) => String(value ?? '')
+        .replace(/[‘’ʼ`]/g, "'")
+        .trim()
+        .replace(/\s+/g, ' ')
+        .toLowerCase();
+    const confirmedWords = normalize(question?.manualInputsBySlot?.[slotIndex])
+        .split(' ')
+        .slice(0, wordIndex)
+        .join(' ');
+
+    // One logical answer may take several words (haven't / have not). Follow
+    // the spelling the learner started, adding the next field only after a
+    // correct prefix. An incorrect current word must not change that spelling.
+    const variants = acceptedTestAnswers(question, slotIndex);
+    const matching = variants.find((variant) => normalize(variant).startsWith(`${confirmedWords} `));
+    const words = String(matching ?? expected).split(/\s+/).filter(Boolean);
+
+    // Keep markers/options unchanged: extra inputs belong to the same answer.
+    return words.length ? words.slice(0, wordIndex + 1) : [''];
 }
 
 function formatAnswerOptionLabel(question, slotIndex, option) {
@@ -237,7 +250,7 @@ function renderTechnicalInfoField(label, value, options = {}) {
 
 function getTechnicalQuestions() {
     return Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
-        ? window.__INITIAL_JS_TEST_QUESTIONS__
+        ? window.__INITIAL_JS_TEST_QUESTIONS__.map(EnglishAnswerVariants.prepareQuestion)
         : [];
 }
 
@@ -1156,6 +1169,7 @@ const JS_TEST_PERSISTENCE = window.JS_TEST_PERSISTENCE || null;
 let JS_TEST_SAVE_TIMER = null;
 let JS_TEST_SAVE_QUEUE = Promise.resolve();
 let JS_TEST_LAST_SNAPSHOT = null;
+let JS_TEST_RESTARTING = false;
 
 if (JS_TEST_PERSISTENCE && JS_TEST_PERSISTENCE.saved) {
     JS_TEST_PERSISTENCE.saved = cloneState(JS_TEST_PERSISTENCE.saved);
@@ -1305,6 +1319,7 @@ function mergeFreshQuestionContentIntoSavedState(state) {
         'answer_synonym_tokens_by_marker',
         'markers',
         'markers_count',
+        'contraction_slots_version',
         'options_by_marker',
         'verb_hint',
         'verb_hints',
@@ -1338,6 +1353,7 @@ function mergeFreshQuestionContentIntoSavedState(state) {
     });
 
     restored.items = restored.items.map((savedItem) => {
+        savedItem = EnglishAnswerVariants.prepareQuestion(savedItem);
         if (!savedItem || typeof savedItem !== 'object') {
             return savedItem;
         }
@@ -1399,7 +1415,7 @@ function getSavedState() {
 }
 
 function persistState(state, immediate = false) {
-    if (!JS_TEST_PERSISTENCE) {
+    if (!JS_TEST_PERSISTENCE || JS_TEST_RESTARTING) {
         return;
     }
 
@@ -1453,7 +1469,7 @@ function persistState(state, immediate = false) {
 
 async function loadQuestions(forceFresh = false) {
     const current = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
-        ? window.__INITIAL_JS_TEST_QUESTIONS__
+        ? window.__INITIAL_JS_TEST_QUESTIONS__.map(EnglishAnswerVariants.prepareQuestion)
         : [];
 
     if (!forceFresh) {
@@ -1492,9 +1508,9 @@ async function loadQuestions(forceFresh = false) {
         if (payload && Array.isArray(payload.questions)) {
             JS_TEST_PERSISTENCE.saved = null;
             clearLocalJsTestState();
-            window.__INITIAL_JS_TEST_QUESTIONS__ = payload.questions;
+            window.__INITIAL_JS_TEST_QUESTIONS__ = payload.questions.map(EnglishAnswerVariants.prepareQuestion);
 
-            return payload.questions;
+            return window.__INITIAL_JS_TEST_QUESTIONS__;
         }
     } catch (error) {
         console.error(error);
@@ -1509,20 +1525,17 @@ async function loadQuestions(forceFresh = false) {
 }
 
 async function resetJsTestState() {
-    if (!JS_TEST_PERSISTENCE) {
-        return;
+    if (JS_TEST_SAVE_TIMER) {
+        clearTimeout(JS_TEST_SAVE_TIMER);
+        JS_TEST_SAVE_TIMER = null;
     }
 
-    JS_TEST_PERSISTENCE.saved = null;
-    JS_TEST_LAST_SNAPSHOT = null;
-    clearLocalJsTestState();
+    // Finish already queued writes before clearing the server snapshot. Otherwise
+    // a slow autosave could restore the previous attempt after the reset request.
+    await JS_TEST_SAVE_QUEUE.catch(() => {});
 
-    if (!JS_TEST_PERSISTENCE.endpoint) {
-        return;
-    }
-
-    try {
-        await fetch(JS_TEST_PERSISTENCE.endpoint, {
+    if (JS_TEST_PERSISTENCE?.endpoint) {
+        const response = await fetch(JS_TEST_PERSISTENCE.endpoint, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -1535,13 +1548,22 @@ async function resetJsTestState() {
                 state: null,
             }),
         });
-    } catch (error) {
-        console.error(error);
+
+        if (!response.ok || response.redirected) {
+            throw new Error('Failed to reset test progress');
+        }
     }
+
+    // Keep the local recovery copy until the server confirms the reset.
+    if (JS_TEST_PERSISTENCE) {
+        JS_TEST_PERSISTENCE.saved = null;
+    }
+    JS_TEST_LAST_SNAPSHOT = null;
+    clearLocalJsTestState();
 }
 
 function flushJsTestStateBeforeUnload() {
-    if (!JS_TEST_PERSISTENCE || !JS_TEST_LAST_SNAPSHOT || !isStartedState(JS_TEST_LAST_SNAPSHOT)) {
+    if (JS_TEST_RESTARTING || !JS_TEST_PERSISTENCE || !JS_TEST_LAST_SNAPSHOT || !isStartedState(JS_TEST_LAST_SNAPSHOT)) {
         return;
     }
 
@@ -1550,11 +1572,14 @@ function flushJsTestStateBeforeUnload() {
 
 window.addEventListener('pagehide', flushJsTestStateBeforeUnload);
 
-async function restartJsTest(initFn, options = {}) {
-    if (typeof initFn !== 'function') {
+// Keep the first argument for existing mode-specific callers; rebuilding in
+// place is deliberately replaced with a full document reload.
+async function restartJsTest(_initFn, options = {}) {
+    if (JS_TEST_RESTARTING) {
         return;
     }
 
+    JS_TEST_RESTARTING = true;
     const { showLoaderFn, button } = options;
     const toggleLoader = (value) => {
         if (typeof showLoaderFn === 'function') {
@@ -1574,15 +1599,20 @@ async function restartJsTest(initFn, options = {}) {
     try {
         toggleLoader(true);
         await resetJsTestState();
-        await initFn(true);
+        // Reload the same mode/query with a clean server session and browser
+        // snapshot, including when the controls have moved into the site header.
+        window.history.scrollRestoration = 'manual';
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        window.location.reload();
     } catch (error) {
+        JS_TEST_RESTARTING = false;
         console.error(error);
-    } finally {
         toggleLoader(false);
         if (button) {
             button.disabled = false;
             button.classList.remove('opacity-50');
         }
+        window.alert(testUi('status.restart_failed'));
     }
 }
 </script>

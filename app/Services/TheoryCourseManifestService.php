@@ -6,6 +6,7 @@ use App\Models\Page;
 use App\Models\PageCategory;
 use App\Models\SiteTreeItem;
 use App\Models\SiteTreeVariant;
+use App\Models\TextBlock;
 use App\Modules\LanguageManager\Services\LocaleService;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
@@ -18,6 +19,92 @@ class TheoryCourseManifestService
     public function __construct(
         private TheoryCourseTestPoolService $testPoolService,
     ) {}
+
+    /**
+     * Inspect the real first course entry without warming the manifest/virtual-test caches.
+     * Page.text is deliberately ignored: the course renderer only renders TextBlocks.
+     */
+    public function sitemapEntryPath(string $locale = 'uk'): ?string
+    {
+        $firstPage = $this->firstPageInTree($this->categoryTree($locale, true));
+        if (! $firstPage || trim((string) $firstPage->slug) === '' || strpbrk((string) $firstPage->slug, '/?#\\') !== false
+            // findLesson() compares normalized input against the manifest's raw page_slug.
+            || (string) $firstPage->slug !== $this->normalizeSlug($firstPage->slug)
+            || trim((string) $firstPage->title) === '') {
+            return null;
+        }
+        $path = '/courses/'.self::COURSE_SLUG.'/lesson/'.$firstPage->getAttribute('sitemap_category_path')
+            .'/'.rawurlencode($this->normalizeSlug($firstPage->slug));
+        foreach (TextBlock::query()->where('page_id', $firstPage->getKey())->where('locale', $locale)
+            ->orderBy('sort_order')->get(['type', 'body']) as $block) {
+            $type = (string) $block->type;
+            if ($type === '' || $type === 'box') {
+                if ($this->hasVisibleText($block->body)) {
+                    return $path;
+                }
+                continue;
+            }
+            $body = json_decode((string) $block->body, true);
+            if (! is_array($body)) {
+                continue;
+            }
+            // Only instructional fields rendered by the existing course partial qualify.
+            $fields = match ($type) {
+                'hero', 'hero-v2' => ['intro', 'rules.*.text', 'rules.*.example'],
+                'forms-grid' => ['intro', 'items.*.subtitle', 'items.*.rules.*.formula', 'items.*.rules.*.text', 'items.*.rules.*.example'],
+                'usage-panels' => ['sections.*.description', 'sections.*.examples.*.en', 'sections.*.examples.*.ua', 'sections.*.note'],
+                'comparison-table' => ['intro', 'rows.*.en', 'rows.*.ua', 'rows.*.note', 'warning'],
+                'mistakes-grid' => ['items.*.wrong', 'items.*.right', 'items.*.hint'],
+                'summary-list' => ['items'],
+                'practice-set' => ['selects.*.label', 'choices.*.label', 'choices.*.prompt', 'inputs.*.before', 'inputs.*.after', 'rephrase.*.original'],
+                default => [],
+            };
+            foreach ($fields as $field) {
+                if ($this->hasVisibleText(data_get($body, $field))) {
+                    return $path;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    private function firstPageInTree(Collection $categories, array $parents = []): ?Page
+    {
+        foreach ($categories as $category) {
+            if (trim((string) $category->slug) === '' || strpbrk((string) $category->slug, '/?#\\') !== false) {
+                return null;
+            }
+            $path = [...$parents, rawurlencode($this->normalizeSlug($category->slug))];
+            foreach ($category->getAttribute('ordered_tree_items') ?? [] as $item) {
+                if (($item['type'] ?? null) === 'page' && ($item['model'] ?? null) instanceof Page) {
+                    return $item['model']->setAttribute('sitemap_category_path', implode('/', $path));
+                }
+                if (($item['type'] ?? null) === 'category' && ($item['model'] ?? null) instanceof PageCategory) {
+                    $page = $this->firstPageInTree(collect([$item['model']]), $path);
+                    if ($page) {
+                        return $page;
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+    private function hasVisibleText(mixed $value): bool
+    {
+        if (is_array($value)) {
+            return array_is_list($value) && collect($value)->contains(fn (mixed $part): bool => $this->hasVisibleText($part));
+        }
+        if (! is_string($value)) {
+            return false;
+        }
+
+        $visible = preg_replace('~<(script|style|template|noscript)\b[^>]*>.*?</\1\s*>~is', '', $value) ?? '';
+
+        return preg_match('/[\p{L}\p{N}]/u', html_entity_decode(strip_tags($visible), ENT_QUOTES | ENT_HTML5, 'UTF-8')) === 1;
+    }
 
     public function build(string $courseSlug = self::COURSE_SLUG, bool $fresh = false): array
     {
@@ -250,17 +337,18 @@ class TheoryCourseManifestService
         }
     }
 
-    private function categoryTree(): Collection
+    private function categoryTree(?string $locale = null, bool $metadataOnly = false): Collection
     {
-        $language = $this->resolvedCategoryLanguage();
+        $language = $locale ?? $this->resolvedCategoryLanguage();
         $categories = PageCategory::query()
             ->whereNull('parent_id')
             ->where('type', 'theory')
             ->when($language, fn ($query, string $lang) => $query->where('language', $lang))
             ->with([
-                'pages' => fn ($query) => $query->where('type', 'theory')->orderBy('title'),
-                'children' => function ($query) use ($language): void {
-                    $this->applyChildRelations($query, $language);
+                'pages' => fn ($query) => $query->where('type', 'theory')->orderBy('title')
+                    ->when($metadataOnly, fn ($q) => $q->select(['id', 'page_category_id', 'slug', 'title', 'type'])),
+                'children' => function ($query) use ($language, $metadataOnly): void {
+                    $this->applyChildRelations($query, $language, $metadataOnly);
                 },
             ])
             ->orderBy('title')
@@ -273,14 +361,15 @@ class TheoryCourseManifestService
         );
     }
 
-    private function applyChildRelations($query, ?string $language): void
+    private function applyChildRelations($query, ?string $language, bool $metadataOnly = false): void
     {
         $query->where('type', 'theory')
             ->when($language, fn ($q, string $lang) => $q->where('language', $lang))
             ->with([
-                'pages' => fn ($q) => $q->where('type', 'theory')->orderBy('title'),
-                'children' => function ($childQuery) use ($language): void {
-                    $this->applyChildRelations($childQuery, $language);
+                'pages' => fn ($q) => $q->where('type', 'theory')->orderBy('title')
+                    ->when($metadataOnly, fn ($pageQuery) => $pageQuery->select(['id', 'page_category_id', 'slug', 'title', 'type'])),
+                'children' => function ($childQuery) use ($language, $metadataOnly): void {
+                    $this->applyChildRelations($childQuery, $language, $metadataOnly);
                 },
             ])
             ->orderBy('title');

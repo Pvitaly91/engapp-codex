@@ -1051,7 +1051,7 @@
               saveState();
           });
           els.answerInput?.addEventListener('keydown', (event) => {
-              if (event.key === 'Enter') {
+              if (isTestAnswerCommitKey(event)) {
                   event.preventDefault();
                   evaluateAnswer(els.answerInput.value);
               }

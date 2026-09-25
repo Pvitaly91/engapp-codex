@@ -6,15 +6,18 @@ use App\Models\Page;
 use App\Models\PageCategory;
 use App\Models\Question;
 use App\Models\SavedGrammarTest;
+use App\Models\Test;
 use App\Support\ComposeModeEligibility;
 use App\Support\Database\JsonTestSeeder;
 use App\Support\PromptGeneratorFilterNormalizer;
 use App\Support\SentenceBuilderBranding;
 use App\Support\TheoryPageTestSlug;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use Throwable;
@@ -41,6 +44,301 @@ class TheoryPagePromptLinkedTestsService
      * @var array<string, array<string, mixed>|null>
      */
     private array $definitionCache = [];
+
+    /**
+     * Read-only M4 catalog of MAIN mixed tests backed by persistent linked metadata.
+     * No cards, definition cache, registry, sessions, question banks or question links
+     * are loaded. Definition-only/UUID-only links remain outside this first package.
+     *
+     * @return Collection<int, VirtualSavedTest>
+     */
+    public function mainSitemapTests(Collection $pages, string $locale = 'uk', ?\Closure $checkpoint = null): Collection
+    {
+        $checkpoint?->__invoke('stable_slug_mapping', 0);
+        if (! in_array($locale, config('site-mode.production_locales', ['uk']), true)) {
+            return collect();
+        }
+        $pages = $pages->filter(fn ($page): bool => $page instanceof Page
+            && (int) $page->getKey() > 0 && $page->type === 'theory')->values();
+        if ($pages->isEmpty()) {
+            return collect();
+        }
+
+        // Supply complete parent relationships once; page/slug matching must not
+        // trigger a parent/category query per candidate.
+        $categories = PageCategory::query()->get()->keyBy('id');
+        foreach ($categories as $category) {
+            $category->setRelation('parent', $categories->get($category->parent_id));
+        }
+        foreach ($pages as $page) {
+            $page->setRelation('category', $categories->get($page->page_category_id));
+        }
+        $pages = $this->unambiguousMainTestPages($pages->filter(
+            fn (Page $page): bool => $page->category instanceof PageCategory
+                && $this->hasPublicCategoryChain($page->category, $locale)
+        )->values(), $categories);
+        if ($pages->isEmpty()) {
+            return collect();
+        }
+
+        $checkpoint?->__invoke('persistent_metadata', $categories->count() + $pages->count());
+        $saved = SavedGrammarTest::query()->orderByDesc('updated_at')->orderBy('name')
+            ->get(['id', 'uuid', 'name', 'slug', 'description', 'filters', 'updated_at']);
+        $possibleLinks = $this->possiblePrimarySitemapLinks($pages, $saved);
+        $primaryMatches = collect();
+        foreach ($pages->chunk(40) as $chunk) {
+            $union = null;
+            foreach ($chunk as $page) {
+                $query = $this->linkedTestsQueryForPage($page)
+                    ->whereKey($possibleLinks[$page->getKey()])
+                    ->selectRaw('id, ? AS page_id', [(int) $page->getKey()])->toBase();
+                $union = $union === null ? $query : $union->unionAll($query);
+            }
+            $primaryMatches = $primaryMatches->concat($union->get());
+        }
+        $checkpoint?->__invoke('linked_collections', $saved->count() + $primaryMatches->count());
+        $primaryMatches = $primaryMatches->groupBy('page_id');
+        $savedById = $saved->keyBy('id');
+        $savedOrder = array_flip($saved->pluck('id')->all());
+        $linkedByPage = $pages->mapWithKeys(function (Page $page) use ($saved, $savedById, $savedOrder, $primaryMatches): array {
+            $ids = $primaryMatches->get($page->getKey(), collect())->pluck('id')->all();
+            // Match the existing loader's primary-query-then-normalized-fallback
+            // contract, including its precedence when legacy metadata disagrees.
+            $linked = $ids !== [] ? collect($ids)->unique()->sortBy(fn ($id) => $savedOrder[$id])
+                ->map(fn ($id) => $savedById->get($id))
+                : $saved->sortBy('id')->filter(fn (SavedGrammarTest $test): bool => $this->filtersReferencePage($test->filters ?? [], $page));
+
+            return [$page->getKey() => $this->preferTheoryPagePolyglotPackages($this->deduplicateLinkedTests($linked))];
+        });
+        $seeders = $linkedByPage->flatMap(function (Collection $tests) use ($locale): Collection {
+            $defaults = $this->linkedSeederClasses($tests);
+
+            return $defaults->merge($this->applyLocaleMixedSeederOverrides($defaults, $tests, $locale));
+        })->unique()->values();
+        if ($seeders->isEmpty()) {
+            return collect();
+        }
+        $checkpoint?->__invoke('question_statistics', $linkedByPage->sum(fn ($linked) => $linked->count()));
+        $statistics = Question::query()->whereIn('seeder', $seeders->all())
+            ->select(['seeder', 'level', 'type'])->selectRaw('COUNT(*) AS question_count')
+            ->groupBy('seeder', 'level', 'type')->get();
+        $checkpoint?->__invoke('candidate_collections', $statistics->count());
+        // Partition the already aggregated rows once. Do not rescan every other
+        // topic's Eloquent metadata for each page (no question bodies are loaded).
+        $statisticsBySeeder = $statistics->groupBy('seeder');
+        $tests = $pages->map(function (Page $page) use ($linkedByPage, $statisticsBySeeder, $locale): ?VirtualSavedTest {
+            $linked = $linkedByPage->get($page->getKey(), collect());
+            $defaults = $this->linkedSeederClasses($linked);
+            if ($defaults->isEmpty()) {
+                return null;
+            }
+            // Both pools are needed: an incomplete locale override falls back to
+            // the defaults in the shared builder. Preserve exact seeder equality.
+            $pageStatistics = $defaults->merge($this->applyLocaleMixedSeederOverrides($defaults, $linked, $locale))
+                ->unique()->flatMap(fn ($seeder) => $statisticsBySeeder->get($seeder, collect()))->values();
+
+            return $this->buildMixedAllLevelsTestForPage($page, $linked, collect(), $pageStatistics, $locale);
+        })->filter()->values();
+
+        // A persisted/legacy test has precedence over a same-slug virtual test in
+        // SavedTestResolver. Such collisions need a separate content audit.
+        $slugs = $tests->map(fn (VirtualSavedTest $test): string => $test->public_slug)->all();
+        $collisions = $saved->whereIn('slug', $slugs)->pluck('slug')
+            ->merge(Test::query()->whereIn('slug', $slugs)->pluck('slug'))->all();
+        $tests = $tests->reject(fn (VirtualSavedTest $test): bool => in_array($test->public_slug, $collisions, true))->values();
+
+        $checkpoint?->__invoke('question_readiness', $tests->count());
+        $filterService = app(GrammarTestFilterService::class);
+        $supportsQuestionTypes = ! $tests->contains(fn (VirtualSavedTest $test): bool => ($test->filters['question_types'] ?? []) !== [])
+            || Schema::hasColumn('questions', 'type');
+        $ready = collect();
+        foreach ($tests->chunk(40) as $chunk) {
+            // questions.seeder is not indexed in every supported installation.
+            // Scan this chunk's pool once, not once per candidate/EXISTS branch.
+            // Only aggregate scalars leave SQL; no question bank is hydrated.
+            $chunkSeeders = $chunk->flatMap(fn (VirtualSavedTest $test): array => $filterService->normalize($test->filters)['seeder_classes'])->unique()->values()->all();
+            $query = DB::table('questions')->whereIn('questions.seeder', $chunkSeeders);
+            [$usableSql, $usableBindings] = $this->questionPredicateSql(
+                $filterService->constrainUsableQuestions(Question::query())
+            );
+            foreach ($chunk->values() as $index => $test) {
+                [$matchingSql, $matchingBindings] = $this->questionPredicateSql(
+                    $filterService->matchingQuestionsQuery($test->filters, $supportsQuestionTypes)
+                );
+                $query->selectRaw(
+                    // MIN ignores nonmatching NULLs: NULL = empty matching pool,
+                    // 0 = at least one unusable match, 1 = every match usable.
+                    // This is exactly matched > 0 AND unusable = 0, without
+                    // evaluating/binding the matching predicate a second time.
+                    "MIN(CASE WHEN ($matchingSql) THEN CASE WHEN ($usableSql) THEN 1 ELSE 0 END END) AS matched_$index",
+                    array_merge($matchingBindings, $usableBindings)
+                );
+            }
+            $counts = $query->first();
+            foreach ($chunk->values() as $index => $test) {
+                // A valid item beyond the deterministic cap cannot prove that
+                // the selected bank is usable. Preserve the conservative rule:
+                // at least one matching row, and no matching unusable rows.
+                if ((int) ($counts->{"matched_$index"} ?? 0) === 1) {
+                    $ready->push($test->public_slug);
+                }
+            }
+        }
+
+        $checkpoint?->__invoke('ready_collections', $ready->count());
+
+        return $tests->filter(fn (VirtualSavedTest $test): bool => $ready->contains($test->public_slug))
+            ->unique('public_slug')->sortBy('public_slug')->values();
+    }
+
+    /** Compile the same scoped predicates as selection, preserving bound values. */
+    private function questionPredicateSql(Builder $query): array
+    {
+        $base = $query->toBase();
+        $where = $base->getGrammar()->compileWheres($base);
+
+        // Laravel's WHERE compiler includes the fixed "where " conjunction.
+        return [substr($where, strlen('where ')), $base->getBindings()];
+    }
+
+    /**
+     * A conservative reverse index, NOT a replacement for the SQL JSON predicate.
+     * It only prunes impossible IDs before the existing predicate runs against
+     * the PK. Noncanonical scalar types/Unicode retain the full SQL fallback, so
+     * database coercion/collation and primary-vs-normalized precedence stay owned
+     * by the existing query. All maps live for this invocation only.
+     *
+     * @return array<int, list<int>>
+     */
+    private function possiblePrimarySitemapLinks(Collection $pages, Collection $saved): array
+    {
+        $byId = $bySlug = $bySeeder = $uncertain = [];
+        foreach ($saved as $test) {
+            $id = (int) $test->getKey();
+            $filters = $test->filters ?? [];
+            if (! is_array($filters)) {
+                $uncertain[$id] = $id;
+
+                continue;
+            }
+            $prompt = $filters['prompt_generator'] ?? null;
+            if ($prompt === null) {
+                continue;
+            }
+            if (! is_array($prompt)) {
+                $uncertain[$id] = $id;
+
+                continue;
+            }
+            $nested = $prompt['theory_page'] ?? [];
+            if (! is_array($nested)) {
+                $uncertain[$id] = $id;
+                $nested = [];
+            }
+            $ids = $prompt['theory_page_ids'] ?? [];
+            if (! is_array($ids)) {
+                $ids = [$ids];
+            }
+            foreach ([$prompt['theory_page_id'] ?? null, $nested['id'] ?? null, ...array_values($ids)] as $pageId) {
+                if ($pageId === null) {
+                    continue;
+                }
+                if (is_int($pageId) || (is_string($pageId) && preg_match('/^[1-9][0-9]{0,8}$/D', $pageId))) {
+                    $byId[(int) $pageId][$id] = $id;
+                } else {
+                    $uncertain[$id] = $id;
+                }
+            }
+            foreach (['slug' => &$bySlug, 'page_seeder_class' => &$bySeeder] as $key => &$index) {
+                $value = $nested[$key] ?? null;
+                if ($value === null) {
+                    continue;
+                }
+                if (is_string($value) && preg_match('/^[\x20-\x7e]*$/D', $value)) {
+                    $index[strtolower(trim($value))][$id] = $id;
+                } else {
+                    $uncertain[$id] = $id;
+                }
+            }
+            unset($index);
+        }
+        $matches = [];
+        foreach ($pages as $page) {
+            $slug = $this->normalizedPageSlug($page);
+            $seeder = $this->normalizedPageSeederClass($page);
+            if (! preg_match('/^[\x20-\x7e]*$/D', $seeder)) {
+                $matches[$page->getKey()] = $saved->modelKeys();
+
+                continue;
+            }
+            $matches[$page->getKey()] = array_values($uncertain + ($byId[$page->getKey()] ?? [])
+                + ($bySlug[strtolower(trim($slug))] ?? []) + ($bySeeder[strtolower(trim($seeder))] ?? []));
+        }
+
+        return $matches;
+    }
+
+    private function hasPublicCategoryChain(PageCategory $category, string $locale): bool
+    {
+        $seen = [];
+        do {
+            $id = (int) $category->getKey();
+            if (isset($seen[$id]) || count($seen) >= 10
+                || $category->type !== 'theory' || $category->language !== $locale) {
+                return false;
+            }
+            $seen[$id] = true;
+            $parent = $category->parent;
+            if ($category->parent_id !== null && ! $parent instanceof PageCategory) {
+                return false;
+            }
+            $category = $parent;
+        } while ($category instanceof PageCategory);
+
+        return true;
+    }
+
+    /** Only stable slugs that the existing cold resolver reconstructs unambiguously. */
+    private function unambiguousMainTestPages(Collection $pages, Collection $categories): Collection
+    {
+        $categorySlugs = $categories->groupBy('slug');
+        $siblings = Page::query()->whereIn('page_category_id', $pages->pluck('page_category_id')->unique()->all())
+            ->get(['id', 'slug', 'page_category_id'])->groupBy('page_category_id');
+
+        return $pages->filter(function (Page $page) use ($categorySlugs, $siblings): bool {
+            $category = $page->category;
+            if (! $category || $categorySlugs->get($category->slug, collect())->count() !== 1
+                || Str::slug((string) $category->slug) !== $category->slug
+                || Str::slug((string) $page->slug) !== $page->slug) {
+                return false;
+            }
+            [$topic, $segment] = explode('/', TheoryPageTestSlug::forPage($page));
+            foreach (array_unique([$topic.'-'.$segment, $segment]) as $candidate) {
+                $matches = $siblings->get($category->getKey(), collect())->where('slug', $candidate);
+                if ($matches->isNotEmpty()) {
+                    return $matches->count() === 1 && (int) $matches->first()->getKey() === (int) $page->getKey()
+                        && $this->isMainTestRoute(TheoryPageTestSlug::forPage($page));
+                }
+            }
+            return false;
+        })->values();
+    }
+
+    /** Route matching only: never dispatch a request or render a learning page. */
+    private function isMainTestRoute(string $slug): bool
+    {
+        try {
+            $route = app('router')->getRoutes()->match(Request::create('http://gramlyze.loc/test/'.$slug, 'GET'));
+        } catch (\Symfony\Component\HttpKernel\Exception\HttpExceptionInterface) {
+            return false;
+        }
+        $routeSlug = (string) $route->parameter('slug');
+        if (in_array($route->getName(), ['test.show', 'test.future-simple.time-expressions'], true)) {
+            return $routeSlug === $slug;
+        }
+        return $route->getName() === 'test.js.questions'
+            && $routeSlug.'/questions' === $slug;
+    }
 
     public function buildForPage(Page $page): Collection
     {
@@ -407,13 +705,15 @@ class TheoryPagePromptLinkedTestsService
     protected function buildMixedAllLevelsTestForPage(
         Page $page,
         Collection $linkedTests,
-        Collection $definitionsBySeeder
+        Collection $definitionsBySeeder,
+        ?Collection $questionStatistics = null,
+        ?string $locale = null
     ): ?VirtualSavedTest {
         $defaultSeederClasses = $this->aggregateSeederClassesForPage($linkedTests, $definitionsBySeeder);
-        $seederClasses = $this->applyLocaleMixedSeederOverrides($defaultSeederClasses, $linkedTests);
+        $seederClasses = $this->applyLocaleMixedSeederOverrides($defaultSeederClasses, $linkedTests, $locale);
 
         if ($seederClasses->all() !== $defaultSeederClasses->all()
-            && ! $this->everySeederHasQuestions($seederClasses)) {
+            && ! $this->everySeederHasQuestions($seederClasses, $questionStatistics)) {
             $seederClasses = $defaultSeederClasses;
         }
 
@@ -432,11 +732,16 @@ class TheoryPagePromptLinkedTestsService
             return null;
         }
 
-        $questionRows = Question::query()
-            ->whereIn('seeder', $seederClasses->all())
-            ->whereNotNull('level')
-            ->get(['level', 'type']);
-        $availableCount = $questionRows->count();
+        $questionRows = $questionStatistics === null
+            ? Question::query()
+                ->whereIn('seeder', $seederClasses->all())
+                ->whereNotNull('level')
+                ->select(['level', 'type'])->selectRaw('COUNT(*) AS question_count')
+                ->groupBy('level', 'type')->get()
+            : $questionStatistics
+                ->whereIn('seeder', $seederClasses->all())
+                ->filter(fn ($row): bool => $row->level !== null)->values();
+        $availableCount = (int) $questionRows->sum('question_count');
 
         if ($availableCount <= 0) {
             return null;
@@ -491,7 +796,7 @@ class TheoryPagePromptLinkedTestsService
     {
         $levelCounts = $questionRows
             ->groupBy(fn ($row) => (string) ($row->level ?? ''))
-            ->map(fn (Collection $rows): int => $rows->count());
+            ->map(fn (Collection $rows): int => (int) $rows->sum('question_count'));
 
         return collect($levels !== [] ? $levels : self::LEVEL_ORDER)
             ->sum(fn (string $level): int => min(
@@ -587,16 +892,15 @@ class TheoryPagePromptLinkedTestsService
             ->values();
     }
 
-    protected function everySeederHasQuestions(Collection $seederClasses): bool
+    protected function everySeederHasQuestions(Collection $seederClasses, ?Collection $questionStatistics = null): bool
     {
         if ($seederClasses->isEmpty()) {
             return false;
         }
 
-        $availableSeeders = Question::query()
-            ->whereIn('seeder', $seederClasses->all())
-            ->distinct()
-            ->pluck('seeder')
+        $availableSeeders = ($questionStatistics === null
+            ? Question::query()->whereIn('seeder', $seederClasses->all())->distinct()->pluck('seeder')
+            : $questionStatistics->whereIn('seeder', $seederClasses->all())->pluck('seeder'))
             ->map(fn ($className) => Str::lower(trim((string) $className)))
             ->filter()
             ->all();
@@ -1011,15 +1315,32 @@ class TheoryPagePromptLinkedTestsService
 
     protected function loadTestsForPage(Page $page): Collection
     {
+        try {
+            $tests = $this->linkedTestsQueryForPage($page)
+                ->with('questionLinks')->withCount('questionLinks')
+                ->orderByDesc('updated_at')->orderBy('name')->get();
+
+            if ($tests->isNotEmpty()) {
+                return $tests;
+            }
+        } catch (Throwable) {
+        }
+
+        return SavedGrammarTest::query()
+            ->with('questionLinks')->withCount('questionLinks')->get()
+            ->filter(fn (SavedGrammarTest $test) => $this->filtersReferencePage($test->filters ?? [], $page))
+            ->values();
+    }
+
+    /** Shared persistent linkage predicate; callers choose projection/batching. */
+    protected function linkedTestsQueryForPage(Page $page): Builder
+    {
         $pageId = (int) $page->getKey();
         $pageSlug = $this->normalizedPageSlug($page);
         $categorySlugPath = $this->pageCategorySlugPath($page);
         $pageSeederClass = $this->normalizedPageSeederClass($page);
 
-        try {
-            $tests = SavedGrammarTest::query()
-                ->with('questionLinks')
-                ->withCount('questionLinks')
+        return SavedGrammarTest::query()
                 ->where(function (Builder $query) use ($pageId, $pageSlug, $categorySlugPath, $pageSeederClass): void {
                     $query->where('filters->prompt_generator->theory_page_id', $pageId)
                         ->orWhere('filters->prompt_generator->theory_page->id', $pageId)
@@ -1049,23 +1370,7 @@ class TheoryPagePromptLinkedTestsService
                             }
                         });
                     }
-                })
-                ->orderByDesc('updated_at')
-                ->orderBy('name')
-                ->get();
-
-            if ($tests->isNotEmpty()) {
-                return $tests;
-            }
-        } catch (Throwable) {
-        }
-
-        return SavedGrammarTest::query()
-            ->with('questionLinks')
-            ->withCount('questionLinks')
-            ->get()
-            ->filter(fn (SavedGrammarTest $test) => $this->filtersReferencePage($test->filters ?? [], $page))
-            ->values();
+                });
     }
 
     /**

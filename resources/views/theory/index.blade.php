@@ -115,11 +115,8 @@
                     $accent = $gradients[$index % count($gradients)];
                     $hasChildren = $category->relationLoaded('children') && $category->children->isNotEmpty();
                     $hasPages = $category->relationLoaded('pages') && $category->pages->isNotEmpty();
-                    $searchText = collect([$category->title])
-                        ->merge($hasChildren ? $category->children->pluck('title') : collect())
-                        ->implode(' ');
                 @endphp
-                <article class="flex h-full flex-col overflow-hidden rounded-[26px] border shadow-card surface-card-strong" style="border-color: var(--line);" data-theory-category-card data-theory-search-text="{{ $searchText }}">
+                <article class="flex h-full flex-col overflow-hidden rounded-[26px] border shadow-card surface-card-strong" style="border-color: var(--line);" data-theory-category-card data-theory-search-text="{{ $category->title }}">
                     <a href="{{ localized_route($routePrefix . '.category', $category->slug) }}" class="block shrink-0 border-b p-6" style="border-color: var(--line);">
                         <div class="flex items-start justify-between gap-4">
                             <span class="inline-flex h-14 w-14 items-center justify-center rounded-[20px] {{ $accent }} text-sm font-extrabold text-white dark:text-slate-950">
@@ -138,7 +135,7 @@
                                 <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.common.categories') }}</p>
                                 <div class="mt-3 space-y-2">
                                     @foreach($category->children as $child)
-                                        <a href="{{ localized_route($routePrefix . '.category', $child->slug) }}" class="flex items-center justify-between rounded-[18px] border px-3 py-3 text-sm transition hover:-translate-y-0.5 surface-card" style="border-color: var(--line); color: var(--text);">
+                                        <a href="{{ localized_route($routePrefix . '.category', $child->slug) }}" data-theory-category-child data-theory-search-text="{{ $child->title }}" class="flex items-center justify-between rounded-[18px] border px-3 py-3 text-sm transition hover:-translate-y-0.5 surface-card" style="border-color: var(--line); color: var(--text);">
                                             <span class="min-w-0 break-words" data-theory-highlight>{{ $child->title }}</span>
                                             <span class="text-xs font-bold" style="color: var(--muted);">{{ $child->recursive_pages_count ?? $child->pages_count ?? 0 }}</span>
                                         </a>
@@ -237,6 +234,7 @@
 @endsection
 
 @section('scripts')
+    @include('components.theory-search')
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const root = document.querySelector('[data-theory-category-search]');
@@ -253,7 +251,11 @@
             const empty = document.querySelector('[data-theory-category-search-empty]');
             const total = cards.length;
 
-            const normalize = (value) => value.toLocaleLowerCase().trim();
+            const {normalize, rank, createSorter} = window.GramlyzeTheorySearch;
+            const sortCards = createSorter(cards);
+            const children = Array.from(grid.querySelectorAll('[data-theory-category-child]'));
+            const sortChildren = createSorter(children);
+            const childGroups = new Map(cards.map(card => [card, children.filter(child => card.contains(child))]));
 
             const clearHighlight = (element) => {
                 element.textContent = element.dataset.theoryOriginalText || element.textContent;
@@ -301,10 +303,15 @@
             const applySearch = () => {
                 const query = normalize(input.value);
                 let visible = 0;
+                const scores = new Map();
+
+                children.forEach(child => scores.set(child, rank(child.dataset.theorySearchText, query)));
 
                 cards.forEach((card) => {
-                    const haystack = normalize(card.dataset.theorySearchText || '');
-                    const matched = !query || haystack.includes(query);
+                    const score = Math.max(rank(card.dataset.theorySearchText, query),
+                        ...childGroups.get(card).map(child => scores.get(child)));
+                    scores.set(card, score);
+                    const matched = !query || score > 0;
 
                     card.classList.toggle('hidden', !matched);
 
@@ -320,6 +327,9 @@
                         }
                     });
                 });
+
+                sortChildren(element => scores.get(element));
+                sortCards(element => scores.get(element));
 
                 if (count) {
                     count.textContent = `${visible} / ${total}`;

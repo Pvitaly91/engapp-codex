@@ -58,11 +58,11 @@
                                         <span class="flex-shrink-0 text-lg">💬</span>
                                         <div class="min-w-0 flex-1">
                                             <p class="font-mono text-xs font-medium text-foreground">
-                                                {{ $example['en'] ?? '' }}
+                                                {{ \App\Support\TheoryInlineHtml::render($example['en'] ?? '') }}
                                             </p>
                                             @if(!empty($example['ua']))
                                                 <p class="text-xs text-muted-foreground mt-0.5 italic">
-                                                    {{ $example['ua'] }}
+                                                    {{ \App\Support\TheoryInlineHtml::render($example['ua']) }}
                                                 </p>
                                             @endif
                                         </div>

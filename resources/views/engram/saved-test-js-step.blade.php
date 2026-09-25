@@ -226,7 +226,7 @@ function onChoose(opt) {
 
   const explanationPromise = ensureExplanation(q, opt, expected, key, slotIndex);
 
-  if (opt === expected) {
+  if (testAnswerMatches(q, slotIndex, opt)) {
     q.chosen[slotIndex] = opt;
     q.slot += 1;
     q.lastWrong = null;

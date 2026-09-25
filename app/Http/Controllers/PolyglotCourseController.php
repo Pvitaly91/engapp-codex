@@ -16,9 +16,10 @@ class PolyglotCourseController extends Controller
     public function show(string $courseSlug)
     {
         $manifest = $this->manifestService->build($courseSlug);
-        $courseStatus = $this->blueprintService->buildCourseStatus($courseSlug);
 
         abort_if(($manifest['total_lessons'] ?? 0) < 1, 404);
+
+        $courseStatus = $this->blueprintService->buildCourseStatus($courseSlug);
 
         return view('courses.show', [
             'course' => $courseStatus['course'],

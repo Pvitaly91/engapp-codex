@@ -14,6 +14,7 @@ use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\EnforceSiteModeLocale;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Middleware\RequireLocalDiagnosticAccess;
 use App\Http\Middleware\RequireDevelopmentMode;
 use App\Http\Middleware\SetLocale;
 use App\Http\Middleware\TrimStrings;
@@ -106,6 +107,7 @@ class Kernel extends HttpKernel
         'throttle' => ThrottleRequests::class,
         'verified' => EnsureEmailIsVerified::class,
         'auth.admin' => AdminAuthenticate::class,
+        'diagnostic.loopback' => RequireLocalDiagnosticAccess::class,
         'site.dev' => RequireDevelopmentMode::class,
     ];
 }

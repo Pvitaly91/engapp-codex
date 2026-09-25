@@ -1,7 +1,12 @@
 @extends('layouts.catalog-public')
 
-@section('title', $course['name'])
-@section('meta_description', __('public.courses.course_meta_description', ['course' => $course['name']]))
+@php
+    $seo = app()->getLocale() === 'uk'
+        ? \App\Support\PageMetadata::course($course)
+        : ['title' => $course['name'], 'description' => __('public.courses.course_meta_description', ['course' => $course['name']])];
+@endphp
+@section('title', $seo['title'])
+@section('meta_description', $seo['description'])
 
 @section('content')
 @php

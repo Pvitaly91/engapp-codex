@@ -1,14 +1,14 @@
 @php
     $decodeSocialValue = static fn (string $value): string => html_entity_decode(
-        html_entity_decode(trim($value), ENT_QUOTES | ENT_HTML5, 'UTF-8'),
+        trim($value),
         ENT_QUOTES | ENT_HTML5,
         'UTF-8'
     );
     $socialTitle = $decodeSocialValue(
-        $__env->yieldContent('social_title', $__env->yieldContent('title', __('public.meta.title')))
+        $__env->yieldContent($__env->hasSection('social_title') ? 'social_title' : 'title', __('public.meta.title'))
     );
     $socialDescription = $decodeSocialValue(
-        $__env->yieldContent('social_description', $__env->yieldContent('meta_description', __('public.meta.description')))
+        $__env->yieldContent($__env->hasSection('social_description') ? 'social_description' : 'meta_description', __('public.meta.description'))
     );
     $socialUrl = trim($__env->yieldContent('social_url', url()->current()));
     $socialImage = trim($__env->yieldContent('social_image', asset('images/social/gramlyze-og.png')));

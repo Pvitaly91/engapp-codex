@@ -120,8 +120,16 @@ Route::get('/theory/{categoryPath}/{pageSlug}', [TheoryController::class, 'showB
 
 // Public catalog and search
 Route::get('/catalog/tests-cards', [GrammarTestController::class, 'catalogAggregated'])->name('catalog.tests-cards');
-Route::get('/catalog-tests/cards', fn () => redirect()->route('catalog.tests-cards')); // legacy
-Route::get('/tests/cards', fn () => redirect()->route('catalog.tests-cards')); // legacy
+foreach (['/catalog-tests/cards', '/tests/cards'] as $legacyCatalogPath) {
+    Route::get($legacyCatalogPath, function (Request $request) {
+        // Route names are shared by locale groups. Keep the visitor's locale and
+        // functional filters, but not a permanent move to a production-gated page.
+        $target = localized_route('catalog.tests-cards', [], false);
+        $query = $request->getQueryString();
+
+        return redirect()->to($target.($query ? '?'.$query : ''), 302);
+    });
+}
 
 Route::get('/search', SiteSearchController::class)->name('site.search');
 Route::get('/courses', [CourseCatalogController::class, 'index'])->name('courses.index');

@@ -34,6 +34,14 @@ class ApplySiteMode
             'Host'
         ));
 
+        // The legacy questions route negotiates a learning page or data/error response.
+        if ($request->route()?->getName() === 'test.js.questions') {
+            $response->headers->set('Vary', $this->appendVary(
+                (string) $response->headers->get('Vary'),
+                'Accept'
+            ));
+        }
+
         if ($mode === SiteMode::DEVELOPMENT) {
             $response->headers->set('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
             $response->headers->set('Pragma', 'no-cache');

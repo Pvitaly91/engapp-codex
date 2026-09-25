@@ -15,8 +15,8 @@ class SavedTestClientAnswerLogicTest extends TestCase
         $this->assertStringContainsString('.replace(/\\bwill\\s+not\\b/g, "won\'t")', $helper);
         $this->assertStringContainsString('.replace(/\\bhave\\s+not\\b/g, "haven\'t")', $helper);
         $this->assertStringContainsString('.replace(/\\bhas\\s+not\\b/g, "hasn\'t")', $helper);
-        $this->assertStringContainsString("normalized.replace(/\\bhaven't\\b/gi, 'have not')", $helper);
-        $this->assertStringContainsString("normalized.replace(/\\bhasn't\\b/gi, 'has not')", $helper);
+        $this->assertStringContainsString('EnglishAnswerVariants.variants(variant, context)', $helper);
+        $this->assertStringContainsString('EnglishAnswerVariants.contextFor(question, slotIndex)', $helper);
         $this->assertStringContainsString('function testAnswerMatches(question, slotIndex, value)', $helper);
     }
 
@@ -155,7 +155,7 @@ class SavedTestClientAnswerLogicTest extends TestCase
             );
 
             $this->assertStringContainsString(
-                "const isCommitKey = e.key === 'Enter' || (e.key === 'Tab' && !e.shiftKey);",
+                'const isCommitKey = isTestAnswerCommitKey(e);',
                 $shortcut,
                 $view
             );

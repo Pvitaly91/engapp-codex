@@ -54,6 +54,8 @@ final class TheoryRouteMatrix
             'representative_page' => [
                 'slug' => 'will-vs-be-going-to',
                 'title' => 'Will vs Be Going To',
+                'category_slug' => 'future-simple',
+                'category_seeder' => 'Database\\Seeders\\Page_V3\\FutureForms\\FutureSimple\\FutureSimpleCategorySeeder',
                 'seeder' => 'Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsWillVsBeGoingToTheorySeeder',
             ],
         ],
@@ -267,6 +269,7 @@ final class TheoryRouteMatrix
                     'category_slug' => $categorySlug,
                     'category_title' => $category['titles'][$locale],
                     'representative_page_slug' => $category['representative_page']['slug'],
+                    'representative_category_slug' => $category['representative_page']['category_slug'] ?? null,
                 ];
             }
         }
@@ -285,6 +288,7 @@ final class TheoryRouteMatrix
                 $cases["{$locale}_{$categorySlug}_{$page['slug']}"] = [
                     'locale' => $locale,
                     'category_slug' => $categorySlug,
+                    'category_path' => $categorySlug . (isset($page['category_slug']) ? '/'.$page['category_slug'] : ''),
                     'page_slug' => $page['slug'],
                     'page_title' => $page['title'],
                 ];
@@ -455,6 +459,9 @@ final class TheoryRouteMatrix
 
         foreach (self::TOP_LEVEL_CATEGORIES as $category) {
             $seeders[] = $category['category_seeder'];
+            if (isset($category['representative_page']['category_seeder'])) {
+                $seeders[] = $category['representative_page']['category_seeder'];
+            }
             $seeders[] = $category['representative_page']['seeder'];
         }
 

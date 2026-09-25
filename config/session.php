@@ -50,6 +50,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Session Serialization
+    |--------------------------------------------------------------------------
+    |
+    | Keep the existing PHP serialization format during the Laravel 13
+    | migration so browser sessions created by the current local application
+    | remain readable after the runtime switch.
+    |
+    */
+
+    'serialization' => env('SESSION_SERIALIZATION', 'php'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Session File Location
     |--------------------------------------------------------------------------
     |

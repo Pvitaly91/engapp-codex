@@ -8,6 +8,15 @@ use PHPUnit\Framework\TestCase;
 
 class SavedTestJsStateTest extends TestCase
 {
+    public function test_grouped_contraction_progress_is_not_overwritten_with_split_source_markers(): void
+    {
+        $item = ['uuid' => 'example', 'answers' => ['I will call', 'tomorrow'], 'chosen' => ["I'll call", null], 'contraction_slots_version' => 1];
+        $questions = [['uuid' => 'example', 'answers' => ['I', 'will', 'call', 'tomorrow']]];
+        $merged = SavedTestJsState::mergeCurrentQuestionData(['items' => [$item]], $questions);
+        $this->assertSame($item, $merged['items'][0]);
+        $this->assertSame($questions, $merged['__meta']['question_data']);
+    }
+
     #[DataProvider('startedStateProvider')]
     public function test_it_recognizes_progress_from_every_supported_state_shape(array $state): void
     {

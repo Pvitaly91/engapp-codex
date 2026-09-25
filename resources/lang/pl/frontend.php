@@ -142,6 +142,7 @@ return [
         ],
 
         'status' => [
+            'restart_failed' => 'Nie udało się rozpocząć testu od nowa. Sprawdź połączenie i spróbuj ponownie.',
             'completed' => 'Test zakończony',
             'completed_celebration' => 'Test zakończony!',
             'loading' => 'Ładowanie...',

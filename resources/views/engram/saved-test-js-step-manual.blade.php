@@ -114,7 +114,12 @@ function render() {
   document.getElementById('check').addEventListener('click', onCheck);
   wrap.querySelectorAll('input').forEach(inp => {
     if (!inp.dataset.minWidth) inp.dataset.minWidth = inp.offsetWidth;
-    inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') onCheck(); });
+    inp.addEventListener('keydown', (e) => {
+      if (isTestAnswerCommitKey(e)) {
+        e.preventDefault();
+        onCheck();
+      }
+    });
     const handle = () => {
       autoResize(inp);
       const slot = Number(inp.dataset.slot);
@@ -138,7 +143,7 @@ function onCheck() {
     const el = document.getElementById(`input-${i}`);
     const val = (el.value || '').trim();
     q.chosen[i] = val;
-    if (val.toLowerCase() !== ans.toLowerCase()) {
+    if (!testAnswerMatches(q, i, val)) {
       allCorrect = false;
       el.classList.add('border-rose-400');
     } else {

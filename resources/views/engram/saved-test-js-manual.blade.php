@@ -113,6 +113,12 @@ function renderQuestions(showOnlyWrong = false) {
 
     wrap.appendChild(card);
     card.querySelectorAll('input[data-question][data-slot]').forEach(inp => {
+      inp.addEventListener('keydown', e => {
+        if (isTestAnswerCommitKey(e)) {
+          e.preventDefault();
+          onCheck(idx);
+        }
+      });
       if (!inp.dataset.minWidth) inp.dataset.minWidth = inp.offsetWidth;
       const handle = () => {
         autoResize(inp);
@@ -151,7 +157,7 @@ function onCheck(idx) {
     const el = document.getElementById(`input-${idx}-${i}`);
     const val = (el.value || '').trim();
     item.chosen[i] = val;
-    if (val.toLowerCase() !== ans.toLowerCase()) {
+    if (!testAnswerMatches(item, i, val)) {
       allCorrect = false;
       el.classList.add('border-rose-400');
     } else {

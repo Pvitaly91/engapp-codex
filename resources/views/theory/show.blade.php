@@ -15,7 +15,19 @@
             'page' => $page->title,
             'category' => $selectedCategory->title ?? __('public.theory.title'),
         ]);
-    $seoTitle = \Illuminate\Support\Str::limit((string) $page->title, 48, '…') . ' | Gramlyze';
+    $seoTitle = (string) $page->title . ' | Gramlyze';
+    if (app()->getLocale() === 'uk') {
+        // The display title may be shortened/localized in memory by the controller; keep the full stored identity for UK SEO only.
+        $seo = \App\Support\PageMetadata::theory(
+            (string) ($page->getRawOriginal('title') ?: $page->title),
+            (string) ($selectedCategory->title ?? ''),
+            $seoIntro,
+            $page->type === 'theory' ? (string) $page->getRawOriginal('seeder') : '',
+            app()->getLocale()
+        );
+        $seoTitle = $seo['title'];
+        $seoDescription = $seo['description'];
+    }
 @endphp
 @section('title', $seoTitle)
 @section('meta_description', $seoDescription)
@@ -180,7 +192,7 @@
                             @endif
                             <div class="mt-3 text-sm leading-6" style="color: var(--text);">{!! $rule['text'] ?? '' !!}</div>
                             @if(!empty($rule['example']))
-                                <code class="mt-4 block rounded-[16px] px-3 py-2 text-xs" style="background: var(--accent-soft); color: var(--text);">{{ $rule['example'] }}</code>
+                                <code class="mt-4 block rounded-[16px] px-3 py-2 text-xs" style="background: var(--accent-soft); color: var(--text);">{{ \App\Support\TheoryInlineHtml::render($rule['example']) }}</code>
                             @endif
                         </article>
                     @endforeach

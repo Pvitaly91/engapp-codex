@@ -53,7 +53,7 @@
 
                             @if(!empty($item['subtitle']))
                                 <p class="text-sm text-muted-foreground">
-                                    {{ $item['subtitle'] }}
+                                    {{ \App\Support\TheoryInlineHtml::render($item['subtitle']) }}
                                 </p>
                             @endif
                         </div>

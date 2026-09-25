@@ -116,6 +116,10 @@ function renderQuestion(idx) {
       const wIdx = parseInt(inp.dataset.word);
       inp.addEventListener('keydown', e => {
         if (e.key === ' ') e.preventDefault();
+        if (isTestAnswerCommitKey(e)) {
+          e.preventDefault();
+          onCheck(idx);
+        }
       });
       const handle = () => {
         const val = inp.value.replace(/\s+/g, '');
@@ -179,7 +183,7 @@ function onCheck(idx) {
   const q = state.items[idx];
   if (q.isCorrect !== null) return;
   const valParts = q.inputs.map(words => words.join(' ').trim());
-  q.isCorrect = q.answers.every((ans, i) => valParts[i].toLowerCase() === (ans || '').toLowerCase());
+  q.isCorrect = q.answers.every((ans, i) => testAnswerMatches(q, i, valParts[i]));
   if (q.isCorrect) state.correct += 1;
   state.answered += 1;
   renderQuestion(idx);

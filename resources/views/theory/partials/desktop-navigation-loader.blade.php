@@ -49,8 +49,8 @@
     <div x-show="loading" class="px-3 py-8 text-center text-sm" style="color: var(--muted);">
         {{ __('public.common.loading') }}
     </div>
-    <div x-show="error" class="px-3 py-8 text-center text-sm" style="color: var(--muted);">
+    <div x-show="error" x-cloak class="px-3 py-8 text-center text-sm" style="color: var(--muted);" role="alert">
         {{ __('public.common.error') }}
     </div>
-    <div x-ref="content" class="flex min-h-0 flex-1 flex-col overflow-hidden"></div>
+    <div x-ref="content" x-show="!loading && !error" x-cloak class="flex min-h-0 flex-1 flex-col overflow-hidden"></div>
 </div>
