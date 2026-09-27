@@ -9,6 +9,9 @@ use RuntimeException;
 
 class PatchLinkingWordsContent extends Command
 {
+    protected const PATCH = LinkingWordsContentPatch::class;
+    protected const PRIVATE_DIRECTORY = 'seo-m11-local';
+    protected const LABEL = 'M11';
     protected $signature = 'content:patch-linking-words-m11
         {--plan= : New private preview basename, or inspected preview for apply}
         {--apply : Apply the exact inspected preview}
@@ -25,9 +28,10 @@ class PatchLinkingWordsContent extends Command
         if (($this->option('apply') || $this->option('restore')) && !app()->environment('local', 'testing') && $this->option('local-target') === null) {
             $this->error('Local/testing environment only; production writes are refused.'); return self::FAILURE;
         }
-        $directory = storage_path('app/seo-m11-local');
+        $directory = storage_path('app/'.static::PRIVATE_DIRECTORY);
         if (!is_dir($directory)) { mkdir($directory, 0700, true); }
-        $patch = new LinkingWordsContentPatch(DB::connection(), database_path(), $directory,
+        $patchClass = static::PATCH;
+        $patch = new $patchClass(DB::connection(), database_path(), $directory,
             $this->option('local-target'), $this->option('local-proof'));
         $path = function ($name) use ($directory): string {
             if (!is_string($name) || !preg_match('/^[a-zA-Z0-9_-]+\.json$/', $name)) { throw new RuntimeException('Use a simple private .json basename.'); }
@@ -43,14 +47,14 @@ class PatchLinkingWordsContent extends Command
             } elseif ($this->option('apply')) {
                 $result = $patch->apply($path($this->option('plan')), $path($this->option('backup')), $this->option('database'));
             } else {
-                $plan = $patch->savePlan($path($this->option('plan')), $this->option('only') ?: LinkingWordsContentPatch::NAMES);
+                $plan = $patch->savePlan($path($this->option('plan')), $this->option('only') ?: $patchClass::NAMES);
                 $result = ['status' => 'dry-run', 'connection' => $plan['connection'], 'changes' => count($plan['changes']),
                     'plan' => $path($this->option('plan')), 'sha256' => $plan['sha256']];
             }
             $this->line(json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR));
             return self::SUCCESS;
         } catch (\Throwable $e) {
-            $this->error($e instanceof RuntimeException && !$e instanceof \PDOException ? $e->getMessage() : 'M11 patch failed; no successful transaction was committed.');
+            $this->error($e instanceof RuntimeException && !$e instanceof \PDOException ? $e->getMessage() : static::LABEL.' patch failed; no successful transaction was committed.');
             return self::FAILURE;
         }
     }

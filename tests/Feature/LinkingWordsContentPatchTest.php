@@ -102,6 +102,19 @@ class LinkingWordsContentPatchTest extends TestCase
         $this->seedFixture(); $this->addQuestionReferences();
         $before = $this->snapshot();
         $patch = $this->service(); $plan = $patch->savePlan($this->path('plan'));
+        // M12 may share the engine, but legacy M11 plans/backups keep this exact shape.
+        self::assertSame(['patch', 'version', 'names', 'connection', 'sources', 'pages', 'changes', 'sha256'], array_keys($plan));
+        self::assertSame('m11-linking-words-v1', $plan['patch']);
+        self::assertSame(1, $plan['version']);
+        self::assertSame(LinkingWordsContentPatch::NAMES, $plan['names']);
+        foreach ($plan['pages'] as $snapshot) {
+            self::assertSame(['page', 'category', 'blocks', 'page_tag', 'tag_text_block', 'page_category_tag',
+                'question_theory_text_blocks', 'tags', 'questions', 'question_answers', 'question_option_question',
+                'question_tag', 'question_marker_tag', 'verb_hints', 'question_hints', 'question_variants',
+                'question_options', 'saved_grammar_test_questions'], array_keys($snapshot));
+        }
+        $unhashed = $plan; unset($unhashed['sha256']);
+        self::assertSame(LinkingWordsContentPatch::digest($unhashed), $plan['sha256']);
         self::assertSame($before, $this->snapshot(), 'Preview is read-only.');
         self::assertCount(12, $plan['changes']);
         self::assertSame(12, $patch->apply($this->path('plan'), $this->path('backup'))['updated']);

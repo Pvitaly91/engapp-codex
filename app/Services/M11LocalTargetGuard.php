@@ -11,22 +11,25 @@ use Symfony\Component\Process\Process;
 class M11LocalTargetGuard
 {
     public const ROOT = 'D:/DEV/htdocs/gramlyze.loc';
+    protected const LABEL = 'M11';
+    protected const PRIVATE_DIRECTORY = 'seo-m11-local';
+    protected const ENDPOINT = 'm11-target-';
 
     public function verify(Connection $db, string $target, string $privateDirectory, ?string $proofName, array $physical): void
     {
         if ($target !== 'gramlyze.loc' || PHP_SAPI !== 'cli' || PHP_OS_FAMILY !== 'Windows') {
-            throw new RuntimeException('M11 local-target requires CLI on this Windows gramlyze.loc copy.');
+            throw new RuntimeException(static::LABEL.' local-target requires CLI on this Windows gramlyze.loc copy.');
         }
         $root = $this->path(self::ROOT);
         if ($this->path(base_path()) !== $root || $this->path(app()->environmentPath()) !== $root
-            || $this->path($privateDirectory) !== $root.'/storage/app/seo-m11-local') {
-            throw new RuntimeException('M11 working checkout/environment/storage does not match the vhost target.');
+            || $this->path($privateDirectory) !== $root.'/storage/app/'.static::PRIVATE_DIRECTORY) {
+            throw new RuntimeException(static::LABEL.' working checkout/environment/storage does not match the vhost target.');
         }
         if ($db->getDriverName() !== 'mysql' || $db->getConfig('url') || $db->getConfig('unix_socket')
             || $db->getConfig('read') || $db->getConfig('write') || $db->getReadPdo() !== $db->getPdo()
             || !in_array($db->getConfig('host'), ['localhost', '127.0.0.1', '::1'], true)
             || (int) $db->getConfig('port') !== ($physical['port'] ?? 0)) {
-            throw new RuntimeException('M11 requires one local TCP MySQL connection, without URL/socket/split/forwarding.');
+            throw new RuntimeException(static::LABEL.' requires one local TCP MySQL connection, without URL/socket/split/forwarding.');
         }
         $server = (array) $db->selectOne('SELECT @@pid_file AS pid_file, @@basedir AS basedir, @@datadir AS datadir, @@version_compile_os AS os');
         $evidence = $this->windowsEvidence((int) $physical['port']);
@@ -36,7 +39,7 @@ class M11LocalTargetGuard
         if (!str_starts_with((string) $server['os'], 'Win') || !ctype_digit($mysqlPid)
             || !str_starts_with($pidPath, $dataPath.'/') || str_starts_with($dataPath, '//')
             || strcasecmp($physical['server'] ?? '', gethostname()) !== 0) {
-            throw new RuntimeException('M11 could not corroborate the MySQL server with its local Windows PID file.');
+            throw new RuntimeException(static::LABEL.' could not corroborate the MySQL server with its local Windows PID file.');
         }
         $this->assertEvidence($evidence, $root, (int) $mysqlPid, (int) $physical['port']);
         $proof = $this->readProof($privateDirectory, $proofName);
@@ -64,19 +67,19 @@ class M11LocalTargetGuard
     {
         $addresses = $e['addresses'] ?? [];
         if (!$addresses || array_filter($addresses, fn ($ip) => !in_array($ip, ['127.0.0.1', '::1'], true))) {
-            throw new RuntimeException('M11 gramlyze.loc does not resolve exclusively to loopback.');
+            throw new RuntimeException(static::LABEL.' gramlyze.loc does not resolve exclusively to loopback.');
         }
         if (($e['document_root'] ?? '') !== $root.'/public' || ($e['active_vhosts'] ?? 0) !== 1
             || ($e['apache_name'] ?? '') !== 'httpd.exe' || ($e['apache_pid'] ?? 0) < 1
             || ($e['apache_pid'] ?? 0) !== ($e['apache_pid_file'] ?? -1)) {
-            throw new RuntimeException('M11 live Apache/vhost mapping is unconfirmed or ambiguous.');
+            throw new RuntimeException(static::LABEL.' live Apache/vhost mapping is unconfirmed or ambiguous.');
         }
         $listeners = $e['mysql_listeners'] ?? [];
-        if (!$listeners || $mysqlPid < 1) { throw new RuntimeException('M11 local MySQL listener is unconfirmed.'); }
+        if (!$listeners || $mysqlPid < 1) { throw new RuntimeException(static::LABEL.' local MySQL listener is unconfirmed.'); }
         foreach ($listeners as $listener) {
             if (($listener['port'] ?? 0) !== $port || ($listener['pid'] ?? 0) !== $mysqlPid
                 || !in_array($listener['name'] ?? '', ['mysqld.exe', 'mariadbd.exe'], true)) {
-                throw new RuntimeException('M11 MySQL listener belongs to a different process or forwarding target.');
+                throw new RuntimeException(static::LABEL.' MySQL listener belongs to a different process or forwarding target.');
             }
         }
     }
@@ -84,7 +87,7 @@ class M11LocalTargetGuard
     public function assertRuntimeProof(array $expected, array $web): void
     {
         if ($web !== $expected) {
-            throw new RuntimeException('M11 live vhost database/runtime proof differs from the CLI working connection.');
+            throw new RuntimeException(static::LABEL.' live vhost database/runtime proof differs from the CLI working connection.');
         }
     }
 
@@ -98,26 +101,26 @@ class M11LocalTargetGuard
             '-NonInteractive', '-Command', $commands]);
         $process->setTimeout(20);
         $process->run();
-        if (!$process->isSuccessful()) { throw new RuntimeException('M11 Windows listener/vhost inspection could not be completed.'); }
+        if (!$process->isSuccessful()) { throw new RuntimeException(static::LABEL.' Windows listener/vhost inspection could not be completed.'); }
         return json_decode(trim($process->getOutput()), true, flags: JSON_THROW_ON_ERROR);
     }
 
     private function readProof(string $directory, ?string $name): array
     {
         if (!is_string($name) || !preg_match('/^local-proof-[a-f0-9]{32}\.json$/D', $name)) {
-            throw new RuntimeException('M11 local-target needs a fresh private local-proof basename.');
+            throw new RuntimeException(static::LABEL.' local-target needs a fresh private local-proof basename.');
         }
         $path = $directory.'/'.$name;
-        if (is_link($path) || !is_file($path)) { throw new RuntimeException('M11 local-target proof is missing.'); }
+        if (is_link($path) || !is_file($path)) { throw new RuntimeException(static::LABEL.' local-target proof is missing.'); }
         $proof = json_decode(file_get_contents($path), true, flags: JSON_THROW_ON_ERROR);
         if (($proof['target'] ?? '') !== 'gramlyze.loc' || !preg_match('/^[a-f0-9]{32}$/D', $proof['nonce'] ?? '')
-            || $name !== 'local-proof-'.$proof['nonce'].'.json') { throw new RuntimeException('Invalid M11 local proof.'); }
+            || $name !== 'local-proof-'.$proof['nonce'].'.json') { throw new RuntimeException('Invalid '.static::LABEL.' local proof.'); }
         return $proof;
     }
 
     protected function webProof(string $nonce): array
     {
-        $curl = curl_init('http://gramlyze.loc/api/_local/m11-target-'.$nonce);
+        $curl = curl_init('http://gramlyze.loc/api/_local/'.static::ENDPOINT.$nonce);
         curl_setopt_array($curl, [CURLOPT_RETURNTRANSFER => true, CURLOPT_FOLLOWLOCATION => false,
             CURLOPT_CONNECTTIMEOUT => 3, CURLOPT_TIMEOUT => 15, CURLOPT_PROXY => '',
             CURLOPT_RESOLVE => ['gramlyze.loc:80:127.0.0.1'], CURLOPT_HTTPHEADER => ['Accept: application/json']]);
@@ -125,7 +128,7 @@ class M11LocalTargetGuard
         $status = curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
         $ip = curl_getinfo($curl, CURLINFO_PRIMARY_IP);
         if ($body === false || $status !== 200 || $ip !== '127.0.0.1') {
-            throw new RuntimeException('M11 live loopback vhost proof is unavailable; no write is allowed.');
+            throw new RuntimeException(static::LABEL.' live loopback vhost proof is unavailable; no write is allowed.');
         }
         return json_decode($body, true, flags: JSON_THROW_ON_ERROR);
     }

@@ -11,10 +11,12 @@ class LinkingWordsContentPatch
 {
     public const NAMES = ['LinkingWordsReasonResultContrastTheorySeeder', 'AdvancedLinkingDevicesTheorySeeder', 'ConcessiveAndContrastiveStructuresTheorySeeder'];
     public const PREFIX = 'Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\';
-    private const ID = 'm11-linking-words-v1';
-    private const MANIFEST = 'content-patches/m11-linking-words-before.json';
+    protected const ID = 'm11-linking-words-v1';
+    protected const MANIFEST = 'content-patches/m11-linking-words-before.json';
+    protected const LABEL = 'M11';
+    protected const LOCAL_GUARD = M11LocalTargetGuard::class;
 
-    public function __construct(private Connection $db, private string $databasePath, private string $privateDirectory,
+    public function __construct(protected Connection $db, private string $databasePath, private string $privateDirectory,
         private ?string $localTarget = null, private ?string $localProof = null) {}
 
     public static function digest(array $value): string
@@ -27,30 +29,30 @@ class LinkingWordsContentPatch
         // Keep the established physical PDO/host/database guards, not merely APP_ENV.
         $physical = (new PronounContentRepair($this->db, $this->databasePath, $this->privateDirectory))->connection($expected, $writing);
         if ($this->localTarget !== null) {
-            app(M11LocalTargetGuard::class)->verify($this->db, $this->localTarget, $this->privateDirectory, $this->localProof, $physical);
+            app(static::LOCAL_GUARD)->verify($this->db, $this->localTarget, $this->privateDirectory, $this->localProof, $physical);
         }
         return $physical;
     }
 
-    public function plan(array $names = self::NAMES, bool $lock = false): array
+    public function plan(?array $names = null, bool $lock = false): array
     {
-        if (!$names || count(array_unique($names)) !== count($names) || array_diff($names, self::NAMES)) {
-            throw new RuntimeException('Only the three explicit M11 lesson identities are allowed.');
+        $names ??= static::NAMES;
+        if (!$names || count(array_unique($names)) !== count($names) || array_diff($names, static::NAMES)) {
+            throw new RuntimeException('Only the three explicit '.static::LABEL.' lesson identities are allowed.');
         }
-        $names = array_values(array_intersect(self::NAMES, $names));
-        $manifestBytes = file_get_contents($this->databasePath.'/'.self::MANIFEST);
+        $names = array_values(array_intersect(static::NAMES, $names));
+        $manifestBytes = file_get_contents($this->databasePath.'/'.static::MANIFEST);
         $manifest = json_decode($manifestBytes, true, flags: JSON_THROW_ON_ERROR);
-        if (($manifest['patch'] ?? '') !== self::ID || array_keys($manifest['definitions'] ?? []) !== self::NAMES) {
-            throw new RuntimeException('Unexpected historical M11 source manifest.');
+        if (($manifest['patch'] ?? '') !== static::ID || array_keys($manifest['definitions'] ?? []) !== static::NAMES) {
+            throw new RuntimeException('Unexpected historical '.static::LABEL.' source manifest.');
         }
-        $plan = ['patch' => self::ID, 'version' => 1, 'names' => $names, 'connection' => $this->connection(),
-            'sources' => [self::MANIFEST => hash('sha256', $manifestBytes)], 'pages' => [], 'changes' => []];
+        $plan = ['patch' => static::ID, 'version' => 1, 'names' => $names, 'connection' => $this->connection(),
+            'sources' => [static::MANIFEST => hash('sha256', $manifestBytes)], 'pages' => [], 'changes' => []];
         foreach ($names as $name) {
-            $relative = 'seeders/Page_V3/ClausesAndLinkingWords/'.$name.'/definition.json';
+            ['seeder' => $seeder, 'relative' => $relative] = $this->identity($name);
             $bytes = file_get_contents($this->databasePath.'/'.$relative);
             $after = json_decode($bytes, true, flags: JSON_THROW_ON_ERROR);
             $before = $manifest['definitions'][$name];
-            $seeder = self::PREFIX.$name;
             $this->assertSources($name, $before, $after);
             $plan['sources'][$relative] = hash('sha256', $bytes);
             foreach (glob(dirname($this->databasePath.'/'.$relative).'/localizations/*.json') ?: [] as $localePath) {
@@ -69,6 +71,7 @@ class LinkingWordsContentPatch
             $uk = array_values(array_filter($blocks, fn ($r) => $r['locale'] === 'uk'));
             if (count($uk) !== 3) { throw new RuntimeException('Expected exactly the three established UK blocks: '.$name); }
             $snapshot = ['page' => $page, 'category' => $category[0], 'blocks' => $blocks];
+            $snapshot += $this->categorySnapshot($category[0], $name, $lock);
             $snapshot += $this->relations($page, $blocks, $lock);
             $plan['pages'][$seeder] = $snapshot;
             $pageChanges = [];
@@ -100,9 +103,9 @@ class LinkingWordsContentPatch
 
     private function assertSources(string $name, array $before, array $after): void
     {
-        if (($after['seeder']['class'] ?? '') !== self::PREFIX.$name || ($after['page']['locale'] ?? '') !== 'uk'
+        if (($after['seeder']['class'] ?? '') !== $this->identity($name)['seeder'] || ($after['page']['locale'] ?? '') !== 'uk'
             || ($after['type'] ?? '') !== 'theory' || count($after['page']['blocks'] ?? []) !== 2) {
-            throw new RuntimeException('Unexpected M11 source identity/locale/block count: '.$name);
+            throw new RuntimeException('Unexpected '.static::LABEL.' source identity/locale/block count: '.$name);
         }
         $immutable = function (array $source): array {
             unset($source['page']['subtitle_html'], $source['page']['subtitle_text']);
@@ -110,7 +113,7 @@ class LinkingWordsContentPatch
             unset($block);
             return $source;
         };
-        if ($immutable($before) !== $immutable($after)) { throw new RuntimeException('M11 may change only subtitle, heading and body: '.$name); }
+        if ($immutable($before) !== $immutable($after)) { throw new RuntimeException(static::LABEL.' may change only subtitle, heading and body: '.$name); }
         foreach ([$before, $after] as $source) {
             $hero = json_decode($source['page']['blocks'][0]['body'], true, flags: JSON_THROW_ON_ERROR);
             if (empty($hero['intro']) || ($hero['level'] ?? '') !== $source['page']['blocks'][0]['level']) {
@@ -136,7 +139,15 @@ class LinkingWordsContentPatch
         return 'before';
     }
 
-    private function rows(string $table, callable $filter, bool $lock): array
+    protected function identity(string $name): array
+    {
+        return ['seeder' => self::PREFIX.$name, 'relative' => 'seeders/Page_V3/ClausesAndLinkingWords/'.$name.'/definition.json'];
+    }
+
+    /** M11 deliberately retains its original snapshot shape for existing backups. */
+    protected function categorySnapshot(array $category, string $name, bool $lock): array { return []; }
+
+    protected function rows(string $table, callable $filter, bool $lock): array
     {
         $query = $this->db->table($table);
         $filter($query);
@@ -168,7 +179,7 @@ class LinkingWordsContentPatch
         return $out;
     }
 
-    public function savePlan(string $path, array $names = self::NAMES): array
+    public function savePlan(string $path, ?array $names = null): array
     {
         $plan = $this->plan($names);
         $this->writeNew($path, $plan);
@@ -213,7 +224,7 @@ class LinkingWordsContentPatch
     private function assertWriteEnvironment(): void
     {
         if (!app()->environment('local', 'testing') && $this->localTarget === null) {
-            throw new RuntimeException('Local/testing environment only; production writes are refused without verified M11 local-target.');
+            throw new RuntimeException('Local/testing environment only; production writes are refused without verified '.static::LABEL.' local-target.');
         }
     }
 
@@ -252,9 +263,9 @@ class LinkingWordsContentPatch
         $this->assertPrivatePath($path);
         $plan = json_decode(file_get_contents($path), true, flags: JSON_THROW_ON_ERROR);
         $hash = $plan['sha256'] ?? null; unset($plan['sha256']);
-        if (($plan['patch'] ?? '') !== self::ID || ($plan['version'] ?? 0) !== 1 || !is_string($hash)
+        if (($plan['patch'] ?? '') !== static::ID || ($plan['version'] ?? 0) !== 1 || !is_string($hash)
             || !hash_equals($hash, self::digest($plan)) || !isset($plan['names'], $plan['pages'], $plan['changes'], $plan['sources'])) {
-            throw new RuntimeException('Corrupt/incomplete M11 plan or backup.');
+            throw new RuntimeException('Corrupt/incomplete '.static::LABEL.' plan or backup.');
         }
         foreach ($plan['changes'] as $change) {
             if (($change['before_sha256'] ?? '') !== self::digest($change['before'] ?? []) || ($change['after_sha256'] ?? '') !== self::digest($change['after'] ?? [])) {
@@ -269,7 +280,7 @@ class LinkingWordsContentPatch
     {
         $root = realpath($this->privateDirectory);
         if (!$root || !stream_is_local($path) || realpath(dirname($path)) !== $root || is_link($path)
-            || !preg_match('/^[a-zA-Z0-9_-]+\.json$/', basename($path))) { throw new RuntimeException('Plan/backup must be directly inside the private M11 directory.'); }
+            || !preg_match('/^[a-zA-Z0-9_-]+\.json$/', basename($path))) { throw new RuntimeException('Plan/backup must be directly inside the private '.static::LABEL.' directory.'); }
     }
 
     private function writeNew(string $path, array $data): void
