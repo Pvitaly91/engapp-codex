@@ -56,6 +56,10 @@ async function capture(dir, label, profile = M11) {
             }
             row.anchorPlaceholder = /theory anchor|lesson package/.test(main.textContent);
             row.details = d.querySelectorAll('details').length;
+            if (profile.richContent) {
+                row.richSections = main.querySelectorAll('.theory-rich-section').length;
+                row.richExamples = main.querySelectorAll('.theory-rich-example').length;
+            }
             dom.window.close();
         }
         result.rows.push(row);
@@ -186,6 +190,17 @@ async function browserChecks(dir, label, applied = false, profile = M11) {
                 const box = page.locator('[data-theory-main] article .prose').first();
                 await box.scrollIntoViewIfNeeded();
                 row.boxVisible = await box.isVisible();
+                if (profile.richContent) {
+                    row.richSections = await box.locator('.theory-rich-section').count();
+                    row.richExamples = await box.locator('.theory-rich-example').count();
+                    assert.ok(row.richSections >= 5 && row.richExamples > 0, 'Actual rich renderer required');
+                    const summary = box.locator('details > summary').first();
+                    await summary.click();
+                    assert.ok(await summary.evaluate(n => n.parentElement.open), 'Mouse opens keys');
+                    await summary.click();
+                    assert.ok(!(await summary.evaluate(n => n.parentElement.open)), 'Mouse closes keys before keyboard checks');
+                    row.mouseDetailsPassed = true;
+                }
                 row.rawMarkup = await box.evaluate(n => /<\/?(?:p|strong|table)\b/.test(n.textContent));
                 if (profile.extendedChecks) {
                     const text = (await box.textContent()).replace(/\s+/g, ' ').trim();
