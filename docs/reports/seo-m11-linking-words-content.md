@@ -2,11 +2,13 @@
 
 Дата: 27.09.2026 (Europe/Kyiv). Репозиторій: `Pvitaly91/engapp-codex`.
 
-## Результат і межі
+**Поточний статус:** M11 застосовано до робочого `gramlyze.loc` 27.09.2026. Завершене live-приймання й новий opt-in описано в розділі «Застосування на робочому gramlyze.loc» наприкінці. Попередні розділи збережено як історичний звіт першого, source-only етапу на commit `12815d6e88ca21a73209036afb9e78768e7c034d`.
+
+## Результат і межі першого етапу
 
 Готовий versioned контент для трьох українських уроків: пояснення, авторські англійські приклади з перекладом, типові помилки, по шість завдань із розгорнутим ключем. Додано вузьку команду preview/apply/restore та цільові тести.
 
-**Застосування до робочої локальної БД НЕ виконано.** Фізичне PDO-з’єднання перевірено як локальне MySQL, усі три уроки точно відповідають початковим sources. Однак поточний локальний `.env` має `APP_ENV=production`. Запис суперечив би local/testing guard; середовище, `.env` і guard не підмінювалися. Нові тексти перевірено на ізольованих SQLite fixtures і в тимчасовому DOM браузера з ресурсами `http://gramlyze.loc`. Живі локальні сторінки досі показують початковий матеріал. Це не завершене приймання оновленої робочої БД.
+**На першому етапі застосування до робочої локальної БД НЕ виконано.** Фізичне PDO-з’єднання перевірено як локальне MySQL, усі три уроки точно відповідали початковим sources. Локальний `.env` мав `APP_ENV=production`. Запис суперечив local/testing guard; середовище, `.env` і guard не підмінювалися. Нові тексти перевірено на ізольованих SQLite fixtures і в тимчасовому DOM браузера з ресурсами `http://gramlyze.loc`. Тоді живі локальні сторінки показували початковий матеріал. Це було приймання sources, а не оновленої робочої БД.
 
 Production не перевірявся і не змінювався. Немає деплою, PR, merge, push у main, міграцій, пересівання робочої БД, дампу, очищення кешів чи змін залежностей. M10, www/:443, XAMPP/PHP/Composer не повторювалися.
 
@@ -203,3 +205,88 @@ Read-only snapshot трьох локальних pages, усіх їх blocks і 
 ## Git-пакет
 
 До commit включаються лише три definitions, початковий source manifest, M11 service/command, два PHP tests, один Node guard test, вузький local diagnostic tool і цей звіт. `.env`, backups/dumps, vendor, build, caches, приватні snapshots і сторонні зміни виключені. Перед commit — staged diff та `git diff --check`; push звичайний у `codex/seo-m11-linking-words-content`, без force/PR/merge/deploy. Підсумковий SHA та звірку remote наведено у фінальному повідомленні.
+
+## Застосування на робочому gramlyze.loc
+
+27.09.2026, після окремого погодження користувачем локального scope, **зміни застосовано до справжньої робочої БД і перевірено у звичайних відповідях Apache**. Підготовлені definitions не переписувалися. Перший source-only етап і його результати залишені вище як історія.
+
+### Перевірка локальної цілі
+
+Основний checkout і вебпрофіль збережено: `D:/DEV/htdocs/gramlyze.loc`, гілка `codex/production-ready-a14788dac`, початковий HEAD `41820a2bebdf69004fa7209a2a38457f93efabbd`. Чужі зміни не перемикалися/скидалися. M11 продовжено в існуючому worktree на `codex/seo-m11-linking-words-content`, від `12815d6e88ca21a73209036afb9e78768e7c034d`.
+
+Вузьке доповнення команди: `--local-target=gramlyze.loc` і `--local-proof=<приватний basename>`. Opt-in не змінює APP_ENV; без нього production-відмова зберігається. Новий `M11LocalTargetGuard` сукупно перевіряє:
+
+- CLI/Windows, точний реальний base/environment/storage каталоги основної копії;
+- усі адреси `gramlyze.loc` — loopback (фактично `127.0.0.1`);
+- один активний Apache HTTP vhost із DocumentRoot `D:/DEV/htdocs/gramlyze.loc/public`, listener процесу `httpd.exe` та збіг із Apache PID-файлом;
+- чинний фізичний guard `PronounContentRepair`: один локальний MySQL/PDO, точна БД для writes, без read/write split;
+- TCP connection без URL/socket/split, однаковий read/write PDO та збіг налаштованого/реального port;
+- Windows MySQL hostname, локальний server PID-файл у datadir і той самий PID/name у власника TCP listener (`mysqld.exe` або `mariadbd.exe`). SSH/proxy/forwarder не приймається;
+- свіжий GET із реального loopback vhost: nonce-bound digest повного runtime connection config, фактичних DATABASE/host/port/PID, base/DocumentRoot, APP_ENV/APP_KEY та PDO status. Він має точно збігатися з CLI; credential values не повертаються і не записуються в доказ.
+
+Фактично підтверджено MySQL `gr2` на локальному port 3306; listener/PID-файл і web/CLI runtime збіглися. Назва БД сама по собі не використовувалася як дозвіл. Apache config/listener перевіряються фіксованим read-only `inspect-m11-local-target.ps1`; Windows execution policy не змінювалася.
+
+Для точного доказу веб-БД тимчасово підключено локальний GET diagnostic до існуючого API. Він був обмежений loopback/точним Host/basePath, виконував лише SELECT і повертав digest; endpoint для запису не створювався. Після apply/no-op/live-приймання підключення прибрано, `routes/api.php` відновлено **byte-exact** до його початкового, вже зміненого користувачем стану. Diagnostic URL тепер повертає 404. Приватний proof/helper залишено в локальному storage для перевірюваної історії, у Git їх немає.
+
+CLI adapter `tools/diagnostics/run-m11-working-local.php` дозволяє лише команду M11. Він завантажує незмінний bootstrap/vendor основної копії з її справжнім `.env`, реєструє M11-команду з worktree й бере definitions із worktree. Підміни `.env`, APP_ENV, APP_KEY, connection або тестової БД немає. M8/M8.1 shared guards не змінено.
+
+### Preview, backup, apply і no-op
+
+Свіжий приватний preview: `D:/DEV/htdocs/gramlyze.loc/storage/app/seo-m11-local/m11-working-preview-20260927.json`. SHA-256 `da114bfffe0752db7f517d0006e3a016fcae65836e96404f95ffffa483ebdacf`. Відповідність definitions і всіх before-записів підтверджено, конфліктів/ручного/часткового стану немає.
+
+Оновлено:
+
+- `pages.text`: ID 290, 302, 315;
+- existing UK `text_blocks.heading/body`: ID 8753, 8756, 8759, 8793, 8794, 8795, 8834, 8835, 8840.
+
+Порядок, ID/UUID, slug/title/category/levels та всі інші поля залишено незмінними. Новий exclusive record-backup закрито до першого UPDATE, виконано row locks/транзакцію/postcondition. Результат команди — `status=applied`, `updated=12`.
+
+Backup: `D:/DEV/htdocs/gramlyze.loc/storage/app/seo-m11-local/m11-working-records-20260927.json`, 3 976 778 bytes. SHA-256 `4d575b3e0b94d0aca6d1c7fa6985ce911162c4bc73a1f572ca3b4c44b12857cd`. Це record snapshot погоджених уроків та контрольних зв’язків, не дамп усієї БД. Файл не включено в Git.
+
+Фактично виконаний apply через adapter:
+
+```text
+php tools/diagnostics/run-m11-working-local.php content:patch-linking-words-m11 --apply --local-target=gramlyze.loc --local-proof=<перевірений-приватний-local-proof-basename> --plan=m11-working-preview-20260927.json --backup=m11-working-records-20260927.json --database=gr2
+```
+
+Повтор тієї самої операції повернув `status=no-op`, `updated=0`; файл `m11-unused-noop-20260927.json` не створився. Фактичний DB післястан відповідає прийнятим sources, новий HTML приходить із сервера. Адресної інвалідації кешу не знадобилося; глобальні кеші/sessions не очищувалися.
+
+Адресний restore перевірено на fixtures, зокрема в новому opt-in flow. Робочий результат не відкочували. Для дозволеного відкату треба знову отримати свіжий loopback web-runtime proof за тим самим read-only процесом: після прибирання тимчасового GET доказ не можна повторно використати як неперевірений дозвіл. Потім із M11-worktree:
+
+```text
+php tools/diagnostics/run-m11-working-local.php content:patch-linking-words-m11 --restore --local-target=gramlyze.loc --local-proof=<новий-перевірений-приватний-basename> --backup=m11-working-records-20260927.json --database=gr2
+```
+
+Без fresh runtime підтвердження або при подальших правках sources/records/локалей/зв’язків restore відмовляє. Production `.com/.ub` у цей процес не входять.
+
+### Справжні HTTP та Playwright перевірки
+
+Перевірено звичайними GET після apply і ще раз після прибирання diagnostic:
+
+- [B2 — Linking Words](http://gramlyze.loc/theory/clauses-and-linking-words/linking-words-reason-result-contrast);
+- [C1 — Advanced Linking Devices](http://gramlyze.loc/theory/clauses-and-linking-words/advanced-linking-devices);
+- [C2 — Concessive and Contrastive Structures](http://gramlyze.loc/theory/clauses-and-linking-words/concessive-and-contrastive-structures).
+
+У всіх HTTP 200, українські нові пояснення/приклади, по 6 prompts і 6 explained keys у **початковому HTML response**, без службового theory anchor. Перевірено і response data, і відображення; зміни DOM/content підстановкою не робилися.
+
+Playwright `browser-applied`: **6/6** (три уроки × desktop 1440×1000/mobile 390×844), кожний у новому context. У кожному виконано звичайний reload і перевірено збереження нового контенту/метаданих. Ключі відкриваються натисканням, numbering видимий, сирого HTML/overflow немає. B2 mobile table реально прокручується: 266 px контейнер, 640 px таблиця, scroll 374 px. Screenshots матеріалу нижче першого екрана й ключів візуально переглянуто.
+
+Три desktop переходи відкрили точні основні Mixed URL, наведені вище. Автоматичні state POST тестів свідомо блокував read-only browser guard; відповіді/прогрес не записувалися. У browser немає uncaught JS errors. Google Fonts CSS недоступний через мережеве обмеження перевірки, як і на першому етапі; контент перевірено з fallback font. Курс B2 повертає 200 і нові блоки в HTML; гостьова видимість уроку залишається обмеженою правилами курсу, unlock не виконувався.
+
+Не використовувалися `page.setContent`, `route.fulfill`, fixture HTML чи evaluate/innerHTML для заміни матеріалу. `evaluate` у live-перевірці лише читає геометрію/стилі та прокручує реальну таблицю.
+
+### Метадані та захищені дані після реального apply
+
+GET before/after підтвердив незмінні title/H1/canonical/meta robots/X-Robots-Tag усіх перевірених HTML сторінок. Нові descriptions трьох теоретичних уроків збігаються з дозволеними «після» в таблиці першого етапу та тепер реально віддаються live; meta/OG/Twitter узгоджені. Descriptions трьох тестів і перевіреної курсової сторінки незмінні.
+
+Повна read-only fingerprint перевірка **всіх 46 таблиць** до/після: counts і hashes кожної таблиці збігаються після виключення лише погоджених content-полів у конкретних 12 записах. Вона включає всі сторонні pages/blocks/EN/PL, tags/pivots, questions/answers/options/verb_hint, користувачів і progress. Значення приватних рядків не збережено в доказі — тільки hashes/counts. Різниць: **0**. `.env` byte hash незмінний, APP_ENV лишився `production`; APP_KEY не редагувався.
+
+Один фактичний post-apply ordered sitemap comparison: **554 URL**, порядок/склад незмінні, SHA-256 `6ffdf977fa24124660ab47ce7e1f1a81b9a180eb490dada34a0be237e4adb334` before = after. Повний crawl/performance/M10 не запускалися.
+
+### Тести, документація і Git
+
+Цільовий ізольований запуск трьох M11 PHP suites: **39 tests, 478 assertions, exit 0**. Додано перевірки локального Windows evidence, foreign/ambiguous/unconfirmed target, remote DNS/forwarder/wrong PID/port/vhost, mismatch web digest; без opt-in production guard діє. У fixture з підтвердженим host evidence opt-in проходить повний backup/apply/no-op/conflict/restore, непідтверджений доказ відмовляє до backup. Системний I/O в цих fixture-тестах підмінено; реальний guard додатково пройшов на host перед actual preview/apply/no-op. Node local-only/read-only guard test — 1 pass. Старий PHP 8.5 deprecation у `config/database.php:62` залишено без змін.
+
+У `AGENTS.md` додано одне коротке правило про застосування погодженого контенту до перевіреної робочої `.loc` БД після preview/backup та приймання реальних сторінок. Воно діє в M11 branch і в основному локальному checkout. Автоматичних apply в middleware/provider/Composer/Git hooks/scheduler/startup не додано.
+
+Приватні докази: `storage/app/seo-m11-local/{m11-working-preview-20260927,m11-working-records-20260927,protected-before,protected-after,apply-before-http,apply-after-http,working-applied-browser}.json`, screenshots і тимчасовий read-only proof/helper. Вони, `.env`, vendor/build та сторонні зміни не включені в Git. Цей follow-up комічиться/пушиться звичайно лише в M11 branch; remote SHA звіряється з local HEAD. Production не перевірявся/не оновлювався, PR/merge немає.

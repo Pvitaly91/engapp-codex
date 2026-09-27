@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Services\LinkingWordsContentPatch;
+use App\Services\M11LocalTargetGuard;
 use App\Support\Database\JsonPageSeeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -250,5 +251,45 @@ class LinkingWordsContentPatchTest extends TestCase
         try { $patch->plan([LinkingWordsContentPatch::NAMES[1]]); self::fail('Retitled source'); }
         catch (RuntimeException $e) { self::assertStringContainsString('only subtitle, heading and body', $e->getMessage()); }
         self::assertSame($before, $this->snapshot());
+    }
+
+    public function test_explicit_local_optin_uses_verifier_before_backup_and_retains_noop_conflict_restore(): void
+    {
+        $this->seedFixture(); $before = $this->snapshot();
+        // Only host I/O is substituted: the complete patch still uses isolated PDO,
+        // exact snapshots, backup, transaction and the production default refusal.
+        $verifier = new class extends M11LocalTargetGuard {
+            public int $calls = 0;
+            public bool $confirmed = true;
+            public function verify(\Illuminate\Database\Connection $db, string $target, string $directory, ?string $proof, array $physical): void
+            {
+                $this->calls++;
+                if (!$this->confirmed || $target !== 'gramlyze.loc' || $proof !== 'fixture-proof.json') {
+                    throw new RuntimeException('Fixture local target unconfirmed.');
+                }
+                $this->assertEvidence(M11LocalTargetGuardTest::evidence(), 'd:/dev/htdocs/gramlyze.loc', 200, 3306);
+            }
+        };
+        app()->instance(M11LocalTargetGuard::class, $verifier);
+        app()->detectEnvironment(fn () => 'production');
+        try {
+            $patch = new LinkingWordsContentPatch(DB::connection(), database_path(), $this->private, 'gramlyze.loc', 'fixture-proof.json');
+            $patch->savePlan($this->path('optin-plan'));
+            $verifier->confirmed = false;
+            try { $patch->apply($this->path('optin-plan'), $this->path('optin-backup')); self::fail('Unconfirmed proof'); }
+            catch (RuntimeException $e) { self::assertStringContainsString('unconfirmed', $e->getMessage()); }
+            self::assertFileDoesNotExist($this->path('optin-backup')); self::assertSame($before, $this->snapshot());
+            $verifier->confirmed = true;
+            self::assertSame(12, $patch->apply($this->path('optin-plan'), $this->path('optin-backup'))['updated']);
+            self::assertSame(0, $patch->apply($this->path('optin-plan'), $this->path('not-created'))['updated']);
+            self::assertFileDoesNotExist($this->path('not-created'));
+            self::assertSame(12, $patch->restore($this->path('optin-backup'))['updated']);
+            self::assertSame($before, $this->snapshot()); self::assertGreaterThan(3, $verifier->calls);
+            DB::table('pages')->limit(1)->update(['text' => 'Manual change']);
+            $manual = $this->snapshot();
+            try { $patch->apply($this->path('optin-plan'), $this->path('other-backup')); self::fail('Manual change'); }
+            catch (RuntimeException $e) { self::assertStringContainsString('mismatch', $e->getMessage()); }
+            self::assertSame($manual, $this->snapshot()); self::assertFileDoesNotExist($this->path('other-backup'));
+        } finally { app()->detectEnvironment(fn () => 'testing'); }
     }
 }

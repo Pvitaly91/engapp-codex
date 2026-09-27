@@ -14,7 +14,8 @@ class LinkingWordsContentPatch
     private const ID = 'm11-linking-words-v1';
     private const MANIFEST = 'content-patches/m11-linking-words-before.json';
 
-    public function __construct(private Connection $db, private string $databasePath, private string $privateDirectory) {}
+    public function __construct(private Connection $db, private string $databasePath, private string $privateDirectory,
+        private ?string $localTarget = null, private ?string $localProof = null) {}
 
     public static function digest(array $value): string
     {
@@ -24,7 +25,11 @@ class LinkingWordsContentPatch
     public function connection(?string $expected = null, bool $writing = false): array
     {
         // Keep the established physical PDO/host/database guards, not merely APP_ENV.
-        return (new PronounContentRepair($this->db, $this->databasePath, $this->privateDirectory))->connection($expected, $writing);
+        $physical = (new PronounContentRepair($this->db, $this->databasePath, $this->privateDirectory))->connection($expected, $writing);
+        if ($this->localTarget !== null) {
+            app(M11LocalTargetGuard::class)->verify($this->db, $this->localTarget, $this->privateDirectory, $this->localProof, $physical);
+        }
+        return $physical;
     }
 
     public function plan(array $names = self::NAMES, bool $lock = false): array
@@ -207,7 +212,9 @@ class LinkingWordsContentPatch
 
     private function assertWriteEnvironment(): void
     {
-        if (!app()->environment('local', 'testing')) { throw new RuntimeException('Local/testing environment only; production writes are refused.'); }
+        if (!app()->environment('local', 'testing') && $this->localTarget === null) {
+            throw new RuntimeException('Local/testing environment only; production writes are refused without verified M11 local-target.');
+        }
     }
 
     private function update(array $change, bool $reverse): void

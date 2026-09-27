@@ -56,10 +56,11 @@ async function capture(dir, label) {
     fs.writeFileSync(path.join(dir, label + '-http.json'), JSON.stringify(result, null, 2), {flag: 'wx'});
     console.log(JSON.stringify(result.rows.map(r => ({path: r.path, status: r.status, metadata: r.metadata, tests: r.testLinks, locs: r.orderedLocs?.length})), null, 2));
 }
-async function browserChecks(dir, label) {
+async function browserChecks(dir, label, applied = false) {
     const {chromium} = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
     const browser = await chromium.launch({headless: true, ...(process.env.CHROMIUM_EXECUTABLE ? {executablePath: process.env.CHROMIUM_EXECUTABLE} : {})});
-    const report = {at: new Date().toISOString(), base: BASE, browser: browser.version(), rows: [], scope: 'Live local rendering only; no environment override, database write, course unlock or answer submission.'};
+    const report = {at: new Date().toISOString(), base: BASE, browser: browser.version(), rows: [], applied,
+        scope: 'Real local server responses only; no DOM/fixture substitution, environment override, course unlock or answer submission.'};
     const file = path.join(dir, label + '-browser.json');
     fs.writeFileSync(file, JSON.stringify(report), {flag: 'wx'});
     try {
@@ -76,12 +77,56 @@ async function browserChecks(dir, label) {
             try {
                 const response = await page.goto(BASE + theory(slug), {waitUntil: 'networkidle', timeout: 60000});
                 row.status = response.status(); assert.equal(row.status, 200);
+                if (applied) {
+                    const html = await response.text();
+                    const dom = new JSDOM(html);
+                    row.metadata = metadata(dom.window.document);
+                    row.serverResponseSha256 = sha(html);
+                    row.serverQuestions = dom.window.document.querySelectorAll(`#self-check-${slug} > ol > li`).length;
+                    row.serverKeys = dom.window.document.querySelectorAll(`#self-check-${slug} details > ol > li`).length;
+                    assert.equal(row.serverQuestions, 6); assert.equal(row.serverKeys, 6);
+                    assert.ok(!/theory anchor|lesson package/.test(dom.window.document.querySelector('[data-theory-main]').textContent));
+                    dom.window.close();
+                    const reload = await page.reload({waitUntil: 'networkidle', timeout: 60000});
+                    assert.equal(reload.status(), 200);
+                    const reloaded = new JSDOM(await reload.text());
+                    assert.deepEqual(metadata(reloaded.window.document), row.metadata);
+                    row.reloadQuestions = reloaded.window.document.querySelectorAll(`#self-check-${slug} > ol > li`).length;
+                    assert.equal(row.reloadQuestions, 6); reloaded.window.close();
+                    row.reloadPassed = true;
+                }
                 row.selfChecks = await page.locator('[id^="self-check-"]').count();
+                if (applied) assert.equal(row.selfChecks, 1);
                 const box = page.locator('[data-theory-main] article .prose').first();
                 await box.scrollIntoViewIfNeeded();
                 row.boxVisible = await box.isVisible();
                 row.rawMarkup = await box.evaluate(n => /<\/?(?:p|strong|table)\b/.test(n.textContent));
                 for (const summary of await box.locator('details > summary').all()) await summary.click();
+                if (applied) {
+                    const exercise = page.locator('#self-check-' + slug);
+                    assert.equal(await exercise.locator('details[open] > ol > li').count(), 6);
+                    row.numberedLists = await exercise.locator('ol').evaluateAll(nodes => nodes.every(n => getComputedStyle(n).listStyleType === 'decimal'));
+                    assert.ok(row.numberedLists);
+                    await exercise.scrollIntoViewIfNeeded();
+                    const keyShot = label + '-' + (mobile ? 'mobile-' : 'desktop-') + slug + '-keys.png';
+                    await page.screenshot({path: path.join(dir, keyShot), animations: 'disabled'}); row.screenshots.push(keyShot);
+                    const table = box.locator('table');
+                    if (await table.count()) {
+                        await table.scrollIntoViewIfNeeded();
+                        const tableShot = label + '-' + (mobile ? 'mobile-' : 'desktop-') + slug + '-table.png';
+                        await page.screenshot({path: path.join(dir, tableShot), animations: 'disabled'}); row.screenshots.push(tableShot);
+                        if (mobile) {
+                            row.tableScroll = await table.evaluate(n => {
+                                const wrapper = n.parentElement;
+                                wrapper.scrollLeft = wrapper.scrollWidth;
+                                return {left: wrapper.scrollLeft, width: wrapper.clientWidth, contentWidth: wrapper.scrollWidth};
+                            });
+                            assert.ok(row.tableScroll.left > 0);
+                            const right = label + '-mobile-' + slug + '-table-right.png';
+                            await page.screenshot({path: path.join(dir, right), animations: 'disabled'}); row.screenshots.push(right);
+                        }
+                    }
+                }
                 row.overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 2);
                 const screenshot = label + '-' + (mobile ? 'mobile-' : 'desktop-') + slug + '.png';
                 await page.screenshot({path: path.join(dir, screenshot), fullPage: true, animations: 'disabled'}); row.screenshots.push(screenshot);
@@ -97,6 +142,7 @@ async function browserChecks(dir, label) {
                     row.testH1 = await page.locator('h1').allTextContents();
                 }
                 row.pass = true;
+                if (applied) assert.equal(row.errors.length, 0);
             } catch (e) { row.pass = false; row.error = {name: e.name, message: e.message.slice(0, 400)}; }
             finally { await context.close(); fs.writeFileSync(file, JSON.stringify(report, null, 2)); }
         }
@@ -175,8 +221,8 @@ async function fixtureChecks(dir, label, fixtureDir) {
 }
 if (require.main === module) {
     const [mode, dir, label, fixtureDir] = process.argv.slice(2);
-    assert.ok(['capture', 'browser', 'fixtures'].includes(mode)); assert.match(label || '', /^[a-z0-9-]+$/);
+    assert.ok(['capture', 'browser', 'browser-applied', 'fixtures'].includes(mode)); assert.match(label || '', /^[a-z0-9-]+$/);
     fs.mkdirSync(dir, {recursive: true});
-    (mode === 'capture' ? capture(dir, label) : mode === 'fixtures' ? fixtureChecks(dir, label, fixtureDir) : browserChecks(dir, label)).then(ok => {if (ok === false) process.exitCode = 1;}).catch(e => {console.error(e.message); process.exitCode = 1;});
+    (mode === 'capture' ? capture(dir, label) : mode === 'fixtures' ? fixtureChecks(dir, label, fixtureDir) : browserChecks(dir, label, mode === 'browser-applied')).then(ok => {if (ok === false) process.exitCode = 1;}).catch(e => {console.error(e.message); process.exitCode = 1;});
 }
 module.exports = {decision, metadata, PATHS};
