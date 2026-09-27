@@ -1,0 +1,252 @@
+/* Render-only long-form lesson presentation. Never targets legacy prose/blocks. */
+.theory-rich-shell {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.theory-rich-article {
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+.theory-rich-article > h3 {
+    margin: 0 0 1.25rem;
+    padding-inline: .25rem;
+    font-size: 1.25rem;
+    line-height: 1.45;
+    color: var(--text);
+}
+
+.theory-rich-content {
+    --theory-warning: #82500b;
+    --theory-warning-bg: #fff5e3;
+    --theory-success: #176747;
+    --theory-success-bg: #edf8f2;
+    min-width: 0;
+    color: var(--text);
+    font-size: .9375rem;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+}
+
+.dark .theory-rich-content {
+    --theory-warning: #f4cb84;
+    --theory-warning-bg: #302c29;
+    --theory-success: #91ddbc;
+    --theory-success-bg: #18352f;
+}
+
+.theory-rich-section,
+.theory-rich-practice {
+    min-width: 0;
+    margin-block: 0 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 1.25rem;
+    background: var(--surface-strong);
+    /* Do not clip focus rings, wrapped text, or the table's local scrollbar. */
+}
+
+.theory-rich-content .theory-rich-heading {
+    display: flex;
+    align-items: baseline;
+    gap: .75rem;
+    margin: 0;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--line);
+    border-radius: 1.25rem 1.25rem 0 0;
+    background: var(--accent-soft);
+    color: var(--text);
+    font-family: Archivo, sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 750;
+    line-height: 1.55;
+}
+
+.theory-rich-number {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.875rem;
+    min-height: 1.875rem;
+    padding-inline: .35rem;
+    border-radius: .625rem;
+    background: var(--accent);
+    color: var(--surface-strong);
+    font-size: .8125rem;
+    line-height: 1.5;
+    font-weight: 800;
+}
+
+.theory-rich-section-body { padding: 1.25rem; }
+
+.theory-rich-content p { margin-block: 0 .9rem; }
+.theory-rich-content p:last-child { margin-bottom: 0; }
+.theory-rich-content strong { color: var(--text); font-weight: 750; }
+.theory-rich-content em { color: var(--text); }
+
+.theory-rich-content .theory-rich-example {
+    display: block;
+    margin-block: .7rem .45rem;
+    padding: .7rem .9rem;
+    border-inline-start: 3px solid var(--accent);
+    border-radius: .25rem .75rem .75rem .25rem;
+    background: var(--accent-soft);
+    color: var(--text);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.75;
+}
+
+.theory-rich-content blockquote {
+    margin-block: 0 1rem;
+    padding: 1rem 1.15rem;
+    border-inline-start: 3px solid var(--accent);
+    border-radius: .25rem .875rem .875rem .25rem;
+    background: var(--accent-soft);
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.theory-rich-content ul {
+    display: grid;
+    gap: .7rem;
+    margin-block: .9rem 1rem;
+    padding: 0;
+    list-style: none;
+}
+
+.theory-rich-content ul > li {
+    margin: 0;
+    padding: .9rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: .875rem;
+    background: var(--shell-bg);
+}
+
+.theory-rich-section--warning > .theory-rich-heading {
+    background: var(--theory-warning-bg);
+    color: var(--theory-warning);
+}
+.theory-rich-section--warning .theory-rich-number {
+    background: var(--theory-warning);
+    color: var(--theory-warning-bg);
+}
+
+.theory-rich-content .theory-rich-table {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-block: 1rem;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    border: 1px solid var(--line);
+    border-radius: .875rem;
+    scrollbar-color: var(--accent) var(--shell-bg);
+}
+
+.theory-rich-content table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .875rem;
+    line-height: 1.75;
+}
+.theory-rich-content th,
+.theory-rich-content td {
+    padding: .8rem 1rem;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    text-align: start;
+    vertical-align: top;
+}
+.theory-rich-content th {
+    background: var(--accent-soft);
+    color: var(--text);
+    font-weight: 750;
+}
+.theory-rich-content tbody tr:nth-child(even) { background: var(--shell-bg); }
+.theory-rich-content tbody tr:last-child td { border-bottom: 0; }
+.theory-rich-content td .theory-rich-example { margin: 0; padding: 0; border: 0; background: none; }
+
+.theory-rich-practice > .theory-rich-heading {
+    background: var(--theory-success-bg);
+    color: var(--theory-success);
+}
+
+.theory-rich-practice > p,
+.theory-rich-practice > ol,
+.theory-rich-practice > details { margin: 1.25rem; }
+
+.theory-rich-content ol {
+    margin-block: .75rem;
+    padding-inline-start: 1.75rem;
+    list-style: decimal;
+}
+.theory-rich-content ol > li {
+    margin: 0;
+    padding: .85rem .25rem .85rem .4rem;
+    border-bottom: 1px solid var(--line);
+}
+.theory-rich-content ol > li:first-child { padding-top: .2rem; }
+.theory-rich-content ol > li:last-child { border-bottom: 0; }
+.theory-rich-content ol > li::marker { color: var(--accent); font-weight: 800; }
+
+.theory-rich-content details {
+    border: 1px solid var(--line);
+    border-radius: .875rem;
+    background: var(--surface-strong);
+}
+.theory-rich-content summary {
+    display: list-item;
+    margin: 0;
+    padding: .95rem 1rem;
+    border-radius: .875rem;
+    background: var(--theory-success-bg);
+    color: var(--theory-success);
+    font-weight: 750;
+    cursor: pointer;
+}
+.theory-rich-content details[open] > summary {
+    border-bottom: 1px solid var(--line);
+    border-radius: .875rem .875rem 0 0;
+}
+.theory-rich-content details > ol { margin: 1rem; padding-inline-start: 1.6rem; }
+.theory-rich-content details li::marker { color: var(--theory-success); }
+
+.theory-rich-next > .theory-rich-heading { background: var(--shell-bg); }
+.theory-rich-content a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: .2em;
+    font-weight: 600;
+}
+.theory-rich-content a:hover { text-decoration-thickness: 2px; }
+.theory-rich-content :is(a, summary, [tabindex]):focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.theory-rich-rules .theory-rich-rule-example {
+    font-family: inherit;
+    font-size: .875rem;
+    line-height: 1.75;
+}
+.theory-rich-example-en { display: block; font-weight: 650; color: var(--text); }
+.theory-rich-example-translation { display: block; margin-top: .4rem; color: var(--muted); font-weight: 400; }
+
+@media (max-width: 639px) {
+    .theory-rich-content { font-size: .9375rem; line-height: 1.8; }
+    .theory-rich-content .theory-rich-heading { gap: .6rem; padding: 1rem; font-size: 1rem; }
+    .theory-rich-section-body { padding: 1rem; }
+    .theory-rich-practice > p,
+    .theory-rich-practice > ol,
+    .theory-rich-practice > details { margin: 1rem; }
+    .theory-rich-content ul > li { padding: .8rem; }
+    .theory-rich-content .theory-rich-example { padding: .6rem .75rem; }
+}

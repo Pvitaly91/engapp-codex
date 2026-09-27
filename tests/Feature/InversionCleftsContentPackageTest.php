@@ -200,7 +200,9 @@ class InversionCleftsContentPackageTest extends TestCase
         $course = view('courses.partials.theory-page-content', ['page' => $page])->render();
         $hero = json_decode($source['page']['blocks'][0]['body'], true, flags: JSON_THROW_ON_ERROR);
         foreach ([$html, $course] as $rendered) {
-            self::assertStringContainsString($source['page']['blocks'][1]['body'], $rendered);
+            $richBody = \App\Support\TheoryRichContent::render($source['page']['blocks'][1]['body']);
+            self::assertNotNull($richBody);
+            self::assertStringContainsString((string) $richBody, $rendered);
             self::assertStringContainsString($hero['intro'], $rendered);
             self::assertStringNotContainsString(htmlspecialchars($source['page']['blocks'][1]['body']), $rendered);
             self::assertSame(6, $this->dom($rendered)->query('//ol[@data-self-checks]/li')->length);

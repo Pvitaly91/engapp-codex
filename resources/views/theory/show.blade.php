@@ -40,6 +40,11 @@
     $heroBlock = $blocks->firstWhere('type', 'hero-v2') ?? $blocks->firstWhere('type', 'hero');
     $heroData = $heroBlock ? (json_decode($heroBlock->body ?? '[]', true) ?? []) : [];
     $contentBlocks = $blocks->reject(fn ($block) => in_array($block->type, ['hero', 'hero-v2', 'navigation-chips']));
+    $richContentByBlock = $contentBlocks->mapWithKeys(fn ($block) => [
+        $block->id => ($block->type === 'box' || empty($block->type)) ? \App\Support\TheoryRichContent::render($block->body) : null,
+    ]);
+    $renderedContentBlocks = $contentBlocks->reject(fn ($block) => $block->type === 'subtitle');
+    $richContentOnly = $renderedContentBlocks->isNotEmpty() && $renderedContentBlocks->every(fn ($block) => $richContentByBlock[$block->id] !== null);
     $navBlock = $blocks->firstWhere('type', 'navigation-chips');
     $categoryPages = $categoryPages ?? collect();
     $tocBlocks = $contentBlocks->filter(fn ($block) => !empty(json_decode($block->body ?? '[]', true)['title'] ?? ''));
@@ -184,7 +189,7 @@
             ])
 
             @if(!empty($heroData['rules']))
-                <section class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                <section class="grid gap-4 md:grid-cols-2 xl:grid-cols-3{{ $richContentOnly ? ' theory-rich-rules' : '' }}">
                     @foreach($heroData['rules'] as $rule)
                         <article class="rounded-[24px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
                             @if(!empty($rule['label']))
@@ -192,14 +197,14 @@
                             @endif
                             <div class="mt-3 text-sm leading-6" style="color: var(--text);">{!! $rule['text'] ?? '' !!}</div>
                             @if(!empty($rule['example']))
-                                <code class="mt-4 block rounded-[16px] px-3 py-2 text-xs" style="background: var(--accent-soft); color: var(--text);">{{ \App\Support\TheoryInlineHtml::render($rule['example']) }}</code>
+                                <code class="mt-4 block rounded-[16px] px-3 py-2 text-xs{{ $richContentOnly ? ' theory-rich-rule-example' : '' }}" style="background: var(--accent-soft); color: var(--text);">{{ $richContentOnly ? \App\Support\TheoryRichContent::example($rule['example']) : \App\Support\TheoryInlineHtml::render($rule['example']) }}</code>
                             @endif
                         </article>
                     @endforeach
                 </section>
             @endif
 
-            <section class="rounded-[30px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
+            <section class="{{ $richContentOnly ? 'theory-rich-shell' : 'rounded-[30px] border p-6 shadow-card surface-card-strong' }}" style="border-color: var(--line);">
                 <div class="space-y-6">
                     @foreach($contentBlocks as $block)
                         <div id="block-{{ $block->id }}" class="theory-lazy-section">
@@ -211,14 +216,7 @@
                                     'practiceQuestions' => $practiceQuestionsByBlock[$block->uuid] ?? collect(),
                                 ])
                             @elseif($block->type === 'box' || empty($block->type))
-                                <article class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
-                                    @if(!empty($block->heading))
-                                        <h3 class="font-display text-lg font-extrabold leading-tight">{{ $block->heading }}</h3>
-                                    @endif
-                                    <div class="prose prose-sm mt-4 max-w-none leading-7" style="color: var(--muted);">
-                                        {!! $block->body !!}
-                                    </div>
-                                </article>
+                                <x-theory-rich-box :block="$block" :rich-content="$richContentByBlock[$block->id]" />
                             @endif
                         </div>
                     @endforeach

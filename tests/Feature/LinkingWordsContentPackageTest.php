@@ -291,7 +291,9 @@ class LinkingWordsContentPackageTest extends TestCase
         $body = $source['page']['blocks'][1]['body'];
         $hero = json_decode($source['page']['blocks'][0]['body'], true, flags: JSON_THROW_ON_ERROR);
         foreach ([$theory, $course] as $html) {
-            self::assertStringContainsString($body, $html);
+            $richBody = \App\Support\TheoryRichContent::render($body);
+            self::assertNotNull($richBody);
+            self::assertStringContainsString((string) $richBody, $html);
             self::assertStringContainsString($hero['intro'], $html);
             self::assertStringNotContainsString(htmlspecialchars($body), $html);
             self::assertSame(6, $this->dom($html)->query('//section[@id="self-check-'.$slug.'"]/details/ol/li')->length);
