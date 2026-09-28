@@ -1,5 +1,6 @@
 @php($data = $data ?? json_decode($block->body ?? '[]', true) ?? [])
 @php($items = $data['items'] ?? [])
+@php($m24TitleNumber = \App\Support\M24NativeTitleNumber::forBlock($block, $data['title'] ?? null))
 
 <section id="block-{{ $block->id }}" class="scroll-mt-24">
     <div class="rounded-2xl border border-rose-200/60 bg-gradient-to-br from-rose-50/50 to-card overflow-hidden">
@@ -8,7 +9,7 @@
                 <div class="flex items-center justify-between gap-3">
                     <h2 class="flex items-center gap-3 text-lg font-bold text-foreground">
                         <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-rose-500 text-white text-xs font-bold">
-                            ⚠
+                            {{ $m24TitleNumber ?? '⚠' }}
                         </span>
                         {{ preg_replace('/^\d+\.\s*/', '', $data['title']) }}
                     </h2>
