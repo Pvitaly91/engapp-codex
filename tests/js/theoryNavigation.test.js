@@ -12,9 +12,13 @@ afterEach(() => {
 
 function fixture({layout = true, reduced = false, visible = true} = {}) {
     const dom = new JSDOM(`<header id="site-header"></header><div ${layout ? 'data-theory-layout' : ''}>
-        <aside data-theory-aside><section data-theory-sidebar-shell><nav data-theory-toc-links>
+        <aside data-theory-aside><div data-theory-sidebar-shell>
+            <section data-theory-sidebar-card="topics"><h2>Topics</h2><div data-theory-sidebar-panel="topics">
+                <a href="/theory/present-perfect">Present Perfect</a>
+            </div></section>
+            <section data-theory-sidebar-card="lesson"><h2>Contents</h2><div data-theory-sidebar-panel="lesson"><nav data-theory-toc-links>
             <a id="toc-link" href="#target">Authored heading</a><a id="missing-link" href="#missing">Missing</a>
-        </nav></section></aside><main data-theory-main><h2 id="target">Authored heading</h2></main>
+        </nav></div></section></div></aside><main data-theory-main><h2 id="target">Authored heading</h2></main>
         </div>`, {url: 'http://gramlyze.loc/theory/sidebar-fixture', pretendToBeVisual: true});
     const {window} = dom, {document} = window;
     const state = {headerHeight: 100, sidebarTop: 240, reduced};
@@ -70,6 +74,18 @@ describe('viewport-bound theory sidebar metrics', () => {
 });
 
 describe('progressive theory navigation enhancement', () => {
+    it('keeps both sibling cards and their full navigation DOM without tab or visibility mutation', () => {
+        const f = fixture(), shell = f.document.querySelector('[data-theory-sidebar-shell]');
+        const before = shell.innerHTML;
+        f.window.innerHeight = 650;
+        f.window.dispatchEvent(new f.window.Event('resize'));
+        f.window.dispatchEvent(new f.window.Event('scroll')); f.flush();
+        expect(shell.innerHTML).toBe(before);
+        expect([...shell.children].map(card => card.dataset.theorySidebarCard)).toEqual(['topics', 'lesson']);
+        expect(shell.querySelectorAll('[role="tablist"], [role="tab"], [role="tabpanel"], [hidden]')).toHaveLength(0);
+        expect(shell.querySelector('[data-theory-sidebar-panel="topics"]').textContent).toContain('Present Perfect');
+        expect(shell.querySelector('[data-theory-sidebar-panel="lesson"]').textContent).toContain('Authored heading');
+    });
     it('updates CSS geometry on initial layout, short viewport resize and scroll', () => {
         const f = fixture(), style = f.document.querySelector('[data-theory-layout]').style;
         expect(style.getPropertyValue('--theory-nav-top')).toBe('112px');

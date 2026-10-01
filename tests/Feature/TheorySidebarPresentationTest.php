@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Page;
+use App\Models\PageCategory;
 use App\Models\TextBlock;
 use DOMDocument;
 use DOMXPath;
@@ -65,7 +66,7 @@ class TheorySidebarPresentationTest extends TestCase
         return new DOMXPath($dom);
     }
 
-    public function test_desktop_has_one_shell_and_accessible_distinct_lesson_and_topics_panels(): void
+    public function test_desktop_has_two_visible_sibling_cards_topics_first_without_tabs(): void
     {
         $page = $this->lesson();
         $attributes = $page->textBlocks->map->getAttributes()->all();
@@ -74,23 +75,32 @@ class TheorySidebarPresentationTest extends TestCase
         $shells = $xpath->query('//*[@data-theory-sidebar-shell]');
         $this->assertSame(1, $shells->length);
         $shell = $shells->item(0);
-        $this->assertSame('lesson', $shell->getAttribute('data-theory-sidebar-default'));
-        $tabs = $xpath->query('.//*[@role="tab"]', $shell);
-        $this->assertSame(2, $tabs->length);
-        $this->assertSame(2, $xpath->query('.//*[@role="tabpanel"]', $shell)->length);
-        $kinds = [];
-        foreach ($tabs as $tab) {
-            $kinds[] = $tab->getAttribute('data-theory-sidebar-tab');
-            $this->assertNotSame('', $tab->getAttribute('id'));
-            $controlled = $tab->getAttribute('aria-controls');
-            $this->assertMatchesRegularExpression('/^[A-Za-z][A-Za-z0-9_-]*$/D', $controlled);
-            $panels = $xpath->query('.//*[@id="'.$controlled.'" and @role="tabpanel"]', $shell);
+        $cards = $xpath->query('./section[@data-theory-sidebar-card]', $shell);
+        $this->assertSame(2, $cards->length);
+        $this->assertSame('topics', $cards->item(0)->getAttribute('data-theory-sidebar-card'));
+        $this->assertSame('lesson', $cards->item(1)->getAttribute('data-theory-sidebar-card'));
+        $this->assertSame(0, $xpath->query('.//*[@role="tablist" or @role="tab" or @role="tabpanel" or @data-theory-sidebar-tab]', $shell)->length);
+        foreach ($cards as $card) {
+            $kind = $card->getAttribute('data-theory-sidebar-card');
+            $panels = $xpath->query('.//*[@data-theory-sidebar-panel="'.$kind.'"]', $card);
             $this->assertSame(1, $panels->length);
-            $this->assertSame($tab->getAttribute('id'), $panels->item(0)->getAttribute('aria-labelledby'));
+            $this->assertFalse($card->hasAttribute('hidden'));
+            $this->assertFalse($panels->item(0)->hasAttribute('hidden'));
+            $this->assertSame(1, $xpath->query('.//h2', $card)->length);
         }
-        sort($kinds);
-        $this->assertSame(['lesson', 'topics'], $kinds);
-        $this->assertSame(1, $xpath->query('.//*[@data-theory-desktop-navigation-loader]', $shell)->length);
+        $topics = $cards->item(0);
+        $contents = $cards->item(1);
+        $this->assertStringContainsString(__('public.common.categories'), $xpath->query('.//h2', $topics)->item(0)->textContent);
+        $this->assertStringContainsString(__('theory_blocks.section.contents'), $xpath->query('.//h2', $contents)->item(0)->textContent);
+        $this->assertSame(1, $xpath->query('.//*[@data-theory-desktop-navigation-loader]', $topics)->length);
+        $this->assertSame(1, $xpath->query('.//*[@data-theory-sidebar-collapse]', $topics)->length);
+        $this->assertSame(0, $xpath->query('.//*[@data-theory-sidebar-collapse]', $contents)->length);
+        $this->assertSame(2, $xpath->query('.//*[@data-theory-toc-links]//a', $contents)->length);
+        $this->assertStringContainsString('!theorySidebarCollapsed', $contents->getAttribute('x-show'));
+        $shellHtml = $shell->ownerDocument->saveHTML($shell);
+        $this->assertStringNotContainsString('pane ===', $shellHtml);
+        $this->assertStringNotContainsString('selectPane', $shellHtml);
+        $this->assertSame(1, $xpath->query('.//noscript//a[@href="'.localized_route('theory.index').'"]', $shell)->length);
         $this->assertSame($attributes, $page->textBlocks->map->getAttributes()->all());
     }
 
@@ -113,16 +123,39 @@ class TheorySidebarPresentationTest extends TestCase
         $this->assertStringNotContainsString("card.style.position = 'fixed'", $html);
     }
 
-    public function test_topics_is_the_default_when_a_lesson_has_no_contents_headings(): void
+    public function test_lesson_without_contents_headings_keeps_only_the_topics_card(): void
     {
         $html = $this->render($this->lesson(false));
         $xpath = $this->xpath($html);
         $shell = $xpath->query('//*[@data-theory-sidebar-shell]')->item(0);
         $this->assertNotNull($shell);
-        $this->assertSame('topics', $shell->getAttribute('data-theory-sidebar-default'));
+        $this->assertSame(1, $xpath->query('./section[@data-theory-sidebar-card="topics"]', $shell)->length);
+        $this->assertSame(0, $xpath->query('.//*[@data-theory-sidebar-card="lesson"]', $shell)->length);
+        $this->assertSame(0, $xpath->query('.//*[@role="tablist" or @role="tab" or @role="tabpanel"]', $shell)->length);
         $this->assertSame(1, $xpath->query('.//*[@data-theory-desktop-navigation-loader]', $shell)->length);
         $this->assertSame(0, $xpath->query('//*[contains(concat(" ",normalize-space(@class)," ")," theory-mobile-toc ")]')->length);
         $this->assertStringContainsString('Do not remove 42 examples.', $html);
         $this->assertStringNotContainsString('data-theory-details', $html);
+    }
+
+    public function test_category_keeps_topics_only_and_a_non_javascript_navigation_fallback(): void
+    {
+        $category = new PageCategory;
+        $category->setRawAttributes(['id' => 98, 'title' => 'Навігаційна категорія', 'slug' => 'sidebar-category', 'recursive_pages_count' => 0], true);
+        $category->setRelation('tags', collect());
+        $category->setRelation('parent', null);
+        $html = view('theory.category', ['selectedCategory' => $category, 'categories' => collect(),
+            'categoryPages' => collect(), 'categoryDescription' => ['hasBlocks' => false]])->render();
+        $xpath = $this->xpath($html);
+        $shells = $xpath->query('//*[@data-theory-sidebar-shell]');
+        $this->assertSame(1, $shells->length);
+        $shell = $shells->item(0);
+        $this->assertSame(1, $xpath->query('./section[@data-theory-sidebar-card="topics"]', $shell)->length);
+        $this->assertSame(0, $xpath->query('.//*[@data-theory-sidebar-card="lesson" or @data-theory-sidebar-panel="lesson" or @data-theory-toc-links]', $shell)->length);
+        $this->assertSame(0, $xpath->query('.//*[@role="tablist" or @role="tab" or @role="tabpanel"]', $shell)->length);
+        $this->assertSame(1, $xpath->query('.//*[@data-theory-desktop-navigation-loader]', $shell)->length);
+        $this->assertSame(1, $xpath->query('.//noscript//a[@href="'.localized_route('theory.index').'"]', $shell)->length);
+        $this->assertSame(1, $xpath->query('//h1')->length);
+        $this->assertStringContainsString('Навігаційна категорія', $xpath->query('//*[@data-theory-main]')->item(0)->textContent);
     }
 }

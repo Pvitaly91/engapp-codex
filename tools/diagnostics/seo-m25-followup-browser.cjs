@@ -36,13 +36,29 @@ function authoredProof(html) {
     dom.window.close(); return proof;
 }
 
+function proofDifference(expected, actual) {
+    for (const key of ['authoredText', 'title', 'canonical', 'ids', 'links', 'fields', 'tables', 'nativePractice']) {
+        if (JSON.stringify(expected[key]) === JSON.stringify(actual[key])) continue;
+        const encode = value => typeof value === 'string' ? value : JSON.stringify(value);
+        const left = Array.from(encode(expected[key]) ?? 'undefined');
+        const right = Array.from(encode(actual[key]) ?? 'undefined');
+        let offset = 0;
+        while (offset < Math.min(left.length, right.length) && left[offset] === right[offset]) offset++;
+        return {key, firstDifferentCodePoint: offset, expectedLength: left.length, observedLength: right.length,
+            expectedContext: left.slice(Math.max(0, offset - 100), offset + 200).join(''),
+            observedContext: right.slice(Math.max(0, offset - 100), offset + 200).join('')};
+    }
+    return null;
+}
+
 async function geometry(page) {
     return page.evaluate(() => {
         const describe = node => {
             if (!node) return null; const b = node.getBoundingClientRect(), s = getComputedStyle(node);
             return {top: b.top, bottom: b.bottom, left: b.left, right: b.right, height: b.height, width: b.width,
                 clientHeight: node.clientHeight, scrollHeight: node.scrollHeight, scrollTop: node.scrollTop,
-                position: s.position, display: s.display, overflowY: s.overflowY, border: s.borderWidth};
+                position: s.position, display: s.display, overflowY: s.overflowY, border: s.borderWidth,
+                painted: node.checkVisibility?.({contentVisibilityAuto: true}) ?? node.getClientRects().length > 0};
         };
         const shell = document.querySelector('[data-theory-sidebar-shell]');
         const aside = document.querySelector('[data-theory-aside]');
@@ -53,6 +69,8 @@ async function geometry(page) {
             mapScroll: describe(aside?.querySelector('[data-theory-sidebar-scroll]')),
             lesson: describe(document.querySelector('[data-theory-sidebar-panel="lesson"]')),
             topics: describe(document.querySelector('[data-theory-sidebar-panel="topics"]')),
+            topicsCard: describe(document.querySelector('[data-theory-sidebar-card="topics"]')),
+            lessonCard: describe(document.querySelector('[data-theory-sidebar-card="lesson"]')),
             scrolls: scrolls.map(node => ({tag: node.tagName, class: String(node.className).slice(0, 120), ...describe(node)})),
             horizontalLearningOverflow: [...document.querySelectorAll('[data-theory-main] *')].filter(node => {
                 const b = node.getBoundingClientRect(); if (!node.getClientRects().length || (b.right <= innerWidth + 2 && b.left >= -2)) return false;
@@ -64,6 +82,26 @@ async function geometry(page) {
                 }
                 return true;
             }).slice(0, 10).map(node => ({tag: node.tagName, class: String(node.className).slice(0, 80)}))};
+    });
+}
+
+async function styleProof(page) {
+    return page.evaluate(() => {
+        const style = node => {
+            if (!node) return null; const s = getComputedStyle(node);
+            return {fontFamily: s.fontFamily, fontSize: s.fontSize, fontWeight: s.fontWeight, lineHeight: s.lineHeight,
+                paddingTop: s.paddingTop, paddingRight: s.paddingRight, paddingBottom: s.paddingBottom, paddingLeft: s.paddingLeft};
+        };
+        const root = document.querySelector('[data-theory-aside]');
+        const shell = root?.querySelector('[data-theory-sidebar-shell]');
+        return {
+            topicsCard: style(root?.querySelector('[data-theory-sidebar-card="topics"]') || shell),
+            lessonCard: style(root?.querySelector('[data-theory-sidebar-card="lesson"]') || shell),
+            topicTitle: style(root?.querySelector('.theory-nav-label [data-theory-sidebar-highlight]')),
+            topicLink: style(root?.querySelector('.theory-nav-link')),
+            searchInput: style(root?.querySelector('[data-theory-sidebar-search-input]')),
+            lessonLink: style(root?.querySelector('[data-theory-toc-links] a')),
+        };
     });
 }
 
@@ -118,33 +156,41 @@ async function wheel(page, locator) {
     return {before: initial, after: end, documentScrollY: y};
 }
 
-async function desktop(page, directory, row, label, hasToc) {
+async function desktop(page, directory, row, label, hasToc, beforeStyle) {
     const shell = page.locator('[data-theory-sidebar-shell]'); assert.equal(await shell.count(), 1);
     row.initialGeometry = await geometry(page);
     assert.ok(row.initialGeometry.shell.height >= 240, 'Desktop sidebar must have usable height');
     assert.ok(row.initialGeometry.shell.bottom <= row.initialGeometry.viewport.height + 2, 'Sidebar bottom must fit viewport');
-    const tabs = page.locator('[data-theory-sidebar-tab]');
+    assert.equal(await page.locator('[data-theory-sidebar-tab]').count(), 0, 'Two-card sidebar has no tab controls');
+    const topicsCard = page.locator('[data-theory-sidebar-card="topics"]');
+    assert.equal(await topicsCard.count(), 1); assert.ok(await topicsCard.isVisible(), 'Topic card always visible');
+    assert.ok(await page.locator('[data-theory-sidebar-panel="topics"]').isVisible());
     if (hasToc) {
-        const lesson = page.locator('[data-theory-sidebar-tab="lesson"]');
-        const topics = page.locator('[data-theory-sidebar-tab="topics"]');
-        assert.equal(await lesson.getAttribute('aria-selected'), 'true', 'Lesson contents is default');
-        assert.equal(await topics.getAttribute('aria-selected'), 'false');
+        const lesson = page.locator('[data-theory-sidebar-card="lesson"]');
+        assert.equal(await lesson.count(), 1); assert.ok(await lesson.isVisible(), 'Lesson card visible without a tab click');
+        assert.ok(await page.locator('[data-theory-sidebar-panel="lesson"]').isVisible());
+        assert.ok(row.initialGeometry.topicsCard.bottom <= row.initialGeometry.lessonCard.top - 4, 'Cards must not overlap');
+        assert.ok(row.initialGeometry.lesson.clientHeight >= 100, 'Lesson panel must have usable height');
         const first = page.locator('[data-theory-sidebar-panel="lesson"] a').first();
         assert.ok(await clickability(first), 'First lesson link must be unobstructed at start');
-        await lesson.focus(); await page.keyboard.press('ArrowRight'); await settle(page);
-        assert.equal(await topics.getAttribute('aria-selected'), 'true', 'Right arrow selects Topics');
-        assert.equal(await topics.evaluate(node => document.activeElement === node), true);
-        await page.keyboard.press('ArrowLeft'); await settle(page);
-        assert.equal(await lesson.getAttribute('aria-selected'), 'true', 'Left arrow selects contents');
-        await topics.click();
-    } else assert.equal(await tabs.count(), 0, 'No empty tab controls on pages without a lesson TOC');
+    } else assert.equal(await page.locator('[data-theory-sidebar-card="lesson"]').count(), 0, 'Category has no empty lesson card');
     await readyMap(page, false);
     const input = page.locator('[data-theory-aside] [data-theory-sidebar-search-input]');
     assert.ok(await input.isVisible(), 'Topics search visible');
     row.topicGeometry = await geometry(page);
-    assert.ok(row.topicGeometry.mapScroll.clientHeight >= 240, 'Topic tree must receive at least 240px at desktop size');
+    row.styleProof = await styleProof(page);
+    assert.ok(row.topicGeometry.mapScroll.clientHeight >= 160, 'Topic tree must receive at least 160px at desktop size');
+    if (beforeStyle) {
+        for (const key of ['topicsCard', 'topicTitle', 'topicLink', 'searchInput', 'lessonLink']) {
+            if (beforeStyle[key]) assert.deepEqual(row.styleProof[key], beforeStyle[key], 'Preserve font/padding: ' + key);
+        }
+        if (hasToc && beforeStyle.lessonCard) assert.deepEqual(row.styleProof.lessonCard, beforeStyle.lessonCard, 'Preserve lesson card font/padding');
+        row.styleParity = true;
+    }
     const scroller = page.locator('[data-theory-aside] [data-theory-sidebar-scroll]');
+    const beforeLessonTop = hasToc ? await page.locator('[data-theory-sidebar-panel="lesson"]').evaluate(node => node.scrollTop) : null;
     row.wheel = await wheel(page, scroller);
+    if (hasToc) assert.equal(await page.locator('[data-theory-sidebar-panel="lesson"]').evaluate(node => node.scrollTop), beforeLessonTop, 'Topic wheel must not scroll lesson contents');
     await input.fill('present'); await settle(page);
     row.searchVisibleLabels = await visible(page.locator('[data-theory-aside] [data-theory-sidebar-highlight]')).allTextContents();
     assert.ok(row.searchVisibleLabels.some(text => /present/i.test(text)), 'Search must retain matching topics');
@@ -156,17 +202,26 @@ async function desktop(page, directory, row, label, hasToc) {
     assert.notEqual(await expandedBranch.getAttribute('aria-expanded'), expanded, 'Tree expand/collapse remains usable');
     await expandedBranch.click(); await settle(page);
     const collapse = page.locator('[data-theory-sidebar-collapse]'); assert.equal(await collapse.count(), 1);
-    await collapse.click(); await settle(page);
+    await collapse.focus(); await collapse.press('Enter'); await settle(page);
     assert.equal(await page.locator('[data-theory-layout]').getAttribute('data-collapsed'), 'true');
-    await collapse.click(); await settle(page);
+    if (hasToc) assert.equal(await page.locator('[data-theory-sidebar-card="lesson"]').isVisible(), false, 'Only collapsed mode hides lesson contents');
+    await collapse.press('Enter'); await settle(page);
     assert.equal(await page.locator('[data-theory-layout]').getAttribute('data-collapsed'), 'false');
-    if (hasToc) await page.locator('[data-theory-sidebar-tab="lesson"]').click();
+    if (hasToc) assert.ok(await page.locator('[data-theory-sidebar-card="lesson"]').isVisible());
+    row.collapseKeyboardPass = true;
     await settle(page); await shot(page, directory, row, label + '-start');
     await page.evaluate(() => scrollTo({top: 900, behavior: 'instant'})); await settle(page);
     row.scrolledGeometry = await geometry(page);
     assert.ok(row.scrolledGeometry.shell.top >= row.scrolledGeometry.header.bottom - 1, 'Sticky sidebar must stay below real header');
     assert.ok(row.scrolledGeometry.shell.bottom <= row.scrolledGeometry.viewport.height + 2, 'Sticky sidebar must fit viewport');
     assert.equal(row.scrolledGeometry.shell.position, 'sticky', 'CSS sticky, not fixed overlay');
+    if (hasToc) {
+        assert.ok(row.scrolledGeometry.topicsCard.bottom <= row.scrolledGeometry.lessonCard.top - 4, 'Sticky cards remain separate');
+        const lessonScroller = page.locator('[data-theory-sidebar-panel="lesson"]');
+        const beforeTopic = await scroller.evaluate(node => node.scrollTop);
+        row.lessonWheel = await wheel(page, lessonScroller);
+        assert.equal(await scroller.evaluate(node => node.scrollTop), beforeTopic, 'Lesson wheel must not scroll the topic tree');
+    }
     await shot(page, directory, row, label + '-scrolled');
     if (hasToc) {
         const last = page.locator('[data-theory-sidebar-panel="lesson"] a').last();
@@ -250,12 +305,15 @@ async function run(mode, directory, label, beforeFile) {
         for (const item of cases) {
             const row = {...item, ...diagnostics()}; report.rows.push(row);
             const {context, page} = await createPage(browser, {...item, mobile: item.width < 1024}, row, plan);
+            let observedProof = null;
             try {
                 const response = await page.goto(BASE + item.urlPath, {waitUntil: 'load', timeout: 60000});
                 row.status = response.status(); assert.equal(row.status, 200);
                 const proof = authoredProof(await response.text());
+                observedProof = proof; row.observedAuthoredTextSha256 = proof.authoredTextSha256;
                 if (!report.authored.some(proof => proof.path === item.urlPath)) report.authored.push({path: item.urlPath, ...proof});
                 if (mode !== 'before') { const old = before.authored.find(old => old.path === item.urlPath); assert.ok(old);
+                    row.authoredDifference = proofDifference(old, proof);
                     for (const key of ['authoredText', 'title', 'canonical', 'ids', 'links', 'fields', 'tables', 'nativePractice']) assert.deepEqual(proof[key], old[key], 'Preserve ' + key);
                     row.authoredParity = true;
                 }
@@ -265,10 +323,14 @@ async function run(mode, directory, label, beforeFile) {
                 }
                 await settle(page);
                 const key = label + '-' + item.urlPath.split('/').at(-1) + '-' + item.width + '-' + (item.dark ? 'dark' : 'light');
-                if (mode === 'before') await shot(page, directory, row, key);
+                if (mode === 'before') {
+                    await readyMap(page, false); row.geometry = await geometry(page); row.styleProof = await styleProof(page);
+                    await shot(page, directory, row, key);
+                }
                 else {
                     const hasToc = await page.locator('.theory-mobile-toc').count() > 0;
-                    if (item.width >= 1024) await desktop(page, directory, row, key, hasToc);
+                    const beforeStyle = before.rows.find(old => old.urlPath === item.urlPath && old.width === 1366 && !old.dark)?.styleProof;
+                    if (item.width >= 1024) await desktop(page, directory, row, key, hasToc, beforeStyle);
                     else await mobile(page, directory, row, key, hasToc);
                     assert.deepEqual((await geometry(page)).horizontalLearningOverflow, []);
                 }
@@ -276,7 +338,16 @@ async function run(mode, directory, label, beforeFile) {
                 assert.equal(row.httpErrors.filter(e => new URL(e.url).origin === BASE).length, 0);
                 assert.equal(row.failures.filter(e => new URL(e.url).origin === BASE).length, 0);
                 row.pass = true;
-            } catch (error) { row.pass = false; row.error = error.message.slice(0, 1000); }
+            } catch (error) {
+                row.pass = false; row.error = error.message.slice(0, 1000);
+                // This proof contains only public learner text and structural metadata;
+                // no raw HTML, form values, CSRF tokens, headers or cookies are saved.
+                if (observedProof) row.sanitizedObservedProofOnFailure = observedProof;
+                try {
+                    const failureKey = label + '-' + item.urlPath.split('/').at(-1) + '-' + item.width + '-' + (item.dark ? 'dark' : 'light') + '-failure';
+                    await shot(page, directory, row, failureKey);
+                } catch (evidenceError) { row.failureScreenshotError = evidenceError.message.slice(0, 500); }
+            }
             finally { await context.close(); save(); }
         }
         if (mode === 'after') await noScriptLegacy(browser, directory, label, plan, report, before, save);

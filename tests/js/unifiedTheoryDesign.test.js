@@ -1,10 +1,19 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import postcss from 'postcss';
 
 const source = relative => fs.readFileSync(path.resolve(process.cwd(), relative), 'utf8');
 const css = source('resources/css/theory-unified-design.css');
 const entry = source('resources/js/catalog-public.js');
+const cssAst = postcss.parse(css);
+const declarations = selector => {
+    const properties = new Map();
+    cssAst.walkRules(rule => {
+        if (rule.selectors.includes(selector)) rule.walkDecls(node => properties.set(node.prop, node.value));
+    });
+    return properties;
+};
 
 describe('scoped unified lesson design', () => {
     it('does not introduce global typography, hidden content or text truncation', () => {
@@ -35,5 +44,29 @@ describe('scoped unified lesson design', () => {
         const module = source('resources/js/theory-sections.js');
         expect(module).not.toMatch(/fetch\(|setTimeout|innerHTML|createElement\('template'/);
         expect(module).toContain("window.addEventListener('popstate'");
+    });
+    it('keeps the sticky allocation neutral and paints two quiet sibling cards instead of tabs', () => {
+        const shell = declarations('.theory-design .theory-sidebar-shell');
+        expect(shell.get('padding')).toBe('0');
+        expect(shell.get('border')).toBe('0');
+        expect(shell.get('box-shadow')).toBe('none');
+        const card = declarations('.theory-design .theory-sidebar-card');
+        expect(card.get('padding')).toBe('1rem');
+        expect(card.get('border')).toBe('1px solid var(--line)');
+        expect(card.get('border-radius')).toBe('1.25rem');
+        expect(card.get('box-shadow')).toBe('var(--theory-shadow)');
+        expect(css).not.toContain('.theory-sidebar-tabs');
+    });
+    it('retains separate topic-tree and contents scroll roots inside bounded cards', () => {
+        const contents = declarations('.theory-design .theory-sidebar-lesson-panel');
+        expect(contents.get('min-height')).toBe('0');
+        expect(contents.get('overflow-y')).toBe('auto');
+        const topics = declarations('.theory-design .theory-sidebar-topics-panel');
+        expect(topics.get('min-height')).toBe('0');
+        expect(topics.get('overflow')).toBe('hidden');
+        const navigation = source('resources/views/theory/partials/mobile-navigation-content.blade.php');
+        expect(navigation).toMatch(/class="[^"]*min-h-0[^"]*overflow-y-auto[^"]*"\s+data-theory-sidebar-scroll/);
+        const collapsedContents = declarations('.theory-design [data-collapsed="true"] .theory-sidebar-contents-card');
+        expect(collapsedContents.get('display')).toBe('none');
     });
 });
