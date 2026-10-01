@@ -18,7 +18,7 @@
     $rephraseExerciseNumber = $inputExerciseNumber + (!empty($inputs) ? 1 : 0);
 @endphp
 
-<section id="block-{{ $block->id }}" class="scroll-mt-24">
+<section id="block-{{ $block->id }}" class="theory-native-block scroll-mt-24">
     <div
         x-data="theoryPracticeSet(@js([
             'selects' => $selects,
@@ -36,26 +36,16 @@
             ],
             'wordSearchEndpoint' => route('api.words.search', ['lang' => app()->getLocale() === 'ua' ? 'uk' : app()->getLocale()]),
         ]))"
-        class="rounded-2xl border border-border/60 bg-card overflow-visible"
+        class="theory-section-card rounded-2xl border border-border/60 bg-card overflow-visible"
     >
         @if(!empty($data['title']))
-            <div class="border-b border-border/40 bg-gradient-to-r from-brand-50 to-indigo-50 px-5 py-4">
-                <div class="flex items-center justify-between gap-3">
-                    <h2 class="flex items-center gap-3 text-lg font-bold text-foreground">
-                        <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-brand-500 to-brand-600 text-white text-xs font-bold shadow-sm">
-                            ⚡
-                        </span>
-                        {{ preg_replace('/^\d+\.\s*/', '', $data['title']) }}
-                    </h2>
-                    <x-text-block-level-badge :level="$block->level ?? null" />
-                </div>
-            </div>
+            <x-theory-native-header :title="$data['title']" :level="$block->level ?? null" fallback="⚡" />
         @endif
 
-        <div class="p-5 space-y-6">
+        <div class="theory-section-body p-5 space-y-6">
             {{-- Select Exercise --}}
             @if(!empty($selects))
-                <div class="rounded-xl border border-blue-100 bg-blue-50/30 overflow-hidden">
+                <div class="theory-exercise rounded-xl border border-blue-100 bg-blue-50/30 overflow-hidden">
                     <div class="border-b border-blue-100 bg-blue-50/50 px-4 py-3">
                         <h3 class="font-semibold text-foreground text-sm flex items-center gap-2">
                             <span class="flex h-5 w-5 items-center justify-center rounded bg-blue-500 text-white text-[10px]">1</span>
@@ -119,7 +109,7 @@
 
             {{-- Choice Exercise --}}
             @if(!empty($choices))
-                <div class="rounded-xl border border-amber-100 bg-amber-50/30 overflow-hidden">
+                <div class="theory-exercise rounded-xl border border-amber-100 bg-amber-50/30 overflow-hidden">
                     <div class="border-b border-amber-100 bg-amber-50/50 px-4 py-3">
                         <h3 class="font-semibold text-foreground text-sm flex items-center gap-2">
                             <span class="flex h-5 w-5 items-center justify-center rounded bg-amber-500 text-white text-[10px]">{{ $choiceExerciseNumber }}</span>
@@ -186,7 +176,7 @@
 
             {{-- Input Exercise --}}
             @if(!empty($inputs))
-                <div class="rounded-xl border border-emerald-100 bg-emerald-50/30 overflow-visible">
+                <div class="theory-exercise rounded-xl border border-emerald-100 bg-emerald-50/30 overflow-visible">
                     <div class="border-b border-emerald-100 bg-emerald-50/50 px-4 py-3">
                         <h3 class="font-semibold text-foreground text-sm flex items-center gap-2">
                             <span class="flex h-5 w-5 items-center justify-center rounded bg-emerald-500 text-white text-[10px]">{{ $inputExerciseNumber }}</span>
@@ -303,7 +293,7 @@
 
             {{-- Rephrase Exercise --}}
             @if(!empty($rephrase))
-                <div class="rounded-xl border border-purple-100 bg-purple-50/30 overflow-visible">
+                <div class="theory-exercise rounded-xl border border-purple-100 bg-purple-50/30 overflow-visible">
                     <div class="border-b border-purple-100 bg-purple-50/50 px-4 py-3">
                         <h3 class="font-semibold text-foreground text-sm flex items-center gap-2">
                             <span class="flex h-5 w-5 items-center justify-center rounded bg-purple-500 text-white text-[10px]">{{ $rephraseExerciseNumber }}</span>

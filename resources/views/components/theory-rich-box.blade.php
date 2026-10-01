@@ -1,6 +1,15 @@
-@props(['block', 'richContent' => null])
+@props(['block', 'richContent' => null, 'presentation' => null])
 
-@if($richContent !== null)
+@if($presentation !== null)
+    <article class="theory-html-article{{ $presentation['structured'] ? ' theory-html-article--structured' : ' theory-section-card theory-section-body' }}">
+        @if(!empty($block->heading))
+            <h2 class="theory-section-title theory-box-heading">{{ $block->heading }}</h2>
+        @endif
+        <div class="theory-html-content{{ $presentation['structured'] ? ' theory-rich-content' : '' }}">
+            {!! $presentation['html'] !!}
+        </div>
+    </article>
+@elseif($richContent !== null)
     <article class="theory-rich-article">
         @if(!empty($block->heading))
             <h3 class="font-display text-lg font-extrabold leading-tight">{{ $block->heading }}</h3>

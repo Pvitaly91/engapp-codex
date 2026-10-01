@@ -1,23 +1,13 @@
 @php($data = $data ?? json_decode($block->body ?? '[]', true) ?? [])
 @php($sections = $data['sections'] ?? [])
 
-<section id="block-{{ $block->id }}" class="scroll-mt-24">
-    <div class="rounded-2xl border border-border/60 bg-card overflow-hidden">
+<section id="block-{{ $block->id }}" class="theory-native-block scroll-mt-24">
+    <div class="theory-section-card rounded-2xl border border-border/60 bg-card">
         @if(!empty($data['title']))
-            <div class="border-b border-border/40 bg-muted/30 px-5 py-4">
-                <div class="flex items-center justify-between gap-3">
-                    <h2 class="flex items-center gap-3 text-lg font-bold text-foreground">
-                        <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-700 text-white text-xs font-bold">
-                            {{ preg_replace('/[^0-9]/', '', $data['title']) ?: '#' }}
-                        </span>
-                        {{ preg_replace('/^\d+\.\s*/', '', $data['title']) }}
-                    </h2>
-                    <x-text-block-level-badge :level="$block->level ?? null" />
-                </div>
-            </div>
+            <x-theory-native-header :title="$data['title']" :level="$block->level ?? null" />
         @endif
 
-        <div class="p-5 space-y-4">
+        <div class="theory-section-body p-5 space-y-4">
             @foreach($sections as $index => $section)
                 @php($color = $section['color'] ?? 'slate')
                 @php($colorStyles = match($color) {
@@ -29,7 +19,7 @@
                     default => ['border' => 'border-slate-200', 'bg' => 'bg-slate-50', 'text' => 'text-slate-700', 'badge' => 'bg-slate-500'],
                 })
                 
-                <article class="rounded-xl border {{ $colorStyles['border'] }} {{ $colorStyles['bg'] }} overflow-hidden">
+                <article class="theory-item rounded-xl border {{ $colorStyles['border'] }} {{ $colorStyles['bg'] }}">
                     <div class="p-4">
                         {{-- Section Header --}}
                         @if(!empty($section['label']))
@@ -54,14 +44,14 @@
                         @if(!empty($section['examples']))
                             <div class="space-y-2">
                                 @foreach($section['examples'] as $example)
-                                    <div class="flex items-start gap-3 rounded-lg bg-white/60 border border-white/80 p-3">
+                                    <div class="theory-example flex items-start gap-3 rounded-lg bg-white/60 border border-white/80 p-3">
                                         <span class="flex-shrink-0 text-lg">💬</span>
                                         <div class="min-w-0 flex-1">
                                             <p class="font-mono text-xs font-medium text-foreground">
                                                 {{ \App\Support\TheoryInlineHtml::render($example['en'] ?? '') }}
                                             </p>
                                             @if(!empty($example['ua']))
-                                                <p class="text-xs text-muted-foreground mt-0.5 italic">
+                                                <p class="theory-translation text-xs text-muted-foreground mt-0.5 italic">
                                                     {{ \App\Support\TheoryInlineHtml::render($example['ua']) }}
                                                 </p>
                                             @endif
@@ -73,7 +63,7 @@
 
                         {{-- Note --}}
                         @if(!empty($section['note']))
-                            <div class="mt-3 flex items-start gap-2 text-xs text-muted-foreground bg-white/40 rounded-lg p-2.5">
+                            <div class="theory-note mt-3 flex items-start gap-2 text-xs text-muted-foreground bg-white/40 rounded-lg p-2.5">
                                 <svg class="h-4 w-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                 </svg>

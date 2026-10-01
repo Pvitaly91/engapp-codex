@@ -1,3 +1,5 @@
+import { initTheorySections } from './theory-sections.js';
+
 // Static public-shell behavior; Livewire is the sole Alpine owner.
 function initStickyShellHeader() {
     const shell = document.getElementById('catalog-shell');
@@ -621,6 +623,7 @@ function randomizeAppBackgroundIcons() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    initTheorySections(document, window);
     initStickyShellHeader();
     randomizeAppBackgroundIcons();
     window.requestAnimationFrame(buildShellRandomShapes);

@@ -1,6 +1,13 @@
 <?php
 
 return [
+    'section' => [
+        'contents' => 'Spis treści lekcji',
+        'more' => 'Więcej informacji',
+        'less' => 'Zwiń',
+        'no_js' => 'Bez JavaScript otwórz szczegóły za pomocą nazwy sekcji:',
+    ],
+
     'practice' => [
         'select_title' => 'Wybierz poprawne słowo',
         'select_placeholder' => '— wybierz —',

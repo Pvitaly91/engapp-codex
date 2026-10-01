@@ -1,24 +1,13 @@
 @php($data = $data ?? json_decode($block->body ?? '[]', true) ?? [])
 @php($items = $data['items'] ?? [])
-@php($m24TitleNumber = \App\Support\M24NativeTitleNumber::forBlock($block, $data['title'] ?? null))
 
-<section id="block-{{ $block->id }}" class="scroll-mt-24">
-    <div class="rounded-2xl border border-emerald-200/60 bg-gradient-to-br from-emerald-50/30 to-card overflow-hidden">
+<section id="block-{{ $block->id }}" class="theory-native-block scroll-mt-24">
+    <div class="theory-section-card rounded-2xl border border-emerald-200/60 bg-gradient-to-br from-emerald-50/30 to-card">
         @if(!empty($data['title']))
-            <div class="border-b border-emerald-100 bg-emerald-50/50 px-5 py-4">
-                <div class="flex items-center justify-between gap-3">
-                    <h2 class="flex items-center gap-3 text-lg font-bold text-foreground">
-                        <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500 text-white text-xs font-bold">
-                            {{ $m24TitleNumber ?? '✓' }}
-                        </span>
-                        {{ preg_replace('/^\d+\.\s*/', '', $data['title']) }}
-                    </h2>
-                    <x-text-block-level-badge :level="$block->level ?? null" />
-                </div>
-            </div>
+            <x-theory-native-header :title="$data['title']" :level="$block->level ?? null" fallback="✓" />
         @endif
 
-        <div class="p-5">
+        <div class="theory-section-body p-5">
             <div class="space-y-3">
                 @foreach($items as $index => $item)
                     <div class="flex items-start gap-3 group">

@@ -7,8 +7,8 @@
     $lessonLinks = $categoryDescription['lessonLinks'] ?? [];
 @endphp
 
-<section class="space-y-6 rounded-[30px] border p-7 shadow-card surface-card-strong" style="border-color: var(--line);">
-    <div class="rounded-[26px] border p-7 surface-card" style="border-color: var(--line);">
+<section class="theory-design theory-category-learning space-y-6">
+    <div class="theory-hero" style="border-color: var(--line);">
         <div class="flex items-start gap-4">
             <span class="inline-flex h-16 w-16 shrink-0 items-center justify-center rounded-[22px] bg-ocean text-lg font-extrabold text-white">
                 TH
@@ -25,7 +25,7 @@
         </div>
 
         @if(!empty($heroData['rules']))
-            <div class="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            <div class="theory-rules mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                 @foreach($heroData['rules'] as $rule)
                     <div class="rounded-[20px] border px-4 py-4 surface-card-strong" style="border-color: var(--line);">
                         @if(!empty($rule['label']))
@@ -33,7 +33,7 @@
                         @endif
                         <div class="mt-2 text-sm leading-6" style="color: var(--text);">{!! $rule['text'] ?? '' !!}</div>
                         @if(!empty($rule['example']))
-                            <code class="mt-3 block rounded-[16px] px-3 py-2 text-xs" style="background: var(--accent-soft); color: var(--text);">{{ \App\Support\TheoryInlineHtml::render($rule['example']) }}</code>
+                            <code class="theory-example mt-3 block rounded-[16px] px-3 py-2 text-xs" style="background: var(--accent-soft); color: var(--text);">{{ \App\Support\TheoryRichContent::example($rule['example']) }}</code>
                         @endif
                     </div>
                 @endforeach
@@ -42,25 +42,9 @@
     </div>
 
     @if($contentBlocks->isNotEmpty())
-        <div class="space-y-5">
+        <div class="theory-content-blocks space-y-5">
             @foreach($contentBlocks as $block)
-                @php($blockData = json_decode($block->body ?? '[]', true) ?? [])
-                @if(in_array($block->type, ['forms-grid', 'lesson-rule-cards', 'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list', 'practice-set', 'tense-forms-table']))
-                    @includeIf('engram.theory.blocks-v3.' . $block->type, [
-                        'block' => $block,
-                        'data' => $blockData,
-                        'lessonLinks' => $lessonLinks,
-                    ])
-                @elseif($block->type === 'box' || empty($block->type))
-                    <article class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
-                        @if(!empty($block->heading))
-                            <h3 class="font-display text-[1.35rem] font-extrabold leading-tight">{{ $block->heading }}</h3>
-                        @endif
-                        <div class="prose prose-sm mt-4 max-w-none leading-7" style="color: var(--muted);">
-                            {!! $block->body !!}
-                        </div>
-                    </article>
-                @endif
+                @include('theory.partials.content-block', ['lessonLinks' => $lessonLinks, 'presentation' => null])
             @endforeach
         </div>
     @endif

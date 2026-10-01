@@ -4,23 +4,13 @@
     $lessonLinks = $lessonLinks ?? [];
 @endphp
 
-<section id="block-{{ $block->id }}" class="scroll-mt-24">
-    <div class="rounded-2xl border border-border/60 bg-card overflow-hidden">
+<section id="block-{{ $block->id }}" class="theory-native-block scroll-mt-24">
+    <div class="theory-section-card rounded-2xl border border-border/60 bg-card">
         @if(!empty($data['title']))
-            <div class="border-b border-border/40 bg-muted/30 px-5 py-4">
-                <div class="flex items-center justify-between gap-3">
-                    <h2 class="flex items-center gap-3 text-lg font-bold text-foreground">
-                        <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-600 text-white text-xs font-bold">
-                            {{ preg_replace('/[^0-9]/', '', $data['title']) ?: '#' }}
-                        </span>
-                        {{ preg_replace('/^\d+\.\s*/', '', $data['title']) }}
-                    </h2>
-                    <x-text-block-level-badge :level="$block->level ?? null" />
-                </div>
-            </div>
+            <x-theory-native-header :title="$data['title']" :level="$block->level ?? null" />
         @endif
 
-        <div class="p-5">
+        <div class="theory-section-body p-5">
             @if(!empty($data['intro']))
                 <p class="text-sm text-muted-foreground mb-5 leading-relaxed">{!! $data['intro'] !!}</p>
             @endif
@@ -31,7 +21,7 @@
                         $itemTitle = (string) ($item['title'] ?? '');
                         $normalizedTitle = \Illuminate\Support\Str::lower(trim(preg_replace('/^\d+[.\d\s]*\s*/u', '', $itemTitle) ?? $itemTitle));
                         $itemUrl = $item['url'] ?? $lessonLinks[$itemTitle] ?? $lessonLinks[$normalizedTitle] ?? null;
-                        $cardClass = 'group relative rounded-xl border border-border/50 bg-gradient-to-br from-muted/20 to-transparent p-4 transition-all hover:border-brand-500 hover:shadow-sm';
+                        $cardClass = 'theory-item group relative rounded-xl border border-border/50 bg-gradient-to-br from-muted/20 to-transparent p-4 transition-all hover:border-brand-500 hover:shadow-sm';
                         $rules = $item['rules'] ?? [];
                     @endphp
 
@@ -61,7 +51,7 @@
                         @if(!empty($rules))
                             <div class="mt-4 space-y-2.5">
                                 @foreach($rules as $rule)
-                                    <div class="rounded-2xl border border-border/50 bg-background/80 px-3 py-2.5">
+                                    <div class="theory-rule rounded-2xl border border-border/50 bg-background/80 px-3 py-2.5">
                                         <div class="flex flex-wrap items-center gap-2">
                                             @if(!empty($rule['label']))
                                                 <span class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-brand-700">
@@ -80,7 +70,7 @@
                                             </div>
                                         @endif
                                         @if(!empty($rule['example']))
-                                            <div class="mt-2 rounded-xl bg-muted/60 px-3 py-2 text-xs font-semibold leading-5 text-foreground">
+                                            <div class="theory-example mt-2 rounded-xl bg-muted/60 px-3 py-2 text-xs font-semibold leading-5 text-foreground">
                                                 {!! $rule['example'] !!}
                                             </div>
                                         @endif

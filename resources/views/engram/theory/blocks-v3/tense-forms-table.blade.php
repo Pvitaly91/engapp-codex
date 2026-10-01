@@ -6,29 +6,29 @@
 
 @once
     <style>
-        .tense-forms-table {
+        .theory-native-block .tense-forms-table {
             border-collapse: separate;
             border-spacing: 0;
             min-width: 900px;
         }
 
-        .tense-forms-table th,
-        .tense-forms-table td {
+        .theory-native-block .tense-forms-table th,
+        .theory-native-block .tense-forms-table td {
             border-right: 1px solid rgba(203, 213, 225, .85);
             border-bottom: 1px solid rgba(203, 213, 225, .85);
             vertical-align: middle;
         }
 
-        .tense-forms-table th:first-child,
-        .tense-forms-table td:first-child {
+        .theory-native-block .tense-forms-table th:first-child,
+        .theory-native-block .tense-forms-table td:first-child {
             border-left: 1px solid rgba(203, 213, 225, .85);
         }
 
-        .tense-forms-table thead th {
+        .theory-native-block .tense-forms-table thead th {
             border-top: 1px solid rgba(203, 213, 225, .85);
         }
 
-        .tense-forms-corner::after {
+        .theory-native-block .tense-forms-corner::after {
             content: "";
             position: absolute;
             inset: 0;
@@ -41,8 +41,8 @@
             pointer-events: none;
         }
 
-        .tense-forms-cell strong,
-        .tense-forms-cell .tf-link {
+        .theory-native-block .tense-forms-cell strong,
+        .theory-native-block .tense-forms-cell .tf-link {
             color: var(--accent);
             font-weight: 800;
             text-decoration: underline;
@@ -52,22 +52,20 @@
     </style>
 @endonce
 
-<section id="block-{{ $block->id }}" class="scroll-mt-24">
-    <div class="overflow-hidden rounded-[28px] border shadow-card surface-card-strong" style="border-color: var(--line);">
+<section id="block-{{ $block->id }}" class="theory-native-block scroll-mt-24">
+    <div class="theory-section-card rounded-[28px] border shadow-card surface-card-strong" style="border-color: var(--line);">
         @if(!empty($data['title']) || !empty($data['intro']))
-            <div class="border-b px-5 py-4" style="border-color: var(--line);">
+            <div>
                 @if(!empty($data['title']))
-                    <h2 class="font-display text-xl font-extrabold leading-tight" style="color: var(--text);">
-                        {{ preg_replace('/^\d+\.\s*/', '', $data['title']) }}
-                    </h2>
+                    <x-theory-native-header :title="$data['title']" />
                 @endif
                 @if(!empty($data['intro']))
-                    <p class="mt-2 max-w-3xl text-sm leading-6" style="color: var(--muted);">{!! $data['intro'] !!}</p>
+                    <p class="theory-section-intro px-5 pt-4 max-w-3xl text-sm leading-6" style="color: var(--muted);">{!! $data['intro'] !!}</p>
                 @endif
             </div>
         @endif
 
-        <div class="overflow-x-auto p-4 sm:p-5" style="scrollbar-color: rgba(37, 99, 235, .35) transparent;">
+        <div class="theory-section-body theory-table-scroll overflow-x-auto p-4 sm:p-5" style="scrollbar-color: rgba(37, 99, 235, .35) transparent;">
             <table class="tense-forms-table w-full overflow-hidden rounded-[22px] bg-white text-slate-950">
                 <thead>
                     <tr>

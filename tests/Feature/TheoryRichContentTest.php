@@ -77,9 +77,9 @@ class TheoryRichContentTest extends TestCase
         foreach (['theory.show', 'courses.partials.theory-page-content'] as $view) {
             $html = view($view, ['page' => $page, 'categories' => collect(), 'categoryPages' => collect()])->render();
             $xpath = new DOMXPath($this->document($html));
-            $this->assertSame(1, $xpath->query('//section[@class="theory-rich-shell"]')->length, $view);
-            $this->assertSame(1, $xpath->query('//article[@class="theory-rich-article"]/div[contains(@class,"theory-rich-content")]')->length, $view);
-            $this->assertGreaterThan(0, $xpath->query('//*[contains(@class,"theory-rich-rules")]')->length, $view);
+            $this->assertSame(1, $xpath->query('//section[@class="theory-content-blocks"]')->length, $view);
+            $this->assertSame(1, $xpath->query('//article[contains(@class,"theory-html-article")]/div[contains(@class,"theory-rich-content")]')->length, $view);
+            $this->assertGreaterThan(0, $xpath->query('//*[contains(@class,"theory-rules")]')->length, $view);
             $this->assertSame($originalBodies, $blocks->pluck('body')->all());
         }
     }
@@ -140,9 +140,10 @@ class TheoryRichContentTest extends TestCase
         }));
         foreach (['theory.show', 'courses.partials.theory-page-content'] as $view) {
             $html = view($view, ['page' => $page, 'categories' => collect(), 'categoryPages' => collect()])->render();
-            $this->assertStringNotContainsString('theory-rich-', $html);
             $this->assertStringContainsString('have + V3', $html);
-            $this->assertStringContainsString('rounded-[30px] border p-6 shadow-card surface-card-strong', $html);
+            $this->assertStringContainsString('theory-content-blocks', $html);
+            $this->assertStringContainsString('theory-native-block', $html);
+            $this->assertStringNotContainsString('data-theory-details', $html);
         }
     }
 

@@ -40,14 +40,22 @@
     $heroBlock = $blocks->firstWhere('type', 'hero-v2') ?? $blocks->firstWhere('type', 'hero');
     $heroData = $heroBlock ? (json_decode($heroBlock->body ?? '[]', true) ?? []) : [];
     $contentBlocks = $blocks->reject(fn ($block) => in_array($block->type, ['hero', 'hero-v2', 'navigation-chips']));
-    $richContentByBlock = $contentBlocks->mapWithKeys(fn ($block) => [
-        $block->id => ($block->type === 'box' || empty($block->type)) ? \App\Support\TheoryRichContent::render($block->body) : null,
+    $presentationByBlock = $contentBlocks->mapWithKeys(fn ($block) => [
+        $block->id => ($block->type === 'box' || empty($block->type)) ? \App\Support\TheoryPresentation::html($block) : null,
     ]);
-    $renderedContentBlocks = $contentBlocks->reject(fn ($block) => $block->type === 'subtitle');
-    $richContentOnly = $renderedContentBlocks->isNotEmpty() && $renderedContentBlocks->every(fn ($block) => $richContentByBlock[$block->id] !== null);
     $navBlock = $blocks->firstWhere('type', 'navigation-chips');
     $categoryPages = $categoryPages ?? collect();
-    $tocBlocks = $contentBlocks->filter(fn ($block) => !empty(json_decode($block->body ?? '[]', true)['title'] ?? ''));
+    $lessonToc = [];
+    foreach ($contentBlocks as $tocBlock) {
+        $tocData = \App\Support\TheoryPresentation::data($tocBlock->body);
+        if (!empty($tocData['title']) && is_string($tocData['title'])) {
+            $lessonToc[] = ['id' => 'block-' . $tocBlock->id, 'title' => $tocData['title']];
+        } elseif (!empty($presentationByBlock[$tocBlock->id]['toc'])) {
+            $lessonToc = array_merge($lessonToc, $presentationByBlock[$tocBlock->id]['toc']);
+        } elseif (!empty($tocBlock->heading)) {
+            $lessonToc[] = ['id' => 'block-' . $tocBlock->id, 'title' => $tocBlock->heading];
+        }
+    }
     $practiceQuestionsByBlock = $practiceQuestionsByBlock ?? [];
     $pageTags = $page->tags ?? collect();
 
@@ -58,7 +66,7 @@
     }
 @endphp
 
-<div class="nd-page">
+<div class="nd-page theory-design">
     <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="{{ __('public.common.breadcrumb') }}">
         <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">{{ __('public.common.home') }}</a>
         <span>/</span>
@@ -129,21 +137,11 @@
                     ])
                 </section>
 
-                @if($tocBlocks->isNotEmpty())
-                    <div x-show="!theorySidebarCollapsed && theorySidebarSettled" x-cloak data-theory-toc-pin-root>
+                @if($lessonToc !== [])
+                    <div data-theory-toc-pin-root>
                     <section class="rounded-[28px] border p-4 shadow-card surface-card xl:p-5" style="border-color: var(--line);" data-theory-toc-card>
-                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.copilot_theory.contents') }}</p>
-                        <div class="mt-4 space-y-2">
-                            @foreach($tocBlocks as $tocBlock)
-                                @php($tocData = json_decode($tocBlock->body ?? '[]', true))
-                                @if(!empty($tocData['title']))
-                                    <a href="#block-{{ $tocBlock->id }}" class="flex items-start gap-3 rounded-[18px] border px-3 py-3 text-sm transition hover:-translate-y-0.5 surface-card-strong" style="border-color: var(--line); color: var(--muted);">
-                                        <span class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-amber text-[10px] font-extrabold text-white">{{ $loop->iteration }}</span>
-                                        <span class="min-w-0 break-words leading-5">{{ preg_replace('/^\d+\.\s*/', '', $tocData['title']) }}</span>
-                                    </a>
-                                @endif
-                            @endforeach
-                        </div>
+                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('theory_blocks.section.contents') }}</p>
+                        @include('theory.partials.lesson-toc')
                     </section>
                     </div>
                 @endif
@@ -162,9 +160,7 @@
         </aside>
 
         <div class="min-w-0 flex-1 space-y-8" data-theory-main>
-            <section class="relative overflow-hidden rounded-[30px] border p-7 shadow-card surface-card-strong" style="border-color: var(--line);">
-                <div class="absolute -right-10 top-0 hidden h-36 w-36 rounded-full border-[18px] border-ocean/30 lg:block"></div>
-                <div class="absolute bottom-0 right-0 hidden h-44 w-14 rounded-tl-[2rem] bg-ocean lg:block"></div>
+            <section class="theory-hero" style="border-color: var(--line);">
                 <div class="relative">
                     @if(!empty($heroData['level']))
                         <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.22em] soft-accent" style="border-color: var(--line); color: var(--accent);">
@@ -188,8 +184,15 @@
                 'routePrefix' => $routePrefix,
             ])
 
+            @if($lessonToc !== [])
+                <details class="theory-mobile-toc lg:hidden" data-theory-ui>
+                    <summary>{{ __('theory_blocks.section.contents') }}</summary>
+                    @include('theory.partials.lesson-toc')
+                </details>
+            @endif
+
             @if(!empty($heroData['rules']))
-                <section class="grid gap-4 md:grid-cols-2 xl:grid-cols-3{{ $richContentOnly ? ' theory-rich-rules' : '' }}">
+                <section class="theory-rules grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                     @foreach($heroData['rules'] as $rule)
                         <article class="rounded-[24px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
                             @if(!empty($rule['label']))
@@ -197,28 +200,20 @@
                             @endif
                             <div class="mt-3 text-sm leading-6" style="color: var(--text);">{!! $rule['text'] ?? '' !!}</div>
                             @if(!empty($rule['example']))
-                                <code class="mt-4 block rounded-[16px] px-3 py-2 text-xs{{ $richContentOnly ? ' theory-rich-rule-example' : '' }}" style="background: var(--accent-soft); color: var(--text);">{{ $richContentOnly ? \App\Support\TheoryRichContent::example($rule['example']) : \App\Support\TheoryInlineHtml::render($rule['example']) }}</code>
+                                <code class="theory-example mt-4 block rounded-[16px] px-3 py-2 text-xs" style="background: var(--accent-soft); color: var(--text);">{{ \App\Support\TheoryRichContent::example($rule['example']) }}</code>
                             @endif
                         </article>
                     @endforeach
                 </section>
             @endif
 
-            <section class="{{ $richContentOnly ? 'theory-rich-shell' : 'rounded-[30px] border p-6 shadow-card surface-card-strong' }}" style="border-color: var(--line);">
+            <section class="theory-content-blocks">
                 <div class="space-y-6">
                     @foreach($contentBlocks as $block)
-                        <div id="block-{{ $block->id }}" class="theory-lazy-section">
-                            @if(in_array($block->type, ['forms-grid', 'lesson-rule-cards', 'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list', 'practice-set', 'tense-forms-table']))
-                                @includeIf('engram.theory.blocks-v3.' . $block->type, [
-                                    'page' => $page,
-                                    'block' => $block,
-                                    'data' => json_decode($block->body ?? '[]', true),
-                                    'practiceQuestions' => $practiceQuestionsByBlock[$block->uuid] ?? collect(),
-                                ])
-                            @elseif($block->type === 'box' || empty($block->type))
-                                <x-theory-rich-box :block="$block" :rich-content="$richContentByBlock[$block->id]" />
-                            @endif
-                        </div>
+                        @include('theory.partials.content-block', [
+                            'presentation' => $presentationByBlock[$block->id],
+                            'practiceQuestions' => $practiceQuestionsByBlock[$block->uuid] ?? collect(),
+                        ])
                     @endforeach
                 </div>
 
@@ -260,7 +255,7 @@
     </div>
 </div>
 
-@if($tocBlocks->isNotEmpty())
+@if($lessonToc !== [])
     <script>
         (() => {
             const resetTheoryTocPin = (root, card) => {
@@ -338,7 +333,7 @@
             const scheduleTheoryTocPin = () => window.requestAnimationFrame(updateTheoryTocPin);
 
             const handleTheoryTocClick = (event) => {
-                const link = event.target.closest('[data-theory-toc-card] a[href^="#block-"]');
+                const link = event.target.closest('[data-theory-toc-links] a[href^="#"]');
 
                 if (!link) {
                     return;
@@ -358,7 +353,7 @@
 
                 window.scrollTo({
                     top: Math.max(0, targetTop),
-                    behavior: 'smooth',
+                    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
                 });
 
                 if (history.pushState) {

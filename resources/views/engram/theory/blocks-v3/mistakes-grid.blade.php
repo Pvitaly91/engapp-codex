@@ -1,24 +1,13 @@
 @php($data = $data ?? json_decode($block->body ?? '[]', true) ?? [])
 @php($items = $data['items'] ?? [])
-@php($m24TitleNumber = \App\Support\M24NativeTitleNumber::forBlock($block, $data['title'] ?? null))
 
-<section id="block-{{ $block->id }}" class="scroll-mt-24">
-    <div class="rounded-2xl border border-rose-200/60 bg-gradient-to-br from-rose-50/50 to-card overflow-hidden">
+<section id="block-{{ $block->id }}" class="theory-native-block scroll-mt-24">
+    <div class="theory-section-card rounded-2xl border border-rose-200/60 bg-gradient-to-br from-rose-50/50 to-card">
         @if(!empty($data['title']))
-            <div class="border-b border-rose-100 bg-rose-50/60 px-5 py-4">
-                <div class="flex items-center justify-between gap-3">
-                    <h2 class="flex items-center gap-3 text-lg font-bold text-foreground">
-                        <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-rose-500 text-white text-xs font-bold">
-                            {{ $m24TitleNumber ?? '⚠' }}
-                        </span>
-                        {{ preg_replace('/^\d+\.\s*/', '', $data['title']) }}
-                    </h2>
-                    <x-text-block-level-badge :level="$block->level ?? null" />
-                </div>
-            </div>
+            <x-theory-native-header :title="$data['title']" :level="$block->level ?? null" fallback="⚠" />
         @endif
 
-        <div class="p-5 space-y-4">
+        <div class="theory-section-body p-5 space-y-4">
             @foreach($items as $index => $item)
                 @php($color = $item['color'] ?? 'rose')
                 @php($colorStyles = match($color) {
@@ -28,7 +17,7 @@
                     default => ['border' => 'border-slate-200', 'badge' => 'bg-slate-500'],
                 })
 
-                <article class="rounded-xl border {{ $colorStyles['border'] }} bg-white overflow-hidden">
+                <article class="theory-item rounded-xl border {{ $colorStyles['border'] }} bg-white">
                     <div class="p-4">
                         {{-- Header --}}
                         <div class="flex items-start gap-3 mb-3">
@@ -54,7 +43,7 @@
                         {{-- Wrong/Right Examples --}}
                         <div class="space-y-2 pl-9">
                             @if(!empty($item['wrong']))
-                                <div class="flex items-center gap-2.5 rounded-lg bg-rose-50 border border-rose-100 px-3 py-2">
+                                <div class="theory-example theory-example--wrong flex items-center gap-2.5 rounded-lg bg-rose-50 border border-rose-100 px-3 py-2">
                                     <svg class="h-4 w-4 flex-shrink-0 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
                                     </svg>
@@ -63,7 +52,7 @@
                             @endif
 
                             @if(!empty($item['right']))
-                                <div class="flex items-center gap-2.5 rounded-lg bg-emerald-50 border border-emerald-100 px-3 py-2">
+                                <div class="theory-example theory-example--right flex items-center gap-2.5 rounded-lg bg-emerald-50 border border-emerald-100 px-3 py-2">
                                     <svg class="h-4 w-4 flex-shrink-0 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
                                     </svg>
@@ -72,7 +61,7 @@
                             @endif
 
                             @if(!empty($item['hint']))
-                                <div class="flex items-start gap-2 rounded-lg bg-slate-50 border border-slate-100 px-3 py-2 mt-2">
+                                <div class="theory-note flex items-start gap-2 rounded-lg bg-slate-50 border border-slate-100 px-3 py-2 mt-2">
                                     <svg class="h-4 w-4 flex-shrink-0 text-slate-400 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
                                     </svg>
