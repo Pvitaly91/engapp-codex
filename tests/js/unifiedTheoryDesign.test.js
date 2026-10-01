@@ -20,7 +20,10 @@ describe('scoped unified lesson design', () => {
             expect(css).toContain(value);
         }
         expect(css).toContain('.theory-design [id] { scroll-margin-top: 8rem; }');
-        expect(css).toContain('.theory-design [data-theory-aside] [data-theory-sidebar] { block-size: min(52vh, 32rem); }');
+        expect(css).not.toContain('52vh');
+        expect(css).toContain('block-size: var(--theory-sidebar-height, calc(100dvh - 8rem))');
+        expect(css).toContain('.theory-sidebar-shell { position: sticky');
+        expect(css).toContain('.theory-design.nd-page { overflow-x: clip; overflow-y: visible; }');
         expect(css).toContain('.theory-native-block code.theory-example { display: block; }');
         expect(css).toContain('.dark .theory-design .theory-native-block :is(.text-emerald-700, .text-sky-700, .text-amber-700, .text-slate-700) { color: var(--text); }');
         expect(css).toContain('.theory-exercise > .border-b { background-color: var(--theory-soft); border-color: var(--line); }');
