@@ -8,7 +8,7 @@
         @endif
 
         <div class="theory-section-body p-5 space-y-4">
-            @if(isset($data['m27_v1']) && !empty($data['intro']))
+            @if((isset($data['m27_v1']) || isset($data['m28_v1'])) && !empty($data['intro']))
                 <p class="text-sm text-muted-foreground leading-relaxed">{!! $data['intro'] !!}</p>
             @endif
             @foreach($sections as $index => $section)
@@ -38,7 +38,7 @@
 
                         {{-- Description --}}
                         @if(!empty($section['description']))
-                            @if(isset($data['m27_v1']))
+                            @if(isset($data['m27_v1']) || isset($data['m28_v1']))
                             <div class="text-sm text-foreground/80 leading-relaxed mb-4">{!! $section['description'] !!}</div>
                             @else
                             <p class="text-sm text-foreground/80 leading-relaxed mb-4">

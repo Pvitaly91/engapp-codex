@@ -133,7 +133,7 @@
                                         <p class="mb-2 text-xs text-muted-foreground">{!! $item['prompt'] !!}</p>
                                     @endif
                                     <div class="flex flex-wrap gap-2">
-                                        @foreach($choiceOptions as $option)
+                                        @foreach($item['options'] ?? $choiceOptions as $option)
                                             <button
                                                 type="button"
                                                 @click="choiceAnswers[{{ $index }}] = @js($option)"
