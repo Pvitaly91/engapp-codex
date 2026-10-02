@@ -50,6 +50,8 @@ class TheorySectionRenderingTest extends TestCase
         $this->assertSame(1, $xpath->query('//summary[contains(@class,"theory-section-toggle")]')->length);
         $this->assertStringContainsString('Докладніше', $html);
         $this->assertStringContainsString('Згорнути', $html);
+        $this->assertStringNotContainsString('theory-section-toggle-arrow', $html);
+        $this->assertStringNotContainsString('⌄', $html);
         $this->assertStringContainsString($pair['main']->toHtml(), $html);
         $this->assertStringContainsString($pair['detail']->toHtml(), $html);
         $ids = [];
