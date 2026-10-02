@@ -33,7 +33,7 @@
     }
 @endphp
 
-<div class="nd-page theory-design">
+<div class="nd-page">
     <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="{{ __('public.common.breadcrumb') }}">
         <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">{{ __('public.common.home') }}</a>
         <span>/</span>
@@ -68,15 +68,16 @@
         :data-settled="theorySidebarSettled.toString()"
         data-theory-layout
     >
-        <aside class="relative hidden shrink-0 lg:block lg:self-stretch" data-theory-aside>
+        <aside class="hidden shrink-0 overflow-hidden lg:block" data-theory-aside>
             @include('theory.partials.desktop-sidebar', [
                 'currentPage' => null,
                 'sidebarTags' => $categoryTags,
                 'sidebarTagsLabel' => __('public.common.category_tags'),
+                'sidebarSticky' => true,
             ])
         </aside>
 
-        <div class="min-w-0 flex-1 space-y-8" data-theory-main>
+        <div class="min-w-0 flex-1 space-y-8 theory-design" data-theory-main>
             <section class="relative overflow-hidden rounded-[30px] border p-7 shadow-card surface-card-strong" style="border-color: var(--line);">
                 <div class="absolute -right-8 top-0 hidden h-32 w-32 rounded-full border-[18px] border-ocean/30 lg:block"></div>
                 <div class="absolute bottom-0 right-0 hidden h-40 w-12 rounded-tl-[2rem] bg-amber lg:block"></div>

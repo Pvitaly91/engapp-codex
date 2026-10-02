@@ -66,7 +66,7 @@
     }
 @endphp
 
-<div class="nd-page theory-design">
+<div class="nd-page">
     <nav class="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--muted);" aria-label="{{ __('public.common.breadcrumb') }}">
         <a href="{{ localized_route('home') }}" class="transition hover:text-ocean">{{ __('public.common.home') }}</a>
         <span>/</span>
@@ -105,14 +105,14 @@
         :data-settled="theorySidebarSettled.toString()"
         data-theory-layout
     >
-        <aside class="relative hidden shrink-0 lg:block lg:self-stretch" data-theory-aside>
+        <aside class="relative hidden shrink-0 overflow-visible lg:block lg:self-stretch" data-theory-aside>
             @include('theory.partials.desktop-sidebar', [
                 'currentPage' => $page,
                 'sidebarTags' => $pageTags,
             ])
         </aside>
 
-        <div class="min-w-0 flex-1 space-y-8" data-theory-main>
+        <div class="min-w-0 flex-1 space-y-8 theory-design" data-theory-main>
             <section class="theory-hero" style="border-color: var(--line);">
                 <div class="relative">
                     @if(!empty($heroData['level']))

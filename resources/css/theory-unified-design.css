@@ -152,7 +152,6 @@
 .theory-design .theory-mobile-toc { border: 1px solid var(--line); border-radius: 1rem; padding: 1rem; background: var(--theory-panel); }
 .theory-design .theory-mobile-toc > summary { font-weight: 750; cursor: pointer; }
 .theory-design .theory-lesson-toc a:hover { border-color: var(--accent); background: var(--theory-soft); }
-.theory-design [data-collapsed="true"] [data-theory-toc-pin-root] { display: none; }
 .theory-design [id] { scroll-margin-top: 8rem; }
 .theory-design .theory-native-block :is(input, select, textarea) { max-width: 100%; color: var(--text); background-color: var(--theory-panel); }
 .theory-design .theory-exercise :is(.bg-white, [class*="bg-white/60"], [class*="bg-white/50"]) { background-color: var(--theory-panel); border-color: var(--line); }
@@ -160,41 +159,6 @@
 .theory-design .theory-exercise input { min-width: 0; }
 .theory-design .theory-exercise .min-w-\[220px\] { min-width: min(220px, 100%); }
 .theory-design :is(a, summary, button, input, select, textarea, [tabindex]):focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-.theory-design .theory-sidebar-shell { display: flex; flex-direction: column; gap: 1rem; padding: 0; border: 0; background: transparent; box-shadow: none; min-height: 0; }
-.theory-design .theory-sidebar-card { display: flex; flex-direction: column; gap: .75rem; min-height: 0; padding: 1rem; border: 1px solid var(--line); border-radius: 1.25rem; box-shadow: var(--theory-shadow); overflow: hidden; }
-.theory-design .theory-sidebar-menu-card { flex: 1.7 1 0; }
-.theory-design .theory-sidebar-contents-card { flex: 1 1 0; }
-.theory-design .theory-sidebar-heading { flex-shrink: 0; margin: 0; color: var(--muted); font-size: .8rem; font-weight: 700; line-height: 1.55; }
-.theory-design .theory-sidebar-toolbar { display: flex; align-items: center; justify-content: space-between; gap: .5rem; flex-shrink: 0; }
-.theory-design .theory-sidebar-collapse { display: grid; place-items: center; flex-shrink: 0; width: 2rem; height: 2rem; border-radius: .6rem; color: var(--muted); }
-.theory-design .theory-sidebar-collapse:hover { background: var(--accent-soft); color: var(--accent); }
-.theory-design .theory-sidebar-lesson-panel { min-height: 0; flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: .25rem; }
-.theory-design .theory-sidebar-lesson-panel .theory-lesson-toc { margin-top: 0; }
-.theory-design .theory-sidebar-lesson-panel .theory-lesson-toc a { border-color: transparent; background: transparent; padding: .7rem .55rem; }
-.theory-design .theory-sidebar-lesson-panel .theory-lesson-toc a:hover { background: var(--accent-soft); }
-.theory-design .theory-sidebar-topics-panel { display: flex; flex: 1; min-height: 0; flex-direction: column; overflow: hidden; transform: none; }
-.theory-design .theory-sidebar-topics-panel [data-theory-sidebar-search] { margin-top: 0; padding: .1rem 0 .55rem; border: 0; border-radius: 0; box-shadow: none; background: transparent; }
-.theory-design .theory-sidebar-topics-panel [data-theory-sidebar-search] label > span:first-child { display: none; }
-.theory-design .theory-sidebar-topics-panel [data-theory-sidebar-search] label > span:last-child { margin-top: 0; padding: .45rem .6rem; border-radius: .65rem; }
-.theory-design .theory-sidebar-topics-panel [data-theory-sidebar-search] > div { margin-top: .35rem; }
-.theory-design .theory-sidebar-topics-panel [data-theory-sidebar-search-count] { padding: .2rem .5rem; background: transparent; }
-.theory-design .theory-sidebar-topics-panel [data-theory-sidebar-scroll] { margin-top: .25rem; padding: .25rem; scrollbar-gutter: stable; }
-.theory-design .theory-sidebar-topics-panel .theory-nav-link { border: 0; padding: .55rem 2.1rem .55rem .5rem; border-radius: .65rem; box-shadow: none !important; background: transparent !important; transform: none; }
-.theory-design .theory-sidebar-topics-panel .theory-nav-link[data-theory-nav-active], .theory-design .theory-sidebar-topics-panel [aria-current="page"] { background: var(--accent-soft) !important; }
-.theory-design .theory-sidebar-topics-panel .theory-nav-link:hover { background: var(--theory-soft) !important; }
-.theory-design .theory-sidebar-topics-panel:not([data-collapsed="true"]) .theory-nav-icon { display: none; }
-.theory-design .theory-sidebar-topics-panel .theory-nav-label > span { gap: .5rem; }
-.theory-design .theory-sidebar-topics-panel .theory-nav-label [data-theory-sidebar-highlight] { font-size: .8rem; line-height: 1.4; font-weight: 650; }
-.theory-design .theory-sidebar-topics-panel .theory-nav-count { min-width: 1.3rem; padding: .1rem .3rem; }
-.theory-design .theory-sidebar-topics-panel .theory-nav-toggle { top: .3rem; right: .1rem; width: 1.8rem; height: 1.8rem; border: 0; border-radius: .5rem; background: transparent; }
-.theory-design .theory-sidebar-topics-panel .theory-nav-children { margin-left: .35rem; margin-top: .2rem; padding-left: .5rem; }
-.theory-design .theory-sidebar-topics-panel [data-theory-sidebar-node] { margin-block-start: .15rem; }
-.theory-design .theory-sidebar-topics-panel .theory-nav-children > a { padding: .55rem .4rem; border-radius: .6rem; font-size: .8rem; }
-.theory-design .theory-sidebar-tags { flex-shrink: 0; border-top: 1px solid var(--line); padding-top: .65rem; color: var(--muted); font-size: .75rem; }
-.theory-design .theory-sidebar-tags > summary { cursor: pointer; }
-.theory-design .theory-sidebar-tags > div { margin-top: .6rem; max-height: 6rem; overflow-y: auto; }
-.theory-design .theory-sidebar-lesson-panel > .theory-sidebar-tags { margin-top: .75rem; }
-.theory-design [data-collapsed="true"] .theory-sidebar-card .theory-sidebar-expanded-only, .theory-design [data-collapsed="true"] .theory-sidebar-contents-card { display: none; }
 /* Native disclosure is opt-in only: no real lesson has paired editorial content yet. */
 .theory-design .theory-section-details { border-top: 1px solid var(--line); }
 .theory-design .theory-section-toggle { padding: 1rem 1.5rem; color: var(--accent); font-weight: 750; cursor: pointer; }
@@ -205,14 +169,6 @@
 .theory-design .theory-section-details[open] > summary .theory-section-toggle-arrow { transform: rotate(180deg); }
 .theory-design .theory-section-nojs { padding: 1rem 1.5rem; font-size: .85rem; }
 .theory-design .theory-fallback-content { white-space: pre-wrap; overflow-wrap: anywhere; }
-@media (min-width: 1024px) {
-    /* Clip horizontal paint without creating a non-scrolling sticky ancestor. */
-    .theory-design.nd-page { overflow-x: clip; overflow-y: visible; }
-    .theory-design [data-theory-aside] { inline-size: 290px; }
-    .theory-design .theory-sidebar-shell { position: sticky; top: var(--theory-nav-top, 7rem); block-size: var(--theory-sidebar-height, calc(100dvh - 8rem)); }
-    .theory-design [data-theory-aside] [data-theory-sidebar] { block-size: auto; }
-    .theory-design [data-collapsed="true"] [data-theory-aside] { inline-size: 116px; }
-}
 @media (max-width: 639px) {
     .theory-design :is(.theory-hero, .theory-section-body, .theory-section-main, .theory-section-detail-body, .theory-rich-section-body) { padding: 1rem; }
     .theory-design :is(.theory-section-header, .theory-html-content .theory-html-heading) { padding: 1rem; gap: .6rem; }

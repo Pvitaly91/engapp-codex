@@ -7,13 +7,6 @@ const source = relative => fs.readFileSync(path.resolve(process.cwd(), relative)
 const css = source('resources/css/theory-unified-design.css');
 const entry = source('resources/js/catalog-public.js');
 const cssAst = postcss.parse(css);
-const declarations = selector => {
-    const properties = new Map();
-    cssAst.walkRules(rule => {
-        if (rule.selectors.includes(selector)) rule.walkDecls(node => properties.set(node.prop, node.value));
-    });
-    return properties;
-};
 
 describe('scoped unified lesson design', () => {
     it('does not introduce global typography, hidden content or text truncation', () => {
@@ -30,9 +23,7 @@ describe('scoped unified lesson design', () => {
         }
         expect(css).toContain('.theory-design [id] { scroll-margin-top: 8rem; }');
         expect(css).not.toContain('52vh');
-        expect(css).toContain('block-size: var(--theory-sidebar-height, calc(100dvh - 8rem))');
-        expect(css).toContain('.theory-sidebar-shell { position: sticky');
-        expect(css).toContain('.theory-design.nd-page { overflow-x: clip; overflow-y: visible; }');
+        expect(css).not.toContain('--theory-sidebar-height');
         expect(css).toContain('.theory-native-block code.theory-example { display: block; }');
         expect(css).toContain('.dark .theory-design .theory-native-block :is(.text-emerald-700, .text-sky-700, .text-amber-700, .text-slate-700) { color: var(--text); }');
         expect(css).toContain('.theory-exercise > .border-b { background-color: var(--theory-soft); border-color: var(--line); }');
@@ -45,28 +36,35 @@ describe('scoped unified lesson design', () => {
         expect(module).not.toMatch(/fetch\(|setTimeout|innerHTML|createElement\('template'/);
         expect(module).toContain("window.addEventListener('popstate'");
     });
-    it('keeps the sticky allocation neutral and paints two quiet sibling cards instead of tabs', () => {
-        const shell = declarations('.theory-design .theory-sidebar-shell');
-        expect(shell.get('padding')).toBe('0');
-        expect(shell.get('border')).toBe('0');
-        expect(shell.get('box-shadow')).toBe('none');
-        const card = declarations('.theory-design .theory-sidebar-card');
-        expect(card.get('padding')).toBe('1rem');
-        expect(card.get('border')).toBe('1px solid var(--line)');
-        expect(card.get('border-radius')).toBe('1.25rem');
-        expect(card.get('box-shadow')).toBe('var(--theory-shadow)');
-        expect(css).not.toContain('.theory-sidebar-tabs');
+    it('does not override the restored legacy menu, icons, search or sidebar allocation', () => {
+        expect(css).not.toMatch(/theory-sidebar|theory-nav-link|theory-nav-icon|theory-nav-label|theory-nav-count|data-theory-sidebar/);
+        const view = source('resources/views/theory/show.blade.php');
+        expect(view).toMatch(/class="[^"]*theory-design[^"]*"\s+data-theory-main/);
+        expect(view).not.toContain('class="nd-page theory-design"');
+        cssAst.walkRules(rule => {
+            if (rule.selector.includes('[data-theory-aside]')) {
+                expect(rule.parent.name).toBe('media');
+                expect(rule.parent.params).toBe('print');
+            }
+        });
     });
-    it('retains separate topic-tree and contents scroll roots inside bounded cards', () => {
-        const contents = declarations('.theory-design .theory-sidebar-lesson-panel');
-        expect(contents.get('min-height')).toBe('0');
-        expect(contents.get('overflow-y')).toBe('auto');
-        const topics = declarations('.theory-design .theory-sidebar-topics-panel');
-        expect(topics.get('min-height')).toBe('0');
-        expect(topics.get('overflow')).toBe('hidden');
+    it('retains the original viewport-sized menu and full desktop tree search styling', () => {
+        const catalog = postcss.parse(source('resources/css/catalog-public.css'));
+        const allocations = [];
+        catalog.walkRules(rule => {
+            if (rule.selector === '[data-theory-aside] [data-theory-sidebar]') allocations.push(rule);
+        });
+        expect(allocations).toHaveLength(1);
+        expect(allocations[0].parent.params).toBe('(min-width: 1024px)');
+        expect(allocations[0].nodes.some(node => node.prop === 'block-size' && node.value === 'calc(100vh - 7rem)')).toBe(true);
+        const tree = source('resources/views/theory/partials/tree-nav.blade.php');
+        expect(tree).toContain('inline-size: 390px');
+        expect(tree).toContain('inline-size: 410px');
+        expect(tree).toContain('inline-size: 116px');
         const navigation = source('resources/views/theory/partials/mobile-navigation-content.blade.php');
         expect(navigation).toMatch(/class="[^"]*min-h-0[^"]*overflow-y-auto[^"]*"\s+data-theory-sidebar-scroll/);
-        const collapsedContents = declarations('.theory-design [data-collapsed="true"] .theory-sidebar-contents-card');
-        expect(collapsedContents.get('display')).toBe('none');
+        const search = source('resources/views/theory/partials/tree-nav-search.blade.php');
+        expect(search).toContain('rounded-[24px] border p-3 shadow-sm surface-card');
+        expect(search).toContain('rounded-[18px] border px-3 py-2.5 surface-card-strong');
     });
 });
