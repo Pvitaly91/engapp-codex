@@ -645,6 +645,9 @@
 
                 feedbackText(group, index) {
                     if (this.isEmpty(group, index)) return this.i18n.empty;
+                    const itemFeedback = this.item(group, index).feedback;
+                    const contextualFeedback = itemFeedback?.[String(this.userAnswer(group, index)).trim().toLowerCase()];
+                    if (typeof contextualFeedback === 'string' && contextualFeedback.trim()) return contextualFeedback;
                     if (this.isCorrect(group, index)) return this.i18n.correct;
 
                     return `${this.i18n.incorrect} ${this.i18n.answer}: ${this.acceptedAnswers(group, index)[0]}`;
