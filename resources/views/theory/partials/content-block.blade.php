@@ -36,11 +36,18 @@
                 ], nativeHtml5: true);
         }
     @endphp
-    {!! $basicHtml !!}
     @if($nativeSection?->detail !== null)
-        <div data-theory-section="{{ $nativeSection->key }}" data-theory-native-extension>
-            @include('theory.partials.section-disclosure', ['section' => $nativeSection])
-        </div>
+        {{-- Render the same finite native view; the disclosure belongs to its
+             content card rather than to a detached sibling below it. --}}
+        @include($nativeView, [
+            'block' => $block,
+            'data' => $decodedBody,
+            'nativeSection' => $nativeSection,
+            'practiceQuestions' => $practiceQuestions ?? collect(),
+            'lessonLinks' => $lessonLinks ?? [],
+        ])
+    @else
+        {!! $basicHtml !!}
     @endif
     @if(!is_array($decodedBody))
         </div>

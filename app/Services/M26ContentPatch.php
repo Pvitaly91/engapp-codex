@@ -17,10 +17,10 @@ class M26ContentPatch
         'Database\\Seeders\\Page_V3\\Tenses\\PastPerfectContinuous\\PastPerfectContinuousQuestionsTheorySeeder',
         'Database\\Seeders\\Page_V3\\Tenses\\PastPerfectContinuous\\PastPerfectContinuousTimeExpressionsTheorySeeder',
     ];
-    private const ID = 'm26-ppc-layers-r2-v1';
+    protected const ID = 'm26-ppc-layers-r2-v1';
 
-    public function __construct(private Connection $db, private string $databasePath, private string $privateDirectory,
-        private ?string $localTarget = null, private ?string $localProof = null) {}
+    public function __construct(protected Connection $db, protected string $databasePath, protected string $privateDirectory,
+        protected ?string $localTarget = null, protected ?string $localProof = null) {}
 
     public static function digest(array $value): string { return PronounContentRepair::digest($value); }
 
@@ -28,7 +28,7 @@ class M26ContentPatch
     {
         $physical = (new PronounContentRepair($this->db, $this->databasePath, $this->privateDirectory))->connection($expected, $writing);
         if ($this->localTarget !== null) {
-            app(M26LocalTargetGuard::class)->verify($this->db, $this->localTarget, $this->privateDirectory, $this->localProof, $physical);
+            app($this->localGuard())->verify($this->db, $this->localTarget, $this->privateDirectory, $this->localProof, $physical);
         } elseif ($writing && $this->db->getDriverName() !== 'sqlite') {
             throw new RuntimeException('M26 working writes require explicit physical gramlyze.loc proof.');
         }
@@ -39,10 +39,10 @@ class M26ContentPatch
     {
         $root = dirname($this->databasePath);
         [$master, $manifest] = M26DetailPackage::load($root);
-        if (array_column($master['targets'], 'identity') !== self::NAMES || array_keys($manifest['definitions']) !== self::NAMES) {
+        if (array_column($master['targets'], 'identity') !== static::NAMES || array_keys($manifest['definitions']) !== static::NAMES) {
             throw new RuntimeException('M26 exact five-identity scope differs.');
         }
-        $plan = ['patch' => self::ID, 'version' => 1, 'names' => self::NAMES, 'connection' => $this->connection(),
+        $plan = ['patch' => static::ID, 'version' => 1, 'names' => static::NAMES, 'connection' => $this->connection(),
             'sources' => [M26DetailPackage::MASTER => M26DetailPackage::MASTER_SHA, M26DetailPackage::BEFORE => M26DetailPackage::BEFORE_SHA],
             'pages' => [], 'updates' => [], 'inserts' => []];
         foreach (['app/Support/M26DetailPackage.php', 'app/Support/TheorySection.php',
@@ -133,7 +133,7 @@ class M26ContentPatch
         return $plan;
     }
 
-    private function protectedFingerprints(array $targetIds): array
+    protected function protectedFingerprints(array $targetIds): array
     {
         $out = [];
         foreach (['pages', 'page_categories', 'text_blocks', 'tags', 'page_tag', 'page_category_tag', 'tag_text_block',
@@ -151,7 +151,7 @@ class M26ContentPatch
         return $out;
     }
 
-    private function resolveUuid(string $name, array $block, int $position): string
+    protected function resolveUuid(string $name, array $block, int $position): string
     {
         $scope = $name.'::uk';
         if (trim((string) ($block['uuid'] ?? '')) !== '') { return trim($block['uuid']); }
@@ -181,7 +181,7 @@ class M26ContentPatch
         }
     }
 
-    private function candidate(array &$updates, string $table, array $row, string $seeder, array $before, array $after): ?string
+    protected function candidate(array &$updates, string $table, array $row, string $seeder, array $before, array $after): ?string
     {
         $actual = array_replace($before, array_intersect_key($row, $before));
         if ($actual === $after) { return $before === $after ? null : 'after'; }
@@ -191,7 +191,7 @@ class M26ContentPatch
         return 'before';
     }
 
-    private function categoryChain(int $id, bool $lock): array
+    protected function categoryChain(int $id, bool $lock): array
     {
         $chain = []; $seen = [];
         while ($id) {
@@ -207,7 +207,7 @@ class M26ContentPatch
         return $chain;
     }
 
-    private function rows(string $table, callable $filter, bool $lock): array
+    protected function rows(string $table, callable $filter, bool $lock): array
     {
         $query = $this->db->table($table);
         $filter($query);
@@ -216,7 +216,7 @@ class M26ContentPatch
         return $rows;
     }
 
-    private function relations(array $page, array $blocks, bool $lock): array
+    protected function relations(array $page, array $blocks, bool $lock): array
     {
         $ids = array_column($blocks, 'id'); $uuids = array_column($blocks, 'uuid');
         $out = [];
@@ -284,7 +284,7 @@ class M26ContentPatch
         $this->assertWriteEnvironment();
         $this->connection($expectedDatabase, true);
         $backup = $this->readPlan($backupPath);
-        if ($backup['state'] !== 'before' || count($backup['inserts']) !== 4) {
+        if ($backup['state'] !== 'before' || count($backup['inserts']) !== $this->expectedInsertCount()) {
             throw new RuntimeException('M26 restore requires the exact before backup.');
         }
         return $this->db->transaction(function () use ($backup): array {
@@ -303,6 +303,9 @@ class M26ContentPatch
 
     protected function afterUpdate(int $index): void {}
     protected function afterInsert(int $index): void {}
+    protected function expectedInsertCount(): int { return 4; }
+    protected function allowedUpdateFields(): array { return ['body']; }
+    protected function localGuard(): string { return M26LocalTargetGuard::class; }
 
     private function assertProjectedAfter(array $before, array $after): void
     {
@@ -343,7 +346,7 @@ class M26ContentPatch
 
     private function update(array $change, bool $reverse): void
     {
-        $fields = match ($change['table'] ?? '') { 'text_blocks' => ['body'],
+        $fields = match ($change['table'] ?? '') { 'text_blocks' => $this->allowedUpdateFields(),
             default => throw new RuntimeException('Disallowed M26 update table.') };
         $old = $change[$reverse ? 'after' : 'before']; $new = $change[$reverse ? 'before' : 'after'];
         if (array_keys($old) !== $fields || array_keys($new) !== $fields) {
@@ -385,8 +388,8 @@ class M26ContentPatch
         $this->assertPrivatePath($path);
         $plan = json_decode(file_get_contents($path), true, flags: JSON_THROW_ON_ERROR);
         $hash = $plan['sha256'] ?? null; unset($plan['sha256']);
-        if (($plan['patch'] ?? null) !== self::ID || ($plan['version'] ?? null) !== 1
-            || ($plan['names'] ?? null) !== self::NAMES || !is_string($hash)
+        if (($plan['patch'] ?? null) !== static::ID || ($plan['version'] ?? null) !== 1
+            || ($plan['names'] ?? null) !== static::NAMES || !is_string($hash)
             || !hash_equals($hash, self::digest($plan)) || !isset($plan['pages'], $plan['updates'], $plan['inserts'], $plan['sources'])) {
             throw new RuntimeException('Corrupt/incomplete M26 plan or backup.');
         }

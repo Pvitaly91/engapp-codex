@@ -195,7 +195,9 @@ class TextBlockToQuestionsMatcherService
             $query->whereIn('questions.seeder', $seederClasses);
         }
 
-        if ($block->level && $this->hasQuestionLevelColumn()) {
+        // A native block may carry a display range such as A2–B1. Only an
+        // exact CEFR level is a question-bank filter; ranges are not stored levels.
+        if (preg_match('/^[ABC][12]$/', (string) $block->level) === 1 && $this->hasQuestionLevelColumn()) {
             $query->where('questions.level', $block->level);
         }
 

@@ -38,7 +38,10 @@ class M26ContentPatchTest extends TestCase
         }
         DB::table('page_categories')->insert(['title' => 'Tenses', 'slug' => 'tenses', 'type' => 'theory', 'language' => 'uk']);
         foreach ($master['targets'] as $t) {
-            $path = $this->root.'/'.$t['definition_path']; $after = File::get($path);
+            $path = $this->root.'/'.$t['definition_path'];
+            // This legacy command is tested against its own immutable M26 source,
+            // not against the later interactive upgrade's four definitions.
+            $after = Package::json(Package::definition($t, $manifest['definitions'][$t['identity']]));
             File::put($path, Package::json($manifest['definitions'][$t['identity']]));
             try {
                 (new class($path) extends JsonPageSeeder {

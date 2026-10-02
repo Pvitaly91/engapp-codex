@@ -39,7 +39,7 @@ class M26ContentPackageTest extends TestCase
         foreach ($m['targets'] as $t) {
             $before = $manifest['definitions'][$t['identity']];
             $after = json_decode(file_get_contents(base_path($t['definition_path'])), true, flags: JSON_THROW_ON_ERROR);
-            self::assertSame(Package::definition($t, $before), $after);
+            self::assertSame(\App\Support\M26InteractivePractice::definition($t, $before), $after);
             $root = $t['source_content_root'];
             foreach ($before[$root]['blocks'] as $i => $config) {
                 if (!TheoryPresentation::nativeView($config['type'])) { continue; }
@@ -50,12 +50,20 @@ class M26ContentPackageTest extends TestCase
                 $old = $this->dom($basic); $new = $this->dom($html);
                 $oldNode = $old->query('//section[@id="block-'.$b->id.'"]')->item(0);
                 $newNode = $new->query('//section[@id="block-'.$b->id.'"]')->item(0);
-                // Complete basic subtree, not a lossy substring or bag-of-words comparison.
-                self::assertSame($oldNode->ownerDocument->saveHTML($oldNode), $newNode->ownerDocument->saveHTML($newNode));
+                // The new code-owned disclosure lives inside this same card.
+                // Remove only that opt-in UI from a clone, preserving all basic
+                // content/attributes/anchors and normalising whitespace only.
+                $comparison = $newNode->cloneNode(true);
+                foreach (iterator_to_array($comparison->getElementsByTagName('*')) as $n) {
+                    if ($n->hasAttribute('data-theory-native-extension')) { $n->parentNode->removeChild($n); }
+                }
+                $normalise = fn($n) => preg_replace('/\s+/u', ' ', $n->ownerDocument->saveHTML($n));
+                self::assertSame($normalise($oldNode), $normalise($comparison));
                 $ext = Package::detailFor($newBlock, json_decode($newBlock->body, true));
                 $nodes = $new->query('//*[@data-theory-native-extension]/details');
                 self::assertSame($ext ? 1 : 0, $nodes->length);
                 if ($ext) {
+                    self::assertSame(1, $new->query('//*[@data-theory-native-extension]/ancestor::*[contains(concat(" ",normalize-space(@class)," ")," theory-section-card ")]')->length);
                     $details++; self::assertFalse($nodes->item(0)->hasAttribute('open'));
                     self::assertSame(0, $new->query('//*[@data-theory-native-extension]//h2')->length);
                     $detail = $this->dom(view(TheoryPresentation::nativeView($config['type']), [
@@ -68,7 +76,10 @@ class M26ContentPackageTest extends TestCase
                 }
             }
             if (isset($t['practice_insert'])) {
-                $p = end($after[$root]['blocks']); $d = $this->dom($p['body']);
+                // Historical approved master transfer is still immutable; the
+                // current interactive replacement has separate schema tests.
+                $legacy = Package::definition($t, $before);
+                $p = end($legacy[$root]['blocks']); $d = $this->dom($p['body']);
                 self::assertSame(6, $d->query('//ol[@class="practice-list"]/li')->length);
                 self::assertSame(6, $d->query('//li/details[@class="answer"]')->length);
                 self::assertSame(0, $d->query('//ol/ancestor::details')->length);
