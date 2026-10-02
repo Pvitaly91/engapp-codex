@@ -11,11 +11,37 @@
              practice controls. Malformed JSON is not a new teaching paragraph. --}}
         <div data-theory-render-fallback="invalid-native-data">
     @endif
-    @include($nativeView, [
-        'data' => is_array($decodedBody) ? $decodedBody : [],
-        'practiceQuestions' => $practiceQuestions ?? collect(),
-        'lessonLinks' => $lessonLinks ?? [],
-    ])
+    @php
+        $basicHtml = view($nativeView, [
+            'block' => $block,
+            'data' => is_array($decodedBody) ? $decodedBody : [],
+            'practiceQuestions' => $practiceQuestions ?? collect(),
+            'lessonLinks' => $lessonLinks ?? [],
+        ])->render();
+        $extension = is_array($decodedBody) ? \App\Support\M26DetailPackage::detailFor($block, $decodedBody) : null;
+        $nativeSection = null;
+        if ($extension !== null) {
+            // A view-only projection avoids Eloquent's integer primary-key cast.
+            // It never mutates the persisted block ID/UUID or duplicates relations.
+            $detailBlock = (object) ['id' => $extension['key'], 'uuid' => $block->uuid,
+                'level' => $block->level ?? null];
+            $detailHtml = view($nativeView, ['block' => $detailBlock, 'data' => $extension['detail_native_data'],
+                'embeddedDetail' => true, 'practiceQuestions' => collect(), 'lessonLinks' => []])->render();
+            $detailId = 'block-'.$extension['key'];
+            $nativeSection = \App\Support\TheorySection::resolve($extension['key'], (string) ($decodedBody['title'] ?? ''),
+                new \Illuminate\Support\HtmlString($basicHtml.$detailHtml), null, [
+                    'source_key' => $extension['key'], 'source_revision' => hash('sha256', $basicHtml.$detailHtml),
+                    'main' => new \Illuminate\Support\HtmlString($basicHtml),
+                    'detail' => new \Illuminate\Support\HtmlString($detailHtml), 'detail_references' => [$detailId],
+                ], nativeHtml5: true);
+        }
+    @endphp
+    {!! $basicHtml !!}
+    @if($nativeSection?->detail !== null)
+        <div data-theory-section="{{ $nativeSection->key }}" data-theory-native-extension>
+            @include('theory.partials.section-disclosure', ['section' => $nativeSection])
+        </div>
+    @endif
     @if(!is_array($decodedBody))
         </div>
     @endif

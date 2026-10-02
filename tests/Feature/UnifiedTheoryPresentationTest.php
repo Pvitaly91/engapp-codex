@@ -53,7 +53,12 @@ class UnifiedTheoryPresentationTest extends TestCase
                     $matches = (new DOMXPath($after))->query('//*[@id="'.$id.'"]');
                     $this->assertSame(1, $matches->length, $id);
                 }
-                $this->assertStringNotContainsString('data-theory-details', (string) $result['html']);
+                // M26's authored answer disclosures are source content, not generated
+                // short/detail UI. The adapter must neither add nor remove them.
+                $this->assertSame(
+                    (new DOMXPath($before))->query('//*[@data-theory-details]')->length,
+                    (new DOMXPath($after))->query('//*[@data-theory-details]')->length,
+                );
                 $count++;
             }
         }

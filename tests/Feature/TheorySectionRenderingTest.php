@@ -164,6 +164,28 @@ class TheorySectionRenderingTest extends TestCase
         return view('components.theory-section', ['sectionKey' => $key, 'title' => $title, 'number' => $number, 'fullContent' => $full, 'pair' => $pair])->render();
     }
 
+    public function test_native_html5_keeps_alpine_attributes_without_weakening_reference_validation(): void
+    {
+        $main = new HtmlString('<section id="basic"><button @click="expanded = !expanded">Теги</button></section>');
+        $detail = new HtmlString('<section id="detail"><p>Had not been working — не працював.</p></section>');
+        $full = new HtmlString($main->toHtml().$detail->toHtml());
+        $pair = ['source_key'=>'native', 'source_revision'=>hash('sha256', $full->toHtml()),
+            'main'=>$main, 'detail'=>$detail, 'detail_references'=>['detail']];
+        $resolve = fn($f,$p)=>TheorySection::resolve('native', 'Форми', $f, null, $p, nativeHtml5: true);
+        $valid = $resolve($full,$pair);
+        self::assertNull($valid->diagnosticCode);
+        self::assertSame($main->toHtml(), $valid->main->toHtml());
+        self::assertSame($detail->toHtml(), $valid->detail->toHtml());
+        self::assertSame('source-revision-mismatch', $resolve($full,[...$pair,'source_revision'=>str_repeat('0',64)])->diagnosticCode);
+        self::assertSame('detail-reference-not-found', $resolve($full,[...$pair,'detail_references'=>['missing']])->diagnosticCode);
+        self::assertSame('detail-reference-changed', $resolve($full,[...$pair,'detail'=>new HtmlString(str_replace('not ', '', $detail->toHtml()))])->diagnosticCode);
+        self::assertSame('main-detail-anchor-collision', $resolve($full,[...$pair,'main'=>new HtmlString('<p id="detail">Main</p>')])->diagnosticCode);
+        $broken = new HtmlString('<section><p><b>Broken</p></section>'.$detail->toHtml());
+        self::assertSame('unparseable-full', $resolve($broken,[...$pair,'source_revision'=>hash('sha256',$broken->toHtml())])->diagnosticCode);
+        // Legacy author-pair mode remains unchanged, rather than ignoring error 68.
+        self::assertSame('unparseable-full', TheorySection::resolve('native','Форми',$full,null,$pair)->diagnosticCode);
+    }
+
     private function fixturePair(): array
     {
         // Exact current snippets; a technical pair, not an approved short lesson.

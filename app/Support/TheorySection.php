@@ -33,6 +33,7 @@ final readonly class TheorySection
         string|Htmlable $fullContent,
         ?string $number = null,
         mixed $pair = null,
+        bool $nativeHtml5 = false,
     ): self {
         $full = self::safeContent($fullContent);
         $fallback = static fn (?string $reason): self => new self($key, $title, $number, $full, null, [], $reason);
@@ -79,7 +80,7 @@ final readonly class TheorySection
         if (trim(strip_tags($detail->toHtml())) === '') {
             return $fallback('empty-detail');
         }
-        $referenceProblem = self::validateReferences($full, $main, $detail, $references, self::controlId($key));
+        $referenceProblem = self::validateReferences($full, $main, $detail, $references, self::controlId($key), $nativeHtml5);
         if ($referenceProblem !== null) {
             return $fallback($referenceProblem);
         }
@@ -120,25 +121,38 @@ final readonly class TheorySection
         return new HtmlString($content instanceof Htmlable ? $content->toHtml() : e($content));
     }
 
-    private static function validateReferences(HtmlString $full, HtmlString $main, HtmlString $detail, array $references, string $controlId): ?string
+    private static function validateReferences(HtmlString $full, HtmlString $main, HtmlString $detail, array $references, string $controlId, bool $nativeHtml5): ?string
     {
         $documents = [];
         foreach (['full' => $full, 'main' => $main, 'detail' => $detail] as $name => $html) {
-            $dom = new DOMDocument('1.0', 'UTF-8');
             $previous = libxml_use_internal_errors(true);
             try {
-                $loaded = $dom->loadHTML('<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body>'.$html->toHtml().'</body></html>', LIBXML_NONET);
+                $document = '<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body>'.$html->toHtml().'</body></html>';
+                // Native Blade uses valid HTML5/Alpine attributes such as @click.
+                // The legacy HTML4 parser rejects them (error 68). Do not strip
+                // attributes or ignore parse errors; use the HTML5 parser only
+                // for this explicit code-owned native path. It does not resolve
+                // external DTD/entities. The existing M25 path is unchanged.
+                if ($nativeHtml5) {
+                    $dom = \Dom\HTMLDocument::createFromString($document, \Dom\HTML_NO_DEFAULT_NS, 'UTF-8');
+                    $loaded = true;
+                } else {
+                    $dom = new DOMDocument('1.0', 'UTF-8');
+                    $loaded = $dom->loadHTML($document, LIBXML_NONET);
+                }
                 $errors = libxml_get_errors();
+            } catch (\Throwable) {
+                return 'unparseable-'.$name;
             } finally {
                 libxml_clear_errors();
                 libxml_use_internal_errors($previous);
             }
-            if (! $loaded || array_filter($errors, static fn ($error): bool => $error->code !== 801)) {
+            if (! $loaded || array_filter($errors, static fn ($error): bool => $nativeHtml5 || $error->code !== 801)) {
                 return 'unparseable-'.$name;
             }
             $ids = [];
             foreach ($dom->getElementsByTagName('*') as $node) {
-                if ($node instanceof DOMElement && $node->hasAttribute('id')) {
+                if (($node instanceof DOMElement || $node instanceof \Dom\Element) && $node->hasAttribute('id')) {
                     $id = $node->getAttribute('id');
                     if (isset($ids[$id])) {
                         return 'duplicate-'.$name.'-anchor';

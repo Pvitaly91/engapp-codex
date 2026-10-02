@@ -5,8 +5,8 @@
 @endphp
 
 <section id="block-{{ $block->id }}" class="theory-native-block scroll-mt-24">
-    <div class="theory-section-card rounded-2xl border border-border/60 bg-card">
-        @if(!empty($data['title']))
+    <div @if(!($embeddedDetail ?? false)) class="theory-section-card rounded-2xl border border-border/60 bg-card" @endif>
+        @if(!($embeddedDetail ?? false) && !empty($data['title']))
             <x-theory-native-header :title="$data['title']" :level="$block->level ?? null" />
         @endif
 
@@ -92,9 +92,11 @@
                 @endforeach
             </div>
 
+            @unless($embeddedDetail ?? false)
             <x-text-block-tags :block="$block" />
 
             <x-text-block-practice-questions :questions="$practiceQuestions ?? collect()" :blockUuid="$block->uuid" />
+            @endunless
         </div>
     </div>
 </section>

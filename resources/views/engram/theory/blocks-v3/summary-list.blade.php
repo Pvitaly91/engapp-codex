@@ -2,8 +2,8 @@
 @php($items = $data['items'] ?? [])
 
 <section id="block-{{ $block->id }}" class="theory-native-block scroll-mt-24">
-    <div class="theory-section-card rounded-2xl border border-emerald-200/60 bg-gradient-to-br from-emerald-50/30 to-card">
-        @if(!empty($data['title']))
+    <div @if(!($embeddedDetail ?? false)) class="theory-section-card rounded-2xl border border-emerald-200/60 bg-gradient-to-br from-emerald-50/30 to-card" @endif>
+        @if(!($embeddedDetail ?? false) && !empty($data['title']))
             <x-theory-native-header :title="$data['title']" :level="$block->level ?? null" fallback="✓" />
         @endif
 
@@ -22,10 +22,12 @@
             </div>
 
             {{-- Block Tags --}}
+            @unless($embeddedDetail ?? false)
             <x-text-block-tags :block="$block" />
 
             {{-- Practice Questions --}}
             <x-text-block-practice-questions :questions="$practiceQuestions ?? collect()" :blockUuid="$block->uuid" />
+            @endunless
         </div>
     </div>
 </section>
