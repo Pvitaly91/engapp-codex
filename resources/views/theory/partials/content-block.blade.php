@@ -12,13 +12,15 @@
         <div data-theory-render-fallback="invalid-native-data">
     @endif
     @php
+        $m27 = is_array($decodedBody) ? \App\Support\M27LinkingWordsPackage::presentation($block, $decodedBody) : null;
+        $renderData = $m27['data'] ?? $decodedBody;
         $basicHtml = view($nativeView, [
             'block' => $block,
-            'data' => is_array($decodedBody) ? $decodedBody : [],
+            'data' => is_array($renderData) ? $renderData : [],
             'practiceQuestions' => $practiceQuestions ?? collect(),
             'lessonLinks' => $lessonLinks ?? [],
         ])->render();
-        $points = is_array($decodedBody) ? \App\Support\M26PointDetails::fragmentsFor($block, $decodedBody) : null;
+        $points = $m27['points'] ?? (is_array($decodedBody) ? \App\Support\M26PointDetails::fragmentsFor($block, $decodedBody) : null);
         $pointSections = [];
         foreach ($points ?? [] as $index => $point) {
             $detailHtml = '';
@@ -32,15 +34,26 @@
                     'detail' => new \Illuminate\Support\HtmlString($detailHtml),
                     'detail_references' => array_column($point['fragments'], 'id'),
                 ], nativeHtml5: true);
-            if ($section->detail === null) { $pointSections = []; break; }
+            if ($section->detail === null) {
+                $pointSections = [];
+                // An invalid detail must never hide its complete stored author text.
+                if ($m27 !== null) { $basicHtml = view($nativeView, ['block' => $block, 'data' => $decodedBody,
+                    'practiceQuestions' => $practiceQuestions ?? collect(), 'lessonLinks' => $lessonLinks ?? []])->render(); }
+                break;
+            }
             $pointSections[$index] = $section;
         }
     @endphp
+    @if($m27 !== null)
+        @php($legacyBlockId = $block->page?->textBlocks?->first(fn ($b) => (int) $b->sort_order === 2 && $b->locale === 'uk')?->id)
+        @if($legacyBlockId)<span id="lesson-block-{{ $legacyBlockId }}-section-{{ $m27['legacy_section'] }}" class="theory-subtitle-anchor" aria-hidden="true"></span>@endif
+        @if($m27['legacy_practice_id'])<span id="{{ $m27['legacy_practice_id'] }}" class="theory-subtitle-anchor" aria-hidden="true"></span>@endif
+    @endif
     @if($pointSections !== [])
         {{-- Every disclosure belongs to its own existing basic point. --}}
         @include($nativeView, [
             'block' => $block,
-            'data' => $decodedBody,
+            'data' => $renderData,
             'pointSections' => $pointSections,
             'practiceQuestions' => $practiceQuestions ?? collect(),
             'lessonLinks' => $lessonLinks ?? [],

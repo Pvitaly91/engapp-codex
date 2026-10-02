@@ -66,7 +66,7 @@
                                         {!! $item['label'] ?? '' !!}
                                     </label>
                                     <div class="flex flex-wrap gap-2">
-                                        @foreach($options as $option)
+                                        @foreach($item['options'] ?? $options as $option)
                                             <button
                                                 type="button"
                                                 @click="selectAnswers[{{ $index }}] = @js($option)"
@@ -618,6 +618,15 @@
                     const answer = this.normalize(this.userAnswer(group, index));
 
                     if (!answer || !this.hasAnswer(group, index)) return false;
+
+                    // Opt-in editing task: ignore terminal punctuation, not a comma splice.
+                    if (this.item(group, index).punctuation_sensitive === true) {
+                        const punctuation = (value) => String(value || '').toLowerCase()
+                            .replace(/[\u2018\u2019]/g, "'").trim().replace(/[.!?]+$/, '')
+                            .replace(/\s+/g, ' ').replace(/\s*([,;])\s*/g, '$1 ');
+                        return this.acceptedAnswers(group, index)
+                            .some((accepted) => punctuation(accepted) === punctuation(this.userAnswer(group, index)));
+                    }
 
                     return this.acceptedAnswers(group, index)
                         .some((accepted) => window.EnglishAnswerVariants.variants(accepted)

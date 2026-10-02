@@ -1,7 +1,9 @@
 {{-- Only the finite, hash-bound M26 presentation package can supply fragments. --}}
 <section id="{{ $fragment['id'] }}" class="theory-point-fragment">
     @php($value = $fragment['value'])
-    @if($fragment['type'] === 'intro')
+    @if($fragment['type'] === 'm27-author-html')
+        <div class="text-sm text-muted-foreground leading-relaxed">{!! $value !!}</div>
+    @elseif($fragment['type'] === 'intro')
         <p class="text-sm text-muted-foreground leading-relaxed">{!! $value !!}</p>
     @elseif($fragment['type'] === 'warning')
         <p class="theory-note text-sm rounded-lg p-3">{!! $value !!}</p>

@@ -8,6 +8,9 @@
         @endif
 
         <div class="theory-section-body p-5 space-y-4">
+            @if(isset($data['m27_v1']) && !empty($data['intro']))
+                <p class="text-sm text-muted-foreground leading-relaxed">{!! $data['intro'] !!}</p>
+            @endif
             @foreach($sections as $index => $section)
                 @php($color = $section['color'] ?? 'slate')
                 @php($colorStyles = match($color) {
@@ -35,9 +38,13 @@
 
                         {{-- Description --}}
                         @if(!empty($section['description']))
+                            @if(isset($data['m27_v1']))
+                            <div class="text-sm text-foreground/80 leading-relaxed mb-4">{!! $section['description'] !!}</div>
+                            @else
                             <p class="text-sm text-foreground/80 leading-relaxed mb-4">
                                 {!! $section['description'] !!}
                             </p>
+                            @endif
                         @endif
 
                         {{-- Examples --}}

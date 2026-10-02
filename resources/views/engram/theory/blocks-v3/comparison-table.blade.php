@@ -13,18 +13,25 @@
             @endif
 
             {{-- Table View --}}
-            <div class="theory-table-scroll overflow-x-auto">
+            <div class="theory-table-scroll overflow-x-auto" @if(isset($data['m27_v1'])) tabindex="0" role="region" aria-label="{{ $data['title'] }}" @endif>
                 <table class="w-full text-sm">
                     <thead>
                         <tr class="border-b border-border">
+                            @if(isset($data['m27_v1']) && isset($data['headers']))
+                                @foreach($data['headers'] as $header)<th scope="col" class="text-left py-3 px-4 text-xs font-bold text-muted-foreground">{{ $header }}</th>@endforeach
+                            @else
                             <th class="text-left py-3 px-4 text-xs font-bold uppercase tracking-wider text-muted-foreground">{{ __('theory_blocks.comparison_table.english_sentence') }}</th>
                             <th class="text-left py-3 px-4 text-xs font-bold uppercase tracking-wider text-muted-foreground">{{ __('theory_blocks.comparison_table.translation') }}</th>
                             <th class="text-left py-3 px-4 text-xs font-bold uppercase tracking-wider text-muted-foreground">{{ __('theory_blocks.comparison_table.forms_notes') }}</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-border/50">
                         @foreach($rows as $index => $row)
                             <tr class="hover:bg-muted/30 transition-colors">
+                                @if(isset($data['m27_v1']) && isset($row['cells']))
+                                    @foreach($row['cells'] as $cell)<td class="py-3 px-4 text-sm leading-relaxed">{!! $cell !!}</td>@endforeach
+                                @else
                                 <td class="py-3 px-4">
                                     <code class="theory-example font-mono text-sm font-semibold text-foreground">
                                         {{ \App\Support\TheoryInlineHtml::render($row['en'] ?? '') }}
@@ -39,6 +46,7 @@
                                     </span>
                                     @include('theory.partials.point-disclosure', ['index' => $index])
                                 </td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>
