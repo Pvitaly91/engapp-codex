@@ -16,7 +16,7 @@
             @endif
 
             <div class="grid gap-3 sm:grid-cols-2">
-                @foreach($items as $item)
+                @foreach($items as $index => $item)
                     @php
                         $itemTitle = (string) ($item['title'] ?? '');
                         $normalizedTitle = \Illuminate\Support\Str::lower(trim(preg_replace('/^\d+[.\d\s]*\s*/u', '', $itemTitle) ?? $itemTitle));
@@ -79,6 +79,10 @@
                             </div>
                         @endif
 
+                        {{-- Never nest an interactive disclosure inside a linked card. --}}
+                        @unless($itemUrl)
+                            @include('theory.partials.point-disclosure', ['index' => $index])
+                        @endunless
                         <div class="absolute right-3 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
                             <svg class="h-4 w-4 text-brand-600/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
@@ -98,10 +102,5 @@
             <x-text-block-practice-questions :questions="$practiceQuestions ?? collect()" :blockUuid="$block->uuid" />
             @endunless
         </div>
-        @if(!($embeddedDetail ?? false) && ($nativeSection ?? null)?->detail !== null)
-            <div data-theory-section="{{ $nativeSection->key }}" data-theory-native-extension>
-                @include('theory.partials.section-disclosure', ['section' => $nativeSection])
-            </div>
-        @endif
     </div>
 </section>

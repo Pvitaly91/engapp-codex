@@ -159,7 +159,7 @@
 .theory-design .theory-exercise input { min-width: 0; }
 .theory-design .theory-exercise .min-w-\[220px\] { min-width: min(220px, 100%); }
 .theory-design :is(a, summary, button, input, select, textarea, [tabindex]):focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-/* Native disclosure is opt-in only: no real lesson has paired editorial content yet. */
+/* Native disclosure is finite and opt-in; unrelated lessons remain unchanged. */
 .theory-design .theory-section-details { border-top: 1px solid var(--line); }
 .theory-design .theory-section-toggle { padding: 1rem 1.5rem; color: var(--accent); font-weight: 750; cursor: pointer; }
 .theory-design .theory-section-toggle-open { display: none; }
@@ -168,6 +168,15 @@
 .theory-design .theory-section-toggle-arrow { display: inline-block; margin-inline-start: .5rem; }
 .theory-design .theory-section-details[open] > summary .theory-section-toggle-arrow { transform: rotate(180deg); }
 .theory-design .theory-section-nojs { padding: 1rem 1.5rem; font-size: .85rem; }
+.theory-design [data-theory-point-index] { margin-top: .85rem; min-width: 0; }
+/* Keep absolute screen-reader context inside its own scrollable table cell. */
+.theory-design [data-theory-point-index] .theory-section-toggle { position: relative; padding: .75rem 0; font-size: .85rem; }
+.theory-design [data-theory-point-index] .theory-section-detail-body { display: grid; gap: 1rem; padding: .5rem 0 0; }
+.theory-design [data-theory-point-index] .theory-section-nojs { padding: .5rem 0; }
+.theory-design .theory-point-fragment > * + * { margin-top: .65rem; }
+.theory-design .theory-section-body > .space-y-3 > .group:has(> [data-theory-point-index]) { flex-wrap: wrap; }
+.theory-design .theory-section-body > .space-y-3 > .group:has(> [data-theory-point-index]) > span:nth-child(2) { flex: 1; min-width: 0; }
+.theory-design .theory-section-body > .space-y-3 > .group > [data-theory-point-index] { flex: 1 0 100%; }
 .theory-design .theory-fallback-content { white-space: pre-wrap; overflow-wrap: anywhere; }
 @media (max-width: 639px) {
     .theory-design :is(.theory-hero, .theory-section-body, .theory-section-main, .theory-section-detail-body, .theory-rich-section-body) { padding: 1rem; }

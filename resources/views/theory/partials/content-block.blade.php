@@ -18,31 +18,30 @@
             'practiceQuestions' => $practiceQuestions ?? collect(),
             'lessonLinks' => $lessonLinks ?? [],
         ])->render();
-        $extension = is_array($decodedBody) ? \App\Support\M26DetailPackage::detailFor($block, $decodedBody) : null;
-        $nativeSection = null;
-        if ($extension !== null) {
-            // A view-only projection avoids Eloquent's integer primary-key cast.
-            // It never mutates the persisted block ID/UUID or duplicates relations.
-            $detailBlock = (object) ['id' => $extension['key'], 'uuid' => $block->uuid,
-                'level' => $block->level ?? null];
-            $detailHtml = view($nativeView, ['block' => $detailBlock, 'data' => $extension['detail_native_data'],
-                'embeddedDetail' => true, 'practiceQuestions' => collect(), 'lessonLinks' => []])->render();
-            $detailId = 'block-'.$extension['key'];
-            $nativeSection = \App\Support\TheorySection::resolve($extension['key'], (string) ($decodedBody['title'] ?? ''),
+        $points = is_array($decodedBody) ? \App\Support\M26PointDetails::fragmentsFor($block, $decodedBody) : null;
+        $pointSections = [];
+        foreach ($points ?? [] as $index => $point) {
+            $detailHtml = '';
+            foreach ($point['fragments'] as $fragment) {
+                $detailHtml .= view('theory.partials.point-detail-fragment', ['fragment' => $fragment])->render();
+            }
+            $section = \App\Support\TheorySection::resolve($point['key'], $point['title'],
                 new \Illuminate\Support\HtmlString($basicHtml.$detailHtml), null, [
-                    'source_key' => $extension['key'], 'source_revision' => hash('sha256', $basicHtml.$detailHtml),
+                    'source_key' => $point['key'], 'source_revision' => hash('sha256', $basicHtml.$detailHtml),
                     'main' => new \Illuminate\Support\HtmlString($basicHtml),
-                    'detail' => new \Illuminate\Support\HtmlString($detailHtml), 'detail_references' => [$detailId],
+                    'detail' => new \Illuminate\Support\HtmlString($detailHtml),
+                    'detail_references' => array_column($point['fragments'], 'id'),
                 ], nativeHtml5: true);
+            if ($section->detail === null) { $pointSections = []; break; }
+            $pointSections[$index] = $section;
         }
     @endphp
-    @if($nativeSection?->detail !== null)
-        {{-- Render the same finite native view; the disclosure belongs to its
-             content card rather than to a detached sibling below it. --}}
+    @if($pointSections !== [])
+        {{-- Every disclosure belongs to its own existing basic point. --}}
         @include($nativeView, [
             'block' => $block,
             'data' => $decodedBody,
-            'nativeSection' => $nativeSection,
+            'pointSections' => $pointSections,
             'practiceQuestions' => $practiceQuestions ?? collect(),
             'lessonLinks' => $lessonLinks ?? [],
         ])

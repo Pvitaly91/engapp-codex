@@ -35,7 +35,7 @@ class M26ContentPackageTest extends TestCase
 
     public function test_exact_author_extensions_full_basic_dom_and_visible_practice(): void
     {
-        [$m, $manifest] = Package::load(); $details = 0; $tasks = 0;
+        [$m, $manifest] = Package::load(); $details = 0; $tasks = 0; $extendedBlocks = 0;
         foreach ($m['targets'] as $t) {
             $before = $manifest['definitions'][$t['identity']];
             $after = json_decode(file_get_contents(base_path($t['definition_path'])), true, flags: JSON_THROW_ON_ERROR);
@@ -60,19 +60,29 @@ class M26ContentPackageTest extends TestCase
                 $normalise = fn($n) => preg_replace('/\s+/u', ' ', $n->ownerDocument->saveHTML($n));
                 self::assertSame($normalise($oldNode), $normalise($comparison));
                 $ext = Package::detailFor($newBlock, json_decode($newBlock->body, true));
+                $points = \App\Support\M26PointDetails::fragmentsFor($newBlock, json_decode($newBlock->body, true));
                 $nodes = $new->query('//*[@data-theory-native-extension]/details');
-                self::assertSame($ext ? 1 : 0, $nodes->length);
+                self::assertSame($ext ? count($points) : 0, $nodes->length);
                 if ($ext) {
                     self::assertSame(1, $new->query('//*[@data-theory-native-extension]/ancestor::*[contains(concat(" ",normalize-space(@class)," ")," theory-section-card ")]')->length);
-                    $details++; self::assertFalse($nodes->item(0)->hasAttribute('open'));
+                    $extendedBlocks++; $details += $nodes->length;
+                    self::assertSame(0, $new->query('//*[@data-theory-native-extension]/ancestor::a')->length);
                     self::assertSame(0, $new->query('//*[@data-theory-native-extension]//h2')->length);
-                    $detail = $this->dom(view(TheoryPresentation::nativeView($config['type']), [
-                        'block' => $newBlock, 'data' => $ext['detail_native_data'], 'embeddedDetail' => true])->render());
-                    $actual = $new->query('//*[@data-theory-native-extension]//section')->item(0);
-                    self::assertSame(trim($detail->query('//section')->item(0)->textContent), trim($actual->textContent));
+                    foreach ($nodes as $index => $node) {
+                        self::assertFalse($node->hasAttribute('open'));
+                        self::assertSame((string) $index, $node->parentNode->getAttribute('data-theory-point-index'));
+                        self::assertSame($points[$index]['key'], $node->parentNode->getAttribute('data-theory-section'));
+                        $actualFragments = $new->query('//*[@data-theory-point-index="'.$index.'"]//section');
+                        self::assertSame(count($points[$index]['fragments']), $actualFragments->length);
+                        foreach ($points[$index]['fragments'] as $j => $fragment) {
+                            $expected = $this->dom(view('theory.partials.point-detail-fragment', ['fragment' => $fragment])->render());
+                            $actual = $actualFragments->item($j);
+                            self::assertSame($normalise($expected->query('//section')->item(0)), $normalise($actual));
+                            self::assertStringNotContainsString('<template', $actual->ownerDocument->saveHTML($actual));
+                        }
+                    }
                     $ids = [];
                     foreach ($new->query('//*[@id]') as $node) { self::assertNotContains($node->getAttribute('id'), $ids); $ids[] = $node->getAttribute('id'); }
-                    self::assertStringNotContainsString('<template', $actual->ownerDocument->saveHTML($actual));
                 }
             }
             if (isset($t['practice_insert'])) {
@@ -93,7 +103,7 @@ class M26ContentPackageTest extends TestCase
                 }
             }
         }
-        self::assertSame(14, $details); self::assertSame(24, $tasks);
+        self::assertSame(14, $extendedBlocks); self::assertSame(56, $details); self::assertSame(24, $tasks);
     }
 
     public function test_foreign_owner_locale_order_and_any_detail_change_fail_closed(): void

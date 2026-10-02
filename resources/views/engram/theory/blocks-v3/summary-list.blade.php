@@ -17,6 +17,7 @@
                         <span class="text-sm text-foreground/80 leading-relaxed pt-0.5">
                             {!! $item !!}
                         </span>
+                        @include('theory.partials.point-disclosure', ['index' => $index])
                     </div>
                 @endforeach
             </div>
@@ -29,10 +30,5 @@
             <x-text-block-practice-questions :questions="$practiceQuestions ?? collect()" :blockUuid="$block->uuid" />
             @endunless
         </div>
-        @if(!($embeddedDetail ?? false) && ($nativeSection ?? null)?->detail !== null)
-            <div data-theory-section="{{ $nativeSection->key }}" data-theory-native-extension>
-                @include('theory.partials.section-disclosure', ['section' => $nativeSection])
-            </div>
-        @endif
     </div>
 </section>
