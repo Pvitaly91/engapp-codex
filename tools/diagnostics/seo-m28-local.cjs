@@ -23,7 +23,7 @@ const regressionTargets=regressionSource.targets.map(t=>({...t,path:'/theory/cla
 function htmlText(html){const d=new JSDOM(String(html).replace(/<br\s*\/?\s*>|<\/(?:p|li|td|th|h4)>/giu,' '));const text=norm(d.window.document.body.textContent);d.window.close();return text;}
 function bag(html){const words=htmlText(html).match(/[\p{L}\p{N}]+(?:[’'-][\p{L}\p{N}]+)*/gu)||[];const out={};for(const w of words)out[w]=(out[w]||0)+1;return Object.fromEntries(Object.entries(out).sort());}
 function educational(d){let text=d.title+' '+(d.intro||'')+' '+(d.outro||'')+' ';
- for(const p of d.sections||[])text+=p.description+' ';for(const h of d.headers||[])text+=h+' ';for(const r of d.rows||[])text+=r.cells.join(' ')+' ';return text;}
+ for(const p of d.sections||[])text+=p.description+' ';for(const item of d.items||[])text+=item+' ';for(const h of d.headers||[])text+=h+' ';for(const r of d.rows||[])text+=r.cells.join(' ')+' ';return text;}
 function fidelity(doc,t){
  const ids=[...doc.querySelectorAll('[data-theory-main] [id]')].map(n=>n.id);assert.equal(new Set(ids).size,ids.length,'Unique educational IDs in server HTML');
  for(const [j,b] of t.after.page.blocks.slice(1).entries()){
@@ -42,6 +42,7 @@ function fidelity(doc,t){
    const cells=[...body.querySelectorAll('tbody tr')][i]?.querySelectorAll('td');assert.ok(cells);
    assert.deepEqual([...cells].map(n=>htmlText(n.innerHTML)),row.cells.map(htmlText),'Exact table examples and translations');
   }
+  if(b.type==='summary-list')body.querySelectorAll(':scope > div:first-child > div > span:first-child').forEach(n=>n.remove());
   body.querySelectorAll('[x-data],summary,noscript,script,style,[data-theory-ui]').forEach(n=>n.remove());
   assert.deepEqual(bag(data.title+' '+body.innerHTML),bag(educational(data)),'Author fidelity '+data.title);
  }
@@ -202,4 +203,4 @@ async function runCLI(){const [dir,mode,label]=process.argv.slice(2);assert.equa
  const result=await browser(dir,label,before);console.log(JSON.stringify({pass:result.pass,states:result.states.length,noJS:result.noJS.length,controls:result.controls.length}));
 }
 if(require.main===module)runCLI().catch(e=>{console.error(String(e.message).replace(/https?:\/\/\S+/g,publicUrl));process.exitCode=1;});
-module.exports={guard,BASE,targets,fidelity,practice};
+module.exports={guard,BASE,targets,fidelity,practice,metadata,htmlText};
