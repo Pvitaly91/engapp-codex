@@ -8,8 +8,9 @@
     $options = $data['options'] ?? [];
     $choiceOptions = $data['choice_options'] ?? ['a', 'b'];
     $linkedPractice = is_array($data['linked_practice'] ?? null) ? $data['linked_practice'] : [];
-    $m30AuthorSelfCheck = isset($data['m30_v1']) && is_array($data['author_self_check'] ?? null)
+    $m30AuthorSelfCheck = (isset($data['m30_v1']) || isset($data['m31_v1'])) && is_array($data['author_self_check'] ?? null)
         ? $data['author_self_check'] : null;
+    $authorSelfCheckStage = isset($data['m31_v1']) ? 'm31' : 'm30';
     $practiceSetId = 'practice-set-' . ($block->uuid ?? $block->id);
     $hasCheckableSelects = collect($selects)->contains(fn ($item) => !empty($item['answer']) || !empty($item['accepted']));
     $hasCheckableChoices = collect($choices)->contains(fn ($item) => !empty($item['answer']) || !empty($item['accepted']));
@@ -46,9 +47,9 @@
 
         <div class="theory-section-body p-5 space-y-6">
             @if($m30AuthorSelfCheck !== null)
-                <div class="text-sm text-muted-foreground leading-relaxed" data-m30-self-check-intro>{!! $m30AuthorSelfCheck['intro'] !!}</div>
+                <div class="text-sm text-muted-foreground leading-relaxed" data-{{ $authorSelfCheckStage }}-self-check-intro>{!! $m30AuthorSelfCheck['intro'] !!}</div>
                 <noscript>
-                    <div class="theory-item rounded-xl p-4 bg-muted/50" data-m30-self-check-no-js>
+                    <div class="theory-item rounded-xl p-4 bg-muted/50" data-{{ $authorSelfCheckStage }}-self-check-no-js>
                         <p class="text-sm text-muted-foreground mb-3">Інтерактивна перевірка потребує JavaScript. Завдання й авторські пояснення доступні нижче.</p>
                         <ol class="list-decimal pl-5 space-y-3 text-sm leading-relaxed">
                             @foreach($m30AuthorSelfCheck['prompts'] as $prompt)<li>{!! $prompt !!}</li>@endforeach
@@ -76,7 +77,7 @@
                                 </span>
                                 <div class="flex-1">
                                     @if($m30AuthorSelfCheck !== null && !empty($item['context']))
-                                        <div class="text-sm text-foreground/80 leading-relaxed mb-2" data-m30-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
+                                        <div class="text-sm text-foreground/80 leading-relaxed mb-2" data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
                                     @endif
                                     <label class="block text-sm text-foreground/80 mb-1.5">
                                         {!! $item['label'] ?? '' !!}
@@ -143,7 +144,7 @@
                                 </span>
                                 <div class="flex-1">
                                     @if($m30AuthorSelfCheck !== null && !empty($item['context']))
-                                        <div class="text-sm text-foreground/80 leading-relaxed mb-2" data-m30-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
+                                        <div class="text-sm text-foreground/80 leading-relaxed mb-2" data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
                                     @endif
                                     <label class="block text-sm text-foreground/80 mb-1.5">
                                         {!! $item['label'] ?? '' !!}
@@ -214,7 +215,7 @@
                             @endphp
                             <div class="relative flex flex-wrap items-center gap-2 text-sm text-foreground/80 bg-white/60 rounded-lg p-3 border border-white">
                                 @if($m30AuthorSelfCheck !== null && !empty($item['context']))
-                                    <div class="w-full text-sm text-foreground/80 leading-relaxed" data-m30-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
+                                    <div class="w-full text-sm text-foreground/80 leading-relaxed" data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
                                 @endif
                                 <span class="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 text-[10px] font-bold">
                                     {{ chr(97 + $index) }}
@@ -409,7 +410,7 @@
             @endif
 
             @if($m30AuthorSelfCheck !== null)
-                <div class="theory-item rounded-xl p-4 bg-muted/50" data-m30-self-check-answers>
+                <div class="theory-item rounded-xl p-4 bg-muted/50" data-{{ $authorSelfCheckStage }}-self-check-answers>
                     <h3 class="font-semibold text-foreground text-sm mb-3">{{ $m30AuthorSelfCheck['title'] }}</h3>
                     <ol class="list-decimal pl-5 space-y-3 text-sm leading-relaxed">
                         @foreach($m30AuthorSelfCheck['answers'] as $answer)<li>{!! $answer !!}</li>@endforeach

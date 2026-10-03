@@ -8,8 +8,8 @@
         @endif
 
         <div class="theory-section-body p-5 space-y-4">
-            @if((isset($data['m27_v1']) || (isset($data['m28_v1']) || (isset($data['m29_v1']) || isset($data['m30_v1'])))) && !empty($data['intro']))
-                @if((isset($data['m29_v1']) || isset($data['m30_v1'])))
+            @if((isset($data['m27_v1']) || (isset($data['m28_v1']) || (isset($data['m29_v1']) || (isset($data['m30_v1']) || isset($data['m31_v1']))))) && !empty($data['intro']))
+                @if((isset($data['m29_v1']) || (isset($data['m30_v1']) || isset($data['m31_v1']))))
                 <div class="text-sm text-muted-foreground leading-relaxed">{!! $data['intro'] !!}</div>
                 @else
                 <p class="text-sm text-muted-foreground leading-relaxed">{!! $data['intro'] !!}</p>
@@ -42,7 +42,7 @@
 
                         {{-- Description --}}
                         @if(!empty($section['description']))
-                            @if(isset($data['m27_v1']) || (isset($data['m28_v1']) || (isset($data['m29_v1']) || isset($data['m30_v1']))))
+                            @if(isset($data['m27_v1']) || (isset($data['m28_v1']) || (isset($data['m29_v1']) || (isset($data['m30_v1']) || isset($data['m31_v1'])))))
                             <div class="text-sm text-foreground/80 leading-relaxed mb-4">{!! $section['description'] !!}</div>
                             @else
                             <p class="text-sm text-foreground/80 leading-relaxed mb-4">
@@ -86,7 +86,7 @@
                 </article>
             @endforeach
 
-            @if((isset($data['m29_v1']) || isset($data['m30_v1'])) && !empty($data['outro']))
+            @if((isset($data['m29_v1']) || (isset($data['m30_v1']) || isset($data['m31_v1']))) && !empty($data['outro']))
                 <div class="text-sm text-muted-foreground leading-relaxed">{!! $data['outro'] !!}</div>
             @endif
 
