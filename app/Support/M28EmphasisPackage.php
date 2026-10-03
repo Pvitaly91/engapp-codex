@@ -9,8 +9,8 @@ final class M28EmphasisPackage
 {
     public const BEFORE = 'database/content-patches/m28-m12-emphasis-inversion-before.json';
     public const BEFORE_SHA = 'b0ab16481e32b1bec409ea46075401153da20199d6842340c66b015a1f1efb4b';
-    public const SOURCE = 'database/content-patches/m28-m12-emphasis-inversion.v1.json';
-    public const SOURCE_SHA = '9765237a505097b9bd84c8d5896449cd6be514952e825f6c0ea4e101615cc99f';
+    public const SOURCE = 'database/content-patches/m28-m12-emphasis-inversion.v2.json';
+    public const SOURCE_SHA = 'f8d4b67ebb876cb36b17af3edf90afe6d593e401c85dbd38a99fc6f3ed88ca18';
 
     public static function load(?string $root = null): array
     {

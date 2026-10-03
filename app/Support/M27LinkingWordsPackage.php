@@ -9,8 +9,8 @@ final class M27LinkingWordsPackage
 {
     public const BEFORE = 'database/content-patches/m27-m11-linking-words-before.json';
     public const BEFORE_SHA = '902ace8272beea74ca1d1101e06f5e80bc44dd495621b5a732603c3e06ed7628';
-    public const SOURCE = 'database/content-patches/m27-m11-linking-words.v1.json';
-    public const SOURCE_SHA = '5440f6e2d92ed6c979d3b4f29ba42c5fa034f3eb09bf8eb92a46d8c4863d68cb';
+    public const SOURCE = 'database/content-patches/m27-m11-linking-words.v2.json';
+    public const SOURCE_SHA = 'd0e642b34f9289e722f9c157667d8569992f0bd0a60d7dabe67b570faa7fdcf6';
 
     public static function load(?string $root = null): array
     {

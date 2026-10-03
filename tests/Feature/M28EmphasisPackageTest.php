@@ -68,7 +68,7 @@ class M28EmphasisPackageTest extends TestCase
             $ids=[]; foreach ($xp->query('//*[@id]') as $el) { self::assertNotContains($el->getAttribute('id'),$ids); $ids[]=$el->getAttribute('id'); }
             foreach ($xp->query('//details[@data-theory-details]') as $el) { self::assertFalse($el->hasAttribute('open')); self::assertNotSame('',trim($el->textContent)); }
         }
-        self::assertSame([6,4,10],$totals);
+        self::assertSame([0,0,0],$totals);
     }
     public static function mutations(): array { return array_map(fn($s)=>[$s],['not','who','what','does','did','subordinate','pronoun','translation','example','neighbour','answer','anchor']); }
     #[DataProvider('mutations')]
@@ -89,8 +89,8 @@ class M28EmphasisPackageTest extends TestCase
                 $block['body']=Package::json($d); break;
             }
         } elseif ($kind==='neighbour') {
-            [$p['targets'][0]['plans'][2]['points'][1]['detail'],$p['targets'][0]['plans'][2]['points'][2]['detail']]=
-                [$p['targets'][0]['plans'][2]['points'][2]['detail'],$p['targets'][0]['plans'][2]['points'][1]['detail']];
+            [$p['targets'][0]['plans'][2]['points'][1]['basic'],$p['targets'][0]['plans'][2]['points'][2]['basic']]=
+                [$p['targets'][0]['plans'][2]['points'][2]['basic'],$p['targets'][0]['plans'][2]['points'][1]['basic']];
         } else {$p['targets'][0]['plans'][1]['key']=$p['targets'][0]['plans'][0]['key'];}
         $this->expectException(RuntimeException::class); Package::validate($before,$p);
     }

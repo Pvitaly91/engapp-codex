@@ -297,7 +297,8 @@ async function run(dir, label, baselinePath = path.join(dir, 'after-http.json'))
                     await page.waitForFunction(() => window.scrollY === 0);
                     await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
                     const filename = label + '-' + index + '-' + viewport.width + '-' + wanted + '.png';
-                    await page.screenshot({path: path.join(dir, filename), fullPage: true, animations: 'disabled'});
+                    // Bound capture memory on long lessons without skipping functional acceptance.
+                    await page.screenshot({path: path.join(dir, filename), fullPage: process.env.GRAMLYZE_M26_VIEWPORT_SCREENSHOTS !== '1', animations: 'disabled'});
                     row.screenshot = filename;
                     await page.reload({waitUntil: 'networkidle'});
                     const details = page.locator(DETAILS);

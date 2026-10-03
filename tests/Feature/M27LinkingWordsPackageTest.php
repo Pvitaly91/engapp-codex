@@ -68,7 +68,7 @@ class M27LinkingWordsPackageTest extends TestCase
             $ids=[]; foreach ($xp->query('//*[@id]') as $el) { self::assertNotContains($el->getAttribute('id'),$ids); $ids[]=$el->getAttribute('id'); }
             foreach ($xp->query('//details[@data-theory-details]') as $el) { self::assertFalse($el->hasAttribute('open')); self::assertNotSame('',trim($el->textContent)); }
         }
-        self::assertSame([3,8,11],$totals);
+        self::assertSame([3,7,3],$totals);
     }
     public static function mutations(): array { return array_map(fn($s)=>[$s],['not','because','therefore','provided','even','while','translation','example','neighbour','answer','anchor']); }
     public function test_fidelity_normalization_never_discards_english_not_or_internal_punctuation_tokens(): void
