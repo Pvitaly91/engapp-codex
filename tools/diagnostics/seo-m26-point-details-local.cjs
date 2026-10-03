@@ -96,7 +96,7 @@ function assertBasics(document, baseline) {
     return results;
 }
 async function captureHttp(target, baseline) {
-    const response = await fetch(BASE + target.path, {redirect: 'manual', headers: {Accept: 'text/html'}, signal: AbortSignal.timeout(60000)});
+    const response = await fetch(BASE + target.path, {redirect: 'manual', headers: {Accept: 'text/html', Connection: 'close'}, signal: AbortSignal.timeout(60000)});
     const row = {path: target.path, at: new Date().toISOString(), status: response.status,
         contentType: response.headers.get('content-type'), robotsHeader: response.headers.get('x-robots-tag')};
     assert.equal(response.status, 200, 'Actual local guest GET returns 200');
@@ -268,10 +268,21 @@ async function run(dir, label, baselinePath = path.join(dir, 'after-http.json'))
     assert.equal(baseline.base, BASE);
     const expected = new Map(baseline.rows.map(row => [row.path, row]));
     const report = {at: new Date().toISOString(), base: BASE, sourceSha256: data.sourceSha256, masterSha256: data.masterSha256,
-        baselineSha256: sha(fs.readFileSync(baselinePath)), conditions: {guest: true, getOnly: true, fixtures: false},
+        baselineSha256: sha(fs.readFileSync(baselinePath)), conditions: {guest: true, getOnly: true, fixtures: false, chromiumContextsPerProcess: 4},
         http: [], states: [], noJavaScript: [], policyViolations: [], pass: false};
     const {chromium} = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
-    const browser = await chromium.launch({headless: true, executablePath: process.env.CHROMIUM_EXECUTABLE});
+    let browser = null, contextCount = 0;
+    // Bound process resources across the long matrix, without retrying a failed
+    // state or filtering any request. Each previous context is already closed.
+    const freshContext = async options => {
+        if (!browser || contextCount >= 4) {
+            if (browser) { await browser.close(); browser = null; }
+            browser = await chromium.launch({headless: true, executablePath: process.env.CHROMIUM_EXECUTABLE});
+            contextCount = 0;
+        }
+        contextCount++;
+        return browser.newContext(options);
+    };
     try {
         for (const target of data.targets) {
             report.http.push(await captureHttp(target, expected.get(target.path)));
@@ -279,7 +290,7 @@ async function run(dir, label, baselinePath = path.join(dir, 'after-http.json'))
         }
         for (const viewport of [{width: 1440, height: 1000}, {width: 390, height: 844}]) {
             for (const wanted of ['light', 'dark']) for (const [index, target] of data.targets.entries()) {
-                const context = await browser.newContext({viewport, colorScheme: wanted});
+                const context = await freshContext({viewport, colorScheme: wanted});
                 const page = await context.newPage();
                 const row = {path: target.path, viewport, theme: wanted, at: new Date().toISOString(), pageErrors: [], failedRequests: [], fontFailures: [], httpErrors: []};
                 report.states.push(row);
@@ -324,7 +335,7 @@ async function run(dir, label, baselinePath = path.join(dir, 'after-http.json'))
             }
         }
         for (const target of data.targets) {
-            const context = await browser.newContext({javaScriptEnabled: false, viewport: {width: 1440, height: 1000}});
+            const context = await freshContext({javaScriptEnabled: false, viewport: {width: 1440, height: 1000}});
             const page = await context.newPage();
             const row = {path: target.path, javaScriptEnabled: false, expectedDisabledScripts: [],
                 pageErrors: [], failedRequests: [], fontFailures: [], httpErrors: []};
@@ -359,7 +370,7 @@ async function run(dir, label, baselinePath = path.join(dir, 'after-http.json'))
         report.learningOverflowPass = report.states.every(row => row.overflow.unclippedLearning.length === 0);
         return report;
     } catch (error) { report.failure = errorMessage(error); throw error; } finally {
-        await browser.close();
+        if (browser) await browser.close();
         fs.writeFileSync(path.join(dir, label + '-browser.json'), JSON.stringify(report, null, 2), {flag: 'wx'});
         console.log(JSON.stringify({pass: report.pass, actualGetPages: report.http.length,
             states: report.states.filter(row => row.pass).length, noJavaScript: report.noJavaScript.filter(row => row.pass).length,

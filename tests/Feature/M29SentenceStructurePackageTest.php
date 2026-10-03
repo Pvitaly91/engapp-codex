@@ -45,8 +45,9 @@ class M29SentenceStructurePackageTest extends TestCase
     }
     public function test_native_views_own_independent_details_complete_fallback_and_unique_anchors(): void
     {
-        [, $package]=Package::load(); $totals=[];
+        [, $package]=Package::load(); $totals=[]; $expected=[];
         foreach ($package['targets'] as $i=>$target) {
+            $expected[]=array_sum(array_map(fn($plan)=>count(array_filter($plan['points'],fn($point)=>$point['detail']!=='')),$target['plans']));
             $html=''; $count=0;
             foreach (array_slice($target['after']['page']['blocks'],1,null,true) as $j=>$b) {
                 $block=new TextBlock; $block->forceFill(['id'=>1000+$i*100+$j,'uuid'=>M26DetailPackage::uuid($target['identity'],$b,$j+1),
@@ -68,7 +69,7 @@ class M29SentenceStructurePackageTest extends TestCase
             $ids=[]; foreach ($xp->query('//*[@id]') as $el) { self::assertNotContains($el->getAttribute('id'),$ids); $ids[]=$el->getAttribute('id'); }
             foreach ($xp->query('//details[@data-theory-details]') as $el) { self::assertFalse($el->hasAttribute('open')); self::assertNotSame('',trim($el->textContent)); }
         }
-        self::assertSame([12,13,15],$totals);
+        self::assertSame($expected,$totals);
     }
     public static function mutations(): array
     {
@@ -110,8 +111,8 @@ class M29SentenceStructurePackageTest extends TestCase
                 $block['body']=Package::json($d);break;
             }
         }elseif($kind==='neighbour'){
-            [$p['targets'][0]['plans'][1]['points'][0]['detail'],$p['targets'][0]['plans'][1]['points'][1]['detail']]=
-                [$p['targets'][0]['plans'][1]['points'][1]['detail'],$p['targets'][0]['plans'][1]['points'][0]['detail']];
+            [$p['targets'][0]['plans'][1]['points'][0]['basic'],$p['targets'][0]['plans'][1]['points'][1]['basic']]=
+                [$p['targets'][0]['plans'][1]['points'][1]['basic'],$p['targets'][0]['plans'][1]['points'][0]['basic']];
         }else{$p['targets'][0]['plans'][1]['key']=$p['targets'][0]['plans'][0]['key'];}
         $this->expectException(RuntimeException::class);Package::validate($before,$p);
     }

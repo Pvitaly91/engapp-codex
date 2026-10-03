@@ -3,7 +3,7 @@ const {test}=require('node:test'),assert=require('node:assert/strict'),fs=requir
 const root=path.resolve(__dirname,'../..');
 const source=fs.readFileSync(path.join(root,'resources/views/engram/theory/blocks-v3/practice-set.blade.php'),'utf8');
 const script=source.slice(source.indexOf('<script>')+8,source.lastIndexOf('</script>'));
-const packageData=JSON.parse(fs.readFileSync(path.join(root,'database/content-patches/m29-m13-sentence-structure.v1.json'),'utf8'));
+const packageData=JSON.parse(fs.readFileSync(path.join(root,'database/content-patches/m29-m13-sentence-structure.v2.json'),'utf8'));
 let factory,network=0;
 vm.runInNewContext(script,{document:{addEventListener:(_,fn)=>fn(),querySelector:()=>null},
  Alpine:{data:(_,fn)=>{factory=fn;}},window:{EnglishAnswerVariants:require('./load-answer-variants.cjs')},

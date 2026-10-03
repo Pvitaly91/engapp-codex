@@ -4,20 +4,20 @@ namespace App\Support;
 
 use RuntimeException;
 
-/** Three frozen M13 owners only. Unknown data retains the complete native basic. */
-final class M29SentenceStructurePackage
+/** Three frozen M14 owners only. Unknown data retains the complete native basic. */
+final class M30ParticipleClausesPackage
 {
-    public const BEFORE = 'database/content-patches/m29-m13-sentence-structure-before.json';
-    public const BEFORE_SHA = 'cbc80910b642203243672d8c143d4998437c21f0c3d775d82cba6e50ac078977';
-    public const SOURCE = 'database/content-patches/m29-m13-sentence-structure.v2.json';
-    public const SOURCE_SHA = 'b630a175cb9058a7e847ac852b0bcd56be5e18106996de1ff8979c1831aab18a';
+    public const BEFORE = 'database/content-patches/m30-m14-participle-clauses-before.json';
+    public const BEFORE_SHA = 'ab98112a9fe75886125b4d7ab2942d4262c5369b943bc33af55648e7dc409aaa';
+    public const SOURCE = 'database/content-patches/m30-m14-participle-clauses.v1.json';
+    public const SOURCE_SHA = '56a8f8894ba7554f7840ac8a35cbf61f41efea9f993d686e95211f17c4270f05';
 
     public static function load(?string $root = null): array
     {
         $root ??= base_path(); $out = [];
         foreach ([self::BEFORE => self::BEFORE_SHA, self::SOURCE => self::SOURCE_SHA] as $path => $sha) {
             $bytes = file_get_contents($root.'/'.$path);
-            if (!hash_equals($sha, hash('sha256', $bytes))) { throw new RuntimeException('M29 immutable source differs: '.$path); }
+            if (!hash_equals($sha, hash('sha256', $bytes))) { throw new RuntimeException('M30 immutable source differs: '.$path); }
             $out[] = json_decode($bytes, true, flags: JSON_THROW_ON_ERROR);
         }
         return $out;
@@ -30,23 +30,23 @@ final class M29SentenceStructurePackage
     {
         [$expectedBefore, $expectedPackage] = self::load();
         if ($before !== $expectedBefore || $package !== $expectedPackage) {
-            throw new RuntimeException('M29 fidelity/point ownership differs from the accepted finite projection.');
+            throw new RuntimeException('M30 fidelity/point ownership differs from the accepted finite projection.');
         }
         foreach ($package['targets'] as $i => $target) {
             $original = $before['targets'][$i]['before']; $after = $target['after'];
             $restored = $after; $restored['page']['blocks'] = $original['page']['blocks'];
             if ($restored !== $original || $after['page']['blocks'][0] !== $original['page']['blocks'][0]) {
-                throw new RuntimeException('M29 protected metadata/hero differs.');
+                throw new RuntimeException('M30 protected metadata/hero differs.');
             }
             $keys = [];
             foreach ($target['plans'] as $j => $plan) {
                 $data = json_decode($after['page']['blocks'][$j + 1]['body'], true, flags: JSON_THROW_ON_ERROR);
-                if (isset($keys[$plan['key']]) || $data['m29_v1']['key'] !== $plan['key']
-                    || $plan['source_section'] !== $j + 1) { throw new RuntimeException('M29 duplicate/moved section anchor.'); }
+                if (isset($keys[$plan['key']]) || $data['m30_v1']['key'] !== $plan['key']
+                    || $plan['source_section'] !== $j + 1) { throw new RuntimeException('M30 duplicate/moved section anchor.'); }
                 $keys[$plan['key']] = true;
                 foreach ($plan['points'] as $k => $p) {
                     if ($p['basic'] === '' || $data['sections'][$k]['description'] !== $p['basic'].($p['detail'] !== '' ? '<br><br>'.$p['detail'] : '')) {
-                        throw new RuntimeException('M29 missing basic or author fragment.');
+                        throw new RuntimeException('M30 missing basic or author fragment.');
                     }
                 }
             }
@@ -56,7 +56,7 @@ final class M29SentenceStructurePackage
     /** Returns only server-side, hash-bound fragments. DB metadata cannot select a view. */
     public static function presentation(object $block, array $data): ?array
     {
-        if (!isset($data['m29_v1']) || ($block->locale ?? null) !== 'uk') { return null; }
+        if (!isset($data['m30_v1']) || ($block->locale ?? null) !== 'uk') { return null; }
         try {
             [, $package] = self::load();
             foreach ($package['targets'] as $target) {
@@ -72,11 +72,11 @@ final class M29SentenceStructurePackage
                         $basic['sections'][$k]['description'] = $p['basic'];
                         $key = $plan['key'].'-point-'.($k + 1);
                         $points[$k] = ['key' => $key, 'title' => $data['title'], 'fragments' => [
-                            ['id' => 'block-'.$key.'-detail', 'type' => 'm29-author-html', 'value' => $p['detail']],
+                            ['id' => 'block-'.$key.'-detail', 'type' => 'm30-author-html', 'value' => $p['detail']],
                         ]];
                     }
                     return ['data' => $basic, 'points' => $points, 'legacy_section' => $plan['source_section'],
-                        'legacy_practice_id' => $data['m29_v1']['legacy_practice_id'] ?? null];
+                        'legacy_practice_id' => $data['m30_v1']['legacy_practice_id'] ?? null];
                 }
             }
         } catch (\Throwable) { /* Full author text remains in the stored native data. */ }
