@@ -12,7 +12,8 @@
         <div data-theory-render-fallback="invalid-native-data">
     @endif
     @php
-        $m27 = is_array($decodedBody) ? (\App\Support\M33AcademicEnglishPackage::presentation($block, $decodedBody)
+        $m27 = is_array($decodedBody) ? (\App\Support\M34ArgumentationCohesionPackage::presentation($block, $decodedBody)
+            ?? \App\Support\M33AcademicEnglishPackage::presentation($block, $decodedBody)
             ?? \App\Support\M32FormalEnglishPackage::presentation($block, $decodedBody)
             ?? \App\Support\M31ConditionalsPackage::presentation($block, $decodedBody)
             ?? \App\Support\M30ParticipleClausesPackage::presentation($block, $decodedBody)
