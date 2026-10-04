@@ -8,9 +8,9 @@
     $options = $data['options'] ?? [];
     $choiceOptions = $data['choice_options'] ?? ['a', 'b'];
     $linkedPractice = is_array($data['linked_practice'] ?? null) ? $data['linked_practice'] : [];
-    $m30AuthorSelfCheck = (isset($data['m30_v1']) || isset($data['m31_v1']) || (isset($data['m32_v1']) || (isset($data['m33_v1']) || isset($data['m34_v1'])))) && is_array($data['author_self_check'] ?? null)
+    $m30AuthorSelfCheck = (isset($data['m30_v1']) || isset($data['m31_v1']) || (isset($data['m32_v1']) || (isset($data['m33_v1']) || (isset($data['m34_v1']) || isset($data['m35_v1']))))) && is_array($data['author_self_check'] ?? null)
         ? $data['author_self_check'] : null;
-    $authorSelfCheckStage = isset($data['m34_v1']) ? 'm34' : (isset($data['m33_v1']) ? 'm33' : (isset($data['m32_v1']) ? 'm32' : (isset($data['m31_v1']) ? 'm31' : 'm30')));
+    $authorSelfCheckStage = isset($data['m35_v1']) ? 'm35' : (isset($data['m34_v1']) ? 'm34' : (isset($data['m33_v1']) ? 'm33' : (isset($data['m32_v1']) ? 'm32' : (isset($data['m31_v1']) ? 'm31' : 'm30'))));
     $practiceSetId = 'practice-set-' . ($block->uuid ?? $block->id);
     $hasCheckableSelects = collect($selects)->contains(fn ($item) => !empty($item['answer']) || !empty($item['accepted']));
     $hasCheckableChoices = collect($choices)->contains(fn ($item) => !empty($item['answer']) || !empty($item['accepted']));
@@ -463,7 +463,11 @@
                     const inputItems = Array.isArray(this.inputs) ? this.inputs : [];
 
                     inputItems.forEach((item, index) => {
-                        const tokens = this.extractInputTokens(item?.before);
+                        // M35 author answers can contain a literal slash (on/before).
+                        // Their finite explicit groups retain it; legacy delimiter parsing is unchanged.
+                        const tokens = Array.isArray(item?.m35_token_groups)
+                            ? item.m35_token_groups.map(value => String(value).trim()).filter(Boolean)
+                            : this.extractInputTokens(item?.before);
 
                         if (tokens.length === 0) {
                             return;

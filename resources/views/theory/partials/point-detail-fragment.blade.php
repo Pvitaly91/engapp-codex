@@ -1,7 +1,7 @@
 {{-- Only the finite, hash-bound M26 presentation package can supply fragments. --}}
 <section id="{{ $fragment['id'] }}" class="theory-point-fragment">
     @php($value = $fragment['value'])
-    @if(in_array($fragment['type'], ['m27-author-html', 'm28-author-html', 'm29-author-html', 'm30-author-html', 'm31-author-html', 'm32-author-html', 'm33-author-html', 'm34-author-html'], true))
+    @if(in_array($fragment['type'], ['m27-author-html', 'm28-author-html', 'm29-author-html', 'm30-author-html', 'm31-author-html', 'm32-author-html', 'm33-author-html', 'm34-author-html', 'm35-author-html'], true))
         <div class="text-sm text-muted-foreground leading-relaxed">{!! $value !!}</div>
     @elseif($fragment['type'] === 'intro')
         <p class="text-sm text-muted-foreground leading-relaxed">{!! $value !!}</p>
