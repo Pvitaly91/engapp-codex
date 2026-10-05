@@ -115,6 +115,7 @@ return [
             'label' => 'P',
             'grammar' => 'Gramatyka',
             'show_help' => 'Pokaż pomoc',
+            'hide_help' => 'Ukryj pomoc',
             'show_theory' => 'Pokaż teorię',
             'theory' => 'Teoria',
             'active_marker' => 'Aktywny znacznik: :marker',

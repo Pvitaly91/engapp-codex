@@ -51,13 +51,16 @@ class PastPerfectContinuousPreAnswerHintTest extends TestCase
         $this->assertFalse($this->payload($gap)['showPreAnswerHint']);
     }
 
-    public function test_the_visible_hint_is_copied_and_rendered_separately_from_the_source_and_feedback(): void
+    public function test_the_hint_is_copied_to_collapsed_help_separately_from_the_source_and_feedback(): void
     {
         $view = file_get_contents(dirname(__DIR__, 2).'/resources/views/test-modes/step-compose.blade.php');
         $this->assertStringContainsString('id="compose-learning-hint" class="hidden mt-3 text-sm font-semibold"', $view);
         $this->assertStringContainsString('showPreAnswerHint: item?.showPreAnswerHint === true', $view);
         $this->assertStringContainsString('hintElement.textContent = hint;', $view);
-        $this->assertStringContainsString("hintElement.classList.toggle('hidden', hint === '');", $view);
+        $this->assertStringContainsString("if (changed || hint === '') hintElement.classList.add('hidden');", $view);
+        $this->assertStringContainsString('aria-expanded="false" aria-controls="compose-learning-hint"', $view);
+        $this->assertStringContainsString('function toggleComposePreAnswerHint()', $view);
+        $this->assertStringContainsString("button.setAttribute('aria-expanded', String(expanded));", $view);
         $this->assertStringContainsString("document.getElementById('compose-source-text').textContent = question.sourceTextUk;\n        renderComposePreAnswerHint(question);", str_replace("\r\n", "\n", $view));
     }
 

@@ -288,6 +288,7 @@ class TheoryCourseTestPoolService
             'tokenBank' => $tokenBank,
             'correctText' => $this->composeSentence($correctTokens, $punctuation),
             'hintUk' => $this->composeHintText($question),
+            'showPreAnswerHint' => \App\Support\LocalizedComposeText::revisionEligible($question),
             'explanations' => $this->composeExplanationMap($question),
             'punctuation' => $punctuation,
             'source_test' => $this->compactTestMeta($testMeta),

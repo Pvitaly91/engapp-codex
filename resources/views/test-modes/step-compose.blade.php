@@ -626,6 +626,9 @@
                     <div id="compose-source-text"></div>
                     <p id="compose-learning-hint" class="hidden mt-3 text-sm font-semibold" style="color: var(--muted);"></p>
                     <div class="poly-prompt__actions">
+                        <button type="button" id="compose-hint-btn" class="hidden inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-700" aria-expanded="false" aria-controls="compose-learning-hint">
+                            {{ __('frontend.tests.question.show_help') }}
+                        </button>
                         <button type="button" id="compose-theory-btn" class="hidden" aria-expanded="false" aria-controls="compose-theory-panel">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
@@ -2567,8 +2570,28 @@ window.__POLYGLOT_WORD_SEARCH_URL__ = @json(route('api.words.search', ['lang' =>
         const hintElement = document.getElementById('compose-learning-hint');
         if (!hintElement) return;
         const hint = question?.showPreAnswerHint === true ? String(question?.hintUk || '').trim() : '';
+        const questionKey = `${question?.uuid || question?.id || question?.sourceTextUk || ''}:${hint}`;
+        const button = document.getElementById('compose-hint-btn');
+        const changed = hintElement.dataset.questionKey !== questionKey;
+        hintElement.dataset.questionKey = questionKey;
         hintElement.textContent = hint;
-        hintElement.classList.toggle('hidden', hint === '');
+        if (changed || hint === '') hintElement.classList.add('hidden');
+        if (button) {
+            const expanded = hint !== '' && !hintElement.classList.contains('hidden');
+            button.classList.toggle('hidden', hint === '');
+            button.setAttribute('aria-expanded', String(expanded));
+            button.textContent = testUi(expanded ? 'question.hide_help' : 'question.show_help');
+        }
+    }
+
+    function toggleComposePreAnswerHint() {
+        const hintElement = document.getElementById('compose-learning-hint');
+        const button = document.getElementById('compose-hint-btn');
+        if (!hintElement || !button || button.classList.contains('hidden') || !hintElement.textContent.trim()) return;
+        const expanded = button.getAttribute('aria-expanded') !== 'true';
+        hintElement.classList.toggle('hidden', !expanded);
+        button.setAttribute('aria-expanded', String(expanded));
+        button.textContent = testUi(expanded ? 'question.hide_help' : 'question.show_help');
     }
 
     function render() {
@@ -2693,7 +2716,7 @@ window.__POLYGLOT_WORD_SEARCH_URL__ = @json(route('api.words.search', ['lang' =>
         markAttempt(0, question, submitted);
         state.feedback = {
             type: 'incorrect',
-            hint: question.hintUk || '',
+            hint: question.showPreAnswerHint === true ? '' : question.hintUk || '',
             explanation: relevantExplanation(question),
         };
         render();
@@ -2752,6 +2775,11 @@ window.__POLYGLOT_WORD_SEARCH_URL__ = @json(route('api.words.search', ['lang' =>
                 removeAnswerSlot(slotIndex);
                 focusManualSlot(slotIndex);
             }
+            return;
+        }
+
+        if (event.target.closest('#compose-hint-btn')) {
+            toggleComposePreAnswerHint();
             return;
         }
 

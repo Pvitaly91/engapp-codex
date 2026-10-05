@@ -26,6 +26,7 @@ function between(source, start, end) {
   return source.slice(a, b);
 }
 const escaper = between(helpers, 'function html(str) {', '\n}') + '\n}';
+const localHelp = between(helpers, 'function getAuthoredComposeHelpText(q) {', 'function techInfoUi(key, fallback');
 const matcher = between(helpers, 'function canonicalTestAnswer(value) {', 'function composeManualAnswerWords(question, slotIndex) {');
 const conditions = {
   uk: ['Склади переклад: Я не ремонтував велосипед протягом двох годин до приходу механіка.', 'Лексична основа: repair — ремонтувати. Збережи заперечення.'],
@@ -61,7 +62,7 @@ function harness(mode, question, options = {}) {
     autoResize: () => {}, pct: (a, b) => Math.round(a / b * 100), restartJsTest: () => {}, init: () => {},
     isTestAnswerCommitKey: e => e.key === 'Enter',
   });
-  vm.runInContext([escaper, matcher, preview, sentence, renderer, checker].join('\n'), context);
+  vm.runInContext([escaper, localHelp, matcher, preview, sentence, renderer, checker].join('\n'), context);
   vm.runInContext(cardMode ? 'renderQuestions();' : 'render();', context);
   return {dom, state, item, context, cardMode, persisted: () => persisted,
     renderSentence: q => context.renderSentence(q, ...(cardMode ? [0] : [])),
@@ -77,6 +78,13 @@ for (const mode of ['card-expert', 'step-expert']) {
       const doc = h.dom.window.document;
       assert.equal(doc.querySelector('[data-authored-compose-condition]').textContent, conditions[locale][0]);
       assert.equal(doc.querySelector('[data-authored-compose-hint]').textContent, conditions[locale][1]);
+      const disclosure = doc.querySelector('details[data-authored-compose-help]');
+      assert.ok(disclosure);
+      assert.equal(disclosure.open, false, 'Help starts closed, not inside the translation heading');
+      assert.equal(doc.querySelector('[data-authored-compose-hint]').closest('details'), disclosure);
+      assert.equal(doc.querySelector('[data-authored-compose-condition]').closest('details'), null);
+      disclosure.open = true;
+      assert.equal(disclosure.open, true);
       assert.equal(h.inputs().length, h.item.answers.length);
       assert.equal(h.item.contraction_slots_version, 1);
       assert.ok(h.item.markers.some((m, i) => m !== `a${i + 1}`), 'Contraction groups leave non-sequential authored markers');

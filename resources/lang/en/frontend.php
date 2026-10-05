@@ -115,6 +115,7 @@ return [
             'label' => 'Q',
             'grammar' => 'Grammar',
             'show_help' => 'Show help',
+            'hide_help' => 'Hide help',
             'show_theory' => 'Show theory',
             'theory' => 'Theory',
             'active_marker' => 'Active marker: :marker',

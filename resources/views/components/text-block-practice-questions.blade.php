@@ -135,6 +135,8 @@
         'matched_tags' => __('theory_blocks.practice_questions.matched_tags'),
         'marker_tags' => __('theory_blocks.practice_questions.marker_tags'),
         'hint' => __('theory_blocks.practice_questions.hint'),
+        'show_help' => __('frontend.tests.question.show_help'),
+        'hide_help' => __('frontend.tests.question.hide_help'),
         'check_answer' => __('theory_blocks.practice_questions.check_answer'),
         'correct' => __('theory_blocks.practice_questions.correct'),
         'incorrect' => __('theory_blocks.practice_questions.incorrect', ['answer' => ':answer']),
@@ -243,11 +245,12 @@
                             </span>
                         </div>
                         @if(collect($questionsData)->contains(fn (array $question) => array_key_exists('compose_preanswer_hint', $question)))
-                            <div x-show="!answered && currentComposeHint" class="mt-2" data-authored-compose-hint>
-                                <span class="text-xs text-rose-600 font-semibold">
-                                    💡 {{ __('theory_blocks.practice_questions.hint') }}: <span x-text="currentComposeHint"></span>
-                                </span>
-                            </div>
+                            <details x-show="!answered && currentComposeHint" :open="composeHintOpen" @toggle="composeHintOpen = $el.open" class="mt-2" data-authored-compose-hint>
+                                <summary class="cursor-pointer text-xs font-semibold text-indigo-600" :aria-expanded="composeHintOpen" x-text="composeHintOpen ? practiceI18n.hide_help : practiceI18n.show_help"></summary>
+                                <div class="mt-2 text-xs text-rose-600 font-semibold whitespace-pre-line">
+                                    <span x-text="currentComposeHint"></span>
+                                </div>
+                            </details>
                         @endif
                     </div>
                 </template>
@@ -423,6 +426,7 @@
                 correctAnswer: '',
                 correctCount: 0,
                 answeredIndices: [],
+                composeHintOpen: false,
                 currentVerbHint: '',
                 currentExplanation: '',
                 get currentComposeHint() {
@@ -548,6 +552,7 @@
                     this.selectedOption = null;
                     this.answered = false;
                     this.isCorrect = false;
+                    this.composeHintOpen = false;
                     this.currentExplanation = '';
                     this.selectedTokens = [];
                     this.tokenBank = [];

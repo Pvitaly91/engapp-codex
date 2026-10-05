@@ -115,6 +115,7 @@ return [
             'label' => 'П',
             'grammar' => 'Граматика',
             'show_help' => 'Показати підказку',
+            'hide_help' => 'Сховати підказку',
             'show_theory' => 'Показати теорію',
             'theory' => 'Теорія',
             'active_marker' => 'Активний маркер: :marker',

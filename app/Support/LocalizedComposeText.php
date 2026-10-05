@@ -61,8 +61,9 @@ final class LocalizedComposeText
         ])->sortBy(fn (array $hint): string => json_encode($hint, JSON_UNESCAPED_UNICODE))->values()->all();
 
         return hash('sha256', json_encode([
-            'ppc-authored-task-v2-balanced-presentation-when-case', (string) ($question->getRawOriginal('question') ?? $question->question),
+            'ppc-authored-task-v3-sentence-only-collapsed-help', (string) ($question->getRawOriginal('question') ?? $question->question),
             (string) $question->type, $question->options_by_marker, $answers, $options, $hints, $verbHints,
+            PpcComposePresentation::revision($question),
         ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR));
     }
 
@@ -132,6 +133,16 @@ final class LocalizedComposeText
     public static function source(Question $question, ?string $locale = null): string
     {
         $locale = self::locale($locale);
+        $source = self::rawSource($question, $locale);
+        $projection = self::revisionEligible($question)
+            ? PpcComposePresentation::forQuestion($question, $locale, $source)
+            : null;
+
+        return $projection['display_source'] ?? $source;
+    }
+
+    private static function rawSource(Question $question, string $locale): string
+    {
         $row = $question->relationLoaded('hints') ? $question->hints->first(fn ($h) => $h->provider === self::PROVIDER
             && self::locale((string) $h->locale) === $locale && filled($h->hint)) : null;
         return $row ? trim((string) $row->hint) : (string) $question->question;
@@ -142,7 +153,13 @@ final class LocalizedComposeText
         if (!$question->relationLoaded('hints')) { return null; }
         $row = $question->hints->first(fn ($h) => $h->provider !== self::PROVIDER
             && self::locale((string) $h->locale) === self::locale() && filled($h->hint));
-        return $row ? trim((string) $row->hint) : null;
+        $hint = $row ? trim((string) $row->hint) : '';
+        $projection = self::revisionEligible($question)
+            ? PpcComposePresentation::forQuestion($question, self::locale(), self::rawSource($question, self::locale()))
+            : null;
+        $instructions = trim((string) ($projection['instructions'] ?? ''));
+
+        return $instructions !== '' ? trim($instructions."\n\n".$hint) : ($hint !== '' ? $hint : null);
     }
 
     public static function explanations(Question $question): array

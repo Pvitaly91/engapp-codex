@@ -209,6 +209,38 @@ function html(str) {
         .replaceAll("'", '&#039;');
 }
 
+// Authored PPC help is a disclosure, never part of the translation heading.
+function getAuthoredComposeHelpText(q) {
+    return String(q?.type ?? '') === '4'
+        && /^[a-f0-9]{64}$/.test(String(q?.compose_content_revision ?? ''))
+        && typeof q?.hint === 'string'
+        ? q.hint.trim()
+        : '';
+}
+
+function renderAuthoredComposeHelp(q) {
+    const hint = getAuthoredComposeHelpText(q);
+    return hint
+        ? `<p data-authored-compose-hint class="text-sm text-gray-600 whitespace-pre-line leading-normal font-normal">${html(hint)}</p>`
+        : '';
+}
+
+function toggleAuthoredComposeHelp(q, panelId, button) {
+    if (!getAuthoredComposeHelpText(q)) return false;
+    const panel = document.getElementById(panelId);
+    if (!panel) return true;
+    const opened = !panel.hasAttribute('data-authored-compose-help-open');
+    panel.innerHTML = opened ? renderAuthoredComposeHelp(q) : '';
+    panel.toggleAttribute('data-authored-compose-help-open', opened);
+    if (button) {
+        button.setAttribute('aria-expanded', String(opened));
+        button.setAttribute('aria-controls', panelId);
+        const label = button.querySelector('[data-authored-compose-help-label]');
+        if (label) label.textContent = testUi(opened ? 'question.hide_help' : 'question.show_help');
+    }
+    return true;
+}
+
 function techInfoUi(key, fallback = '') {
     return testUi(`tech_info.${key}`, {}, fallback);
 }

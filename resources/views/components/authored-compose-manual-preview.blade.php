@@ -29,18 +29,22 @@ function renderAuthoredComposeManualQuestion(q, questionIndex = null) {
       : '';
     return `<span class="inline-flex flex-wrap items-center gap-1.5 max-w-full">${input}${hint}</span>`;
   }).join('');
-  const hint = typeof q.hint === 'string' && q.hint.trim()
-    ? `<p data-authored-compose-hint class="mt-2.5 mb-3 text-[13px] sm:text-sm text-gray-600 whitespace-pre-line leading-relaxed">${html(q.hint)}</p>`
-    : '';
   const completed = q.done
     ? `<div data-polyglot-translation-status="done" class="mt-2.5 rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-800">${html(testUi('question.translation_completed'))}</div>`
     : '';
   return `<div data-authored-compose-condition>${html(q.question)}</div>
-    ${hint}
     <div data-authored-compose-manual data-polyglot-translation-preview="true" class="mt-3 sm:mt-4 space-y-2.5">
       <div class="text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500 sm:text-xs">${html(testUi('question.translation_preview'))}</div>
       <div class="flex flex-wrap gap-2.5">${slots}</div>
       ${completed}
     </div>`;
+}
+
+function renderAuthoredComposeManualHelp(q) {
+  if (!isAuthoredComposeManualQuestion(q) || !getAuthoredComposeHelpText(q)) return '';
+  return `<details data-authored-compose-help class="mt-2.5 text-sm font-normal text-gray-600">
+    <summary class="cursor-pointer text-indigo-600 font-medium">${html(testUi('question.show_help'))}</summary>
+    <div class="mt-2.5">${renderAuthoredComposeHelp(q)}</div>
+  </details>`;
 }
 </script>

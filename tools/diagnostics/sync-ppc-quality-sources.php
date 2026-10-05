@@ -5,6 +5,9 @@ if (PHP_SAPI !== 'cli' || PHP_OS_FAMILY !== 'Windows' || !in_array($argv[1] ?? '
 $source = dirname(__DIR__, 2); $root = 'D:/DEV/htdocs/gramlyze.loc';
 require $source.'/vendor/autoload.php';
 $files = ['app/Support/LocalizedComposeText.php', 'app/Support/PastPerfectContinuousPracticeQuality.php',
+    'app/Support/PpcComposePresentation.php',
+    'database/content-patches/ppc-compose-presentation/builder.json',
+    'database/content-patches/ppc-compose-presentation/mixed.json',
     'app/Support/PpcOrderedTheoryLinks.php',
     'app/Services/PpcQualityLocalTargetGuard.php', 'app/Support/Database/JsonTestSeeder.php', 'app/Support/Database/JsonTestLocalizationManager.php',
     'app/Http/Controllers/TestJsV2Controller.php', 'app/Http/Controllers/GrammarTestController.php', 'app/Services/TheoryCourseTestPoolService.php', 'app/Services/QuestionExportService.php', 'app/Services/QuestionImportService.php',
@@ -14,8 +17,11 @@ $files = ['app/Support/LocalizedComposeText.php', 'app/Support/PastPerfectContin
     'resources/views/components/saved-test-js-helpers.blade.php',
     'resources/views/test-modes/step-compose.blade.php',
     'resources/views/test-modes/card-easy.blade.php',
+    'resources/views/test-modes/step-easy.blade.php',
     'resources/views/test-modes/card-expert.blade.php',
     'resources/views/test-modes/step-expert.blade.php',
+    'resources/views/test-modes/theory-mixed.blade.php',
+    'public/js/theory-mixed-test.js',
     'resources/views/components/authored-compose-manual-preview.blade.php',
     'resources/views/components/text-block-practice-questions.blade.php', 'resources/views/engram/theory/blocks-v3/practice-set.blade.php',
     'resources/views/theory/show.blade.php',

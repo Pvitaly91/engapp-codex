@@ -183,6 +183,7 @@ function render() {
             <span class="text-xs sm:text-sm text-gray-500 font-medium">${q.tense || testUi('question.grammar')}</span>
           </div>
           <div class="text-base sm:text-xl leading-relaxed text-gray-900 font-medium mb-4">${sentence}</div>
+          ${renderAuthoredComposeManualHelp(q)}
         </div>
           <div class="flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 shrink-0 sm:self-start">
           <div class="text-xs text-gray-500 font-medium">${testUi('question.label')}</div>

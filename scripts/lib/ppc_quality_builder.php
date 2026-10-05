@@ -297,14 +297,10 @@ function ppcQualityBuilderHints(string $bank, array $row): array
     return $specific;
 }
 
-function ppcQualityBuilderProjection(string $bank, array $question, array $row): array
+/** Authored task/order guidance; shared by canonical and display projections. */
+function ppcQualityBuilderTaskPrefixes(array $row): array
 {
     $tokens = preg_split('/\s+/', rtrim($row['target'], '.?')) ?: [];
-    $answers = [];
-    foreach ($tokens as $index => $token) {
-        $answers['a'.($index + 1)] = $token;
-    }
-    $hints = ppcQualityBuilderHints($bank, $row);
     $isShort = preg_match('/^short-(positive|negative)-/', $row['focus']) === 1;
     $isQuestion = str_ends_with($row['target'], '?');
     $isState = in_array($row['focus'], ['state-contrast', 'desire-state', 'ownership-state', 'belief-state'], true);
@@ -338,6 +334,45 @@ function ppcQualityBuilderProjection(string $bank, array $question, array $row):
         }
         unset($prefix);
     }
+    return $prefixes;
+}
+
+/**
+ * Presentation-only split. No runtime string stripping and no target injection.
+ * Short answers keep all authored evidence and speaker/response-role conditions.
+ */
+function ppcQualityBuilderDisplayProjection(string $bank, array $question, array $row): array
+{
+    $prefixes = ppcQualityBuilderTaskPrefixes($row);
+    $canonical = ppcQualityBuilderProjection($bank, $question, $row);
+    $locales = [];
+    foreach (['uk', 'en', 'pl'] as $locale) {
+        $expected = $prefixes[$locale].$row[$locale];
+        if (($question['localizations'][$locale]['source_text'] ?? null) !== $expected
+            || $canonical['localizations'][$locale]['source_text'] !== $expected) {
+            throw new RuntimeException('Canonical builder source drift: '.$question['uuid'].'/'.$locale);
+        }
+        $locales[$locale] = [
+            'expected_source' => $expected,
+            'display_source' => $row[$locale],
+            'instructions' => trim($prefixes[$locale]),
+        ];
+    }
+    return $locales;
+}
+
+function ppcQualityBuilderProjection(string $bank, array $question, array $row): array
+{
+    $tokens = preg_split('/\s+/', rtrim($row['target'], '.?')) ?: [];
+    $answers = [];
+    foreach ($tokens as $index => $token) {
+        $answers['a'.($index + 1)] = $token;
+    }
+    $hints = ppcQualityBuilderHints($bank, $row);
+    $isShort = preg_match('/^short-(positive|negative)-/', $row['focus']) === 1;
+    $isQuestion = str_ends_with($row['target'], '?');
+    $isState = in_array($row['focus'], ['state-contrast', 'desire-state', 'ownership-state', 'belief-state'], true);
+    $prefixes = ppcQualityBuilderTaskPrefixes($row);
     $question['question'] = $prefixes['uk'].$row['uk'];
     $question['source_text_uk'] = $question['question'];
     $question['target_text'] = $row['target'];
