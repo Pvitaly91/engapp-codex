@@ -1371,7 +1371,11 @@ function mergeFreshQuestionContentIntoSavedState(state) {
         // Keep answer/progress-only fields from the snapshot, but always use
         // the current question, options, theory and verb hints from the page.
         const merged = { ...savedItem };
-        canonicalQuestionFields.forEach((field) => {
+        const fields = freshQuestion.compose_content_revision
+            ? [...canonicalQuestionFields, 'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+                'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question', 'reorder_template_constraint']
+            : canonicalQuestionFields;
+        fields.forEach((field) => {
             if (Object.prototype.hasOwnProperty.call(freshQuestion, field)) {
                 merged[field] = cloneState(freshQuestion[field]);
             }

@@ -80,11 +80,17 @@ function renderSentenceReorderQuestion(q) {
     return `<button type="button" class="rounded-xl border px-3 py-2 text-sm font-semibold transition ${used ? 'cursor-not-allowed border-gray-200 bg-gray-100 text-gray-400 line-through' : 'border-emerald-200 bg-emerald-50 text-emerald-800 hover:border-emerald-400 hover:bg-emerald-100'}" data-reorder-action="add" data-reorder-token-index="${tokenIndex}" ${used || done ? 'disabled' : ''}>${html(token)}</button>`;
   }).join('');
 
+  const templateCopy = {uk: 'Збережи порядок наведених частин речення:', ua: 'Збережи порядок наведених частин речення:',
+    en: 'Keep the supplied parts in this sentence order:', pl: 'Zachowaj podaną kolejność części zdania:'};
+  const templateConstraint = q.reorder_template_constraint
+    ? `<div class="mt-2 text-sm text-emerald-900" data-reorder-template-constraint>${html(templateCopy[String(TEST_LOCALE || 'uk').toLowerCase()] || templateCopy.en)} <span>${html(String(q.reorder_source_question || '').replace(/\{[^{}]+\}/g, '___'))}</span></div>` : '';
+
   return `
     <div class="space-y-4" data-sentence-reorder="true">
       <div class="rounded-2xl border border-emerald-100 bg-emerald-50/70 px-4 py-3">
         <div class="font-semibold text-emerald-900">${html(sentenceReorderCopy('title'))}</div>
         <div class="mt-1 text-sm text-emerald-800">${html(sentenceReorderCopy('instruction'))}</div>
+        ${templateConstraint}
       </div>
       <div>
         <div class="mb-2 text-sm font-semibold text-gray-700">${html(sentenceReorderCopy('answer'))}</div>

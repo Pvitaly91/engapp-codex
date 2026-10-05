@@ -1,6 +1,7 @@
 @include('components.english-answer-variants')
 @php
     $data = $data ?? json_decode($block->body ?? '[]', true) ?? [];
+    $data = \App\Support\PastPerfectContinuousPracticeQuality::presentation($block, $data, app()->getLocale()) ?? $data;
     $selects = $data['selects'] ?? [];
     $choices = $data['choices'] ?? [];
     $inputs = $data['inputs'] ?? [];
@@ -214,6 +215,9 @@
                                     && str_contains($item['before'], '/');
                             @endphp
                             <div class="relative flex flex-wrap items-center gap-2 text-sm text-foreground/80 bg-white/60 rounded-lg p-3 border border-white">
+                                @if(!empty($item['prompt']))
+                                    <p class="w-full mb-2 text-sm text-foreground/80" data-practice-input-prompt>{{ $item['prompt'] }}</p>
+                                @endif
                                 @if($m30AuthorSelfCheck !== null && !empty($item['context']))
                                     <div class="w-full text-sm text-foreground/80 leading-relaxed" data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
                                 @endif

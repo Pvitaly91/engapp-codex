@@ -169,8 +169,9 @@ class TestJsV2Controller extends Controller
         $showTechnicalInfo = $this->shouldShowTechnicalInfo($isAdmin);
         $questions = $this->persistedQuestionData($test, $savedState);
 
-        if (! is_array($questions) || ($showTechnicalInfo && ! $this->datasetContainsTechnicalInfo($questions, $test))) {
-            $questions = $this->buildQuestionDataset($resolved, $savedState === null, $showTechnicalInfo);
+        $needsContentRefresh = is_array($questions) && \App\Support\LocalizedComposeText::cachedNeedsRefresh($questions);
+        if (! is_array($questions) || $needsContentRefresh || ($showTechnicalInfo && ! $this->datasetContainsTechnicalInfo($questions, $test))) {
+            $questions = $this->buildQuestionDataset($resolved, $needsContentRefresh ? false : $savedState === null, $showTechnicalInfo);
         } else {
             $questions = $this->localizePersistedQuestionVerbHints($questions);
         }
@@ -391,7 +392,7 @@ class TestJsV2Controller extends Controller
     protected function buildQuestionDataset($resolved, bool $freshVariants = false, bool $includeTechnicalInfo = false)
     {
         $test = $resolved->model;
-        $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'theoryTextBlocks'];
+        $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'theoryTextBlocks', 'hints'];
         $supportsVariants = $this->variantService->supportsVariants();
         if ($supportsVariants) {
             $relations[] = 'variants';
@@ -409,8 +410,11 @@ class TestJsV2Controller extends Controller
                 $this->variantService->clearForTest($test->slug);
                 $questions = $this->variantService->applyRandomVariants($test, $questions, $previousVariants);
             } else {
-                $questions = $questions->map(function ($question) use ($test) {
-                    $this->variantService->applyStoredVariant($test->slug, $question);
+                $storedVariants = $this->variantService->getStoredVariants($test->slug);
+                $questions = $questions->map(function ($question) use ($test, $storedVariants) {
+                    if (\App\Support\LocalizedComposeText::storedVariantIsCurrent($question, $storedVariants[$question->id] ?? null)) {
+                        $this->variantService->applyStoredVariant($test->slug, $question);
+                    }
 
                     return $question;
                 });
@@ -443,7 +447,7 @@ class TestJsV2Controller extends Controller
             $optionsByMarker = $controller->normalizeOptionsByMarker($q->options_by_marker, $markers);
             if ((string) $q->type === (string) Question::TYPE_COMPOSE_TOKENS) {
                 $answerMap = AnswerOptionCase::align($answerMap, $markers, $optionsByMarker);
-                $answerList = ComposeTokenCase::normalize(array_values($answerMap));
+                $answerList = \App\Support\LocalizedComposeText::normalizeTokens($q, array_values($answerMap));
                 $answerMap = array_combine($markers, $answerList) ?: [];
             } else {
                 $answerMap = AnswerOptionCase::align($answerMap, $markers, $optionsByMarker);
@@ -516,11 +520,12 @@ class TestJsV2Controller extends Controller
             // Load marker tags for each answer marker
             $markerTags = $this->markerTheoryMatcher->getAllMarkerTags($q->id);
 
-            return [
+            $serialized = [
                 'id' => $q->id,
                 'uuid' => $q->uuid,
                 'type' => $q->type,
-                'question' => $q->question,
+                'question' => (string) $q->type === Question::TYPE_COMPOSE_TOKENS ? \App\Support\LocalizedComposeText::source($q) : $q->question,
+                'compose_source_text' => \App\Support\LocalizedComposeText::optedIn($q) ? \App\Support\LocalizedComposeText::source($q) : null,
                 'answer' => $answerList[0] ?? '',
                 'answers' => $answerList,
                 'answer_map' => $answerMap,
@@ -542,6 +547,12 @@ class TestJsV2Controller extends Controller
                 'marker_tags' => $markerTags,
                 'tech_info' => $technicalInfoByQuestionId[$q->id] ?? null,
             ];
+            if (($revision = \App\Support\LocalizedComposeText::revision($q)) !== null) {
+                $serialized['compose_content_revision'] = $revision;
+                $serialized['hint'] = \App\Support\LocalizedComposeText::hint($q);
+            }
+
+            return $serialized;
         })->map(
             static fn (array $question): array => FuturePerfectAnswerSynonyms::decorate($question)
         )->values()->all();
@@ -647,7 +658,7 @@ class TestJsV2Controller extends Controller
         }
 
         $models = Question::query()
-            ->with('verbHints.option')
+            ->with(['verbHints.option', 'hints'])
             ->where(function ($query) use ($questionIds, $questionUuids): void {
                 if ($questionIds !== []) {
                     $query->whereIn('id', $questionIds);
@@ -690,6 +701,26 @@ class TestJsV2Controller extends Controller
             $question['verb_hint'] = $marker !== null
                 ? ($verbHints[$marker] ?? reset($verbHints) ?: '')
                 : '';
+
+            // Only explicitly authored prompts opt into content refresh. Keep
+            // cached answer placements and legacy/variant question text intact.
+            if (\App\Support\LocalizedComposeText::revisionEligible($model)) {
+                $sourceText = \App\Support\LocalizedComposeText::source($model);
+                $question['compose_source_text'] = $sourceText;
+                if ((string) $model->type === Question::TYPE_COMPOSE_TOKENS) {
+                    $question['question'] = $sourceText;
+                }
+                if (array_key_exists('sourceTextUk', $question)) {
+                    $question['sourceTextUk'] = $sourceText;
+                }
+                $question['hint'] = \App\Support\LocalizedComposeText::hint($model);
+                if (array_key_exists('hintUk', $question)) {
+                    $question['hintUk'] = $question['hint'];
+                }
+                if (($question['presentation'] ?? null) === SentenceReorderQuestionFactory::PRESENTATION) {
+                    $question['reorder_template_constraint'] = true;
+                }
+            }
 
             $questionData[$index] = $question;
         }
@@ -1178,6 +1209,7 @@ class TestJsV2Controller extends Controller
 
     protected function composeHintText(Question $question): ?string
     {
+        if (\App\Support\LocalizedComposeText::optedIn($question)) { return \App\Support\LocalizedComposeText::hint($question); }
         if (! $question->relationLoaded('hints')) {
             return null;
         }
@@ -1191,6 +1223,7 @@ class TestJsV2Controller extends Controller
 
     protected function composeExplanationMap(Question $question): array
     {
+        if (\App\Support\LocalizedComposeText::optedIn($question)) { return \App\Support\LocalizedComposeText::explanations($question); }
         if (! $question->relationLoaded('chatgptExplanations')) {
             return [];
         }
@@ -1233,7 +1266,7 @@ class TestJsV2Controller extends Controller
             ->values()
             ->all();
 
-        $correctTokens = ComposeTokenCase::normalize($correctTokens);
+        $correctTokens = \App\Support\LocalizedComposeText::normalizeTokens($question, $correctTokens);
 
         if ($correctTokens === []) {
             return null;
@@ -1258,7 +1291,7 @@ class TestJsV2Controller extends Controller
             'uuid' => $question->uuid,
             'type' => $question->type,
             'level' => $question->level,
-            'sourceTextUk' => $question->question,
+            'sourceTextUk' => \App\Support\LocalizedComposeText::source($question),
             'correctTokens' => $correctTokens,
             'correctTokenValues' => $correctTokens,
             'correctTokenIds' => $correctTokenIds,
@@ -1266,6 +1299,8 @@ class TestJsV2Controller extends Controller
             'tokensPool' => collect($tokenBank)->pluck('value')->unique()->values()->all(),
             'correctText' => $this->buildComposeSentence($correctTokens, $punctuation),
             'hintUk' => $this->composeHintText($question),
+            'showPreAnswerHint' => (string) $question->type === Question::TYPE_COMPOSE_TOKENS
+                && \App\Support\LocalizedComposeText::revisionEligible($question),
             'explanations' => $this->composeExplanationMap($question),
             'punctuation' => $punctuation,
             'theory_block' => $theoryBlocks[0] ?? null,

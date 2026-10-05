@@ -34,6 +34,10 @@
 @section('body_class', 'scroll-optimized')
 
 @section('content')
+{{-- Bootstrap before native blocks: their discarded pre-render must not consume @once assets. --}}
+@if(in_array((string) $page->getRawOriginal('seeder'), array_column(\App\Support\M26InteractivePractice::load()['targets'], 'identity'), true))
+    @include('components.english-answer-variants')
+@endif
 @php
     $blocks = $page->textBlocks ?? collect();
     $routePrefix = $routePrefix ?? 'theory';

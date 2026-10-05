@@ -249,6 +249,7 @@ return [
             'empty' => 'There are no compose tasks for this test yet.',
             'build_translation' => 'Build the translation',
             'source_sentence' => 'Ukrainian sentence',
+            'source_task' => 'Task',
             'token_bank' => 'Token bank',
             'answer_placeholder' => 'Tap the tokens below to build the English translation.',
             'check' => 'Check',

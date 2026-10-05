@@ -1,55 +1,82 @@
 {
     "question": {
-        "id": 189,
+        "id": 23579,
         "uuid": "pastpc-questions-v3-b2-09",
-        "question": "{a1} when the lights went out?",
+        "question": "The investigator asked how long {a1} staff before recruitment froze.",
         "difficulty": 4,
         "level": "B2",
-        "category_id": 1,
-        "source_id": 3,
+        "category_id": 53,
+        "source_id": 274,
         "flag": 2,
-        "created_at": "2026-05-26T15:09:40.000000Z",
-        "updated_at": "2026-05-26T15:10:12.000000Z"
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\Tenses\\PastPerfectContinuous\\PastPerfectContinuousQuestionsAllLevelsV3Seeder",
+        "options_by_marker": {
+            "a1": [
+                "the firm had been hiring",
+                "had the firm been hiring",
+                "the firm had hiring",
+                "the firm had being hiring",
+                "the firm had been hire"
+            ]
+        },
+        "theory_text_block_uuid": "d00a8312-a1b4-5127-9384-4a0e96c9fc06",
+        "created_at": "2026-05-17T15:18:53.000000Z",
+        "updated_at": "2026-10-04T22:51:08.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 53,
         "name": "Tenses / Past Perfect Continuous",
-        "created_at": "2026-05-26T15:09:34.000000Z",
-        "updated_at": "2026-05-26T15:09:34.000000Z"
+        "created_at": "2026-05-17T15:18:21.000000Z",
+        "updated_at": "2026-05-17T15:18:21.000000Z"
     },
     "source": {
-        "id": 3,
+        "id": 274,
         "name": "Past Perfect Continuous: Questions and Short Answers",
-        "created_at": "2026-05-26T15:09:39.000000Z",
-        "updated_at": "2026-05-26T15:09:39.000000Z"
+        "created_at": "2026-05-17T15:18:46.000000Z",
+        "updated_at": "2026-05-17T15:18:46.000000Z"
     },
     "tags": [
         {
             "tag": {
-                "id": 9,
+                "id": 310,
                 "name": "Past Perfect Continuous",
                 "category": null,
-                "created_at": "2026-05-26T15:09:29.000000Z",
-                "updated_at": "2026-05-26T15:09:29.000000Z"
+                "created_at": "2026-04-23T14:33:09.000000Z",
+                "updated_at": "2026-04-23T14:33:09.000000Z"
             },
             "pivot": {
-                "question_id": 189,
-                "tag_id": 9,
+                "question_id": 23579,
+                "tag_id": 310,
                 "created_at": null,
                 "updated_at": null
             }
         },
         {
             "tag": {
-                "id": 42,
-                "name": "How Long Questions",
-                "category": "topic",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
+                "id": 711,
+                "name": "Wh Questions",
+                "category": null,
+                "created_at": "2026-04-23T14:37:26.000000Z",
+                "updated_at": "2026-04-23T14:37:26.000000Z"
             },
             "pivot": {
-                "question_id": 189,
-                "tag_id": 42,
+                "question_id": 23579,
+                "tag_id": 711,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 2075,
+                "name": "Question Order",
+                "category": "topic",
+                "created_at": "2026-05-16T19:13:02.000000Z",
+                "updated_at": "2026-05-16T19:13:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 23579,
+                "tag_id": 2075,
                 "created_at": null,
                 "updated_at": null
             }
@@ -58,105 +85,66 @@
     "options": [
         {
             "option": {
-                "id": 136,
-                "option": "Had been",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
+                "id": 47169,
+                "option": "the firm had been hiring",
+                "created_at": "2026-10-04T22:49:42.000000Z",
+                "updated_at": "2026-10-04T22:49:42.000000Z"
             },
             "pivot": {
-                "question_id": 189,
-                "option_id": 136,
+                "question_id": 23579,
+                "option_id": 47169,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 137,
-                "option": "Did",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
+                "id": 47171,
+                "option": "had the firm been hiring",
+                "created_at": "2026-10-04T22:49:42.000000Z",
+                "updated_at": "2026-10-04T22:49:42.000000Z"
             },
             "pivot": {
-                "question_id": 189,
-                "option_id": 137,
+                "question_id": 23579,
+                "option_id": 47171,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 138,
-                "option": "Was",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
+                "id": 47172,
+                "option": "the firm had hiring",
+                "created_at": "2026-10-04T22:49:42.000000Z",
+                "updated_at": "2026-10-04T22:49:42.000000Z"
             },
             "pivot": {
-                "question_id": 189,
-                "option_id": 138,
+                "question_id": 23579,
+                "option_id": 47172,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 139,
-                "option": "Were",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
+                "id": 47173,
+                "option": "the firm had being hiring",
+                "created_at": "2026-10-04T22:49:42.000000Z",
+                "updated_at": "2026-10-04T22:49:42.000000Z"
             },
             "pivot": {
-                "question_id": 189,
-                "option_id": 139,
+                "question_id": 23579,
+                "option_id": 47173,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 168,
-                "option": "How long had he been reading",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
+                "id": 47174,
+                "option": "the firm had been hire",
+                "created_at": "2026-10-04T22:49:42.000000Z",
+                "updated_at": "2026-10-04T22:49:42.000000Z"
             },
             "pivot": {
-                "question_id": 189,
-                "option_id": 168,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 169,
-                "option": "How long had he reading",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
-            },
-            "pivot": {
-                "question_id": 189,
-                "option_id": 169,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 170,
-                "option": "How long had he being reading",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
-            },
-            "pivot": {
-                "question_id": 189,
-                "option_id": 170,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 171,
-                "option": "How long did he been reading",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
-            },
-            "pivot": {
-                "question_id": 189,
-                "option_id": 171,
+                "question_id": 23579,
+                "option_id": 47174,
                 "flag": null
             }
         }
@@ -164,48 +152,146 @@
     "answers": [
         {
             "answer": {
-                "id": 189,
-                "question_id": 189,
+                "id": 315433,
+                "question_id": 23579,
                 "marker": "a1",
-                "option_id": 168,
-                "created_at": "2026-05-26T15:09:40.000000Z",
-                "updated_at": "2026-05-26T15:09:40.000000Z"
+                "option_id": 47169,
+                "created_at": "2026-10-04T22:49:42.000000Z",
+                "updated_at": "2026-10-04T22:49:42.000000Z"
             },
             "option": {
-                "id": 168,
-                "option": "How long had he been reading",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
+                "id": 47169,
+                "option": "the firm had been hiring",
+                "created_at": "2026-10-04T22:49:42.000000Z",
+                "updated_at": "2026-10-04T22:49:42.000000Z"
             }
         }
     ],
     "verb_hints": [
         {
             "verb_hint": {
-                "id": 189,
-                "question_id": 189,
+                "id": 34978,
+                "question_id": 23579,
                 "marker": "a1",
-                "option_id": 2,
-                "created_at": "2026-05-26T15:09:40.000000Z",
-                "updated_at": "2026-05-26T15:09:40.000000Z"
+                "locale": "",
+                "option_id": 47170,
+                "created_at": "2026-10-04T22:49:42.000000Z",
+                "updated_at": "2026-10-04T22:49:42.000000Z"
             },
             "option": {
-                "id": 2,
-                "option": "Use Past Perfect Continuous: had been + verb-ing in an earlier-past duration context.",
-                "created_at": "2026-05-26T15:09:34.000000Z",
-                "updated_at": "2026-05-26T15:09:34.000000Z"
+                "id": 47170,
+                "option": "Навчальна лема: hire («наймати»). Відновіть непряме запитання у Past Perfect Continuous: після сполучного слова потрібен розповідний порядок. Підмет у пропуску: «the firm».",
+                "created_at": "2026-10-04T22:49:42.000000Z",
+                "updated_at": "2026-10-04T22:49:42.000000Z"
+            }
+        },
+        {
+            "verb_hint": {
+                "id": 35139,
+                "question_id": 23579,
+                "marker": "A1",
+                "locale": "en",
+                "option_id": 47392,
+                "created_at": "2026-10-04T22:49:46.000000Z",
+                "updated_at": "2026-10-04T22:49:46.000000Z"
+            },
+            "option": {
+                "id": 47392,
+                "option": "Learning lemma: hire. Complete the embedded question in Past Perfect Continuous: use statement word order after the linking word. Subject inside the gap: the firm.",
+                "created_at": "2026-10-04T22:49:46.000000Z",
+                "updated_at": "2026-10-04T22:49:46.000000Z"
+            }
+        },
+        {
+            "verb_hint": {
+                "id": 35140,
+                "question_id": 23579,
+                "marker": "A1",
+                "locale": "pl",
+                "option_id": 47393,
+                "created_at": "2026-10-04T22:49:46.000000Z",
+                "updated_at": "2026-10-04T22:49:46.000000Z"
+            },
+            "option": {
+                "id": 47393,
+                "option": "Czasownik do użycia: hire. Uzupełnij pytanie zależne w Past Perfect Continuous: po wyrazie łączącym użyj szyku zdania oznajmującego. Podmiot w luce: the firm.",
+                "created_at": "2026-10-04T22:49:46.000000Z",
+                "updated_at": "2026-10-04T22:49:46.000000Z"
+            }
+        },
+        {
+            "verb_hint": {
+                "id": 35138,
+                "question_id": 23579,
+                "marker": "A1",
+                "locale": "uk",
+                "option_id": 47170,
+                "created_at": "2026-10-04T22:49:46.000000Z",
+                "updated_at": "2026-10-04T22:49:46.000000Z"
+            },
+            "option": {
+                "id": 47170,
+                "option": "Навчальна лема: hire («наймати»). Відновіть непряме запитання у Past Perfect Continuous: після сполучного слова потрібен розповідний порядок. Підмет у пропуску: «the firm».",
+                "created_at": "2026-10-04T22:49:42.000000Z",
+                "updated_at": "2026-10-04T22:49:42.000000Z"
             }
         }
     ],
     "variants": [
         {
-            "id": 189,
-            "question_id": 189,
-            "text": "{a1} when the lights went out?",
-            "created_at": "2026-05-26T15:09:40.000000Z",
-            "updated_at": "2026-05-26T15:09:40.000000Z"
+            "id": 50807,
+            "question_id": 23579,
+            "text": "The investigator asked how long {a1} staff before recruitment froze.",
+            "created_at": "2026-10-04T22:49:42.000000Z",
+            "updated_at": "2026-10-04T22:49:42.000000Z"
         }
     ],
-    "hints": [],
-    "chatgpt_explanations": []
+    "hints": [
+        {
+            "id": 12640,
+            "question_id": 23579,
+            "provider": "compose_prompt",
+            "locale": "uk",
+            "hint": "Слідчий запитав, як довго фірма наймала працівників до замороження набору.",
+            "created_at": "2026-10-04T22:49:46.000000Z",
+            "updated_at": "2026-10-04T22:49:46.000000Z"
+        },
+        {
+            "id": 12641,
+            "question_id": 23579,
+            "provider": "compose_prompt",
+            "locale": "en",
+            "hint": "Reconstruct the sentence in the displayed clause order. Keep the stated subjects and time-phrase positions; fill each blank using its learning hint: The investigator asked how long ____ staff before recruitment froze.",
+            "created_at": "2026-10-04T22:49:46.000000Z",
+            "updated_at": "2026-10-04T22:49:46.000000Z"
+        },
+        {
+            "id": 12642,
+            "question_id": 23579,
+            "provider": "compose_prompt",
+            "locale": "pl",
+            "hint": "Śledczy zapytał, jak długo firma zatrudniała pracowników przed zamrożeniem rekrutacji.",
+            "created_at": "2026-10-04T22:49:46.000000Z",
+            "updated_at": "2026-10-04T22:49:46.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [],
+    "theory_links": [
+        {
+            "text_block_uuid": "d00a8312-a1b4-5127-9384-4a0e96c9fc06",
+            "position": 0
+        },
+        {
+            "text_block_uuid": "2fdc8dda-7f85-5580-95c1-b3fbf026a62f",
+            "position": 1
+        },
+        {
+            "text_block_uuid": "5ed92e48-f2d3-5f5e-80d3-5d1c006e18f0",
+            "position": 2
+        },
+        {
+            "text_block_uuid": "f5d6b8dc-7379-59ff-9fbb-48f1493c1394",
+            "position": 3
+        }
+    ]
 }

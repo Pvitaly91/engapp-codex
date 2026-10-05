@@ -124,6 +124,7 @@ let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
 @include('components.saved-test-js-helpers')
+@include('components.authored-compose-manual-preview')
 <script>
 const state = {
   items: [],
@@ -278,6 +279,9 @@ function updateProgress() {
 }
 
 function renderSentence(q) {
+  if (isAuthoredComposeManualQuestion(q)) {
+    return renderAuthoredComposeManualQuestion(q);
+  }
   let text = q.question;
   q.answers.forEach((ans, i) => {
     let replacement;

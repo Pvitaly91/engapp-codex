@@ -281,7 +281,7 @@ class TheoryCourseTestPoolService
             'type' => (string) $question->type,
             'level' => $question->level,
             'question' => $question->question,
-            'sourceTextUk' => $question->question,
+            'sourceTextUk' => \App\Support\LocalizedComposeText::source($question),
             'correctTokens' => $correctTokens,
             'correctTokenValues' => $correctTokens,
             'correctTokenIds' => $correctTokenIds,
@@ -556,6 +556,7 @@ class TheoryCourseTestPoolService
 
     private function composeHintText(Question $question): ?string
     {
+        if (\App\Support\LocalizedComposeText::optedIn($question)) { return \App\Support\LocalizedComposeText::hint($question); }
         if (! $question->relationLoaded('hints')) {
             return null;
         }
@@ -569,6 +570,7 @@ class TheoryCourseTestPoolService
 
     private function composeExplanationMap(Question $question): array
     {
+        if (\App\Support\LocalizedComposeText::optedIn($question)) { return \App\Support\LocalizedComposeText::explanations($question); }
         if (! $question->relationLoaded('chatgptExplanations')) {
             return [];
         }

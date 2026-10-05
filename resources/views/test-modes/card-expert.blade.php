@@ -117,6 +117,7 @@ let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
 @include('components.saved-test-js-helpers')
+@include('components.authored-compose-manual-preview')
 <script>
 const state = {
   items: [],
@@ -273,6 +274,9 @@ function renderFeedback(q) {
 }
 
 function renderSentence(q, idx) {
+  if (isAuthoredComposeManualQuestion(q)) {
+    return renderAuthoredComposeManualQuestion(q, idx);
+  }
   let text = q.question;
   q.answers.forEach((ans, i) => {
     let replacement;
@@ -298,10 +302,15 @@ function autoResize(el) {
   span.style.visibility = 'hidden';
   span.style.position = 'absolute';
   span.style.whiteSpace = 'pre';
-  span.style.font = getComputedStyle(el).font;
+  const inputStyle = getComputedStyle(el);
+  span.style.font = inputStyle.font;
   span.textContent = el.value || '';
   document.body.appendChild(span);
-  const width = span.offsetWidth + 8;
+  const allowance = el.hasAttribute('data-authored-compose-input')
+    ? ['paddingLeft', 'paddingRight', 'borderLeftWidth', 'borderRightWidth']
+      .reduce((space, property) => space + (parseFloat(inputStyle[property]) || 0), 2)
+    : 8;
+  const width = span.offsetWidth + allowance;
   document.body.removeChild(span);
   el.style.width = Math.max(min, width) + 'px';
 }

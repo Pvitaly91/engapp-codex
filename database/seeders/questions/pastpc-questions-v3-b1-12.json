@@ -1,55 +1,82 @@
 {
     "question": {
-        "id": 180,
+        "id": 23570,
         "uuid": "pastpc-questions-v3-b1-12",
-        "question": "{a1} the report before midnight?",
+        "question": "The nurse asked whether {a1} well before admission.",
         "difficulty": 3,
         "level": "B1",
-        "category_id": 1,
-        "source_id": 3,
+        "category_id": 53,
+        "source_id": 274,
         "flag": 2,
-        "created_at": "2026-05-26T15:09:40.000000Z",
-        "updated_at": "2026-05-26T15:10:11.000000Z"
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\Tenses\\PastPerfectContinuous\\PastPerfectContinuousQuestionsAllLevelsV3Seeder",
+        "options_by_marker": {
+            "a1": [
+                "the patient had been eating",
+                "had the patient been eating",
+                "the patient had eating",
+                "the patient had being eating",
+                "the patient had been eat"
+            ]
+        },
+        "theory_text_block_uuid": "d00a8312-a1b4-5127-9384-4a0e96c9fc06",
+        "created_at": "2026-05-17T15:18:52.000000Z",
+        "updated_at": "2026-10-04T22:51:08.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 53,
         "name": "Tenses / Past Perfect Continuous",
-        "created_at": "2026-05-26T15:09:34.000000Z",
-        "updated_at": "2026-05-26T15:09:34.000000Z"
+        "created_at": "2026-05-17T15:18:21.000000Z",
+        "updated_at": "2026-05-17T15:18:21.000000Z"
     },
     "source": {
-        "id": 3,
+        "id": 274,
         "name": "Past Perfect Continuous: Questions and Short Answers",
-        "created_at": "2026-05-26T15:09:39.000000Z",
-        "updated_at": "2026-05-26T15:09:39.000000Z"
+        "created_at": "2026-05-17T15:18:46.000000Z",
+        "updated_at": "2026-05-17T15:18:46.000000Z"
     },
     "tags": [
         {
             "tag": {
-                "id": 9,
+                "id": 310,
                 "name": "Past Perfect Continuous",
                 "category": null,
-                "created_at": "2026-05-26T15:09:29.000000Z",
-                "updated_at": "2026-05-26T15:09:29.000000Z"
+                "created_at": "2026-04-23T14:33:09.000000Z",
+                "updated_at": "2026-04-23T14:33:09.000000Z"
             },
             "pivot": {
-                "question_id": 180,
-                "tag_id": 9,
+                "question_id": 23570,
+                "tag_id": 310,
                 "created_at": null,
                 "updated_at": null
             }
         },
         {
             "tag": {
-                "id": 32,
-                "name": "Typical Mistakes",
-                "category": "topic",
-                "created_at": "2026-05-26T15:09:34.000000Z",
-                "updated_at": "2026-05-26T15:09:34.000000Z"
+                "id": 711,
+                "name": "Wh Questions",
+                "category": null,
+                "created_at": "2026-04-23T14:37:26.000000Z",
+                "updated_at": "2026-04-23T14:37:26.000000Z"
             },
             "pivot": {
-                "question_id": 180,
-                "tag_id": 32,
+                "question_id": 23570,
+                "tag_id": 711,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 2075,
+                "name": "Question Order",
+                "category": "topic",
+                "created_at": "2026-05-16T19:13:02.000000Z",
+                "updated_at": "2026-05-16T19:13:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 23570,
+                "tag_id": 2075,
                 "created_at": null,
                 "updated_at": null
             }
@@ -58,118 +85,66 @@
     "options": [
         {
             "option": {
-                "id": 136,
-                "option": "Had been",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
+                "id": 47119,
+                "option": "the patient had been eating",
+                "created_at": "2026-10-04T22:49:41.000000Z",
+                "updated_at": "2026-10-04T22:49:41.000000Z"
             },
             "pivot": {
-                "question_id": 180,
-                "option_id": 136,
+                "question_id": 23570,
+                "option_id": 47119,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 137,
-                "option": "Did",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
+                "id": 47121,
+                "option": "had the patient been eating",
+                "created_at": "2026-10-04T22:49:41.000000Z",
+                "updated_at": "2026-10-04T22:49:41.000000Z"
             },
             "pivot": {
-                "question_id": 180,
-                "option_id": 137,
+                "question_id": 23570,
+                "option_id": 47121,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 138,
-                "option": "Was",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
+                "id": 47122,
+                "option": "the patient had eating",
+                "created_at": "2026-10-04T22:49:41.000000Z",
+                "updated_at": "2026-10-04T22:49:41.000000Z"
             },
             "pivot": {
-                "question_id": 180,
-                "option_id": 138,
+                "question_id": 23570,
+                "option_id": 47122,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 139,
-                "option": "Were",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
+                "id": 47123,
+                "option": "the patient had being eating",
+                "created_at": "2026-10-04T22:49:41.000000Z",
+                "updated_at": "2026-10-04T22:49:41.000000Z"
             },
             "pivot": {
-                "question_id": 180,
-                "option_id": 139,
+                "question_id": 23570,
+                "option_id": 47123,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 178,
-                "option": "Had she been writing",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
+                "id": 47124,
+                "option": "the patient had been eat",
+                "created_at": "2026-10-04T22:49:41.000000Z",
+                "updated_at": "2026-10-04T22:49:41.000000Z"
             },
             "pivot": {
-                "question_id": 180,
-                "option_id": 178,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 179,
-                "option": "Did she been writing",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
-            },
-            "pivot": {
-                "question_id": 180,
-                "option_id": 179,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 180,
-                "option": "Was she been writing",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
-            },
-            "pivot": {
-                "question_id": 180,
-                "option_id": 180,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 181,
-                "option": "Had she writing",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
-            },
-            "pivot": {
-                "question_id": 180,
-                "option_id": 181,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 182,
-                "option": "Had she being writing",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
-            },
-            "pivot": {
-                "question_id": 180,
-                "option_id": 182,
+                "question_id": 23570,
+                "option_id": 47124,
                 "flag": null
             }
         }
@@ -177,48 +152,146 @@
     "answers": [
         {
             "answer": {
-                "id": 180,
-                "question_id": 180,
+                "id": 315424,
+                "question_id": 23570,
                 "marker": "a1",
-                "option_id": 178,
-                "created_at": "2026-05-26T15:09:40.000000Z",
-                "updated_at": "2026-05-26T15:09:40.000000Z"
+                "option_id": 47119,
+                "created_at": "2026-10-04T22:49:41.000000Z",
+                "updated_at": "2026-10-04T22:49:41.000000Z"
             },
             "option": {
-                "id": 178,
-                "option": "Had she been writing",
-                "created_at": "2026-05-26T15:09:39.000000Z",
-                "updated_at": "2026-05-26T15:09:39.000000Z"
+                "id": 47119,
+                "option": "the patient had been eating",
+                "created_at": "2026-10-04T22:49:41.000000Z",
+                "updated_at": "2026-10-04T22:49:41.000000Z"
             }
         }
     ],
     "verb_hints": [
         {
             "verb_hint": {
-                "id": 180,
-                "question_id": 180,
+                "id": 34969,
+                "question_id": 23570,
                 "marker": "a1",
-                "option_id": 2,
-                "created_at": "2026-05-26T15:09:40.000000Z",
-                "updated_at": "2026-05-26T15:09:40.000000Z"
+                "locale": "",
+                "option_id": 47120,
+                "created_at": "2026-10-04T22:49:41.000000Z",
+                "updated_at": "2026-10-04T22:49:41.000000Z"
             },
             "option": {
-                "id": 2,
-                "option": "Use Past Perfect Continuous: had been + verb-ing in an earlier-past duration context.",
-                "created_at": "2026-05-26T15:09:34.000000Z",
-                "updated_at": "2026-05-26T15:09:34.000000Z"
+                "id": 47120,
+                "option": "Навчальна лема: eat («їсти»). Відновіть непряме запитання у Past Perfect Continuous: після сполучного слова потрібен розповідний порядок. Підмет у пропуску: «the patient».",
+                "created_at": "2026-10-04T22:49:41.000000Z",
+                "updated_at": "2026-10-04T22:49:41.000000Z"
+            }
+        },
+        {
+            "verb_hint": {
+                "id": 35112,
+                "question_id": 23570,
+                "marker": "A1",
+                "locale": "en",
+                "option_id": 47376,
+                "created_at": "2026-10-04T22:49:46.000000Z",
+                "updated_at": "2026-10-04T22:49:46.000000Z"
+            },
+            "option": {
+                "id": 47376,
+                "option": "Learning lemma: eat. Complete the embedded question in Past Perfect Continuous: use statement word order after the linking word. Subject inside the gap: the patient.",
+                "created_at": "2026-10-04T22:49:46.000000Z",
+                "updated_at": "2026-10-04T22:49:46.000000Z"
+            }
+        },
+        {
+            "verb_hint": {
+                "id": 35113,
+                "question_id": 23570,
+                "marker": "A1",
+                "locale": "pl",
+                "option_id": 47377,
+                "created_at": "2026-10-04T22:49:46.000000Z",
+                "updated_at": "2026-10-04T22:49:46.000000Z"
+            },
+            "option": {
+                "id": 47377,
+                "option": "Czasownik do użycia: eat. Uzupełnij pytanie zależne w Past Perfect Continuous: po wyrazie łączącym użyj szyku zdania oznajmującego. Podmiot w luce: the patient.",
+                "created_at": "2026-10-04T22:49:46.000000Z",
+                "updated_at": "2026-10-04T22:49:46.000000Z"
+            }
+        },
+        {
+            "verb_hint": {
+                "id": 35111,
+                "question_id": 23570,
+                "marker": "A1",
+                "locale": "uk",
+                "option_id": 47120,
+                "created_at": "2026-10-04T22:49:45.000000Z",
+                "updated_at": "2026-10-04T22:49:45.000000Z"
+            },
+            "option": {
+                "id": 47120,
+                "option": "Навчальна лема: eat («їсти»). Відновіть непряме запитання у Past Perfect Continuous: після сполучного слова потрібен розповідний порядок. Підмет у пропуску: «the patient».",
+                "created_at": "2026-10-04T22:49:41.000000Z",
+                "updated_at": "2026-10-04T22:49:41.000000Z"
             }
         }
     ],
     "variants": [
         {
-            "id": 180,
-            "question_id": 180,
-            "text": "{a1} the report before midnight?",
-            "created_at": "2026-05-26T15:09:40.000000Z",
-            "updated_at": "2026-05-26T15:09:40.000000Z"
+            "id": 50798,
+            "question_id": 23570,
+            "text": "The nurse asked whether {a1} well before admission.",
+            "created_at": "2026-10-04T22:49:41.000000Z",
+            "updated_at": "2026-10-04T22:49:41.000000Z"
         }
     ],
-    "hints": [],
-    "chatgpt_explanations": []
+    "hints": [
+        {
+            "id": 12613,
+            "question_id": 23570,
+            "provider": "compose_prompt",
+            "locale": "uk",
+            "hint": "Медсестра запитала, чи пацієнт добре харчувався до госпіталізації.",
+            "created_at": "2026-10-04T22:49:45.000000Z",
+            "updated_at": "2026-10-04T22:49:45.000000Z"
+        },
+        {
+            "id": 12614,
+            "question_id": 23570,
+            "provider": "compose_prompt",
+            "locale": "en",
+            "hint": "Reconstruct the sentence in the displayed clause order. Keep the stated subjects and time-phrase positions; fill each blank using its learning hint: The nurse asked whether ____ well before admission.",
+            "created_at": "2026-10-04T22:49:45.000000Z",
+            "updated_at": "2026-10-04T22:49:45.000000Z"
+        },
+        {
+            "id": 12615,
+            "question_id": 23570,
+            "provider": "compose_prompt",
+            "locale": "pl",
+            "hint": "Pielęgniarka zapytała, czy pacjent dobrze się odżywiał przed przyjęciem do szpitala.",
+            "created_at": "2026-10-04T22:49:46.000000Z",
+            "updated_at": "2026-10-04T22:49:46.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [],
+    "theory_links": [
+        {
+            "text_block_uuid": "d00a8312-a1b4-5127-9384-4a0e96c9fc06",
+            "position": 0
+        },
+        {
+            "text_block_uuid": "2fdc8dda-7f85-5580-95c1-b3fbf026a62f",
+            "position": 1
+        },
+        {
+            "text_block_uuid": "5ed92e48-f2d3-5f5e-80d3-5d1c006e18f0",
+            "position": 2
+        },
+        {
+            "text_block_uuid": "f5d6b8dc-7379-59ff-9fbb-48f1493c1394",
+            "position": 3
+        }
+    ]
 }

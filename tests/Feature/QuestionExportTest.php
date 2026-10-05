@@ -440,7 +440,9 @@ class QuestionExportTest extends AdminAuthenticatedTestCase
 
     private function exportDirectory(): string
     {
-        return database_path('seeders/questions');
+        $path = config('questions.export_path');
+        \Tests\Support\IsolatedTestEnvironment::assertOwnedPath($path);
+        return $path;
     }
 
     private function exportPathFor(Question $question): string

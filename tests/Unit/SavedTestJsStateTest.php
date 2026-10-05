@@ -8,6 +8,38 @@ use PHPUnit\Framework\TestCase;
 
 class SavedTestJsStateTest extends TestCase
 {
+    public function test_opt_in_compose_fields_refresh_without_erasing_attempts_or_navigation(): void
+    {
+        $item = ['uuid' => 'ppc-editorial', 'question' => 'Old text', 'compose_source_text' => 'Old source',
+            'chosen' => ['had'], 'manualInputsBySlot' => ['had'], 'attempts' => 3, 'wrongAttempt' => true];
+        $state = ['items' => [$item], 'current' => 2, 'answered' => 7, '__meta' => ['started' => true]];
+        $current = ['uuid' => 'ppc-editorial', 'question' => 'Current text', 'compose_source_text' => 'Current localized source',
+            'compose_hint' => 'Current localized hint', 'hint' => 'Current lexical hint', 'compose_content_revision' => 'ppc-quality-v2', 'reorder_template_constraint' => true,
+            'reorder_tokens' => ['Had', 'she', 'been', 'working?'], 'reorder_answer' => 'Had she been working?', 'reorder_source_question' => '{a1} she been working?'];
+        $merged = SavedTestJsState::mergeCurrentQuestionData($state, [$current]);
+        foreach (['compose_source_text', 'compose_hint', 'hint', 'compose_content_revision', 'reorder_template_constraint', 'reorder_tokens', 'reorder_answer', 'reorder_source_question'] as $key) {
+            $this->assertSame($current[$key], $merged['items'][0][$key]);
+        }
+        foreach (['chosen', 'manualInputsBySlot', 'attempts', 'wrongAttempt'] as $key) {
+            $this->assertSame($item[$key], $merged['items'][0][$key]);
+        }
+        $this->assertSame(2, $merged['current']);
+        $this->assertSame(7, $merged['answered']);
+        $this->assertTrue($merged['__meta']['started']);
+    }
+
+    public function test_new_opt_in_fields_do_not_change_a_legacy_snapshot(): void
+    {
+        $item = ['uuid' => 'legacy', 'compose_hint' => 'Keep legacy', 'hint' => 'Keep legacy lexical hint', 'reorder_answer' => 'Keep legacy target', 'reorder_source_question' => 'Keep legacy template'];
+        $current = ['uuid' => 'legacy', 'question' => 'Current legacy question', 'compose_hint' => 'Not opted in', 'hint' => 'Not opted in lexical hint', 'reorder_answer' => 'Not opted in', 'reorder_source_question' => 'Ignore new template'];
+        $merged = SavedTestJsState::mergeCurrentQuestionData(['items' => [$item]], [$current]);
+        $this->assertSame('Keep legacy', $merged['items'][0]['compose_hint']);
+        $this->assertSame('Keep legacy lexical hint', $merged['items'][0]['hint']);
+        $this->assertSame('Keep legacy target', $merged['items'][0]['reorder_answer']);
+        $this->assertSame('Keep legacy template', $merged['items'][0]['reorder_source_question']);
+        $this->assertSame('Current legacy question', $merged['items'][0]['question']);
+    }
+
     public function test_grouped_contraction_progress_is_not_overwritten_with_split_source_markers(): void
     {
         $item = ['uuid' => 'example', 'answers' => ['I will call', 'tomorrow'], 'chosen' => ["I'll call", null], 'contraction_slots_version' => 1];

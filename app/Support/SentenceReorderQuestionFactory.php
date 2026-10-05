@@ -168,6 +168,7 @@ class SentenceReorderQuestionFactory
             'reorder_answer' => $sentence,
             'reorder_tokens' => $shuffled,
             'reorder_source_question' => (string) $question['question'],
+            'reorder_template_constraint' => filled($question['compose_source_text'] ?? null),
         ];
     }
 

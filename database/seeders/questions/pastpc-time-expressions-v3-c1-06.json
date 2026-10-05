@@ -1,55 +1,89 @@
 {
     "question": {
-        "id": 270,
+        "id": 23660,
         "uuid": "pastpc-time-expressions-v3-c1-06",
-        "question": "I had been trusting the old plan {a1}",
+        "question": "Departures began in January and stopped when the contract ended: the firm had been losing staff {a1} January {a2} that endpoint.",
         "difficulty": 5,
         "level": "C1",
-        "category_id": 1,
-        "source_id": 4,
+        "category_id": 53,
+        "source_id": 275,
         "flag": 2,
-        "created_at": "2026-05-26T15:09:43.000000Z",
-        "updated_at": "2026-05-26T15:10:15.000000Z"
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\Tenses\\PastPerfectContinuous\\PastPerfectContinuousTimeExpressionsAllLevelsV3Seeder",
+        "options_by_marker": {
+            "a1": [
+                "since",
+                "for",
+                "during",
+                "until",
+                "by"
+            ],
+            "a2": [
+                "until",
+                "since",
+                "for",
+                "during",
+                "by"
+            ]
+        },
+        "theory_text_block_uuid": "b1acb0c8-e83b-5761-84f0-71e25f84dee4",
+        "created_at": "2026-05-17T15:19:08.000000Z",
+        "updated_at": "2026-10-04T22:51:09.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 53,
         "name": "Tenses / Past Perfect Continuous",
-        "created_at": "2026-05-26T15:09:34.000000Z",
-        "updated_at": "2026-05-26T15:09:34.000000Z"
+        "created_at": "2026-05-17T15:18:21.000000Z",
+        "updated_at": "2026-05-17T15:18:21.000000Z"
     },
     "source": {
-        "id": 4,
+        "id": 275,
         "name": "Past Perfect Continuous: Time Expressions",
-        "created_at": "2026-05-26T15:09:42.000000Z",
-        "updated_at": "2026-05-26T15:09:42.000000Z"
+        "created_at": "2026-05-17T15:18:59.000000Z",
+        "updated_at": "2026-05-17T15:18:59.000000Z"
     },
     "tags": [
         {
             "tag": {
-                "id": 9,
+                "id": 310,
                 "name": "Past Perfect Continuous",
                 "category": null,
-                "created_at": "2026-05-26T15:09:29.000000Z",
-                "updated_at": "2026-05-26T15:09:29.000000Z"
+                "created_at": "2026-04-23T14:33:09.000000Z",
+                "updated_at": "2026-04-23T14:33:09.000000Z"
             },
             "pivot": {
-                "question_id": 270,
-                "tag_id": 9,
+                "question_id": 23660,
+                "tag_id": 310,
                 "created_at": null,
                 "updated_at": null
             }
         },
         {
             "tag": {
-                "id": 48,
-                "name": "Until Then",
+                "id": 2156,
+                "name": "Since Start Point",
                 "category": "topic",
-                "created_at": "2026-05-26T15:09:42.000000Z",
-                "updated_at": "2026-05-26T15:09:42.000000Z"
+                "created_at": "2026-05-17T12:07:30.000000Z",
+                "updated_at": "2026-05-17T12:07:30.000000Z"
             },
             "pivot": {
-                "question_id": 270,
-                "tag_id": 48,
+                "question_id": 23660,
+                "tag_id": 2156,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 2175,
+                "name": "Until Then",
+                "category": "topic",
+                "created_at": "2026-05-17T13:07:59.000000Z",
+                "updated_at": "2026-05-17T13:07:59.000000Z"
+            },
+            "pivot": {
+                "question_id": 23660,
+                "tag_id": 2175,
                 "created_at": null,
                 "updated_at": null
             }
@@ -58,144 +92,66 @@
     "options": [
         {
             "option": {
-                "id": 183,
-                "option": "for two hours",
-                "created_at": "2026-05-26T15:09:42.000000Z",
-                "updated_at": "2026-05-26T15:09:42.000000Z"
+                "id": 156,
+                "option": "by",
+                "created_at": "2026-04-23T11:40:06.000000Z",
+                "updated_at": "2026-04-23T11:40:06.000000Z"
             },
             "pivot": {
-                "question_id": 270,
-                "option_id": 183,
+                "question_id": 23660,
+                "option_id": 156,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 185,
-                "option": "since morning",
-                "created_at": "2026-05-26T15:09:42.000000Z",
-                "updated_at": "2026-05-26T15:09:42.000000Z"
+                "id": 235,
+                "option": "for",
+                "created_at": "2026-04-23T11:40:17.000000Z",
+                "updated_at": "2026-04-23T11:40:17.000000Z"
             },
             "pivot": {
-                "question_id": 270,
-                "option_id": 185,
+                "question_id": 23660,
+                "option_id": 235,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 186,
-                "option": "all morning",
-                "created_at": "2026-05-26T15:09:42.000000Z",
-                "updated_at": "2026-05-26T15:09:42.000000Z"
+                "id": 329,
+                "option": "since",
+                "created_at": "2026-04-23T11:40:30.000000Z",
+                "updated_at": "2026-04-23T11:40:30.000000Z"
             },
             "pivot": {
-                "question_id": 270,
-                "option_id": 186,
+                "question_id": 23660,
+                "option_id": 329,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 187,
-                "option": "before",
-                "created_at": "2026-05-26T15:09:42.000000Z",
-                "updated_at": "2026-05-26T15:09:42.000000Z"
+                "id": 2467,
+                "option": "until",
+                "created_at": "2026-04-23T14:17:53.000000Z",
+                "updated_at": "2026-04-23T14:17:53.000000Z"
             },
             "pivot": {
-                "question_id": 270,
-                "option_id": 187,
+                "question_id": 23660,
+                "option_id": 2467,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 188,
-                "option": "by the time",
-                "created_at": "2026-05-26T15:09:42.000000Z",
-                "updated_at": "2026-05-26T15:09:42.000000Z"
+                "id": 2822,
+                "option": "during",
+                "created_at": "2026-04-23T14:18:36.000000Z",
+                "updated_at": "2026-04-23T14:18:36.000000Z"
             },
             "pivot": {
-                "question_id": 270,
-                "option_id": 188,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 189,
-                "option": "until then",
-                "created_at": "2026-05-26T15:09:42.000000Z",
-                "updated_at": "2026-05-26T15:09:42.000000Z"
-            },
-            "pivot": {
-                "question_id": 270,
-                "option_id": 189,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 190,
-                "option": "How long",
-                "created_at": "2026-05-26T15:09:42.000000Z",
-                "updated_at": "2026-05-26T15:09:42.000000Z"
-            },
-            "pivot": {
-                "question_id": 270,
-                "option_id": 190,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 191,
-                "option": "already",
-                "created_at": "2026-05-26T15:09:42.000000Z",
-                "updated_at": "2026-05-26T15:09:42.000000Z"
-            },
-            "pivot": {
-                "question_id": 270,
-                "option_id": 191,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 192,
-                "option": "just",
-                "created_at": "2026-05-26T15:09:42.000000Z",
-                "updated_at": "2026-05-26T15:09:42.000000Z"
-            },
-            "pivot": {
-                "question_id": 270,
-                "option_id": 192,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 193,
-                "option": "yesterday",
-                "created_at": "2026-05-26T15:09:42.000000Z",
-                "updated_at": "2026-05-26T15:09:42.000000Z"
-            },
-            "pivot": {
-                "question_id": 270,
-                "option_id": 193,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 194,
-                "option": "last week",
-                "created_at": "2026-05-26T15:09:42.000000Z",
-                "updated_at": "2026-05-26T15:09:42.000000Z"
-            },
-            "pivot": {
-                "question_id": 270,
-                "option_id": 194,
+                "question_id": 23660,
+                "option_id": 2822,
                 "flag": null
             }
         }
@@ -203,48 +159,230 @@
     "answers": [
         {
             "answer": {
-                "id": 270,
-                "question_id": 270,
+                "id": 316162,
+                "question_id": 23660,
                 "marker": "a1",
-                "option_id": 189,
-                "created_at": "2026-05-26T15:09:43.000000Z",
-                "updated_at": "2026-05-26T15:09:43.000000Z"
+                "option_id": 329,
+                "created_at": "2026-10-04T22:50:05.000000Z",
+                "updated_at": "2026-10-04T22:50:05.000000Z"
             },
             "option": {
-                "id": 189,
-                "option": "until then",
-                "created_at": "2026-05-26T15:09:42.000000Z",
-                "updated_at": "2026-05-26T15:09:42.000000Z"
+                "id": 329,
+                "option": "since",
+                "created_at": "2026-04-23T11:40:30.000000Z",
+                "updated_at": "2026-04-23T11:40:30.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 316163,
+                "question_id": 23660,
+                "marker": "a2",
+                "option_id": 2467,
+                "created_at": "2026-10-04T22:50:05.000000Z",
+                "updated_at": "2026-10-04T22:50:05.000000Z"
+            },
+            "option": {
+                "id": 2467,
+                "option": "until",
+                "created_at": "2026-04-23T14:17:53.000000Z",
+                "updated_at": "2026-04-23T14:17:53.000000Z"
             }
         }
     ],
     "verb_hints": [
         {
             "verb_hint": {
-                "id": 270,
-                "question_id": 270,
+                "id": 35277,
+                "question_id": 23660,
                 "marker": "a1",
-                "option_id": 184,
-                "created_at": "2026-05-26T15:09:43.000000Z",
-                "updated_at": "2026-05-26T15:09:43.000000Z"
+                "locale": "",
+                "option_id": 47456,
+                "created_at": "2026-10-04T22:50:05.000000Z",
+                "updated_at": "2026-10-04T22:50:05.000000Z"
             },
             "option": {
-                "id": 184,
-                "option": "Choose the Past Perfect Continuous time expression that fits the earlier duration.",
-                "created_at": "2026-05-26T15:09:42.000000Z",
-                "updated_at": "2026-05-26T15:09:42.000000Z"
+                "id": 47456,
+                "option": "Потрібен прийменник, що позначає початок періоду до минулої опорної події.",
+                "created_at": "2026-10-04T22:50:01.000000Z",
+                "updated_at": "2026-10-04T22:50:01.000000Z"
+            }
+        },
+        {
+            "verb_hint": {
+                "id": 35468,
+                "question_id": 23660,
+                "marker": "A1",
+                "locale": "en",
+                "option_id": 47474,
+                "created_at": "2026-10-04T22:50:10.000000Z",
+                "updated_at": "2026-10-04T22:50:10.000000Z"
+            },
+            "option": {
+                "id": 47474,
+                "option": "Use the preposition marking the start of the interval leading to the past reference event.",
+                "created_at": "2026-10-04T22:50:08.000000Z",
+                "updated_at": "2026-10-04T22:50:08.000000Z"
+            }
+        },
+        {
+            "verb_hint": {
+                "id": 35470,
+                "question_id": 23660,
+                "marker": "A1",
+                "locale": "pl",
+                "option_id": 47475,
+                "created_at": "2026-10-04T22:50:10.000000Z",
+                "updated_at": "2026-10-04T22:50:10.000000Z"
+            },
+            "option": {
+                "id": 47475,
+                "option": "Użyj przyimka wskazującego początek okresu trwającego do wydarzenia odniesienia w przeszłości.",
+                "created_at": "2026-10-04T22:50:08.000000Z",
+                "updated_at": "2026-10-04T22:50:08.000000Z"
+            }
+        },
+        {
+            "verb_hint": {
+                "id": 35466,
+                "question_id": 23660,
+                "marker": "A1",
+                "locale": "uk",
+                "option_id": 47456,
+                "created_at": "2026-10-04T22:50:10.000000Z",
+                "updated_at": "2026-10-04T22:50:10.000000Z"
+            },
+            "option": {
+                "id": 47456,
+                "option": "Потрібен прийменник, що позначає початок періоду до минулої опорної події.",
+                "created_at": "2026-10-04T22:50:01.000000Z",
+                "updated_at": "2026-10-04T22:50:01.000000Z"
+            }
+        },
+        {
+            "verb_hint": {
+                "id": 35278,
+                "question_id": 23660,
+                "marker": "a2",
+                "locale": "",
+                "option_id": 47465,
+                "created_at": "2026-10-04T22:50:05.000000Z",
+                "updated_at": "2026-10-04T22:50:05.000000Z"
+            },
+            "option": {
+                "id": 47465,
+                "option": "Позначте кінець періоду: дія тривала до названого моменту, а тоді припинилася.",
+                "created_at": "2026-10-04T22:50:01.000000Z",
+                "updated_at": "2026-10-04T22:50:01.000000Z"
+            }
+        },
+        {
+            "verb_hint": {
+                "id": 35469,
+                "question_id": 23660,
+                "marker": "A2",
+                "locale": "en",
+                "option_id": 47482,
+                "created_at": "2026-10-04T22:50:10.000000Z",
+                "updated_at": "2026-10-04T22:50:10.000000Z"
+            },
+            "option": {
+                "id": 47482,
+                "option": "Mark the endpoint: the activity continued up to the stated moment and then stopped.",
+                "created_at": "2026-10-04T22:50:08.000000Z",
+                "updated_at": "2026-10-04T22:50:08.000000Z"
+            }
+        },
+        {
+            "verb_hint": {
+                "id": 35471,
+                "question_id": 23660,
+                "marker": "A2",
+                "locale": "pl",
+                "option_id": 47483,
+                "created_at": "2026-10-04T22:50:10.000000Z",
+                "updated_at": "2026-10-04T22:50:10.000000Z"
+            },
+            "option": {
+                "id": 47483,
+                "option": "Wskaż koniec okresu: czynność trwała do podanego momentu, a następnie się zakończyła.",
+                "created_at": "2026-10-04T22:50:08.000000Z",
+                "updated_at": "2026-10-04T22:50:08.000000Z"
+            }
+        },
+        {
+            "verb_hint": {
+                "id": 35467,
+                "question_id": 23660,
+                "marker": "A2",
+                "locale": "uk",
+                "option_id": 47465,
+                "created_at": "2026-10-04T22:50:10.000000Z",
+                "updated_at": "2026-10-04T22:50:10.000000Z"
+            },
+            "option": {
+                "id": 47465,
+                "option": "Позначте кінець періоду: дія тривала до названого моменту, а тоді припинилася.",
+                "created_at": "2026-10-04T22:50:01.000000Z",
+                "updated_at": "2026-10-04T22:50:01.000000Z"
             }
         }
     ],
     "variants": [
         {
-            "id": 270,
-            "question_id": 270,
-            "text": "I had been trusting the old plan {a1}",
-            "created_at": "2026-05-26T15:09:43.000000Z",
-            "updated_at": "2026-05-26T15:09:43.000000Z"
+            "id": 50888,
+            "question_id": 23660,
+            "text": "Departures began in January and stopped when the contract ended: the firm had been losing staff {a1} January {a2} that endpoint.",
+            "created_at": "2026-10-04T22:50:05.000000Z",
+            "updated_at": "2026-10-04T22:50:05.000000Z"
         }
     ],
-    "hints": [],
-    "chatgpt_explanations": []
+    "hints": [
+        {
+            "id": 13315,
+            "question_id": 23660,
+            "provider": "compose_prompt",
+            "locale": "uk",
+            "hint": "Відхід працівників почався в січні й припинився із завершенням контракту: фірма втрачала персонал від січня до того кінцевого моменту.",
+            "created_at": "2026-10-04T22:50:10.000000Z",
+            "updated_at": "2026-10-04T22:50:10.000000Z"
+        },
+        {
+            "id": 13316,
+            "question_id": 23660,
+            "provider": "compose_prompt",
+            "locale": "en",
+            "hint": "Reconstruct the sentence in the displayed clause order. Keep the stated subjects and time-phrase positions; fill each blank using its learning hint: Departures began in January and stopped when the contract ended: the firm had been losing staff ____ January ____ that endpoint.",
+            "created_at": "2026-10-04T22:50:10.000000Z",
+            "updated_at": "2026-10-04T22:50:10.000000Z"
+        },
+        {
+            "id": 13317,
+            "question_id": 23660,
+            "provider": "compose_prompt",
+            "locale": "pl",
+            "hint": "Odejścia pracowników zaczęły się w styczniu i ustały wraz z końcem kontraktu: firma traciła personel od stycznia do tego końcowego momentu.",
+            "created_at": "2026-10-04T22:50:10.000000Z",
+            "updated_at": "2026-10-04T22:50:10.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [],
+    "theory_links": [
+        {
+            "text_block_uuid": "b1acb0c8-e83b-5761-84f0-71e25f84dee4",
+            "position": 0
+        },
+        {
+            "text_block_uuid": "d9520364-9a52-579c-8251-8665f6bf1cce",
+            "position": 1
+        },
+        {
+            "text_block_uuid": "15deefa5-e193-5ab5-931b-72800dd89edd",
+            "position": 2
+        },
+        {
+            "text_block_uuid": "bb18b380-b91a-5e04-a301-3ce688c5457c",
+            "position": 3
+        }
+    ]
 }

@@ -249,6 +249,7 @@ return [
             'empty' => 'Dla tego testu nie ma jeszcze zadań compose.',
             'build_translation' => 'Ułóż tłumaczenie',
             'source_sentence' => 'Zdanie po ukraińsku',
+            'source_task' => 'Polecenie',
             'token_bank' => 'Bank tokenów',
             'answer_placeholder' => 'Klikaj tokeny poniżej, aby ułożyć angielskie tłumaczenie.',
             'check' => 'Sprawdź',

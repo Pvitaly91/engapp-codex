@@ -936,6 +936,21 @@ class TheoryPagePromptLinkedTestsService
         Collection $linkedTests,
         Collection $definitionsBySeeder
     ): bool {
+        // This finite quality package uses the existing balanced presentation
+        // contract without rewriting saved-test filters or other topic banks.
+        $ppcQualitySeeders = [
+            'Database\\Seeders\\V3\\Tenses\\PastPerfectContinuous\\PastPerfectContinuousFormsAllLevelsV3Seeder',
+            'Database\\Seeders\\V3\\Tenses\\PastPerfectContinuous\\PastPerfectContinuousNegativesAllLevelsV3Seeder',
+            'Database\\Seeders\\V3\\Tenses\\PastPerfectContinuous\\PastPerfectContinuousQuestionsAllLevelsV3Seeder',
+            'Database\\Seeders\\V3\\Tenses\\PastPerfectContinuous\\PastPerfectContinuousTimeExpressionsAllLevelsV3Seeder',
+        ];
+        $linkedSeederClasses = $definitionsBySeeder->keys()->merge($linkedTests->flatMap(
+            fn (SavedGrammarTest $test): array => (array) data_get($test->filters, 'seeder_classes', [])
+        ));
+        if ($linkedSeederClasses->contains(fn ($seeder): bool => in_array($seeder, $ppcQualitySeeders, true))) {
+            return true;
+        }
+
         $filters = $linkedTests
             ->map(fn (SavedGrammarTest $test): array => is_array($test->filters) ? $test->filters : [])
             ->merge($definitionsBySeeder->map(

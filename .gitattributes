@@ -23,3 +23,10 @@ database/content-patches/m34-m18-argumentation-cohesion-before.json -text
 database/content-patches/m34-m18-argumentation-cohesion.v1.json -text
 database/content-patches/m35-m19-passive-reporting-before.json -text
 database/content-patches/m35-m19-passive-reporting.v1.json -text
+database/content-patches/ppc-practice-quality.v2.json -text
+
+# Finite PPC author review fingerprints are byte-exact across checkouts.
+scripts/lib/ppc_quality_*.php -text
+database/seeders/V3/Tenses/PastPerfectContinuous/*AllLevelsV3Seeder/definition.json -text
+database/seeders/V3/Polyglot/PolyglotPastPerfectContinuous*LessonSeeder/definition.json -text
+database/seeders/V3/Polyglot/PolyglotPastPerfectContinuousBasicsB2LessonSeeder/localizations/*.json -text

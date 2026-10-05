@@ -24,6 +24,8 @@ class SavedTestJsStateTest extends TestCase
     {
         parent::setUp();
 
+        $this->withoutVite();
+
         if (! app()->environment('testing') || DB::connection()->getDriverName() !== 'sqlite'
             || DB::connection()->getDatabaseName() !== ':memory:'
             || config('cache.default') !== 'array' || config('session.driver') !== 'array') {
@@ -184,6 +186,18 @@ class SavedTestJsStateTest extends TestCase
                 $table->timestamps();
             });
         }
+
+        if (! Schema::hasTable('question_hints')) {
+            Schema::create('question_hints', function (Blueprint $table) {
+                $table->id();
+                $table->unsignedBigInteger('question_id');
+                $table->string('provider');
+                $table->string('locale', 5);
+                $table->text('hint');
+                $table->timestamps();
+                $table->unique(['question_id', 'provider', 'locale']);
+            });
+        }
     }
 
     private function resetQuestionData(): void
@@ -194,6 +208,7 @@ class SavedTestJsStateTest extends TestCase
             'question_option_question',
             'question_answers',
             'question_variants',
+            'question_hints',
             'verb_hints',
             'questions',
             'question_options',

@@ -495,6 +495,17 @@ function rerenderCard(idx) {
   }
 }
 
+function renderAuthoredComposeHint(q) {
+  if (String(q?.type ?? '') !== '4'
+    || !/^[a-f0-9]{64}$/.test(String(q?.compose_content_revision ?? ''))
+    || typeof q?.hint !== 'string'
+    || !q.hint.trim()) {
+    return '';
+  }
+
+  return `<p data-authored-compose-hint class="mt-2.5 mb-3 text-[13px] sm:text-sm text-gray-600 whitespace-pre-line leading-relaxed">${html(q.hint)}</p>`;
+}
+
 function renderQuestions(showOnlyWrong = false) {
   const wrap = document.getElementById('questions');
   wrap.innerHTML = '';
@@ -523,6 +534,7 @@ function renderQuestions(showOnlyWrong = false) {
           </div>
           <div class="text-base sm:text-xl leading-relaxed text-gray-900 font-medium mb-2.5 sm:mb-3">${sentence}</div>
           <div id="polyglot-translation-preview-${idx}">${polyglotTranslationPreview}</div>
+          ${renderAuthoredComposeHint(q)}
           <button type="button" class="help-btn inline-flex items-center text-[13px] sm:text-sm text-indigo-600 hover:text-indigo-700 font-medium transition-colors" data-help-idx="${idx}">
             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>

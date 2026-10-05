@@ -1,0 +1,1658 @@
+{
+  "schema_version": 1,
+  "review_version": "ppc-practice-quality.v2-duplicate-review.v1",
+  "baseline_commit": "4644a1729d326b9a967d03c397998506f00d704b",
+  "scope": {
+    "authored_records": 624,
+    "mixed": 288,
+    "builder": 336,
+    "banks": 9,
+    "baseline_uuid_bank_type_level_order_preserved": true,
+    "translations_counted_separately": false,
+    "static_practice_excluded": "The separate 24 static tasks are covered by PastPerfectContinuousStaticPracticeQualityTest and the static matcher suite."
+  },
+  "method": {
+    "description": "Exact/normalized complete questions and completed targets; completed-target role/number masks and >=0.72 question-context or completed-target three-gram Dice with >=3 shared grams discover candidates only. Question-context fuzzy comparison omits six finite shared Builder UI/order prefixes. Equal correct forms alone are not duplicates.",
+    "normalization": "Lowercase; normalize apostrophes, punctuation and whitespace; marker IDs collapse to gap. Do not drop not, been, roles, durations or content words from exact/normalized checks.",
+    "template_discovery": "Mask proper English roles, personal pronouns and numerical duration tokens only to propose manual-review pairs; no correctness relaxation.",
+    "shared_instruction_exclusion": "Six exact Builder UI/order prefixes are omitted only from question-context fuzzy 3-grams. Full visible prompts remain in exact and normalized comparisons.",
+    "pairwise_comparisons_per_phase": 194376,
+    "semantic_review": "Read the complete visible conditions, completed targets and catalogue learning_focus of every after candidate pair; adjudicate the learning operation, not just surface wording.",
+    "limitations": [
+      "Baseline collision and candidate metrics are mechanical similarity counts, not automatically adjudicated author-duplicate counts.",
+      "The automated methods cannot prove absence of every possible semantic paraphrase. This report records exhaustive pairwise checks under the declared methods and explicit review of all resulting after candidates.",
+      "Shared short-answer or tense morphology alone is not an editorial defect; basic consolidation is labelled as such, and higher-level retained short answers require a distinct evidenced inference."
+    ]
+  },
+  "source_sha256": {
+    "scripts/lib/ppc_quality_mixed.php": "a6deaab4acc8973b6a7d1accd7da068f28657a74732933ad7dea0e7192ed7464",
+    "scripts/lib/ppc_quality_mixed_forms.php": "973c6d7b40f60149b39cfd4efdfe7543b6b623c69216ad14b99b60acc39cfaed",
+    "scripts/lib/ppc_quality_mixed_negatives.php": "cb8188c7f314a7536a37aa0dbc4a7ddb68464ecdcb6e42905e94cb77d167ba37",
+    "scripts/lib/ppc_quality_mixed_questions.php": "0300ad12bd81c68f6e19461bc5bc526c8c1fac6c83080f07b9952b3caff0cec5",
+    "scripts/lib/ppc_quality_mixed_sources.php": "20e64742b580c4a53ba0241a3322eeb3f8226d4bd45398975cc8fd64e15154d7",
+    "scripts/lib/ppc_quality_mixed_sources_negatives.php": "61f34d0404c7f350d0491ad2d32be1a810ef0e115d7486896b6c16d70d4d036e",
+    "scripts/lib/ppc_quality_mixed_sources_questions.php": "d85f8123d8612c13148bc91d2544c35f5dad7bb9cdf3a452c8fe7bce5de903c3",
+    "scripts/lib/ppc_quality_mixed_sources_time.php": "543e17e39a9c151d7f9fc19216abd882dc928a8906b0fe6953bdf5a5e68d8cf0",
+    "scripts/lib/ppc_quality_mixed_time.php": "bf2f8e311d536db97b2fef114be84a12c6f2e07814f91dd55c58add1c934044b",
+    "scripts/lib/ppc_quality_builder.php": "2016c8ea889db41e94167be610a8c5b06929f181d46ef9b53d390127165c1f46",
+        "database/seeders/V3/Tenses/PastPerfectContinuous/PastPerfectContinuousFormsAllLevelsV3Seeder/definition.json": "43fbb4f4d126df08992a1b3bed7b046b7a04d367aba98e4d844a2ba51f43511c",
+        "database/seeders/V3/Polyglot/PolyglotPastPerfectContinuousFormsAllLevelsLessonSeeder/definition.json": "e2a17f9fd1dacedd3e84bd6899cfb3b440932b8f54650209b168b26bc5e99d32",
+        "database/seeders/V3/Tenses/PastPerfectContinuous/PastPerfectContinuousNegativesAllLevelsV3Seeder/definition.json": "6a2bab43a6dc93caee39da6c0c77ecb45a454d0e87ea8bbea4762a86b2edb3ae",
+        "database/seeders/V3/Polyglot/PolyglotPastPerfectContinuousNegativesAllLevelsLessonSeeder/definition.json": "f61437ffa9df61aad17b326380afff6d5b5dee36760151fc16b784c175857086",
+        "database/seeders/V3/Tenses/PastPerfectContinuous/PastPerfectContinuousQuestionsAllLevelsV3Seeder/definition.json": "5abd50d4819ac27ce4d9cb672a7fa5a8127f89439f3f9eb63ad5b38bf5c3213e",
+        "database/seeders/V3/Polyglot/PolyglotPastPerfectContinuousQuestionsAllLevelsLessonSeeder/definition.json": "afdbbef9eb221c65fea446443df3db500712947a7097a93404dc0063ac4e0459",
+        "database/seeders/V3/Tenses/PastPerfectContinuous/PastPerfectContinuousTimeExpressionsAllLevelsV3Seeder/definition.json": "301ddc05cc46c9cf488cd2c748fe0debfc55fb7f29ba5e4aca8a84ccf680b252",
+        "database/seeders/V3/Polyglot/PolyglotPastPerfectContinuousTimeExpressionsAllLevelsLessonSeeder/definition.json": "f21cd6f461b15c6f073ee40e9358c7cf362d9c54fd8534a71422a51f2b4cd53c",
+        "database/seeders/V3/Polyglot/PolyglotPastPerfectContinuousBasicsB2LessonSeeder/definition.json": "eff947a6ebfa6c943301d6d71ef6e08e3f508f36cc60483ac7e1c5a453f79df7"
+  },
+  "metrics": {
+    "before": {
+      "count": 624,
+      "inventory": {
+        "Mixed/Forms": {
+          "count": 72,
+          "by_type": {
+            "type_0": 72
+          },
+          "by_level": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "collisions": {
+            "exact_question": {
+              "groups": 3,
+              "extra_records": 15
+            },
+            "normalized_question": {
+              "groups": 3,
+              "extra_records": 15
+            },
+            "exact_completed_target": {
+              "groups": 3,
+              "extra_records": 15
+            },
+            "normalized_completed_target": {
+              "groups": 3,
+              "extra_records": 15
+            }
+          }
+        },
+        "Builder/Forms": {
+          "count": 72,
+          "by_type": {
+            "type_4": 72
+          },
+          "by_level": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "collisions": {
+            "exact_question": {
+              "groups": 3,
+              "extra_records": 15
+            },
+            "normalized_question": {
+              "groups": 3,
+              "extra_records": 15
+            },
+            "exact_completed_target": {
+              "groups": 3,
+              "extra_records": 15
+            },
+            "normalized_completed_target": {
+              "groups": 3,
+              "extra_records": 15
+            }
+          }
+        },
+        "Mixed/Negatives": {
+          "count": 72,
+          "by_type": {
+            "type_0": 72
+          },
+          "by_level": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "collisions": {
+            "exact_question": {
+              "groups": 3,
+              "extra_records": 15
+            },
+            "normalized_question": {
+              "groups": 3,
+              "extra_records": 15
+            },
+            "exact_completed_target": {
+              "groups": 3,
+              "extra_records": 15
+            },
+            "normalized_completed_target": {
+              "groups": 3,
+              "extra_records": 15
+            }
+          }
+        },
+        "Builder/Negatives": {
+          "count": 72,
+          "by_type": {
+            "type_4": 72
+          },
+          "by_level": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "collisions": {
+            "exact_question": {
+              "groups": 3,
+              "extra_records": 15
+            },
+            "normalized_question": {
+              "groups": 3,
+              "extra_records": 15
+            },
+            "exact_completed_target": {
+              "groups": 3,
+              "extra_records": 15
+            },
+            "normalized_completed_target": {
+              "groups": 3,
+              "extra_records": 15
+            }
+          }
+        },
+        "Mixed/Questions": {
+          "count": 72,
+          "by_type": {
+            "type_0": 72
+          },
+          "by_level": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "collisions": {
+            "exact_question": {
+              "groups": 13,
+              "extra_records": 41
+            },
+            "normalized_question": {
+              "groups": 13,
+              "extra_records": 41
+            },
+            "exact_completed_target": {
+              "groups": 7,
+              "extra_records": 35
+            },
+            "normalized_completed_target": {
+              "groups": 7,
+              "extra_records": 35
+            }
+          }
+        },
+        "Builder/Questions": {
+          "count": 72,
+          "by_type": {
+            "type_4": 72
+          },
+          "by_level": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "collisions": {
+            "exact_question": {
+              "groups": 7,
+              "extra_records": 35
+            },
+            "normalized_question": {
+              "groups": 7,
+              "extra_records": 35
+            },
+            "exact_completed_target": {
+              "groups": 7,
+              "extra_records": 35
+            },
+            "normalized_completed_target": {
+              "groups": 7,
+              "extra_records": 35
+            }
+          }
+        },
+        "Mixed/TimeExpressions": {
+          "count": 72,
+          "by_type": {
+            "type_0": 72
+          },
+          "by_level": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "collisions": {
+            "exact_question": {
+              "groups": 3,
+              "extra_records": 15
+            },
+            "normalized_question": {
+              "groups": 3,
+              "extra_records": 15
+            },
+            "exact_completed_target": {
+              "groups": 3,
+              "extra_records": 15
+            },
+            "normalized_completed_target": {
+              "groups": 3,
+              "extra_records": 15
+            }
+          }
+        },
+        "Builder/TimeExpressions": {
+          "count": 72,
+          "by_type": {
+            "type_4": 72
+          },
+          "by_level": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "collisions": {
+            "exact_question": {
+              "groups": 3,
+              "extra_records": 15
+            },
+            "normalized_question": {
+              "groups": 3,
+              "extra_records": 15
+            },
+            "exact_completed_target": {
+              "groups": 3,
+              "extra_records": 15
+            },
+            "normalized_completed_target": {
+              "groups": 3,
+              "extra_records": 15
+            }
+          }
+        },
+        "Builder/BasicsB2": {
+          "count": 48,
+          "by_type": {
+            "type_4": 48
+          },
+          "by_level": {
+            "B2": 48
+          },
+          "collisions": {
+            "exact_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "exact_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            }
+          }
+        }
+      },
+      "collisions": {
+        "exact_question": {
+          "groups": 60,
+          "extra_records": 192,
+          "cross_bank_groups": 26,
+          "cross_bank_pairs": 96
+        },
+        "normalized_question": {
+          "groups": 61,
+          "extra_records": 193,
+          "cross_bank_groups": 27,
+          "cross_bank_pairs": 97
+        },
+        "exact_completed_target": {
+          "groups": 181,
+          "extra_records": 323,
+          "cross_bank_groups": 163,
+          "cross_bank_pairs": 408
+        },
+        "normalized_completed_target": {
+          "groups": 202,
+          "extra_records": 362,
+          "cross_bank_groups": 202,
+          "cross_bank_pairs": 762
+        }
+      },
+      "candidate_pairs": 2727,
+      "cross_bank_candidate_pairs": 1826
+    },
+    "after": {
+      "count": 624,
+      "inventory": {
+        "Mixed/Forms": {
+          "count": 72,
+          "by_type": {
+            "type_0": 72
+          },
+          "by_level": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "collisions": {
+            "exact_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "exact_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            }
+          }
+        },
+        "Builder/Forms": {
+          "count": 72,
+          "by_type": {
+            "type_4": 72
+          },
+          "by_level": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "collisions": {
+            "exact_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "exact_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            }
+          }
+        },
+        "Mixed/Negatives": {
+          "count": 72,
+          "by_type": {
+            "type_0": 72
+          },
+          "by_level": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "collisions": {
+            "exact_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "exact_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            }
+          }
+        },
+        "Builder/Negatives": {
+          "count": 72,
+          "by_type": {
+            "type_4": 72
+          },
+          "by_level": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "collisions": {
+            "exact_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "exact_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            }
+          }
+        },
+        "Mixed/Questions": {
+          "count": 72,
+          "by_type": {
+            "type_0": 72
+          },
+          "by_level": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "collisions": {
+            "exact_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "exact_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            }
+          }
+        },
+        "Builder/Questions": {
+          "count": 72,
+          "by_type": {
+            "type_4": 72
+          },
+          "by_level": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "collisions": {
+            "exact_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "exact_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            }
+          }
+        },
+        "Mixed/TimeExpressions": {
+          "count": 72,
+          "by_type": {
+            "type_0": 72
+          },
+          "by_level": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "collisions": {
+            "exact_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "exact_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            }
+          }
+        },
+        "Builder/TimeExpressions": {
+          "count": 72,
+          "by_type": {
+            "type_4": 72
+          },
+          "by_level": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "collisions": {
+            "exact_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "exact_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            }
+          }
+        },
+        "Builder/BasicsB2": {
+          "count": 48,
+          "by_type": {
+            "type_4": 48
+          },
+          "by_level": {
+            "B2": 48
+          },
+          "collisions": {
+            "exact_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_question": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "exact_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            },
+            "normalized_completed_target": {
+              "groups": 0,
+              "extra_records": 0
+            }
+          }
+        }
+      },
+      "collisions": {
+        "exact_question": {
+          "groups": 0,
+          "extra_records": 0,
+          "cross_bank_groups": 0,
+          "cross_bank_pairs": 0
+        },
+        "normalized_question": {
+          "groups": 0,
+          "extra_records": 0,
+          "cross_bank_groups": 0,
+          "cross_bank_pairs": 0
+        },
+        "exact_completed_target": {
+          "groups": 0,
+          "extra_records": 0,
+          "cross_bank_groups": 0,
+          "cross_bank_pairs": 0
+        },
+        "normalized_completed_target": {
+          "groups": 0,
+          "extra_records": 0,
+          "cross_bank_groups": 0,
+          "cross_bank_pairs": 0
+        }
+      },
+      "candidate_pairs": 23,
+      "cross_bank_candidate_pairs": 3
+    }
+  },
+  "decisions": {
+    "after_candidates": 23,
+    "keep": 23,
+    "rewrite_issue": 0,
+    "unresolved": 0,
+    "cross_bank_kept": 3,
+    "within_bank_kept": 20
+  },
+  "reviewed_after_candidates": [
+    {
+      "pair": [
+        "pastpc-forms-v3-a1-01",
+        "pastpc-questions-v3-a1-01"
+      ],
+      "reasons": [
+        "question-three-gram-dice"
+      ],
+      "three_gram_dice": 0.714,
+      "question_three_gram_dice": 0.8,
+      "cross_bank": true,
+      "left": {
+        "uuid": "pastpc-forms-v3-a1-01",
+        "bank": "Mixed/Forms",
+        "type": "0",
+        "level": "A1",
+        "question": "I {a1} for two hours before dinner started.",
+        "completed_target": "I had been working for two hours before dinner started.",
+        "learning_focus": "process"
+      },
+      "right": {
+        "uuid": "pastpc-questions-v3-a1-01",
+        "bank": "Mixed/Questions",
+        "type": "0",
+        "level": "A1",
+        "question": "{a1} for two hours before dinner?",
+        "completed_target": "Had you been working for two hours before dinner?",
+        "learning_focus": "yesno"
+      },
+      "decision": "keep",
+      "reason": "Keep the same familiar dinner scene as an explicit form-to-question contrast: Forms selects affirmative process morphology; Questions selects a full yes/no inversion with a different speaker role. This is a different grammatical operation, not a higher-level task justified by a pronoun or duration substitution."
+    },
+    {
+      "pair": [
+        "pastpc-forms-v3-a2-01",
+        "pastpc-questions-v3-a2-01"
+      ],
+      "reasons": [
+        "question-three-gram-dice"
+      ],
+      "three_gram_dice": 0.7,
+      "question_three_gram_dice": 0.857,
+      "cross_bank": true,
+      "left": {
+        "uuid": "pastpc-forms-v3-a2-01",
+        "bank": "Mixed/Forms",
+        "type": "0",
+        "level": "A2",
+        "question": "The baby {a1} for an hour when the doorbell rang.",
+        "completed_target": "The baby had been sleeping for an hour when the doorbell rang.",
+        "learning_focus": "process"
+      },
+      "right": {
+        "uuid": "pastpc-questions-v3-a2-01",
+        "bank": "Mixed/Questions",
+        "type": "0",
+        "level": "A2",
+        "question": "{a1} for an hour when the doorbell rang?",
+        "completed_target": "Had the baby been sleeping for an hour when the doorbell rang?",
+        "learning_focus": "yesno"
+      },
+      "decision": "keep",
+      "reason": "Keep the same interruption scene as a targeted declarative-to-interrogative contrast: affirmative baby/background morphology versus auxiliary-before-subject yes/no inversion. Both remain A2; repeated scene vocabulary is not presented as increased difficulty."
+    },
+    {
+      "pair": [
+        "pastpc-forms-poly-a1-11",
+        "pastpc-negatives-poly-a1-10"
+      ],
+      "reasons": [
+        "question-three-gram-dice"
+      ],
+      "three_gram_dice": 0.333,
+      "question_three_gram_dice": 0.8,
+      "cross_bank": true,
+      "left": {
+        "uuid": "pastpc-forms-poly-a1-11",
+        "bank": "Builder/Forms",
+        "type": "4",
+        "level": "A1",
+        "question": "Побудуй речення про попередній процес у Past Perfect Continuous. Почни з підмета головної частини; часові та причинні обставини не перенось на початок. Тато готував їжу перед тим, як ми повернулися додому.",
+        "completed_target": "Dad had been cooking before we got home.",
+        "learning_focus": "past-reference"
+      },
+      "right": {
+        "uuid": "pastpc-negatives-poly-a1-10",
+        "bank": "Builder/Negatives",
+        "type": "4",
+        "level": "A1",
+        "question": "Побудуй речення про попередній процес у Past Perfect Continuous. Почни з підмета головної частини; часові та причинні обставини не перенось на початок. Тато не готував їжу перед тим, як ми повернулися додому.",
+        "completed_target": "Dad had not been cooking before we came home.",
+        "learning_focus": "simple-negation"
+      },
+      "decision": "keep",
+      "reason": "Keep an explicit affirmative/negative contrast around the same past reference: Forms asserts Dad's cooking and practises the prior-process relation; Negatives denies cooking and requires the indispensable not. The got/came difference is not the reason for keeping."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-a1-06",
+        "pastpc-questions-poly-a2-06"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0.261,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-a1-06",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "A1",
+        "question": "Дай коротку ствердну відповідь від свого імені на запитання, чи ти вже деякий час чекав.",
+        "completed_target": "Yes, I had.",
+        "learning_focus": "short-positive-i"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-a2-06",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "A2",
+        "question": "Дай коротку ствердну відповідь про Емму на запитання, чи вона раніше репетирувала.",
+        "completed_target": "Yes, she had.",
+        "learning_focus": "short-positive-she"
+      },
+      "decision": "keep",
+      "reason": "Keep as limited foundational transfer: A1 maps the addressee's question to a first-person affirmative reply; A2 reports a named woman's rehearsal in the third person. The repeated short-answer scaffold is deliberate basic consolidation, not evidence of a new difficulty level by itself."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-a1-06",
+        "pastpc-questions-poly-b1-06"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0.121,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-a1-06",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "A1",
+        "question": "Дай коротку ствердну відповідь від свого імені на запитання, чи ти вже деякий час чекав.",
+        "completed_target": "Yes, I had.",
+        "learning_focus": "short-positive-i"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-b1-06",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "B1",
+        "question": "Комп'ютер працював без перерв від запуску до збою. Дай коротку відповідь на запитання, чи він до збою вже деякий час працював.",
+        "completed_target": "Yes, it had.",
+        "learning_focus": "short-positive-it-evidence"
+      },
+      "decision": "keep",
+      "reason": "Keep: A1 supplies the positive polarity directly, while B1 requires inferring an affirmative answer from uninterrupted computer operation ending at a failure. The evidence-to-polarity operation, not I/it substitution, distinguishes the tasks."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-a1-06",
+        "pastpc-questions-poly-b2-06"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0.053,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-a1-06",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "A1",
+        "question": "Дай коротку ствердну відповідь від свого імені на запитання, чи ти вже деякий час чекав.",
+        "completed_target": "Yes, I had.",
+        "learning_focus": "short-positive-i"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-b2-06",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "B2",
+        "question": "Журнал збору даних містить щоденні записи тієї самої групи дослідників за весь попередній місяць. Дай коротку відповідь на запитання, чи ці дослідники весь той місяць збирали дані.",
+        "completed_target": "Yes, they had.",
+        "learning_focus": "short-positive-they-record-inference"
+      },
+      "decision": "keep",
+      "reason": "Keep: A1 supplies affirmative polarity, while B2 derives sustained data collection from a data-collection log covering every day of a prior month. The log explicitly concerns collection after the review clarification."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-a1-06",
+        "pastpc-questions-poly-c1-11"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-a1-06",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "A1",
+        "question": "Дай коротку ствердну відповідь від свого імені на запитання, чи ти вже деякий час чекав.",
+        "completed_target": "Yes, I had.",
+        "learning_focus": "short-positive-i"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-c1-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "C1",
+        "question": "До висновку ми порівнювали дві гіпотези й відхилили одну як слабко обґрунтовану. Від імені групи дай коротку відповідь на здивоване заперечне запитання про те, чи ви раніше не розглядали альтернативних пояснень.",
+        "completed_target": "Yes, we had.",
+        "learning_focus": "short-positive-we-negative-question-inference"
+      },
+      "decision": "keep",
+      "reason": "Keep: A1 follows an explicit affirmative directive; C1 infers that alternatives were considered from a comparison of hypotheses and answers a surprised negative question without reversing English yes/no polarity."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-a1-11",
+        "pastpc-questions-poly-a2-11"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0.261,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-a1-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "A1",
+        "question": "Дай коротку заперечну відповідь про них на запитання, чи вони раніше тренувалися.",
+        "completed_target": "No, they had not.",
+        "learning_focus": "short-negative-they"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-a2-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "A2",
+        "question": "Дай коротку заперечну відповідь від імені вашої групи на запитання, чи ви раніше працювали разом.",
+        "completed_target": "No, we had not.",
+        "learning_focus": "short-negative-we"
+      },
+      "decision": "keep",
+      "reason": "Keep as limited foundational transfer: A1 negates a reported third-person-plural training activity; A2 maps a question about the group to a first-person-plural negative reply about collaboration. This is basic pronoun-response consolidation, not a standalone claim of harder grammar."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-a1-11",
+        "pastpc-questions-poly-b1-11"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0.074,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-a1-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "A1",
+        "question": "Дай коротку заперечну відповідь про них на запитання, чи вони раніше тренувалися.",
+        "completed_target": "No, they had not.",
+        "learning_focus": "short-negative-they"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-b1-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "B1",
+        "question": "Водій увесь час їхав повільніше за дозволену швидкість. Дай коротку відповідь на запитання, чи він до аварії перевищував швидкість.",
+        "completed_target": "No, he had not.",
+        "learning_focus": "short-negative-he-inference"
+      },
+      "decision": "keep",
+      "reason": "Keep: A1 is directed to negate training; B1 must infer a negative answer to speeding from the driver remaining below the limit. Fact contradiction supplies polarity rather than an instruction saying negative."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-a1-11",
+        "pastpc-questions-poly-b2-11"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0.065,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-a1-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "A1",
+        "question": "Дай коротку заперечну відповідь про них на запитання, чи вони раніше тренувалися.",
+        "completed_target": "No, they had not.",
+        "learning_focus": "short-negative-they"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-b2-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "B2",
+        "question": "Перед рішенням я перевіряв чутки за офіційними документами. Відповідай від свого імені на запитання, чи ти весь цей час покладався лише на чутки.",
+        "completed_target": "No, I had not.",
+        "learning_focus": "short-negative-i-scope-inference"
+      },
+      "decision": "keep",
+      "reason": "Keep: A1 supplies negative polarity; B2 checks the scope of solely against verification using official documents. Consulting rumours is compatible with the facts, but exclusive reliance on rumours is not."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-a1-11",
+        "pastpc-questions-poly-c2-11"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0.054,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-a1-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "A1",
+        "question": "Дай коротку заперечну відповідь про них на запитання, чи вони раніше тренувалися.",
+        "completed_target": "No, they had not.",
+        "learning_focus": "short-negative-they"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-c2-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "C2",
+        "question": "Регулювання обмежувало зростання витрат лише в одному місяці; в інших одинадцяти витрати зростали без обмежень. Дай коротку відповідь на запитання, чи регулювання впродовж того року послідовно стримувало зростання витрат.",
+        "completed_target": "No, it had not.",
+        "learning_focus": "short-negative-it-consistency-scope"
+      },
+      "decision": "keep",
+      "reason": "Keep: A1 follows a negative directive; C2 evaluates a year-wide consistently claim against success in only one of twelve months. The quantifier/scope inference is independent of the shared No ... had not frame."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-a2-06",
+        "pastpc-questions-poly-b1-06"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0.067,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-a2-06",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "A2",
+        "question": "Дай коротку ствердну відповідь про Емму на запитання, чи вона раніше репетирувала.",
+        "completed_target": "Yes, she had.",
+        "learning_focus": "short-positive-she"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-b1-06",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "B1",
+        "question": "Комп'ютер працював без перерв від запуску до збою. Дай коротку відповідь на запитання, чи він до збою вже деякий час працював.",
+        "completed_target": "Yes, it had.",
+        "learning_focus": "short-positive-it-evidence"
+      },
+      "decision": "keep",
+      "reason": "Keep: A2 supplies the affirmative answer about rehearsal; B1 infers prior continuous operation from the no-interruption computer context. Rehearsal vocabulary versus computer vocabulary alone is not the keep reason."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-a2-06",
+        "pastpc-questions-poly-b2-06"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0.057,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-a2-06",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "A2",
+        "question": "Дай коротку ствердну відповідь про Емму на запитання, чи вона раніше репетирувала.",
+        "completed_target": "Yes, she had.",
+        "learning_focus": "short-positive-she"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-b2-06",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "B2",
+        "question": "Журнал збору даних містить щоденні записи тієї самої групи дослідників за весь попередній місяць. Дай коротку відповідь на запитання, чи ці дослідники весь той місяць збирали дані.",
+        "completed_target": "Yes, they had.",
+        "learning_focus": "short-positive-they-record-inference"
+      },
+      "decision": "keep",
+      "reason": "Keep: A2 is guided affirmative reporting; B2 must interpret complete daily data-collection records as evidence for sustained activity over the month. The evidence aggregation is an added learning operation."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-a2-06",
+        "pastpc-questions-poly-c1-11"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-a2-06",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "A2",
+        "question": "Дай коротку ствердну відповідь про Емму на запитання, чи вона раніше репетирувала.",
+        "completed_target": "Yes, she had.",
+        "learning_focus": "short-positive-she"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-c1-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "C1",
+        "question": "До висновку ми порівнювали дві гіпотези й відхилили одну як слабко обґрунтовану. Від імені групи дай коротку відповідь на здивоване заперечне запитання про те, чи ви раніше не розглядали альтернативних пояснень.",
+        "completed_target": "Yes, we had.",
+        "learning_focus": "short-positive-we-negative-question-inference"
+      },
+      "decision": "keep",
+      "reason": "Keep: A2 supplies affirmative polarity for a simple question; C1 must reconcile two investigated hypotheses with a negatively worded surprised question and respond positively to the actual factual proposition."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-a2-11",
+        "pastpc-questions-poly-b1-11"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0.067,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-a2-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "A2",
+        "question": "Дай коротку заперечну відповідь від імені вашої групи на запитання, чи ви раніше працювали разом.",
+        "completed_target": "No, we had not.",
+        "learning_focus": "short-negative-we"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-b1-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "B1",
+        "question": "Водій увесь час їхав повільніше за дозволену швидкість. Дай коротку відповідь на запитання, чи він до аварії перевищував швидкість.",
+        "completed_target": "No, he had not.",
+        "learning_focus": "short-negative-he-inference"
+      },
+      "decision": "keep",
+      "reason": "Keep: A2 is directed to deny joint work and shift to our group; B1 independently rejects the speeding proposition from a below-limit fact. Their polarity-selection demands differ."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-a2-11",
+        "pastpc-questions-poly-b2-11"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0.059,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-a2-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "A2",
+        "question": "Дай коротку заперечну відповідь від імені вашої групи на запитання, чи ви раніше працювали разом.",
+        "completed_target": "No, we had not.",
+        "learning_focus": "short-negative-we"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-b2-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "B2",
+        "question": "Перед рішенням я перевіряв чутки за офіційними документами. Відповідай від свого імені на запитання, чи ти весь цей час покладався лише на чутки.",
+        "completed_target": "No, I had not.",
+        "learning_focus": "short-negative-i-scope-inference"
+      },
+      "decision": "keep",
+      "reason": "Keep: A2 follows an explicit negative directive; B2 rejects an exclusive-source proposition because official-document checking establishes another source. The sole-reliance scope contrast is substantive."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-a2-11",
+        "pastpc-questions-poly-c2-11"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0.05,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-a2-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "A2",
+        "question": "Дай коротку заперечну відповідь від імені вашої групи на запитання, чи ви раніше працювали разом.",
+        "completed_target": "No, we had not.",
+        "learning_focus": "short-negative-we"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-c2-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "C2",
+        "question": "Регулювання обмежувало зростання витрат лише в одному місяці; в інших одинадцяти витрати зростали без обмежень. Дай коротку відповідь на запитання, чи регулювання впродовж того року послідовно стримувало зростання витрат.",
+        "completed_target": "No, it had not.",
+        "learning_focus": "short-negative-it-consistency-scope"
+      },
+      "decision": "keep",
+      "reason": "Keep: A2 supplies a negative response about group collaboration; C2 rejects a consistency claim spanning twelve months from one exceptional month. C2's time-distribution inference supplies the level distinction."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-b1-06",
+        "pastpc-questions-poly-b2-06"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0.178,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-b1-06",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "B1",
+        "question": "Комп'ютер працював без перерв від запуску до збою. Дай коротку відповідь на запитання, чи він до збою вже деякий час працював.",
+        "completed_target": "Yes, it had.",
+        "learning_focus": "short-positive-it-evidence"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-b2-06",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "B2",
+        "question": "Журнал збору даних містить щоденні записи тієї самої групи дослідників за весь попередній місяць. Дай коротку відповідь на запитання, чи ці дослідники весь той місяць збирали дані.",
+        "completed_target": "Yes, they had.",
+        "learning_focus": "short-positive-they-record-inference"
+      },
+      "decision": "keep",
+      "reason": "Keep: B1 infers continuous operation from a single uninterrupted run ending in failure; B2 aggregates repeated daily collection records into a whole-month activity claim. Shared affirmative reply grammar does not erase their different evidence structures."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-b1-06",
+        "pastpc-questions-poly-c1-11"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0.082,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-b1-06",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "B1",
+        "question": "Комп'ютер працював без перерв від запуску до збою. Дай коротку відповідь на запитання, чи він до збою вже деякий час працював.",
+        "completed_target": "Yes, it had.",
+        "learning_focus": "short-positive-it-evidence"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-c1-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "C1",
+        "question": "До висновку ми порівнювали дві гіпотези й відхилили одну як слабко обґрунтовану. Від імені групи дай коротку відповідь на здивоване заперечне запитання про те, чи ви раніше не розглядали альтернативних пояснень.",
+        "completed_target": "Yes, we had.",
+        "learning_focus": "short-positive-we-negative-question-inference"
+      },
+      "decision": "keep",
+      "reason": "Keep: B1 answers a straightforward positive question from operational evidence; C1 combines evidence of alternative hypotheses with the polarity of a negative question. The latter requires a separate discourse/polarity operation."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-b1-11",
+        "pastpc-questions-poly-b2-11"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0.053,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-b1-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "B1",
+        "question": "Водій увесь час їхав повільніше за дозволену швидкість. Дай коротку відповідь на запитання, чи він до аварії перевищував швидкість.",
+        "completed_target": "No, he had not.",
+        "learning_focus": "short-negative-he-inference"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-b2-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "B2",
+        "question": "Перед рішенням я перевіряв чутки за офіційними документами. Відповідай від свого імені на запитання, чи ти весь цей час покладався лише на чутки.",
+        "completed_target": "No, I had not.",
+        "learning_focus": "short-negative-i-scope-inference"
+      },
+      "decision": "keep",
+      "reason": "Keep: B1 rejects speeding through direct factual opposition (below the limit); B2 rejects sole reliance while allowing that rumours were considered. B2 narrows negation to exclusivity rather than denying the whole activity."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-b1-11",
+        "pastpc-questions-poly-c2-11"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0.182,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-b1-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "B1",
+        "question": "Водій увесь час їхав повільніше за дозволену швидкість. Дай коротку відповідь на запитання, чи він до аварії перевищував швидкість.",
+        "completed_target": "No, he had not.",
+        "learning_focus": "short-negative-he-inference"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-c2-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "C2",
+        "question": "Регулювання обмежувало зростання витрат лише в одному місяці; в інших одинадцяти витрати зростали без обмежень. Дай коротку відповідь на запитання, чи регулювання впродовж того року послідовно стримувало зростання витрат.",
+        "completed_target": "No, it had not.",
+        "learning_focus": "short-negative-it-consistency-scope"
+      },
+      "decision": "keep",
+      "reason": "Keep: B1 rejects an activity through a simple contradictory speed fact; C2 evaluates consistent restraint over a year against a one-month exception. Temporal distribution and consistency scope make C2 distinct."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-b2-06",
+        "pastpc-questions-poly-c1-11"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0.074,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-b2-06",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "B2",
+        "question": "Журнал збору даних містить щоденні записи тієї самої групи дослідників за весь попередній місяць. Дай коротку відповідь на запитання, чи ці дослідники весь той місяць збирали дані.",
+        "completed_target": "Yes, they had.",
+        "learning_focus": "short-positive-they-record-inference"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-c1-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "C1",
+        "question": "До висновку ми порівнювали дві гіпотези й відхилили одну як слабко обґрунтовану. Від імені групи дай коротку відповідь на здивоване заперечне запитання про те, чи ви раніше не розглядали альтернативних пояснень.",
+        "completed_target": "Yes, we had.",
+        "learning_focus": "short-positive-we-negative-question-inference"
+      },
+      "decision": "keep",
+      "reason": "Keep: B2 supports an affirmative claim by complete data-collection logs; C1 answers a negatively phrased accusation using evidence that alternatives were considered. Evidence aggregation and negative-question response are different operations."
+    },
+    {
+      "pair": [
+        "pastpc-questions-poly-b2-11",
+        "pastpc-questions-poly-c2-11"
+      ],
+      "reasons": [
+        "role-duration-template"
+      ],
+      "three_gram_dice": 0,
+      "question_three_gram_dice": 0.042,
+      "cross_bank": false,
+      "left": {
+        "uuid": "pastpc-questions-poly-b2-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "B2",
+        "question": "Перед рішенням я перевіряв чутки за офіційними документами. Відповідай від свого імені на запитання, чи ти весь цей час покладався лише на чутки.",
+        "completed_target": "No, I had not.",
+        "learning_focus": "short-negative-i-scope-inference"
+      },
+      "right": {
+        "uuid": "pastpc-questions-poly-c2-11",
+        "bank": "Builder/Questions",
+        "type": "4",
+        "level": "C2",
+        "question": "Регулювання обмежувало зростання витрат лише в одному місяці; в інших одинадцяти витрати зростали без обмежень. Дай коротку відповідь на запитання, чи регулювання впродовж того року послідовно стримувало зростання витрат.",
+        "completed_target": "No, it had not.",
+        "learning_focus": "short-negative-it-consistency-scope"
+      },
+      "decision": "keep",
+      "reason": "Keep: B2 rejects exclusive reliance on one information category while preserving partial reliance; C2 rejects consistent year-wide performance while preserving one successful month. Both practise scoped negation, but source exclusivity versus temporal consistency are distinct semantic judgments."
+    }
+  ],
+  "resolved_during_review": [
+    {
+      "pair": [
+        "pastpc-forms-v3-a1-01",
+        "pastpc-forms-poly-a1-01"
+      ],
+      "decision": "rewritten",
+      "snapshot": "initial authored source collision reported by parent",
+      "original_completed_target": "I had been working for two hours before dinner started.",
+      "revised_builder": {
+        "uuid": "pastpc-forms-poly-a1-01",
+        "question": "Побудуй речення про попередній процес у Past Perfect Continuous. Почни з підмета головної частини; часові та причинні обставини не перенось на початок. Я перед цим плавав, тому моє волосся було мокрим.",
+        "target_text": "I had been swimming so my hair was wet.",
+        "quality_review": {
+          "learning_focus": "process-to-evidence",
+          "level_rationale": "Guided short construction with familiar vocabulary and one form/time operation.",
+          "near_duplicate_decision": "Reviewed all bank slots; kept process-to-evidence as a distinct operation: State my earlier swimming first, then connect it to my wet hair as the consequence. Shared morphology is not itself a duplicate; the legacy aligned cross-level template is not reused.",
+          "uuid_identity": "Editorial revision of the existing subtopic/level slot; stable UUID and progress relations retained.",
+          "word_order_policy": "Visible guided-order constraint; contractions accepted by the existing EnglishAnswerVariants matcher, not variants."
+        }
+      },
+      "reason": "Builder now connects an earlier swim to observable wet hair. Process-to-present-past evidence replaces the duplicate affirmative duration-before-dinner target."
+    },
+    {
+      "pair": [
+        "pastpc-forms-v3-a1-03",
+        "pastpc-forms-poly-a1-03"
+      ],
+      "decision": "rewritten",
+      "snapshot": "intermediate authored source before this semantic review, not the immutable baseline",
+      "original_reason_codes": [
+        "exact-completed-target",
+        "three-gram-dice"
+      ],
+      "original_completed_targets": [
+        "She had been studying for twenty minutes when the teacher came in.",
+        "She had been studying for twenty minutes when the teacher came in."
+      ],
+      "revised_builder": {
+        "uuid": "pastpc-forms-poly-a1-03",
+        "question": "Побудуй речення про попередній процес у Past Perfect Continuous. Почни з підмета головної частини; часові та причинні обставини не перенось на початок. Коли я прийшов, вона вже деякий час читала немовляті.",
+        "target_text": "She had been reading to the baby when I arrived.",
+        "quality_review": {
+          "learning_focus": "recipient-before-reference",
+          "level_rationale": "Guided short construction with familiar vocabulary and one form/time operation.",
+          "near_duplicate_decision": "Reviewed all bank slots; kept recipient-before-reference as a distinct operation: Describe her earlier reading addressed to a baby, up to my arrival. Shared morphology is not itself a duplicate; the legacy aligned cross-level template is not reused.",
+          "uuid_identity": "Editorial revision of the existing subtopic/level slot; stable UUID and progress relations retained.",
+          "word_order_policy": "Visible guided-order constraint; contractions accepted by the existing EnglishAnswerVariants matcher, not variants."
+        }
+      },
+      "reason": "Replaced the identical studying/teacher/duration target with reading addressed to a baby before an arrival; adds a recipient relation, not only a person or duration swap."
+    },
+    {
+      "pair": [
+        "pastpc-questions-v3-a1-02",
+        "pastpc-questions-poly-a1-02"
+      ],
+      "decision": "rewritten",
+      "snapshot": "intermediate authored source before this semantic review, not the immutable baseline",
+      "original_reason_codes": [
+        "three-gram-dice"
+      ],
+      "original_completed_targets": [
+        "Had she been waiting since morning when the bus came?",
+        "Had she been waiting since morning when the bus arrived?"
+      ],
+      "revised_builder": {
+        "uuid": "pastpc-questions-poly-a1-02",
+        "question": "Побудуй речення про попередній процес у Past Perfect Continuous. Почни з питальної частини або допоміжного дієслова; обставини залиш після дієслівної групи. Вона чекала на тебе перед сніданком?",
+        "target_text": "Had she been waiting for you before breakfast?",
+        "quality_review": {
+          "learning_focus": "question-recipient",
+          "level_rationale": "Guided short construction with familiar vocabulary and one form/time operation.",
+          "near_duplicate_decision": "Reviewed all bank slots; kept question-recipient as a distinct operation: Ask whether your listener was the person she was waiting for before breakfast. Shared morphology is not itself a duplicate; the legacy aligned cross-level template is not reused.",
+          "uuid_identity": "Editorial revision of the existing subtopic/level slot; stable UUID and progress relations retained.",
+          "word_order_policy": "Visible guided-order constraint; contractions accepted by the existing EnglishAnswerVariants matcher, not variants."
+        }
+      },
+      "reason": "Replaced the near-identical since-morning bus-wait question with a question about who she waited for before breakfast; introduces recipient/object interpretation."
+    },
+    {
+      "pair": [
+        "pastpc-questions-v3-a1-04",
+        "pastpc-questions-poly-a1-04"
+      ],
+      "decision": "rewritten",
+      "snapshot": "intermediate authored source before this semantic review, not the immutable baseline",
+      "original_reason_codes": [
+        "three-gram-dice"
+      ],
+      "original_completed_targets": [
+        "What had he been doing before lunch: reading or drawing?",
+        "What had he been doing before lunch?"
+      ],
+      "revised_builder": {
+        "uuid": "pastpc-questions-poly-a1-04",
+        "question": "Побудуй речення про попередній процес у Past Perfect Continuous. Почни з питальної частини або допоміжного дієслова; обставини залиш після дієслівної групи. Що він ніс перед тим, як автобус зупинився?",
+        "target_text": "What had he been carrying before the bus stopped?",
+        "quality_review": {
+          "learning_focus": "what-carried-object",
+          "level_rationale": "Guided short construction with familiar vocabulary and one form/time operation.",
+          "near_duplicate_decision": "Reviewed all bank slots; kept what-carried-object as a distinct operation: Ask for the object he was carrying before a bus stopped. Shared morphology is not itself a duplicate; the legacy aligned cross-level template is not reused.",
+          "uuid_identity": "Editorial revision of the existing subtopic/level slot; stable UUID and progress relations retained.",
+          "word_order_policy": "Visible guided-order constraint; contractions accepted by the existing EnglishAnswerVariants matcher, not variants."
+        }
+      },
+      "reason": "Replaced the generic activity-before-lunch question with an object-of-carrying question before a bus stopped; the requested missing information changes."
+    },
+    {
+      "pair": [
+        "pastpc-questions-v3-a1-09",
+        "pastpc-questions-poly-a1-09"
+      ],
+      "decision": "rewritten",
+      "snapshot": "intermediate authored source before this semantic review, not the immutable baseline",
+      "original_reason_codes": [
+        "three-gram-dice"
+      ],
+      "original_completed_targets": [
+        "How long had he been reading when the lights went out: ten minutes or an hour?",
+        "How long had he been reading when the lights went out?"
+      ],
+      "revised_builder": {
+        "uuid": "pastpc-questions-poly-a1-09",
+        "question": "Побудуй речення про попередній процес у Past Perfect Continuous. Почни з питальної частини або допоміжного дієслова; обставини залиш після дієслівної групи. Як довго він жив у нас до переїзду?",
+        "target_text": "How long had he been living with us before the move?",
+        "quality_review": {
+          "learning_focus": "duration-of-arrangement",
+          "level_rationale": "Guided short construction with familiar vocabulary and one form/time operation.",
+          "near_duplicate_decision": "Reviewed all bank slots; kept duration-of-arrangement as a distinct operation: Ask for the duration of his stay with us ending at a move. Shared morphology is not itself a duplicate; the legacy aligned cross-level template is not reused.",
+          "uuid_identity": "Editorial revision of the existing subtopic/level slot; stable UUID and progress relations retained.",
+          "word_order_policy": "Visible guided-order constraint; contractions accepted by the existing EnglishAnswerVariants matcher, not variants."
+        }
+      },
+      "reason": "Replaced reading duration at a light failure with the duration of a living arrangement ending at a move; residence and arrangement duration replace interrupted reading."
+    },
+    {
+      "pair": [
+        "pastpc-questions-v3-a1-12",
+        "pastpc-questions-poly-a2-09"
+      ],
+      "decision": "rewritten",
+      "snapshot": "intermediate authored source before this semantic review, not the immutable baseline",
+      "original_reason_codes": [
+        "role-duration-template"
+      ],
+      "original_completed_targets": [
+        "Had she been sleeping well before the trip?",
+        "Had he been sleeping well before the trip?"
+      ],
+      "revised_builder": {
+        "uuid": "pastpc-questions-poly-a2-09",
+        "question": "Побудуй речення про попередній процес у Past Perfect Continuous. Почни з питальної частини або допоміжного дієслова; обставини залиш після дієслівної групи. Він спав під час подорожі?",
+        "target_text": "Had he been sleeping during the journey?",
+        "quality_review": {
+          "learning_focus": "period-question",
+          "level_rationale": "Guided construction with a concrete prior context, one added scope or temporal distinction.",
+          "near_duplicate_decision": "Reviewed all bank slots; kept period-question as a distinct operation: Ask whether he spent part of the earlier journey sleeping. Shared morphology is not itself a duplicate; the legacy aligned cross-level template is not reused.",
+          "uuid_identity": "Editorial revision of the existing subtopic/level slot; stable UUID and progress relations retained.",
+          "word_order_policy": "Visible guided-order constraint; contractions accepted by the existing EnglishAnswerVariants matcher, not variants."
+        }
+      },
+      "reason": "Replaced sleeping-quality before a trip, which differed only by pronoun and level, with sleep during the journey; the temporal interval and queried proposition change."
+    },
+    {
+      "pair": [
+        "pastpc-time-expressions-v3-a1-07",
+        "pastpc-time-expressions-poly-a1-07"
+      ],
+      "decision": "rewritten",
+      "snapshot": "intermediate authored source before this semantic review, not the immutable baseline",
+      "original_reason_codes": [
+        "three-gram-dice"
+      ],
+      "original_completed_targets": [
+        "The answer is twenty minutes: How long had you been studying before the exam?",
+        "How long had you been studying before the exam?"
+      ],
+      "revised_builder": {
+        "uuid": "pastpc-time-expressions-poly-a1-07",
+        "question": "Побудуй речення про попередній процес у Past Perfect Continuous. Почни з підмета головної частини; часові та причинні обставини не перенось на початок. Вона репетирувала відтоді, як почався урок.",
+        "target_text": "She had been practising since the lesson began.",
+        "quality_review": {
+          "learning_focus": "event-as-start",
+          "level_rationale": "Guided short construction with familiar vocabulary and one form/time operation.",
+          "near_duplicate_decision": "Reviewed all bank slots; kept event-as-start as a distinct operation: Use the beginning of the lesson as the event from which her earlier practice continued. Shared morphology is not itself a duplicate; the legacy aligned cross-level template is not reused.",
+          "uuid_identity": "Editorial revision of the existing subtopic/level slot; stable UUID and progress relations retained.",
+          "word_order_policy": "Visible guided-order constraint; contractions accepted by the existing EnglishAnswerVariants matcher, not variants."
+        }
+      },
+      "reason": "Replaced a how-long study-before-exam question with affirmative practice since a lesson began; starting-event interpretation replaces duration-question construction."
+    }
+  ],
+  "source_only_short_answer_revisions": {
+    "uuid_identity_preserved": true,
+    "completed_targets_preserved": true,
+    "records": [
+      {
+        "uuid": "pastpc-questions-poly-b1-06",
+        "operation": "Infer prior operation from an uninterrupted run ending at failure."
+      },
+      {
+        "uuid": "pastpc-questions-poly-b1-11",
+        "operation": "Reject speeding from a below-limit fact."
+      },
+      {
+        "uuid": "pastpc-questions-poly-b2-06",
+        "operation": "Infer whole-month data collection from daily data-collection records; explicitly clarify the log's subject."
+      },
+      {
+        "uuid": "pastpc-questions-poly-b2-11",
+        "operation": "Reject sole reliance on rumours from document checking."
+      },
+      {
+        "uuid": "pastpc-questions-poly-c1-11",
+        "operation": "Answer a negative question positively based on investigation of two hypotheses."
+      },
+      {
+        "uuid": "pastpc-questions-poly-c2-11",
+        "operation": "Reject year-wide consistency from an eleven-month counterexample."
+      }
+    ]
+  },
+  "safety": {
+    "database_used": false,
+    "http_used": false,
+    "application_bootstrapped": false,
+    "report_contains_private_runtime_data": false,
+    "scope_mutation": "Only this versioned audit report and read-only diagnostic were authored by the duplicate-review subtask."
+  }
+}

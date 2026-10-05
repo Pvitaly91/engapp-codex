@@ -17,6 +17,10 @@ class MixedTheoryPageTestRenderTest extends TestCase
     {
         parent::setUp();
 
+        $this->withoutVite();
+        // These fixtures test mixed rendering, not the production readiness gate.
+        config(['coming-soon.enabled' => false]);
+
         $viewsPath = storage_path('framework/views');
         if (! is_dir($viewsPath)) {
             mkdir($viewsPath, 0777, true);

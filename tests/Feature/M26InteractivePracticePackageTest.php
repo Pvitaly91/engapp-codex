@@ -83,9 +83,12 @@ class M26InteractivePracticePackageTest extends TestCase
             $before = $manifest['definitions'][$target['identity']];
             $legacy = M26DetailPackage::definition($target, $before);
             $latest = M26InteractivePractice::definition($target, $before);
-            self::assertSame($latest, json_decode(file_get_contents(base_path($target['definition_path'])), true, flags: JSON_THROW_ON_ERROR));
+            $current = \App\Support\PastPerfectContinuousPracticeQuality::definition($target, $before);
+            self::assertSame($current, json_decode(file_get_contents(base_path($target['definition_path'])), true, flags: JSON_THROW_ON_ERROR));
             if (!isset($target['practice_insert'])) { self::assertSame($legacy, $latest); continue; }
             $root = $target['source_content_root']; $i = count($legacy[$root]['blocks']) - 1;
+            $current[$root]['blocks'][$i]['body'] = $latest[$root]['blocks'][$i]['body'];
+            self::assertSame($latest, $current, 'Only the four finite practice bodies have a next version.');
             $oldPractice = $legacy[$root]['blocks'][$i]; $newPractice = $latest[$root]['blocks'][$i];
             $latest[$root]['blocks'][$i] = $oldPractice;
             self::assertSame($legacy, $latest, 'No body, owner or position except final practice may change.');

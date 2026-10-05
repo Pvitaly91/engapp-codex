@@ -620,10 +620,11 @@
 
                 <div class="poly-prompt">
                     <div class="poly-prompt__eyebrow">
-                        <span class="poly-prompt__label">{{ __('frontend.tests.compose.source_sentence') }}</span>
+                        <span class="poly-prompt__label" id="compose-source-label">{{ __('frontend.tests.compose.source_sentence') }}</span>
                         <span class="poly-prompt__punct" id="compose-punctuation"></span>
                     </div>
                     <div id="compose-source-text"></div>
+                    <p id="compose-learning-hint" class="hidden mt-3 text-sm font-semibold" style="color: var(--muted);"></p>
                     <div class="poly-prompt__actions">
                         <button type="button" id="compose-theory-btn" class="hidden" aria-expanded="false" aria-controls="compose-theory-panel">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -1137,6 +1138,7 @@ window.__POLYGLOT_WORD_SEARCH_URL__ = @json(route('api.words.search', ['lang' =>
             tokenMap,
             correctText: normalizeText(item?.correctText || `${correctTokenValues.join(' ')}${punctuation}`),
             hintUk: item?.hintUk ? String(item.hintUk).trim() : '',
+            showPreAnswerHint: item?.showPreAnswerHint === true,
             explanations: item?.explanations && typeof item.explanations === 'object' ? item.explanations : {},
             punctuation,
             seederNamespace,
@@ -2555,6 +2557,20 @@ window.__POLYGLOT_WORD_SEARCH_URL__ = @json(route('api.words.search', ['lang' =>
         }).join('');
     }
 
+    function renderComposePreAnswerHint(question) {
+        const labelElement = document.getElementById('compose-source-label');
+        if (labelElement) {
+            labelElement.textContent = testUi(question?.showPreAnswerHint === true
+                ? 'compose.source_task'
+                : 'compose.source_sentence');
+        }
+        const hintElement = document.getElementById('compose-learning-hint');
+        if (!hintElement) return;
+        const hint = question?.showPreAnswerHint === true ? String(question?.hintUk || '').trim() : '';
+        hintElement.textContent = hint;
+        hintElement.classList.toggle('hidden', hint === '');
+    }
+
     function render() {
         const courseUi = refreshCourseUi();
         if (courseUi.locked) {
@@ -2581,6 +2597,7 @@ window.__POLYGLOT_WORD_SEARCH_URL__ = @json(route('api.words.search', ['lang' =>
         document.getElementById('compose-status').textContent = statusLabel;
         document.getElementById('compose-status-note').textContent = statusGoalNote();
         document.getElementById('compose-source-text').textContent = question.sourceTextUk;
+        renderComposePreAnswerHint(question);
         ensureAnswerSlots(question);
         renderComposeTheoryControls(question);
         const sourceSeederElement = document.getElementById('compose-source-seeder');

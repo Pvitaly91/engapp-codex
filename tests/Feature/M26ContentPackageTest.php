@@ -33,20 +33,40 @@ class M26ContentPackageTest extends TestCase
         return $block;
     }
 
+    private function renderStandaloneBlock(object $block): string
+    {
+        // This is page-global bootstrap, not teaching markup belonging to one
+        // native card. An extended card pre-renders its basic view and then
+        // includes the native view again; @once is consumed by that pre-render.
+        // Establish the identical page-level setup before both snapshots so
+        // the exact comparison below still checks every basic node/attribute.
+        $html = \Illuminate\Support\Facades\Blade::render(
+            '@include("components.english-answer-variants") @include("theory.partials.content-block")',
+            ['block' => $block, 'practiceQuestions' => collect()],
+        );
+        $dom = $this->dom($html);
+        self::assertSame(1, $dom->query('//script[starts-with(text(),"window.GRAMLYZE_CONTRACTION_RULES")]')->length);
+        self::assertSame(1, $dom->query('//script[contains(@src,"/js/english-answer-variants.js")]')->length);
+        self::assertSame(0, $dom->query('//section[starts-with(@id,"block-")]//script')->length);
+        return $html;
+    }
+
     public function test_exact_author_extensions_full_basic_dom_and_visible_practice(): void
     {
         [$m, $manifest] = Package::load(); $details = 0; $tasks = 0; $extendedBlocks = 0;
         foreach ($m['targets'] as $t) {
             $before = $manifest['definitions'][$t['identity']];
             $after = json_decode(file_get_contents(base_path($t['definition_path'])), true, flags: JSON_THROW_ON_ERROR);
-            self::assertSame(\App\Support\M26InteractivePractice::definition($t, $before), $after);
+            // The finite practice-only v2 supersedes the stored v1 practice body;
+            // immutable M26 author/detail transfer checks below remain unchanged.
+            self::assertSame(\App\Support\PastPerfectContinuousPracticeQuality::definition($t, $before), $after);
             $root = $t['source_content_root'];
             foreach ($before[$root]['blocks'] as $i => $config) {
                 if (!TheoryPresentation::nativeView($config['type'])) { continue; }
                 $b = $this->block($t, $config, $i);
-                $basic = view('theory.partials.content-block', ['block' => $b])->render();
+                $basic = $this->renderStandaloneBlock($b);
                 $newBlock = $this->block($t, $after[$root]['blocks'][$i], $i);
-                $html = view('theory.partials.content-block', ['block' => $newBlock])->render();
+                $html = $this->renderStandaloneBlock($newBlock);
                 $old = $this->dom($basic); $new = $this->dom($html);
                 $oldNode = $old->query('//section[@id="block-'.$b->id.'"]')->item(0);
                 $newNode = $new->query('//section[@id="block-'.$b->id.'"]')->item(0);
