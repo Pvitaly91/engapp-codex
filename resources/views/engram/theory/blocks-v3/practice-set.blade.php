@@ -8,9 +8,9 @@
     $options = $data['options'] ?? [];
     $choiceOptions = $data['choice_options'] ?? ['a', 'b'];
     $linkedPractice = is_array($data['linked_practice'] ?? null) ? $data['linked_practice'] : [];
-    $m30AuthorSelfCheck = (isset($data['m30_v1']) || isset($data['m31_v1']) || (isset($data['m32_v1']) || (isset($data['m33_v1']) || (isset($data['m34_v1']) || (isset($data['m35_v1']) || (isset($data['m36_v1']) || isset($data['m37_v1']))))))) && is_array($data['author_self_check'] ?? null)
+    $m30AuthorSelfCheck = (isset($data['m30_v1']) || isset($data['m31_v1']) || (isset($data['m32_v1']) || (isset($data['m33_v1']) || (isset($data['m34_v1']) || (isset($data['m35_v1']) || (isset($data['m36_v1']) || (isset($data['m37_v1']) || isset($data['m38_v1'])))))))) && is_array($data['author_self_check'] ?? null)
         ? $data['author_self_check'] : null;
-    $authorSelfCheckStage = isset($data['m37_v1']) ? 'm37' : (isset($data['m36_v1']) ? 'm36' : (isset($data['m35_v1']) ? 'm35' : (isset($data['m34_v1']) ? 'm34' : (isset($data['m33_v1']) ? 'm33' : (isset($data['m32_v1']) ? 'm32' : (isset($data['m31_v1']) ? 'm31' : 'm30'))))));
+    $authorSelfCheckStage = isset($data['m38_v1']) ? 'm38' : (isset($data['m37_v1']) ? 'm37' : (isset($data['m36_v1']) ? 'm36' : (isset($data['m35_v1']) ? 'm35' : (isset($data['m34_v1']) ? 'm34' : (isset($data['m33_v1']) ? 'm33' : (isset($data['m32_v1']) ? 'm32' : (isset($data['m31_v1']) ? 'm31' : 'm30')))))));
     $practiceSetId = 'practice-set-' . ($block->uuid ?? $block->id);
     $hasCheckableSelects = collect($selects)->contains(fn ($item) => !empty($item['answer']) || !empty($item['accepted']));
     $hasCheckableChoices = collect($choices)->contains(fn ($item) => !empty($item['answer']) || !empty($item['accepted']));
@@ -294,6 +294,24 @@
                                         </div>
                                     @endunless
                                 </div>
+                                @if(isset($data['m38_v1']) && !empty($item['m38_semantic_checks']))
+                                    <div class="basis-full space-y-2 pl-7" data-m38-semantic-checks="{{ $index }}">
+                                        @foreach($item['m38_semantic_checks'] as $partIndex => $part)
+                                            <div class="flex flex-wrap gap-2" data-m38-semantic-part="{{ $partIndex }}">
+                                                @foreach($part['options'] as $option)
+                                                    <button type="button"
+                                                        @click="setM38SemanticAnswer({{ $index }}, {{ $partIndex }}, @js($option))"
+                                                        :class="m38SemanticAnswer({{ $index }}, {{ $partIndex }}) === @js($option)
+                                                            ? 'border-emerald-600 bg-emerald-600 text-white shadow-sm'
+                                                            : 'border-emerald-200 bg-white text-emerald-700 hover:bg-emerald-50'"
+                                                        class="rounded-xl border px-3 py-2 text-left text-sm font-semibold transition">
+                                                        {{ $option }}
+                                                    </button>
+                                                @endforeach
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @endif
                                 <span x-show="isChecked('inputs') && hasAnswer('inputs', {{ $index }})" class="basis-full pl-7 text-xs font-semibold" :class="isCorrect('inputs', {{ $index }}) ? 'text-emerald-700' : 'text-rose-700'" x-text="feedbackText('inputs', {{ $index }})"></span>
                             </div>
                         @endforeach
@@ -446,6 +464,7 @@
                 selectAnswers: {},
                 choiceAnswers: {},
                 inputAnswers: {},
+                m38SemanticAnswers: {},
                 rephraseAnswers: {},
                 inputTokenBanks: {},
                 checkedGroups: {},
@@ -465,7 +484,9 @@
                     inputItems.forEach((item, index) => {
                         // M35 author answers can contain a literal slash (on/before).
                         // Their finite explicit groups retain it; legacy delimiter parsing is unchanged.
-                        const tokens = Array.isArray(item?.m37_token_groups)
+                        const tokens = Array.isArray(item?.m38_token_groups)
+                            ? item.m38_token_groups.map(value => String(value).trim()).filter(Boolean)
+                            : Array.isArray(item?.m37_token_groups)
                             ? item.m37_token_groups.map(value => String(value).trim()).filter(Boolean)
                             : Array.isArray(item?.m36_token_groups)
                             ? item.m36_token_groups.map(value => String(value).trim()).filter(Boolean)
@@ -603,6 +624,7 @@
                     if (group === 'selects') this.selectAnswers = {};
                     if (group === 'choices') this.choiceAnswers = {};
                     if (group === 'inputs') this.inputAnswers = {};
+                    if (group === 'inputs') this.m38SemanticAnswers = {};
                     if (group === 'inputs') this.resetInputTokenBanks();
                     if (group === 'rephrase') this.rephraseAnswers = {};
                     this.closeAllWordSuggestions();
@@ -658,6 +680,8 @@
                     const answer = this.normalize(this.userAnswer(group, index));
 
                     if (!answer || !this.hasAnswer(group, index)) return false;
+                    if (group === 'inputs' && Array.isArray(this.item(group, index).m38_semantic_checks)
+                        && !this.m38SemanticComplete(index)) return false;
 
                     // Opt-in editing task: ignore terminal punctuation, not a comma splice.
                     if (this.item(group, index).punctuation_sensitive === true) {
@@ -685,6 +709,11 @@
 
                 feedbackText(group, index) {
                     if (this.isEmpty(group, index)) return this.i18n.empty;
+                    if (group === 'inputs' && Array.isArray(this.item(group, index).m38_semantic_checks)
+                        && !this.m38SemanticComplete(index)) {
+                        return `${this.i18n.incorrect} ${this.i18n.answer}: ${String(this.item(group, index).author_explanation || '')
+                            .replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()}`;
+                    }
                     const itemFeedback = this.item(group, index).feedback;
                     const contextualFeedback = itemFeedback?.[String(this.userAnswer(group, index)).trim().toLowerCase()];
                     if (typeof contextualFeedback === 'string' && contextualFeedback.trim()) return contextualFeedback;
@@ -698,6 +727,23 @@
                     const correct = (this[group] || []).filter((_, index) => this.hasAnswer(group, index) && this.isCorrect(group, index)).length;
 
                     return this.i18n.score.replace(':correct', correct).replace(':total', total);
+                },
+
+                // Finite M38 multi-part author cases. Other practice data has
+                // no opt-in property and therefore retains its prior scoring.
+                m38SemanticAnswer(index, part) {
+                    return this.m38SemanticAnswers?.[`${index}-${part}`] || '';
+                },
+
+                setM38SemanticAnswer(index, part, value) {
+                    this.m38SemanticAnswers = {...this.m38SemanticAnswers, [`${index}-${part}`]: String(value || '')};
+                },
+
+                m38SemanticComplete(index) {
+                    const parts = this.item('inputs', index).m38_semantic_checks;
+                    if (!Array.isArray(parts) || parts.length === 0) return true;
+                    return parts.every((part, offset) => String(part.answer || '') !== ''
+                        && this.m38SemanticAnswer(index, offset) === String(part.answer));
                 },
 
                 suggestionKey(group, index) {
