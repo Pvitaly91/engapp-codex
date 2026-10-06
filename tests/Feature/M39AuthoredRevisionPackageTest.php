@@ -7,6 +7,7 @@ use App\Models\TextBlock;
 use App\Support\Database\JsonPageSeeder;
 use App\Support\M26DetailPackage;
 use App\Support\M39AuthoredRevisionPackage as Package;
+use App\Support\M39PracticeUiPackage;
 use DOMDocument;
 use DOMXPath;
 use RuntimeException;
@@ -54,7 +55,14 @@ class M39AuthoredRevisionPackageTest extends TestCase
             self::assertSame(['Nominal Style and Information Density', 'C1 Mixed Revision', 'C2 Mixed Revision'][$i], $after['page']['title']);
             preg_match('~<strong>(.*?)</strong>~', $after['page']['subtitle_html'], $strong);
             self::assertSame(['Nominal style and information density', 'C1 Mixed Revision', 'C2 mixed revision'][$i], $strong[1]);
-            self::assertSame($after, json_decode(file_get_contents(base_path($target['path'])), true, flags: JSON_THROW_ON_ERROR));
+            // The frozen author-layer after remains the exact UI revision before.
+            // Current canonical data must match the independently hash-bound UI
+            // after, not arbitrary practice changes or a relaxed V1 payload.
+            $ui = M39PracticeUiPackage::load(); M39PracticeUiPackage::validate($ui);
+            $uiTarget = $ui['targets'][$i];
+            self::assertSame($target['identity'], $uiTarget['identity']);
+            self::assertSame($after, $uiTarget['before']);
+            self::assertSame($uiTarget['after'], json_decode(file_get_contents(base_path($target['path'])), true, flags: JSON_THROW_ON_ERROR));
             self::assertCount(8, $target['plans']); self::assertCount(9, $after['page']['blocks']);
             self::assertSame(range(1, 8), array_column($target['plans'], 'source_section'));
             $types = [
