@@ -8,6 +8,9 @@
         @endif
 
         <div class="theory-section-body p-5 space-y-4">
+            @if(isset($data['m41_v1']) && !empty($data['intro']))
+                <div class="text-sm leading-relaxed">{!! $data['intro'] !!}</div>
+            @endif
             @if(isset($data['m40_v1']) && !empty($data['intro']))
                 <div class="text-sm text-muted-foreground leading-relaxed">{!! $data['intro'] !!}</div>
             @endif

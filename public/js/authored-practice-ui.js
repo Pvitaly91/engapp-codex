@@ -57,7 +57,7 @@
                 if (!normalise(answer)) return false;
                 const accepted = control.accepted || [control.answer];
                 if (control.kind !== 'manual') return accepted.some(value => normalise(value) === normalise(answer));
-                return accepted.some(value => (variants ? variants.variants(value) : [value])
+                return accepted.some(value => (policy.explicitManualVariants || !variants ? [value] : variants.variants(value))
                     .filter(candidate => !(policy.keepFirstClauseIds || []).includes(control.id)
                         || normalise(candidate).split(',')[0] === normalise(control.answer).split(',')[0])
                     .some(candidate => normalise(candidate) === normalise(answer)));

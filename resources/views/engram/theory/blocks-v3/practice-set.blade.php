@@ -1,4 +1,40 @@
-@if(isset($data['m40_v1']) && \App\Support\M40TensesB1Package::presentation($block, $data) !== null)
+@if(isset($data['m41_v1']) && \App\Support\M41AuthoredTenseComparisonsPackage::presentation($block, $data) !== null)
+    @include('engram.theory.blocks-v3.m41-practice-ui')
+@elseif(isset($data['m41_v1']))
+    <section id="block-{{ $block->id }}" class="theory-section-card theory-section-body" data-theory-render-fallback="m41-practice-identity">
+        <x-theory-native-header :title="$data['title'] ?? ''" :level="$block->level ?? null" />
+        @foreach($data['author_self_check']['prompts'] ?? [] as $i => $prompt)
+            <article class="theory-item rounded-xl p-4 bg-muted/50">
+                <div data-m41-fallback-prompt="{{ $i + 1 }}">{!! $prompt !!}</div>
+                @foreach($data['cases'][$i]['controls'] ?? [] as $control)
+                    <div class="space-y-2 my-4" data-m41-fallback-control="{{ $control['id'] }}">
+                        <p class="text-sm font-semibold" data-m41-fallback-label>{{ $control['label'] }}</p>
+                        @if(isset($control['stimulus_en']))
+                            <p lang="en" class="text-sm leading-relaxed" data-m41-fallback-stimulus>{{ $control['stimulus_en'] }}</p>
+                        @endif
+                        @if(!empty($control['options']))
+                            <ul class="space-y-1 text-sm">
+                                @foreach($control['options'] as $option)
+                                    <li data-m41-fallback-option>{{ $option['label'] }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
+                        @if(!empty($control['tokens']))
+                            <div class="flex flex-wrap gap-2" data-m41-fallback-token-bank>
+                                @foreach($control['tokens'] as $token)
+                                    <span class="rounded-lg border border-border px-3 py-2 text-sm" style="text-transform:none" data-m41-fallback-token>{{ $token }}</span>
+                                @endforeach
+                            </div>
+                        @endif
+                    </div>
+                @endforeach
+                <details><summary>{{ $data['author_self_check']['title'] ?? 'Авторський ключ' }}</summary>
+                    <div data-m41-fallback-key="{{ $i + 1 }}">{!! $data['author_self_check']['answers'][$i] ?? '' !!}</div>
+                </details>
+            </article>
+        @endforeach
+    </section>
+@elseif(isset($data['m40_v1']) && \App\Support\M40TensesB1Package::presentation($block, $data) !== null)
     @include('engram.theory.blocks-v3.m40-practice-ui')
 @elseif(isset($data['m40_v1']))
     <section id="block-{{ $block->id }}" class="theory-section-card theory-section-body" data-theory-render-fallback="m40-practice-identity">

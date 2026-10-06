@@ -12,7 +12,8 @@
         <div data-theory-render-fallback="invalid-native-data">
     @endif
     @php
-        $m27 = is_array($decodedBody) ? (\App\Support\M40TensesB1Package::presentation($block, $decodedBody)
+        $m27 = is_array($decodedBody) ? (\App\Support\M41AuthoredTenseComparisonsPackage::presentation($block, $decodedBody)
+            ?? \App\Support\M40TensesB1Package::presentation($block, $decodedBody)
             ?? \App\Support\M39PracticeUiPackage::presentation($block, $decodedBody)
             ?? \App\Support\M39AuthoredRevisionPackage::presentation($block, $decodedBody)
             ?? \App\Support\M38ArticlesCollocationsPackage::presentation($block, $decodedBody)
@@ -28,6 +29,8 @@
             ?? \App\Support\M28EmphasisPackage::presentation($block, $decodedBody)
             ?? \App\Support\M27LinkingWordsPackage::presentation($block, $decodedBody)) : null;
         $renderData = $m27['data'] ?? $decodedBody;
+        // The finite package returns a code-owned constant after complete identity checks.
+        if (($m27['native_view'] ?? null) !== null) { $nativeView = $m27['native_view']; }
         $basicHtml = view($nativeView, [
             'block' => $block,
             'data' => is_array($renderData) ? $renderData : [],
@@ -58,7 +61,11 @@
             $pointSections[$index] = $section;
         }
     @endphp
-    @if($m27 !== null)
+    @if($m27 !== null && isset($decodedBody['m41_v1']) && $decodedBody['m41_v1']['role'] === 'section')
+        {{-- Outside the preliminary render: @once must not be consumed by discarded validation HTML. --}}
+        @include('engram.theory.blocks-v3.m41-section-styles')
+    @endif
+    @if($m27 !== null && ($m27['legacy_section'] ?? null) !== null)
         @php($legacyBlockId = isset($m27['legacy_block_uuid'])
             ? $block->page?->textBlocks?->first(fn ($b) => $b->uuid === $m27['legacy_block_uuid'] && $b->locale === 'uk')?->id
             : $block->page?->textBlocks?->first(fn ($b) => (int) $b->sort_order === 2 && $b->locale === 'uk')?->id)

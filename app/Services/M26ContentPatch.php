@@ -305,6 +305,8 @@ class M26ContentPatch
     protected function afterInsert(int $index): void {}
     protected function expectedInsertCount(): int { return 4; }
     protected function allowedUpdateFields(): array { return ['body']; }
+    /** Explicit subclass opt-in only; existing M26–M40 patches still deny page writes. */
+    protected function allowedPageUpdateFields(): array { return []; }
     protected function localGuard(): string { return M26LocalTargetGuard::class; }
 
     private function assertProjectedAfter(array $before, array $after): void
@@ -346,8 +348,9 @@ class M26ContentPatch
 
     private function update(array $change, bool $reverse): void
     {
-        $fields = match ($change['table'] ?? '') { 'text_blocks' => $this->allowedUpdateFields(),
+        $fields = match ($change['table'] ?? '') { 'text_blocks' => $this->allowedUpdateFields(), 'pages' => $this->allowedPageUpdateFields(),
             default => throw new RuntimeException('Disallowed M26 update table.') };
+        if ($fields === []) { throw new RuntimeException('Disallowed M26 page update without explicit opt-in.'); }
         $old = $change[$reverse ? 'after' : 'before']; $new = $change[$reverse ? 'before' : 'after'];
         if (array_keys($old) !== $fields || array_keys($new) !== $fields) {
             throw new RuntimeException('Disallowed M26 update fields.');

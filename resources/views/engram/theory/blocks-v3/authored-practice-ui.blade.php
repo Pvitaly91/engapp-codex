@@ -21,6 +21,9 @@
                         @php($fieldId = $practiceScope.'-'.$block->id.'-'.$i.'-'.$p)
                         <fieldset class="space-y-2" data-{{ $practiceScope }}-control="{{ $control['id'] }}" data-{{ $practiceScope }}-control-kind="{{ $control['kind'] }}" style="min-width:0;text-transform:none">
                             <legend class="text-sm font-semibold mb-2">{{ $control['label'] }}</legend>
+                            @if(isset($control['stimulus_en']))
+                                <p lang="en" class="text-sm leading-relaxed">{{ $control['stimulus_en'] }}</p>
+                            @endif
                             @if(in_array($control['kind'], ['select','choice','multi'], true))
                                 <div class="flex flex-wrap gap-2" @if($control['kind'] !== 'multi') role="radiogroup" @endif>
                                     @foreach($control['options'] as $option)
@@ -42,6 +45,13 @@
                                     @endforeach
                                 </div>
                             @else
+                                @if($practiceScope === 'm41')
+                                    <noscript><div class="flex flex-wrap gap-2" data-m41-static-token-bank>
+                                        @foreach($control['tokens'] as $token)
+                                            <span class="rounded-lg border border-border px-3 py-2 text-sm" style="text-transform:none" data-m41-static-token>{{ $token }}</span>
+                                        @endforeach
+                                    </div></noscript>
+                                @endif
                                 <div class="flex flex-wrap gap-2" data-{{ $practiceScope }}-token-bank>
                                     <template x-for="token in banks[{{ $i }}][{{ $p }}]" :key="token.index">
                                         <button type="button" @click="appendToken({{ $i }},{{ $p }},token.index)"

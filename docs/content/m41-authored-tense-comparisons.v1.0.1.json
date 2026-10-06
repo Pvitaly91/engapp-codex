@@ -1,0 +1,2399 @@
+{
+  "schema": "gramlyze.authored-layer-preview.v1",
+  "package": "M41",
+  "version": "1.0.1",
+  "status": "author_revision_ready_for_local_implementation",
+  "authored_on": "2026-10-06",
+  "locale": "uk",
+  "repository": "Pvitaly91/engapp-codex",
+  "base_commit": "ab61310a81f2389353c264fe23266025fe49ffd6",
+  "base_branch": "codex/seo-m40-m24-tenses-b1-layers",
+  "author": "ChatGPT — новий авторський текст, приклади, вправи й ключі",
+  "purpose": "Нова редакційна робота над трьома наявними сторінками порівняння часів, не повтор M11–M24 і не створення нових URL.",
+  "policy": {
+    "implementation_requires_preview_approval": true,
+    "codex_authors_new_teaching_text": false,
+    "frozen_master_edit": false,
+    "rewrite_target_learner_text_after_approval": true,
+    "preserve_titles_slugs_identity_category_tags_links_progress_other_locales": true,
+    "production_access": false,
+    "bank_writes": false,
+    "details": "Серверний HTML; окремий detail усередині свого пункту, за замовчуванням закритий. Короткі ремарки залишаються відкритими.",
+    "practice": "Тип за змістом, не квота 2+2+2. Відповідь, переклад і пояснення зберігаються окремо; складена вправа правильна тільки після всіх обов'язкових частин.",
+    "grading": "Скінченні явно задані відповіді та варіанти. Не універсальна семантична перевірка вільних перефразувань.",
+    "preview": "Самодостатній offline HTML. Не копія runtime Gramlyze і не доказ перевірки .loc."
+  },
+  "sources": [
+    {
+      "id": "BC-PS",
+      "title": "British Council — Present simple",
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/present-simple",
+      "access": "Основний редакційний матеріал. Учнівські коментарі не використані як правила.",
+      "use": "Форми, регулярні дії, теперішні стани та розклади."
+    },
+    {
+      "id": "BC-PC",
+      "title": "British Council — Present continuous",
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/present-continuous",
+      "access": "Основний редакційний матеріал.",
+      "use": "Форми, процес зараз і навколо зараз, тимчасовість, зміни та повторювані дії."
+    },
+    {
+      "id": "BC-STATE",
+      "title": "British Council — Advanced present simple and continuous",
+      "url": "https://learnenglish.britishcouncil.org/grammar/c1-grammar/advanced-present-simple-continuous",
+      "access": "Редакційний текст у результаті пошуку; використано тільки короткі межі правила, не рівень уроку C1.",
+      "use": "Різні значення think/have та межі правил про дієслова стану."
+    },
+    {
+      "id": "CAM-PRESENT",
+      "title": "Cambridge — Present simple or present continuous?",
+      "url": "https://dictionary.cambridge.org/it/grammatica/british-grammar/present-simple-or-present-continuous",
+      "access": "Доступний індексований текст видавця; пряме відкриття не завершилося. Не заявляється повне пряме читання.",
+      "use": "Звичайна ситуація проти тимчасового подання."
+    },
+    {
+      "id": "BC-PASTPAIR",
+      "title": "British Council — Past continuous and past simple",
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2/past-continuous-past-simple",
+      "access": "Основний редакційний текст у результаті пошуку.",
+      "use": "Форми, дія в процесі та подія, різний зміст when-конструкцій."
+    },
+    {
+      "id": "BC-PASTSIMPLE",
+      "title": "British Council — Past simple",
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/past-simple",
+      "access": "Сторінку відкрито; використано базовий редакційний опис.",
+      "use": "Завершені минулі події, тривалі ситуації, did + базова форма."
+    },
+    {
+      "id": "BC-PASTCONT",
+      "title": "British Council — Past continuous",
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/past-continuous",
+      "access": "Сторінку відкрито; використано редакційний опис.",
+      "use": "Процес навколо минулого моменту та фонові дії."
+    },
+    {
+      "id": "CAM-PPPS",
+      "title": "Cambridge — Past simple or present perfect?",
+      "url": "https://dictionary.cambridge.org/us/grammar/british-grammar/present-perfect-simple",
+      "access": "Доступний індексований текст видавця; пряме відкриття не завершилося.",
+      "use": "Визначений минулий час, період до тепер, межі правила про today."
+    },
+    {
+      "id": "CAM-PP",
+      "title": "Cambridge — Present perfect simple",
+      "url": "https://dictionary.cambridge.org/us/grammar/british-grammar/present-perfect-simple-i-have-worked",
+      "access": "Доступний індексований редакційний текст.",
+      "use": "have/has + V3, досвід, результат, for/since, розгортання повідомлення в Past Simple."
+    },
+    {
+      "id": "CAM-USUK",
+      "title": "Cambridge — British and American English",
+      "url": "https://dictionary.cambridge.org/uk/grammar/british-grammar/british-and-american-english",
+      "access": "Доступний індексований текст видавця; пряме відкриття не завершилося.",
+      "use": "Past Simple з already/yet у частині американських контекстів; це не повна взаємозамінність часів."
+    },
+    {
+      "id": "CAM-BLOG",
+      "title": "Cambridge Dictionary — Present perfect or past simple?",
+      "url": "https://dictionaryblog.cambridge.org/2014/04/09/present-perfect-or-past-simple/",
+      "access": "Редакційний матеріал видавця у результаті пошуку.",
+      "use": "Теперішній результат не забороняє Past Simple; just/already/yet і варіативність."
+    }
+  ],
+  "lessons": [
+    {
+      "key": "past-comparison",
+      "title": "Past Simple vs Past Continuous",
+      "display_level": "A2",
+      "identity": "Database\\Seeders\\Page_V3\\Tenses\\TensesPastSimpleVsPastContinuousTheorySeeder",
+      "definition_path": "database/seeders/Page_V3/Tenses/TensesPastSimpleVsPastContinuousTheorySeeder/definition.json",
+      "baseline_git_blob_sha1": "a75b745f9733301b900a4f8d82c5d500b6452074",
+      "theory_path": "/theory/tenses/past-simple-vs-past-continuous",
+      "test_path": "/test/tenses/past-simple-vs-past-continuous",
+      "category_path": [
+        "tenses"
+      ],
+      "subtitle": "Що сталося — чи що відбувалося в той момент? Порівняй дві минулі форми, навчися читати when і while та не плутай інший зміст із граматичною помилкою.",
+      "hero": [
+        {
+          "label": "Past Simple",
+          "text": "Подія, послідовність або ситуація в минулому.",
+          "formula": "V2 · did not + V1 · Did … + V1?"
+        },
+        {
+          "label": "Past Continuous",
+          "text": "Дія вже була в процесі в певний минулий момент.",
+          "formula": "was / were + V-ing"
+        },
+        {
+          "label": "Головне запитання",
+          "text": "Розповідаю, що сталося, чи показую процес тоді?",
+          "formula": "Подія ↔ процес у моменті"
+        }
+      ],
+      "editorial_changes": [
+        {
+          "old_issue": "At 8 p.m., I watched TV позначено безумовною помилкою.",
+          "new_rule": "Часова позначка сама не вибирає форму; виправлення залежить від заданого перебігу подій."
+        },
+        {
+          "old_issue": "Yesterday I was clean my room подано як доказ несумісності Continuous із yesterday.",
+          "new_rule": "Відділено помилку форми was clean від цілком можливого was cleaning yesterday."
+        },
+        {
+          "old_issue": "Головна подія описана як така, що обов'язково перервала й зупинила процес.",
+          "new_rule": "Спільна конструкція показує подію на тлі процесу; припинення потребує окремого контексту."
+        },
+        {
+          "old_issue": "У частині ua-полів стоять коментарі замість перекладів.",
+          "new_rule": "Кожний авторський англійський приклад має окремий повний український переклад."
+        }
+      ],
+      "sections": [
+        {
+          "id": "past-core",
+          "title": "1. Подія чи процес?",
+          "points": [
+            {
+              "id": "past-event",
+              "title": "Past Simple: розповідаємо, що сталося",
+              "paragraphs_uk": [
+                "Використовуй Past Simple, коли називаєш подію або подаєш минулу дію як ціле. Кілька таких дієслів часто утворюють послідовність: спочатку одна подія, потім наступна.",
+                "У ствердженні звичайне дієслово має другу форму: opened, worked, went. Це форма минулого часу, а не показник того, що дія була короткою."
+              ],
+              "examples": [
+                {
+                  "en": "Yesterday I opened the gate, carried the boxes inside and closed the door.",
+                  "uk": "Учора я відчинив ворота, заніс коробки всередину й зачинив двері."
+                }
+              ],
+              "kind": "normal",
+              "detail": {
+                "title": "Тривала дія теж може бути в Past Simple",
+                "paragraphs_uk": [
+                  "Не вимірюй час дії, щоб вибрати між Simple і Continuous. Робота могла тривати весь день, але в розповіді ти подаєш її як завершений епізод. Саме так працює Past Simple в першому прикладі нижче.",
+                  "Друга версія показує процес у конкретний момент усередині цього епізоду. Обидві можуть описувати один день, але відповідають на різні запитання. Слово all day не зобов’язує обирати Continuous, а конкретна година не забороняє Simple."
+                ],
+                "examples": [
+                  {
+                    "en": "We painted the room all day yesterday.",
+                    "uk": "Учора ми цілий день фарбували кімнату."
+                  },
+                  {
+                    "en": "At two o’clock, we were painting the ceiling.",
+                    "uk": "О другій ми фарбували стелю."
+                  }
+                ],
+                "source_refs": [
+                  "BC-PASTSIMPLE",
+                  "BC-PASTCONT"
+                ]
+              }
+            },
+            {
+              "id": "past-process",
+              "title": "Past Continuous: показуємо, що було в процесі",
+              "paragraphs_uk": [
+                "Використовуй was / were + V-ing, щоб показати дію, яка вже тривала в певний минулий момент. Момент може бути названий годиною або іншою подією.",
+                "Порівняй: о шостій я зачинив вікно — це подія; о шостій я мив вікно — це погляд на процес тоді."
+              ],
+              "examples": [
+                {
+                  "en": "At six, I closed the window.",
+                  "uk": "О шостій я зачинив вікно."
+                },
+                {
+                  "en": "At six, I was cleaning the window.",
+                  "uk": "О шостій я мив вікно."
+                }
+              ],
+              "kind": "normal",
+              "detail": {
+                "title": "Що ця форма повідомляє, а чого не повідомляє",
+                "paragraphs_uk": [
+                  "У реченні про миття вікна ми знаємо, що робота була в процесі о шостій. Але не знаємо, коли саме вона почалася, скільки тривала загалом і чи вимив мовець усі вікна.",
+                  "Не додавай завершення або незавершення всього завдання тільки через форму Continuous. Якщо результат важливий, його можна назвати наступним реченням. У наведеній парі саме друге речення повідомляє, що одне вікно було готове о 6:20; перше цього не встановлює."
+                ],
+                "examples": [
+                  {
+                    "en": "At six, I was cleaning the kitchen window. I finished it at twenty past six.",
+                    "uk": "О шостій я мив кухонне вікно. Я закінчив мити його о шостій двадцять."
+                  }
+                ],
+                "source_refs": [
+                  "BC-PASTCONT"
+                ]
+              }
+            }
+          ],
+          "source_refs": [
+            "BC-PASTPAIR",
+            "BC-PASTSIMPLE",
+            "BC-PASTCONT"
+          ]
+        },
+        {
+          "id": "past-forms",
+          "title": "2. Форми: ствердження, заперечення, питання",
+          "points": [
+            {
+              "id": "past-be",
+              "title": "Дієслово be має власні форми",
+              "paragraphs_uk": [
+                "У Past Simple дієслово be утворює was / were без did: I was tired. — Я був утомлений. Were you tired? — Ти був утомлений? Це стан, а не Past Continuous.",
+                "У Past Continuous після was / were стоїть дія з -ing: I was working. — Я працював. Після did у звичайному Past Simple повертаємо базову форму: Did she open…?, не Did she opened…?"
+              ],
+              "examples": [],
+              "kind": "normal"
+            }
+          ],
+          "table": {
+            "columns": [
+              "Форма",
+              "Past Simple",
+              "Past Continuous"
+            ],
+            "rows": [
+              [
+                "Ствердження",
+                "She opened the box.\nВона відкрила коробку.",
+                "She was opening the box.\nВона відкривала коробку."
+              ],
+              [
+                "Заперечення",
+                "She did not open the box.\nВона не відкрила коробку.",
+                "She was not opening the box.\nВона не відкривала коробку в той момент."
+              ],
+              [
+                "Питання",
+                "Did she open the box?\nВона відкрила коробку?",
+                "Was she opening the box?\nВона відкривала коробку в той момент?"
+              ]
+            ]
+          },
+          "source_refs": [
+            "BC-PASTPAIR",
+            "BC-PASTSIMPLE",
+            "BC-PASTCONT"
+          ]
+        },
+        {
+          "id": "past-together",
+          "title": "3. Як поєднати дві дії",
+          "points": [
+            {
+              "id": "past-background",
+              "title": "Одна подія на тлі іншої",
+              "paragraphs_uk": [
+                "Дія у Past Continuous уже триває. Подія у Past Simple відбувається в цей час. Це зручна модель для розповіді: спочатку фон, потім те, що сталося на ньому.",
+                "Саме поєднання часів не доводить, що фонову дію після цього припинили."
+              ],
+              "examples": [
+                {
+                  "en": "Iryna was making tea when Danylo arrived.",
+                  "uk": "Ірина готувала чай, коли прийшов Данило."
+                }
+              ],
+              "kind": "normal",
+              "detail": {
+                "title": "Was making чи made після when?",
+                "paragraphs_uk": [
+                  "У першому реченні нижче готування вже було в процесі на момент приходу. У другому, в звичайному прочитанні цієї розповіді, прихід відбувається спочатку, а потім Ірина готує чай.",
+                  "Друге речення не є граматичною помилкою. Воно не підійде лише до умови, у якій прямо сказано, що Ірина почала готувати раніше. Перевіряючи відповідь, відділяй неправильну форму від правильного речення з іншим часовим змістом."
+                ],
+                "examples": [
+                  {
+                    "en": "When Danylo arrived, Iryna was making tea.",
+                    "uk": "Коли прийшов Данило, Ірина вже готувала чай."
+                  },
+                  {
+                    "en": "When Danylo arrived, Iryna made tea.",
+                    "uk": "Коли прийшов Данило, Ірина приготувала чай."
+                  }
+                ],
+                "source_refs": [
+                  "BC-PASTPAIR"
+                ]
+              }
+            },
+            {
+              "id": "past-parallel",
+              "title": "Дві дії відбувалися одночасно",
+              "paragraphs_uk": [
+                "Коли обидві дії показані як процеси в один і той самий час, можна використати Past Continuous в обох частинах.",
+                "While допомагає пов’язати їх за часом. Воно не вимагає, щоб обидві дії почалися та закінчилися одночасно."
+              ],
+              "examples": [
+                {
+                  "en": "While Oksana was reading, Lev was writing a message.",
+                  "uk": "Поки Оксана читала, Лев писав повідомлення."
+                }
+              ],
+              "kind": "normal",
+              "detail": {
+                "title": "Після while не обов’язково два Continuous",
+                "paragraphs_uk": [
+                  "While показує часовий проміжок, у межах якого відбувається інша дія. Цю іншу дію можна подати як окрему подію в Past Simple, а не як другий процес.",
+                  "У прикладі водій перевірив квитки під час нашого очікування. Це не означає, що перевірка і чекання мали однакову тривалість. Вибирай форму для кожної дії окремо: що показуємо як фон, а що повідомляємо як подію всередині нього."
+                ],
+                "examples": [
+                  {
+                    "en": "While we were waiting, the driver checked our tickets.",
+                    "uk": "Поки ми чекали, водій перевірив наші квитки."
+                  }
+                ],
+                "source_refs": [
+                  "BC-PASTPAIR",
+                  "BC-PASTCONT"
+                ]
+              }
+            }
+          ],
+          "source_refs": [
+            "BC-PASTPAIR",
+            "BC-PASTSIMPLE",
+            "BC-PASTCONT"
+          ]
+        },
+        {
+          "id": "past-markers",
+          "title": "4. Година, yesterday, when і while — це контекст",
+          "points": [
+            {
+              "id": "past-clock",
+              "title": "Одна година — різні ситуації",
+              "paragraphs_uk": [
+                "At eight o’clock називає час, але не каже, чи дія почалася тоді, чи вже тривала. Дивись на опис ситуації.",
+                "Якщо автобус прибув о восьмій — arrived. Якщо о восьмій люди вже чекали — were waiting."
+              ],
+              "examples": [
+                {
+                  "en": "The bus arrived at eight.",
+                  "uk": "Автобус прибув о восьмій."
+                },
+                {
+                  "en": "At eight, the passengers were waiting outside.",
+                  "uk": "О восьмій пасажири чекали надворі."
+                }
+              ],
+              "kind": "normal"
+            },
+            {
+              "id": "past-yesterday",
+              "title": "Yesterday сумісне з обома формами",
+              "paragraphs_uk": [
+                "Yesterday лише переносить ситуацію в минуле. Воно може входити і в речення про подію, і в речення про процес.",
+                "Тому Yesterday I was cleaning the room — можлива конструкція. А Yesterday I was clean the room має помилку форми: після was у цій моделі потрібне cleaning."
+              ],
+              "examples": [
+                {
+                  "en": "Yesterday I cleaned the room and washed the cups.",
+                  "uk": "Учора я прибрав кімнату й помив чашки."
+                },
+                {
+                  "en": "At eleven yesterday, I was cleaning the room.",
+                  "uk": "Учора об одинадцятій я прибирав кімнату."
+                }
+              ],
+              "kind": "normal"
+            },
+            {
+              "id": "past-state",
+              "title": "Стан у минулому — зазвичай Simple",
+              "paragraphs_uk": [
+                "У звичайному значенні «знати» кажемо knew, а не was knowing. Те, що ми назвали певний момент, не змінює значення дієслова.",
+                "Для цього уроку достатньо спочатку відрізнити процес дії від стану: was looking for the key — шукав ключ; knew where it was — знав, де він."
+              ],
+              "examples": [
+                {
+                  "en": "At that moment, I knew the answer.",
+                  "uk": "У той момент я знав відповідь."
+                }
+              ],
+              "kind": "normal"
+            }
+          ],
+          "source_refs": [
+            "BC-PASTPAIR",
+            "BC-PASTSIMPLE",
+            "BC-PASTCONT"
+          ]
+        },
+        {
+          "id": "past-mistakes",
+          "title": "5. Що справді потрібно виправити",
+          "points": [
+            {
+              "id": "past-error-did",
+              "title": "Після did — базова форма",
+              "paragraphs_uk": [
+                "Неправильно в заданій моделі: Did she took the key? Правильно: Did she take the key? Минулий час уже позначено через did."
+              ],
+              "examples": [
+                {
+                  "en": "Did she take the key?",
+                  "uk": "Вона взяла ключ?"
+                }
+              ],
+              "kind": "warning"
+            },
+            {
+              "id": "past-error-ing",
+              "title": "Після was / were для процесу — форма з -ing",
+              "paragraphs_uk": [
+                "Неправильно: We were wait outside. Правильно: We were waiting outside. Не замінюй це автоматично на Past Simple: умова може вимагати саме процес."
+              ],
+              "examples": [
+                {
+                  "en": "We were waiting outside.",
+                  "uk": "Ми чекали надворі."
+                }
+              ],
+              "kind": "warning"
+            },
+            {
+              "id": "past-not-error",
+              "title": "Інший зміст — не обов’язково помилка",
+              "paragraphs_uk": [
+                "At eight, I opened the shop. — О восьмій я відкрив магазин. Це правильна подія в Past Simple.",
+                "At eight, I was opening the shop. — О восьмій я відкривав магазин. Це процес у моменті. Для однозначної вправи потрібно сказати, яку саме ситуацію описуємо."
+              ],
+              "examples": [],
+              "kind": "normal"
+            }
+          ],
+          "source_refs": [
+            "BC-PASTPAIR",
+            "BC-PASTSIMPLE",
+            "BC-PASTCONT"
+          ]
+        },
+        {
+          "id": "past-summary",
+          "title": "6. Як обрати форму",
+          "points": [
+            {
+              "id": "past-check",
+              "title": "Чотири кроки",
+              "paragraphs_uk": [
+                "Знайди минулу точку відліку: годину, день або іншу подію.",
+                "Виріши, що повідомляєш: подію як ціле чи дію в процесі тоді.",
+                "Для двох дій перевір їхній зв’язок: послідовність, подія на тлі процесу чи паралельні процеси.",
+                "Перевір форму й не додавай зупинку, завершення або причину, яких немає в умові."
+              ],
+              "examples": [],
+              "kind": "normal"
+            }
+          ],
+          "source_refs": [
+            "BC-PASTPAIR",
+            "BC-PASTSIMPLE",
+            "BC-PASTCONT"
+          ]
+        }
+      ],
+      "related": [
+        {
+          "label": "Past Simple",
+          "path": "/theory/past-simple"
+        },
+        {
+          "label": "Past Continuous",
+          "path": "/theory/past-continuous"
+        },
+        {
+          "label": "Narrative Tenses",
+          "path": "/theory/tenses/narrative-tenses"
+        }
+      ],
+      "practice": [
+        {
+          "id": "past-q1",
+          "title": "Завершена дія й процес у заданий момент",
+          "prompt_uk": "Вибери дві форми за ситуацією.",
+          "context_uk": "Учора Оксана завершила ремонт шухляди. Лев шліфував двері з 14:00 до 15:00; описуємо його роботу о 14:30.",
+          "scoring": "all_required_controls",
+          "controls": [
+            {
+              "id": "past-q1a",
+              "kind": "select",
+              "label_uk": "Оксана полагодила шухляду.",
+              "options": [
+                {
+                  "value": "0",
+                  "label": "repaired"
+                },
+                {
+                  "value": "1",
+                  "label": "was repairing"
+                }
+              ],
+              "correct_value": "0",
+              "stimulus_en": "Oksana ___ the drawer yesterday.",
+              "required": true
+            },
+            {
+              "id": "past-q1b",
+              "kind": "select",
+              "label_uk": "Лев був у процесі роботи о 14:30.",
+              "options": [
+                {
+                  "value": "0",
+                  "label": "sanded"
+                },
+                {
+                  "value": "1",
+                  "label": "was sanding"
+                }
+              ],
+              "correct_value": "1",
+              "stimulus_en": "At 2.30, Lev ___ the door.",
+              "required": true
+            }
+          ],
+          "feedback": {
+            "paragraphs_uk": [
+              "У першій ситуації відомий завершений ремонт. У другій ми дивимося на роботу Лева в момент усередині процесу. Година не є окремим «сигналом» — вирішальне те, що вже тривало за умовою."
+            ],
+            "answer_examples": [
+              {
+                "en": "Oksana repaired the drawer yesterday.",
+                "uk": "Оксана полагодила шухляду вчора."
+              },
+              {
+                "en": "At 2.30, Lev was sanding the door.",
+                "uk": "О 14:30 Лев шліфував двері."
+              }
+            ]
+          },
+          "source_index": 1
+        },
+        {
+          "id": "past-q2",
+          "title": "Чи є година автоматичною підказкою?",
+          "prompt_uk": "Обери речення, яке точно відповідає ситуації. О восьмій автобус прибув на зупинку; треба повідомити сам факт прибуття.",
+          "context_uk": "",
+          "scoring": "all_required_controls",
+          "controls": [
+            {
+              "id": "past-q2a",
+              "kind": "choice",
+              "label_uk": "Варіант відповіді",
+              "options": [
+                {
+                  "value": "0",
+                  "label": "The bus arrived at eight."
+                },
+                {
+                  "value": "1",
+                  "label": "The bus was arriving at eight."
+                }
+              ],
+              "correct_value": "0",
+              "required": true
+            }
+          ],
+          "feedback": {
+            "paragraphs_uk": [
+              "Для заданого повідомлення про прибуття потрібне arrived. Друга форма могла б описувати процес прибуття в іншому контексті; вона не заборонена після at eight, але не є заданим тут способом подання події."
+            ],
+            "answer_examples": [
+              {
+                "en": "The bus arrived at eight.",
+                "uk": "Автобус прибув о восьмій."
+              }
+            ]
+          },
+          "source_index": 2
+        },
+        {
+          "id": "past-q3",
+          "title": "Дві граматично можливі розповіді",
+          "prompt_uk": "Прочитай дві версії та зістав їх зі значенням.",
+          "context_uk": "",
+          "scoring": "all_required_controls",
+          "controls": [
+            {
+              "id": "past-q3a",
+              "kind": "choice",
+              "label_uk": "When Danylo arrived, Iryna was making tea.",
+              "options": [
+                {
+                  "value": "0",
+                  "label": "Готування вже було в процесі."
+                },
+                {
+                  "value": "1",
+                  "label": "У цій розповіді вона приготувала чай після приходу."
+                }
+              ],
+              "correct_value": "0",
+              "required": true
+            },
+            {
+              "id": "past-q3b",
+              "kind": "choice",
+              "label_uk": "When Danylo arrived, Iryna made tea.",
+              "options": [
+                {
+                  "value": "0",
+                  "label": "Готування вже було в процесі."
+                },
+                {
+                  "value": "1",
+                  "label": "У цій розповіді вона приготувала чай після приходу."
+                }
+              ],
+              "correct_value": "1",
+              "required": true
+            }
+          ],
+          "feedback": {
+            "paragraphs_uk": [
+              "В обох реченнях граматична будова можлива. Continuous дає фон на момент приходу; Simple у другій версії веде розповідь до наступної події. Це порівняння змісту, а не пошук «завжди неправильного» речення."
+            ],
+            "answer_examples": [
+              {
+                "en": "When Danylo arrived, Iryna was making tea.",
+                "uk": "Коли прийшов Данило, Ірина вже готувала чай."
+              },
+              {
+                "en": "When Danylo arrived, Iryna made tea.",
+                "uk": "Коли прийшов Данило, Ірина приготувала чай."
+              }
+            ]
+          },
+          "source_index": 3
+        },
+        {
+          "id": "past-q4",
+          "title": "Виправ тільки форму",
+          "prompt_uk": "Виправ два речення, не змінюючи запитання та процесу: «Did she took the key?» і «We was waiting outside.»",
+          "context_uk": "",
+          "scoring": "all_required_controls",
+          "controls": [
+            {
+              "id": "past-q4a",
+              "kind": "manual",
+              "label_uk": "Запитання",
+              "canonical_answer": "Did she take the key?",
+              "accepted_answers": [
+                "Did she take the key?"
+              ],
+              "tokens": [
+                "Did",
+                "she",
+                "take",
+                "the key?"
+              ],
+              "required": true
+            },
+            {
+              "id": "past-q4b",
+              "kind": "manual",
+              "label_uk": "Дія в процесі",
+              "canonical_answer": "We were waiting outside.",
+              "accepted_answers": [
+                "We were waiting outside."
+              ],
+              "tokens": [
+                "We",
+                "were waiting",
+                "outside."
+              ],
+              "required": true
+            }
+          ],
+          "feedback": {
+            "paragraphs_uk": [
+              "Після did потрібне take. Із we в Past Continuous потрібне were. Виправлення запитання не означає, що відповідь на нього відома."
+            ],
+            "answer_examples": [
+              {
+                "en": "Did she take the key?",
+                "uk": "Вона взяла ключ?"
+              },
+              {
+                "en": "We were waiting outside.",
+                "uk": "Ми чекали надворі."
+              }
+            ]
+          },
+          "source_index": 4
+        },
+        {
+          "id": "past-q5",
+          "title": "When не доводить зупинки",
+          "prompt_uk": "Побудуй речення за українським текстом і зроби лише підтверджений висновок.",
+          "context_uk": "",
+          "scoring": "all_required_controls",
+          "controls": [
+            {
+              "id": "past-q5a",
+              "kind": "manual",
+              "label_uk": "Я читав, коли задзвонив телефон.",
+              "canonical_answer": "I was reading when the phone rang.",
+              "accepted_answers": [
+                "I was reading when the phone rang."
+              ],
+              "tokens": [
+                "I",
+                "was reading",
+                "when",
+                "the phone",
+                "rang."
+              ],
+              "required": true
+            },
+            {
+              "id": "past-q5b",
+              "kind": "choice",
+              "label_uk": "Чи відомо, що читання після дзвінка припинилося?",
+              "options": [
+                {
+                  "value": "0",
+                  "label": "Так, обов’язково припинилося."
+                },
+                {
+                  "value": "1",
+                  "label": "Ні, наступну дію не зазначено."
+                }
+              ],
+              "correct_value": "1",
+              "required": true
+            }
+          ],
+          "feedback": {
+            "paragraphs_uk": [
+              "Дзвінок відбувся під час читання. Наступна поведінка мовця не описана. Він міг відповісти, продовжити читати або зробити щось інше — не додаємо цього до відповіді."
+            ],
+            "answer_examples": [
+              {
+                "en": "I was reading when the phone rang.",
+                "uk": "Я читав, коли задзвонив телефон."
+              }
+            ]
+          },
+          "source_index": 5
+        },
+        {
+          "id": "past-q6",
+          "title": "Коротка розповідь без нового факту",
+          "prompt_uk": "Напиши два речення. Учора о дев’ятій я чекав на вулиці. Потім двері відчинилися. Перше подай як процес, друге — як подію. Використай підказані токени або введи текст вручну.",
+          "context_uk": "",
+          "scoring": "all_required_controls",
+          "controls": [
+            {
+              "id": "past-q6a",
+              "kind": "manual",
+              "label_uk": "Процес",
+              "canonical_answer": "At nine yesterday, I was waiting outside.",
+              "accepted_answers": [
+                "At nine yesterday, I was waiting outside."
+              ],
+              "tokens": [
+                "At nine yesterday,",
+                "I",
+                "was waiting",
+                "outside."
+              ],
+              "required": true
+            },
+            {
+              "id": "past-q6b",
+              "kind": "manual",
+              "label_uk": "Наступна подія",
+              "canonical_answer": "Then the door opened.",
+              "accepted_answers": [
+                "Then the door opened."
+              ],
+              "tokens": [
+                "Then",
+                "the door",
+                "opened."
+              ],
+              "required": true
+            }
+          ],
+          "feedback": {
+            "paragraphs_uk": [
+              "Перше речення показує чекання в процесі, друге — подію після нього. Не названо, хто відчинив двері, і не сказано, що я зайшов усередину. Цих відомостей у зразку немає."
+            ],
+            "answer_examples": [
+              {
+                "en": "At nine yesterday, I was waiting outside. Then the door opened.",
+                "uk": "Учора о дев’ятій я чекав надворі. Потім двері відчинилися."
+              }
+            ]
+          },
+          "source_index": 6
+        }
+      ],
+      "preserve": {
+        "page_title": "Past Simple vs Past Continuous",
+        "locale": "uk",
+        "category_ancestry": [
+          "tenses"
+        ],
+        "slug": "past-simple-vs-past-continuous",
+        "existing_related_links": "preserve and append only listed relevant links after resolver verification",
+        "bank_and_progress": "read-only; no bank question rewrite"
+      },
+      "source_refs": [
+        "BC-PASTPAIR",
+        "BC-PASTSIMPLE",
+        "BC-PASTCONT"
+      ],
+      "practice_policy": {
+        "source": "new author exercises in this master; not existing Mixed bank questions",
+        "no_forced_2_2_2": true,
+        "compound": "all controls required; each task yields at most one point",
+        "options": "answer-only",
+        "display_casing": "natural",
+        "no_js": "prompts, tokens and native answer disclosures readable",
+        "linked_widget": "reuse exact current own-bank mapping only after read-only local inventory; never guess a 48 count"
+      }
+    },
+    {
+      "key": "present-comparison",
+      "title": "Present Simple vs Present Continuous",
+      "display_level": "A1–A2",
+      "identity": "Database\\Seeders\\Page_V3\\Tenses\\TensesPresentSimpleVsPresentContinuousTheorySeeder",
+      "definition_path": "database/seeders/Page_V3/Tenses/TensesPresentSimpleVsPresentContinuousTheorySeeder/definition.json",
+      "baseline_git_blob_sha1": "a6893cbdaa81e028e240eda2af49fe911a8cab50",
+      "theory_path": "/theory/tenses/present-simple-vs-present-continuous",
+      "test_path": "/test/tenses/present-simple-vs-present-continuous",
+      "category_path": [
+        "tenses"
+      ],
+      "subtitle": "Звичний порядок речей чи дія зараз? Навчися порівнювати Present Simple і Present Continuous за ситуацією, правильно будувати форми та не покладатися лише на слова now або usually.",
+      "hero": [
+        {
+          "label": "Present Simple",
+          "text": "Звички, факти, стани та розклади.",
+          "formula": "V1 / V-s · do / does"
+        },
+        {
+          "label": "Present Continuous",
+          "text": "Дія зараз, теперішня активність або тимчасова ситуація.",
+          "formula": "am / is / are + V-ing"
+        },
+        {
+          "label": "Головне запитання",
+          "text": "Це звичайна ситуація чи процес у теперішній період?",
+          "formula": "Зазвичай ↔ зараз / цими днями"
+        }
+      ],
+      "editorial_changes": [
+        {
+          "old_issue": "Today / this week подано майже як вимогу Continuous.",
+          "new_rule": "Часове слово не замінює контекст; today може бути в повідомленні про розклад, стан або процес."
+        },
+        {
+          "old_issue": "Приклади з usually/Continuous без контексту оголошені помилками.",
+          "new_rule": "Додано межу: повторювана дія може подаватися як тимчасова, а always + Continuous — передавати ставлення."
+        },
+        {
+          "old_issue": "У формах та перекладах є англомовні службові назви й заміна перекладу коментарем.",
+          "new_rule": "Навчальні інструкції українською; англійські приклади мають окремі переклади."
+        }
+      ],
+      "sections": [
+        {
+          "id": "present-core",
+          "title": "1. Звичка чи дія зараз?",
+          "points": [
+            {
+              "id": "present-routine",
+              "title": "Present Simple: звичайний порядок речей",
+              "paragraphs_uk": [
+                "Використовуй Present Simple, щоб сказати, що людина робить регулярно або що є правдою в її житті. Для he / she / it у ствердженні зі звичайним дієсловом додаємо -s: she works, he reads.",
+                "Речення про звичку не означає, що людина виконує цю дію саме під час розмови."
+              ],
+              "examples": [
+                {
+                  "en": "Oksana reads before bed.",
+                  "uk": "Оксана читає перед сном."
+                },
+                {
+                  "en": "She works in a bookshop.",
+                  "uk": "Вона працює в книгарні."
+                }
+              ],
+              "kind": "normal",
+              "detail": {
+                "title": "Звичайний не означає «назавжди»",
+                "paragraphs_uk": [
+                  "Present Simple подає роботу в книгарні як звичайну частину Оксаниного життя. Він не обіцяє, що вона ніколи не змінить роботу. Не потрібно знати майбутнє людини, щоб ужити цю форму.",
+                  "Continuous у другому прикладі нижче показує, що мовець розглядає роботу як тимчасову на цей місяць. Різниця полягає в способі подання ситуації, а не в суворій кількості днів. У межах тимчасового місяця Оксана може ходити на роботу щодня."
+                ],
+                "examples": [
+                  {
+                    "en": "Oksana works in a bookshop.",
+                    "uk": "Оксана працює в книгарні."
+                  },
+                  {
+                    "en": "Oksana is working in a bookshop this month.",
+                    "uk": "Цього місяця Оксана тимчасово працює в книгарні."
+                  }
+                ],
+                "source_refs": [
+                  "CAM-PRESENT",
+                  "BC-PC"
+                ]
+              }
+            },
+            {
+              "id": "present-current",
+              "title": "Present Continuous: процес зараз",
+              "paragraphs_uk": [
+                "Використовуй am / is / are + V-ing, щоб показати дію в процесі. Для I потрібне am, для he / she / it — is, для you / we / they — are.",
+                "Зараз Оксана не обслуговує покупця, а читає повідомлення. Це окрема дія в моменті, не її звичка чи професія."
+              ],
+              "examples": [
+                {
+                  "en": "Oksana is reading a message now.",
+                  "uk": "Оксана зараз читає повідомлення."
+                },
+                {
+                  "en": "We are waiting by the door.",
+                  "uk": "Ми чекаємо біля дверей."
+                }
+              ],
+              "kind": "normal"
+            }
+          ],
+          "source_refs": [
+            "BC-PS",
+            "BC-PC",
+            "BC-STATE",
+            "CAM-PRESENT"
+          ]
+        },
+        {
+          "id": "present-forms",
+          "title": "2. Форми обох часів",
+          "points": [
+            {
+              "id": "present-be",
+              "title": "Не змішуй do / does та am / is / are",
+              "paragraphs_uk": [
+                "У запереченнях і питаннях Present Simple після do / does потрібна базова форма: does not read, Does she read…? Закінчення -s не залишається на read.",
+                "У Continuous допоміжне be вже є: Is she reading…?, не Does she reading…? У реченнях із be про стан також не додаємо do: She is tired. — Вона втомлена. Is she tired? — Вона втомлена?"
+              ],
+              "examples": [],
+              "kind": "normal"
+            }
+          ],
+          "table": {
+            "columns": [
+              "Форма",
+              "Present Simple",
+              "Present Continuous"
+            ],
+            "rows": [
+              [
+                "Ствердження",
+                "She reads in the evening.\nВона читає вечорами.",
+                "She is reading now.\nВона зараз читає."
+              ],
+              [
+                "Заперечення",
+                "She does not read at work.\nВона не читає на роботі.",
+                "She is not reading now.\nВона зараз не читає."
+              ],
+              [
+                "Питання",
+                "Does she read at work?\nВона читає на роботі?",
+                "Is she reading now?\nВона зараз читає?"
+              ]
+            ]
+          },
+          "source_refs": [
+            "BC-PS",
+            "BC-PC",
+            "BC-STATE",
+            "CAM-PRESENT"
+          ]
+        },
+        {
+          "id": "present-uses",
+          "title": "3. Не лише цієї секунди",
+          "points": [
+            {
+              "id": "present-around",
+              "title": "Теперішня активність може тривати кілька днів",
+              "paragraphs_uk": [
+                "Present Continuous може описувати роботу, якою ти займаєшся в теперішній період. Не обов’язково робити її без перерви саме під час мовлення.",
+                "Наприклад, зараз я обідаю, але цими днями читаю нову книжку."
+              ],
+              "examples": [
+                {
+                  "en": "I am reading a new book this week.",
+                  "uk": "Цього тижня я читаю нову книжку."
+                }
+              ],
+              "kind": "normal",
+              "detail": {
+                "title": "Книжка зараз закрита — це не суперечність",
+                "paragraphs_uk": [
+                  "Можна сказати I am reading a new book this week під час обіду або прогулянки. Проєкт читання ще триває, хоча сторінки зараз не перед очима. Щоб запитати про конкретну хвилину, додай контекст: що ти робиш просто зараз?",
+                  "Не роби висновку, що книжку обов’язково закінчать до неділі або що людина читає щохвилини. У реченні позначено поточну активність, а не точний розклад і не гарантований результат. Для звички читати щотижня підійде інше повідомлення."
+                ],
+                "examples": [
+                  {
+                    "en": "I read a book every week.",
+                    "uk": "Я читаю по книжці щотижня."
+                  }
+                ],
+                "source_refs": [
+                  "BC-PC"
+                ]
+              }
+            },
+            {
+              "id": "present-temporary",
+              "title": "Тимчасова ситуація",
+              "paragraphs_uk": [
+                "Continuous допомагає подати ситуацію як тимчасову, зокрема коли звичний порядок змінився. Simple може показувати звичний режим, а Continuous — поточний виняток із нього."
+              ],
+              "examples": [
+                {
+                  "en": "I usually work at the shop, but I am working from home today.",
+                  "uk": "Зазвичай я працюю в магазині, але сьогодні працюю вдома."
+                }
+              ],
+              "kind": "normal"
+            },
+            {
+              "id": "present-change",
+              "title": "Зміна, яка відбувається",
+              "paragraphs_uk": [
+                "Для процесу зміни часто використовуємо Continuous: щось стає більшим, теплішим, кращим. У такому реченні важливий розвиток, а не просто готова характеристика."
+              ],
+              "examples": [
+                {
+                  "en": "The evenings are getting warmer.",
+                  "uk": "Вечори стають теплішими."
+                },
+                {
+                  "en": "My English is improving.",
+                  "uk": "Моя англійська поліпшується."
+                }
+              ],
+              "kind": "normal"
+            }
+          ],
+          "source_refs": [
+            "BC-PS",
+            "BC-PC",
+            "BC-STATE",
+            "CAM-PRESENT"
+          ]
+        },
+        {
+          "id": "present-states",
+          "title": "4. Дії та стани",
+          "points": [
+            {
+              "id": "present-know",
+              "title": "Знаю, хочу, розумію — не те саме, що роблю",
+              "paragraphs_uk": [
+                "Know, want, need та understand у звичайних значеннях описують стан. З ними переважно обираємо Present Simple, навіть якщо в реченні є now.",
+                "Не кажи I am knowing the address у значенні «я знаю адресу». Часове слово не перетворює знання на процес дії."
+              ],
+              "examples": [
+                {
+                  "en": "I know the address now.",
+                  "uk": "Тепер я знаю адресу."
+                },
+                {
+                  "en": "I need a pen.",
+                  "uk": "Мені потрібна ручка."
+                }
+              ],
+              "kind": "normal"
+            },
+            {
+              "id": "present-think",
+              "title": "Іноді форма залежить від значення дієслова",
+              "paragraphs_uk": [
+                "Одне дієслово може передавати різні значення. Think у значенні «вважати» зазвичай має просту форму; think about у значенні «обмірковувати» може описувати дію в процесі."
+              ],
+              "examples": [
+                {
+                  "en": "I think the answer is correct.",
+                  "uk": "Я вважаю, що відповідь правильна."
+                },
+                {
+                  "en": "I am thinking about your question.",
+                  "uk": "Я обмірковую твоє запитання."
+                }
+              ],
+              "kind": "normal",
+              "detail": {
+                "title": "Перевіряй цілий вислів, а не список «заборонених» слів",
+                "paragraphs_uk": [
+                  "Список дієслів стану — корисна опора, але значення в конкретному реченні важливіше за саму назву слова. У першій парі think повідомляє думку; у другій thinking about описує роботу над питанням.",
+                  "Подібно have може означати «мати», а в іншому вислові — брати участь у дії. Порівняй приклади нижче. Це не дозвіл механічно ставити кожне дієслово стану в Continuous: спочатку переконайся, що змінилося саме значення."
+                ],
+                "examples": [
+                  {
+                    "en": "I have a small desk.",
+                    "uk": "У мене невеликий стіл."
+                  },
+                  {
+                    "en": "I am having lunch.",
+                    "uk": "Я обідаю."
+                  }
+                ],
+                "source_refs": [
+                  "BC-STATE"
+                ]
+              }
+            }
+          ],
+          "source_refs": [
+            "BC-PS",
+            "BC-PC",
+            "BC-STATE",
+            "CAM-PRESENT"
+          ]
+        },
+        {
+          "id": "present-context",
+          "title": "5. Слова-підказки та розклад",
+          "points": [
+            {
+              "id": "present-markers",
+              "title": "Usually, now, today — підказки, а не команди",
+              "paragraphs_uk": [
+                "Usually та every day часто супроводжують звичку; now та at the moment — поточну дію. Але спочатку прочитай саму ситуацію.",
+                "Today може бути в реченні про стан: I need help today. — Мені сьогодні потрібна допомога. Це не помилка лише тому, що форма не Continuous."
+              ],
+              "examples": [],
+              "kind": "normal",
+              "detail": {
+                "title": "Повторюваність також може бути тимчасовою",
+                "paragraphs_uk": [
+                  "Порівняй регулярне тренування як частину звичного життя з тимчасовою підготовкою цього місяця. В обох ситуаціях людина може займатися щодня, але мовець виділяє різні сторони події.",
+                  "Тому слова every day не забороняють Continuous. Водночас Simple теж може описувати тимчасовий розклад як звичку всередині певного періоду. У вправі, де потрібна лише одна форма, слід прямо зазначити потрібний акцент, а не залишати читачеві вгадування."
+                ],
+                "examples": [
+                  {
+                    "en": "I practise the piano every day.",
+                    "uk": "Я вправляюся на піаніно щодня."
+                  },
+                  {
+                    "en": "I am practising every day this month to prepare for the concert.",
+                    "uk": "Цього місяця я вправляюся щодня, щоб підготуватися до концерту."
+                  }
+                ],
+                "source_refs": [
+                  "BC-PC",
+                  "CAM-PRESENT"
+                ]
+              }
+            },
+            {
+              "id": "present-always",
+              "title": "Always не означає «тільки Simple»",
+              "paragraphs_uk": [
+                "Для звичайної регулярної дії природне Present Simple: She always brings a notebook. — Вона завжди приносить блокнот.",
+                "Always із Continuous може підкреслювати повторювану поведінку та ставлення мовця. Основне правило про звички від цього не стає неправильним."
+              ],
+              "examples": [],
+              "kind": "normal",
+              "detail": {
+                "title": "Повтор і ставлення, а не обов’язково скарга",
+                "paragraphs_uk": [
+                  "У Continuous повторювана дія часто подається як помітна риса поведінки, на яку мовець емоційно реагує. Реакція може бути роздратуванням, але не зобов’язана ним бути.",
+                  "У першому прикладі нижче мовець скаржиться, що людина залишає двері відчиненими. У другому він цінує допомогу. Не перекладай always автоматично як «безперервно»: йдеться про повторювані випадки, а не про одну дію без пауз."
+                ],
+                "examples": [
+                  {
+                    "en": "He is always leaving the door open!",
+                    "uk": "Він постійно залишає двері відчиненими!"
+                  },
+                  {
+                    "en": "She is always helping us. We really appreciate it.",
+                    "uk": "Вона постійно нам допомагає. Ми дуже це цінуємо."
+                  }
+                ],
+                "source_refs": [
+                  "BC-PC"
+                ]
+              }
+            },
+            {
+              "id": "present-future",
+              "title": "Розклад і домовленість можуть стосуватися майбутнього",
+              "paragraphs_uk": [
+                "Present Simple використовують для розкладу, а Present Continuous — для вже організованої домовленості. Це додаткове вживання теперішніх форм; подробиці майбутніх конструкцій — в окремих уроках.",
+                "Завтра не завжди означає, що потрібно механічно додати will."
+              ],
+              "examples": [
+                {
+                  "en": "The bus leaves at eight tomorrow.",
+                  "uk": "Автобус вирушає завтра о восьмій."
+                },
+                {
+                  "en": "I am meeting Marta at eight tomorrow.",
+                  "uk": "Я зустрічаюся з Мартою завтра о восьмій."
+                }
+              ],
+              "kind": "normal"
+            }
+          ],
+          "source_refs": [
+            "BC-PS",
+            "BC-PC",
+            "BC-STATE",
+            "CAM-PRESENT"
+          ]
+        },
+        {
+          "id": "present-check",
+          "title": "6. Коротка перевірка перед відповіддю",
+          "points": [
+            {
+              "id": "present-form-errors",
+              "title": "Виправляй форму, не вигадуючи нової ситуації",
+              "paragraphs_uk": [
+                "Does she works here? → Does she work here? Після does — базова форма.",
+                "They waiting outside. → They are waiting outside. Для процесу потрібне are.",
+                "I am knowing the answer. → I know the answer. У звичайному значенні це стан."
+              ],
+              "examples": [],
+              "kind": "warning"
+            },
+            {
+              "id": "present-summary",
+              "title": "Порядок вибору",
+              "paragraphs_uk": [
+                "Спочатку визнач: звичка або стан, поточна дія чи тимчасова ситуація.",
+                "Потім перевір, чи дієслово справді позначає процес у цьому значенні.",
+                "Після цього побудуй форму. Для Simple перевір -s або do / does; для Continuous — am / is / are та -ing.",
+                "Якщо обидві форми граматично можливі, поясни різницю акценту, а не позначай одну помилкою без контексту."
+              ],
+              "examples": [],
+              "kind": "normal"
+            }
+          ],
+          "source_refs": [
+            "BC-PS",
+            "BC-PC",
+            "BC-STATE",
+            "CAM-PRESENT"
+          ]
+        }
+      ],
+      "related": [
+        {
+          "label": "Present Simple",
+          "path": "/theory/present-simple"
+        },
+        {
+          "label": "Present Continuous",
+          "path": "/theory/present-continuous"
+        },
+        {
+          "label": "Past Simple vs Past Continuous",
+          "path": "/theory/tenses/past-simple-vs-past-continuous"
+        }
+      ],
+      "practice": [
+        {
+          "id": "present-q1",
+          "title": "Звичка й поточна дія",
+          "prompt_uk": "Заповни два пропуски відповідно до описаних дій.",
+          "context_uk": "Зазвичай вечерю готує Ніна. Зараз вона не готує, а миє чашки.",
+          "scoring": "all_required_controls",
+          "controls": [
+            {
+              "id": "present-q1a",
+              "kind": "select",
+              "label_uk": "Її звичний обов’язок",
+              "options": [
+                {
+                  "value": "0",
+                  "label": "cooks"
+                },
+                {
+                  "value": "1",
+                  "label": "is cooking"
+                }
+              ],
+              "correct_value": "0",
+              "stimulus_en": "Nina usually ___ dinner.",
+              "required": true
+            },
+            {
+              "id": "present-q1b",
+              "kind": "select",
+              "label_uk": "Що вона робить цієї миті",
+              "options": [
+                {
+                  "value": "0",
+                  "label": "washes"
+                },
+                {
+                  "value": "1",
+                  "label": "is washing"
+                }
+              ],
+              "correct_value": "1",
+              "stimulus_en": "Right now, she ___ the cups.",
+              "required": true
+            }
+          ],
+          "feedback": {
+            "paragraphs_uk": [
+              "Cooks описує звичку, is washing — дію, яка триває в моменті. У реченні про звичку не стверджується, що Ніна саме зараз готує вечерю."
+            ],
+            "answer_examples": [
+              {
+                "en": "Nina usually cooks dinner. Right now, she is washing the cups.",
+                "uk": "Ніна зазвичай готує вечерю. Просто зараз вона миє чашки."
+              }
+            ]
+          },
+          "source_index": 1
+        },
+        {
+          "id": "present-q2",
+          "title": "Правильне питання",
+          "prompt_uk": "Виправ тільки дієслівну форму: «Does Kateryna works here?»",
+          "context_uk": "",
+          "scoring": "all_required_controls",
+          "controls": [
+            {
+              "id": "present-q2a",
+              "kind": "manual",
+              "label_uk": "Питання",
+              "canonical_answer": "Does Kateryna work here?",
+              "accepted_answers": [
+                "Does Kateryna work here?"
+              ],
+              "tokens": [
+                "Does",
+                "Kateryna",
+                "work",
+                "here?"
+              ],
+              "required": true
+            }
+          ],
+          "feedback": {
+            "paragraphs_uk": [
+              "Після does потрібна базова форма work. Це запитання про звичайне місце роботи; відповідь на нього не відома з умови."
+            ],
+            "answer_examples": [
+              {
+                "en": "Does Kateryna work here?",
+                "uk": "Катерина працює тут?"
+              }
+            ]
+          },
+          "source_index": 2
+        },
+        {
+          "id": "present-q3",
+          "title": "Книжка зараз закрита",
+          "prompt_uk": "Андрій читає нову книжку протягом цього тижня. Зараз він обідає, а книжка лежить закритою. Оціни речення: «Andrii is reading a new book this week.»",
+          "context_uk": "",
+          "scoring": "all_required_controls",
+          "controls": [
+            {
+              "id": "present-q3a",
+              "kind": "choice",
+              "label_uk": "Чи може речення відповідати ситуації?",
+              "options": [
+                {
+                  "value": "0",
+                  "label": "Так, це поточна активність цього тижня."
+                },
+                {
+                  "value": "1",
+                  "label": "Ні, книжка повинна бути відкрита цієї миті."
+                }
+              ],
+              "correct_value": "0",
+              "required": true
+            }
+          ],
+          "feedback": {
+            "paragraphs_uk": [
+              "Continuous може охоплювати теперішній період, а не тільки секунду мовлення. Перерви на обід не роблять таке повідомлення суперечливим."
+            ],
+            "answer_examples": [
+              {
+                "en": "Andrii is reading a new book this week.",
+                "uk": "Андрій цього тижня читає нову книжку."
+              }
+            ]
+          },
+          "source_index": 3
+        },
+        {
+          "id": "present-q4",
+          "title": "Стан і дія",
+          "prompt_uk": "Добери форму до кожного значення.",
+          "context_uk": "",
+          "scoring": "all_required_controls",
+          "controls": [
+            {
+              "id": "present-q4a",
+              "kind": "select",
+              "label_uk": "Тепер я знаю адресу.",
+              "options": [
+                {
+                  "value": "0",
+                  "label": "know"
+                },
+                {
+                  "value": "1",
+                  "label": "am knowing"
+                }
+              ],
+              "correct_value": "0",
+              "stimulus_en": "I ___ the address now.",
+              "required": true
+            },
+            {
+              "id": "present-q4b",
+              "kind": "select",
+              "label_uk": "Я саме обмірковую твою пропозицію.",
+              "options": [
+                {
+                  "value": "0",
+                  "label": "think"
+                },
+                {
+                  "value": "1",
+                  "label": "am thinking"
+                }
+              ],
+              "correct_value": "1",
+              "stimulus_en": "I ___ about your suggestion right now.",
+              "required": true
+            }
+          ],
+          "feedback": {
+            "paragraphs_uk": [
+              "Know називає знання як стан. Thinking about у другій частині — поточне обмірковування. Вибір залежить від значення, а не лише від now."
+            ],
+            "answer_examples": [
+              {
+                "en": "I know the address now.",
+                "uk": "Тепер я знаю адресу."
+              },
+              {
+                "en": "I am thinking about your suggestion right now.",
+                "uk": "Я зараз обмірковую твою пропозицію."
+              }
+            ]
+          },
+          "source_index": 4
+        },
+        {
+          "id": "present-q5",
+          "title": "Звичний режим і сьогодні",
+          "prompt_uk": "Побудуй два речення за українськими умовами. Для звички використай Present Simple, для поточної тимчасової ситуації — Present Continuous.",
+          "context_uk": "",
+          "scoring": "all_required_controls",
+          "controls": [
+            {
+              "id": "present-q5a",
+              "kind": "manual",
+              "label_uk": "Зазвичай я працюю в магазині.",
+              "canonical_answer": "I usually work at the shop.",
+              "accepted_answers": [
+                "I usually work at the shop."
+              ],
+              "tokens": [
+                "I",
+                "usually work",
+                "at the shop."
+              ],
+              "required": true
+            },
+            {
+              "id": "present-q5b",
+              "kind": "manual",
+              "label_uk": "Сьогодні я працюю вдома.",
+              "canonical_answer": "I am working from home today.",
+              "accepted_answers": [
+                "I am working from home today.",
+                "I'm working from home today."
+              ],
+              "tokens": [
+                "I",
+                "am working",
+                "from home",
+                "today."
+              ],
+              "required": true
+            }
+          ],
+          "feedback": {
+            "paragraphs_uk": [
+              "Usually work задає звичний режим. Am working from home today виділяє тимчасову ситуацію сьогодні. Звідси не випливає, що людина назавжди змінила місце роботи."
+            ],
+            "answer_examples": [
+              {
+                "en": "I usually work at the shop. I am working from home today.",
+                "uk": "Зазвичай я працюю в магазині. Сьогодні я працюю вдома."
+              }
+            ]
+          },
+          "source_index": 5
+        },
+        {
+          "id": "present-q6",
+          "title": "Після перевірки розкладу",
+          "prompt_uk": "Автобус відправляється завтра о восьмій за розкладом. Зустріч із Мартою на ту саму годину вже погоджена. Для автобуса використай Present Simple, для домовленості — Present Continuous.",
+          "context_uk": "",
+          "scoring": "all_required_controls",
+          "controls": [
+            {
+              "id": "present-q6a",
+              "kind": "select",
+              "label_uk": "Розклад",
+              "options": [
+                {
+                  "value": "0",
+                  "label": "leaves"
+                },
+                {
+                  "value": "1",
+                  "label": "is leaving"
+                }
+              ],
+              "correct_value": "0",
+              "stimulus_en": "The bus ___ at eight tomorrow.",
+              "required": true
+            },
+            {
+              "id": "present-q6b",
+              "kind": "manual",
+              "label_uk": "Я зустрічаюся з Мартою завтра о восьмій.",
+              "canonical_answer": "I am meeting Marta at eight tomorrow.",
+              "accepted_answers": [
+                "I am meeting Marta at eight tomorrow.",
+                "I'm meeting Marta at eight tomorrow."
+              ],
+              "tokens": [
+                "I",
+                "am meeting",
+                "Marta",
+                "at eight tomorrow."
+              ],
+              "required": true
+            }
+          ],
+          "feedback": {
+            "paragraphs_uk": [
+              "Leaves — задане подання розкладу. Am meeting — задана організована домовленість. У першій частині is leaving могло б бути природним за іншого акценту, але ця вправа прямо просить Simple."
+            ],
+            "answer_examples": [
+              {
+                "en": "The bus leaves at eight tomorrow. I am meeting Marta at eight tomorrow.",
+                "uk": "Автобус вирушає завтра о восьмій. Я зустрічаюся з Мартою завтра о восьмій."
+              }
+            ]
+          },
+          "source_index": 6
+        }
+      ],
+      "preserve": {
+        "page_title": "Present Simple vs Present Continuous",
+        "locale": "uk",
+        "category_ancestry": [
+          "tenses"
+        ],
+        "slug": "present-simple-vs-present-continuous",
+        "existing_related_links": "preserve and append only listed relevant links after resolver verification",
+        "bank_and_progress": "read-only; no bank question rewrite"
+      },
+      "source_refs": [
+        "BC-PS",
+        "BC-PC",
+        "BC-STATE",
+        "CAM-PRESENT"
+      ],
+      "practice_policy": {
+        "source": "new author exercises in this master; not existing Mixed bank questions",
+        "no_forced_2_2_2": true,
+        "compound": "all controls required; each task yields at most one point",
+        "options": "answer-only",
+        "display_casing": "natural",
+        "no_js": "prompts, tokens and native answer disclosures readable",
+        "linked_widget": "reuse exact current own-bank mapping only after read-only local inventory; never guess a 48 count"
+      }
+    },
+    {
+      "key": "perfect-past-comparison",
+      "title": "Present Perfect vs Past Simple",
+      "display_level": "A2–B1",
+      "identity": "Database\\Seeders\\Page_V3\\Tenses\\TensesPresentPerfectVsPastSimpleTheorySeeder",
+      "definition_path": "database/seeders/Page_V3/Tenses/TensesPresentPerfectVsPastSimpleTheorySeeder/definition.json",
+      "baseline_git_blob_sha1": "57e1e1336fbe597d40dd630a6cd9b4c8618e81a7",
+      "theory_path": "/theory/tenses/present-perfect-vs-past-simple",
+      "test_path": "/test/tenses/present-perfect-vs-past-simple",
+      "category_path": [
+        "tenses"
+      ],
+      "preserve_level_note": "У джерелі більшість block.level=A2, а hero.body.level=A2–B1. Не уніфікувати ці технічні поля без окремого погодження.",
+      "subtitle": "Завершений минулий епізод чи погляд на період до тепер? Розрізняй Past Simple і Present Perfect за часовими межами, результатом, досвідом і контекстом.",
+      "hero": [
+        {
+          "label": "Present Perfect",
+          "text": "Досвід, результат або стан, який розглядаємо з теперішнього моменту.",
+          "formula": "have / has + V3"
+        },
+        {
+          "label": "Past Simple",
+          "text": "Подія чи ситуація в завершеному минулому контексті.",
+          "formula": "V2 · did not + V1"
+        },
+        {
+          "label": "Головне запитання",
+          "text": "Говорю про окреме минуле чи підсумовую до зараз?",
+          "formula": "Тоді ↔ до теперішнього моменту"
+        }
+      ],
+      "editorial_changes": [
+        {
+          "old_issue": "Did you ever visit London? позначене безумовною помилкою.",
+          "new_rule": "Розмежовано досвід до тепер, завершений минулий період і варіативність англійської."
+        },
+        {
+          "old_issue": "Формула «результат зараз = тільки Present Perfect» допускає хибне застосування.",
+          "new_rule": "Поточний наслідок не забороняє Past Simple, коли речення називає завершений минулий час."
+        },
+        {
+          "old_issue": "Today / this week та ever / already / yet ризикують працювати як механічні перемикачі.",
+          "new_rule": "Додано контекстні межі періоду і коротко відділено британську навчальну модель від американських варіантів."
+        }
+      ],
+      "sections": [
+        {
+          "id": "perfect-core",
+          "title": "1. Два способи подивитися на минуле",
+          "points": [
+            {
+              "id": "perfect-now",
+              "title": "Present Perfect: підсумок до тепер",
+              "paragraphs_uk": [
+                "Використовуй have / has + V3, коли пов’язуєш минулу подію з теперішнім: повідомляєш про наявний результат, досвід або стан, який досі триває.",
+                "V3 — третя форма дієслова: checked, written, seen. У цьому часі не потрібно називати точний завершений минулий момент події."
+              ],
+              "examples": [
+                {
+                  "en": "I have checked the address. We can send the parcel now.",
+                  "uk": "Я перевірив адресу. Тепер можемо відправити посилку."
+                },
+                {
+                  "en": "We have lived here for three years.",
+                  "uk": "Ми живемо тут уже три роки."
+                }
+              ],
+              "kind": "normal"
+            },
+            {
+              "id": "perfect-then",
+              "title": "Past Simple: конкретний минулий епізод",
+              "paragraphs_uk": [
+                "Використовуй Past Simple, коли розповідаєш про подію в завершеному минулому контексті: yesterday, last week, in 2022 або в часі, уже зрозумілому з розмови.",
+                "Не обов’язково повторювати дату в кожному реченні. Якщо співрозмовники вже говорять про вчорашню зустріч, її події можна продовжувати в Past Simple."
+              ],
+              "examples": [
+                {
+                  "en": "I checked the address yesterday.",
+                  "uk": "Я перевірив адресу вчора."
+                },
+                {
+                  "en": "The meeting started at ten. We discussed the new timetable.",
+                  "uk": "Зустріч почалася о десятій. Ми обговорили новий розклад."
+                }
+              ],
+              "kind": "normal",
+              "detail": {
+                "title": "Минула подія теж може мати результат зараз",
+                "paragraphs_uk": [
+                  "У Past Simple можна повідомити про подію, наслідок якої зберігається зараз. Важливо, що саме це речення ставить подію в завершений минулий час. Тому правило «є наслідок зараз — завжди Present Perfect» надто механічне.",
+                  "У прикладі нижче yesterday визначає час втрати перепустки. Друга частина окремо описує теперішню ситуацію: перепустку досі не знайдено. Ми не мусимо прибирати yesterday або оголошувати першу форму неправильною."
+                ],
+                "examples": [
+                  {
+                    "en": "I lost my pass yesterday, and I still haven’t found it.",
+                    "uk": "Я загубив перепустку вчора й досі її не знайшов."
+                  }
+                ],
+                "source_refs": [
+                  "CAM-PPPS",
+                  "CAM-BLOG"
+                ]
+              }
+            }
+          ],
+          "source_refs": [
+            "CAM-PPPS",
+            "CAM-PP",
+            "CAM-USUK",
+            "CAM-BLOG"
+          ]
+        },
+        {
+          "id": "perfect-forms",
+          "title": "2. Як утворити форми",
+          "points": [
+            {
+              "id": "perfect-v2v3",
+              "title": "V2 та V3 можуть відрізнятися",
+              "paragraphs_uk": [
+                "У правильних дієслів V2 і V3 часто однакові: checked — checked. У неправильних потрібно перевірити потрібну форму: went — gone, saw — seen, wrote — written.",
+                "Після did використовується базова форма: Did she write…? Після has — V3: She has written… Не змішуй ці моделі.",
+                "Дієслово be у Past Simple має was / were без did: Was she here? — Вона була тут?"
+              ],
+              "examples": [],
+              "kind": "normal"
+            }
+          ],
+          "table": {
+            "columns": [
+              "Форма",
+              "Present Perfect",
+              "Past Simple"
+            ],
+            "rows": [
+              [
+                "Ствердження",
+                "She has written the note.\nВона написала записку.",
+                "She wrote the note yesterday.\nВона написала записку вчора."
+              ],
+              [
+                "Заперечення",
+                "She has not written the note yet.\nВона ще не написала записку.",
+                "She did not write the note yesterday.\nВона не написала записку вчора."
+              ],
+              [
+                "Питання",
+                "Has she written the note?\nВона вже написала записку?",
+                "Did she write the note yesterday?\nВона написала записку вчора?"
+              ]
+            ]
+          },
+          "source_refs": [
+            "CAM-PPPS",
+            "CAM-PP",
+            "CAM-USUK",
+            "CAM-BLOG"
+          ]
+        },
+        {
+          "id": "perfect-experience",
+          "title": "3. Досвід і подробиці події",
+          "points": [
+            {
+              "id": "perfect-ever",
+              "title": "Досвід до цього моменту",
+              "paragraphs_uk": [
+                "Have you ever…? запитує про досвід у періоді до тепер. Для відповіді про конкретну минулу подію часто переходимо до Past Simple.",
+                "Це не зміна теми й не помилка: спочатку встановлюємо, чи був такий досвід, а потім питаємо, коли він стався."
+              ],
+              "examples": [
+                {
+                  "en": "Have you ever travelled by ferry? — Yes, I have. I travelled by ferry last summer.",
+                  "uk": "Ти коли-небудь подорожував поромом? — Так. Я подорожував поромом минулого літа."
+                }
+              ],
+              "kind": "normal",
+              "detail": {
+                "title": "Ever може стосуватися завершеного минулого періоду",
+                "paragraphs_uk": [
+                  "Не вважай будь-яке Did you ever…? неправильною граматикою. Якщо питання стосується завершеного етапу життя, Past Simple природно обмежує досвід саме тим часом.",
+                  "Порівняй питання про все життя до тепер і питання про роки, коли людина жила біля узбережжя. У другій ситуації вона вже переїхала. Крім того, у різних варіантах англійської є відмінності в уживанні часів; не потрібно стирати контекст заради одного слова ever."
+                ],
+                "examples": [
+                  {
+                    "en": "Did you ever travel by ferry when you lived on the coast?",
+                    "uk": "Ти коли-небудь подорожував поромом, коли жив на узбережжі?"
+                  }
+                ],
+                "source_refs": [
+                  "CAM-PP",
+                  "CAM-PPPS"
+                ]
+              }
+            },
+            {
+              "id": "perfect-news",
+              "title": "Спочатку новина, потім точний час",
+              "paragraphs_uk": [
+                "Present Perfect може ввести новину про результат зараз. Наступне речення в Past Simple додає конкретні подробиці.",
+                "У прикладі нижче форму надіслали лише один раз: спочатку повідомляємо про результат, а потім уточнюємо час надсилання."
+              ],
+              "examples": [
+                {
+                  "en": "I have sent the form. I sent it at nine this morning.",
+                  "uk": "Я надіслав форму. Я надіслав її сьогодні о дев’ятій."
+                }
+              ],
+              "kind": "normal"
+            }
+          ],
+          "source_refs": [
+            "CAM-PPPS",
+            "CAM-PP",
+            "CAM-USUK",
+            "CAM-BLOG"
+          ]
+        },
+        {
+          "id": "perfect-time",
+          "title": "4. Період часу: today, for та since",
+          "points": [
+            {
+              "id": "perfect-today",
+              "title": "Today саме по собі не визначає форму",
+              "paragraphs_uk": [
+                "Якщо підсумовуєш період від початку дня до зараз, Present Perfect — природний вибір. Якщо називаєш конкретну завершену подію сьогодні, можливий Past Simple.",
+                "Порівняй підрахунок готових результатів до тепер із подією о конкретній годині."
+              ],
+              "examples": [
+                {
+                  "en": "I have answered three messages so far today.",
+                  "uk": "Я відповів на три повідомлення від початку дня до цього моменту."
+                },
+                {
+                  "en": "I answered your message at nine this morning.",
+                  "uk": "Я відповів на твоє повідомлення сьогодні о дев’ятій."
+                }
+              ],
+              "kind": "normal",
+              "detail": {
+                "title": "Незавершений день містить завершені епізоди",
+                "paragraphs_uk": [
+                  "Сьогодні ще може тривати, але окремий ранковий дзвінок, урок або відвідування вже стали завершеними епізодами. Саме тому наявність today не змушує ставити кожну дію в Present Perfect.",
+                  "У першому прикладі базового блоку рахунок охоплює час до зараз. У другому названо завершений момент відповіді. Якщо автор вправи хоче перевірити саме підсумок до тепер, корисно прямо сказати це або додати so far; для окремої події — задати її час."
+                ],
+                "examples": [
+                  {
+                    "en": "I went to the library at ten today. I have borrowed two books so far this week.",
+                    "uk": "Я ходив до бібліотеки сьогодні о десятій. Від початку цього тижня я вже взяв дві книжки."
+                  }
+                ],
+                "source_refs": [
+                  "CAM-PPPS"
+                ]
+              }
+            },
+            {
+              "id": "perfect-duration",
+              "title": "For — тривалість, since — початкова точка",
+              "paragraphs_uk": [
+                "For three years називає тривалість, since 2023 — момент, від якого її рахуємо. Вибір часу додатково залежить від того, чи продовжується ситуація до тепер.",
+                "Порівняй стан, який досі триває, із завершеним періодом проживання."
+              ],
+              "examples": [
+                {
+                  "en": "We have lived here for three years, and we still live here.",
+                  "uk": "Ми живемо тут три роки й досі залишаємося тут."
+                },
+                {
+                  "en": "We lived there for three years, and then we moved.",
+                  "uk": "Ми прожили там три роки, а потім переїхали."
+                }
+              ],
+              "kind": "normal",
+              "detail": {
+                "title": "For не належить лише одному часу",
+                "paragraphs_uk": [
+                  "For можна вживати з Past Simple, коли йдеться про тривалість завершеного минулого періоду. Саме слово for не повідомляє, чи живе людина там зараз. Це встановлюють форма та решта контексту.",
+                  "У парі з базового блоку перше речення прямо зберігає проживання до тепер, а друге прямо називає переїзд. Не замінюй одне іншим під час точного перефразування. Зі since для стану до зараз зберігай початкову точку, а не перетворюй її на тривалість."
+                ],
+                "examples": [
+                  {
+                    "en": "I have known Marta since September.",
+                    "uk": "Я знаю Марту з вересня."
+                  },
+                  {
+                    "en": "I have known Marta for a month.",
+                    "uk": "Я знаю Марту місяць."
+                  }
+                ],
+                "source_refs": [
+                  "CAM-PP",
+                  "CAM-PPPS"
+                ]
+              }
+            }
+          ],
+          "source_refs": [
+            "CAM-PPPS",
+            "CAM-PP",
+            "CAM-USUK",
+            "CAM-BLOG"
+          ]
+        },
+        {
+          "id": "perfect-markers",
+          "title": "5. Already, yet, just і справжні помилки",
+          "points": [
+            {
+              "id": "perfect-recent",
+              "title": "Слова про результат до тепер",
+              "paragraphs_uk": [
+                "У поширеній британській навчальній моделі already, yet і just часто вживають із Present Perfect. Already показує, що щось уже зроблено; yet часто з’являється в питаннях і запереченнях; just — із нещодавньою подією.",
+                "Це підказки до значення, а не універсальний спосіб перевіряти будь-яке речення."
+              ],
+              "examples": [
+                {
+                  "en": "I have already checked the list.",
+                  "uk": "Я вже перевірив список."
+                },
+                {
+                  "en": "Have you called Marta yet?",
+                  "uk": "Ти вже зателефонував Марті?"
+                }
+              ],
+              "kind": "normal",
+              "detail": {
+                "title": "Чому Did you call … yet? не треба автоматично позначати помилкою",
+                "paragraphs_uk": [
+                  "В американському вживанні Past Simple часто трапляється там, де британська навчальна модель обирає Present Perfect, особливо з already та yet. Тому можливий варіант із did не варто оголошувати неграматичним без уточнення контексту й цільової моделі.",
+                  "Це не означає, що два часи можна всюди міняти місцями. У вправі на конкретний шаблон виконуй задану інструкцію. А в редагуванні живого тексту відрізняй справжню помилку форми від іншого природного варіанта англійської."
+                ],
+                "examples": [
+                  {
+                    "en": "Did you call Marta yet?",
+                    "uk": "Ти вже зателефонував Марті?"
+                  }
+                ],
+                "source_refs": [
+                  "CAM-USUK",
+                  "CAM-BLOG"
+                ]
+              }
+            },
+            {
+              "id": "perfect-real-errors",
+              "title": "Перевір будову й часові межі",
+              "paragraphs_uk": [
+                "She has wrote the note. → She has written the note. Після has потрібна V3.",
+                "Did she wrote the note? → Did she write the note? Після did потрібна V1.",
+                "I have checked it yesterday. → I checked it yesterday. Тут yesterday датує саме перевірку завершеним минулим днем; не плутай це із since yesterday — «від учора»."
+              ],
+              "examples": [],
+              "kind": "warning"
+            }
+          ],
+          "source_refs": [
+            "CAM-PPPS",
+            "CAM-PP",
+            "CAM-USUK",
+            "CAM-BLOG"
+          ]
+        },
+        {
+          "id": "perfect-summary",
+          "title": "6. Алгоритм вибору",
+          "points": [
+            {
+              "id": "perfect-check",
+              "title": "Спочатку часовий зміст",
+              "paragraphs_uk": [
+                "Знайди часову рамку: окремий завершений минулий епізод чи період до зараз.",
+                "Перевір, чи йдеться про досвід, готовий результат або стан, який продовжується.",
+                "Відділи слова-підказки від значення всього речення. Today, for або ever не дають універсальної відповіді самі по собі.",
+                "Побудуй форму: V2 або did + V1 для Past Simple; have / has + V3 для Present Perfect. Не втрачай дату, тривалість чи продовження стану."
+              ],
+              "examples": [],
+              "kind": "normal"
+            }
+          ],
+          "source_refs": [
+            "CAM-PPPS",
+            "CAM-PP",
+            "CAM-USUK",
+            "CAM-BLOG"
+          ]
+        }
+      ],
+      "related": [
+        {
+          "label": "Present Perfect",
+          "path": "/theory/present-perfect"
+        },
+        {
+          "label": "Past Simple",
+          "path": "/theory/past-simple"
+        },
+        {
+          "label": "Present Perfect vs Present Perfect Continuous",
+          "path": "/theory/tenses/present-perfect-vs-present-perfect-continuous"
+        }
+      ],
+      "practice": [
+        {
+          "id": "perfect-q1",
+          "title": "До зараз і вчора",
+          "prompt_uk": "Для підсумку до тепер використай Present Perfect. Для події вчора — Past Simple.",
+          "context_uk": "",
+          "scoring": "all_required_controls",
+          "controls": [
+            {
+              "id": "perfect-q1a",
+              "kind": "select",
+              "label_uk": "Підсумок від початку дня до зараз",
+              "options": [
+                {
+                  "value": "0",
+                  "label": "have checked"
+                },
+                {
+                  "value": "1",
+                  "label": "checked"
+                }
+              ],
+              "correct_value": "0",
+              "stimulus_en": "I ___ three addresses so far today.",
+              "required": true
+            },
+            {
+              "id": "perfect-q1b",
+              "kind": "select",
+              "label_uk": "Подія завершеного минулого дня",
+              "options": [
+                {
+                  "value": "0",
+                  "label": "have checked"
+                },
+                {
+                  "value": "1",
+                  "label": "checked"
+                }
+              ],
+              "correct_value": "1",
+              "stimulus_en": "I ___ your address yesterday.",
+              "required": true
+            }
+          ],
+          "feedback": {
+            "paragraphs_uk": [
+              "Перше речення прямо просить підсумок до зараз. Друге датує перевірку вчорашнім днем. Три адреси належать до першої ситуації; не переносимо цю кількість на другу."
+            ],
+            "answer_examples": [
+              {
+                "en": "I have checked three addresses so far today.",
+                "uk": "Я перевірив три адреси від початку дня до цього моменту."
+              },
+              {
+                "en": "I checked your address yesterday.",
+                "uk": "Я перевірив твою адресу вчора."
+              }
+            ]
+          },
+          "source_index": 1
+        },
+        {
+          "id": "perfect-q2",
+          "title": "Досвід і конкретний випадок",
+          "prompt_uk": "Побудуй питання про досвід до тепер у Present Perfect та відповідь про подію минулого літа в Past Simple.",
+          "context_uk": "",
+          "scoring": "all_required_controls",
+          "controls": [
+            {
+              "id": "perfect-q2a",
+              "kind": "manual",
+              "label_uk": "Ти коли-небудь подорожував поромом?",
+              "canonical_answer": "Have you ever travelled by ferry?",
+              "accepted_answers": [
+                "Have you ever travelled by ferry?",
+                "Have you ever traveled by ferry?"
+              ],
+              "tokens": [
+                "Have you",
+                "ever travelled",
+                "by ferry?"
+              ],
+              "required": true
+            },
+            {
+              "id": "perfect-q2b",
+              "kind": "manual",
+              "label_uk": "Я подорожував поромом минулого літа.",
+              "canonical_answer": "I travelled by ferry last summer.",
+              "accepted_answers": [
+                "I travelled by ferry last summer.",
+                "I traveled by ferry last summer."
+              ],
+              "tokens": [
+                "I",
+                "travelled",
+                "by ferry",
+                "last summer."
+              ],
+              "required": true
+            }
+          ],
+          "feedback": {
+            "paragraphs_uk": [
+              "Перше питання охоплює досвід до тепер. Відповідь називає завершений минулий період. Написання travelled і traveled приймаються; це не зміна часу."
+            ],
+            "answer_examples": [
+              {
+                "en": "Have you ever travelled by ferry?",
+                "uk": "Ти коли-небудь подорожував поромом?"
+              },
+              {
+                "en": "I travelled by ferry last summer.",
+                "uk": "Я подорожував поромом минулого літа."
+              }
+            ]
+          },
+          "source_index": 2
+        },
+        {
+          "id": "perfect-q3",
+          "title": "Результат зараз не скасовує yesterday",
+          "prompt_uk": "Прочитай речення: «I lost my pass yesterday, and I still haven’t found it.» Яке пояснення правильне?",
+          "context_uk": "",
+          "scoring": "all_required_controls",
+          "controls": [
+            {
+              "id": "perfect-q3a",
+              "kind": "choice",
+              "label_uk": "Вибір пояснення",
+              "options": [
+                {
+                  "value": "0",
+                  "label": "Past Simple датує втрату вчора; перепустка досі не знайдена."
+                },
+                {
+                  "value": "1",
+                  "label": "Past Simple означає, що перепустку вже знайшли."
+                },
+                {
+                  "value": "2",
+                  "label": "Через теперішній наслідок yesterday потрібно прибрати."
+                }
+              ],
+              "correct_value": "0",
+              "required": true
+            }
+          ],
+          "feedback": {
+            "paragraphs_uk": [
+              "Час втрати й теперішній стан — окремі частини повідомлення. Речення прямо зберігає наслідок зараз і водночас називає минулу дату. Знайдення перепустки не відбулося за наданим текстом."
+            ],
+            "answer_examples": [
+              {
+                "en": "I lost my pass yesterday, and I still haven’t found it.",
+                "uk": "Я загубив перепустку вчора й досі її не знайшов."
+              }
+            ]
+          },
+          "source_index": 3
+        },
+        {
+          "id": "perfect-q4",
+          "title": "V1, V2 або V3?",
+          "prompt_uk": "Виправ дві форми, зберігши значення речень: «She has wrote the note.» та «Did she wrote the note yesterday?»",
+          "context_uk": "",
+          "scoring": "all_required_controls",
+          "controls": [
+            {
+              "id": "perfect-q4a",
+              "kind": "manual",
+              "label_uk": "Результат",
+              "canonical_answer": "She has written the note.",
+              "accepted_answers": [
+                "She has written the note."
+              ],
+              "tokens": [
+                "She",
+                "has written",
+                "the note."
+              ],
+              "required": true
+            },
+            {
+              "id": "perfect-q4b",
+              "kind": "manual",
+              "label_uk": "Питання про вчора",
+              "canonical_answer": "Did she write the note yesterday?",
+              "accepted_answers": [
+                "Did she write the note yesterday?"
+              ],
+              "tokens": [
+                "Did she",
+                "write",
+                "the note",
+                "yesterday?"
+              ],
+              "required": true
+            }
+          ],
+          "feedback": {
+            "paragraphs_uk": [
+              "Written — V3 після has. Write — V1 після did. Друге речення залишається запитанням: не додаємо твердження, що вона справді написала записку вчора."
+            ],
+            "answer_examples": [
+              {
+                "en": "She has written the note.",
+                "uk": "Вона написала записку."
+              },
+              {
+                "en": "Did she write the note yesterday?",
+                "uk": "Вона написала записку вчора?"
+              }
+            ]
+          },
+          "source_index": 4
+        },
+        {
+          "id": "perfect-q5",
+          "title": "Жили й переїхали — чи досі живемо?",
+          "prompt_uk": "Зістав речення з двома прямо заданими ситуаціями.",
+          "context_uk": "",
+          "scoring": "all_required_controls",
+          "controls": [
+            {
+              "id": "perfect-q5a",
+              "kind": "choice",
+              "label_uk": "Живемо тут три роки й досі залишаємося тут.",
+              "options": [
+                {
+                  "value": "0",
+                  "label": "We have lived here for three years."
+                },
+                {
+                  "value": "1",
+                  "label": "We lived there for three years, and then we moved."
+                }
+              ],
+              "correct_value": "0",
+              "required": true
+            },
+            {
+              "id": "perfect-q5b",
+              "kind": "choice",
+              "label_uk": "Прожили там три роки, потім переїхали.",
+              "options": [
+                {
+                  "value": "0",
+                  "label": "We have lived here for three years."
+                },
+                {
+                  "value": "1",
+                  "label": "We lived there for three years, and then we moved."
+                }
+              ],
+              "correct_value": "1",
+              "required": true
+            }
+          ],
+          "feedback": {
+            "paragraphs_uk": [
+              "For three years називає однакову тривалість, але часові рамки різні. Продовження стану в першій ситуації й переїзд у другій задані прямо."
+            ],
+            "answer_examples": [
+              {
+                "en": "We have lived here for three years.",
+                "uk": "Ми живемо тут три роки."
+              },
+              {
+                "en": "We lived there for three years, and then we moved.",
+                "uk": "Ми прожили там три роки, а потім переїхали."
+              }
+            ]
+          },
+          "source_index": 5
+        },
+        {
+          "id": "perfect-q6",
+          "title": "Новина та подробиця",
+          "prompt_uk": "Форма вже надіслана. Ти надіслав її сьогодні о дев’ятій. Побудуй два речення: спочатку Present Perfect для результату, потім Past Simple для точного часу.",
+          "context_uk": "",
+          "scoring": "all_required_controls",
+          "controls": [
+            {
+              "id": "perfect-q6a",
+              "kind": "manual",
+              "label_uk": "Я надіслав форму.",
+              "canonical_answer": "I have sent the form.",
+              "accepted_answers": [
+                "I have sent the form.",
+                "I've sent the form."
+              ],
+              "tokens": [
+                "I",
+                "have sent",
+                "the form."
+              ],
+              "required": true
+            },
+            {
+              "id": "perfect-q6b",
+              "kind": "manual",
+              "label_uk": "Я надіслав її сьогодні о дев’ятій.",
+              "canonical_answer": "I sent it at nine this morning.",
+              "accepted_answers": [
+                "I sent it at nine this morning."
+              ],
+              "tokens": [
+                "I",
+                "sent it",
+                "at nine",
+                "this morning."
+              ],
+              "required": true
+            }
+          ],
+          "feedback": {
+            "paragraphs_uk": [
+              "Два речення описують одну подію. Have sent вводить готовий результат, sent it at nine датує його. Today не змушує перетворювати конкретну ранкову подію на Present Perfect."
+            ],
+            "answer_examples": [
+              {
+                "en": "I have sent the form. I sent it at nine this morning.",
+                "uk": "Я надіслав форму. Я надіслав її сьогодні о дев’ятій."
+              }
+            ]
+          },
+          "source_index": 6
+        }
+      ],
+      "preserve": {
+        "page_title": "Present Perfect vs Past Simple",
+        "locale": "uk",
+        "category_ancestry": [
+          "tenses"
+        ],
+        "slug": "present-perfect-vs-past-simple",
+        "existing_related_links": "preserve and append only listed relevant links after resolver verification",
+        "bank_and_progress": "read-only; no bank question rewrite"
+      },
+      "source_refs": [
+        "CAM-PPPS",
+        "CAM-PP",
+        "CAM-USUK",
+        "CAM-BLOG"
+      ],
+      "practice_policy": {
+        "source": "new author exercises in this master; not existing Mixed bank questions",
+        "no_forced_2_2_2": true,
+        "compound": "all controls required; each task yields at most one point",
+        "options": "answer-only",
+        "display_casing": "natural",
+        "no_js": "prompts, tokens and native answer disclosures readable",
+        "linked_widget": "reuse exact current own-bank mapping only after read-only local inventory; never guess a 48 count"
+      }
+    }
+  ]
+}
