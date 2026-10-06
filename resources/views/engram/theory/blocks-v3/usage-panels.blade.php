@@ -38,17 +38,17 @@
                         @if(!empty($section['label']))
                             <div class="flex items-center gap-2 mb-3">
                                 <span class="flex h-5 w-5 items-center justify-center rounded-full {{ $colorStyles['badge'] }} text-white text-[10px] font-bold">
-                                    {{ $index + 1 }}
+                                    {{ $m41PointNumber ?? ($index + 1) }}
                                 </span>
-                                <span class="text-xs font-bold uppercase tracking-wider {{ $colorStyles['text'] }}">
+                                @if($m41NativePiece ?? false)<h3 class="text-xs font-bold uppercase tracking-wider {{ $colorStyles['text'] }}">@else<span class="text-xs font-bold uppercase tracking-wider {{ $colorStyles['text'] }}">@endif
                                     {{ $section['label'] }}
-                                </span>
+                                @if($m41NativePiece ?? false)</h3>@else</span>@endif
                             </div>
                         @endif
 
                         {{-- Description --}}
                         @if(!empty($section['description']))
-                            @if(isset($data['m27_v1']) || (isset($data['m28_v1']) || (isset($data['m29_v1']) || (isset($data['m30_v1']) || (isset($data['m31_v1']) || (isset($data['m32_v1']) || (isset($data['m33_v1']) || (isset($data['m34_v1']) || (isset($data['m35_v1']) || (isset($data['m36_v1']) || (isset($data['m37_v1']) || (isset($data['m38_v1']) || isset($data['m39_v1'])))))))))))))
+                            @if(($m41NativePiece ?? false) || isset($data['m27_v1']) || (isset($data['m28_v1']) || (isset($data['m29_v1']) || (isset($data['m30_v1']) || (isset($data['m31_v1']) || (isset($data['m32_v1']) || (isset($data['m33_v1']) || (isset($data['m34_v1']) || (isset($data['m35_v1']) || (isset($data['m36_v1']) || (isset($data['m37_v1']) || (isset($data['m38_v1']) || isset($data['m39_v1'])))))))))))))
                             <div class="text-sm text-foreground/80 leading-relaxed mb-4">{!! $section['description'] !!}</div>
                             @else
                             <p class="text-sm text-foreground/80 leading-relaxed mb-4">
@@ -64,11 +64,11 @@
                                     <div class="theory-example flex items-start gap-3 rounded-lg bg-white/60 border border-white/80 p-3">
                                         <span class="flex-shrink-0 text-lg">💬</span>
                                         <div class="min-w-0 flex-1">
-                                            <p class="font-mono text-xs font-medium text-foreground">
+                                            <p @if($m41NativePiece ?? false) lang="en" @endif class="font-mono text-xs font-medium text-foreground">
                                                 {{ \App\Support\TheoryInlineHtml::render($example['en'] ?? '') }}
                                             </p>
                                             @if(!empty($example['ua']))
-                                                <p class="theory-translation text-xs text-muted-foreground mt-0.5 italic">
+                                                <p @if($m41NativePiece ?? false) lang="uk" @endif class="theory-translation text-xs text-muted-foreground mt-0.5 italic">
                                                     {{ \App\Support\TheoryInlineHtml::render($example['ua']) }}
                                                 </p>
                                             @endif

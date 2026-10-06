@@ -90,8 +90,19 @@ class M41AuthoredTenseComparisonsPackageTest extends TestCase
                 self::assertSame($expected, $xp->query('//details')->length);
                 self::assertSame(0, $xp->query('//details[@open]')->length);
                 if (isset($data['author_section']['table'])) {
-                    self::assertSame(1, $xp->query('//table')->length);
+                    // The unchanged author table is projected once into the
+                    // existing six native form cards, not a duplicate table.
+                    self::assertSame(0, $xp->query('//table')->length);
+                    self::assertSame(6, $xp->query('//*[@data-m41-form-cell]')->length);
                     foreach ($data['author_section']['table']['columns'] as $column) { self::assertStringContainsString($column, $text); }
+                    foreach ($data['author_section']['table']['rows'] as $rowIndex => $row) {
+                        self::assertStringContainsString($row[0], $text);
+                        foreach ([1, 2] as $columnIndex) {
+                            $cell = $xp->query('//*[@data-m41-form-cell="'.$rowIndex.'-'.$columnIndex.'"]');
+                            self::assertSame(1, $cell->length);
+                            foreach (explode("\n", $row[$columnIndex]) as $line) { self::assertStringContainsString($line, $cell->item(0)->textContent); }
+                        }
+                    }
                 }
             }
             $totals[] = $detailCount;

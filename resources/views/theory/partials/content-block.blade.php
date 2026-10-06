@@ -63,7 +63,11 @@
     @endphp
     @if($m27 !== null && isset($decodedBody['m41_v1']) && $decodedBody['m41_v1']['role'] === 'section')
         {{-- Outside the preliminary render: @once must not be consumed by discarded validation HTML. --}}
-        @include('engram.theory.blocks-v3.m41-section-styles')
+        @if(isset($m27['data']['m41_existing_design']))
+            @include('engram.theory.blocks-v3.m41-existing-design-styles')
+        @else
+            @include('engram.theory.blocks-v3.m41-section-styles')
+        @endif
     @endif
     @if($m27 !== null && ($m27['legacy_section'] ?? null) !== null)
         @php($legacyBlockId = isset($m27['legacy_block_uuid'])

@@ -1,3 +1,6 @@
+@if($m41NativeMistake ?? false)
+    @include('engram.theory.blocks-v3.m41-native-mistakes')
+@else
 @php($data = $data ?? json_decode($block->body ?? '[]', true) ?? [])
 @php($items = $data['items'] ?? [])
 
@@ -81,3 +84,4 @@
         </div>
     </div>
 </section>
+@endif

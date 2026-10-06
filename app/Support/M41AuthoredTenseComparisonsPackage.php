@@ -200,8 +200,11 @@ final class M41AuthoredTenseComparisonsPackage
                             ['id' => 'block-'.$key.'-detail', 'type' => 'm41-author-html', 'value' => $point['detail_html']],
                         ]];
                     }
-                    return ['data' => $basic, 'points' => $points, 'legacy_section' => null, 'legacy_practice_id' => null,
+                    $presentation = ['data' => $basic, 'points' => $points, 'legacy_section' => null, 'legacy_practice_id' => null,
                         'native_view' => $plan['role'] === 'section' ? 'engram.theory.blocks-v3.m41-author-section' : null];
+                    return $plan['role'] === 'section'
+                        ? (M41ExistingDesignPackage::decorate($block, $data, $presentation) ?? $presentation)
+                        : $presentation;
                 }
             }
         } catch (\Throwable) { /* Full stored author basic, detail, tables and keys remain readable. */ }

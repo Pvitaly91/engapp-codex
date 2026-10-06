@@ -9,7 +9,7 @@
 
         <div class="theory-section-body p-5">
             @if(!empty($data['intro']))
-                <p class="text-sm text-muted-foreground mb-5 leading-relaxed">{!! $data['intro'] !!}</p>
+                @if($m41NativePiece ?? false)<div class="text-sm text-muted-foreground mb-5 leading-relaxed">{!! $data['intro'] !!}</div>@else<p class="text-sm text-muted-foreground mb-5 leading-relaxed">{!! $data['intro'] !!}</p>@endif
             @endif
 
             @if((isset($data['m28_v1']) || (isset($data['m29_v1']) || (isset($data['m30_v1']) || (isset($data['m31_v1']) || (isset($data['m32_v1']) || (isset($data['m33_v1']) || (isset($data['m34_v1']) || (isset($data['m35_v1']) || (isset($data['m36_v1']) || (isset($data['m37_v1']) || (isset($data['m38_v1']) || isset($data['m39_v1'])))))))))))) && !empty($data['sections']))
@@ -23,7 +23,7 @@
                 </div>
             @endif
             {{-- Table View --}}
-            <div class="theory-table-scroll overflow-x-auto" @if(isset($data['m27_v1']) || (isset($data['m28_v1']) || (isset($data['m29_v1']) || (isset($data['m30_v1']) || (isset($data['m31_v1']) || (isset($data['m32_v1']) || (isset($data['m33_v1']) || (isset($data['m34_v1']) || (isset($data['m35_v1']) || (isset($data['m36_v1']) || (isset($data['m37_v1']) || (isset($data['m38_v1']) || isset($data['m39_v1']))))))))))))) tabindex="0" role="region" aria-label="{{ $data['title'] }}" @endif>
+            <div class="theory-table-scroll overflow-x-auto" @if($m41NativePiece ?? false) tabindex="0" role="region" aria-label="{{ $data['title'] }}" @endif @if(isset($data['m27_v1']) || (isset($data['m28_v1']) || (isset($data['m29_v1']) || (isset($data['m30_v1']) || (isset($data['m31_v1']) || (isset($data['m32_v1']) || (isset($data['m33_v1']) || (isset($data['m34_v1']) || (isset($data['m35_v1']) || (isset($data['m36_v1']) || (isset($data['m37_v1']) || (isset($data['m38_v1']) || isset($data['m39_v1']))))))))))))) tabindex="0" role="region" aria-label="{{ $data['title'] }}" @endif>
                 <table class="w-full text-sm" @if((isset($data['m33_v1']) || (isset($data['m34_v1']) || (isset($data['m35_v1']) || (isset($data['m36_v1']) || (isset($data['m37_v1']) || (isset($data['m38_v1']) || isset($data['m39_v1']))))))) && isset($data['table_min_width'])) style="min-width: {{ (int) $data['table_min_width'] }}px" @endif>
                     <thead>
                         <tr class="border-b border-border">
@@ -32,7 +32,9 @@
                             @else
                             <th class="text-left py-3 px-4 text-xs font-bold uppercase tracking-wider text-muted-foreground">{{ __('theory_blocks.comparison_table.english_sentence') }}</th>
                             <th class="text-left py-3 px-4 text-xs font-bold uppercase tracking-wider text-muted-foreground">{{ __('theory_blocks.comparison_table.translation') }}</th>
+                            @unless($m41NativePiece ?? false)
                             <th class="text-left py-3 px-4 text-xs font-bold uppercase tracking-wider text-muted-foreground">{{ __('theory_blocks.comparison_table.forms_notes') }}</th>
+                            @endunless
                             @endif
                         </tr>
                     </thead>
@@ -43,19 +45,21 @@
                                     @foreach($row['cells'] as $cell)<td class="py-3 px-4 text-sm leading-relaxed">{!! $cell !!}</td>@endforeach
                                 @else
                                 <td class="py-3 px-4">
-                                    <code class="theory-example font-mono text-sm font-semibold text-foreground">
+                                    <code @if($m41NativePiece ?? false) lang="en" @endif class="theory-example font-mono text-sm font-semibold text-foreground">
                                         {{ \App\Support\TheoryInlineHtml::render($row['en'] ?? '') }}
                                     </code>
                                 </td>
-                                <td class="theory-translation py-3 px-4 text-muted-foreground">
+                                <td @if($m41NativePiece ?? false) lang="uk" @endif class="theory-translation py-3 px-4 text-muted-foreground">
                                     {{ \App\Support\TheoryInlineHtml::render($row['ua'] ?? '') }}
                                 </td>
+                                @unless($m41NativePiece ?? false)
                                 <td class="py-3 px-4">
                                     <span class="text-sm text-foreground/70">
                                         {!! $row['note'] ?? '' !!}
                                     </span>
                                     @include('theory.partials.point-disclosure', ['index' => $index])
                                 </td>
+                                @endunless
                                 @endif
                             </tr>
                         @endforeach

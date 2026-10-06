@@ -28,7 +28,7 @@
                     @if($itemUrl)
                         <a href="{{ $itemUrl }}" class="{{ $cardClass }} block">
                     @else
-                        <div class="{{ $cardClass }}">
+                        <div class="{{ $cardClass }}" @if(($m41NativePiece ?? false) && isset($item['m41_form_cell'])) data-m41-form-cell="{{ $item['m41_form_cell'] }}" @endif>
                     @endif
                         <div class="pr-7">
                             @if(!empty($item['label']))
@@ -37,16 +37,22 @@
                                 </span>
                             @endif
 
-                            <h3 class="text-base font-bold text-foreground mb-1">
+                            @if(!($m41NativePiece ?? false) || !empty($item['title']))
+                            <h3 class="text-base font-bold text-foreground mb-1" @if(($m41NativePiece ?? false) && isset($item['m41_form_cell'])) data-m41-form-en lang="en" @endif>
                                 {{ $item['title'] ?? '' }}
                             </h3>
+                            @endif
 
                             @if(!empty($item['subtitle']))
-                                <p class="text-sm text-muted-foreground">
+                                <p class="text-sm text-muted-foreground" @if(($m41NativePiece ?? false) && isset($item['m41_form_cell'])) data-m41-form-uk lang="uk" @endif>
                                     {{ \App\Support\TheoryInlineHtml::render($item['subtitle']) }}
                                 </p>
                             @endif
                         </div>
+
+                        @if(($m41NativePiece ?? false) && !empty($item['m41_description']))
+                            <div class="text-sm leading-relaxed m41-form-description">{!! $item['m41_description'] !!}</div>
+                        @endif
 
                         @if(!empty($rules))
                             <div class="mt-4 space-y-2.5">
