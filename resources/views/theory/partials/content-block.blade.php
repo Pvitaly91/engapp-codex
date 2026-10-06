@@ -12,7 +12,8 @@
         <div data-theory-render-fallback="invalid-native-data">
     @endif
     @php
-        $m27 = is_array($decodedBody) ? (\App\Support\M39PracticeUiPackage::presentation($block, $decodedBody)
+        $m27 = is_array($decodedBody) ? (\App\Support\M40TensesB1Package::presentation($block, $decodedBody)
+            ?? \App\Support\M39PracticeUiPackage::presentation($block, $decodedBody)
             ?? \App\Support\M39AuthoredRevisionPackage::presentation($block, $decodedBody)
             ?? \App\Support\M38ArticlesCollocationsPackage::presentation($block, $decodedBody)
             ?? \App\Support\M37GrammarStructuresPackage::presentation($block, $decodedBody)
@@ -58,7 +59,9 @@
         }
     @endphp
     @if($m27 !== null)
-        @php($legacyBlockId = $block->page?->textBlocks?->first(fn ($b) => (int) $b->sort_order === 2 && $b->locale === 'uk')?->id)
+        @php($legacyBlockId = isset($m27['legacy_block_uuid'])
+            ? $block->page?->textBlocks?->first(fn ($b) => $b->uuid === $m27['legacy_block_uuid'] && $b->locale === 'uk')?->id
+            : $block->page?->textBlocks?->first(fn ($b) => (int) $b->sort_order === 2 && $b->locale === 'uk')?->id)
         @if($legacyBlockId)<span id="lesson-block-{{ $legacyBlockId }}-section-{{ $m27['legacy_section'] }}" class="theory-subtitle-anchor" aria-hidden="true"></span>@endif
         @if($m27['legacy_practice_id'])<span id="{{ $m27['legacy_practice_id'] }}" class="theory-subtitle-anchor" aria-hidden="true"></span>@endif
     @endif

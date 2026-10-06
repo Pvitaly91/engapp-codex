@@ -8,6 +8,9 @@
         @endif
 
         <div class="theory-section-body p-5 space-y-4">
+            @if(isset($data['m40_v1']) && !empty($data['intro']))
+                <div class="text-sm text-muted-foreground leading-relaxed">{!! $data['intro'] !!}</div>
+            @endif
             @if((isset($data['m27_v1']) || (isset($data['m28_v1']) || (isset($data['m29_v1']) || (isset($data['m30_v1']) || (isset($data['m31_v1']) || (isset($data['m32_v1']) || (isset($data['m33_v1']) || (isset($data['m34_v1']) || (isset($data['m35_v1']) || (isset($data['m36_v1']) || (isset($data['m37_v1']) || (isset($data['m38_v1']) || isset($data['m39_v1']))))))))))))) && !empty($data['intro']))
                 @if((isset($data['m29_v1']) || (isset($data['m30_v1']) || (isset($data['m31_v1']) || (isset($data['m32_v1']) || (isset($data['m33_v1']) || (isset($data['m34_v1']) || (isset($data['m35_v1']) || (isset($data['m36_v1']) || (isset($data['m37_v1']) || (isset($data['m38_v1']) || isset($data['m39_v1']))))))))))))
                 <div class="text-sm text-muted-foreground leading-relaxed">{!! $data['intro'] !!}</div>

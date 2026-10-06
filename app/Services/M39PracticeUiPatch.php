@@ -35,12 +35,13 @@ class M39PracticeUiPatch extends M26ContentPatch
             'app/Services/M39ContentPatch.php', 'app/Services/M39LocalTargetGuard.php', 'app/Services/M11LocalTargetGuard.php',
             'app/Console/Commands/PatchM39PracticeUi.php',
             'tools/diagnostics/run-m39-practice-ui-working-local.php', 'tools/diagnostics/project-m39-practice-ui.php',
-            'tools/diagnostics/m39-practice-ui-projection.php', 'public/js/m39-practice-ui.js',
+            'tools/diagnostics/m39-practice-ui-projection.php', 'public/js/m39-practice-ui.js', 'public/js/authored-practice-ui.js',
             'tools/diagnostics/inspect-m11-local-target.ps1',
             'docs/content/m23-authored-content.v1.json', 'docs/content/m23-author-sources.md',
             'resources/views/theory/partials/content-block.blade.php',
             'resources/views/engram/theory/blocks-v3/practice-set.blade.php',
-            'resources/views/engram/theory/blocks-v3/m39-practice-ui.blade.php'] as $path) {
+            'resources/views/engram/theory/blocks-v3/m39-practice-ui.blade.php',
+            'resources/views/engram/theory/blocks-v3/authored-practice-ui.blade.php'] as $path) {
             if (!is_file($root.'/'.$path) || is_link($root.'/'.$path)) { throw new RuntimeException('M39 UI source missing or linked: '.$path); }
             $plan['sources'][$path] = hash_file('sha256', $root.'/'.$path);
         }

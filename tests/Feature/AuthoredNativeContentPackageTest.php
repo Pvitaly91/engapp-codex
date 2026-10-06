@@ -9,6 +9,7 @@ use App\Services\TheoryCourseManifestService;
 use App\Support\Database\JsonPageSeeder;
 use App\Support\PageMetadata;
 use App\Support\M24NativeTitleNumber;
+use App\Support\M40TensesB1Package;
 use App\Support\TextBlock\TextBlockUuidGenerator;
 use App\Support\TheoryPageTestSlug;
 use App\Support\TheoryRichContent;
@@ -46,8 +47,20 @@ class AuthoredNativeContentPackageTest extends TestCase
     private function master(string $key): array
     {
         $path = base_path('docs/content/m24-authored-content.v1.json');
-        self::assertSame('33373412ed077bf7fa0aea8dde8a6d2c211c126288b6cedfdde299ded43bf5a2', hash_file('sha256', $path));
-        return collect(json_decode(file_get_contents($path), true, flags: JSON_THROW_ON_ERROR)['lessons'])->firstWhere('key', $key);
+        $bytes = str_replace("\r\n", "\n", file_get_contents($path));
+        self::assertSame('33373412ed077bf7fa0aea8dde8a6d2c211c126288b6cedfdde299ded43bf5a2', hash('sha256', $bytes));
+        self::assertSame('2d7c450533795bdab3267bd029b54fb325ff7cbb', sha1('blob '.strlen($bytes)."\0".$bytes));
+        return collect(json_decode($bytes, true, flags: JSON_THROW_ON_ERROR)['lessons'])->firstWhere('key', $key);
+    }
+
+    private function acceptedM24Definition(array $lesson, string $name): array
+    {
+        [$before, $projection] = M40TensesB1Package::load(); M40TensesB1Package::validate($before, $projection);
+        $target = collect($projection['targets'])->firstWhere('identity', $lesson['seeder']);
+        $original = collect($before['targets'])->firstWhere('path', $target['path'])['before'];
+        self::assertSame('database/seeders/Page_V3/'.$name.'/definition.json', $target['path']);
+        self::assertSame($target['after'], json_decode(file_get_contents(base_path($target['path'])), true, flags: JSON_THROW_ON_ERROR));
+        return $original;
     }
 
     private function dom(string $html): DOMXPath
@@ -79,7 +92,7 @@ class AuthoredNativeContentPackageTest extends TestCase
     public function test_author_master_maps_to_native_blocks_and_only_one_new_box(string $key, string $name): void
     {
         $lesson = $this->master($key);
-        $source = json_decode(file_get_contents(database_path('seeders/Page_V3/'.$name.'/definition.json')), true, flags: JSON_THROW_ON_ERROR);
+        $source = $this->acceptedM24Definition($lesson, $name);
         $manifest = json_decode(file_get_contents(database_path('content-patches/m24-authored-native-before.json')), true, flags: JSON_THROW_ON_ERROR);
         $before = $manifest['definitions'][$lesson['seeder']];
         self::assertSame($lesson['seeder'], $source['seeder']['class']);
@@ -126,13 +139,13 @@ class AuthoredNativeContentPackageTest extends TestCase
     public function test_isolated_seeder_layout_uuid_h1_routes_and_banks(string $key, string $name): void
     {
         $lesson = $this->master($key);
-        $path = database_path('seeders/Page_V3/'.$name.'/definition.json');
+        $source = $this->acceptedM24Definition($lesson, $name);
         // Fixture only: the working DB never runs this destructive full seeder.
-        (new class($path) extends JsonPageSeeder
+        (new class extends JsonPageSeeder
         {
-            public function __construct(private readonly string $path) {}
-            protected function definitionPath(): string { return $this->path; }
-        })->run();
+            protected function definitionPath(): string { return ''; }
+            public function fixture(array $source): void { $this->seedDefinition($source, $this->resolveSeederClassName($source)); }
+        })->fixture($source);
         $page = Page::with('category', 'textBlocks')->where('seeder', $lesson['seeder'])->sole();
         $controller = (new \ReflectionClass(PageController::class))->newInstanceWithoutConstructor();
         $extract = new \ReflectionMethod($controller, 'extractLocalizedTitleFromSubtitle');

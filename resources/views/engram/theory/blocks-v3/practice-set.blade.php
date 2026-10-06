@@ -1,4 +1,19 @@
-@if(isset($data['m39_practice_ui_v1']) && \App\Support\M39PracticeUiPackage::presentation($block, $data) !== null)
+@if(isset($data['m40_v1']) && \App\Support\M40TensesB1Package::presentation($block, $data) !== null)
+    @include('engram.theory.blocks-v3.m40-practice-ui')
+@elseif(isset($data['m40_v1']))
+    <section id="block-{{ $block->id }}" class="theory-section-card theory-section-body" data-theory-render-fallback="m40-practice-identity">
+        <x-theory-native-header :title="$data['title'] ?? ''" :level="$block->level ?? null" />
+        <div>{!! $data['author_self_check']['intro'] ?? '' !!}</div>
+        @foreach($data['author_self_check']['prompts'] ?? [] as $i => $prompt)
+            <article class="theory-item rounded-xl p-4 bg-muted/50">
+                {!! $prompt !!}
+                <details><summary>{{ $data['author_self_check']['title'] ?? 'Авторський ключ' }}</summary>
+                    {!! $data['author_self_check']['answers'][$i] ?? '' !!}
+                </details>
+            </article>
+        @endforeach
+    </section>
+@elseif(isset($data['m39_practice_ui_v1']) && \App\Support\M39PracticeUiPackage::presentation($block, $data) !== null)
     @include('engram.theory.blocks-v3.m39-practice-ui')
 @elseif(isset($data['m39_practice_ui_v1']))
     <section id="block-{{ $block->id }}" class="theory-section-card theory-section-body" data-theory-render-fallback="m39-practice-ui-identity">

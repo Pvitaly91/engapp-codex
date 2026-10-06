@@ -17,7 +17,9 @@ const targets = snapshot.targets.map((target, index) => ({...target,
     slug: target.after.slug, path: master.lessons[index].theory_path,
     data: JSON.parse(target.after.page.blocks.find(block => block.type === 'practice-set').body)}));
 const sourceHashes = () => Object.fromEntries(['database/content-patches/m39-practice-ui.v1.json',
-    'public/js/m39-practice-ui.js', 'resources/views/engram/theory/blocks-v3/m39-practice-ui.blade.php']
+    'public/js/authored-practice-ui.js', 'public/js/m39-practice-ui.js',
+    'resources/views/engram/theory/blocks-v3/authored-practice-ui.blade.php',
+    'resources/views/engram/theory/blocks-v3/m39-practice-ui.blade.php']
     .map(file => [file, sha(fs.readFileSync(path.join(ROOT, file)))]));
 const answerFragments = {
     'n1-form': ['is', 'are'], 'n1-head': ['expansion', 'rooms'],
@@ -377,4 +379,5 @@ async function run(dir, label, mode, beforeLabel) {
     console.log(JSON.stringify({pass: report.pass, mode, pages: report.rows.length, caseStates: report.caseStates}));
 }
 if (require.main === module) run(...process.argv.slice(2)).catch(error => {console.error(error.stack || error); process.exitCode = 1;});
-module.exports = {targets, uiData, assertOptionOnly, sourceHashes, verifyCase, run};
+module.exports = {targets, uiData, assertOptionOnly, sourceHashes, verifyCase, run,
+    acceptanceCase, pageReady, resetCase, fillCorrect, checkedState, measure};

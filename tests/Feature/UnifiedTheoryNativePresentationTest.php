@@ -2,6 +2,9 @@
 
 namespace Tests\Feature;
 
+use App\Models\TextBlock;
+use App\Support\M26DetailPackage;
+use App\Support\M40TensesB1Package;
 use DOMDocument;
 use DOMXPath;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -89,6 +92,25 @@ class UnifiedTheoryNativePresentationTest extends TestCase
                     continue;
                 }
                 $data = json_decode($item['body'], true, flags: JSON_THROW_ON_ERROR);
+                if ($item['type'] === 'practice-set' && isset($data['m40_v1'])) {
+                    [$before, $projection] = M40TensesB1Package::load(); M40TensesB1Package::validate($before, $projection);
+                    $target = collect($projection['targets'])->firstWhere('identity', $source['seeder']['class']);
+                    self::assertSame($target['after'], $source);
+                    $block = new TextBlock;
+                    $block->forceFill(['id' => $index + 1, 'uuid' => M26DetailPackage::uuid($target['identity'], $item, $index + 1),
+                        'seeder' => $target['identity'], 'locale' => 'uk', 'sort_order' => $index + 1, 'type' => 'practice-set',
+                        'level' => $item['level'] ?? null, 'body' => $item['body']]);
+                    $block->setRelation('tags', collect()); $block->setRelation('page', null);
+                    self::assertNotNull(M40TensesB1Package::presentation($block, $data));
+                    $html = view('theory.partials.content-block', ['block' => $block, 'practiceQuestions' => collect()])->render();
+                    $xpath = $this->dom($html);
+                    self::assertSame(6, $xpath->query('//details[@data-m40-ui-explanation]/summary')->length);
+                    self::assertSame(6, $xpath->query('//*[@data-m40-author-prompt]')->length);
+                    self::assertSame(0, $xpath->query('//*[@data-theory-disclosure]')->length, 'Author keys are not point-level teaching disclosures.');
+                    foreach ($data['author_self_check']['answers'] as $key) { self::assertStringContainsString($key, $html); }
+                    $count++;
+                    continue;
+                }
                 $block = (object) ['id' => $index + 1, 'uuid' => 'm25-native-'.$index, 'level' => null, 'tags' => collect(), 'body' => $item['body']];
                 $html = view('engram.theory.blocks-v3.'.$item['type'], ['block' => $block, 'data' => $data, 'practiceQuestions' => collect()])->render();
                 $xpath = $this->dom($html);

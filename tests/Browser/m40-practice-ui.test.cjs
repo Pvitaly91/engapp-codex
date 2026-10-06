@@ -6,25 +6,19 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 const {JSDOM} = require('jsdom');
-const {targets, assertOptionOnly} = require('../../tools/diagnostics/seo-m39-practice-ui.cjs');
+const {targets, assertOptionOnly} = require('../../tools/diagnostics/seo-m40-local.cjs');
 const ROOT = path.resolve(__dirname, '../..');
 const common = fs.readFileSync(path.join(ROOT, 'public/js/authored-practice-ui.js'), 'utf8');
-const javascript = fs.readFileSync(path.join(ROOT, 'public/js/m39-practice-ui.js'), 'utf8');
-const partial = fs.readFileSync(path.join(ROOT, 'resources/views/engram/theory/blocks-v3/m39-practice-ui.blade.php'), 'utf8');
 const commonPartial = fs.readFileSync(path.join(ROOT, 'resources/views/engram/theory/blocks-v3/authored-practice-ui.blade.php'), 'utf8');
+const javascript = fs.readFileSync(path.join(ROOT, 'public/js/m40-practice-ui.js'), 'utf8');
+const partial = fs.readFileSync(path.join(ROOT, 'resources/views/engram/theory/blocks-v3/m40-practice-ui.blade.php'), 'utf8');
 const scope = {EnglishAnswerVariants: require('./load-answer-variants.cjs')};
 vm.runInNewContext(common, scope); vm.runInNewContext(javascript, scope);
-const factory = scope.m39PracticeUi;
+const factory = scope.m40PracticeUi;
 const plain = value => JSON.parse(JSON.stringify(value));
-// Finite short response fragments, independently read from the original M23
+// Finite short response fragments, independently read from the original M24
 // questions/keys; this is semantic ownership, not an arbitrary payload limit.
-const expectedCandidates = {
-    'n1-form': ['is', 'are'], 'n1-head': ['expansion', 'rooms'],
-    'n3-equivalence': ['Ні.', 'Так.'],
-    'n3-added-facts': ['час уже скоротився', 'обслуговування поліпшилося', 'лише план'],
-    'c2-3-b': ['факт друку не заданий', 'надрукувала', 'не надрукувала'],
-    'c2-4-guaranteed': ['кожний непридатний', 'принаймні один непридатний', 'рівно один непридатний'],
-};
+const expectedCandidates = require('../../tools/diagnostics/seo-m40-local.cjs').answerFragments;
 function state(target) {return factory({cases: target.data.cases});}
 function correct(s, taskIndex) {
     s.cases[taskIndex].controls.forEach((control, p) => {
@@ -38,16 +32,16 @@ function locatorEvent(values, sourceIndex = 0) {
     return {event: {target: {getAttribute: () => values[sourceIndex].value,
         closest: () => ({querySelectorAll: () => buttons})}}, focused, sourceIndex};
 }
-test('Finite author ownership: 18 original cases, truthful interaction types and 23 controls', () => {
+test('Finite M24 ownership:18 cases,12 compound and32 controls 10select6choice16manual', () => {
     assert.equal(targets.length, 3);
-    const kinds = targets.flatMap(t => t.data.cases.flatMap(task => task.controls.map(c => c.kind)));
-    assert.equal(kinds.length, 23); assert.equal(kinds.filter(k => k === 'manual').length, 17);
-    assert.equal(kinds.filter(k => k === 'select').length, 1);
-    assert.equal(kinds.filter(k => k === 'choice').length, 4);
-    assert.equal(kinds.filter(k => k === 'multi').length, 1);
+    const tasks = targets.flatMap(t => t.data.cases);
+    const kinds = tasks.flatMap(task => task.controls.map(c => c.kind));
+    assert.equal(tasks.length, 18); assert.equal(tasks.filter(t => t.interaction === 'compound').length, 12);
+    assert.equal(kinds.length, 32); assert.equal(kinds.filter(k => k === 'manual').length, 16);
+    assert.equal(kinds.filter(k => k === 'select').length, 10);
+    assert.equal(kinds.filter(k => k === 'choice').length, 6); assert.equal(kinds.filter(k => k === 'multi').length, 0);
+    assert.deepEqual(targets.map(t => t.data.cases.reduce((n,c) => n+c.controls.length,0)), [10,9,13]);
     for (const t of targets) assert.deepEqual(t.data.cases.map(task => task.source_index), [1,2,3,4,5,6]);
-    assert.ok(targets[1].data.cases.every(task => task.interaction === 'manual'), 'Six C1 transformations stay manual');
-    assert.equal(targets[2].data.cases[0].interaction, 'manual'); assert.equal(targets[2].data.cases[1].interaction, 'manual');
 });
 for (const target of targets) {
     for (const [i, task] of target.data.cases.entries()) {
@@ -120,62 +114,65 @@ for (const target of targets) {
         s.reset(0); assert.equal(s.score, 5);
     });
 }
-test('Marta keeps needn’t/need not A and unknown execution B; no partial case passes', () => {
-    const target = targets[2], s = state(target), i = 2;
-    s.setAnswer(i, 0, 'Marta need not have printed a second timetable.'); assert.equal(s.partCorrect(i, 0), true);
-    assert.equal(s.isCorrect(i), false);
-    s.setAnswer(i, 1, 'факт друку не заданий'); assert.equal(s.isCorrect(i), true);
-    for (const value of ['надрукувала', 'не надрукувала']) {s.setAnswer(i, 1, value); assert.equal(s.isCorrect(i), false);}
-    s.setAnswer(i, 0, 'Marta didn’t need to print a second timetable.'); assert.equal(s.partCorrect(i, 0), false);
+for (const target of targets) for (const [i, task] of target.data.cases.entries()) if (task.controls.length > 1)
+    test(target.slug + ': compound ' + task.source_index + ' requires every subpart', () => {
+        const s = state(target); correct(s, i); assert.equal(s.isCorrect(i), true);
+        for (let p = 0; p < task.controls.length; p++) {
+            correct(s, i); s.setAnswer(i,p,''); s.check(i);
+            assert.equal(s.isCorrect(i), false); assert.equal(s.score,0);
+        }
+    });
+
+const sourceNegatives = [
+    [0,2,'have known','have been knowing'], [0,2,'Monday','Tuesday'],
+    [0,5,'the introduction','the third chapter'], [0,5,'two hours','three hours'],
+    [0,5,'have been translating','have translated'], [0,5,'not ready yet','ready now'],
+    [1,0,'unlocked the gate','had unlocked the gate'],
+    [1,0,'unlocked the gate, switched on the light','switched on the light, unlocked the gate'],
+    [1,2,'had already left','left after we arrived'],
+    [1,4,'Did she open','Did she opened'],
+    [1,5,'Someone','Olena'], [1,5,'was talking','had finished talking'],
+    [1,5,'before I arrived','after I arrived'], [1,5,'Then I opened','Before that I opened'],
+    [2,2,'if I was','if was I'], [2,2,'if I was','if I am'],
+    [2,3,'must be labelled','have been labelled'],
+    [2,4,'Marta, who lives nearby,','Marta who lives nearby'],
+    [2,4,'agreed to help','helped'],
+    [2,5,'had a bigger desk','have a bigger desk'],
+];
+for (const [owner,i,from,to] of sourceNegatives) test('Source semantic boundary: '+from+' → '+to, () => {
+    const target=targets[owner], s=state(target), control=target.data.cases[i].controls[0];
+    assert.ok(control.answer.includes(from)); s.setAnswer(i,0,control.answer.replace(from,to));
+    assert.equal(s.partCorrect(i,0),false);
 });
-test('Not all requires the guaranteed choice and the unknown distribution, not an exact-one fiction', () => {
-    const s = state(targets[2]), i = 3; correct(s, i); assert.equal(s.isCorrect(i), true);
-    s.setAnswer(i, 1, 'Рівно один зразок був непридатним.'); assert.equal(s.isCorrect(i), false);
-    s.setAnswer(i, 0, 'кожний непридатний'); assert.equal(s.partCorrect(i, 0), false);
+for (const [id,invalid] of [
+    ['m40-n5-guide','The guide had went home before I called.'],
+    ['m40-b3-instruction','She told me to open the parcel.'],
+    ['m40-b3-instruction','She told me not to opened the parcel.'],
+    ['m40-b4-passive','The boxes must be labelled.'],
+    ['m40-b4-causative','I repaired my bicycle yesterday.'],
+    ['m40-b4-causative',"I'd my bicycle repaired yesterday."],
+    ['m40-b5-although','Although it was late, but we continued.'],
+    ['m40-b6-conditional','We left earlier and caught the bus.'],
+    ['m40-b6-conditional','If we leave earlier, we will catch the bus.'],
+    ['m40-b6-might','Lena is in the reading room.'],
+    ['m40-b6-might','Lena must be in the reading room.'],
+]) test('Source required control '+id+' rejects '+invalid, () => {
+    const target=targets.find(t=>t.data.cases.some(c=>c.controls.some(p=>p.id===id)));
+    const i=target.data.cases.findIndex(c=>c.controls.some(p=>p.id===id));
+    const p=target.data.cases[i].controls.findIndex(c=>c.id===id), s=state(target);
+    s.setAnswer(i,p,invalid); assert.equal(s.partCorrect(i,p),false);
 });
-test('C2 explicit Had-subject-not instruction rejects inverted contractions while allowing could-have contraction', () => {
-    const s = state(targets[2]);
-    for (const value of [
-        "Hadn't the guide brought a spare lamp, we could have been stranded underground.",
-        'Had not the guide brought a spare lamp, we could have been stranded underground.',
-    ]) {s.setAnswer(0, 0, value); assert.equal(s.partCorrect(0, 0), false);}
-    s.setAnswer(0, 0, "Had the guide not brought a spare lamp, we could've been stranded underground.");
-    assert.equal(s.partCorrect(0, 0), true);
+test('M40 wrapper is independent and common renderer preserves exact post-check keys/natural answer casing', () => {
+    assert.match(javascript, /data-m40-answer/); assert.doesNotMatch(javascript,/c2-1-answer|m39PracticeUi/);
+    assert.match(commonPartial, /:open="checked/); assert.match(commonPartial,/summary x-show="checked/);
+    assert.match(commonPartial,/self-check-answers/); assert.match(commonPartial,/answer-input/);
+    assert.doesNotMatch(commonPartial,/\buppercase\b|strtoupper/); assert.doesNotMatch(common,/toUpperCase/);
+    assert.match(commonPartial,/autocomplete="off"/); assert.match(commonPartial,/@keydown.ctrl.enter.prevent="check/);
+    assert.match(common,/edited\(i\) \{ this.checked\[i\] = false/);
+    assert.doesNotMatch(common,/fetch\(|XMLHttpRequest|localStorage|sessionStorage/);
 });
-for (const [owner, taskIndex, from, to] of [
-    [0,1,'may take place','will take place'], [0,4,'began in June','was completed in June'],
-    [0,5,'No decision has been made','A decision has been made'],
-    [1,0,'would be able','would have been able'], [1,2,'is believed','is known'],
-    [1,3,'guides who have completed the course','guides, who have completed the course,'],
-    [1,4,'may have sent','must have sent'], [1,5,'have not yet been checked','are certainly correct'],
-    [2,0,'could have been','would have been'], [2,1,'are thought','are known'],
-    [2,4,'two entries','three entries'], [2,5,'may also work outdoors','will work outdoors'],
-]) test('Actual authored boundary: ' + from, () => {
-    const target = targets[owner], control = target.data.cases[taskIndex].controls[0], s = state(target);
-    assert.ok(control.answer.includes(from)); s.setAnswer(taskIndex, 0, control.answer.replace(from, to));
-    assert.equal(s.partCorrect(taskIndex, 0), false);
-});
-for (const taskIndex of [0,1]) test('Regression fixture: C2 sentence ' + (taskIndex + 1) + ' remains answer-only; key is separately revealed', () => {
-    const target = targets[2], task = target.data.cases[taskIndex], answer = task.controls[0].answer;
-    const key = target.data.author_self_check.answers[taskIndex];
-    assertOptionOnly(answer, answer, key);
-    assert.throws(() => assertOptionOnly(answer + ' ' + key, answer, key));
-    const dom = new JSDOM('<button data-option></button><details data-explanation><summary>Відповіді та пояснення</summary><div>' + key + '</div></details>');
-    const button = dom.window.document.querySelector('button'); button.textContent = answer;
-    const details = dom.window.document.querySelector('details'); assert.equal(details.open, false);
-    assert.equal(button.textContent, answer); assert.notEqual(button.textContent, details.textContent.trim());
-    details.open = true; assert.equal(details.open, true);
-    assert.ok(details.textContent.includes(' — ')); assert.equal(button.textContent, answer);
-    dom.window.close();
-});
-test('M39-only partial gates full keys after check/reveal and never uppercases answer surfaces', () => {
-    assert.match(partial, /'practiceScope' => 'm39'/); assert.match(partial, /'practiceFactory' => 'm39PracticeUi'/);
-    assert.match(commonPartial, /:open="checked\[\{\{ \$i \}\}\]"/);
-    assert.match(commonPartial, /summary x-show="checked/);
-    assert.match(commonPartial, /self-check-answers/); assert.match(commonPartial, /answer-input/);
-    assert.doesNotMatch(commonPartial, /\buppercase\b|strtoupper/); assert.doesNotMatch(common, /toUpperCase/);
-    assert.match(commonPartial, /autocomplete="off"/); assert.match(commonPartial, /@keydown.ctrl.enter.prevent="check/);
-    assert.match(common, /edited\(i\) \{ this.checked\[i\] = false/);
-    assert.doesNotMatch(common, /fetch\(|XMLHttpRequest|localStorage|sessionStorage/);
-    assert.match(javascript, /"keepFirstClauseIds":\["c2-1-answer"\]/);
-});
+for(const target of targets) for(const fixture of require('../../tools/diagnostics/m40-semantic-fixtures.cjs').semanticFixtures(target))
+    test(target.slug+': independent source boundary '+fixture.boundary,()=>{
+        const s=state(target);correct(s,fixture.caseIndex);s.setAnswer(fixture.caseIndex,fixture.controlIndex,fixture.invalid);s.check(fixture.caseIndex);
+        assert.equal(s.partCorrect(fixture.caseIndex,fixture.controlIndex),false);assert.equal(s.isCorrect(fixture.caseIndex),false);assert.equal(s.score,0);
+    });
