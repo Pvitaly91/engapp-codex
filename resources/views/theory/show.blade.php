@@ -36,6 +36,7 @@
 @section('content')
 @php
     $blocks = $page->textBlocks ?? collect();
+    $blocks = \App\Support\M43AuthoredTenseUsagePackage::orderBlocks($blocks);
     $routePrefix = $routePrefix ?? 'theory';
     $heroBlock = $blocks->firstWhere('type', 'hero-v2') ?? $blocks->firstWhere('type', 'hero');
     $heroData = $heroBlock ? (json_decode($heroBlock->body ?? '[]', true) ?? []) : [];
@@ -165,6 +166,7 @@
                     @foreach($contentBlocks as $block)
                         @include('theory.partials.content-block', [
                             'm42StyleContext' => app()->getLocale() === 'uk',
+                            'm43StyleContext' => app()->getLocale() === 'uk',
                             'presentation' => $presentationByBlock[$block->id],
                             'practiceQuestions' => $practiceQuestionsByBlock[$block->uuid] ?? collect(),
                         ])

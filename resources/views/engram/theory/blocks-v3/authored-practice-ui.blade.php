@@ -45,10 +45,10 @@
                                     @endforeach
                                 </div>
                             @else
-                                @if($practiceScope === 'm41')
-                                    <noscript><div class="flex flex-wrap gap-2" data-m41-static-token-bank>
+                                @if(in_array($practiceScope, ['m41', 'm43'], true))
+                                    <noscript><div class="flex flex-wrap gap-2" data-{{ $practiceScope }}-static-token-bank>
                                         @foreach($control['tokens'] as $token)
-                                            <span class="rounded-lg border border-border px-3 py-2 text-sm" style="text-transform:none" data-m41-static-token>{{ $token }}</span>
+                                            <span class="rounded-lg border border-border px-3 py-2 text-sm" style="text-transform:none" data-{{ $practiceScope }}-static-token>{{ $token }}</span>
                                         @endforeach
                                     </div></noscript>
                                 @endif

@@ -23,6 +23,9 @@
                 </div>
             @endif
             {{-- Table View --}}
+            @if(isset($m43StructuredTable))
+                @include('engram.theory.blocks-v3.m43-native-table')
+            @else
             <div class="theory-table-scroll overflow-x-auto" @if($m41NativePiece ?? false) tabindex="0" role="region" aria-label="{{ $data['title'] }}" @endif @if(isset($data['m27_v1']) || (isset($data['m28_v1']) || (isset($data['m29_v1']) || (isset($data['m30_v1']) || (isset($data['m31_v1']) || (isset($data['m32_v1']) || (isset($data['m33_v1']) || (isset($data['m34_v1']) || (isset($data['m35_v1']) || (isset($data['m36_v1']) || (isset($data['m37_v1']) || (isset($data['m38_v1']) || isset($data['m39_v1']))))))))))))) tabindex="0" role="region" aria-label="{{ $data['title'] }}" @endif>
                 <table class="w-full text-sm" @if((isset($data['m33_v1']) || (isset($data['m34_v1']) || (isset($data['m35_v1']) || (isset($data['m36_v1']) || (isset($data['m37_v1']) || (isset($data['m38_v1']) || isset($data['m39_v1']))))))) && isset($data['table_min_width'])) style="min-width: {{ (int) $data['table_min_width'] }}px" @endif>
                     <thead>
@@ -66,6 +69,7 @@
                     </tbody>
                 </table>
             </div>
+            @endif
             @if((isset($data['m28_v1']) || (isset($data['m29_v1']) || (isset($data['m30_v1']) || (isset($data['m31_v1']) || (isset($data['m32_v1']) || (isset($data['m33_v1']) || (isset($data['m34_v1']) || (isset($data['m35_v1']) || (isset($data['m36_v1']) || (isset($data['m37_v1']) || (isset($data['m38_v1']) || isset($data['m39_v1'])))))))))))) && !empty($data['outro']))
                 <div class="mt-5 text-sm text-foreground/80 leading-relaxed m42-rich-fragment">{!! \App\Support\M42NativeDesignPackage::richFragment($data['outro'], $m42Design ?? null, '/outro') !!}</div>
             @endif

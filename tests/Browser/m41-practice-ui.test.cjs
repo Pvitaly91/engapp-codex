@@ -157,7 +157,13 @@ test('Master fields are preserved, including source values distinct from labels 
         }
     }
 });
-test('M41 source-only no-JS token fallback is scoped; no legacy owner gets additional token markup',()=>{
-    assert.match(commonPartial,/\$practiceScope === 'm41'/);assert.match(commonPartial,/data-m41-static-token/);
-    assert.match(commonPartial,/@foreach\(\$control\['tokens'\] as \$token\)/);
+test('M41 and explicit M43 no-JS token fallbacks are finite; no legacy owner gets additional token markup',()=>{
+    // M43 reuses this component without widening the legacy scopes. Keep the
+    // exact two-member, strict allowlist and the entire token loop protected.
+    const fallback=commonPartial.match(/@if\(in_array\(\$practiceScope, \['m41', 'm43'\], true\)\)([\s\S]*?)@endif/g);
+    assert.equal(fallback?.length,1);
+    assert.match(fallback[0],/<noscript><div[^>]+data-\{\{ \$practiceScope \}\}-static-token-bank/);
+    assert.match(fallback[0],/data-\{\{ \$practiceScope \}\}-static-token>\{\{ \$token \}\}/);
+    assert.match(fallback[0],/@foreach\(\$control\['tokens'\] as \$token\)/);
+    assert.equal((commonPartial.match(/-static-token-bank/g)||[]).length,1);
 });

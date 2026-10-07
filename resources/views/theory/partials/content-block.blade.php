@@ -1,6 +1,8 @@
 @php
     $nativeView = \App\Support\TheoryPresentation::nativeView($block->type);
     $decodedBody = json_decode($block->body ?? '', true);
+    $m43StoredAuthor = is_array($decodedBody) && \App\Support\M43AuthoredTenseUsagePackage::hasStoredAuthor($decodedBody);
+    if (!$nativeView && $m43StoredAuthor) { $nativeView = 'engram.theory.blocks-v3.m43-static-fallback'; }
     $blockAnchor = 'block-' . $block->id;
 @endphp
 
@@ -12,7 +14,8 @@
         <div data-theory-render-fallback="invalid-native-data">
     @endif
     @php
-        $m27 = is_array($decodedBody) ? (\App\Support\M41AuthoredTenseComparisonsPackage::presentation($block, $decodedBody)
+        $m27 = is_array($decodedBody) ? (($m43StyleContext ?? false ? \App\Support\M43AuthoredTenseUsagePackage::presentation($block, $decodedBody) : null)
+            ?? \App\Support\M41AuthoredTenseComparisonsPackage::presentation($block, $decodedBody)
             ?? \App\Support\M40TensesB1Package::presentation($block, $decodedBody)
             ?? \App\Support\M39PracticeUiPackage::presentation($block, $decodedBody)
             ?? \App\Support\M39AuthoredRevisionPackage::presentation($block, $decodedBody)
@@ -37,6 +40,9 @@
         $renderData = $m27['data'] ?? $decodedBody;
         // The finite package returns a code-owned constant after complete identity checks.
         if (($m27['native_view'] ?? null) !== null) { $nativeView = $m27['native_view']; }
+        if ($m27 === null && $m43StoredAuthor) {
+            $nativeView = 'engram.theory.blocks-v3.m43-static-fallback';
+        }
         $basicHtml = view($nativeView, [
             'block' => $block,
             'data' => is_array($renderData) ? $renderData : [],
@@ -61,7 +67,7 @@
             if ($section->detail === null) {
                 $pointSections = [];
                 // An invalid detail must never hide its complete stored author text.
-                if ($m27 !== null) { $basicHtml = view($nativeView, ['block' => $block, 'data' => $decodedBody,
+                if ($m27 !== null) { $basicHtml = view($m43StoredAuthor ? 'engram.theory.blocks-v3.m43-static-fallback' : $nativeView, ['block' => $block, 'data' => $decodedBody,
                     'practiceQuestions' => $practiceQuestions ?? collect(), 'lessonLinks' => $lessonLinks ?? []])->render(); }
                 $m42Design = null;
                 break;
@@ -76,6 +82,9 @@
              data-m42-native-kind="{{ $m42Design['component'] }}"
              data-m42-color="{{ $m42Design['color'] ?? 'slate' }}"
              data-m42-source-uuid="{{ $m42Design['uuid'] }}">
+    @endif
+    @if($m27 !== null && isset($decodedBody['m43_v1']))
+        @include('engram.theory.blocks-v3.m43-native-styles')
     @endif
     @if($m27 !== null && isset($decodedBody['m41_v1']) && $decodedBody['m41_v1']['role'] === 'section')
         {{-- Outside the preliminary render: @once must not be consumed by discarded validation HTML. --}}

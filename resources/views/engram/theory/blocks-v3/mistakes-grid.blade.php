@@ -1,5 +1,7 @@
 @if($m41NativeMistake ?? false)
     @include('engram.theory.blocks-v3.m41-native-mistakes')
+@elseif($m43NativeMistake ?? false)
+    @include('engram.theory.blocks-v3.m43-native-mistake')
 @else
 @php($data = $data ?? json_decode($block->body ?? '[]', true) ?? [])
 @php($items = $data['items'] ?? [])
