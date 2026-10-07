@@ -9,14 +9,14 @@
 
         <div class="theory-section-body p-5">
             @if(!empty($data['intro']))
-                @if($m41NativePiece ?? false)<div class="text-sm text-muted-foreground mb-5 leading-relaxed">{!! $data['intro'] !!}</div>@else<p class="text-sm text-muted-foreground mb-5 leading-relaxed">{!! $data['intro'] !!}</p>@endif
+                @if(($m41NativePiece ?? false) || isset($m42Design))<div class="text-sm text-muted-foreground mb-5 leading-relaxed m42-rich-fragment">{!! \App\Support\M42NativeDesignPackage::richFragment($data['intro'], $m42Design ?? null, '/intro') !!}</div>@else<p class="text-sm text-muted-foreground mb-5 leading-relaxed">{!! $data['intro'] !!}</p>@endif
             @endif
 
             @if((isset($data['m28_v1']) || (isset($data['m29_v1']) || (isset($data['m30_v1']) || (isset($data['m31_v1']) || (isset($data['m32_v1']) || (isset($data['m33_v1']) || (isset($data['m34_v1']) || (isset($data['m35_v1']) || (isset($data['m36_v1']) || (isset($data['m37_v1']) || (isset($data['m38_v1']) || isset($data['m39_v1'])))))))))))) && !empty($data['sections']))
                 <div class="space-y-4 mb-5">
                     @foreach($data['sections'] as $index => $section)
-                        <article class="theory-item rounded-xl p-4 bg-muted/50">
-                            <div class="text-sm text-foreground/80 leading-relaxed">{!! $section['description'] !!}</div>
+                        <article class="theory-item rounded-xl p-4 bg-muted/50" @if(isset($m42Design)) data-m42-color="{{ $m42Design['section_colors'][$index] ?? $m42Design['color'] }}" @endif>
+                            <div class="text-sm text-foreground/80 leading-relaxed m42-rich-fragment">{!! \App\Support\M42NativeDesignPackage::richFragment($section['description'], $m42Design ?? null, '/sections/'.$index.'/description') !!}</div>
                             @include('theory.partials.point-disclosure', ['index' => $index])
                         </article>
                     @endforeach
@@ -42,20 +42,20 @@
                         @foreach($rows as $index => $row)
                             <tr class="hover:bg-muted/30 transition-colors">
                                 @if((isset($data['m27_v1']) || (isset($data['m28_v1']) || (isset($data['m29_v1']) || (isset($data['m30_v1']) || (isset($data['m31_v1']) || (isset($data['m32_v1']) || (isset($data['m33_v1']) || (isset($data['m34_v1']) || (isset($data['m35_v1']) || (isset($data['m36_v1']) || (isset($data['m37_v1']) || (isset($data['m38_v1']) || isset($data['m39_v1']))))))))))))) && isset($row['cells']))
-                                    @foreach($row['cells'] as $cell)<td class="py-3 px-4 text-sm leading-relaxed">{!! $cell !!}</td>@endforeach
+                                    @foreach($row['cells'] as $cell)<td class="py-3 px-4 text-sm leading-relaxed m42-rich-fragment">{!! \App\Support\M42NativeDesignPackage::richFragment($cell, $m42Design ?? null, '/rows/'.$index.'/cells/'.$loop->index) !!}</td>@endforeach
                                 @else
                                 <td class="py-3 px-4">
-                                    <code @if($m41NativePiece ?? false) lang="en" @endif class="theory-example font-mono text-sm font-semibold text-foreground">
+                                    <code @if(($m41NativePiece ?? false) || isset($m42Design)) lang="en" @endif class="theory-example font-mono text-sm font-semibold text-foreground">
                                         {{ \App\Support\TheoryInlineHtml::render($row['en'] ?? '') }}
                                     </code>
                                 </td>
-                                <td @if($m41NativePiece ?? false) lang="uk" @endif class="theory-translation py-3 px-4 text-muted-foreground">
+                                <td @if(($m41NativePiece ?? false) || isset($m42Design)) lang="uk" @endif class="theory-translation py-3 px-4 text-muted-foreground">
                                     {{ \App\Support\TheoryInlineHtml::render($row['ua'] ?? '') }}
                                 </td>
                                 @unless($m41NativePiece ?? false)
                                 <td class="py-3 px-4">
-                                    <span class="text-sm text-foreground/70">
-                                        {!! $row['note'] ?? '' !!}
+                                    <span class="text-sm text-foreground/70 m42-rich-fragment">
+                                        {!! \App\Support\M42NativeDesignPackage::richFragment($row['note'] ?? '', $m42Design ?? null, '/rows/'.$index.'/note') !!}
                                     </span>
                                     @include('theory.partials.point-disclosure', ['index' => $index])
                                 </td>
@@ -67,7 +67,7 @@
                 </table>
             </div>
             @if((isset($data['m28_v1']) || (isset($data['m29_v1']) || (isset($data['m30_v1']) || (isset($data['m31_v1']) || (isset($data['m32_v1']) || (isset($data['m33_v1']) || (isset($data['m34_v1']) || (isset($data['m35_v1']) || (isset($data['m36_v1']) || (isset($data['m37_v1']) || (isset($data['m38_v1']) || isset($data['m39_v1'])))))))))))) && !empty($data['outro']))
-                <div class="mt-5 text-sm text-foreground/80 leading-relaxed">{!! $data['outro'] !!}</div>
+                <div class="mt-5 text-sm text-foreground/80 leading-relaxed m42-rich-fragment">{!! \App\Support\M42NativeDesignPackage::richFragment($data['outro'], $m42Design ?? null, '/outro') !!}</div>
             @endif
 
             {{-- Warning --}}
@@ -78,8 +78,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
                         </svg>
                     </div>
-                    <p class="text-sm text-amber-800">
-                        {!! $data['warning'] !!}
+                    <p class="text-sm text-amber-800 m42-rich-fragment">
+                        {!! \App\Support\M42NativeDesignPackage::richFragment($data['warning'], $m42Design ?? null, '/warning') !!}
                     </p>
                 </div>
             @endif

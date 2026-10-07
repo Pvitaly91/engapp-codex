@@ -14,9 +14,9 @@
                         <span class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 text-xs font-bold mt-0.5 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
                             {{ $index + 1 }}
                         </span>
-                        @if(($m41NativePiece ?? false) || isset($data['m39_v1']))
-                        <div class="text-sm text-foreground/80 leading-relaxed pt-0.5">
-                            {!! $item !!}
+                        @if(($m41NativePiece ?? false) || isset($data['m39_v1']) || isset($m42Design))
+                        <div class="text-sm text-foreground/80 leading-relaxed pt-0.5 m42-rich-fragment">
+                            {!! \App\Support\M42NativeDesignPackage::richFragment($item, $m42Design ?? null, '/items/'.$index) !!}
                         </div>
                         @else
                         <span class="text-sm text-foreground/80 leading-relaxed pt-0.5">

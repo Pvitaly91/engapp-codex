@@ -12,7 +12,7 @@
 
         <div class="theory-section-body p-5">
             @if(!empty($data['intro']))
-                <p class="text-sm text-muted-foreground mb-5 leading-relaxed">{!! $data['intro'] !!}</p>
+                <p class="text-sm text-muted-foreground mb-5 leading-relaxed m42-rich-fragment">{!! \App\Support\M42NativeDesignPackage::richFragment($data['intro'], $m42Design ?? null, '/intro') !!}</p>
             @endif
 
             <div class="grid gap-3 sm:grid-cols-2">
@@ -44,8 +44,8 @@
                             @endif
 
                             @if(!empty($item['subtitle']))
-                                <p class="text-sm text-muted-foreground" @if(($m41NativePiece ?? false) && isset($item['m41_form_cell'])) data-m41-form-uk lang="uk" @endif>
-                                    {{ \App\Support\TheoryInlineHtml::render($item['subtitle']) }}
+                                <p class="text-sm text-muted-foreground m42-rich-fragment" @if(($m41NativePiece ?? false) && isset($item['m41_form_cell'])) data-m41-form-uk lang="uk" @endif>
+                                    {!! \App\Support\M42NativeDesignPackage::richFragment((string) \App\Support\TheoryInlineHtml::render($item['subtitle']), $m42Design ?? null, '/items/'.$index.'/subtitle') !!}
                                 </p>
                             @endif
                         </div>
@@ -71,8 +71,8 @@
                                             @endif
                                         </div>
                                         @if(!empty($rule['text']))
-                                            <div class="mt-2 text-xs leading-5 text-muted-foreground">
-                                                {!! $rule['text'] !!}
+                                        <div class="mt-2 text-xs leading-5 text-muted-foreground m42-rich-fragment">
+                                                {!! \App\Support\M42NativeDesignPackage::richFragment($rule['text'], $m42Design ?? null, '/items/'.$index.'/rules/'.$loop->index.'/text') !!}
                                             </div>
                                         @endif
                                         @if(!empty($rule['example']))

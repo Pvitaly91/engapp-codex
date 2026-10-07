@@ -164,6 +164,7 @@
                 <div class="space-y-6">
                     @foreach($contentBlocks as $block)
                         @include('theory.partials.content-block', [
+                            'm42StyleContext' => app()->getLocale() === 'uk',
                             'presentation' => $presentationByBlock[$block->id],
                             'practiceQuestions' => $practiceQuestionsByBlock[$block->uuid] ?? collect(),
                         ])

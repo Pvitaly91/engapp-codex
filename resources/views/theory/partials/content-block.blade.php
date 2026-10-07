@@ -28,12 +28,19 @@
             ?? \App\Support\M29SentenceStructurePackage::presentation($block, $decodedBody)
             ?? \App\Support\M28EmphasisPackage::presentation($block, $decodedBody)
             ?? \App\Support\M27LinkingWordsPackage::presentation($block, $decodedBody)) : null;
+        // A caller-owned theory-only opt-in, never a URL/category or DB view-name guess.
+        // Decoration leaves every existing package's data, fragments and keys intact.
+        $m27 = is_array($decodedBody)
+            ? (\App\Support\M42NativeDesignPackage::decorate($block, $decodedBody, $m27, $m42StyleContext ?? false) ?? $m27)
+            : $m27;
+        $m42Design = $m27['m42_native_design'] ?? null;
         $renderData = $m27['data'] ?? $decodedBody;
         // The finite package returns a code-owned constant after complete identity checks.
         if (($m27['native_view'] ?? null) !== null) { $nativeView = $m27['native_view']; }
         $basicHtml = view($nativeView, [
             'block' => $block,
             'data' => is_array($renderData) ? $renderData : [],
+            'm42Design' => $m42Design,
             'practiceQuestions' => $practiceQuestions ?? collect(),
             'lessonLinks' => $lessonLinks ?? [],
         ])->render();
@@ -42,7 +49,7 @@
         foreach ($points ?? [] as $index => $point) {
             $detailHtml = '';
             foreach ($point['fragments'] as $fragment) {
-                $detailHtml .= view('theory.partials.point-detail-fragment', ['fragment' => $fragment])->render();
+                $detailHtml .= view('theory.partials.point-detail-fragment', ['fragment' => $fragment, 'm42Design' => $m42Design])->render();
             }
             $section = \App\Support\TheorySection::resolve($point['key'], $point['title'],
                 new \Illuminate\Support\HtmlString($basicHtml.$detailHtml), null, [
@@ -56,11 +63,20 @@
                 // An invalid detail must never hide its complete stored author text.
                 if ($m27 !== null) { $basicHtml = view($nativeView, ['block' => $block, 'data' => $decodedBody,
                     'practiceQuestions' => $practiceQuestions ?? collect(), 'lessonLinks' => $lessonLinks ?? []])->render(); }
+                $m42Design = null;
                 break;
             }
             $pointSections[$index] = $section;
         }
     @endphp
+    @if($m42Design !== null)
+        {{-- Emit once outside discarded validation renders. Scope stays out of courses. --}}
+        @include('engram.theory.blocks-v3.m42-native-design-styles')
+        <div class="m42-native-design" data-m42-native-design="v1"
+             data-m42-native-kind="{{ $m42Design['component'] }}"
+             data-m42-color="{{ $m42Design['color'] ?? 'slate' }}"
+             data-m42-source-uuid="{{ $m42Design['uuid'] }}">
+    @endif
     @if($m27 !== null && isset($decodedBody['m41_v1']) && $decodedBody['m41_v1']['role'] === 'section')
         {{-- Outside the preliminary render: @once must not be consumed by discarded validation HTML. --}}
         @if(isset($m27['data']['m41_existing_design']))
@@ -81,6 +97,7 @@
         @include($nativeView, [
             'block' => $block,
             'data' => $renderData,
+            'm42Design' => $m42Design,
             'pointSections' => $pointSections,
             'practiceQuestions' => $practiceQuestions ?? collect(),
             'lessonLinks' => $lessonLinks ?? [],
@@ -88,6 +105,7 @@
     @else
         {!! $basicHtml !!}
     @endif
+    @if($m42Design !== null)</div>@endif
     @if(!is_array($decodedBody))
         </div>
     @endif
