@@ -26,12 +26,16 @@
                         if ($section['native_kind'] === 'forms-grid') {
                             $examples = view('engram.theory.blocks-v3.m44-compact-form-examples', ['formExamples' => $group['disclosure'] ? $group['examples'] : $point['examples']])->render();
                         }
+                        if (isset($group['form_rows'])) {
+                            $description = view('engram.theory.blocks-v3.m44-compact-form-rows', ['rows' => $group['form_rows']])->render().$description;
+                            $examples = '';
+                        }
                         $detailHtml = $group['disclosure'] ? view('engram.theory.blocks-v3.m44-compact-detail', compact('group', 'section', 'pointSections', 'block'))->render() : '';
                     @endphp
                     <div id="{{ $group['id'] }}" class="{{ $section['native_kind'] === 'forms-grid' ? 'm44-form-point' : '' }}" data-m44-compact-group="{{ $group['id'] }}" @unless($group['disclosure']) data-m44-basic-point="{{ $point['id'] }}" @endunless data-m44-point-color="{{ $config['color'] }}">
                         @if($section['native_kind'] === 'forms-grid')
                             @include('engram.theory.blocks-v3.forms-grid', ['block' => $pieceBlock, 'data' => ['items' => [[
-                                'label' => $title, 'title' => $formula ?? '', 'native_description' => $description.$examples.$detailHtml,
+                                'label' => isset($group['form_rows']) ? '' : $title, 'title' => isset($group['form_rows']) ? $title : ($formula ?? ''), 'native_description' => $description.$examples.$detailHtml,
                             ]]], 'embeddedDetail' => true, 'm44NativePiece' => true, 'm44ReferencePiece' => true, 'lessonLinks' => [], 'pointSections' => $pieceDetails])
                         @elseif($section['native_kind'] === 'mistakes-grid' && !$group['disclosure'])
                             @include('engram.theory.blocks-v3.m44-native-mistake', ['block' => $pieceBlock, 'point' => $point, 'pointSections' => $pieceDetails])

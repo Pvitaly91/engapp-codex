@@ -6,12 +6,13 @@
             <span class="sr-only"> — {{ $group['title'] }}</span>
         </summary>
         <div class="theory-section-detail-body text-sm leading-relaxed space-y-4">
+            @foreach($group['legacy_toggle_ids'] ?? [] as $legacyId)<span id="{{ $legacyId }}" aria-hidden="true"></span>@endforeach
             @foreach($group['sources'] as $sourcePoint)
                 @php($sourceIndex = array_search($sourcePoint['id'], array_column($section['points'], 'id'), true))
                 <article @if($sourcePoint['id'] !== $group['id']) id="{{ $sourcePoint['id'] }}" @endif data-m44-basic-point="{{ $sourcePoint['id'] }}" class="space-y-3">
                     @if($sourcePoint['id'] !== $group['id'])<span id="block-{{ $block->id }}-point-{{ $sourcePoint['id'] }}" aria-hidden="true"></span>@endif
                     <h4 class="font-bold">{{ $sourcePoint['title'] }}</h4>
-                    @if(isset($sourcePoint['formula']) && $group['formula_from'] !== $sourcePoint['id'])<p class="font-semibold">{{ $sourcePoint['formula'] }}</p>@endif
+                    @if(isset($sourcePoint['formula']) && !in_array($sourcePoint['id'], $group['visible_formulas'], true))<p class="font-semibold">{{ $sourcePoint['formula'] }}</p>@endif
                     {!! \App\Support\M44NativeHtml::paragraphs($sourcePoint['paragraphs_uk']) !!}
                     @if(isset($sourcePoint['wrong_en']))
                         <p lang="en" class="line-through">{{ $sourcePoint['wrong_en'] }}</p>

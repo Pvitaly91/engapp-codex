@@ -134,6 +134,8 @@ class M44SimplifiedPresentationTest extends TestCase
     {
         $master = $this->master();
         self::assertSame(Presentation::SHA, hash_file('sha256', base_path(Presentation::PATH)));
+        self::assertSame(Presentation::FORMS_SHA, hash_file('sha256', base_path(Presentation::FORMS_PATH)));
+        self::assertSame(Presentation::SHA, $this->read(Presentation::FORMS_PATH)['base_sha256']);
         $projection = $this->read(Presentation::PATH);
         self::assertSame(self::MASTER_SHA, $projection['master_sha256']);
         $lessonCounts = []; $sectionCount = 0; $pointCount = 0;
@@ -180,7 +182,7 @@ class M44SimplifiedPresentationTest extends TestCase
             }
             $lessonCounts[] = $groupCount;
         }
-        self::assertSame([23, 13, 16], $lessonCounts);
+        self::assertSame([19, 13, 16], $lessonCounts);
         self::assertSame([20, 69], [$sectionCount, $pointCount]);
     }
 
@@ -219,6 +221,7 @@ class M44SimplifiedPresentationTest extends TestCase
                         }
                     }
                     $added = $group['disclosure'] ? array_merge([$group['title']], $group['basic_uk']) : [];
+                    array_push($added, ...array_column($group['form_rows'] ?? [], 'label'));
                     $this->assertSourceOccurrences($this->learnerText($node), $authorStrings, $added, $group['id']);
                     if ($group['disclosure']) {
                         self::assertSame(1, $xp->query('.//details', $node)->length, 'One group opens only its own depth');
@@ -233,6 +236,18 @@ class M44SimplifiedPresentationTest extends TestCase
                         foreach ($this->exampleStrings($group['examples']) as $value) {
                             self::assertStringContainsString($value, $basicText, 'Selected example stays outside details');
                         }
+                        foreach ($group['form_rows'] ?? [] as $row) {
+                            self::assertStringContainsString($row['formula'], $basicText, 'Formula stays outside details');
+                            self::assertSame($section['points'][array_search($row['point'], array_column($section['points'], 'id'), true)]['formula'], $row['formula']);
+                        }
+                    }
+                }
+
+                if ($section['id'] === 'm44-will-forms') {
+                    self::assertCount(2, $groups);
+                    self::assertSame(6, $xp->query('//*[@data-m44-form-row and not(ancestor::details)]')->length);
+                    foreach (['m44-will-form-question-more', 'm44-will-form-going-question-more'] as $legacyId) {
+                        self::assertSame(1, $xp->query('//*[@id="'.$legacyId.'"]')->length);
                     }
                 }
 

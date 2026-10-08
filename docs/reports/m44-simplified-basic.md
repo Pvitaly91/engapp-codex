@@ -48,3 +48,17 @@ PPC-еталон: текст, метадані та якорі збережен�
 Приватні докази: ROOT `storage/app/m44-simplify/before-v1`, `after-v5`, `worktree-before`; PHPUnit receipt у WT `storage/app/seo-m2-local/m44-simplified-v1-43f65d2c5c5048bea5ff119d2f22d21b-result.json`. Попередні діагностичні спроби збережені; фінальний результат — `after-v5/source-stability.json` з `pass: true`.
 
 Зміни застосовані до ROOT `D:/DEV/htdocs/gramlyze.loc`; commit створюється в attached worktree. Сторонній dirty state ROOT збережений. Production, main, hosts, серверна конфігурація, dependencies, build і БД не змінювалися. Деплой не виконувався.
+
+## Додаткове спрощення блоку формул
+
+Окремий запит користувача після `fdff5600f53c9adb6e1407bed87b98586cb62274`: спростити лише блок «Ствердження, заперечення, питання й короткі відповіді» на Will vs Be Going To.
+
+Шість великих карток замінені двома native-картками — Will та Be going to. У кожній три видимі рядки: ствердження, заперечення, питання; точна авторська формула та один незмінений двомовний приклад на рядок. Коротке правило відповідей залишається видимим. Повні пояснення, додаткові приклади та всі варіанти коротких відповідей відкриваються в окремому змістовному «Докладніше» відповідної конструкції. Усі 8 вихідних пунктів та старі посилання збережені. Кількість груп уроку A: 23 → 19; B/C не змінені.
+
+Нова вузька проєкція `docs/content/m44-forms-presentation.v2.json` має SHA-256 `0f9019db84e8b8573ceb99f655e9dde083df6bbd6bf0b19a82516e4892e26aac` і прив’язана до незмінених v1 та author master. DB apply не потрібен; frozen payload, практика, shared widgets, CSS, sidebar та інші блоки не редагувалися.
+
+Живий Chromium, `tools/diagnostics/m44-forms-browser.cjs`: **6/6 PASS**. Цільова сторінка перевірена на 1440×900 та 390×900 у світлій/темній темах; інші два M44 уроки — desktop/light. Поза цільовою секцією текст, H1, title та старі anchors збігаються з BEFORE. У секції 2 картки, 6 видимих формул, 8 оригінальних пунктів. Enter/Space відкриває лише відповідну деталь; старі detail deep links відкривають її батьківський блок; після друку стан закритих деталей відновлюється. Виявлених помилок page/console/HTTP або переповнення тексту немає.
+
+Висота саме цього блоку із закритими деталями: desktop **1152 → 678 px**, mobile **2347 → 1382 px** — приблизно на 41% менше без зменшення шрифтів. Приватні BEFORE/AFTER-докази: ROOT `storage/app/m44-forms/before-v1` та `after-v2`. Візуально переглянуті desktop/light та mobile/dark.
+
+Фінальний ізольований PHPUnit: **12 tests / 3766 assertions, exit 0**, одне deprecation; 46 661 захищений файл — 0 змін. Перевірені точні входження всіх авторських полів у 20 секціях, формули, переклади, якорі, практика й незмінність курсів. Команда: `python tools/diagnostics/run-isolated-tests.py --php "C:/Program Files/xampp/php/php.exe" --label m44-forms-v2 tests/Feature/M44SimplifiedPresentationTest.php tests/Feature/M44AuthorFidelityTest.php tests/Feature/M44CoursePreservationTest.php`. Приватний receipt: WT `storage/app/seo-m2-local/m44-forms-v2-29a376ebd3d748b9b038fcd4f7f952ee-result.json`. Дані evidence, runtime caches та сторонні зміни до коміту не включені. Production не перевірявся й не змінювався.
