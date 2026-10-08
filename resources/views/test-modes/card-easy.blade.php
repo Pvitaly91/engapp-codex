@@ -371,6 +371,7 @@ async function init(forceFresh = false) {
       state.answered = Number.isFinite(saved.answered) ? saved.answered : 0;
       state.activeCardIdx = Number.isFinite(saved.activeCardIdx) ? saved.activeCardIdx : 0;
       restored = true;
+      let reopenedPpcSlot = false;
       state.items.forEach((item, idx) => {
         if (typeof item.explanation !== 'string') item.explanation = '';
         if (!item.explanationsCache || typeof item.explanationsCache !== 'object') item.explanationsCache = {};
@@ -409,11 +410,13 @@ async function init(forceFresh = false) {
           item.activeSlot = findFirstUnfilledSlot(item);
           if (item.activeSlot === -1) item.activeSlot = 0;
         }
+        reopenedPpcSlot = restoreSavedPpcRetryState(item) || reopenedPpcSlot;
         clampActiveSlot(item);
         // Regenerate optionsBySlot from base questions if available
         const baseQ = QUESTIONS[idx] || item;
         item.optionsBySlot = normalizeOptionsBySlot(baseQ);
       });
+      if (reopenedPpcSlot) state.answered = state.items.filter(item => item.done).length;
     }
   }
 
@@ -650,7 +653,14 @@ function renderQuestions(showOnlyWrong = false) {
       }
       manualInput.value = manualInput.value.replace(/\s+/g, '');
       q.manualWordIndexBySlot[slotIndex] = wordIndex;
-      q.manualInputsBySlot[slotIndex] = collectManualAnswer(manualInput.closest('[data-manual-input-group]'));
+      const draft = collectManualAnswer(manualInput.closest('[data-manual-input-group]'));
+      if (q.manualInputsBySlot[slotIndex] !== draft && clearManualAnswerFeedbackOnEdit(q, slotIndex, wordIndex)) {
+        card.querySelector(`#feedback-${idx}`).innerHTML = '';
+        manualInput.dataset.answerState = 'active';
+        manualInput.classList.remove('border-red-400', 'bg-red-50', 'text-red-800', 'ring-4', 'ring-red-100', 'focus:border-red-500', 'focus:ring-red-100');
+        manualInput.classList.add('border-indigo-300', 'focus:border-indigo-500', 'focus:ring-4', 'focus:ring-indigo-100');
+      }
+      q.manualInputsBySlot[slotIndex] = draft;
       searchManualWords(idx, slotIndex, manualInput.value);
       persistState(state);
     });
@@ -898,6 +908,7 @@ function onChoose(idx, opt) {
   } else {
     rememberFeedbackAnswer(item, slotIndex, 'incorrect', opt, expected);
     item.manualWordIndexBySlot[slotIndex] = 0;
+    if (isPastPerfectContinuousQuestion(item)) item.manualInputsBySlot[slotIndex] = '';
     if (!item.explanationsCache) {
       item.explanationsCache = {};
     }
@@ -910,7 +921,7 @@ function onChoose(idx, opt) {
     item.lastWrongBySlot[slotIndex] = opt;
     item.attemptsBySlot[slotIndex] = (item.attemptsBySlot[slotIndex] || 0) + 1;
     
-    if (item.attemptsBySlot[slotIndex] >= 2) {
+    if (item.attemptsBySlot[slotIndex] >= 2 && !isPastPerfectContinuousQuestion(item)) {
       // Auto-fill with correct answer after 2 wrong attempts
       item.chosen[slotIndex] = expected;
       item.attemptsBySlot[slotIndex] = 0;

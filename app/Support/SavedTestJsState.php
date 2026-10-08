@@ -25,6 +25,7 @@ class SavedTestJsState
         'verb_hints',
         'options',
         'tense',
+        'is_past_perfect_continuous',
         'level',
         'theory_block',
         'theory_blocks',

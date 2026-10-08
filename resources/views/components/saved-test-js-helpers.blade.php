@@ -209,6 +209,63 @@ function html(str) {
         .replaceAll("'", '&#039;');
 }
 
+// Use the exact category or finite builder authorship, never the URL or lesson text.
+function isPastPerfectContinuousQuestion(q) {
+    if (typeof q?.is_past_perfect_continuous === 'boolean') return q.is_past_perfect_continuous;
+    if (String(q?.tense ?? '').split('/').pop().trim().toLowerCase() === 'past perfect continuous') return true;
+    const seeder = String(q?.tech_info?.seeder?.class ?? q?.seeder ?? '');
+    return [
+        'Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectContinuousFormsAllLevelsLessonSeeder',
+        'Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectContinuousNegativesAllLevelsLessonSeeder',
+        'Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectContinuousQuestionsAllLevelsLessonSeeder',
+        'Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectContinuousTimeExpressionsAllLevelsLessonSeeder',
+        'Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectContinuousBasicsB2LessonSeeder',
+    ].includes(seeder);
+}
+
+function clearManualAnswerFeedbackOnEdit(q, slotIndex, wordIndex) {
+    const meta = q?.feedbackMeta;
+    if (!isPastPerfectContinuousQuestion(q) || q.done || meta?.result !== 'incorrect'
+        || meta.slotIndex !== slotIndex
+        || (Number.isInteger(meta.wordIndex) && meta.wordIndex !== wordIndex)) return false;
+
+    q.feedback = '';
+    q.feedbackMeta = null;
+    q.explanation = '';
+    q.pendingExplanationKey = null;
+    if (Array.isArray(q.lastWrongBySlot)) q.lastWrongBySlot[slotIndex] = null;
+    // Keep attempts and wrongAttempt: editing is not a new first attempt.
+    return true;
+}
+
+// Older snapshots can contain a canonical answer silently revealed after two
+// mistakes. Reopen only a slot for which the recorded submission proves this.
+function restoreSavedPpcRetryState(q) {
+    const meta = q?.feedbackMeta;
+    const slot = meta?.slotIndex;
+    if (!isPastPerfectContinuousQuestion(q) || meta?.result !== 'incorrect'
+        || !Array.isArray(q.answers) || !Array.isArray(q.chosen)
+        || !Number.isInteger(slot) || slot < 0 || slot >= (q.answers?.length ?? 0)
+        || meta.wordIndex !== null || typeof q.done !== 'boolean' || !q.wrongAttempt || !q.chosen?.[slot]
+        || !testAnswerMatches(q, slot, q.chosen[slot])
+        || !String(meta.submittedAnswer ?? '').trim()
+        || testAnswerMatches(q, slot, meta.submittedAnswer)) return false;
+
+    q.chosen[slot] = null;
+    q.activeSlot = slot;
+    q.done = false;
+    q.wrongAttempt = true;
+    q.manualInputsBySlot[slot] = '';
+    q.manualWordIndexBySlot[slot] = 0;
+    q.attemptsBySlot[slot] = Math.max(2, Number(q.attemptsBySlot[slot]) || 0);
+    q.lastWrongBySlot[slot] = meta.submittedAnswer;
+    q.feedback = '';
+    q.feedbackMeta = null;
+    q.explanation = '';
+    q.pendingExplanationKey = null;
+    return true;
+}
+
 function techInfoUi(key, fallback = '') {
     return testUi(`tech_info.${key}`, {}, fallback);
 }
@@ -1325,6 +1382,7 @@ function mergeFreshQuestionContentIntoSavedState(state) {
         'verb_hints',
         'options',
         'tense',
+        'is_past_perfect_continuous',
         'level',
         'theory_block',
         'theory_blocks',

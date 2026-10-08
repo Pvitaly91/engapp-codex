@@ -536,6 +536,7 @@ class TestJsV2Controller extends Controller
                 'verb_hints' => $verbHints,
                 'options' => $options,
                 'tense' => $q->category->name ?? '',
+                'is_past_perfect_continuous' => \App\Support\PastPerfectContinuousTestIdentity::forQuestion($q),
                 'level' => $q->level ?? '',
                 'theory_block' => $theoryBlock,
                 'theory_blocks' => $theoryBlocks,
@@ -647,7 +648,7 @@ class TestJsV2Controller extends Controller
         }
 
         $models = Question::query()
-            ->with('verbHints.option')
+            ->with(['verbHints.option', 'category'])
             ->where(function ($query) use ($questionIds, $questionUuids): void {
                 if ($questionIds !== []) {
                     $query->whereIn('id', $questionIds);
@@ -687,6 +688,7 @@ class TestJsV2Controller extends Controller
             $marker = $this->firstQuestionVerbHintMarker($question, $verbHints);
 
             $question['verb_hints'] = $verbHints;
+            $question['is_past_perfect_continuous'] = \App\Support\PastPerfectContinuousTestIdentity::forQuestion($model);
             $question['verb_hint'] = $marker !== null
                 ? ($verbHints[$marker] ?? reset($verbHints) ?: '')
                 : '';

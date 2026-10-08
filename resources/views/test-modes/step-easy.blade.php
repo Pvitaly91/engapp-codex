@@ -395,6 +395,7 @@ async function init(forceFresh = false) {
           item.activeSlot = findFirstUnfilledSlot(item);
           if (item.activeSlot === -1) item.activeSlot = 0;
         }
+        restoreSavedPpcRetryState(item);
         clampActiveSlot(item);
         // Regenerate optionsBySlot from base questions if available
         const baseQ = QUESTIONS[idx] || item;
@@ -761,7 +762,14 @@ document.getElementById('question-card').addEventListener('input', (e) => {
   }
   manualInput.value = manualInput.value.replace(/\s+/g, '');
   q.manualWordIndexBySlot[slotIndex] = wordIndex;
-  q.manualInputsBySlot[slotIndex] = collectManualAnswer(manualInput.closest('[data-manual-input-group]'));
+  const draft = collectManualAnswer(manualInput.closest('[data-manual-input-group]'));
+  if (q.manualInputsBySlot[slotIndex] !== draft && clearManualAnswerFeedbackOnEdit(q, slotIndex, wordIndex)) {
+    document.getElementById('feedback').innerHTML = '';
+    manualInput.dataset.answerState = 'active';
+    manualInput.classList.remove('border-red-400', 'bg-red-50', 'text-red-800', 'ring-4', 'ring-red-100', 'focus:border-red-500', 'focus:ring-red-100');
+    manualInput.classList.add('border-indigo-300', 'focus:border-indigo-500', 'focus:ring-4', 'focus:ring-indigo-100');
+  }
+  q.manualInputsBySlot[slotIndex] = draft;
   searchManualWords(state.current, slotIndex, manualInput.value);
   persistState(state);
 });
@@ -832,6 +840,7 @@ function onChoose(opt) {
   } else {
     rememberFeedbackAnswer(q, slotIndex, 'incorrect', opt, expected);
     q.manualWordIndexBySlot[slotIndex] = 0;
+    if (isPastPerfectContinuousQuestion(q)) q.manualInputsBySlot[slotIndex] = '';
     if (!q.explanationsCache) {
       q.explanationsCache = {};
     }
@@ -844,7 +853,7 @@ function onChoose(opt) {
     q.lastWrongBySlot[slotIndex] = opt;
     q.attemptsBySlot[slotIndex] = (q.attemptsBySlot[slotIndex] || 0) + 1;
     
-    if (q.attemptsBySlot[slotIndex] >= 2) {
+    if (q.attemptsBySlot[slotIndex] >= 2 && !isPastPerfectContinuousQuestion(q)) {
       // Auto-fill with correct answer after 2 wrong attempts
       q.chosen[slotIndex] = expected;
       q.attemptsBySlot[slotIndex] = 0;
