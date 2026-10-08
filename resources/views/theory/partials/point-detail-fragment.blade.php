@@ -1,7 +1,9 @@
 {{-- Only the finite, hash-bound M26 presentation package can supply fragments. --}}
 <section id="{{ $fragment['id'] }}" class="theory-point-fragment">
     @php($value = $fragment['value'])
-    @if($fragment['type'] === 'm43-author-html')
+    @if($fragment['type'] === 'm44-author-html')
+        <div class="m44-native-detail text-sm leading-relaxed space-y-3">{!! \App\Support\M44NativeHtml::decorateStoredExamples($value) !!}</div>
+    @elseif($fragment['type'] === 'm43-author-html')
         <div class="m43-native-detail text-sm leading-relaxed space-y-3">{!! \App\Support\M43NativeHtml::decorateStoredExamples($value) !!}</div>
     @else
     @if($fragment['type'] === 'm41-author-html' && isset($fragment['m41_existing_design_detail']))

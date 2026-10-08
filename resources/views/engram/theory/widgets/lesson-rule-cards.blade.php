@@ -2,6 +2,8 @@
     $data = $data ?? json_decode($block->body ?? '[]', true) ?? [];
     $items = $data['items'] ?? [];
     $lessonLinks = $lessonLinks ?? [];
+    $referencePiece = ($m43ReferencePiece ?? false) || ($m44ReferencePiece ?? false);
+    $nativeAuthorPiece = ($m41NativePiece ?? false) || ($m44NativePiece ?? false);
 @endphp
 
 <section id="block-{{ $block->id }}" class="theory-native-block scroll-mt-24">
@@ -23,6 +25,7 @@
                         $itemUrl = $item['url'] ?? $lessonLinks[$itemTitle] ?? $lessonLinks[$normalizedTitle] ?? null;
                         $cardClass = 'theory-item group relative rounded-xl border border-border/50 bg-gradient-to-br from-muted/20 to-transparent p-4 transition-all hover:border-brand-500 hover:shadow-sm';
                         $rules = $item['rules'] ?? [];
+                        $nativeDescription = ($m44NativePiece ?? false) ? ($item['native_description'] ?? '') : ($item['m41_description'] ?? '');
                     @endphp
 
                     @if($itemUrl)
@@ -37,7 +40,7 @@
                                 </span>
                             @endif
 
-                            @if(!($m41NativePiece ?? false) || !empty($item['title']))
+                            @if(!$nativeAuthorPiece || !empty($item['title']))
                             <h3 class="text-base font-bold text-foreground mb-1" @if(($m41NativePiece ?? false) && isset($item['m41_form_cell'])) data-m41-form-en lang="en" @endif>
                                 {{ $item['title'] ?? '' }}
                             </h3>
@@ -50,8 +53,8 @@
                             @endif
                         </div>
 
-                        @if(($m41NativePiece ?? false) && !empty($item['m41_description']))
-                            <div class="text-sm{{ ($m43ReferencePiece ?? false) ? ' text-muted-foreground' : ' leading-relaxed' }} m41-form-description">{!! $item['m41_description'] !!}</div>
+                        @if($nativeAuthorPiece && !empty($nativeDescription))
+                            <div class="text-sm{{ $referencePiece ? ' text-muted-foreground' : ' leading-relaxed' }} {{ ($m44NativePiece ?? false) ? 'm44-form-description' : 'm41-form-description' }}">{!! $nativeDescription !!}</div>
                         @endif
 
                         @if(!empty($rules))

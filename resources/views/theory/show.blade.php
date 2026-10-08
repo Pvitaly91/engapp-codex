@@ -37,6 +37,8 @@
 @php
     $blocks = $page->textBlocks ?? collect();
     $blocks = \App\Support\M43AuthoredTenseUsagePackage::orderBlocks($blocks);
+    $m44StyleContext = \App\Support\M44AuthoredFutureFormsPackage::allowsTheoryContext($blocks, app()->getLocale());
+    $blocks = \App\Support\M44AuthoredFutureFormsPackage::orderBlocks($blocks);
     $routePrefix = $routePrefix ?? 'theory';
     $heroBlock = $blocks->firstWhere('type', 'hero-v2') ?? $blocks->firstWhere('type', 'hero');
     $heroData = $heroBlock ? (json_decode($heroBlock->body ?? '[]', true) ?? []) : [];
@@ -167,6 +169,7 @@
                         @include('theory.partials.content-block', [
                             'm42StyleContext' => app()->getLocale() === 'uk',
                             'm43StyleContext' => app()->getLocale() === 'uk',
+                            'm44StyleContext' => $m44StyleContext,
                             'presentation' => $presentationByBlock[$block->id],
                             'practiceQuestions' => $practiceQuestionsByBlock[$block->uuid] ?? collect(),
                         ])
