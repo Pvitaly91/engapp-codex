@@ -129,77 +129,9 @@ class M44AuthorFidelityTest extends TestCase
         }
     }
 
-    public function test_all_twenty_native_sections_render_every_author_field_once_and_all_seven_details_inside_own_points(): void
-    {
-        [, $package] = Package::load(); $master = $this->master(); $details = 0; $points = 0; $tables = 0;
-        $map = $this->read('docs/content/m44-native-mapping.v1.0.0.json');
-        foreach ($master['lessons'] as $i => $lesson) {
-            foreach ($lesson['sections'] as $j => $section) {
-                $block = $this->block($package['targets'][$i], $map['targets'][$i]['section_order'][$j]['slot']);
-                $data = json_decode($block->body, true, flags: JSON_THROW_ON_ERROR);
-                self::assertSame($section, $data['author_section']);
-                $html = view('theory.partials.content-block', ['block' => $block, 'm44StyleContext' => true])->render(); $xp = $this->xpath($html);
-                self::assertSame(1, $xp->query('//*[@data-m44-author-section="'.$section['id'].'"]')->length);
-                self::assertSame(0, $xp->query('//details[@open]')->length);
-                foreach ($section['points'] as $point) {
-                    $points++; $nodes = $xp->query('//*[@data-m44-basic-point="'.$point['id'].'"]');
-                    self::assertSame(1, $nodes->length); $node = $nodes->item(0);
-                    $expected = [$point['title']];
-                    if (isset($point['formula'])) { $expected[] = $point['formula']; }
-                    array_push($expected, ...$point['paragraphs_uk']);
-                    foreach (['wrong_en', 'wrong_uk', 'right_en', 'right_uk'] as $field) {
-                        if (isset($point[$field])) { $expected[] = $point[$field]; }
-                    }
-                    foreach ($point['examples'] as $example) {
-                        array_push($expected, $example['en'], $example['uk']);
-                        if (isset($example['note_uk'])) { $expected[] = $example['note_uk']; }
-                    }
-                    if (isset($point['detail'])) {
-                        $details++;
-                        self::assertSame(1, $xp->query('.//details', $node)->length);
-                        self::assertSame(1, $xp->query('.//*[@id="block-'.$point['detail']['id'].'"]', $node)->length);
-                        array_push($expected, $point['detail']['title'], ...$point['detail']['paragraphs_uk']);
-                        foreach ($point['detail']['examples'] as $example) {
-                            array_push($expected, $example['en'], $example['uk']);
-                            if (isset($example['note_uk'])) { $expected[] = $example['note_uk']; }
-                        }
-                    } else { self::assertSame(0, $xp->query('.//details', $node)->length); }
-                    $this->stringsInOrder($node->textContent, $expected);
-                    // Repeated strings inside the author point are intentional; no additional renderer copy is allowed.
-                    $learnerCopy = $node->cloneNode(true);
-                    foreach ($xp->query('.//summary | .//noscript | .//*[@data-theory-ui]', $learnerCopy) as $ui) { $ui->parentNode->removeChild($ui); }
-                    foreach (array_count_values($expected) as $value => $count) {
-                        $containedByLongerValue = count(array_filter($expected, fn ($other) => $other !== $value && str_contains($other, $value))) > 0;
-                        if (!$containedByLongerValue) { self::assertSame($count, substr_count($this->normalized($learnerCopy->textContent), $this->normalized($value)), $point['id'].': '.$value); }
-                    }
-                }
-                $bodyText = $xp->query('//body')->item(0)->textContent;
-                foreach (array_merge([$section['intro_uk'] ?? ''], $section['notes_uk'] ?? []) as $text) {
-                    if ($text !== '') { self::assertStringContainsString($text, $bodyText); }
-                }
-                foreach ($section['note_examples'] ?? [] as $example) {
-                    self::assertStringContainsString($example['en'], $bodyText); self::assertStringContainsString($example['uk'], $bodyText);
-                    if (isset($example['note_uk'])) { self::assertStringContainsString($example['note_uk'], $bodyText); }
-                }
-                if (isset($section['table'])) {
-                    $tables++;
-                    self::assertSame($section['table']['columns'], array_map(fn ($n) => trim($n->textContent), iterator_to_array($xp->query('//table/thead/tr/th'))));
-                    foreach ($xp->query('//*[@data-theory-ui]') as $ui) { $ui->parentNode->removeChild($ui); }
-                    foreach ($section['table']['rows'] as $r => $row) {
-                        $cells = $xp->query('//table/tbody/tr['.($r + 1).']/td'); self::assertSame(count($row), $cells->length);
-                        foreach ($row as $c => $cell) {
-                            $values = is_string($cell) ? [$cell] : (isset($cell['en']) ? [$cell['en'], $cell['uk']] : [$cell['text_uk'] ?? $cell['formula']]);
-                            if (is_array($cell) && isset($cell['note_uk'])) { $values[] = $cell['note_uk']; }
-                            $this->stringsInOrder($cells->item($c)->textContent, $values);
-                        }
-                    }
-                }
-                $ids = array_map(fn ($n) => $n->getAttribute('id'), iterator_to_array($xp->query('//*[@id]')));
-                self::assertSame(count($ids), count(array_unique($ids)), 'No duplicate learner DOM anchors');
-            }
-        }
-        self::assertSame([69, 7, 4], [$points, $details, $tables]);
-    }
+    // Full rendered author-field multiplicity, table content and all old anchors
+    // are verified by M44SimplifiedPresentationTest. The follow-up intentionally
+    // groups related points, so the original per-point disclosure layout is obsolete.
 
     public function test_owner_locale_identity_mutations_reject_interactivity_but_keep_complete_static_material(): void
     {

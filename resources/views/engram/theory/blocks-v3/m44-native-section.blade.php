@@ -6,7 +6,15 @@
 @else
 @php
     $section = $data['author_section'];
+    // Existing detail references are first validated against the original basic
+    // renderer. Compact rendering begins only after that validation has finished.
+    $hasAuthoredDetails = count(array_filter($section['points'], fn ($point) => isset($point['detail']))) > 0;
+    $compact = !$hasAuthoredDetails || isset($pointSections)
+        ? \App\Support\M44SimplifiedPresentation::section($section) : null;
 @endphp
+@if($compact !== null)
+    @include('engram.theory.blocks-v3.m44-compact-section')
+@else
 <section id="block-{{ $block->id }}" class="theory-native-block m44-native-design scroll-mt-24" data-m44-author-section="{{ $section['id'] }}" data-m44-native-layout="{{ $section['native_kind'] }}">
     <span id="{{ $section['id'] }}" class="theory-subtitle-anchor" aria-hidden="true"></span>
     <div class="theory-section-card rounded-2xl border border-border/60 bg-card">
@@ -61,4 +69,5 @@
         </div>
     </div>
 </section>
+@endif
 @endif

@@ -9,7 +9,15 @@
             @foreach($m44StructuredTable['rows'] as $row)
                 <tr class="hover:bg-muted/30 transition-colors">
                     @foreach($row as $cell)
-                        <td class="py-3 px-4">{!! \App\Support\M44NativeHtml::cell($cell) !!}</td>
+                        <td class="py-3 px-4">
+                            @if(($m44CompactTable ?? false) && is_array($cell) && isset($cell['en']))
+                                <p lang="en">{{ $cell['en'] }}</p>
+                                <p lang="uk" class="theory-translation">{{ $cell['uk'] }}</p>
+                                @if(isset($cell['note_uk']))<p lang="uk" class="text-xs text-muted-foreground mt-2">{{ $cell['note_uk'] }}</p>@endif
+                            @else
+                                {!! \App\Support\M44NativeHtml::cell($cell) !!}
+                            @endif
+                        </td>
                     @endforeach
                 </tr>
             @endforeach
