@@ -37,12 +37,12 @@
                         {{-- Section Header --}}
                         @if(!empty($section['label']))
                             <div class="flex items-center gap-2 mb-3">
-                                <span class="flex h-5 w-5 items-center justify-center rounded-full {{ $colorStyles['badge'] }} text-white text-[10px] font-bold @if(isset($m42Design)) m42-point-number @endif">
+                                <span class="flex{{ ($m43ReferencePiece ?? false) ? ' flex-shrink-0' : '' }} h-5 w-5 items-center justify-center rounded-full {{ $colorStyles['badge'] }} text-white text-[10px] font-bold @if(isset($m42Design)) m42-point-number @endif">
                                     {{ $m41PointNumber ?? ($index + 1) }}
                                 </span>
-                                @if(($m41NativePiece ?? false) || isset($m42Design))<h3 class="text-xs font-bold uppercase tracking-wider {{ $colorStyles['text'] }} @if(isset($m42Design)) m42-point-label @endif">@else<span class="text-xs font-bold uppercase tracking-wider {{ $colorStyles['text'] }}">@endif
+                                @if($m43ReferencePiece ?? false)<h3 class="min-w-0 text-xs font-bold uppercase tracking-wider"><span class="{{ $colorStyles['text'] }}">@elseif(($m41NativePiece ?? false) || isset($m42Design))<h3 class="text-xs font-bold uppercase tracking-wider {{ $colorStyles['text'] }} @if(isset($m42Design)) m42-point-label @endif">@else<span class="text-xs font-bold uppercase tracking-wider {{ $colorStyles['text'] }}">@endif
                                     {{ $section['label'] }}
-                                @if(($m41NativePiece ?? false) || isset($m42Design))</h3>@else</span>@endif
+                                @if($m43ReferencePiece ?? false)</span></h3>@elseif(($m41NativePiece ?? false) || isset($m42Design))</h3>@else</span>@endif
                             </div>
                         @endif
 
@@ -58,7 +58,7 @@
                         @endif
 
                         {{-- Examples --}}
-                        @if(!empty($section['examples']))
+                        @if(($m43ReferencePiece ?? false) && !empty($m43ExamplesHtml))<div class="space-y-2">{!! $m43ExamplesHtml !!}</div>@endif@if(!empty($section['examples']))
                             <div class="space-y-2">
                                 @foreach($section['examples'] as $example)
                                     <div class="theory-example flex items-start gap-3 rounded-lg bg-white/60 border border-white/80 p-3">

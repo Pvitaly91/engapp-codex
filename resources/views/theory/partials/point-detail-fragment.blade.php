@@ -2,7 +2,7 @@
 <section id="{{ $fragment['id'] }}" class="theory-point-fragment">
     @php($value = $fragment['value'])
     @if($fragment['type'] === 'm43-author-html')
-        <div class="m43-native-detail text-sm leading-relaxed space-y-3">{!! $value !!}</div>
+        <div class="m43-native-detail text-sm leading-relaxed space-y-3">{!! \App\Support\M43NativeHtml::decorateStoredExamples($value) !!}</div>
     @else
     @if($fragment['type'] === 'm41-author-html' && isset($fragment['m41_existing_design_detail']))
         @include('engram.theory.blocks-v3.m41-native-detail', ['detail' => $fragment['m41_existing_design_detail']])

@@ -19,14 +19,14 @@
                     $config = $design['points'][$pointIndex];
                     $pieceBlock = (object) ['id' => $block->id.'-point-'.$point['id'], 'level' => $block->level ?? null, 'uuid' => $block->uuid];
                     $pieceDetails = isset($pointSections[$pointIndex]) ? [0 => $pointSections[$pointIndex]] : [];
-                    $description = \App\Support\M43NativeHtml::paragraphs($point['paragraphs_uk']);
+                    $description = \App\Support\M43NativeHtml::paragraphs($point['paragraphs_uk'], $section['native_kind'] === 'forms-grid');
                     $examples = \App\Support\M43NativeHtml::examples($point['examples']);
                 @endphp
                 <div id="{{ $point['id'] }}" class="{{ $section['native_kind'] === 'forms-grid' ? 'm43-form-point' : '' }}" data-m43-basic-point="{{ $point['id'] }}" data-m43-point-color="{{ $config['color'] }}">
                     @if($section['native_kind'] === 'forms-grid')
                         @include('engram.theory.blocks-v3.forms-grid', ['block' => $pieceBlock, 'data' => ['items' => [[
                             'label' => $point['title'], 'title' => $point['formula'] ?? '', 'm41_description' => $description.$examples,
-                        ]]], 'embeddedDetail' => true, 'm41NativePiece' => true, 'lessonLinks' => [], 'pointSections' => $pieceDetails])
+                        ]]], 'embeddedDetail' => true, 'm41NativePiece' => true, 'm43ReferencePiece' => true, 'lessonLinks' => [], 'pointSections' => $pieceDetails])
                     @elseif($section['native_kind'] === 'mistakes-grid')
                         @include('engram.theory.blocks-v3.mistakes-grid', ['block' => $pieceBlock, 'data' => [], 'm43NativeMistake' => true, 'point' => $point, 'pointSections' => $pieceDetails])
                     @elseif($section['native_kind'] === 'summary-list')
@@ -36,8 +36,8 @@
                         @include('theory.partials.point-disclosure', ['index' => 0, 'pointSections' => $pieceDetails])
                     @else
                         @include('engram.theory.blocks-v3.usage-panels', ['block' => $pieceBlock, 'data' => ['sections' => [[
-                            'label' => $point['title'], 'description' => $description.$examples, 'examples' => [], 'color' => $config['color'],
-                        ]]], 'embeddedDetail' => true, 'm41NativePiece' => true, 'm41PointNumber' => $pointIndex + 1, 'pointSections' => $pieceDetails])
+                            'label' => $point['title'], 'description' => $description, 'examples' => [], 'color' => $config['color'],
+                        ]]], 'embeddedDetail' => true, 'm41NativePiece' => true, 'm43ReferencePiece' => true, 'm43ExamplesHtml' => $examples, 'm41PointNumber' => $pointIndex + 1, 'pointSections' => $pieceDetails])
                     @endif
                 </div>
             @endforeach
@@ -47,7 +47,7 @@
                     'data' => ['title' => $section['title']], 'm43StructuredTable' => $section['table'],
                     'embeddedDetail' => true, 'm41NativePiece' => true, 'pointSections' => []])
             @endif
-            @foreach($section['notes_uk'] ?? [] as $note)<p lang="uk" class="theory-note text-sm leading-relaxed p-3">{{ $note }}</p>@endforeach
+            @foreach($section['notes_uk'] ?? [] as $note)<p lang="uk" class="theory-note text-sm rounded-lg p-3">{{ $note }}</p>@endforeach
             {!! \App\Support\M43NativeHtml::examples($section['note_examples'] ?? []) !!}
             <x-text-block-tags :block="$block" />
             <x-text-block-practice-questions :questions="$practiceQuestions ?? collect()" :blockUuid="$block->uuid" />

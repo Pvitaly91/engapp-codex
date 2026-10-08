@@ -51,7 +51,7 @@
                         </div>
 
                         @if(($m41NativePiece ?? false) && !empty($item['m41_description']))
-                            <div class="text-sm leading-relaxed m41-form-description">{!! $item['m41_description'] !!}</div>
+                            <div class="text-sm{{ ($m43ReferencePiece ?? false) ? ' text-muted-foreground' : ' leading-relaxed' }} m41-form-description">{!! $item['m41_description'] !!}</div>
                         @endif
 
                         @if(!empty($rules))

@@ -456,4 +456,5 @@ async function supplemental(dir, label) {
 }
 if(require.main===module){const[mode,dir,label]=process.argv.slice(2);assert.ok(['--pages','--supplemental'].includes(mode),'Explicit acceptance mode required');
     (mode==='--pages'?pages(dir,label):supplemental(dir,label)).then(report=>{if(!report.pass)process.exitCode=1;}).catch(error=>{console.error(error.stack);process.exitCode=1;});}
-module.exports={BASE,MASTER_PATH,MASTER_SHA,PRACTICE_COMPONENT_SELECTOR,master,targets,uiCases,allowedRequest,safeUrl,norm,onceOrdered,cellText,examplePairs,pointFidelity,feedbackFidelity,authorFidelity,sourceHashes,pages,supplemental};
+module.exports={BASE,MASTER_PATH,MASTER_SHA,PRACTICE_COMPONENT_SELECTOR,master,targets,uiCases,allowedRequest,safeUrl,norm,onceOrdered,cellText,examplePairs,pointFidelity,feedbackFidelity,authorFidelity,sourceHashes,pages,supplemental,
+    practiceQA,detailsQA,layoutQA,tocAndReload};
