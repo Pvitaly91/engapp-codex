@@ -136,6 +136,8 @@ class M44SimplifiedPresentationTest extends TestCase
         self::assertSame(Presentation::SHA, hash_file('sha256', base_path(Presentation::PATH)));
         self::assertSame(Presentation::FORMS_SHA, hash_file('sha256', base_path(Presentation::FORMS_PATH)));
         self::assertSame(Presentation::SHA, $this->read(Presentation::FORMS_PATH)['base_sha256']);
+        self::assertSame(Presentation::CONT_FORMS_SHA, hash_file('sha256', base_path(Presentation::CONT_FORMS_PATH)));
+        self::assertSame(Presentation::SHA, $this->read(Presentation::CONT_FORMS_PATH)['base_sha256']);
         $projection = $this->read(Presentation::PATH);
         self::assertSame(self::MASTER_SHA, $projection['master_sha256']);
         $lessonCounts = []; $sectionCount = 0; $pointCount = 0;
@@ -182,7 +184,7 @@ class M44SimplifiedPresentationTest extends TestCase
             }
             $lessonCounts[] = $groupCount;
         }
-        self::assertSame([19, 13, 16], $lessonCounts);
+        self::assertSame([19, 12, 16], $lessonCounts);
         self::assertSame([20, 69], [$sectionCount, $pointCount]);
     }
 
@@ -249,6 +251,14 @@ class M44SimplifiedPresentationTest extends TestCase
                     foreach (['m44-will-form-question-more', 'm44-will-form-going-question-more'] as $legacyId) {
                         self::assertSame(1, $xp->query('//*[@id="'.$legacyId.'"]')->length);
                     }
+                }
+                if ($section['id'] === 'm44-cont-forms') {
+                    self::assertCount(2, $groups);
+                    self::assertSame(3, $xp->query('//*[@data-m44-form-row and not(ancestor::details)]')->length);
+                    self::assertSame(1, $xp->query('//details')->length);
+                    self::assertSame(1, $xp->query('//*[@id="m44-cont-form-question-more"]')->length);
+                    self::assertSame(1, $xp->query('//*[@id="m44-cont-form-spelling" and not(ancestor::details)]')->length);
+                    self::assertSame(2, $xp->query('//*[@data-m44-short-answers]/p')->length);
                 }
 
                 // Notes belong to the section, not its grouped points: check their own remaining DOM.

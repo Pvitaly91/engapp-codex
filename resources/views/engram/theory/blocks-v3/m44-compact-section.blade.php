@@ -1,5 +1,6 @@
 @php
     $pointSections = $pointSections ?? [];
+    $formComparison = ($compact[0]['layout'] ?? null) === 'form-comparison';
 @endphp
 <section id="block-{{ $block->id }}" class="theory-native-block m44-native-design scroll-mt-24" data-m44-author-section="{{ $section['id'] }}" data-m44-native-layout="{{ $section['native_kind'] }}" data-m44-simplified>
     <span id="{{ $section['id'] }}" class="theory-subtitle-anchor" aria-hidden="true"></span>
@@ -7,7 +8,7 @@
         <x-theory-native-header :title="$section['title']" :level="$block->level ?? null" />
         <div class="theory-section-body p-5 space-y-4">
             @if(isset($section['intro_uk']))<p lang="uk" class="text-sm leading-relaxed">{{ $section['intro_uk'] }}</p>@endif
-            <div class="{{ $section['native_kind'] === 'forms-grid' ? 'grid gap-3 sm:grid-cols-2' : 'space-y-4' }}">
+            <div class="{{ $section['native_kind'] === 'forms-grid' && !$formComparison ? 'grid gap-3 sm:grid-cols-2' : 'space-y-4' }}">
                 @foreach($compact as $groupIndex => $group)
                     @php
                         $pointIndex = $group['source_index'];
@@ -27,13 +28,25 @@
                             $examples = view('engram.theory.blocks-v3.m44-compact-form-examples', ['formExamples' => $group['disclosure'] ? $group['examples'] : $point['examples']])->render();
                         }
                         if (isset($group['form_rows'])) {
-                            $description = view('engram.theory.blocks-v3.m44-compact-form-rows', ['rows' => $group['form_rows']])->render().$description;
+                            $rowView = ($group['layout'] ?? null) === 'form-comparison' ? 'm44-compact-form-comparison' : 'm44-compact-form-rows';
+                            $description = view('engram.theory.blocks-v3.'.$rowView, ['rows' => $group['form_rows'], 'block' => $pieceBlock])->render().$description;
                             $examples = '';
                         }
                         $detailHtml = $group['disclosure'] ? view('engram.theory.blocks-v3.m44-compact-detail', compact('group', 'section', 'pointSections', 'block'))->render() : '';
                     @endphp
-                    <div id="{{ $group['id'] }}" class="{{ $section['native_kind'] === 'forms-grid' ? 'm44-form-point' : '' }}" data-m44-compact-group="{{ $group['id'] }}" @unless($group['disclosure']) data-m44-basic-point="{{ $point['id'] }}" @endunless data-m44-point-color="{{ $config['color'] }}">
-                        @if($section['native_kind'] === 'forms-grid')
+                    <div id="{{ $group['id'] }}" class="{{ $section['native_kind'] === 'forms-grid' && !isset($group['layout']) ? 'm44-form-point' : '' }}" data-m44-compact-group="{{ $group['id'] }}" @unless($group['disclosure']) data-m44-basic-point="{{ $point['id'] }}" @endunless data-m44-point-color="{{ $config['color'] }}">
+                        @if(($group['layout'] ?? null) === 'form-comparison')
+                            <span id="block-{{ $pieceBlock->id }}" aria-hidden="true"></span>
+                            <h3 class="sr-only">{{ $title }}</h3>
+                            <div class="text-sm">{!! $description !!}</div>
+                            {!! $detailHtml !!}
+                        @elseif(($group['layout'] ?? null) === 'inline-note')
+                            <div id="block-{{ $pieceBlock->id }}" class="text-sm space-y-2">
+                                <h3 class="font-bold">{{ $title }}</h3>
+                                <p class="font-semibold text-foreground">{{ $formula }}</p>
+                                {!! $description.$examples !!}
+                            </div>
+                        @elseif($section['native_kind'] === 'forms-grid')
                             @include('engram.theory.blocks-v3.forms-grid', ['block' => $pieceBlock, 'data' => ['items' => [[
                                 'label' => isset($group['form_rows']) ? '' : $title, 'title' => isset($group['form_rows']) ? $title : ($formula ?? ''), 'native_description' => $description.$examples.$detailHtml,
                             ]]], 'embeddedDetail' => true, 'm44NativePiece' => true, 'm44ReferencePiece' => true, 'lessonLinks' => [], 'pointSections' => $pieceDetails])
@@ -57,7 +70,15 @@
                 @include('engram.theory.blocks-v3.m44-native-table', ['data' => ['title' => $section['title']], 'm44StructuredTable' => $section['table'], 'm44CompactTable' => true])
             @endif
             @foreach($section['notes_uk'] ?? [] as $note)<p lang="uk" class="theory-note text-sm rounded-lg p-3">{{ $note }}</p>@endforeach
-            {!! \App\Support\M44NativeHtml::examples($section['note_examples'] ?? []) !!}
+            @if($formComparison)
+                <div class="flex flex-wrap gap-3 text-sm" data-m44-short-answers>
+                    @foreach($section['note_examples'] ?? [] as $example)
+                        <p><span lang="en" class="font-semibold">{{ $example['en'] }}</span> — <span lang="uk" class="text-muted-foreground">{{ $example['uk'] }}</span></p>
+                    @endforeach
+                </div>
+            @else
+                {!! \App\Support\M44NativeHtml::examples($section['note_examples'] ?? []) !!}
+            @endif
             <x-text-block-tags :block="$block" />
             <x-text-block-practice-questions :questions="$practiceQuestions ?? collect()" :blockUuid="$block->uuid" />
         </div>

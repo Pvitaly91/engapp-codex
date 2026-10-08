@@ -9,6 +9,8 @@ final class M44SimplifiedPresentation
     public const SHA = '547e9db5647c5708b5f699122a61fb53d10fa7332912829ce07b6703de7dc24e';
     public const FORMS_PATH = 'docs/content/m44-forms-presentation.v2.json';
     public const FORMS_SHA = '0f9019db84e8b8573ceb99f655e9dde083df6bbd6bf0b19a82516e4892e26aac';
+    public const CONT_FORMS_PATH = 'docs/content/m44-cont-forms-presentation.v3.json';
+    public const CONT_FORMS_SHA = '81ca7d4f60bd3be33fd3ec5a7708cb11397b5b8e2b2795747b8d456f6fadc785';
 
     public static function section(array $section): ?array
     {
@@ -23,9 +25,14 @@ final class M44SimplifiedPresentation
                 foreach ($lesson['sections'] as $source) {
                     if ($source !== $section) { continue; }
                     $plan = $projection['sections'][$section['id']] ?? null;
-                    if ($section['id'] === 'm44-will-forms') {
-                        $formsBytes = file_get_contents(base_path(self::FORMS_PATH));
-                        if (hash('sha256', $formsBytes) !== self::FORMS_SHA) { return null; }
+                    $formsProjection = match ($section['id']) {
+                        'm44-will-forms' => [self::FORMS_PATH, self::FORMS_SHA],
+                        'm44-cont-forms' => [self::CONT_FORMS_PATH, self::CONT_FORMS_SHA],
+                        default => null,
+                    };
+                    if ($formsProjection !== null) {
+                        $formsBytes = file_get_contents(base_path($formsProjection[0]));
+                        if (hash('sha256', $formsBytes) !== $formsProjection[1]) { return null; }
                         $forms = json_decode($formsBytes, true, flags: JSON_THROW_ON_ERROR);
                         if ($forms['base_sha256'] !== self::SHA || $forms['master_sha256'] !== M44AuthoredFutureFormsPackage::MASTER_SHA
                             || $forms['section_id'] !== $section['id']) { return null; }
