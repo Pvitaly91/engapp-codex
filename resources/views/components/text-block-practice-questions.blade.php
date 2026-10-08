@@ -160,7 +160,7 @@
                         {{ $title ?: __('theory_blocks.practice_questions.title') }}
                     </h4>
                     @if(filled($intro))
-                        <p class="mt-1 text-xs text-muted-foreground">{{ $intro }}</p>
+                        <p class="mt-1 text-base text-muted-foreground leading-relaxed" data-practice-instruction>{{ $intro }}</p>
                     @endif
                 </div>
                 <div class="flex items-center gap-2 text-xs text-muted-foreground">

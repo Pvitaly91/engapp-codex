@@ -49,7 +49,7 @@ final class M43NativeHtml
         $badge = $sourceIndex === null ? '' : '<span aria-hidden="true" data-theory-ui class="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded bg-blue-500 text-white text-[10px]">'
             .self::escape((string) $sourceIndex).'</span>';
         $html = str_replace('<h4>', '<h4 class="text-sm font-semibold flex items-center gap-2">'.$badge, $html);
-        return preg_replace('/<\/h4><p>/', '</h4><p class="text-xs text-muted-foreground mt-1">', $html, 1) ?? $html;
+        return preg_replace('/<\/h4><p>/', '</h4><p class="text-base text-muted-foreground mt-1 leading-relaxed" data-practice-instruction>', $html, 1) ?? $html;
     }
 
     public static function cell(string|array $cell): string

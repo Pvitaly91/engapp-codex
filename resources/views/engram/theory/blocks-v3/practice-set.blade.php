@@ -113,7 +113,7 @@
 
         <div class="theory-section-body p-5 space-y-6">
             @if($m30AuthorSelfCheck !== null)
-                <div class="text-sm text-muted-foreground leading-relaxed" data-{{ $authorSelfCheckStage }}-self-check-intro>{!! $m30AuthorSelfCheck['intro'] !!}</div>
+                <div class="text-base text-muted-foreground leading-relaxed" data-practice-instruction data-{{ $authorSelfCheckStage }}-self-check-intro>{!! $m30AuthorSelfCheck['intro'] !!}</div>
                 <noscript>
                     <div class="theory-item rounded-xl p-4 bg-muted/50" data-{{ $authorSelfCheckStage }}-self-check-no-js>
                         <p class="text-sm text-muted-foreground mb-3">Інтерактивна перевірка потребує JavaScript. Завдання й авторські пояснення доступні нижче.</p>
@@ -132,7 +132,7 @@
                             {{ $data['select_title'] ?? __('theory_blocks.practice.select_title') }}
                         </h3>
                         @if(!empty($data['select_intro']))
-                            <p class="text-xs text-muted-foreground mt-1">{!! $data['select_intro'] !!}</p>
+                            <p class="text-base text-muted-foreground mt-1 leading-relaxed" data-practice-instruction>{!! $data['select_intro'] !!}</p>
                         @endif
                     </div>
                     <div class="p-4 space-y-3">
@@ -143,7 +143,7 @@
                                 </span>
                                 <div class="flex-1">
                                     @if($m30AuthorSelfCheck !== null && !empty($item['context']))
-                                        <div class="text-sm text-foreground/80 leading-relaxed mb-2" data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
+                                        <div class="text-base text-foreground/80 leading-relaxed mb-2" data-practice-instruction data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
                                     @endif
                                     <label class="block text-sm text-foreground/80 mb-1.5">
                                         {!! $item['label'] ?? '' !!}
@@ -199,7 +199,7 @@
                             {{ $data['choice_title'] ?? __('theory_blocks.practice.select_title') }}
                         </h3>
                         @if(!empty($data['choice_intro']))
-                            <p class="text-xs text-muted-foreground mt-1">{!! $data['choice_intro'] !!}</p>
+                            <p class="text-base text-muted-foreground mt-1 leading-relaxed" data-practice-instruction>{!! $data['choice_intro'] !!}</p>
                         @endif
                     </div>
                     <div class="p-4 space-y-3">
@@ -210,13 +210,13 @@
                                 </span>
                                 <div class="flex-1">
                                     @if($m30AuthorSelfCheck !== null && !empty($item['context']))
-                                        <div class="text-sm text-foreground/80 leading-relaxed mb-2" data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
+                                        <div class="text-base text-foreground/80 leading-relaxed mb-2" data-practice-instruction data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
                                     @endif
                                     <label class="block text-sm text-foreground/80 mb-1.5">
                                         {!! $item['label'] ?? '' !!}
                                     </label>
                                     @if(!empty($item['prompt']))
-                                        <p class="mb-2 text-xs text-muted-foreground">{!! $item['prompt'] !!}</p>
+                                        <p class="mb-2 text-base text-muted-foreground leading-relaxed" data-practice-instruction>{!! $item['prompt'] !!}</p>
                                     @endif
                                     <div class="flex flex-wrap gap-2">
                                         @foreach($item['options'] ?? $choiceOptions as $option)
@@ -269,7 +269,7 @@
                             {{ $data['input_title'] ?? __('theory_blocks.practice.input_title') }}
                         </h3>
                         @if(!empty($data['input_intro']))
-                            <p class="text-xs text-muted-foreground mt-1">{!! $data['input_intro'] !!}</p>
+                            <p class="text-base text-muted-foreground mt-1 leading-relaxed" data-practice-instruction>{!! $data['input_intro'] !!}</p>
                         @endif
                     </div>
                     <div class="p-4 space-y-3">
@@ -281,7 +281,7 @@
                             @endphp
                             <div class="relative flex flex-wrap items-center gap-2 text-sm text-foreground/80 bg-white/60 rounded-lg p-3 border border-white">
                                 @if($m30AuthorSelfCheck !== null && !empty($item['context']))
-                                    <div class="w-full text-sm text-foreground/80 leading-relaxed" data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
+                                    <div class="w-full text-base text-foreground/80 leading-relaxed" data-practice-instruction data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
                                 @endif
                                 <span class="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 text-[10px] font-bold">
                                     {{ chr(97 + $index) }}
@@ -407,7 +407,7 @@
                             {{ $data['rephrase_title'] ?? __('theory_blocks.practice.rephrase_title') }}
                         </h3>
                         @if(!empty($data['rephrase_intro']))
-                            <p class="text-xs text-muted-foreground mt-1">{!! $data['rephrase_intro'] !!}</p>
+                            <p class="text-base text-muted-foreground mt-1 leading-relaxed" data-practice-instruction>{!! $data['rephrase_intro'] !!}</p>
                         @endif
                     </div>
                     <div class="p-4 space-y-4">

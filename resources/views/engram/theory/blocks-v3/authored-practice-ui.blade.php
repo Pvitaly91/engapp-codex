@@ -12,12 +12,12 @@
     <div class="theory-section-card rounded-2xl border border-border/60 bg-card" x-data="{{ $practiceFactory }}(@js(['cases' => $data['cases']]))">
         <x-theory-native-header :title="$data['title']" :level="$block->level ?? null" fallback="⚡" />
         <div class="theory-section-body p-5 space-y-6">
-            <div class="text-sm text-muted-foreground leading-relaxed" data-{{ $practiceScope }}-self-check-intro>{!! $author['intro'] !!}</div>
+            <div class="text-base text-muted-foreground leading-relaxed" data-practice-instruction data-{{ $practiceScope }}-self-check-intro>{!! $author['intro'] !!}</div>
             <noscript><p class="text-sm text-muted-foreground">Автоматична перевірка потребує JavaScript. Завдання та авторські ключі доступні без нього.</p></noscript>
             <p class="text-sm font-semibold" aria-live="polite" data-{{ $practiceScope }}-ui-score>Результат: <span x-text="score">0</span> / {{ count($data['cases']) }}</p>
             @foreach($data['cases'] as $i => $task)
                 <article class="theory-exercise rounded-xl border border-border{{ $referencePractice ? ' overflow-hidden' : ' p-4 space-y-4' }}" data-{{ $practiceScope }}-ui-case="{{ $task['source_index'] }}" data-{{ $practiceScope }}-ui-interaction="{{ $task['interaction'] }}">
-                    <div class="{{ $referencePractice ? 'border-b border-border px-4 py-3 text-sm leading-relaxed' : 'text-sm leading-relaxed' }}" data-{{ $practiceScope }}-author-prompt="{{ $task['source_index'] }}">{!! $author['prompts'][$task['source_index'] - 1] !!}</div>@if($referencePractice)<div class="p-4 space-y-3">@endif
+                    <div class="{{ $referencePractice ? 'border-b border-border px-4 py-3 text-base leading-relaxed' : 'text-base leading-relaxed' }}" data-practice-instruction data-{{ $practiceScope }}-author-prompt="{{ $task['source_index'] }}">{!! $author['prompts'][$task['source_index'] - 1] !!}</div>@if($referencePractice)<div class="p-4 space-y-3">@endif
                     @foreach($task['controls'] as $p => $control)
                         @php($fieldId = $practiceScope.'-'.$block->id.'-'.$i.'-'.$p)
                         @if($referencePractice)<div class="bg-white/60 rounded-lg p-3 border border-white" data-{{ $practiceScope }}-control-panel>@endif<fieldset class="space-y-2" data-{{ $practiceScope }}-control="{{ $control['id'] }}" data-{{ $practiceScope }}-control-kind="{{ $control['kind'] }}" style="min-width:0;text-transform:none">
