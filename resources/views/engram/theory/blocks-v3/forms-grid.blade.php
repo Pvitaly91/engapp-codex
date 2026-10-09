@@ -1,9 +1,5 @@
-@include('engram.theory.widgets.lesson-rule-cards', [
-    'block' => $block,
-    'embeddedDetail' => $embeddedDetail ?? false,
-    'pointSections' => $pointSections ?? [],
-    'data' => $data ?? json_decode($block->body ?? '[]', true) ?? [],
-    'm42Design' => $m42Design ?? null,
-    'lessonLinks' => $lessonLinks ?? [],
-    'practiceQuestions' => $practiceQuestions ?? collect(),
-])
+@if($theoryCanonical ?? false)
+    @include('theory.components.node', ['node' => \App\Support\TheoryLegacyAdapter::section($block, $data ?? json_decode($block->body ?? '[]', true) ?? [], $pointSections ?? [], $lessonLinks ?? [], $embeddedDetail ?? false, $m42Design ?? null)])
+@else
+    @include('courses.compatibility.theory.forms-grid')
+@endif

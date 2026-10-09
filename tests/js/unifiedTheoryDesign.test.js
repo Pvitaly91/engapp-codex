@@ -9,6 +9,56 @@ const entry = source('resources/js/catalog-public.js');
 const cssAst = postcss.parse(css);
 
 describe('scoped unified lesson design', () => {
+    it('limits new fragment wrapping to canonical nodes, not unchanged course details', () => {
+        const rules = [];
+        cssAst.walkRules(rule => {
+            if (rule.nodes.some(node => node.prop === 'overflow-wrap' && node.value === 'anywhere')) rules.push(rule);
+        });
+        const fragmentRules = rules.filter(rule => rule.selector.includes('theory-point-fragment'));
+        expect(fragmentRules).toHaveLength(1);
+        expect(fragmentRules[0].selector.split(',').map(value => value.trim())).toEqual([
+            '.theory-design [data-theory-component].theory-point-fragment',
+            '.theory-design [data-theory-component] .theory-point-fragment',
+        ]);
+        const fixture = document.createElement('div');
+        fixture.innerHTML = `<style>${fragmentRules[0].toString()}</style>
+            <div class="theory-design"><section class="theory-point-fragment" id="course-fragment">Original course detail</section></div>
+            <div class="theory-design"><section class="theory-point-fragment" data-theory-component="fragment" id="canonical-fragment">Theory detail</section>
+                <article data-theory-component="usage"><div class="theory-point-fragment" id="canonical-body">Theory body</div></article></div>`;
+        document.body.append(fixture);
+        try {
+            const course = fixture.querySelector('#course-fragment');
+            expect(course.matches(fragmentRules[0].selector)).toBe(false);
+            expect(getComputedStyle(course).overflowWrap).not.toBe('anywhere');
+            for (const id of ['canonical-fragment', 'canonical-body']) {
+                const element = fixture.querySelector(`#${id}`);
+                expect(element.matches(fragmentRules[0].selector)).toBe(true);
+                expect(getComputedStyle(element).overflowWrap).toBe('anywhere');
+                expect(getComputedStyle(element).minWidth).toBe('0');
+            }
+        } finally { fixture.remove(); }
+    });
+    it('limits extracted tense-matrix rules to canonical tables, not course markup', () => {
+        const rules = [];
+        cssAst.walkRules(rule => {
+            // The pre-existing :not(:has(.tense-forms-table)) scroll rule is
+            // intentionally outside this extracted matrix-style contract.
+            if (/(?:^|\s)\.tense-forms-(table|corner|cell)/.test(rule.selector)) rules.push(rule);
+        });
+        expect(rules).toHaveLength(6);
+        for (const rule of rules) {
+            expect(rule.selector).toMatch(/^\.theory-design \[data-theory-component="table"\] /);
+        }
+        const fixture = document.createElement('div');
+        fixture.innerHTML = `<style>${rules.map(rule => rule.toString()).join('\n')}</style>
+            <div class="theory-design"><div class="theory-table-scroll"><table id="course-matrix" class="tense-forms-table"><tbody><tr><td>Course</td></tr></tbody></table></div></div>
+            <div class="theory-design"><div class="theory-table-scroll" data-theory-component="table"><table id="canonical-matrix" class="tense-forms-table"><tbody><tr><td>Theory</td></tr></tbody></table></div></div>`;
+        document.body.append(fixture);
+        try {
+            expect(getComputedStyle(fixture.querySelector('#course-matrix')).minWidth).not.toBe('900px');
+            expect(getComputedStyle(fixture.querySelector('#canonical-matrix')).minWidth).toBe('900px');
+        } finally { fixture.remove(); }
+    });
     it('does not introduce global typography, hidden content or text truncation', () => {
         const rules = [...css.matchAll(/([^{}]+)\{/g)].map(match => match[1].replace(/\/\*[\s\S]*?\*\//g, '').trim());
         for (const selector of rules.filter(rule => !rule.startsWith('@'))) {

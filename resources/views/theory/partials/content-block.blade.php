@@ -1,4 +1,5 @@
 @php
+    $theoryCanonical = ($theoryCanonical ?? false) === true;
     $nativeView = \App\Support\TheoryPresentation::nativeView($block->type);
     $decodedBody = json_decode($block->body ?? '', true);
     $m45StoredAuthor = is_array($decodedBody) && \App\Support\M45FutureComparisonsPackage::hasStoredAuthor($decodedBody);
@@ -54,6 +55,7 @@
             $nativeView = 'engram.theory.blocks-v3.m43-static-fallback';
         }
         $basicHtml = view($nativeView, [
+            'theoryCanonical' => $theoryCanonical,
             'block' => $block,
             'data' => is_array($renderData) ? $renderData : [],
             'm42Design' => $m42Design,
@@ -65,7 +67,7 @@
         foreach ($points ?? [] as $index => $point) {
             $detailHtml = '';
             foreach ($point['fragments'] as $fragment) {
-                $detailHtml .= view('theory.partials.point-detail-fragment', ['fragment' => $fragment, 'm42Design' => $m42Design])->render();
+                $detailHtml .= view('theory.partials.point-detail-fragment', ['fragment' => $fragment, 'm42Design' => $m42Design, 'theoryCanonical' => $theoryCanonical])->render();
             }
             $section = \App\Support\TheorySection::resolve($point['key'], $point['title'],
                 new \Illuminate\Support\HtmlString($basicHtml.$detailHtml), null, [
@@ -78,34 +80,22 @@
                 $pointSections = [];
                 // An invalid detail must never hide its complete stored author text.
                 if ($m27 !== null) { $basicHtml = view($m44StoredAuthor ? 'engram.theory.blocks-v3.m44-static-fallback' : ($m43StoredAuthor ? 'engram.theory.blocks-v3.m43-static-fallback' : $nativeView), ['block' => $block, 'data' => $decodedBody,
-                    'practiceQuestions' => $practiceQuestions ?? collect(), 'lessonLinks' => $lessonLinks ?? []])->render(); }
+                    'practiceQuestions' => $practiceQuestions ?? collect(), 'lessonLinks' => $lessonLinks ?? [], 'theoryCanonical' => $theoryCanonical])->render(); }
                 $m42Design = null;
                 break;
             }
             $pointSections[$index] = $section;
         }
     @endphp
-    @if($m42Design !== null)
+    @unless($theoryCanonical)
+        @include('courses.compatibility.theory.package-styles')
+    @endunless
+    @if($m42Design !== null && !$theoryCanonical)
         {{-- Emit once outside discarded validation renders. Scope stays out of courses. --}}
-        @include('engram.theory.blocks-v3.m42-native-design-styles')
         <div class="m42-native-design" data-m42-native-design="v1"
              data-m42-native-kind="{{ $m42Design['component'] }}"
              data-m42-color="{{ $m42Design['color'] ?? 'slate' }}"
              data-m42-source-uuid="{{ $m42Design['uuid'] }}">
-    @endif
-    @if($m27 !== null && isset($decodedBody['m43_v1']))
-        @include('engram.theory.blocks-v3.m43-native-styles')
-    @endif
-    @if($m27 !== null && isset($decodedBody['m44_v1']))
-        @include('engram.theory.blocks-v3.m44-native-styles')
-    @endif
-    @if($m27 !== null && isset($decodedBody['m41_v1']) && $decodedBody['m41_v1']['role'] === 'section')
-        {{-- Outside the preliminary render: @once must not be consumed by discarded validation HTML. --}}
-        @if(isset($m27['data']['m41_existing_design']))
-            @include('engram.theory.blocks-v3.m41-existing-design-styles')
-        @else
-            @include('engram.theory.blocks-v3.m41-section-styles')
-        @endif
     @endif
     @if($m27 !== null && ($m27['legacy_section'] ?? null) !== null)
         @php($legacyBlockId = isset($m27['legacy_block_uuid'])
@@ -117,6 +107,7 @@
     @if($pointSections !== [])
         {{-- Every disclosure belongs to its own existing basic point. --}}
         @include($nativeView, [
+            'theoryCanonical' => $theoryCanonical,
             'block' => $block,
             'data' => $renderData,
             'm42Design' => $m42Design,
@@ -127,13 +118,13 @@
     @else
         {!! $basicHtml !!}
     @endif
-    @if($m42Design !== null)</div>@endif
+    @if($m42Design !== null && !$theoryCanonical)</div>@endif
     @if(!is_array($decodedBody))
         </div>
     @endif
 @elseif($block->type === 'box' || empty($block->type))
     <div id="{{ $blockAnchor }}" class="theory-content-block">
-        <x-theory-rich-box :block="$block" :presentation="$presentation ?? \App\Support\TheoryPresentation::html($block)" />
+        <x-theory-rich-box :block="$block" :presentation="$presentation ?? \App\Support\TheoryPresentation::html($block, canonical: $theoryCanonical)" />
     </div>
 @elseif($block->type === 'subtitle')
     {{-- Intro text is already in the hero; retain the old unique fragment target. --}}

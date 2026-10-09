@@ -26,7 +26,7 @@ final class TheoryPresentation
     }
 
     /** All original text/attributes/anchors remain; only presentation and new anchors are added. */
-    public static function html(object $block): array
+    public static function html(object $block, bool $canonical = false): array
     {
         $body = (string) ($block->body ?? '');
         $rich = TheoryRichContent::render($body);
@@ -134,7 +134,7 @@ final class TheoryPresentation
             $html .= $dom->saveHTML($node);
         }
 
-        return ['html' => new HtmlString($html), 'toc' => $toc, 'structured' => $rich !== null || $toc !== []];
+        return ['html' => $canonical ? TheoryHtmlAdapter::sections($html) : new HtmlString($html), 'toc' => $toc, 'structured' => $rich !== null || $toc !== []];
     }
 
     private static function addClass(DOMElement $element, string $class): void

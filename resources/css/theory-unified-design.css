@@ -174,6 +174,15 @@
 .theory-design [data-theory-point-index] .theory-section-detail-body { display: grid; gap: 1rem; padding: .5rem 0 0; }
 .theory-design [data-theory-point-index] .theory-section-nojs { padding: .5rem 0; }
 .theory-design .theory-point-fragment > * + * { margin-top: .65rem; }
+.theory-design [data-theory-component].theory-point-fragment,
+.theory-design [data-theory-component] .theory-point-fragment { min-width: 0; overflow-wrap: anywhere; }
+/* Existing tense-matrix semantics are shared by every source adapter. */
+.theory-design [data-theory-component="table"] .tense-forms-table { border-collapse: separate; border-spacing: 0; min-width: 900px; }
+.theory-design [data-theory-component="table"] .tense-forms-table :is(th, td) { border-right: 1px solid rgba(203, 213, 225, .85); border-bottom: 1px solid rgba(203, 213, 225, .85); vertical-align: middle; }
+.theory-design [data-theory-component="table"] .tense-forms-table :is(th, td):first-child { border-left: 1px solid rgba(203, 213, 225, .85); }
+.theory-design [data-theory-component="table"] .tense-forms-table thead th { border-top: 1px solid rgba(203, 213, 225, .85); }
+.theory-design [data-theory-component="table"] .tense-forms-corner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top right, transparent calc(50% - .75px), rgba(148, 163, 184, .55) 50%, transparent calc(50% + .75px)); pointer-events: none; }
+.theory-design [data-theory-component="table"] .tense-forms-cell :is(strong, .tf-link) { color: var(--accent); font-weight: 800; text-decoration: underline; text-underline-offset: 2px; }
 .theory-design .theory-section-body > .space-y-3 > .group:has(> [data-theory-point-index]) { flex-wrap: wrap; }
 .theory-design .theory-section-body > .space-y-3 > .group:has(> [data-theory-point-index]) > span:nth-child(2) { flex: 1; min-width: 0; }
 .theory-design .theory-section-body > .space-y-3 > .group > [data-theory-point-index] { flex: 1 0 100%; }

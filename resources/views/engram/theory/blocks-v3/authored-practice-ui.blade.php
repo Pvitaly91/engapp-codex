@@ -5,9 +5,9 @@
 @once($practiceScope.'-authored-practice-wrapper')
     <script src="{{ asset($practiceScript) }}?v={{ filemtime(public_path($practiceScript)) }}"></script>
 @endonce
-@php($author = $data['author_self_check'])
+@php($author = ($theoryCanonical ?? false) ? \App\Support\TheoryPracticePresentation::author($data['author_self_check']) : $data['author_self_check'])
 @php($linked = $data['linked_practice'])
-@php($referencePractice = $practiceScope === 'm43' || ($practiceScope === 'm44' && ($m44ReferencePractice ?? false) === true) || ($practiceScope === 'm45' && ($m45ReferencePractice ?? false) === true))
+@php($referencePractice = ($theoryCanonical ?? false) || $practiceScope === 'm43' || ($practiceScope === 'm44' && ($m44ReferencePractice ?? false) === true) || ($practiceScope === 'm45' && ($m45ReferencePractice ?? false) === true))
 <section id="block-{{ $block->id }}" class="theory-native-block scroll-mt-24" style="text-transform:none" data-{{ $practiceScope }}-practice-ui>
     <div class="theory-section-card rounded-2xl border border-border/60 bg-card" x-data="{{ $practiceFactory }}(@js(['cases' => $data['cases']]))">
         <x-theory-native-header :title="$data['title']" :level="$block->level ?? null" fallback="⚡" />
@@ -16,7 +16,7 @@
             <noscript><p class="text-sm text-muted-foreground">Автоматична перевірка потребує JavaScript. Завдання та авторські ключі доступні без нього.</p></noscript>
             <p class="text-sm font-semibold" aria-live="polite" data-{{ $practiceScope }}-ui-score>Результат: <span x-text="score">0</span> / {{ count($data['cases']) }}</p>
             @foreach($data['cases'] as $i => $task)
-                <article class="theory-exercise rounded-xl border border-border{{ $referencePractice ? ' overflow-hidden' : ' p-4 space-y-4' }}" data-{{ $practiceScope }}-ui-case="{{ $task['source_index'] }}" data-{{ $practiceScope }}-ui-interaction="{{ $task['interaction'] }}">
+                <x-theory-practice-exercise tag="article" :compatibility="($theoryCanonical ?? false) ? null : ($referencePractice ? 'reference' : 'plain')" :attributes="new \Illuminate\View\ComponentAttributeBag(['data-'.$practiceScope.'-ui-case' => $task['source_index'], 'data-'.$practiceScope.'-ui-interaction' => $task['interaction']])">
                     <div class="{{ $referencePractice ? 'border-b border-border px-4 py-3 text-base leading-relaxed' : 'text-base leading-relaxed' }}" data-practice-instruction data-{{ $practiceScope }}-author-prompt="{{ $task['source_index'] }}">{!! $author['prompts'][$task['source_index'] - 1] !!}</div>@if($referencePractice)<div class="p-4 space-y-3">@endif
                     @foreach($task['controls'] as $p => $control)
                         @php($fieldId = $practiceScope.'-'.$block->id.'-'.$i.'-'.$p)
@@ -49,7 +49,9 @@
                                     @endforeach
                                 </div>
                             @else
-                                @if(in_array($practiceScope, ['m41', 'm43'], true))
+                                @if($theoryCanonical ?? false)
+                                    @include('theory.partials.practice-nojs-tokens')
+                                @elseif(in_array($practiceScope, ['m41', 'm43'], true))
                                     <noscript><div class="flex flex-wrap gap-2" data-{{ $practiceScope }}-static-token-bank>
                                         @foreach($control['tokens'] as $token)
                                             <span class="{{ $referencePractice ? 'rounded-lg border border-emerald-200 bg-white px-3 py-1.5 text-sm font-semibold text-emerald-700' : 'rounded-lg border border-border px-3 py-2 text-sm' }}" style="text-transform:none" data-{{ $practiceScope }}-static-token>{{ $token }}</span>
@@ -94,7 +96,7 @@
                             <ol class="list-none"><li data-{{ $practiceScope }}-self-check-answer="{{ $task['source_index'] }}">{!! $author['answers'][$task['source_index'] - 1] !!}</li></ol>
                         </div>
                     </details>@if($referencePractice)</div>@endif
-                </article>
+                </x-theory-practice-exercise>
             @endforeach
             <x-text-block-tags :block="$block" />
             <x-text-block-practice-questions :questions="$practiceQuestions ?? collect()" :blockUuid="$block->uuid"

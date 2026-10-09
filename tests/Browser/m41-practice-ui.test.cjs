@@ -160,10 +160,17 @@ test('Master fields are preserved, including source values distinct from labels 
 test('M41 and explicit M43 no-JS token fallbacks are finite; no legacy owner gets additional token markup',()=>{
     // M43 reuses this component without widening the legacy scopes. Keep the
     // exact two-member, strict allowlist and the entire token loop protected.
-    const fallback=commonPartial.match(/@if\(in_array\(\$practiceScope, \['m41', 'm43'\], true\)\)([\s\S]*?)@endif/g);
+    const fallback=commonPartial.match(/@elseif\(in_array\(\$practiceScope, \['m41', 'm43'\], true\)\)([\s\S]*?)@endif/g);
     assert.equal(fallback?.length,1);
     assert.match(fallback[0],/<noscript><div[^>]+data-\{\{ \$practiceScope \}\}-static-token-bank/);
     assert.match(fallback[0],/data-\{\{ \$practiceScope \}\}-static-token>\{\{ \$token \}\}/);
     assert.match(fallback[0],/@foreach\(\$control\['tokens'\] as \$token\)/);
     assert.equal((commonPartial.match(/-static-token-bank/g)||[]).length,1);
+    // Canonical theory has one shared token component; non-theory keeps its exact finite branch.
+    assert.match(commonPartial, /@if\(\$theoryCanonical \?\? false\)\s+@include\('theory\.partials\.practice-nojs-tokens'\)\s+@elseif\(in_array/);
+    const canonicalFallback=fs.readFileSync(path.join(ROOT,'resources/views/theory/partials/practice-nojs-tokens.blade.php'),'utf8');
+    assert.match(canonicalFallback, /<noscript>/);
+    assert.match(canonicalFallback, /@foreach\(\$control\['tokens'\] as \$token\)/);
+    assert.match(canonicalFallback, /data-\{\{ \$practiceScope \}\}-static-token>\{\{ \$token \}\}/);
+    assert.doesNotMatch(canonicalFallback, /accepted|correct_value|canonical_answer/);
 });

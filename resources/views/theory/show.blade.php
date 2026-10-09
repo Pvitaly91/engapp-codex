@@ -45,7 +45,7 @@
     $heroData = $heroBlock ? (json_decode($heroBlock->body ?? '[]', true) ?? []) : [];
     $contentBlocks = $blocks->reject(fn ($block) => in_array($block->type, ['hero', 'hero-v2', 'navigation-chips']));
     $presentationByBlock = $contentBlocks->mapWithKeys(fn ($block) => [
-        $block->id => ($block->type === 'box' || empty($block->type)) ? \App\Support\TheoryPresentation::html($block) : null,
+        $block->id => ($block->type === 'box' || empty($block->type)) ? \App\Support\TheoryPresentation::html($block, canonical: true) : null,
     ]);
     $navBlock = $blocks->firstWhere('type', 'navigation-chips');
     $categoryPages = $categoryPages ?? collect();
@@ -171,6 +171,7 @@
                 <div class="space-y-6">
                     @foreach($contentBlocks as $block)
                         @include('theory.partials.content-block', [
+                            'theoryCanonical' => true,
                             'm42StyleContext' => app()->getLocale() === 'uk',
                             'm43StyleContext' => app()->getLocale() === 'uk',
                             'm44StyleContext' => $m44StyleContext,

@@ -1,9 +1,4 @@
-<div class="space-y-2 mt-2">
-    @foreach($formExamples as $example)
-        <div>
-            <p lang="en" class="text-sm text-foreground">{{ $example['en'] }}</p>
-            <p lang="uk" class="text-sm text-muted-foreground">{{ $example['uk'] }}</p>
-            @if(isset($example['note_uk']))<p lang="uk" class="text-sm text-muted-foreground">{{ $example['note_uk'] }}</p>@endif
-        </div>
-    @endforeach
-</div>
+{{-- Historical non-theory compatibility only. Theory adapters use semantic components. --}}
+@unless($theoryCanonical ?? false)
+    @include('courses.compatibility.theory.m44-compact-form-examples')
+@endunless

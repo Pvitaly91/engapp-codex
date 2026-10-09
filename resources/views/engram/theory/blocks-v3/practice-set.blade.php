@@ -125,15 +125,10 @@
             @endif
             {{-- Select Exercise --}}
             @if(!empty($selects))
-                <div class="theory-exercise rounded-xl border border-blue-100 bg-blue-50/30 overflow-hidden">
+                <x-theory-practice-exercise accent="blue">
                     <div class="border-b border-blue-100 bg-blue-50/50 px-4 py-3">
-                        <h3 class="font-semibold text-foreground text-sm flex items-center gap-2">
-                            <span class="flex h-5 w-5 items-center justify-center rounded bg-blue-500 text-white text-[10px]">1</span>
-                            {{ $data['select_title'] ?? __('theory_blocks.practice.select_title') }}
-                        </h3>
-                        @if(!empty($data['select_intro']))
-                            <p class="text-base text-muted-foreground mt-1 leading-relaxed" data-practice-instruction>{!! $data['select_intro'] !!}</p>
-                        @endif
+                        <x-theory-practice-heading :title="$data['select_title'] ?? __('theory_blocks.practice.select_title')" :number="1" accent="blue"
+                            :instruction="!empty($data['select_intro']) ? new \Illuminate\Support\HtmlString($data['select_intro']) : null" />
                     </div>
                     <div class="p-4 space-y-3">
                         @foreach($selects as $index => $item)
@@ -187,20 +182,15 @@
                             </div>
                         @endif
                     </div>
-                </div>
+                </x-theory-practice-exercise>
             @endif
 
             {{-- Choice Exercise --}}
             @if(!empty($choices))
-                <div class="theory-exercise rounded-xl border border-amber-100 bg-amber-50/30 overflow-hidden">
+                <x-theory-practice-exercise accent="amber">
                     <div class="border-b border-amber-100 bg-amber-50/50 px-4 py-3">
-                        <h3 class="font-semibold text-foreground text-sm flex items-center gap-2">
-                            <span class="flex h-5 w-5 items-center justify-center rounded bg-amber-500 text-white text-[10px]">{{ $choiceExerciseNumber }}</span>
-                            {{ $data['choice_title'] ?? __('theory_blocks.practice.select_title') }}
-                        </h3>
-                        @if(!empty($data['choice_intro']))
-                            <p class="text-base text-muted-foreground mt-1 leading-relaxed" data-practice-instruction>{!! $data['choice_intro'] !!}</p>
-                        @endif
+                        <x-theory-practice-heading :title="$data['choice_title'] ?? __('theory_blocks.practice.select_title')" :number="$choiceExerciseNumber" accent="amber"
+                            :instruction="!empty($data['choice_intro']) ? new \Illuminate\Support\HtmlString($data['choice_intro']) : null" />
                     </div>
                     <div class="p-4 space-y-3">
                         @foreach($choices as $index => $item)
@@ -257,20 +247,15 @@
                             </div>
                         @endif
                     </div>
-                </div>
+                </x-theory-practice-exercise>
             @endif
 
             {{-- Input Exercise --}}
             @if(!empty($inputs))
-                <div class="theory-exercise rounded-xl border border-emerald-100 bg-emerald-50/30 overflow-visible">
+                <x-theory-practice-exercise accent="emerald" :visible-overflow="true">
                     <div class="border-b border-emerald-100 bg-emerald-50/50 px-4 py-3">
-                        <h3 class="font-semibold text-foreground text-sm flex items-center gap-2">
-                            <span class="flex h-5 w-5 items-center justify-center rounded bg-emerald-500 text-white text-[10px]">{{ $inputExerciseNumber }}</span>
-                            {{ $data['input_title'] ?? __('theory_blocks.practice.input_title') }}
-                        </h3>
-                        @if(!empty($data['input_intro']))
-                            <p class="text-base text-muted-foreground mt-1 leading-relaxed" data-practice-instruction>{!! $data['input_intro'] !!}</p>
-                        @endif
+                        <x-theory-practice-heading :title="$data['input_title'] ?? __('theory_blocks.practice.input_title')" :number="$inputExerciseNumber" accent="emerald"
+                            :instruction="!empty($data['input_intro']) ? new \Illuminate\Support\HtmlString($data['input_intro']) : null" />
                     </div>
                     <div class="p-4 space-y-3">
                         @foreach($inputs as $index => $item)
@@ -395,20 +380,15 @@
                             </div>
                         @endif
                     </div>
-                </div>
+                </x-theory-practice-exercise>
             @endif
 
             {{-- Rephrase Exercise --}}
             @if(!empty($rephrase))
-                <div class="theory-exercise rounded-xl border border-purple-100 bg-purple-50/30 overflow-visible">
+                <x-theory-practice-exercise accent="purple" :visible-overflow="true">
                     <div class="border-b border-purple-100 bg-purple-50/50 px-4 py-3">
-                        <h3 class="font-semibold text-foreground text-sm flex items-center gap-2">
-                            <span class="flex h-5 w-5 items-center justify-center rounded bg-purple-500 text-white text-[10px]">{{ $rephraseExerciseNumber }}</span>
-                            {{ $data['rephrase_title'] ?? __('theory_blocks.practice.rephrase_title') }}
-                        </h3>
-                        @if(!empty($data['rephrase_intro']))
-                            <p class="text-base text-muted-foreground mt-1 leading-relaxed" data-practice-instruction>{!! $data['rephrase_intro'] !!}</p>
-                        @endif
+                        <x-theory-practice-heading :title="$data['rephrase_title'] ?? __('theory_blocks.practice.rephrase_title')" :number="$rephraseExerciseNumber" accent="purple"
+                            :instruction="!empty($data['rephrase_intro']) ? new \Illuminate\Support\HtmlString($data['rephrase_intro']) : null" />
                     </div>
                     <div class="p-4 space-y-4">
                         @foreach($rephrase as $index => $item)
@@ -490,7 +470,7 @@
                             </div>
                         @endif
                     </div>
-                </div>
+                </x-theory-practice-exercise>
             @endif
 
             @if($m30AuthorSelfCheck !== null)
