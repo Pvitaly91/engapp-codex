@@ -605,6 +605,10 @@ class PageController extends Controller
             foreach ($locales as $locale) {
                 $localizedTitle = $localizedTitles[$modelId][$locale] ?? null;
 
+                if ($model instanceof Page) {
+                    $localizedTitle = \App\Support\M45FutureComparisonsPackage::displayTitle($model, $locale) ?? $localizedTitle;
+                }
+
                 if (is_string($localizedTitle) && $localizedTitle !== '') {
                     $model->setAttribute('title', $localizedTitle);
                     break;

@@ -36,6 +36,7 @@
 @section('content')
 @php
     $blocks = $page->textBlocks ?? collect();
+    $m45StyleContext = \App\Support\M45FutureComparisonsPackage::allowsTheoryContext($blocks, app()->getLocale());
     $blocks = \App\Support\M43AuthoredTenseUsagePackage::orderBlocks($blocks);
     $m44StyleContext = \App\Support\M44AuthoredFutureFormsPackage::allowsTheoryContext($blocks, app()->getLocale());
     $blocks = \App\Support\M44AuthoredFutureFormsPackage::orderBlocks($blocks);
@@ -124,6 +125,9 @@
                         </span>
                     @endif
                     <h1 class="mt-4 max-w-4xl font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">{{ $page->title }}</h1>
+                    @if($m45StyleContext)
+                        <p lang="uk" data-m45-subtitle class="mt-4 max-w-3xl text-sm leading-7 sm:text-base text-muted-foreground">{{ $page->getRawOriginal('text') }}</p>
+                    @endif
                     @if(!empty($heroData['intro']))
                         <div class="mt-5 max-w-3xl text-sm leading-7 sm:text-base" style="color: var(--muted);">
                             {!! $heroData['intro'] !!}

@@ -7,7 +7,7 @@
 @endonce
 @php($author = $data['author_self_check'])
 @php($linked = $data['linked_practice'])
-@php($referencePractice = $practiceScope === 'm43' || ($practiceScope === 'm44' && ($m44ReferencePractice ?? false) === true))
+@php($referencePractice = $practiceScope === 'm43' || ($practiceScope === 'm44' && ($m44ReferencePractice ?? false) === true) || ($practiceScope === 'm45' && ($m45ReferencePractice ?? false) === true))
 <section id="block-{{ $block->id }}" class="theory-native-block scroll-mt-24" style="text-transform:none" data-{{ $practiceScope }}-practice-ui>
     <div class="theory-section-card rounded-2xl border border-border/60 bg-card" x-data="{{ $practiceFactory }}(@js(['cases' => $data['cases']]))">
         <x-theory-native-header :title="$data['title']" :level="$block->level ?? null" fallback="⚡" />
@@ -24,6 +24,9 @@
                             <legend class="text-sm font-semibold mb-2">{{ $control['label'] }}</legend>
                             @if(isset($control['stimulus_en']))
                                 <p lang="en" class="text-sm leading-relaxed">{{ $control['stimulus_en'] }}</p>
+                            @endif
+                            @if(isset($control['stimulus_uk']))
+                                <p lang="uk" class="text-sm leading-relaxed text-muted-foreground">{{ $control['stimulus_uk'] }}</p>
                             @endif
                             @if(in_array($control['kind'], ['select','choice','multi'], true))
                                 <div class="flex flex-wrap gap-2" @if($control['kind'] !== 'multi') role="radiogroup" @endif>
@@ -54,6 +57,8 @@
                                     </div></noscript>
                                 @elseif($practiceScope === 'm44' && $referencePractice)
                                     @include('engram.theory.blocks-v3.m44-nojs-tokens')
+                                @elseif($practiceScope === 'm45' && $referencePractice)
+                                    @include('engram.theory.blocks-v3.m45-nojs-tokens')
                                 @endif
                                 <div class="flex flex-wrap gap-2" data-{{ $practiceScope }}-token-bank>
                                     <template x-for="token in banks[{{ $i }}][{{ $p }}]" :key="token.index">

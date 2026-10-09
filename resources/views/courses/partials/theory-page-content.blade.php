@@ -1,5 +1,6 @@
 @php
     $blocks = $page->textBlocks ?? collect();
+    $blocks = \App\Support\M45FutureComparisonsPackage::preserveCourseBlocks($blocks);
     $blocks = \App\Support\M43AuthoredTenseUsagePackage::preserveCourseBlocks($blocks);
     $blocks = \App\Support\M44AuthoredFutureFormsPackage::preserveCourseBlocks($blocks);
     $heroBlock = $blocks->firstWhere('type', 'hero-v2') ?? $blocks->firstWhere('type', 'hero');

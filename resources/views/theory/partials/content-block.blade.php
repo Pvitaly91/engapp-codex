@@ -1,6 +1,8 @@
 @php
     $nativeView = \App\Support\TheoryPresentation::nativeView($block->type);
     $decodedBody = json_decode($block->body ?? '', true);
+    $m45StoredAuthor = is_array($decodedBody) && \App\Support\M45FutureComparisonsPackage::hasStoredAuthor($decodedBody);
+    if (!$nativeView && $m45StoredAuthor) { $nativeView = 'engram.theory.blocks-v3.m45-static-fallback'; }
     $m44StoredAuthor = is_array($decodedBody) && \App\Support\M44AuthoredFutureFormsPackage::hasStoredAuthor($decodedBody);
     if (!$nativeView && $m44StoredAuthor) { $nativeView = 'engram.theory.blocks-v3.m44-static-fallback'; }
     $m43StoredAuthor = is_array($decodedBody) && \App\Support\M43AuthoredTenseUsagePackage::hasStoredAuthor($decodedBody);
@@ -16,7 +18,8 @@
         <div data-theory-render-fallback="invalid-native-data">
     @endif
     @php
-        $m27 = is_array($decodedBody) ? (($m44StyleContext ?? false ? \App\Support\M44AuthoredFutureFormsPackage::presentation($block, $decodedBody) : null)
+        $m27 = is_array($decodedBody) ? (($m45StyleContext ?? false ? \App\Support\M45FutureComparisonsPackage::presentation($block, $decodedBody) : null)
+            ?? ($m44StyleContext ?? false ? \App\Support\M44AuthoredFutureFormsPackage::presentation($block, $decodedBody) : null)
             ?? ($m43StyleContext ?? false ? \App\Support\M43AuthoredTenseUsagePackage::presentation($block, $decodedBody) : null)
             ?? \App\Support\M41AuthoredTenseComparisonsPackage::presentation($block, $decodedBody)
             ?? \App\Support\M40TensesB1Package::presentation($block, $decodedBody)
@@ -43,6 +46,7 @@
         $renderData = $m27['data'] ?? $decodedBody;
         // The finite package returns a code-owned constant after complete identity checks.
         if (($m27['native_view'] ?? null) !== null) { $nativeView = $m27['native_view']; }
+        if ($m27 === null && $m45StoredAuthor) { $nativeView = 'engram.theory.blocks-v3.m45-static-fallback'; }
         if ($m27 === null && $m44StoredAuthor) {
             $nativeView = 'engram.theory.blocks-v3.m44-static-fallback';
         }
