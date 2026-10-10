@@ -95,6 +95,15 @@
         && is_string($option) && preg_match('/\s/u', $option) === 1
         && preg_match('/[.!?;:,—–\r\n]/u', $option) === 1 ? 'prose' : 'chip';
     $instructionPresentation = $nativePracticePresentation ? ' [&_em]:not-italic' : '';
+    // A separate, hash-bound display projection never replaces answer values.
+    $nativeDisplay = \App\Support\TheoryPracticePresentation::nativeDisplay(
+        $block, $data, $m42Design ?? null, ($theoryCanonical ?? false) === true
+    );
+    $answerKeyConditions = [];
+    foreach ($nativeDisplay['answer_groups'] ?? [] as $sourceIndex => $location) {
+        $answerKeyConditions[$sourceIndex] = "isChecked('".$location['group']."') && !isEmpty('".$location['group']."', ".$location['index'].")";
+    }
+    $answerKeysVisibility = implode(' || ', array_map(static fn ($condition) => '('.$condition.')', $answerKeyConditions));
 @endphp
 
 <section id="block-{{ $block->id }}" class="theory-native-block scroll-mt-24">
@@ -142,6 +151,10 @@
                     </x-theory-practice-header>
                     <div class="p-4 space-y-3">
                         @foreach($selects as $index => $item)
+                            @php
+                                $displayOptions = $nativeDisplay['selects'][$index]['options'] ?? [];
+                                $fullOptionsVisibility = "isChecked('selects') && !isEmpty('selects', ".$index.")";
+                            @endphp
                             <x-theory-practice-control accent="blue" :marker="chr(97 + $index)" :align="$nativePracticePresentation && !empty($item['context']) ? 'start' : 'center'" :wrap="$nativePracticePresentation">
                                     @if($m30AuthorSelfCheck !== null && !empty($item['context']))
                                         <div class="text-base text-foreground/80 leading-relaxed mb-2{{ $instructionPresentation }}" data-practice-instruction data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
@@ -150,19 +163,33 @@
                                         {!! $item['label'] ?? '' !!}
                                     </label>
                                     <div class="flex flex-wrap gap-2">
-                                        @foreach($item['options'] ?? $options as $option)
-                                            <x-theory-practice-option accent="blue" :presentation="$optionPresentation($option)"
+                                        @foreach($item['options'] ?? $options as $optionIndex => $option)
+                                            @php
+                                                $displayOption = $displayOptions[$optionIndex] ?? $option;
+                                            @endphp
+                                            <x-theory-practice-option accent="blue" :presentation="$optionPresentation($displayOption)"
                                                 :selected="'selectAnswers['.$index.'] === '.\Illuminate\Support\Js::from($option)"
                                                 :checked="'isChecked(\'selects\') && hasAnswer(\'selects\', '.$index.')'"
                                                 :correct="'isCorrect(\'selects\', '.$index.')'"
                                                 :attributes="new \Illuminate\View\ComponentAttributeBag(['@click' => 'selectAnswers['.$index.'] = '.\Illuminate\Support\Js::from($option)])">
-                                                {{ $option }}
+                                                {{ $displayOption }}
                                             </x-theory-practice-option>
                                         @endforeach
                                     </div>
                                     <x-theory-practice-feedback position="below" :correct="'isCorrect(\'selects\', '.$index.')'" x-show="isChecked('selects') && hasAnswer('selects', {{ $index }})">
                                         <span x-text="feedbackText('selects', {{ $index }})"></span>
                                     </x-theory-practice-feedback>
+                                    @if($displayOptions !== [])
+                                        {{-- Closed without JS; after Check, every original alternative remains available. --}}
+                                        <x-theory-practice-explanation :disclosure="true" title="Повні варіанти й пояснення"
+                                            :attributes="new \Illuminate\View\ComponentAttributeBag(['x-show' => $fullOptionsVisibility, 'class' => 'mt-3'.$instructionPresentation])">
+                                            <ol class="list-decimal pl-5 space-y-3">
+                                                @foreach($item['options'] ?? $options as $originalOption)
+                                                    <li>{{ $originalOption }}</li>
+                                                @endforeach
+                                            </ol>
+                                        </x-theory-practice-explanation>
+                                    @endif
                             </x-theory-practice-control>
                         @endforeach
                         @if($hasCheckableSelects)
@@ -191,6 +218,10 @@
                     </x-theory-practice-header>
                     <div class="p-4 space-y-3">
                         @foreach($choices as $index => $item)
+                            @php
+                                $displayPrompt = $nativeDisplay['choices'][$index]['prompt_html'] ?? null;
+                                $fullPromptVisibility = "isChecked('choices') && !isEmpty('choices', ".$index.")";
+                            @endphp
                             <x-theory-practice-control accent="amber" :marker="chr(97 + $index)" :align="$nativePracticePresentation && !empty($item['context']) ? 'start' : 'center'" :wrap="$nativePracticePresentation">
                                     @if($m30AuthorSelfCheck !== null && !empty($item['context']))
                                         <div class="text-base text-foreground/80 leading-relaxed mb-2{{ $instructionPresentation }}" data-practice-instruction data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
@@ -199,7 +230,7 @@
                                         {!! $item['label'] ?? '' !!}
                                     </label>
                                     @if(!empty($item['prompt']))
-                                        <p class="mb-2 text-base text-muted-foreground leading-relaxed{{ $instructionPresentation }}" data-practice-instruction>{!! $item['prompt'] !!}</p>
+                                        <p class="mb-2 text-base text-muted-foreground leading-relaxed{{ $instructionPresentation }}" data-practice-instruction>{!! $displayPrompt ?? $item['prompt'] !!}</p>
                                     @endif
                                     <div class="flex flex-wrap gap-2">
                                         @foreach($item['options'] ?? $choiceOptions as $option)
@@ -215,6 +246,12 @@
                                     <x-theory-practice-feedback position="below" :correct="'isCorrect(\'choices\', '.$index.')'" x-show="isChecked('choices') && hasAnswer('choices', {{ $index }})">
                                         <span x-text="feedbackText('choices', {{ $index }})"></span>
                                     </x-theory-practice-feedback>
+                                    @if($displayPrompt !== null)
+                                        <x-theory-practice-explanation :disclosure="true" title="Повні варіанти й пояснення"
+                                            :attributes="new \Illuminate\View\ComponentAttributeBag(['x-show' => $fullPromptVisibility, 'class' => 'mt-3'.$instructionPresentation])">
+                                            <div>{!! $item['prompt'] !!}</div>
+                                        </x-theory-practice-explanation>
+                                    @endif
                             </x-theory-practice-control>
                         @endforeach
                         @if($hasCheckableChoices)
@@ -436,11 +473,29 @@
             @endif
 
             @if($m30AuthorSelfCheck !== null)
-                <x-theory-practice-explanation :title="$m30AuthorSelfCheck['title']" :attributes="new \Illuminate\View\ComponentAttributeBag(['data-'.$authorSelfCheckStage.'-self-check-answers' => ''])">
-                    <ol class="list-decimal pl-5 space-y-3 text-sm leading-relaxed">
-                        @foreach($m30AuthorSelfCheck['answers'] as $answer)<li>{!! $answer !!}</li>@endforeach
-                    </ol>
-                </x-theory-practice-explanation>
+                @if($nativeDisplay !== null && $answerKeyConditions !== [])
+                    <x-theory-practice-explanation :title="$m30AuthorSelfCheck['title']"
+                        :attributes="new \Illuminate\View\ComponentAttributeBag(['data-'.$authorSelfCheckStage.'-self-check-answers' => '', 'x-cloak' => '', 'x-show' => $answerKeysVisibility])">
+                        <ol class="list-decimal pl-5 space-y-3 text-sm leading-relaxed{{ $instructionPresentation }}">
+                            @foreach($m30AuthorSelfCheck['answers'] as $answerIndex => $answer)
+                                <li value="{{ $answerIndex + 1 }}" x-show="{{ $answerKeyConditions[$answerIndex + 1] }}">{!! $answer !!}</li>
+                            @endforeach
+                        </ol>
+                    </x-theory-practice-explanation>
+                    <noscript>
+                        <x-theory-practice-explanation :disclosure="true" :title="$m30AuthorSelfCheck['title']">
+                            <ol class="list-decimal pl-5 space-y-3 text-sm leading-relaxed{{ $instructionPresentation }}">
+                                @foreach($m30AuthorSelfCheck['answers'] as $answer)<li>{!! $answer !!}</li>@endforeach
+                            </ol>
+                        </x-theory-practice-explanation>
+                    </noscript>
+                @else
+                    <x-theory-practice-explanation :title="$m30AuthorSelfCheck['title']" :attributes="new \Illuminate\View\ComponentAttributeBag(['data-'.$authorSelfCheckStage.'-self-check-answers' => ''])">
+                        <ol class="list-decimal pl-5 space-y-3 text-sm leading-relaxed">
+                            @foreach($m30AuthorSelfCheck['answers'] as $answer)<li>{!! $answer !!}</li>@endforeach
+                        </ol>
+                    </x-theory-practice-explanation>
+                @endif
             @endif
 
             {{-- Block Tags --}}

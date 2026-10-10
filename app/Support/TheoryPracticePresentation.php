@@ -7,6 +7,112 @@ use Illuminate\Support\HtmlString;
 /** Render-only shared instruction/feedback presentation, never answer authority. */
 final class TheoryPracticePresentation
 {
+    private const NATIVE_DISPLAY = 'docs/content/theory-native-practice-display.v1.json';
+    private const NATIVE_DISPLAY_SHA = '4d08ff3ce28a8746fdfdab4e112c37d34f50d7acbd205292e9949790d6ffb2f0';
+
+    /**
+     * Reviewed labels are independent of the raw values used by the engine.
+     * Exact source guards also bind each deferred key to its native control.
+     * Unknown consumers or changed payloads retain the complete original view.
+     */
+    public static function nativeDisplay(object $block, array $data, ?array $design, bool $theoryPage): ?array
+    {
+        if (!$theoryPage || ($block->type ?? null) !== 'practice-set'
+            || ($design['component'] ?? null) !== 'practice-set'
+            || !is_array($data['author_self_check']['answers'] ?? null)) {
+            return null;
+        }
+
+        try {
+            $binding = M42NativeDesignPackage::binding($block, $data);
+            if ($binding === null || $binding['plan'] !== $design) { return null; }
+
+            $answers = $data['author_self_check']['answers'];
+            if ($answers === [] || !array_is_list($answers)) { return null; }
+            $result = ['selects' => [], 'choices' => [], 'answer_groups' => []];
+            foreach (['selects', 'choices', 'inputs', 'rephrase'] as $group) {
+                $items = $data[$group] ?? [];
+                if (!is_array($items) || !array_is_list($items)) { return null; }
+                foreach ($items as $index => $item) {
+                    $sourceIndex = $item['source_index'] ?? null;
+                    if (!is_int($sourceIndex) || $sourceIndex < 1 || $sourceIndex > count($answers)
+                        || isset($result['answer_groups'][$sourceIndex])) { return null; }
+                    $result['answer_groups'][$sourceIndex] = ['group' => $group, 'index' => $index];
+                }
+            }
+            // The view indexes keys by author number, not native group order.
+            if (count($result['answer_groups']) !== count($answers)) { return null; }
+            ksort($result['answer_groups']);
+
+            $path = base_path(self::NATIVE_DISPLAY);
+            if (!is_file($path)) { return null; }
+            $bytes = file_get_contents($path);
+            if (!is_string($bytes) || !hash_equals(self::NATIVE_DISPLAY_SHA, hash('sha256', $bytes))) { return null; }
+            static $mapping = null;
+            $mapping ??= json_decode($bytes, true, flags: JSON_THROW_ON_ERROR);
+            if (($mapping['schema_version'] ?? null) !== 1 || !is_array($mapping['targets'] ?? null)) { return null; }
+
+            $entry = null;
+            foreach ($mapping['targets'] as $candidate) {
+                if (($candidate['identity'] ?? null) !== ($block->seeder ?? null)) { continue; }
+                if ($entry !== null) { return null; }
+                $entry = $candidate;
+            }
+            // Other exact source-linked native owners need key gating only.
+            if ($entry === null) { return $result; }
+            $sourceClass = $binding['target']['package_class'];
+            if (($entry['slug'] ?? null) !== $binding['target']['slug']
+                || ($entry['source'] ?? null) !== $sourceClass::SOURCE
+                || ($entry['source_block_index'] ?? null) !== $design['source_index']
+                || ($entry['body_sha256'] ?? null) !== $design['body_sha256']) { return null; }
+
+            foreach ($entry['selects'] ?? [] as $select) {
+                $index = $select['index'];
+                $item = $data['selects'][$index] ?? null;
+                if (!is_int($index) || !is_array($item)
+                    || ($item['source_index'] ?? null) !== $select['source_index']
+                    || isset($result['selects'][$index])) { return null; }
+                $options = $item['options'] ?? $data['options'] ?? [];
+                $labels = [];
+                foreach ($select['options'] as $option) {
+                    $optionIndex = $option['index'];
+                    $original = $options[$optionIndex] ?? null;
+                    $display = $option['display'] ?? null;
+                    if (!is_int($optionIndex) || !is_string($original)
+                        || !is_string($display) || trim($display) === ''
+                        || isset($labels[$optionIndex])
+                        || !hash_equals($option['source_sha256'], hash('sha256', $original))) { return null; }
+                    $labels[$optionIndex] = $display;
+                }
+                // Distinct graded values must never become identical buttons.
+                $visible = [];
+                foreach ($options as $optionIndex => $original) {
+                    $label = $labels[$optionIndex] ?? $original;
+                    if (isset($visible[$label]) && $visible[$label] !== $original) { return null; }
+                    $visible[$label] = $original;
+                }
+                $result['selects'][$index] = ['options' => $labels];
+            }
+            foreach ($entry['choices'] ?? [] as $choice) {
+                $index = $choice['index'];
+                $item = $data['choices'][$index] ?? null;
+                $original = $item['prompt'] ?? null;
+                $display = $choice['prompt_html'] ?? null;
+                if (!is_int($index) || !is_array($item) || !is_string($original)
+                    || ($item['source_index'] ?? null) !== $choice['source_index']
+                    || !is_string($display) || trim($display) === ''
+                    || isset($result['choices'][$index])
+                    || !hash_equals($choice['source_sha256'], hash('sha256', $original))) { return null; }
+                // HTML is trusted only from the pinned finite file, never input.
+                $result['choices'][$index] = ['prompt_html' => $display];
+            }
+
+            return $result;
+        } catch (\Throwable) {
+            return null;
+        }
+    }
+
     /**
      * A finite presentation projection of the existing learning objectives.
      * IDs identify data contracts only: roles, never package provenance, select

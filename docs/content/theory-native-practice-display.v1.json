@@ -1,0 +1,567 @@
+{
+  "schema_version": 1,
+  "purpose": "Render-only exact-field display projection. Complete original conditions, alternatives, translations and author explanations remain in the frozen source; only initial option/prompt display differs.",
+  "policy": {
+    "runtime_truncation": false,
+    "runtime_language_guessing": false,
+    "mutate_answer_values": false,
+    "mutate_conditions": false,
+    "preserve_complete_post_check_source": true,
+    "preserve_semantic_choice_claims": true
+  },
+  "targets": [
+    {
+      "identity": "Database\\Seeders\\Page_V3\\AcademicEnglish\\HedgingAndCautiousLanguageTheorySeeder",
+      "slug": "hedging-and-cautious-language",
+      "source": "database/content-patches/m33-m17-academic-english.v1.json",
+      "source_block_index": 7,
+      "body_sha256": "c61119ed0bc829d6e79c3f41d857c08e3954bb593f7318ea362b05d176e62c42",
+      "selects": [
+        {
+          "index": 1,
+          "source_index": 4,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "3b700f95e3101595319a0908cb156d46ca8b9c9da737631e599fdfac8f9a581c",
+              "display": "Можливість відсутності користі перетворилася на пряме загальне твердження про відсутність користі. Початкове may not було прогнозом, не забороною."
+            }
+          ]
+        }
+      ],
+      "choices": []
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\FormalEnglish\\ParaphraseAndReformulationTheorySeeder",
+      "slug": "paraphrase-and-reformulation",
+      "source": "database/content-patches/m34-m18-argumentation-cohesion.v1.json",
+      "source_block_index": 7,
+      "body_sha256": "a33c89ebd86418d5eeae2fd4e4deefc1f101cda65f786f980d4e64ebd0befbc8",
+      "selects": [
+        {
+          "index": 0,
+          "source_index": 1,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "b27f5026cd197090099a1aebbc99537572745d7b2f2a190e3480aa24ff9d9ab7",
+              "display": "Це конкретизація: 9.15 додає точний час у межах ранку. Так можна уточнити відому авторові інформацію, але це не точне перефразування самої фрази in the morning."
+            }
+          ]
+        }
+      ],
+      "choices": []
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\PassiveReportingStructuresTheorySeeder",
+      "slug": "passive-reporting-structures",
+      "source": "database/content-patches/m35-m19-passive-reporting.v1.json",
+      "source_block_index": 7,
+      "body_sha256": "1c99576bdd6488abd2ebfaf67d07c8334c81daff79abbc90501b40c6edfb0352",
+      "selects": [],
+      "choices": [
+        {
+          "index": 0,
+          "source_index": 1,
+          "source_sha256": "bb7869b39de0496a6f8dcaa0a0f88b6a44dc6a83f85cb3dd89d936368114bc1c",
+          "prompt_html": "<strong>A)</strong> Джерело — the guide (гід); чекають the visitors (відвідувачі).<br><strong>B)</strong> Джерело — visitors; надворі чекає guide."
+        }
+      ]
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\ComplexPassiveAndCausativeTheorySeeder",
+      "slug": "complex-passive-and-causative",
+      "source": "database/content-patches/m35-m19-passive-reporting.v1.json",
+      "source_block_index": 7,
+      "body_sha256": "9fb7a139db1fa9f51a4f8f77ced460e7f9366fde4533a54f3c3e4e8626759a8a",
+      "selects": [],
+      "choices": [
+        {
+          "index": 0,
+          "source_index": 1,
+          "source_sha256": "4d7e99e8364c60ab6591f114ee1f6cda8f58501c75f6a02c0b9393a7bac921c3",
+          "prompt_html": "<strong>A)</strong> Olena організувала послугу, a tailor її виконав, her coat зазнало дії, shortened — укорочення.<br><strong>B)</strong> Olena сама укоротила пальто; tailor лише замовив послугу."
+        },
+        {
+          "index": 1,
+          "source_index": 5,
+          "source_sha256": "bd6a9c433594d831e1114c1a79539bbf8787e6d5ac12f41dff3756c7516ec694",
+          "prompt_html": "<strong>A)</strong> Ні: це небажаний досвід. У гості вкрали телефон під час вистави.<br><strong>B)</strong> Гостя організувала крадіжку: вона замовила викрадення телефона."
+        }
+      ]
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\ComplexPassiveImpersonalStyleTheorySeeder",
+      "slug": "complex-passive-impersonal-style",
+      "source": "database/content-patches/m35-m19-passive-reporting.v1.json",
+      "source_block_index": 7,
+      "body_sha256": "45b9c20b34e7ebf32fd2944f62f8dde08ec0cc84523871184c5cf0de61721f76",
+      "selects": [
+        {
+          "index": 1,
+          "source_index": 4,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "0e59c835e860b929c770125148d2b2d4eb6a198e624a6d9e2452526ed9d6f559",
+              "display": "Перше: немає підтверджених відомостей, що файл видалили. Друге: відомо, що файл не видалили."
+            }
+          ]
+        }
+      ],
+      "choices": [
+        {
+          "index": 0,
+          "source_index": 1,
+          "source_sha256": "6e08b2134348417bbd54d4fc106bc45d475dfeed1da5b42adf8225d4ca630238",
+          "prompt_html": "<strong>A)</strong> Джерело — the curator, виконавець реставрації — a conservator, її об’єкт — the map. Was reported — повідомлення в середу; to have been restored — відновлення в понеділок, раніше за нього.<br><strong>B)</strong> Curator реставрував карту в середу; conservator повідомив у понеділок."
+        }
+      ]
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalPerfectAndDeductionTheorySeeder",
+      "slug": "modal-perfect-and-deduction",
+      "source": "database/content-patches/m36-m20-modals-subjunctive.v1.json",
+      "source_block_index": 7,
+      "body_sha256": "5f89f070a0c4be6f126740d8a481503d75d69561dced07bdf36670fc8132cca3",
+      "selects": [
+        {
+          "index": 0,
+          "source_index": 1,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "fe9fe4df1cc3fcc851cdc6f598cac72fee34b0fca316972e92eea4e19f68e885",
+              "display": "Відомі ознаки — відкрита коробка й розірвана пломба. Must have opened — упевнений висновок мовця про попередню дію, а не незалежний доказ. Особу, точний час і причину відкриття не встановлено."
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "source_index": 4,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "df469a5596090999e9d38a8bbf8774d6c2a851b3a5e98f50c6ec1bfa1b14816f",
+              "display": "У а) це критична оцінка відомої невиконаної дії. У б) це очікуваний результат за звичайним строком доставки; фактичне прибуття не перевірене."
+            }
+          ]
+        }
+      ],
+      "choices": [
+        {
+          "index": 0,
+          "source_index": 3,
+          "source_sha256": "b7c235978e3f0e17c9a6da04c2ec4af53cf3b0aa0c289148f09f0fcdbcaac160",
+          "prompt_html": "<strong>A)</strong> У а) could have taken пропонує можливе пояснення: чи сів Раві на автобус, невідомо. У б) продовження but he chose to walk явно задає невикористану можливість.<br><strong>B)</strong> Обидва could have завжди означають, що Раві не скористався автобусом."
+        }
+      ]
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\FormalEnglish\\SubjunctiveAndFormalStructuresTheorySeeder",
+      "slug": "subjunctive-and-formal-structures",
+      "source": "database/content-patches/m36-m20-modals-subjunctive.v1.json",
+      "source_block_index": 7,
+      "body_sha256": "497b036ce164206f50322b6c18e24400c6bac59758147891506e7236fa46fbec",
+      "selects": [
+        {
+          "index": 0,
+          "source_index": 1,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "12acdb2f7b26e20220f61eaef753b4b2b2d6feb5b1fa0b32d6839dbb41ddf74e",
+              "display": "а) виражає прохання про бажаний стан, але не підтверджує виконання; be kept — пасивна базова модель. б) передає повідомлення організатора про фактичний, за його словами, стан: is clear."
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "source_index": 5,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "4799df8c298d3302615ebf8da4082c6009762bc239c99123ce0928d512943578",
+              "display": "а) Suggest означає «свідчити/вказувати на можливий факт», не «пропонувати перенесення». б) Insist означає вимогу: потрібне переміщення. в) Insist означає наполягання на істинності твердження; is доречне. Заміна is на be у а) чи в) не є виправленням: вона нав’язує інший тип змісту."
+            }
+          ]
+        }
+      ],
+      "choices": []
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\ModalVerbs\\SubtleModalMeaningsTheorySeeder",
+      "slug": "subtle-modal-meanings",
+      "source": "database/content-patches/m36-m20-modals-subjunctive.v1.json",
+      "source_block_index": 7,
+      "body_sha256": "c4d78bf52a5b6ff8ebb4cf1a166aa1d3d83234e97adc07fbe406f640b70f5b9d",
+      "selects": [
+        {
+          "index": 0,
+          "source_index": 1,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "94b6aac8df6baa0f3a69a243902c29f5d7ea00438e8d2d7f4c91b0fe65594557",
+              "display": "а) may well explain подає правдоподібне, але непідтверджене пояснення. б) might as well rehearse — практична пропозиція за відсутності кращого доступного варіанта, не оцінка ймовірності події. Про фактичну репетицію нічого не сказано."
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "source_index": 4,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "a7783b117146633aa35fb466cf7b703f3e3e53233b26f604bf64891a75177c66",
+              "display": "Необхідності не було в усіх трьох випадках. а) Друку не було — це явно задає so I didn’t. б) Друк був — це задає but I did. в) Виконання невідоме. Відсутність необхідності не означає заборону; б) не стає суперечністю лише тому, що дію виконано."
+            }
+          ]
+        }
+      ],
+      "choices": [
+        {
+          "index": 0,
+          "source_index": 2,
+          "source_sha256": "3c870c954a7f4261d014858124f5b912bbe3043eed527e68d076fa2bbba63720",
+          "prompt_html": "<strong>A)</strong> У цьому явно заданому контексті might just допускає невелику, але реальну можливість: «можливо, таки». Це не часове «щойно» й не гарантований результат.<br><strong>B)</strong> Just означає тут «щойно» й гарантує, що ескіз уже відібрано."
+        },
+        {
+          "index": 1,
+          "source_index": 5,
+          "source_sha256": "ad1b0b64faec16790e37686237619e17e4dc0b7511d1a0e380176ac65b3fc889",
+          "prompt_html": "<strong>A)</strong> Точне перетворення можливе в б): Omar needn’t have booked another room. У а) бракує факту виконання: автоматичне needn’t have приписало б бронювання.<br><strong>B)</strong> Уже у випадку а) можна точно сказати Omar needn’t have booked another room: didn’t need to саме доводить бронювання."
+        }
+      ]
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\AdvancedGerundInfinitivePatternsTheorySeeder",
+      "slug": "advanced-gerund-infinitive-patterns",
+      "source": "database/content-patches/m37-m21-grammar-structures.v1.json",
+      "source_block_index": 7,
+      "body_sha256": "20d1b8b19c0d420216a56a24e27ca687f474aacfceb9bf18b67c75b1f0420e31",
+      "selects": [
+        {
+          "index": 0,
+          "source_index": 1,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "8434764c6f64820703a6d505ff00a5bc42e8aab67c9095b61bce0dc99106bdd9",
+              "display": "We avoid storing paint near the heater. We decided to move the tins. Рішення не є повідомленням про виконання."
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "source_index": 2,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "bbd04c60e6adc118e9e9d2a2992ecfece6a98dcb4bc8e0f149c5d65d77b4b469",
+              "display": "I look forward to meeting the curator. I plan to meet her on Friday. У look forward to to — прийменник, а meeting називає очікувану подію. У plan to meet to — маркер інфінітива; після нього базова форма meet."
+            }
+          ]
+        }
+      ],
+      "choices": [
+        {
+          "index": 0,
+          "source_index": 3,
+          "source_sha256": "c70abb662db64efac572a239db4cbbc09d2ef7d747eeb2d5e7e6d7001bf60595",
+          "prompt_html": "<strong>A)</strong> I remember packing the vase yesterday. Remember to label the box before sending it. I remembered to return the trolley yesterday.<br><strong>B)</strong> I remember to pack the vase yesterday. Remember labelling the box before sending it. I remember returning the trolley yesterday."
+        },
+        {
+          "index": 1,
+          "source_index": 4,
+          "source_sha256": "bfe786eba340f9a8e94f0b81acc9a71c152390b2fc619adabb9abd5fffc2f393",
+          "prompt_html": "<strong>A)</strong> The students stopped whispering. The students stopped to read the sign.<br><strong>B)</strong> The students stopped to whisper. The students stopped reading the sign."
+        }
+      ]
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\RelativeClauses\\ComplexRelativeClausesTheorySeeder",
+      "slug": "complex-relative-clauses",
+      "source": "database/content-patches/m37-m21-grammar-structures.v1.json",
+      "source_block_index": 7,
+      "body_sha256": "479dad7ebdd6a34b663474f5174517e6e45abdb156fd12a8c4916d54654859dc",
+      "selects": [
+        {
+          "index": 0,
+          "source_index": 1,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "055ebaebef3192c8473f85cbfc7be9bd6973f7079bf921a9210d8f1532f9a400",
+              "display": "We rented a studio whose windows face the river."
+            },
+            {
+              "index": 1,
+              "source_sha256": "be3e4602e683415ec8ea56f0cc793fefcbeec2dcad61cf93399015648709126c",
+              "display": "We rented a studio who’s windows face the river."
+            },
+            {
+              "index": 2,
+              "source_sha256": "8f356d88fb4da15a70ad59f8c0a8352f45db578da1278fd5170a92467fe22de0",
+              "display": "We rented a studio whose its windows face the river."
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "source_index": 2,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "8659519b87bfc033a911101cdb8a8ca1dbedc160c15880058e54f62186bde169",
+              "display": "The conservator to whom we spoke recommended a softer brush. The frame on which the portrait rests is wooden."
+            },
+            {
+              "index": 1,
+              "source_sha256": "cc4046968995e2c1b35be7f5dc122aedf9a4d3508bc2ce125dc6748552f092dd",
+              "display": "The conservator with whom we spoke recommended a softer brush. The frame to which the portrait rests is wooden."
+            },
+            {
+              "index": 2,
+              "source_sha256": "0c335445b3b877cfad4ea755213ee9d6b05470f66b779b63ced21a55896a3c6e",
+              "display": "The conservator to that we spoke recommended a softer brush. The frame on that the portrait rests is wooden."
+            }
+          ]
+        }
+      ],
+      "choices": [
+        {
+          "index": 0,
+          "source_index": 3,
+          "source_sha256": "057ea47c5b2a2f527b75babaf8b6242ed043b95f34a388f9291ef815482eece3",
+          "prompt_html": "<strong>A)</strong> The photographs which have white frames were moved.<br><strong>B)</strong> The photographs, which have white frames, were moved."
+        },
+        {
+          "index": 1,
+          "source_index": 4,
+          "source_sha256": "98df4292cf40eb9ecfc9785c93650c0aa960ca06fc2c2bcbe20f09c1d7fd5829",
+          "prompt_html": "<strong>A)</strong> У б) which — додаток checked, а підмет we вже є: The captions we checked were accurate. The restorer who we believe can repair the frame is away.<br><strong>B)</strong> У а) і в) займенники можна опустити. The restorer whom we believe can repair the frame is away."
+        }
+      ]
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\InversionAfterNegativeAdverbialsTheorySeeder",
+      "slug": "inversion-after-negative-adverbials",
+      "source": "database/content-patches/m37-m21-grammar-structures.v1.json",
+      "source_block_index": 7,
+      "body_sha256": "a27af7e9e98992ece01e4b7ad33b105d2cb32c4fd2a1e8d339e9b129eeb03687",
+      "selects": [
+        {
+          "index": 0,
+          "source_index": 1,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "4f9bb17048b727e74c7a78e49d61d3520b115f28533bcbeb68cbf262afe01862",
+              "display": "Rarely have the samples been stored outside the cold room."
+            },
+            {
+              "index": 1,
+              "source_sha256": "4646661d06af29464e99f982ce1c2677ae6e9be2f4157573e5fdc6b2ce025a04",
+              "display": "Rarely did the samples be stored outside the cold room."
+            },
+            {
+              "index": 2,
+              "source_sha256": "7312d0de1264e2455e0fcb342518bbb3062a617e9be7411ced57bbe856d870e3",
+              "display": "Never were the samples stored outside the cold room by technicians."
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "source_index": 4,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "dee17d9b87b034d04426a67fa61bd651f90e1f41c187ea808690c67f0083e6ca",
+              "display": "Only the archivist could open the vault. Only after the check was complete could the vault be opened."
+            },
+            {
+              "index": 1,
+              "source_sha256": "fa8a9672db1b489ee9955fa37e2f28f8c663e6f401e2d00c9c630e3ca67ddc3b",
+              "display": "Only could the archivist open the vault. Only after was the check complete could the vault be opened."
+            },
+            {
+              "index": 2,
+              "source_sha256": "96badaaaac4c9b97770b4c80e3b7be93d01b8f84f762d35108cfe9563836f9f1",
+              "display": "Only the archivist opened the vault. Only after the check was complete could the archivist open it."
+            }
+          ]
+        }
+      ],
+      "choices": [
+        {
+          "index": 0,
+          "source_index": 2,
+          "source_sha256": "a5eb2a8b369fb82873e596fe4fc14e81a05f8b9f5f2b9c08f707ea13196d06f9",
+          "prompt_html": "<strong>A)</strong> Hardly had the dispatcher finished checking the list when the alarm sounded.<br><strong>B)</strong> Hardly had the dispatcher finished checking the list than the alarm sounded."
+        },
+        {
+          "index": 1,
+          "source_index": 5,
+          "source_sha256": "73aa6598105d323b275f1afe213f80f695f759080b25d740510e07258d3bed0e",
+          "prompt_html": "<strong>A)</strong> Under no circumstances may visitors remove the seals. At no time during the trial was the access code shared.<br><strong>B)</strong> Under no circumstances may visitors not remove the seals. At no time during the trial may the access code be shared."
+        }
+      ]
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\ArticlesAndQuantifiers\\AdvancedArticleAndQuantifierNuanceTheorySeeder",
+      "slug": "advanced-article-and-quantifier-nuance",
+      "source": "database/content-patches/m38-m22-articles-collocations.v1.json",
+      "source_block_index": 7,
+      "body_sha256": "00ea38d1f13d04b68cd0bbb16b23518ac063b67e96e2a37b88483eccc7969f69",
+      "selects": [
+        {
+          "index": 0,
+          "source_index": 1,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "90a6aab8759dc07dfcb81194941a5238832634512de6cd8c8a172844ab059b01",
+              "display": "We received three pieces of information and some useful research about the old bridge."
+            },
+            {
+              "index": 1,
+              "source_sha256": "22b4b2240a3205d2586c3dc730cb799802c68630064e8000dacbaab92964cd9b",
+              "display": "We received three informations and a useful research about the old bridge."
+            },
+            {
+              "index": 2,
+              "source_sha256": "2ceafb17d1584c3610419d62e56316084c1f1cd1516605bf58047c8822f9ad42",
+              "display": "We received three pieces of information and a useful study about the old bridge."
+            }
+          ]
+        }
+      ],
+      "choices": [
+        {
+          "index": 0,
+          "source_index": 3,
+          "source_sha256": "f2dc1090a15ca9d26ffe5f0b0734bcf2765b4557e998132537b6932d8c8ec5e6",
+          "prompt_html": "<strong>A)</strong> Please put a pencil beside the logbook. We need information about yesterday’s delivery.<br><strong>B)</strong> Please put the pencil beside a logbook. We need an information about yesterday’s delivery."
+        },
+        {
+          "index": 1,
+          "source_index": 4,
+          "source_sha256": "a498ca4a3d473c2c3ec9ad44e3afd84f6809a345a5232e62b89f6eee2a504f5d",
+          "prompt_html": "<strong>A)</strong> A number of labels are missing. The number of missing labels is not known.<br><strong>B)</strong> A number of labels is missing. The number of missing labels are not known."
+        }
+      ]
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\ArticlesAndQuantifiers\\PrecisionWithArticlesAndDeterminersTheorySeeder",
+      "slug": "precision-with-articles-and-determiners",
+      "source": "database/content-patches/m38-m22-articles-collocations.v1.json",
+      "source_block_index": 7,
+      "body_sha256": "37738183f53b14c19a31f8b1226de8278fc7e853979a84411f1161a543421937",
+      "selects": [
+        {
+          "index": 0,
+          "source_index": 1,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "6858b5c96d0685e030c15fc68534c8f4f794f42488c70a3e720c8409ca934d99",
+              "display": "The tray — саме принесена таця. The other four — решта чотири чашки з шести на ній, а не всі інші чашки світу чи студії. Загальної кількості чашок у студії текст не встановлює."
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "source_index": 2,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "35e0de02b68f628a06c5c4d0d03cfe8e3021dfdd820d8facb5cf85306d443519",
+              "display": "We found a cabinet in an empty room. The cabinet was locked, so we needed a key. Furniture needs care."
+            },
+            {
+              "index": 1,
+              "source_sha256": "a5b5a8321b52e4e55ab127b19925a16904c298e66b0f52959f614a69cacde34a",
+              "display": "We found the cabinet in an empty room. A cabinet was locked, so we needed the key. A furniture needs care."
+            },
+            {
+              "index": 2,
+              "source_sha256": "74c18da6ff46c5279998b1c62d8a94fdae9ea63269d55358c0d07f22b4f7771f",
+              "display": "We found a cabinet in an empty room. The cabinet was locked, so we needed the key. The furniture needs care."
+            }
+          ]
+        }
+      ],
+      "choices": [
+        {
+          "index": 0,
+          "source_index": 3,
+          "source_sha256": "ea0ce488662356205e84fc4615cfb66d13c93a845958c7345375e5852bdd3e22",
+          "prompt_html": "<strong>A)</strong> а) Would you like some biscuits? б) Are there any lockers available? в) You may choose any cup from these five.<br><strong>B)</strong> Would you like any biscuits? Are there some lockers available? You may choose some cup from these five."
+        },
+        {
+          "index": 1,
+          "source_index": 4,
+          "source_sha256": "b6db71573a8345136ee15c027c160ea61944789386a24bdececd51cf769b51c1",
+          "prompt_html": "<strong>A)</strong> Each of the three drafts has a number. Every one of the three drafts has a number. Both of the final layouts are ready. Either of the two layouts is suitable. Neither of them is signed.<br><strong>B)</strong> Each of three drafts have a number. Every of the three drafts has a number. Both of the final layouts is ready. Either of the two layouts are suitable. Neither of them are signed."
+        }
+      ]
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\VocabularyAndCollocations\\AdvancedCollocationAndLexicalChoiceTheorySeeder",
+      "slug": "advanced-collocation-and-lexical-choice",
+      "source": "database/content-patches/m38-m22-articles-collocations.v1.json",
+      "source_block_index": 7,
+      "body_sha256": "8a18e03de6c617f5de469da6d1e969c45799301f66df8b612c5889b0f64b0629",
+      "selects": [
+        {
+          "index": 0,
+          "source_index": 1,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "eaab8ac493b841c3eb99eeae18152f5f52c8891bfa0c9e2352b586145a9e42e4",
+              "display": "I would like to raise a question about spare-key storage. Ні наявність відповіді, ні вирішення проблеми тут не встановлені."
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "source_index": 2,
+          "options": [
+            {
+              "index": 0,
+              "source_sha256": "b285a7bd9e20eed854edac7a7fd973009fdbd8c09fb84ae63f94f59788e378b7",
+              "display": "The narrow passage poses a challenge to the team moving the scenery. The team faces a challenge in moving the scenery through the narrow passage."
+            },
+            {
+              "index": 1,
+              "source_sha256": "24f61d45971faea498f69e8a8d0013b95a0dab3f7cc498fdd22dc545257259f6",
+              "display": "The narrow passage faces a challenge in moving the scenery. The team poses a challenge to the passage."
+            },
+            {
+              "index": 2,
+              "source_sha256": "ad4be7c375cfd4915cb5758fbea1cc83f402257d1a9144dc93a0af055bc22be7",
+              "display": "The narrow passage makes moving the scenery impossible. The team cannot move it through the passage."
+            }
+          ]
+        }
+      ],
+      "choices": [
+        {
+          "index": 0,
+          "source_index": 3,
+          "source_sha256": "ec88aabbe9acb375bf50206f0b4e3b4e7b49a913315840936db11ac224b43232",
+          "prompt_html": "<strong>A)</strong> Обидві пари допустимі: The committee set / established a precedent. The note draws / makes a distinction between repair and replacement. Прецедент може слугувати прикладом для наступних випадків, але факту майбутнього повторення фраза не гарантує.<br><strong>B)</strong> Лише set a precedent і draws a distinction допустимі; established і makes завжди неправильні. Прецедент гарантує майбутній повтор рішення."
+        },
+        {
+          "index": 1,
+          "source_index": 4,
+          "source_sha256": "9636754529ea0415af511df9604c2ab43ab51cbfedd9015fc94d6958e5076848",
+          "prompt_html": "<strong>A)</strong> The guide draws a distinction between repair and replacement. It raises two questions about the warranty.<br><strong>B)</strong> The guide draws distinction among repair. It answers two question on the warranty."
+        }
+      ]
+    }
+  ]
+}
