@@ -56,3 +56,9 @@ Page302, `choices[1]`: у реченні `The model is useful ___ it explains re
 Правила знаходяться тільки в `resources/css/theory-unified-design.css` і обмежені `data-theory-palette="canonical"`. У PPC, інших сторінок, курсів та окремих тестів цього нового opt-in немає. Тексти, parts, keys, basic/detail, anchors, layout, typography, padding, border widths та scoring не змінені.
 
 Для застосування цієї CSS-зміни виконано локальну збірку лише `catalog-public.css`: активний asset — `assets/catalog-public-Cje6awad.css`. Усі інші manifest entries та JavaScript збережено. Власні кольорові hunks синхронізовано в served ROOT; сторонні зміни не замінювалися. Це реалізаційна збірка, не HTTP/браузерне або тестове приймання; БД та production залишаються поза scope. Generated assets і приватний `colors-before-376b7a953` не включаються до Git.
+
+### Уточнення 2026-10-11: кольори тільки контентної частини
+
+Користувач уточнив, що кольоровий запит стосувався контенту, не практики. Тому practice palette зміни з `4d36be82d` скасовано: прибрано opt-in у native practice wrapper, додані атрибути shared exercise/option/token і пов’язані правила CSS. Ці чотири Blade-файли повертаються до версії `376b7a953`; ранні compact display, кандидатні labels, raw values, scoring, reset і пояснення після Check залишаються чинними. Контентні accent guards та кольори номерів секцій не відкочуються.
+
+Збережено новий приватний BEFORE `practice-colors-revert-before-4d36be82d`. Відкат перенесено точковими hunks у served ROOT, без заміни сторонніх PPC hooks. Локальну CSS-збірку застосовано: активний asset — `assets/catalog-public-DLnzdDTu.css`; інші manifest entries та JavaScript збережено. Файловий Git diff чотирьох practice views відносно `376b7a953` порожній. БД і production не змінювалися; браузерні й автоматичні перевірки не запускалися.

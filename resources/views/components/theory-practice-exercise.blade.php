@@ -13,6 +13,6 @@
         default => 'theory-exercise rounded-xl border '.$surface.($visibleOverflow ? ' overflow-visible' : ' overflow-hidden'),
     };
 @endphp
-<{{ $tag }} data-theory-practice-accent="{{ in_array($accent, ['blue', 'amber', 'emerald', 'purple'], true) ? $accent : 'blue' }}" {{ $attributes->class([$classes]) }}>
+<{{ $tag }} {{ $attributes->class([$classes]) }}>
     {{ $slot }}
 </{{ $tag }}>

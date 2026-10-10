@@ -14,4 +14,4 @@
     }
     $state = $selected === null ? null : "[($selected) ? '$active' : '$idle', ($checked) && ($selected) ? (($correct) ? 'ring-2 ring-emerald-300' : 'ring-2 ring-rose-300') : ''].join(' ')";
 @endphp
-<button type="button" data-theory-practice-option {{ $attributes->class([$base]) }} @if($state !== null) :class="{{ $state }}" @endif @if($wrap) style="text-transform:none;white-space:normal;overflow-wrap:anywhere;max-width:100%" @endif>{{ $slot }}</button>
+<button type="button" {{ $attributes->class([$base]) }} @if($state !== null) :class="{{ $state }}" @endif @if($wrap) style="text-transform:none;white-space:normal;overflow-wrap:anywhere;max-width:100%" @endif>{{ $slot }}</button>
