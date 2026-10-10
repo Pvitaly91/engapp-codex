@@ -20,6 +20,10 @@ final class TheoryLegacyAdapter
             'variant' => match ($type) { 'summary-list' => 'summary', 'mistakes-grid' => 'mistakes', default => 'plain' },
             'level' => $block->level ?? null, 'embedded' => $embedded, 'footer' => true,
             'layout' => in_array($type, ['usage-panels', 'mistakes-grid'], true) ? 'stack' : 'plain', 'items' => [], 'tail' => []];
+        $accent = $nativeProse ? TheoryHtmlAdapter::nativeAccent($design) : null;
+        if ($accent !== null) {
+            $node['attrs'] = ['data-theory-palette' => 'canonical', 'data-theory-accent' => $accent];
+        }
         if (!empty($data['intro'])) { $node['intro_html'] = self::rich($data['intro'], $design, '/intro'); }
         if (in_array($type, ['forms-grid', 'lesson-rule-cards'], true)) {
             $node['layout'] = 'grid2';

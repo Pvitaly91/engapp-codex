@@ -89,6 +89,8 @@
     // guard. Keep reference lessons, courses and unverified fallback unchanged.
     $nativePracticePresentation = ($theoryCanonical ?? false) === true
         && is_array($m42Design ?? null) && ($m42Design['component'] ?? null) === 'practice-set';
+    $canonicalPalette = $nativePracticePresentation
+        && \App\Support\TheoryHtmlAdapter::nativeAccent($m42Design) !== null;
     // Sentence/explanation options are prose, unlike A/B or lexical form chips.
     // This is display-only: the original option still owns every JS binding.
     $optionPresentation = static fn ($option) => $nativePracticePresentation
@@ -106,7 +108,7 @@
     $answerKeysVisibility = implode(' || ', array_map(static fn ($condition) => '('.$condition.')', $answerKeyConditions));
 @endphp
 
-<section id="block-{{ $block->id }}" class="theory-native-block scroll-mt-24">
+<section id="block-{{ $block->id }}" class="theory-native-block scroll-mt-24" @if($canonicalPalette) data-theory-palette="canonical" @endif>
     <div
         x-data="theoryPracticeSet(@js([
             'selects' => $selects,

@@ -22,7 +22,7 @@ final class TheoryHtmlAdapter
     ];
 
     /** This metadata may select semantic content ranges, never views or styles. */
-    public static function nativePresentation(?array $design): ?array
+    public static function nativePresentation(?array $design, bool $paletteOnly = false): ?array
     {
         if ($design === null) { return null; }
         try {
@@ -43,6 +43,12 @@ final class TheoryHtmlAdapter
                 if (($mapping['schema_version'] ?? null) !== 1
                     || ($mapping['identity'] ?? null) !== $owner['identity']
                     || ($mapping['slug'] ?? null) !== $owner['slug']) { continue; }
+                if ($paletteOnly) {
+                    // The accepted plan supplies a semantic role, not a stylesheet.
+                    $color = $design['color'] ?? null;
+                    return in_array($color, ['blue', 'emerald', 'sky', 'amber', 'rose', 'slate'], true)
+                        ? ['color' => $color] : null;
+                }
                 foreach ($mapping['blocks'] ?? [] as $block) {
                     if (($block['uuid'] ?? null) === $design['uuid']
                         && ($block['source_index'] ?? null) === $design['source_index']
@@ -51,6 +57,12 @@ final class TheoryHtmlAdapter
             }
         } catch (\Throwable) { /* Unchanged complete native presentation remains the fallback. */ }
         return null;
+    }
+
+    /** Color opt-in is limited to the same three exact reviewed native owners. */
+    public static function nativeAccent(?array $design): ?string
+    {
+        return self::nativePresentation($design, paletteOnly: true)['color'] ?? null;
     }
 
     /** Only the unchanged, finite native plan can select paragraph-flow presentation. */

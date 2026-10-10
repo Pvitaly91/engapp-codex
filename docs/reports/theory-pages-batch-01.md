@@ -46,3 +46,13 @@ Page302, `choices[1]`: у реченні `The model is useful ___ it explains re
 Перед змінами main-agent зберіг окремий приватний файловий BEFORE `storage/app/theory-three-pages-local/before-a445a6754`. Snapshot і runtime artifacts не призначені для commit.
 
 **За прямою вказівкою користувача перевірки не запускалися.** Виконано тільки читання та редагування файлів: без HTTP, браузера, тестів, app bootstrap, БД, apply, asset build, сервера чи production. Немає заяв browser PASS або live acceptance. Власні runtime-hunks, три metadata-файли та документацію перенесено до served ROOT `D:/DEV/htdocs/gramlyze.loc`, зберігши сторонні PPC hooks у native view. Відсутній ROOT `.gitattributes` не відновлювався; LF-правило metadata є лише у робочій гілці. Файлове підключення саме по собі не є візуальною перевіркою.
+
+## Кольори: окремий follow-up користувача
+
+Після commit `376b7a953` користувач окремо попросив повернути канонічні кольори цієї трійки. Шлях залишається спільним: старий `m42-native-design-styles` не вмикається, оскільки він також змінював би відступи, шрифти, рамки та курсив.
+
+`TheoryHtmlAdapter::nativeAccent()` дозволяє opt-in лише для трьох точних UK owners із pinned metadata й verified M42 plan. `TheoryLegacyAdapter` передає семантичний accent у номер секції. Native практика отримує той самий guarded opt-in, а shared exercise передає свою навчальну роль: blue, amber або emerald. Кольори номерів, фону заголовків вправ і idle borders беруться зі спільної native-палітри; біла поверхня, нейтральний фон прикладів і синя лінія прикладу зберігаються як у канонічному еталоні. Correct/wrong, selected/disabled states не перефарбовуються.
+
+Правила знаходяться тільки в `resources/css/theory-unified-design.css` і обмежені `data-theory-palette="canonical"`. У PPC, інших сторінок, курсів та окремих тестів цього нового opt-in немає. Тексти, parts, keys, basic/detail, anchors, layout, typography, padding, border widths та scoring не змінені.
+
+Для застосування цієї CSS-зміни виконано локальну збірку лише `catalog-public.css`: активний asset — `assets/catalog-public-Cje6awad.css`. Усі інші manifest entries та JavaScript збережено. Власні кольорові hunks синхронізовано в served ROOT; сторонні зміни не замінювалися. Це реалізаційна збірка, не HTTP/браузерне або тестове приймання; БД та production залишаються поза scope. Generated assets і приватний `colors-before-376b7a953` не включаються до Git.
