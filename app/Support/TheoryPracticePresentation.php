@@ -18,14 +18,44 @@ final class TheoryPracticePresentation
     public static function nativeDisplay(object $block, array $data, ?array $design, bool $theoryPage): ?array
     {
         if (!$theoryPage || ($block->type ?? null) !== 'practice-set'
-            || ($design['component'] ?? null) !== 'practice-set'
-            || !is_array($data['author_self_check']['answers'] ?? null)) {
+            || ($design['component'] ?? null) !== 'practice-set') {
             return null;
         }
 
         try {
             $binding = M42NativeDesignPackage::binding($block, $data);
             if ($binding === null || $binding['plan'] !== $design) { return null; }
+
+            if (!is_array($data['author_self_check']['answers'] ?? null)) {
+                // Earlier native lessons contain real short candidates, not keys.
+                // Move only exact reviewed label ranges onto their own buttons.
+                $practice = TheoryHtmlAdapter::nativePresentation($design)['practice'] ?? null;
+                if (!is_array($practice)) { return null; }
+                $display = ['selects' => [], 'choices' => [], 'answer_groups' => []];
+                foreach (['selects', 'choices'] as $group) {
+                    foreach ($practice[$group] ?? [] as $field) {
+                        $index = $field['index'] ?? null;
+                        $item = $data[$group][$index] ?? null;
+                        if (!is_int($index) || !is_array($item) || !is_string($item['label'] ?? null)
+                            || !is_string($field['label_html'] ?? null) || isset($display[$group][$index])
+                            || !hash_equals($field['label_sha256'], hash('sha256', $item['label']))) { return null; }
+                        $display[$group][$index] = ['label_html' => $field['label_html']];
+                        if (isset($field['option_labels'])) {
+                            $options = $item['options'] ?? $data['choice_options'] ?? ['a', 'b'];
+                            if ($group !== 'choices' || !is_array($field['option_labels'])
+                                || count($field['option_labels']) !== count($options)) { return null; }
+                            $labels = [];
+                            foreach ($options as $option) {
+                                $label = $field['option_labels'][$option] ?? null;
+                                if (!is_string($label) || trim($label) === '' || in_array($label, $labels, true)) { return null; }
+                                $labels[$option] = $label;
+                            }
+                            $display[$group][$index]['option_labels'] = $labels;
+                        }
+                    }
+                }
+                return $display;
+            }
 
             $answers = $data['author_self_check']['answers'];
             if ($answers === [] || !array_is_list($answers)) { return null; }

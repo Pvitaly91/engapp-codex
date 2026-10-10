@@ -153,6 +153,7 @@
                         @foreach($selects as $index => $item)
                             @php
                                 $displayOptions = $nativeDisplay['selects'][$index]['options'] ?? [];
+                                $displayLabel = $nativeDisplay['selects'][$index]['label_html'] ?? null;
                                 $fullOptionsVisibility = "isChecked('selects') && !isEmpty('selects', ".$index.")";
                             @endphp
                             <x-theory-practice-control accent="blue" :marker="chr(97 + $index)" :align="$nativePracticePresentation && !empty($item['context']) ? 'start' : 'center'" :wrap="$nativePracticePresentation">
@@ -160,7 +161,7 @@
                                         <div class="text-base text-foreground/80 leading-relaxed mb-2{{ $instructionPresentation }}" data-practice-instruction data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
                                     @endif
                                     <label class="block text-sm text-foreground/80 mb-1.5{{ $instructionPresentation }}">
-                                        {!! $item['label'] ?? '' !!}
+                                        {!! $displayLabel ?? $item['label'] ?? '' !!}
                                     </label>
                                     <div class="flex flex-wrap gap-2">
                                         @foreach($item['options'] ?? $options as $optionIndex => $option)
@@ -220,26 +221,32 @@
                         @foreach($choices as $index => $item)
                             @php
                                 $displayPrompt = $nativeDisplay['choices'][$index]['prompt_html'] ?? null;
+                                $displayLabel = $nativeDisplay['choices'][$index]['label_html'] ?? null;
                                 $fullPromptVisibility = "isChecked('choices') && !isEmpty('choices', ".$index.")";
                             @endphp
                             <x-theory-practice-control accent="amber" :marker="chr(97 + $index)" :align="$nativePracticePresentation && !empty($item['context']) ? 'start' : 'center'" :wrap="$nativePracticePresentation">
                                     @if($m30AuthorSelfCheck !== null && !empty($item['context']))
                                         <div class="text-base text-foreground/80 leading-relaxed mb-2{{ $instructionPresentation }}" data-practice-instruction data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
                                     @endif
-                                    <label class="block text-sm text-foreground/80 mb-1.5{{ $instructionPresentation }}">
-                                        {!! $item['label'] ?? '' !!}
-                                    </label>
+                                    @if($displayLabel === null || $displayLabel !== '')
+                                        <label class="block text-sm text-foreground/80 mb-1.5{{ $instructionPresentation }}">
+                                            {!! $displayLabel ?? $item['label'] ?? '' !!}
+                                        </label>
+                                    @endif
                                     @if(!empty($item['prompt']))
                                         <p class="mb-2 text-base text-muted-foreground leading-relaxed{{ $instructionPresentation }}" data-practice-instruction>{!! $displayPrompt ?? $item['prompt'] !!}</p>
                                     @endif
                                     <div class="flex flex-wrap gap-2">
                                         @foreach($item['options'] ?? $choiceOptions as $option)
-                                            <x-theory-practice-option accent="amber" :presentation="$optionPresentation($option)"
+                                            @php
+                                                $displayOption = $nativeDisplay['choices'][$index]['option_labels'][$option] ?? $option;
+                                            @endphp
+                                            <x-theory-practice-option accent="amber" :presentation="$optionPresentation($displayOption)"
                                                 :selected="'choiceAnswers['.$index.'] === '.\Illuminate\Support\Js::from($option)"
                                                 :checked="'isChecked(\'choices\') && hasAnswer(\'choices\', '.$index.')'"
                                                 :correct="'isCorrect(\'choices\', '.$index.')'"
                                                 :attributes="new \Illuminate\View\ComponentAttributeBag(['@click' => 'choiceAnswers['.$index.'] = '.\Illuminate\Support\Js::from($option)])">
-                                                {{ $option }}
+                                                {{ $displayOption }}
                                             </x-theory-practice-option>
                                         @endforeach
                                     </div>

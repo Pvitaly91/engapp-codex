@@ -14,6 +14,45 @@ use Illuminate\Support\HtmlString;
  */
 final class TheoryHtmlAdapter
 {
+    /** Exact semantic ranges for the first three reviewed native lessons. */
+    private const NATIVE_PRESENTATIONS = [
+        'docs/content/theory-inline-examples/linking-words-reason-result-contrast.v1.json' => 'a82e38f30300b4523d5a10f25262021dbed145cda0714d26f297488a318c06cb',
+        'docs/content/theory-inline-examples/advanced-linking-devices.v1.json' => '6c6144ec1b88b2a938efe83e51bd10471ba680290dfbd9f26bd624887f8633cb',
+        'docs/content/theory-inline-examples/concessive-and-contrastive-structures.v1.json' => 'e3ebc6a8bc3f0dc9ab165a8ada14c0c2054033b4ac395535bfc008f0d227458a',
+    ];
+
+    /** This metadata may select semantic content ranges, never views or styles. */
+    public static function nativePresentation(?array $design): ?array
+    {
+        if ($design === null) { return null; }
+        try {
+            $owner = null;
+            foreach (M42NativeDesignPackage::load()['targets'] as $target) {
+                foreach ($target['blocks'] as $candidate) {
+                    if ($candidate === $design) { $owner = $target; break 2; }
+                }
+            }
+            if ($owner === null) { return null; }
+            static $cache = [];
+            foreach (self::NATIVE_PRESENTATIONS as $file => $sha) {
+                $path = base_path($file);
+                if (!is_file($path)) { continue; }
+                $bytes = file_get_contents($path);
+                if (!is_string($bytes) || !hash_equals($sha, hash('sha256', $bytes))) { continue; }
+                $mapping = $cache[$file] ??= json_decode($bytes, true, flags: JSON_THROW_ON_ERROR);
+                if (($mapping['schema_version'] ?? null) !== 1
+                    || ($mapping['identity'] ?? null) !== $owner['identity']
+                    || ($mapping['slug'] ?? null) !== $owner['slug']) { continue; }
+                foreach ($mapping['blocks'] ?? [] as $block) {
+                    if (($block['uuid'] ?? null) === $design['uuid']
+                        && ($block['source_index'] ?? null) === $design['source_index']
+                        && ($block['body_sha256'] ?? null) === $design['body_sha256']) { return $block; }
+                }
+            }
+        } catch (\Throwable) { /* Unchanged complete native presentation remains the fallback. */ }
+        return null;
+    }
+
     /** Only the unchanged, finite native plan can select paragraph-flow presentation. */
     public static function verifiedNativeDesign(?array $design): bool
     {
@@ -47,7 +86,73 @@ final class TheoryHtmlAdapter
         } catch (\Throwable) { /* Keep the complete existing HTML fallback. */ }
         $exampleVariant = ($design['component'] ?? null) === 'comparison-table'
             && str_starts_with($pointer, '/rows/') ? 'table-cell' : 'box';
+        $finite = self::finiteNativeExamples($html, $annotated, $design, $pointer, $exampleVariant);
+        if ($finite !== null) { return $finite; }
         return self::fragment($annotated, $explicitTranslations, $exampleVariant);
+    }
+
+    /** Explicit EN/UK/comment boundaries, not a sentence or language heuristic. */
+    private static function finiteNativeExamples(string $html, string $annotated, ?array $design, string $pointer, string $variant): ?HtmlString
+    {
+        try {
+            $field = null;
+            foreach (self::nativePresentation($design)['fields'] ?? [] as $candidate) {
+                if (($candidate['pointer'] ?? null) === $pointer
+                    && ($candidate['source_sha256'] ?? null) === hash('sha256', $html)) {
+                    if ($field !== null) { return null; }
+                    $field = $candidate;
+                }
+            }
+            if ($field === null || !is_array($field['parts'] ?? null)) { return null; }
+            $restored = '';
+            foreach ($field['parts'] as $part) {
+                if (($part['kind'] ?? null) === 'html' && is_string($part['html'] ?? null)) {
+                    $restored .= $part['html'];
+                } elseif (($part['kind'] ?? null) === 'example'
+                    && is_string($part['en_html'] ?? null) && is_string($part['uk_html'] ?? null)
+                    && ($part['source_html'] ?? null) === $part['en_html'].$part['uk_html']) {
+                    $restored .= $part['source_html'];
+                } else { return null; }
+            }
+            if ($restored !== $html) { return null; }
+
+            // Reuse the already verified language attributes in their exact order.
+            // Inline formulas/terms keep their original language role.
+            preg_match_all('~<em\b[^>]*>~u', $annotated, $openings);
+            $emIndex = 0;
+            $annotate = static function (string $chunk) use (&$emIndex, $openings): string {
+                return preg_replace_callback('~<em\b[^>]*>~u', static function ($match) use (&$emIndex, $openings): string {
+                    $opening = $openings[0][$emIndex++] ?? null;
+                    if (!is_string($opening) || !str_starts_with($opening, substr($match[0], 0, -1))) {
+                        throw new \RuntimeException('Native semantic range changes emphasis order.');
+                    }
+                    return $opening;
+                }, $chunk) ?? $chunk;
+            };
+            $nodes = [];
+            foreach ($field['parts'] as $part) {
+                if ($part['kind'] === 'html') {
+                    $chunk = $annotate($part['html']);
+                    // Explicit range boundaries provide the paragraph break;
+                    // do not add empty rows for source double-br separators.
+                    $chunk = preg_replace('~\A(?:\s|<br\s*/?>)+|(?:\s|<br\s*/?>)+\z~u', '', $chunk) ?? $chunk;
+                    if ($chunk === '') { continue; }
+                    $nodes[] = ['kind' => 'fragment', 'body_html' => self::fragment($chunk),
+                        'body_role' => preg_match('~<(?:p|div|ul|ol|table|h[1-6]|section|article|blockquote)\b~i', $chunk) === 1 ? null : 'paragraph',
+                        'typography' => 'inherit'];
+                } else {
+                    $en = $annotate($part['en_html']);
+                    $uk = $annotate($part['uk_html']);
+                    // The author dash separates languages; the component uses two rows.
+                    $uk = preg_replace('/\A\s+[—–]\s+/u', '', $uk, 1) ?? $uk;
+                    $nodes[] = ['kind' => 'example', 'variant' => $variant,
+                        'en' => self::fragment($en), 'uk' => self::fragment($uk)];
+                }
+            }
+            if ($emIndex !== count($openings[0])) { return null; }
+            return new HtmlString(TheoryAuthoredAdapter::render(['kind' => 'fragment',
+                'typography' => 'inherit', 'content_layout' => 'compact-stack', 'items' => $nodes]));
+        } catch (\Throwable) { return null; }
     }
 
     public static function fragment(string $html, bool $explicitTranslations = false, string $exampleVariant = 'box'): HtmlString
