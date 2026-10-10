@@ -2,6 +2,7 @@
      the theory boundary and validates source data before preparing this model. --}}
 @switch($content['kind'] ?? 'text-fallback')
     @case('node')
+        <!-- theory.content:node -->
         @include('theory.components.node', ['node' => $content['node']])
         @break
 
