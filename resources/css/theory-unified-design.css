@@ -194,73 +194,138 @@
     --theory-role-line: #e2e8f0;
     --theory-role-ink: #334155;
 }
-.theory-design [data-theory-palette="canonical"][data-theory-accent="blue"] {
+.theory-design [data-theory-palette="canonical"][data-theory-accent="blue"],
+.theory-design [data-theory-reference="native"] [data-theory-point-panel][data-theory-accent="blue"] {
     --theory-role-bg: #eff6ff; --theory-role-line: #bfdbfe; --theory-role-ink: #1d4ed8;
 }
-.theory-design [data-theory-palette="canonical"][data-theory-accent="emerald"] {
+.theory-design [data-theory-palette="canonical"][data-theory-accent="emerald"],
+.theory-design [data-theory-reference="native"] [data-theory-point-panel][data-theory-accent="emerald"] {
     --theory-role-bg: #ecfdf5; --theory-role-line: #a7f3d0; --theory-role-ink: #047857;
 }
-.theory-design [data-theory-palette="canonical"][data-theory-accent="sky"] {
+.theory-design [data-theory-palette="canonical"][data-theory-accent="sky"],
+.theory-design [data-theory-reference="native"] [data-theory-point-panel][data-theory-accent="sky"] {
     --theory-role-bg: #f0f9ff; --theory-role-line: #bae6fd; --theory-role-ink: #0369a1;
 }
-.theory-design [data-theory-palette="canonical"][data-theory-accent="amber"] {
+.theory-design [data-theory-palette="canonical"][data-theory-accent="amber"],
+.theory-design [data-theory-reference="native"] [data-theory-point-panel][data-theory-accent="amber"] {
     --theory-role-bg: #fffbeb; --theory-role-line: #fde68a; --theory-role-ink: #b45309;
 }
-.theory-design [data-theory-palette="canonical"][data-theory-accent="rose"] {
+.theory-design [data-theory-palette="canonical"][data-theory-accent="rose"],
+.theory-design [data-theory-reference="native"] [data-theory-point-panel][data-theory-accent="rose"] {
     --theory-role-bg: #fff1f2; --theory-role-line: #fecdd3; --theory-role-ink: #be123c;
 }
-.dark .theory-design [data-theory-palette="canonical"] {
+.dark .theory-design [data-theory-palette="canonical"],
+.dark .theory-design [data-theory-reference="native"] [data-theory-point-panel][data-theory-accent="slate"] {
     --theory-role-bg: #243044; --theory-role-line: #46546c; --theory-role-ink: #cbd5e1;
 }
-.dark .theory-design [data-theory-palette="canonical"][data-theory-accent="blue"] {
+.dark .theory-design [data-theory-palette="canonical"][data-theory-accent="blue"],
+.dark .theory-design [data-theory-reference="native"] [data-theory-point-panel][data-theory-accent="blue"] {
     --theory-role-bg: #172d4b; --theory-role-line: #315c8b; --theory-role-ink: #93c5fd;
 }
-.dark .theory-design [data-theory-palette="canonical"][data-theory-accent="emerald"] {
+.dark .theory-design [data-theory-palette="canonical"][data-theory-accent="emerald"],
+.dark .theory-design [data-theory-reference="native"] [data-theory-point-panel][data-theory-accent="emerald"] {
     --theory-role-bg: #13372f; --theory-role-line: #28644d; --theory-role-ink: #6ee7b7;
 }
-.dark .theory-design [data-theory-palette="canonical"][data-theory-accent="sky"] {
+.dark .theory-design [data-theory-palette="canonical"][data-theory-accent="sky"],
+.dark .theory-design [data-theory-reference="native"] [data-theory-point-panel][data-theory-accent="sky"] {
     --theory-role-bg: #153348; --theory-role-line: #2d617d; --theory-role-ink: #7dd3fc;
 }
-.dark .theory-design [data-theory-palette="canonical"][data-theory-accent="amber"] {
+.dark .theory-design [data-theory-palette="canonical"][data-theory-accent="amber"],
+.dark .theory-design [data-theory-reference="native"] [data-theory-point-panel][data-theory-accent="amber"] {
     --theory-role-bg: #3a2f19; --theory-role-line: #79622d; --theory-role-ink: #fcd34d;
 }
-.dark .theory-design [data-theory-palette="canonical"][data-theory-accent="rose"] {
+.dark .theory-design [data-theory-palette="canonical"][data-theory-accent="rose"],
+.dark .theory-design [data-theory-reference="native"] [data-theory-point-panel][data-theory-accent="rose"] {
     --theory-role-bg: #3d2330; --theory-role-line: #7a4058; --theory-role-ink: #fda4af;
 }
 .theory-design [data-theory-palette="canonical"] .theory-section-number {
     background-color: var(--theory-role-bg);
     color: var(--theory-role-ink);
 }
-/* Use the section's accepted semantic palette on actual content surfaces,
-   not just its number. Never recolor a nested exercise or linked test widget. */
-.theory-design [data-theory-component="section"][data-theory-palette="canonical"]
-    :is([data-theory-component="example"].theory-example, [data-theory-component="form"].theory-item, [data-theory-component="usage"].theory-item, .theory-note):not(:where([data-sentence-builder], [data-sentence-builder] *, .theory-exercise, .theory-exercise *)) {
+/* Native-reference hierarchy: one white lesson container, compact sections,
+   colored whole points, and light examples inside them. Practice is outside. */
+.theory-design .theory-reference-content[data-theory-reference="native"] {
+    padding: 1.25rem;
+    border: 1px solid var(--line);
+    border-radius: 1.5rem;
+    background: var(--theory-panel);
+    box-shadow: var(--theory-shadow);
+}
+.theory-design [data-theory-component="section"][data-theory-reference="native"] > .theory-section-card {
+    border-radius: .75rem;
+    box-shadow: none;
+    background: var(--theory-panel);
+}
+.theory-design [data-theory-component="section"][data-theory-reference="native"] > .theory-section-card > .theory-section-header {
+    align-items: center;
+    padding: .75rem 1rem;
+    border-bottom: 1px solid var(--line);
+    border-radius: .75rem .75rem 0 0;
+    background: var(--theory-panel);
+}
+.theory-design [data-theory-component="section"][data-theory-reference="native"] > .theory-section-card > .theory-section-header .theory-section-title {
+    align-items: center;
+    gap: .6rem;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.theory-design [data-theory-component="section"][data-theory-reference="native"] > .theory-section-card > .theory-section-header .theory-section-number {
+    min-width: 1.4rem;
+    min-height: 1.4rem;
+    padding: .1rem .25rem;
+    border-radius: .35rem;
+    background: #4f46e5;
+    color: #fff;
+    font-size: .75rem;
+}
+.theory-design [data-theory-component="section"][data-theory-reference="native"] > .theory-section-card > .theory-section-body {
+    padding: 1rem;
+}
+.theory-design [data-theory-reference="native"] [data-theory-point-panel][data-theory-accent="slate"] {
+    --theory-role-bg: #f8fafc; --theory-role-line: #e2e8f0; --theory-role-ink: #334155;
+}
+.dark .theory-design [data-theory-reference="native"] [data-theory-point-panel][data-theory-accent="slate"] {
+    --theory-role-bg: #243044; --theory-role-line: #46546c; --theory-role-ink: #cbd5e1;
+}
+.theory-design [data-theory-reference="native"] [data-theory-point-panel].theory-item {
+    border: 1px solid var(--theory-role-line);
+    border-radius: .75rem;
     background-color: var(--theory-role-bg);
+}
+.theory-design [data-theory-reference="native"] [data-theory-point-panel] > .p-4 > .flex:first-child > span:last-child {
+    color: var(--theory-role-ink);
+}
+.theory-design [data-theory-reference="native"] [data-theory-point-panel] [data-theory-component="example"].theory-example:not(:where([data-sentence-builder] *, .theory-exercise *)) {
+    border: 1px solid color-mix(in srgb, var(--theory-panel) 80%, transparent);
+    border-inline-start: 1px solid color-mix(in srgb, var(--theory-panel) 80%, transparent);
+    border-radius: .5rem;
+    background: color-mix(in srgb, var(--theory-panel) 60%, transparent);
+    padding: .75rem;
+}
+.theory-design [data-theory-reference="native"] [data-theory-point-panel] [data-theory-component="example"].theory-example p[lang="en"]:not(:where([data-sentence-builder] *, .theory-exercise *)) {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    font-size: .8125rem;
+    line-height: 1.65;
+}
+.theory-design [data-theory-reference="native"] [data-theory-point-panel] [data-theory-component="example"] .theory-translation:not(:where([data-sentence-builder] *, .theory-exercise *)) {
+    font-size: .8125rem;
+    font-style: italic;
+    line-height: 1.65;
+}
+.theory-design [data-theory-component="section"][data-theory-reference="native"][data-theory-section-variant="summary"] > .theory-section-card {
     border-color: var(--theory-role-line);
 }
-.theory-design [data-theory-component="section"][data-theory-palette="canonical"]
-    [data-theory-component="example"].theory-example:not(:where([data-sentence-builder], [data-sentence-builder] *, .theory-exercise, .theory-exercise *)) {
-    border-inline-start-color: var(--theory-role-ink);
-}
-.theory-design [data-theory-component="section"][data-theory-palette="canonical"]
-    [data-theory-component="form"] [data-theory-component="example"].theory-example:not(:where([data-sentence-builder], [data-sentence-builder] *, .theory-exercise, .theory-exercise *)) {
-    background-color: var(--theory-panel);
-}
-.theory-design [data-theory-component="section"][data-theory-palette="canonical"]
-    [data-theory-component="table"].theory-table-scroll:not(:where([data-sentence-builder], [data-sentence-builder] *, .theory-exercise, .theory-exercise *)) {
-    border-color: var(--theory-role-line);
-}
-.theory-design [data-theory-component="section"][data-theory-palette="canonical"]
-    [data-theory-component="table"] th:not(:where([data-sentence-builder], [data-sentence-builder] *, .theory-exercise, .theory-exercise *)) {
+.theory-design [data-theory-component="section"][data-theory-reference="native"][data-theory-section-variant="summary"] > .theory-section-card > .theory-section-header {
     background-color: var(--theory-role-bg);
     border-bottom-color: var(--theory-role-line);
 }
-.theory-design [data-theory-component="section"][data-theory-palette="canonical"]
-    [data-theory-component="summary"] > .group > span:first-child:not(:where([data-sentence-builder], [data-sentence-builder] *, .theory-exercise, .theory-exercise *)) {
-    background-color: var(--theory-role-bg);
-    color: var(--theory-role-ink);
+.theory-design [data-theory-component="section"][data-theory-reference="native"] [data-theory-component="form"].theory-item:not(:where([data-sentence-builder] *, .theory-exercise *)) {
+    border: 1px solid var(--line);
+    background: var(--theory-panel);
 }
 @media (max-width: 639px) {
+    .theory-design .theory-reference-content[data-theory-reference="native"] { padding: .9rem; }
+    .theory-design [data-theory-component="section"][data-theory-reference="native"] > .theory-section-card > :is(.theory-section-header, .theory-section-body) { padding: .85rem; }
     .theory-design :is(.theory-hero, .theory-section-body, .theory-section-main, .theory-section-detail-body, .theory-rich-section-body) { padding: 1rem; }
     .theory-design :is(.theory-section-header, .theory-html-content .theory-html-heading) { padding: 1rem; gap: .6rem; }
     .theory-design .theory-section-title { font-size: 1.05rem; gap: .6rem; }
@@ -274,6 +339,12 @@
     .theory-design *, .theory-design *::before, .theory-design *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 @media print {
+    .theory-design .theory-reference-content[data-theory-reference="native"] { box-shadow: none; }
+    .theory-design [data-theory-reference="native"] [data-theory-point-panel] {
+        --theory-role-bg: #fff !important;
+        --theory-role-line: #000 !important;
+        --theory-role-ink: #000 !important;
+    }
     .theory-design [data-theory-palette="canonical"] {
         --theory-role-bg: #fff !important;
         --theory-role-line: #000 !important;

@@ -70,3 +70,17 @@ Page302, `choices[1]`: у реченні `The model is useful ___ it explains re
 CSS вимагає одночасно `data-theory-component="section"` і guarded `data-theory-palette="canonical"`. Кожна кінцева ціль виключає самі `.theory-exercise`/`[data-sentence-builder]` та всіх їхніх нащадків. Практика, linked-bank, wrong/right correction surfaces, курси, PPC та інші сторінки не отримують нові кольори. Чинні dark/print variables збережено. Metadata, навчальні тексти та правила оцінювання не змінені.
 
 Збережено приватний BEFORE `content-colors-before-2d8898cba`. Власні CSS/documentation hunks перенесено до served ROOT; локальну CSS-збірку застосовано (`assets/catalog-public-CRwKM160.css`), решту manifest entries і JavaScript збережено. У diff цього проходу є тільки CSS, canonical contract і report — жодного practice view або answer engine. Браузерні/автоматичні перевірки, БД та production не використовувалися.
+
+### Побудова за фото-еталоном, 2026-10-11
+
+Користувач показав, що попереднє фарбування окремих прикладів **не відповідало еталону**. Уточнений запит реалізує іншу ієрархію: один білий контейнер → компактні секції з рамкою/розділювачем і заповненим номером → кольорові цілі пункти → світлі EN/UK приклади всередині пунктів. Синя ліва смуга на прикладах у цих пунктах прибрана. Попередні surface-color rules замінено, а не доповнено ще одним фарбуванням рядків.
+
+Новий [theory-native-point-panels.v1.json](../content/theory-native-point-panels.v1.json), SHA-256 `dad34bcb64688cefdee9afad0a9d3fefad2b9fdc7a239e236695ae8ce55a4d3f`, охоплює тільки ці три UK owners: 20 контентних блоків до практики та 24 цілі авторські пункти (4 / 8 / 12). Кожний блок має UUID/source index/body hash, кожний пункт — точний index, presentation-heading, native accent та hashes дозволеного basic/full description. Заголовки є скінченними презентаційними позначеннями, а не переписаними авторськими умовами. Body, порядок текстів, переклади та всі 13 meaningful details збережені.
+
+`referenceContent()` підтверджує поточний original block через M42 binding; невідомий owner, невідповідний body або практика/навігація не входять до групи. `TheoryLegacyAdapter` створює native `usage` тільки для явного пункту з відповідним description hash. Point-level disclosure лишається на попередньому index/key всередині його пункту. Незаданий/непідтверджений paragraph залишається звичайним fragment.
+
+`theory.show` групує лише послідовні підтверджені контентні блоки, не змінюючи їхній порядок чи include bindings. Обчислення додано до існуючого раннього PHP-блока; нових пізніх PHP-блоків після inline `@php` не додано. Практика, next-step navigation, sidebar, grading і linked-bank не редизайняться. Native header отримує optional semantic reference mode; його default-поведінка для інших callers збережена.
+
+Перед змінами збережено незалежний private BEFORE `reference-panels-before-7fc0c95d0` для ROOT/WT. Це файлова реалізація й локальна CSS-збірка, без HTTP, браузера, PHP/Blade execution, тестів, БД чи production. Фотографічний або live browser PASS не заявляється.
+
+Власні hunks та metadata перенесено в served ROOT, збережено сторонній PPC bootstrap у `theory.show` та PPC hooks у practice view. Локальна CSS-збірка активна як `assets/catalog-public-Bs1I27Td.css`; інші manifest entries і JavaScript незмінні. Новий asset, приватні generator/backup та caches не входять до commit. У цьому проході немає diff у native/shared practice views.

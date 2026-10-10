@@ -14,6 +14,65 @@ use Illuminate\Support\HtmlString;
  */
 final class TheoryHtmlAdapter
 {
+    private const POINT_PANELS = 'docs/content/theory-native-point-panels.v1.json';
+    private const POINT_PANELS_SHA = 'dad34bcb64688cefdee9afad0a9d3fefad2b9fdc7a239e236695ae8ce55a4d3f';
+
+    private static function pointPanelMapping(): ?array
+    {
+        try {
+            $path = base_path(self::POINT_PANELS);
+            if (!is_file($path)) { return null; }
+            $bytes = file_get_contents($path);
+            if (!is_string($bytes) || !hash_equals(self::POINT_PANELS_SHA, hash('sha256', $bytes))) { return null; }
+            static $mapping = null;
+            $mapping ??= json_decode($bytes, true, flags: JSON_THROW_ON_ERROR);
+            return ($mapping['schema_version'] ?? null) === 1 && is_array($mapping['targets'] ?? null) ? $mapping : null;
+        } catch (\Throwable) { return null; }
+    }
+
+    /** Whole author points receive the existing native usage-panel component. */
+    public static function nativePointPanels(?array $design): ?array
+    {
+        if ($design === null || !self::verifiedNativeDesign($design)) { return null; }
+        foreach (self::pointPanelMapping()['targets'] ?? [] as $target) {
+            foreach ($target['blocks'] ?? [] as $record) {
+                if (($record['uuid'] ?? null) !== $design['uuid']
+                    || ($record['body_sha256'] ?? null) !== $design['body_sha256']
+                    || ($record['source_index'] ?? null) !== $design['source_index']
+                    || ($record['component'] ?? null) !== $design['component']) { continue; }
+                $points = [];
+                foreach ($record['points'] ?? [] as $point) {
+                    $index = $point['index'] ?? null;
+                    if (!is_int($index) || $index < 0 || isset($points[$index])
+                        || !is_string($point['label'] ?? null) || trim($point['label']) === ''
+                        || !in_array($point['accent'] ?? null, ['emerald', 'blue', 'amber', 'slate', 'sky', 'rose'], true)
+                        || !is_array($point['description_sha256'] ?? null)) { return null; }
+                    $points[$index] = $point;
+                }
+                return $record + ['points_by_index' => $points];
+            }
+        }
+        return null;
+    }
+
+    /** Caller-level grouping excludes practice, navigation and unknown owners. */
+    public static function referenceContent(object $block): bool
+    {
+        if (($block->locale ?? null) !== 'uk'
+            || !in_array($block->type ?? null, ['usage-panels', 'comparison-table', 'summary-list', 'forms-grid', 'lesson-rule-cards', 'mistakes-grid', 'tense-forms-table'], true)) { return false; }
+        try {
+            $known = false;
+            foreach (self::pointPanelMapping()['targets'] ?? [] as $target) {
+                if (($target['identity'] ?? null) === ($block->seeder ?? null)) { $known = true; break; }
+            }
+            if (!$known) { return false; }
+            $data = json_decode($block->body ?? '', true, flags: JSON_THROW_ON_ERROR);
+            if (!is_array($data)) { return false; }
+            $binding = M42NativeDesignPackage::binding($block, $data);
+            return $binding !== null && self::nativePointPanels($binding['plan']) !== null;
+        } catch (\Throwable) { return false; }
+    }
+
     /** Exact semantic ranges for the first three reviewed native lessons. */
     private const NATIVE_PRESENTATIONS = [
         'docs/content/theory-inline-examples/linking-words-reason-result-contrast.v1.json' => 'a82e38f30300b4523d5a10f25262021dbed145cda0714d26f297488a318c06cb',

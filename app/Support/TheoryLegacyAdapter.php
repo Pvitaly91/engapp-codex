@@ -24,6 +24,12 @@ final class TheoryLegacyAdapter
         if ($accent !== null) {
             $node['attrs'] = ['data-theory-palette' => 'canonical', 'data-theory-accent' => $accent];
         }
+        $reference = $nativeProse ? TheoryHtmlAdapter::nativePointPanels($design) : null;
+        if ($reference !== null) {
+            $node['reference'] = true;
+            $node['attrs']['data-theory-reference'] = 'native';
+            $node['attrs']['data-theory-section-variant'] = $node['variant'];
+        }
         if (!empty($data['intro'])) { $node['intro_html'] = self::rich($data['intro'], $design, '/intro'); }
         if (in_array($type, ['forms-grid', 'lesson-rule-cards'], true)) {
             $node['layout'] = 'grid2';
@@ -57,10 +63,15 @@ final class TheoryLegacyAdapter
                     'body_html' => $descriptionHtml,
                     'body_inline' => !self::blockHtml((string) $descriptionHtml),
                     'examples' => array_map(self::example(...), $section['examples'] ?? []), 'tail' => []];
-                // In these accepted sources an unlabelled section is one author
-                // paragraph, not a separately titled rule group. Keep its point
-                // position and disclosure owner without inventing a grey panel.
-                if ($nativeProse && empty($section['label'])) {
+                $panel = $reference['points_by_index'][$index] ?? null;
+                if ($panel !== null && in_array(hash('sha256', $description), $panel['description_sha256'], true)) {
+                    // A reviewed whole point, never one box per paragraph.
+                    $item['label'] = $panel['label'];
+                    $item['number'] = $index + 1;
+                    $item['accent'] = $panel['accent'];
+                    $item['attrs'] = ['data-theory-point-panel' => '', 'data-theory-accent' => $panel['accent']];
+                } elseif ($nativeProse && empty($section['label'])) {
+                    // Unannotated paragraphs keep their complete plain flow.
                     $item = ['kind' => 'fragment', 'body_html' => $descriptionHtml,
                         'body_role' => self::blockHtml((string) $descriptionHtml) ? null : 'paragraph',
                         'examples' => $item['examples'], 'tail' => []];

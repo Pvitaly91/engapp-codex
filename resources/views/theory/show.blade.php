@@ -47,6 +47,16 @@
     $presentationByBlock = $contentBlocks->mapWithKeys(fn ($block) => [
         $block->id => ($block->type === 'box' || empty($block->type)) ? \App\Support\TheoryPresentation::html($block, canonical: true) : null,
     ]);
+    $contentRenderGroups = [];
+    foreach ($contentBlocks as $contentBlock) {
+        $referenceContent = app()->getLocale() === 'uk' && \App\Support\TheoryHtmlAdapter::referenceContent($contentBlock);
+        $last = count($contentRenderGroups) - 1;
+        if ($referenceContent && $last >= 0 && $contentRenderGroups[$last]['reference']) {
+            $contentRenderGroups[$last]['blocks'][] = $contentBlock;
+        } else {
+            $contentRenderGroups[] = ['reference' => $referenceContent, 'blocks' => [$contentBlock]];
+        }
+    }
     $navBlock = $blocks->firstWhere('type', 'navigation-chips');
     $categoryPages = $categoryPages ?? collect();
     $lessonToc = [];
@@ -169,15 +179,19 @@
 
             <section class="theory-content-blocks">
                 <div class="space-y-6">
-                    @foreach($contentBlocks as $block)
-                        @include('theory.partials.content-block', [
-                            'theoryCanonical' => true,
-                            'm42StyleContext' => app()->getLocale() === 'uk',
-                            'm43StyleContext' => app()->getLocale() === 'uk',
-                            'm44StyleContext' => $m44StyleContext,
-                            'presentation' => $presentationByBlock[$block->id],
-                            'practiceQuestions' => $practiceQuestionsByBlock[$block->uuid] ?? collect(),
-                        ])
+                    @foreach($contentRenderGroups as $renderGroup)
+                        @if($renderGroup['reference'])<div class="theory-reference-content space-y-4" data-theory-reference="native">@endif
+                        @foreach($renderGroup['blocks'] as $block)
+                            @include('theory.partials.content-block', [
+                                'theoryCanonical' => true,
+                                'm42StyleContext' => app()->getLocale() === 'uk',
+                                'm43StyleContext' => app()->getLocale() === 'uk',
+                                'm44StyleContext' => $m44StyleContext,
+                                'presentation' => $presentationByBlock[$block->id],
+                                'practiceQuestions' => $practiceQuestionsByBlock[$block->uuid] ?? collect(),
+                            ])
+                        @endforeach
+                        @if($renderGroup['reference'])</div>@endif
                     @endforeach
                 </div>
 
