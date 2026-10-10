@@ -158,7 +158,7 @@ final class TheoryLegacyAdapter
             $node['footer'] = false;
         }
         if ($type !== 'comparison-table' && !empty($data['outro'])) { $node['tail'][] = ['kind' => 'fragment', 'body_html' => self::rich($data['outro'], $design, '/outro')]; }
-        return $node;
+        return $nativeProse ? TheoryContentGroups::apply($node, $block, $data, $design) : $node;
     }
 
     public static function example(mixed $example): array
