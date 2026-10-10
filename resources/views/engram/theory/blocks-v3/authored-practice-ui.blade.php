@@ -1,3 +1,6 @@
+@if(($theoryCanonical ?? false) !== true)
+    @include('courses.compatibility.theory.authored-practice-ui')
+@else
 @include('components.english-answer-variants')
 @once
     <script src="{{ asset('js/authored-practice-ui.js') }}?v={{ filemtime(public_path('js/authored-practice-ui.js')) }}"></script>
@@ -5,23 +8,27 @@
 @once($practiceScope.'-authored-practice-wrapper')
     <script src="{{ asset($practiceScript) }}?v={{ filemtime(public_path($practiceScript)) }}"></script>
 @endonce
-@php($author = ($theoryCanonical ?? false) ? \App\Support\TheoryPracticePresentation::author($data['author_self_check']) : $data['author_self_check'])
+@php($author = \App\Support\TheoryPracticePresentation::author($data['author_self_check'], $data['cases']))
 @php($linked = $data['linked_practice'])
-@php($referencePractice = ($theoryCanonical ?? false) || $practiceScope === 'm43' || ($practiceScope === 'm44' && ($m44ReferencePractice ?? false) === true) || ($practiceScope === 'm45' && ($m45ReferencePractice ?? false) === true))
 <section id="block-{{ $block->id }}" class="theory-native-block scroll-mt-24" style="text-transform:none" data-{{ $practiceScope }}-practice-ui>
     <div class="theory-section-card rounded-2xl border border-border/60 bg-card" x-data="{{ $practiceFactory }}(@js(['cases' => $data['cases']]))">
         <x-theory-native-header :title="$data['title']" :level="$block->level ?? null" fallback="⚡" />
+        <noscript><p class="px-5 pt-5 text-sm text-muted-foreground">Автоматична перевірка потребує JavaScript. Завдання та авторські ключі доступні без нього.</p></noscript>
         <div class="theory-section-body p-5 space-y-6">
-            <div class="text-base text-muted-foreground leading-relaxed" data-practice-instruction data-{{ $practiceScope }}-self-check-intro>{!! $author['intro'] !!}</div>
-            <noscript><p class="text-sm text-muted-foreground">Автоматична перевірка потребує JavaScript. Завдання та авторські ключі доступні без нього.</p></noscript>
-            <p class="text-sm font-semibold" aria-live="polite" data-{{ $practiceScope }}-ui-score>Результат: <span x-text="score">0</span> / {{ count($data['cases']) }}</p>
+            @if(trim(strip_tags($author['intro'] ?? '')) !== '')
+                <div class="text-base text-muted-foreground leading-relaxed" data-practice-instruction data-{{ $practiceScope }}-self-check-intro>{!! $author['intro'] !!}</div>
+            @endif
             @foreach($data['cases'] as $i => $task)
-                <x-theory-practice-exercise tag="article" :compatibility="($theoryCanonical ?? false) ? null : ($referencePractice ? 'reference' : 'plain')" :attributes="new \Illuminate\View\ComponentAttributeBag(['data-'.$practiceScope.'-ui-case' => $task['source_index'], 'data-'.$practiceScope.'-ui-interaction' => $task['interaction']])">
-                    <div class="{{ $referencePractice ? 'border-b border-border px-4 py-3 text-base leading-relaxed' : 'text-base leading-relaxed' }}" data-practice-instruction data-{{ $practiceScope }}-author-prompt="{{ $task['source_index'] }}">{!! $author['prompts'][$task['source_index'] - 1] !!}</div>@if($referencePractice)<div class="p-4 space-y-3">@endif
+                @php($presentation = $author['presentation'][$i])
+                <x-theory-practice-exercise tag="article" :accent="$presentation['accent']" :attributes="new \Illuminate\View\ComponentAttributeBag(['data-'.$practiceScope.'-ui-case' => $task['source_index'], 'data-'.$practiceScope.'-ui-interaction' => $task['interaction']])">
+                    <x-theory-practice-header :accent="$presentation['accent']" class="text-base leading-relaxed" data-practice-instruction :attributes="new \Illuminate\View\ComponentAttributeBag(['data-'.$practiceScope.'-author-prompt' => $task['source_index']])">{!! $presentation['prompt_html'] !!}</x-theory-practice-header>
+                    <div class="p-4 space-y-3">
                     @foreach($task['controls'] as $p => $control)
                         @php($fieldId = $practiceScope.'-'.$block->id.'-'.$i.'-'.$p)
-                        @if($referencePractice)<div class="bg-white/60 rounded-lg p-3 border border-white" data-{{ $practiceScope }}-control-panel>@endif<fieldset class="space-y-2" data-{{ $practiceScope }}-control="{{ $control['id'] }}" data-{{ $practiceScope }}-control-kind="{{ $control['kind'] }}" style="min-width:0;text-transform:none">
-                            <legend class="text-sm font-semibold mb-2">{{ $control['label'] }}</legend>
+                        @php($controlPresentation = $presentation['controls'][$p])
+                        <x-theory-practice-control :accent="$controlPresentation['accent']" :marker="$controlPresentation['marker']" :technical="$controlPresentation['marker_technical'] ?? true" :wrap="true" :attributes="new \Illuminate\View\ComponentAttributeBag(['data-'.$practiceScope.'-control-panel' => ''])">
+                        <fieldset class="space-y-2" data-{{ $practiceScope }}-control="{{ $control['id'] }}" data-{{ $practiceScope }}-control-kind="{{ $control['kind'] }}" style="min-width:0;text-transform:none">
+                            <legend class="text-sm font-semibold mb-2">{{ $controlPresentation['label'] }}</legend>
                             @if(isset($control['stimulus_en']))
                                 <p lang="en" class="text-sm leading-relaxed">{{ $control['stimulus_en'] }}</p>
                             @endif
@@ -31,76 +38,78 @@
                             @if(in_array($control['kind'], ['select','choice','multi'], true))
                                 <div class="flex flex-wrap gap-2" @if($control['kind'] !== 'multi') role="radiogroup" @endif>
                                     @foreach($control['options'] as $option)
-                                        <button type="button" data-{{ $practiceScope }}-answer="{{ $option['value'] }}" role="{{ $control['kind'] === 'multi' ? 'checkbox' : 'radio' }}"
-                                            :aria-checked="selected({{ $i }},{{ $p }},@js($option['value']))"
-                                            @click="setAnswer({{ $i }},{{ $p }},@js($option['value']))"
-                                            @if($control['kind'] !== 'multi')
-                                            :tabindex="selected({{ $i }},{{ $p }},@js($option['value'])) || (!answers[{{ $i }}][{{ $p }}] && {{ $loop->first ? 'true' : 'false' }}) ? 0 : -1"
-                                            @keydown.arrow-right.prevent="cycleAnswer({{ $i }},{{ $p }},1,$event)"
-                                            @keydown.arrow-down.prevent="cycleAnswer({{ $i }},{{ $p }},1,$event)"
-                                            @keydown.arrow-left.prevent="cycleAnswer({{ $i }},{{ $p }},-1,$event)"
-                                            @keydown.arrow-up.prevent="cycleAnswer({{ $i }},{{ $p }},-1,$event)"
-                                            @endif
-                                            class="{{ $referencePractice ? 'min-w-12 rounded-xl border px-4 py-2 text-sm font-extrabold text-left transition' : 'rounded-lg border px-3 py-2 text-sm text-left leading-relaxed transition' }}"
-                                            style="text-transform:none;white-space:normal;overflow-wrap:anywhere;max-width:100%"
-                                            :class="selected({{ $i }},{{ $p }},@js($option['value'])) ? (checked[{{ $i }}] ? (partCorrect({{ $i }},{{ $p }}) ? 'border-emerald-400 bg-emerald-50 text-emerald-900' : 'border-rose-400 bg-rose-50 text-rose-900') : 'border-blue-600 bg-blue-600 text-white') : '{{ $referencePractice ? 'border-blue-200 bg-white text-blue-700 hover:border-blue-400 hover:bg-blue-50' : 'border-border bg-card text-foreground' }}'">
+                                        @php
+                                            $selected = 'selected('.$i.','.$p.','.\Illuminate\Support\Js::from($option['value']).')';
+                                            $optionBindings = [
+                                                'data-'.$practiceScope.'-answer' => $option['value'],
+                                                'role' => $control['kind'] === 'multi' ? 'checkbox' : 'radio',
+                                                ':aria-checked' => $selected,
+                                                '@click' => 'setAnswer('.$i.','.$p.','.\Illuminate\Support\Js::from($option['value']).')',
+                                            ];
+                                            if ($control['kind'] !== 'multi') {
+                                                $optionBindings[':tabindex'] = $selected.' || (!answers['.$i.']['.$p.'] && '.($loop->first ? 'true' : 'false').') ? 0 : -1';
+                                                foreach (['right' => 1, 'down' => 1, 'left' => -1, 'up' => -1] as $direction => $step) {
+                                                    $optionBindings['@keydown.arrow-'.$direction.'.prevent'] = 'cycleAnswer('.$i.','.$p.','.$step.',$event)';
+                                                }
+                                            }
+                                        @endphp
+                                        <x-theory-practice-option :accent="$controlPresentation['accent']" :uppercase="false" :wrap="true"
+                                            :selected="$selected" :checked="'checked['.$i.']'" :correct="'partCorrect('.$i.','.$p.')'"
+                                            :attributes="new \Illuminate\View\ComponentAttributeBag($optionBindings)">
                                             {{ $option['label'] }}
-                                        </button>
+                                        </x-theory-practice-option>
                                     @endforeach
                                 </div>
                             @else
-                                @if($theoryCanonical ?? false)
+                                @if(!empty($control['tokens']))
                                     @include('theory.partials.practice-nojs-tokens')
-                                @elseif(in_array($practiceScope, ['m41', 'm43'], true))
-                                    <noscript><div class="flex flex-wrap gap-2" data-{{ $practiceScope }}-static-token-bank>
-                                        @foreach($control['tokens'] as $token)
-                                            <span class="{{ $referencePractice ? 'rounded-lg border border-emerald-200 bg-white px-3 py-1.5 text-sm font-semibold text-emerald-700' : 'rounded-lg border border-border px-3 py-2 text-sm' }}" style="text-transform:none" data-{{ $practiceScope }}-static-token>{{ $token }}</span>
-                                        @endforeach
-                                    </div></noscript>
-                                @elseif($practiceScope === 'm44' && $referencePractice)
-                                    @include('engram.theory.blocks-v3.m44-nojs-tokens')
-                                @elseif($practiceScope === 'm45' && $referencePractice)
-                                    @include('engram.theory.blocks-v3.m45-nojs-tokens')
-                                @endif
-                                <div class="flex flex-wrap gap-2" data-{{ $practiceScope }}-token-bank>
+                                <x-theory-practice-token-bank caption="Банк токенів" :attributes="new \Illuminate\View\ComponentAttributeBag(['data-'.$practiceScope.'-token-bank' => '', 'x-cloak' => ''])">
                                     <template x-for="token in banks[{{ $i }}][{{ $p }}]" :key="token.index">
-                                        <button type="button" @click="appendToken({{ $i }},{{ $p }},token.index)"
-                                            :disabled="tokenUsed({{ $i }},{{ $p }},token.index)"
-                                            class="{{ $referencePractice ? 'rounded-lg border border-emerald-200 bg-white px-3 py-1.5 text-sm font-semibold text-emerald-700 text-left transition hover:bg-emerald-50 hover:text-emerald-900' : 'rounded-lg border border-border px-3 py-2 text-sm text-left leading-relaxed' }}"
-                                            style="text-transform:none;white-space:normal;overflow-wrap:anywhere;max-width:100%"
-                                            :style="tokenUsed({{ $i }},{{ $p }},token.index) ? 'opacity:0.4;text-transform:none' : 'opacity:1;text-transform:none'"
-                                            data-{{ $practiceScope }}-token x-text="token.value"></button>
+                                        <x-theory-practice-token :used="'tokenUsed('.$i.','.$p.',token.index)'" :wrap="true"
+                                            :attributes="new \Illuminate\View\ComponentAttributeBag(['@click' => 'appendToken('.$i.','.$p.',token.index)', 'data-'.$practiceScope.'-token' => '', 'x-text' => 'token.value'])" />
                                     </template>
-                                </div>
+                                </x-theory-practice-token-bank>
+                                @endif
                                 <label class="sr-only" for="{{ $fieldId }}">{{ $control['label'] }}</label>
-                                <textarea id="{{ $fieldId }}" rows="3" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                                    x-model="answers[{{ $i }}][{{ $p }}]" @input="edited({{ $i }})" @keydown.ctrl.enter.prevent="check({{ $i }})"
-                                    class="{{ $referencePractice ? 'w-full rounded-xl border border-emerald-300 bg-white px-3.5 py-2 text-sm font-semibold text-foreground shadow-sm placeholder:text-slate-400 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition-all' : 'w-full rounded-lg border border-border bg-card p-3 text-sm leading-relaxed text-foreground' }}"
-                                    style="text-transform:none;resize:vertical" data-{{ $practiceScope }}-answer-input></textarea>
+                                <div class="relative min-w-[220px] flex-1 sm:max-w-md">
+                                    <x-theory-practice-input :field="$controlPresentation['field'] ?? 'textarea'" :rows="$controlPresentation['rows'] ?? 1" :accent="$controlPresentation['accent']"
+                                        :attributes="new \Illuminate\View\ComponentAttributeBag(['id' => $fieldId, 'autocomplete' => 'off', 'autocorrect' => 'off', 'autocapitalize' => 'off', 'spellcheck' => 'false',
+                                            'x-model' => 'answers['.$i.']['.$p.']', '@input' => 'edited('.$i.')', '@keydown.ctrl.enter.prevent' => 'check('.$i.')', 'data-'.$practiceScope.'-answer-input' => ''])" />
+                                </div>
                             @endif
-                            <{{ $referencePractice ? 'div' : 'p' }} x-show="checked[{{ $i }}]" class="{{ $referencePractice ? 'text-xs font-semibold' : 'text-sm' }}" role="status" data-{{ $practiceScope }}-part-feedback
-                                :class="partCorrect({{ $i }},{{ $p }}) ? 'text-emerald-700' : 'text-rose-700'"
-                                x-text="partCorrect({{ $i }},{{ $p }}) ? 'Правильно' : 'Перевір цю частину відповіді'"></{{ $referencePractice ? 'div' : 'p' }}>
-                        </fieldset>@if($referencePractice)</div>@endif
+                            <x-theory-practice-feedback :correct="'partCorrect('.$i.','.$p.')'" role="status"
+                                :attributes="new \Illuminate\View\ComponentAttributeBag(['x-cloak' => '', 'x-show' => 'checked['.$i.']', 'data-'.$practiceScope.'-part-feedback' => '',
+                                    'x-text' => 'partCorrect('.$i.','.$p.') ? \'Правильно\' : \'Перевір цю частину відповіді\''])" />
+                        </fieldset>
+                        </x-theory-practice-control>
                     @endforeach
-                    <div class="flex flex-wrap gap-2">
-                        <button type="button" @click="check({{ $i }})" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white" data-{{ $practiceScope }}-check>Перевірити</button>
-                        <button type="button" @click="reset({{ $i }})" class="{{ $referencePractice ? 'rounded-lg border border-blue-200 bg-white px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-blue-50' : 'rounded-lg border border-border px-4 py-2 text-sm' }}" data-{{ $practiceScope }}-reset>Почати заново</button>
+                    <x-theory-practice-actions :wrap="true" x-cloak>
+                        <x-slot:status>
+                            <x-theory-practice-feedback :correct="'isCorrect('.$i.')'" role="status"
+                                :attributes="new \Illuminate\View\ComponentAttributeBag(['x-show' => 'checked['.$i.']', 'data-'.$practiceScope.'-case-feedback' => '',
+                                    'x-text' => 'isCorrect('.$i.') ? \'Правильно\' : \'Не всі частини відповіді правильні\''])" />
+                        </x-slot:status>
+                        <x-theory-practice-action :accent="$presentation['accent']" :secondary="true"
+                            :attributes="new \Illuminate\View\ComponentAttributeBag(['@click' => 'reset('.$i.')', 'data-'.$practiceScope.'-reset' => '',
+                                'x-show' => 'checked['.$i.'] || answers['.$i.'].some(value => Array.isArray(value) ? value.length > 0 : String(value ?? \'\').trim() !== \'\')'])">Почати заново</x-theory-practice-action>
+                        <x-theory-practice-action :accent="$presentation['accent']"
+                            :attributes="new \Illuminate\View\ComponentAttributeBag(['@click' => 'check('.$i.')', 'data-'.$practiceScope.'-check' => ''])">Перевірити</x-theory-practice-action>
+                    </x-theory-practice-actions>
+                    <x-theory-practice-explanation :disclosure="true" :title="$author['title']"
+                        :attributes="new \Illuminate\View\ComponentAttributeBag([':open' => 'checked['.$i.']', 'x-show' => 'checked['.$i.']', 'data-'.$practiceScope.'-ui-explanation' => '', 'style' => 'text-transform:none'])"
+                        :summary-attributes="['x-show' => 'checked['.$i.']']"
+                        :body-attributes="['data-'.$practiceScope.'-self-check-answers' => '', 'style' => 'text-transform:none']">
+                        <ol class="list-none"><li data-{{ $practiceScope }}-self-check-answer="{{ $task['source_index'] }}">{!! $author['answers'][$task['source_index'] - 1] !!}</li></ol>
+                    </x-theory-practice-explanation>
                     </div>
-                    <{{ $referencePractice ? 'div' : 'p' }} x-show="checked[{{ $i }}]" class="{{ $referencePractice ? 'text-xs font-semibold' : 'text-sm font-semibold' }}" role="status" data-{{ $practiceScope }}-case-feedback
-                        :class="isCorrect({{ $i }}) ? 'text-emerald-700' : 'text-rose-700'"
-                        x-text="isCorrect({{ $i }}) ? 'Правильно' : 'Не всі частини відповіді правильні'"></{{ $referencePractice ? 'div' : 'p' }}>
-                    <details :open="checked[{{ $i }}]" data-{{ $practiceScope }}-ui-explanation style="text-transform:none">
-                        <summary x-show="checked[{{ $i }}]" class="text-sm font-semibold cursor-pointer">{{ $author['title'] }}</summary>
-                        <div class="theory-item rounded-xl p-4 bg-muted/50 mt-2 text-sm leading-relaxed" data-{{ $practiceScope }}-self-check-answers style="text-transform:none">
-                            <ol class="list-none"><li data-{{ $practiceScope }}-self-check-answer="{{ $task['source_index'] }}">{!! $author['answers'][$task['source_index'] - 1] !!}</li></ol>
-                        </div>
-                    </details>@if($referencePractice)</div>@endif
                 </x-theory-practice-exercise>
             @endforeach
+            <x-theory-practice-feedback tag="p" x-cloak x-show="checked.some(Boolean)" role="status" aria-live="polite"
+                :attributes="new \Illuminate\View\ComponentAttributeBag(['data-'.$practiceScope.'-ui-score' => ''])">Результат: <span x-text="score">0</span> / {{ count($data['cases']) }}</x-theory-practice-feedback>
             <x-text-block-tags :block="$block" />
             <x-text-block-practice-questions :questions="$practiceQuestions ?? collect()" :blockUuid="$block->uuid"
                 :title="$linked['title'] ?? null" :intro="$linked['intro'] ?? null" :footer="$linked['footer'] ?? null" />
         </div>
     </div>
 </section>
+@endif

@@ -7,6 +7,43 @@ use Illuminate\Support\HtmlString;
 /** Render-only shared instruction/feedback presentation, never answer authority. */
 final class TheoryPracticePresentation
 {
+    /**
+     * A finite presentation projection of the existing learning objectives.
+     * IDs identify data contracts only: roles, never package provenance, select
+     * the visual accent. None of these entries changes the stored control kind.
+     */
+    private const CONTROL_ROLES = [
+        'm45-a-q4-meaning' => 'meaning-selection',
+        'm45-a-q1-tense' => 'form-selection',
+        'm45-b-practice-state-answer' => 'form-selection',
+        'm44-choice-q3-activity' => 'form-entry',
+        'm44-choice-q3-state' => 'form-entry',
+        'm45-a-q2-verb' => 'form-entry',
+        'm45-a-q6-repair' => 'form-entry',
+        'm45-b-practice-negative-answer' => 'form-entry',
+        'm45-b-practice-repeated-answer' => 'form-entry',
+        'used-q5a' => 'form-entry',
+    ];
+
+    /** These tasks explicitly request a note/story of several sentences. */
+    private const EXTENDED_WRITING = [
+        'm40-p6-answer', 'm40-n6-answer', 'n5-answer', 'n6-answer',
+        'c1-6-answer', 'c2-5-answer', 'c2-6-answer',
+    ];
+
+    /** Mixed controls keep their own roles; the shell reflects the whole task. */
+    private const COMPOUND_ROLES = [
+        'm43-past-q5-state|m43-past-q5-explanation' => 'meaning-selection',
+        'm43-past-q6-meaning|m43-past-q6-result' => 'meaning-selection',
+        'past-q5a|past-q5b' => 'meaning-selection',
+        'present-q6a|present-q6b' => 'form-selection',
+        'm40-n2-process|m40-n2-arrival|m40-n2-stopped' => 'form-selection',
+        'n1-form|n1-head' => 'form-selection',
+        'n3-equivalence|n3-added-facts|n3-rewrite' => 'meaning-selection',
+        'c2-3-a|c2-3-b' => 'meaning-selection',
+        'c2-4-guaranteed|c2-4-scope' => 'meaning-selection',
+    ];
+
     public static function prompt(string $html, int $number): string
     {
         return preg_replace_callback('/<h4>(.*?)<\/h4>/s', static fn ($match) => view('components.theory-practice-heading', [
@@ -14,10 +51,109 @@ final class TheoryPracticePresentation
         ])->render(), $html, 1) ?? $html;
     }
 
-    public static function author(array $author): array
+    public static function task(array $task, string $prompt, int $number): array
     {
-        $author['prompts'] = array_map(static fn ($html, $index) => self::prompt($html, $index + 1),
-            $author['prompts'], array_keys($author['prompts']));
+        $sourceControls = array_values($task['controls'] ?? []);
+        $controls = [];
+        foreach ($sourceControls as $index => $control) {
+            $id = (string) ($control['id'] ?? '');
+            $role = self::CONTROL_ROLES[$id] ?? match ($control['kind'] ?? '') {
+                'select' => 'form-selection',
+                'choice', 'multi' => 'meaning-selection',
+                'manual' => in_array($id, self::EXTENDED_WRITING, true) ? 'extended-writing' : 'sentence-building',
+                default => 'response',
+            };
+            $label = (string) ($control['label'] ?? '');
+            $marker = count($sourceControls) > 1 ? self::letter($index) : null;
+            // Move an existing source marker; never show an additional a/b/c.
+            if (preg_match('/^\s*([a-zабвгґдеєжзиіїйклмнопрстуфхцчшщюя])\s*[:.)]\s*(.+)$/iu', $label, $parts) === 1) {
+                $marker = $parts[1];
+                $label = $parts[2];
+            } elseif (preg_match('/^\s*[a-zабвгґдеєжзиіїйклмнопрстуфхцчшщюя]\s*$/iu', $label) === 1) {
+                // A standalone source label still names the accessible field.
+                $marker = null;
+            }
+            $controls[] = [
+                'role' => $role, 'accent' => self::accent($role),
+                'marker' => $marker, 'label' => $label,
+                // Keep textarea editing/paste/Ctrl+Enter behavior. A compact
+                // one-row textarea may wrap without narrowing valid answers.
+                'field' => ($control['kind'] ?? '') === 'manual' ? 'textarea' : null,
+                'rows' => $role === 'extended-writing' ? 2 : 1,
+            ];
+        }
+
+        $signature = implode('|', array_map(static fn ($control) => (string) ($control['id'] ?? ''), $sourceControls));
+        $roles = array_values(array_unique(array_column($controls, 'role')));
+        $role = self::COMPOUND_ROLES[$signature] ?? (count($roles) === 1 ? $roles[0] : 'mixed-response');
+        $accent = self::accent($role);
+
+        return [
+            'role' => $role, 'accent' => $accent, 'number' => $number,
+            'prompt_html' => self::taskPrompt($prompt, $number, $accent),
+            'controls' => $controls,
+        ];
+    }
+
+    private static function accent(string $role): string
+    {
+        return match ($role) {
+            'form-selection', 'form-entry' => 'blue',
+            'meaning-selection', 'mixed-response' => 'amber',
+            'sentence-building', 'extended-writing' => 'emerald',
+            default => 'slate',
+        };
+    }
+
+    private static function letter(int $index): string
+    {
+        $letter = '';
+        do {
+            $letter = chr(97 + $index % 26).$letter;
+            $index = intdiv($index, 26) - 1;
+        } while ($index >= 0);
+
+        return $letter;
+    }
+
+    private static function taskPrompt(string $html, int $number, string $accent): string
+    {
+        $heading = static function (string $title) use ($number, $accent): string {
+            // Move the matching title number into the shared technical badge;
+            // preserve every author word, inline element and punctuation after it.
+            $title = preg_replace('/^(\s*(?:Вправа\s+)?)'.preg_quote((string) $number, '/').'[.)]\s*/u', '$1', $title) ?? $title;
+
+            return view('components.theory-practice-heading', [
+                'title' => new HtmlString($title), 'number' => $number,
+                'accent' => $accent, 'level' => 'h4', 'technical' => true,
+            ])->render();
+        };
+
+        if (preg_match('/^\s*<h4>(.*?)<\/h4>/su', $html) === 1) {
+            return preg_replace_callback('/^(\s*)<h4>(.*?)<\/h4>/su',
+                static fn ($match) => $match[1].$heading($match[2]), $html, 1) ?? $html;
+        }
+
+        // Earlier authored prompts put their title in the first p > strong.
+        // Move just that title; the instruction and context retain their HTML.
+        return preg_replace_callback('/^(\s*)<p><strong>(.*?)<\/strong>(.*?)<\/p>/su',
+            static fn ($match) => $match[1].$heading($match[2])
+                .(trim($match[3]) !== '' ? '<p>'.$match[3].'</p>' : ''), $html, 1) ?? $html;
+    }
+
+    public static function author(array $author, array $cases = []): array
+    {
+        if ($cases === []) {
+            // Compatibility callers retain the pre-refactor presentation path.
+            $author['prompts'] = array_map(static fn ($html, $index) => self::prompt($html, $index + 1),
+                $author['prompts'], array_keys($author['prompts']));
+        } else {
+            $author['presentation'] = [];
+            foreach (array_values($cases) as $index => $task) {
+                $sourceIndex = (int) ($task['source_index'] ?? ($index + 1)) - 1;
+                $author['presentation'][] = self::task($task, (string) ($author['prompts'][$sourceIndex] ?? ''), $index + 1);
+            }
+        }
         $author['answers'] = array_map(static fn ($html) => TheoryHtmlAdapter::fragment($html)->toHtml(), $author['answers']);
         return $author;
     }

@@ -126,17 +126,13 @@
             {{-- Select Exercise --}}
             @if(!empty($selects))
                 <x-theory-practice-exercise accent="blue">
-                    <div class="border-b border-blue-100 bg-blue-50/50 px-4 py-3">
+                    <x-theory-practice-header accent="blue">
                         <x-theory-practice-heading :title="$data['select_title'] ?? __('theory_blocks.practice.select_title')" :number="1" accent="blue"
                             :instruction="!empty($data['select_intro']) ? new \Illuminate\Support\HtmlString($data['select_intro']) : null" />
-                    </div>
+                    </x-theory-practice-header>
                     <div class="p-4 space-y-3">
                         @foreach($selects as $index => $item)
-                            <div class="flex flex-col sm:flex-row sm:items-center gap-2 bg-white/60 rounded-lg p-3 border border-white">
-                                <span class="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600 text-[10px] font-bold">
-                                    {{ chr(97 + $index) }}
-                                </span>
-                                <div class="flex-1">
+                            <x-theory-practice-control accent="blue" :marker="chr(97 + $index)">
                                     @if($m30AuthorSelfCheck !== null && !empty($item['context']))
                                         <div class="text-base text-foreground/80 leading-relaxed mb-2" data-practice-instruction data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
                                     @endif
@@ -145,41 +141,32 @@
                                     </label>
                                     <div class="flex flex-wrap gap-2">
                                         @foreach($item['options'] ?? $options as $option)
-                                            <button
-                                                type="button"
-                                                @click="selectAnswers[{{ $index }}] = @js($option)"
-                                                class="min-w-12 rounded-xl border px-4 py-2 text-sm font-extrabold uppercase transition"
-                                                :class="[
-                                                    selectAnswers[{{ $index }}] === @js($option)
-                                                        ? 'border-blue-600 bg-blue-600 text-white shadow-sm'
-                                                        : 'border-blue-200 bg-white text-blue-700 hover:border-blue-400 hover:bg-blue-50',
-                                                    isChecked('selects') && hasAnswer('selects', {{ $index }}) && selectAnswers[{{ $index }}] === @js($option)
-                                                        ? (isCorrect('selects', {{ $index }}) ? 'ring-2 ring-emerald-300' : 'ring-2 ring-rose-300')
-                                                        : ''
-                                                ].join(' ')"
-                                            >
+                                            <x-theory-practice-option accent="blue"
+                                                :selected="'selectAnswers['.$index.'] === '.\Illuminate\Support\Js::from($option)"
+                                                :checked="'isChecked(\'selects\') && hasAnswer(\'selects\', '.$index.')'"
+                                                :correct="'isCorrect(\'selects\', '.$index.')'"
+                                                :attributes="new \Illuminate\View\ComponentAttributeBag(['@click' => 'selectAnswers['.$index.'] = '.\Illuminate\Support\Js::from($option)])">
                                                 {{ $option }}
-                                            </button>
+                                            </x-theory-practice-option>
                                         @endforeach
                                     </div>
-                                    <div x-show="isChecked('selects') && hasAnswer('selects', {{ $index }})" class="mt-2 text-xs font-semibold" :class="isCorrect('selects', {{ $index }}) ? 'text-emerald-700' : 'text-rose-700'">
+                                    <x-theory-practice-feedback position="below" :correct="'isCorrect(\'selects\', '.$index.')'" x-show="isChecked('selects') && hasAnswer('selects', {{ $index }})">
                                         <span x-text="feedbackText('selects', {{ $index }})"></span>
-                                    </div>
-                                </div>
-                            </div>
+                                    </x-theory-practice-feedback>
+                            </x-theory-practice-control>
                         @endforeach
                         @if($hasCheckableSelects)
-                            <div class="flex flex-col gap-2 pt-1 sm:flex-row sm:items-center sm:justify-between">
-                                <p x-show="isChecked('selects')" class="text-xs font-semibold text-blue-700" x-text="scoreText('selects')"></p>
-                                <div class="flex gap-2 sm:ml-auto">
-                                    <button type="button" @click="resetGroup('selects')" x-show="isChecked('selects')" class="rounded-lg border border-blue-200 bg-white px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-blue-50">
-                                        {{ __('theory_blocks.practice.reset') }}
-                                    </button>
-                                    <button type="button" @click="check('selects')" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700">
-                                        {{ __('theory_blocks.practice.check') }}
-                                    </button>
-                                </div>
-                            </div>
+                            <x-theory-practice-actions>
+                                <x-slot:status>
+                                    <x-theory-practice-feedback tag="p" accent="blue" x-show="isChecked('selects')" x-text="scoreText('selects')" />
+                                </x-slot:status>
+                                <x-theory-practice-action accent="blue" :secondary="true" @click="resetGroup('selects')" x-show="isChecked('selects')">
+                                    {{ __('theory_blocks.practice.reset') }}
+                                </x-theory-practice-action>
+                                <x-theory-practice-action accent="blue" @click="check('selects')">
+                                    {{ __('theory_blocks.practice.check') }}
+                                </x-theory-practice-action>
+                            </x-theory-practice-actions>
                         @endif
                     </div>
                 </x-theory-practice-exercise>
@@ -188,17 +175,13 @@
             {{-- Choice Exercise --}}
             @if(!empty($choices))
                 <x-theory-practice-exercise accent="amber">
-                    <div class="border-b border-amber-100 bg-amber-50/50 px-4 py-3">
+                    <x-theory-practice-header accent="amber">
                         <x-theory-practice-heading :title="$data['choice_title'] ?? __('theory_blocks.practice.select_title')" :number="$choiceExerciseNumber" accent="amber"
                             :instruction="!empty($data['choice_intro']) ? new \Illuminate\Support\HtmlString($data['choice_intro']) : null" />
-                    </div>
+                    </x-theory-practice-header>
                     <div class="p-4 space-y-3">
                         @foreach($choices as $index => $item)
-                            <div class="flex flex-col sm:flex-row sm:items-center gap-2 bg-white/60 rounded-lg p-3 border border-white">
-                                <span class="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-700 text-[10px] font-bold">
-                                    {{ chr(97 + $index) }}
-                                </span>
-                                <div class="flex-1">
+                            <x-theory-practice-control accent="amber" :marker="chr(97 + $index)">
                                     @if($m30AuthorSelfCheck !== null && !empty($item['context']))
                                         <div class="text-base text-foreground/80 leading-relaxed mb-2" data-practice-instruction data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
                                     @endif
@@ -210,41 +193,32 @@
                                     @endif
                                     <div class="flex flex-wrap gap-2">
                                         @foreach($item['options'] ?? $choiceOptions as $option)
-                                            <button
-                                                type="button"
-                                                @click="choiceAnswers[{{ $index }}] = @js($option)"
-                                                class="min-w-12 rounded-xl border px-4 py-2 text-sm font-extrabold uppercase transition"
-                                                :class="[
-                                                    choiceAnswers[{{ $index }}] === @js($option)
-                                                        ? 'border-amber-600 bg-amber-600 text-white shadow-sm'
-                                                        : 'border-amber-200 bg-white text-amber-700 hover:border-amber-400 hover:bg-amber-50',
-                                                    isChecked('choices') && hasAnswer('choices', {{ $index }}) && choiceAnswers[{{ $index }}] === @js($option)
-                                                        ? (isCorrect('choices', {{ $index }}) ? 'ring-2 ring-emerald-300' : 'ring-2 ring-rose-300')
-                                                        : ''
-                                                ].join(' ')"
-                                            >
+                                            <x-theory-practice-option accent="amber"
+                                                :selected="'choiceAnswers['.$index.'] === '.\Illuminate\Support\Js::from($option)"
+                                                :checked="'isChecked(\'choices\') && hasAnswer(\'choices\', '.$index.')'"
+                                                :correct="'isCorrect(\'choices\', '.$index.')'"
+                                                :attributes="new \Illuminate\View\ComponentAttributeBag(['@click' => 'choiceAnswers['.$index.'] = '.\Illuminate\Support\Js::from($option)])">
                                                 {{ $option }}
-                                            </button>
+                                            </x-theory-practice-option>
                                         @endforeach
                                     </div>
-                                    <div x-show="isChecked('choices') && hasAnswer('choices', {{ $index }})" class="mt-2 text-xs font-semibold" :class="isCorrect('choices', {{ $index }}) ? 'text-emerald-700' : 'text-rose-700'">
+                                    <x-theory-practice-feedback position="below" :correct="'isCorrect(\'choices\', '.$index.')'" x-show="isChecked('choices') && hasAnswer('choices', {{ $index }})">
                                         <span x-text="feedbackText('choices', {{ $index }})"></span>
-                                    </div>
-                                </div>
-                            </div>
+                                    </x-theory-practice-feedback>
+                            </x-theory-practice-control>
                         @endforeach
                         @if($hasCheckableChoices)
-                            <div class="flex flex-col gap-2 pt-1 sm:flex-row sm:items-center sm:justify-between">
-                                <p x-show="isChecked('choices')" class="text-xs font-semibold text-amber-700" x-text="scoreText('choices')"></p>
-                                <div class="flex gap-2 sm:ml-auto">
-                                    <button type="button" @click="resetGroup('choices')" x-show="isChecked('choices')" class="rounded-lg border border-amber-200 bg-white px-4 py-2 text-sm font-semibold text-amber-700 transition hover:bg-amber-50">
-                                        {{ __('theory_blocks.practice.reset') }}
-                                    </button>
-                                    <button type="button" @click="check('choices')" class="rounded-lg bg-amber-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-amber-700">
-                                        {{ __('theory_blocks.practice.check') }}
-                                    </button>
-                                </div>
-                            </div>
+                            <x-theory-practice-actions>
+                                <x-slot:status>
+                                    <x-theory-practice-feedback tag="p" accent="amber" x-show="isChecked('choices')" x-text="scoreText('choices')" />
+                                </x-slot:status>
+                                <x-theory-practice-action accent="amber" :secondary="true" @click="resetGroup('choices')" x-show="isChecked('choices')">
+                                    {{ __('theory_blocks.practice.reset') }}
+                                </x-theory-practice-action>
+                                <x-theory-practice-action accent="amber" @click="check('choices')">
+                                    {{ __('theory_blocks.practice.check') }}
+                                </x-theory-practice-action>
+                            </x-theory-practice-actions>
                         @endif
                     </div>
                 </x-theory-practice-exercise>
@@ -253,10 +227,10 @@
             {{-- Input Exercise --}}
             @if(!empty($inputs))
                 <x-theory-practice-exercise accent="emerald" :visible-overflow="true">
-                    <div class="border-b border-emerald-100 bg-emerald-50/50 px-4 py-3">
+                    <x-theory-practice-header accent="emerald">
                         <x-theory-practice-heading :title="$data['input_title'] ?? __('theory_blocks.practice.input_title')" :number="$inputExerciseNumber" accent="emerald"
                             :instruction="!empty($data['input_intro']) ? new \Illuminate\Support\HtmlString($data['input_intro']) : null" />
-                    </div>
+                    </x-theory-practice-header>
                     <div class="p-4 space-y-3">
                         @foreach($inputs as $index => $item)
                             @php
@@ -264,13 +238,12 @@
                                     && is_string($item['before'])
                                     && str_contains($item['before'], '/');
                             @endphp
-                            <div class="relative flex flex-wrap items-center gap-2 text-sm text-foreground/80 bg-white/60 rounded-lg p-3 border border-white">
+                            <x-theory-practice-control layout="inline" accent="emerald" :marker="chr(97 + $index)">
+                                <x-slot:before>
                                 @if($m30AuthorSelfCheck !== null && !empty($item['context']))
                                     <div class="w-full text-base text-foreground/80 leading-relaxed" data-practice-instruction data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
                                 @endif
-                                <span class="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 text-[10px] font-bold">
-                                    {{ chr(97 + $index) }}
-                                </span>
+                                </x-slot:before>
                                 @unless($hasInputTokenBank)
                                     <span>{!! $item['before'] ?? '' !!}</span>
                                 @endunless
@@ -278,50 +251,33 @@
                                     <span class="font-semibold text-foreground">{!! $item['after'] !!}</span>
                                 @endif
                                 @if($hasInputTokenBank)
-                                    <div class="w-full">
-                                        <p class="mb-1.5 text-xs font-semibold text-muted-foreground flex items-center gap-2">
-                                            <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                                            {{ __('frontend.tests.compose.token_bank') }}
+                                    <x-theory-practice-token-bank>
+                                        <template x-for="token in inputTokenBank({{ $index }})" :key="token.id">
+                                            <x-theory-practice-token used="token.used" @click="appendInputToken('inputs', {{ $index }}, token)">
+                                                <span x-text="token.value"></span>
+                                            </x-theory-practice-token>
+                                        </template>
+                                        <p x-show="isInputTokenBankEmpty({{ $index }})" class="text-xs text-muted-foreground">
+                                            {{ __('frontend.tests.compose.empty_pool') }}
                                         </p>
-                                        <div class="flex flex-wrap items-center gap-1.5">
-                                            <template x-for="token in inputTokenBank({{ $index }})" :key="token.id">
-                                                <button
-                                                    type="button"
-                                                    @click="appendInputToken('inputs', {{ $index }}, token)"
-                                                    :disabled="token.used"
-                                                    :class="token.used
-                                                        ? 'border-emerald-200 bg-white/60 text-muted-foreground/80 cursor-not-allowed'
-                                                        : 'border-emerald-200 bg-white text-emerald-700 hover:bg-emerald-50 hover:text-emerald-900'"
-                                                    class="rounded-lg border px-3 py-1.5 text-sm font-semibold transition"
-                                                >
-                                                    <span x-text="token.value"></span>
-                                                </button>
-                                            </template>
-                                            <p x-show="isInputTokenBankEmpty({{ $index }})" class="text-xs text-muted-foreground">
-                                                {{ __('frontend.tests.compose.empty_pool') }}
-                                            </p>
-                                        </div>
-                                    </div>
+                                    </x-theory-practice-token-bank>
                                 @endif
                                 <div class="relative min-w-[220px] flex-1 sm:max-w-md" @click.outside="closeWordSuggestions('inputs', {{ $index }})">
-                                    <input
-                                        type="text"
-                                        autocomplete="off"
-                                        autocorrect="off"
-                                        autocapitalize="none"
-                                        spellcheck="false"
-                                        x-model="inputAnswers[{{ $index }}]"
-                                        :class="fieldClass('inputs', {{ $index }})"
-                                        @input="syncInputTokenBank({{ $index }})"
-                                        @unless($hasInputTokenBank)
-                                            @input.debounce.150ms="searchWordSuggestions('inputs', {{ $index }}, $event)"
-                                            @keydown.escape.stop.prevent="closeWordSuggestions('inputs', {{ $index }})"
-                                            @keydown.enter="maybeSelectFirstWordSuggestion('inputs', {{ $index }}, $event)"
-                                        @endunless
-                                        data-word-suggestion-input="inputs-{{ $index }}"
-                                        class="w-full rounded-xl border border-emerald-300 bg-white px-3.5 py-2 text-sm font-semibold text-foreground shadow-sm placeholder:text-slate-400 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition-all"
-                                        placeholder="..."
-                                    />
+                                    @php
+                                        $inputBindings = [
+                                            'autocomplete' => 'off', 'autocorrect' => 'off', 'autocapitalize' => 'none', 'spellcheck' => 'false',
+                                            'x-model' => 'inputAnswers['.$index.']',
+                                            ':class' => "fieldClass('inputs', ".$index.")",
+                                            '@input' => 'syncInputTokenBank('.$index.')',
+                                            'data-word-suggestion-input' => 'inputs-'.$index, 'placeholder' => '...',
+                                        ];
+                                        if (!$hasInputTokenBank) {
+                                            $inputBindings['@input.debounce.150ms'] = "searchWordSuggestions('inputs', ".$index.', $event)';
+                                            $inputBindings['@keydown.escape.stop.prevent'] = "closeWordSuggestions('inputs', ".$index.")";
+                                            $inputBindings['@keydown.enter'] = "maybeSelectFirstWordSuggestion('inputs', ".$index.', $event)';
+                                        }
+                                    @endphp
+                                    <x-theory-practice-input :attributes="new \Illuminate\View\ComponentAttributeBag($inputBindings)" />
                                     @unless($hasInputTokenBank)
                                         <div
                                             x-cloak
@@ -350,34 +306,32 @@
                                         @foreach($item['m38_semantic_checks'] as $partIndex => $part)
                                             <div class="flex flex-wrap gap-2" data-m38-semantic-part="{{ $partIndex }}">
                                                 @foreach($part['options'] as $option)
-                                                    <button type="button"
-                                                        @click="setM38SemanticAnswer({{ $index }}, {{ $partIndex }}, @js($option))"
-                                                        :class="m38SemanticAnswer({{ $index }}, {{ $partIndex }}) === @js($option)
-                                                            ? 'border-emerald-600 bg-emerald-600 text-white shadow-sm'
-                                                            : 'border-emerald-200 bg-white text-emerald-700 hover:bg-emerald-50'"
-                                                        class="rounded-xl border px-3 py-2 text-left text-sm font-semibold transition">
+                                                    <x-theory-practice-option accent="emerald" :compact="true" :uppercase="false"
+                                                        :selected="'m38SemanticAnswer('.$index.', '.$partIndex.') === '.\Illuminate\Support\Js::from($option)"
+                                                        :attributes="new \Illuminate\View\ComponentAttributeBag(['@click' => 'setM38SemanticAnswer('.$index.', '.$partIndex.', '.\Illuminate\Support\Js::from($option).')'])">
                                                         {{ $option }}
-                                                    </button>
+                                                    </x-theory-practice-option>
                                                 @endforeach
                                             </div>
                                         @endforeach
                                     </div>
                                 @endif
-                                <span x-show="isChecked('inputs') && hasAnswer('inputs', {{ $index }})" class="basis-full pl-7 text-xs font-semibold" :class="isCorrect('inputs', {{ $index }}) ? 'text-emerald-700' : 'text-rose-700'" x-text="feedbackText('inputs', {{ $index }})"></span>
-                            </div>
+                                <x-theory-practice-feedback tag="span" position="inline" :correct="'isCorrect(\'inputs\', '.$index.')'"
+                                    x-show="isChecked('inputs') && hasAnswer('inputs', {{ $index }})" x-text="feedbackText('inputs', {{ $index }})" />
+                            </x-theory-practice-control>
                         @endforeach
                         @if($hasCheckableInputs)
-                            <div class="flex flex-col gap-2 pt-1 sm:flex-row sm:items-center sm:justify-between">
-                                <p x-show="isChecked('inputs')" class="text-xs font-semibold text-emerald-700" x-text="scoreText('inputs')"></p>
-                                <div class="flex gap-2 sm:ml-auto">
-                                    <button type="button" @click="resetGroup('inputs')" x-show="isChecked('inputs')" class="rounded-lg border border-emerald-200 bg-white px-4 py-2 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50">
-                                        {{ __('theory_blocks.practice.reset') }}
-                                    </button>
-                                    <button type="button" @click="check('inputs')" class="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-700">
-                                        {{ __('theory_blocks.practice.check') }}
-                                    </button>
-                                </div>
-                            </div>
+                            <x-theory-practice-actions>
+                                <x-slot:status>
+                                    <x-theory-practice-feedback tag="p" accent="emerald" x-show="isChecked('inputs')" x-text="scoreText('inputs')" />
+                                </x-slot:status>
+                                <x-theory-practice-action accent="emerald" :secondary="true" @click="resetGroup('inputs')" x-show="isChecked('inputs')">
+                                    {{ __('theory_blocks.practice.reset') }}
+                                </x-theory-practice-action>
+                                <x-theory-practice-action accent="emerald" @click="check('inputs')">
+                                    {{ __('theory_blocks.practice.check') }}
+                                </x-theory-practice-action>
+                            </x-theory-practice-actions>
                         @endif
                     </div>
                 </x-theory-practice-exercise>
@@ -386,10 +340,10 @@
             {{-- Rephrase Exercise --}}
             @if(!empty($rephrase))
                 <x-theory-practice-exercise accent="purple" :visible-overflow="true">
-                    <div class="border-b border-purple-100 bg-purple-50/50 px-4 py-3">
+                    <x-theory-practice-header accent="purple">
                         <x-theory-practice-heading :title="$data['rephrase_title'] ?? __('theory_blocks.practice.rephrase_title')" :number="$rephraseExerciseNumber" accent="purple"
                             :instruction="!empty($data['rephrase_intro']) ? new \Illuminate\Support\HtmlString($data['rephrase_intro']) : null" />
-                    </div>
+                    </x-theory-practice-header>
                     <div class="p-4 space-y-4">
                         @foreach($rephrase as $index => $item)
                             @if($index === 0 && !empty($item['example_original']))
@@ -410,27 +364,25 @@
                                 </div>
                             @else
                                 {{-- Task --}}
-                                <div class="space-y-1.5 bg-white/60 rounded-lg p-3 border border-white">
+                                <x-theory-practice-control accent="purple" layout="rephrase">
                                     <p class="text-sm text-foreground/80 font-mono">
                                         {{ $item['original'] ?? '' }}
                                     </p>
                                     <div class="relative" @click.outside="closeWordSuggestions('rephrase', {{ $index }})">
-                                        <input
-                                            type="text"
-                                            autocomplete="off"
-                                            autocorrect="off"
-                                            autocapitalize="none"
-                                            spellcheck="false"
-                                            x-model="rephraseAnswers[{{ $index }}]"
-                                            :class="fieldClass('rephrase', {{ $index }})"
-                                            @input.debounce.150ms="searchWordSuggestions('rephrase', {{ $index }}, $event)"
-                                            @focus="searchWordSuggestions('rephrase', {{ $index }}, $event)"
-                                            @keydown.escape.stop.prevent="closeWordSuggestions('rephrase', {{ $index }})"
-                                            @keydown.enter="maybeSelectFirstWordSuggestion('rephrase', {{ $index }}, $event)"
-                                            data-word-suggestion-input="rephrase-{{ $index }}"
-                                            class="w-full rounded-lg border-border bg-white px-3 py-2 text-sm focus:border-brand-500 focus:ring-1 focus:ring-brand-100 transition-all"
-                                            placeholder="{{ $item['placeholder'] ?? '' }}"
-                                        />
+                                        @php
+                                            $rephraseBindings = [
+                                                'autocomplete' => 'off', 'autocorrect' => 'off', 'autocapitalize' => 'none', 'spellcheck' => 'false',
+                                                'x-model' => 'rephraseAnswers['.$index.']',
+                                                ':class' => "fieldClass('rephrase', ".$index.")",
+                                                '@input.debounce.150ms' => "searchWordSuggestions('rephrase', ".$index.', $event)',
+                                                '@focus' => "searchWordSuggestions('rephrase', ".$index.', $event)',
+                                                '@keydown.escape.stop.prevent' => "closeWordSuggestions('rephrase', ".$index.")",
+                                                '@keydown.enter' => "maybeSelectFirstWordSuggestion('rephrase', ".$index.', $event)',
+                                                'data-word-suggestion-input' => 'rephrase-'.$index,
+                                                'placeholder' => $item['placeholder'] ?? '',
+                                            ];
+                                        @endphp
+                                        <x-theory-practice-input role="rephrase" :attributes="new \Illuminate\View\ComponentAttributeBag($rephraseBindings)" />
                                         <div
                                             x-cloak
                                             x-show="isWordSuggestionOpen('rephrase', {{ $index }})"
@@ -452,34 +404,33 @@
                                             </template>
                                         </div>
                                     </div>
-                                    <div x-show="isChecked('rephrase') && hasAnswer('rephrase', {{ $index }})" class="text-xs font-semibold" :class="isCorrect('rephrase', {{ $index }}) ? 'text-emerald-700' : 'text-rose-700'" x-text="feedbackText('rephrase', {{ $index }})"></div>
-                                </div>
+                                    <x-theory-practice-feedback x-show="isChecked('rephrase') && hasAnswer('rephrase', {{ $index }})" :correct="'isCorrect(\'rephrase\', '.$index.')'" x-text="feedbackText('rephrase', {{ $index }})" />
+                                </x-theory-practice-control>
                             @endif
                         @endforeach
                         @if($hasCheckableRephrase)
-                            <div class="flex flex-col gap-2 pt-1 sm:flex-row sm:items-center sm:justify-between">
-                                <p x-show="isChecked('rephrase')" class="text-xs font-semibold text-purple-700" x-text="scoreText('rephrase')"></p>
-                                <div class="flex gap-2 sm:ml-auto">
-                                    <button type="button" @click="resetGroup('rephrase')" x-show="isChecked('rephrase')" class="rounded-lg border border-purple-200 bg-white px-4 py-2 text-sm font-semibold text-purple-700 transition hover:bg-purple-50">
-                                        {{ __('theory_blocks.practice.reset') }}
-                                    </button>
-                                    <button type="button" @click="check('rephrase')" class="rounded-lg bg-purple-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-purple-700">
-                                        {{ __('theory_blocks.practice.check') }}
-                                    </button>
-                                </div>
-                            </div>
+                            <x-theory-practice-actions>
+                                <x-slot:status>
+                                    <x-theory-practice-feedback tag="p" accent="purple" x-show="isChecked('rephrase')" x-text="scoreText('rephrase')" />
+                                </x-slot:status>
+                                <x-theory-practice-action accent="purple" :secondary="true" @click="resetGroup('rephrase')" x-show="isChecked('rephrase')">
+                                    {{ __('theory_blocks.practice.reset') }}
+                                </x-theory-practice-action>
+                                <x-theory-practice-action accent="purple" @click="check('rephrase')">
+                                    {{ __('theory_blocks.practice.check') }}
+                                </x-theory-practice-action>
+                            </x-theory-practice-actions>
                         @endif
                     </div>
                 </x-theory-practice-exercise>
             @endif
 
             @if($m30AuthorSelfCheck !== null)
-                <div class="theory-item rounded-xl p-4 bg-muted/50" data-{{ $authorSelfCheckStage }}-self-check-answers>
-                    <h3 class="font-semibold text-foreground text-sm mb-3">{{ $m30AuthorSelfCheck['title'] }}</h3>
+                <x-theory-practice-explanation :title="$m30AuthorSelfCheck['title']" :attributes="new \Illuminate\View\ComponentAttributeBag(['data-'.$authorSelfCheckStage.'-self-check-answers' => ''])">
                     <ol class="list-decimal pl-5 space-y-3 text-sm leading-relaxed">
                         @foreach($m30AuthorSelfCheck['answers'] as $answer)<li>{!! $answer !!}</li>@endforeach
                     </ol>
-                </div>
+                </x-theory-practice-explanation>
             @endif
 
             {{-- Block Tags --}}

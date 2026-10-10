@@ -15,6 +15,25 @@
 
 Заголовок секції використовує `components.theory-native-header`; point-level disclosure — спільні `theory.partials.point-disclosure` і `theory.partials.section-disclosure`. Спільні стилі — `resources/css/theory-unified-design.css`. Механіки практики залишаються окремими; їхні візуальні частини використовують спільні компоненти й `engram.theory.blocks-v3.authored-practice-ui`.
 
+## Спільне представлення практики
+
+Практика використовує не лише спільну зовнішню оболонку. Native `practice-set` і авторський `authored-practice-ui` складають інтерфейс із компонентів `resources/views/components/theory-practice-*.blade.php`:
+
+- `exercise`, `header`, `heading` — поверхня вправи, тонкий розділювач, номер, заголовок та читабельна інструкція;
+- `control`, `marker` — підпункт і його презентаційний літерний маркер;
+- `option` — варіант відповіді з переданими JS/ARIA bindings;
+- `token-bank`, `token`, `input` — банк, used-state та поле відповідного семантичного типу;
+- `actions`, `action` — службовий рядок, Check і Reset;
+- `feedback`, `explanation` — результат і авторський ключ без власного пакетного оформлення.
+
+JS-модель caller-а відповідає за відповіді, aliases, score, retry/reset, доступність токенів та видимість feedback. Візуальний компонент приймає bindings/callbacks; він не стає джерелом правильних відповідей. `TheoryPracticePresentation` має залишатися render-only адаптером: не змінювати frozen payload, stored kind, control IDs, tokens або структуру compound task.
+
+Акцент передається явно з навчальної ролі взаємодії: blue для вибору/введення форми, amber для твердження/значення, emerald для побудови речення й extended writing; purple зберігається для відповідного чинного native типу. Номер M-пакета, URL і порядковий номер вправи не вибирають колір. `TheoryPracticePresentation::task()` формує окрему проєкцію: стандартна роль походить від control kind, скінченні винятки за точними IDs і compound signatures позначають реальну навчальну мету. Shared accent mapping споживає роль, не provenance. Compound tasks використовують композицію тих самих компонентів; це не вимога зробити їхню механіку однаковою з PPC. Декоративний акцент і correct/wrong state — різні властивості.
+
+Номер секції надходить зі штатної презентації; маркери a/b/c не входять у текст відповіді або score. Наявні числові/літерні префікси переносяться у відповідний presentation marker без дублювання та без видалення авторських слів. Довгі умови та варіанти не скорочуються й не перетворюються на uppercase. Семантика control визначає компактне поле, а не довжина поточної відповіді. Для чинних authored manual controls однорядковий `textarea` зберігає Enter, paste, Ctrl+Enter і можливість перенесення; явно багатореченнєві завдання починаються з двох рядків. Готову відповідь не додають у placeholder чи підказку до банку. Score і Reset можна приховувати лише презентаційно у початковому стані, не очищаючи дані через зміну видимості.
+
+Caller-owned theory-контекст залишається обов'язковим: курси та окремі тести не отримують redesign від shared refactor. Нижній `text-block-practice-questions` залишається окремим widget із власним linked-bank scope, лічильником і механікою; новий контентний пакет не копіює його випадкові питання в авторські вправи й не створює власний stylesheet кнопок, полів або feedback.
+
 ## Додавання матеріалу
 
 1. Додай або онови versioned навчальні дані в межах погодженого контентного завдання.
