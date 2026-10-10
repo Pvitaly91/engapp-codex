@@ -30,17 +30,23 @@ final class TheoryLegacyAdapter
                         'text_html' => self::rich($rule['text'] ?? '', $design, '/items/'.$index.'/rules/'.$ruleIndex.'/text'),
                         'example_html' => new HtmlString($rule['example'] ?? '')];
                 }
+                $mixed = self::mixedExample($item['subtitle'] ?? '', $design, '/items/'.$index.'/subtitle');
+                if ($mixed !== null) {
+                    $card['subtitle_html'] = $mixed['context'];
+                    $card['examples'] = [['kind' => 'example', 'variant' => 'inline', 'en' => $mixed['en'], 'uk' => $mixed['uk']]];
+                }
                 self::detail($card, $pointSections, $index);
                 $node['items'][] = $card;
             }
         } elseif ($type === 'usage-panels') {
             foreach ($data['sections'] ?? [] as $index => $section) {
                 $description = (string) ($section['description'] ?? '');
+                $descriptionHtml = self::rich($description, $design, '/sections/'.$index.'/description');
                 $item = ['kind' => 'usage', 'label' => $section['label'] ?? '',
                     'number' => !empty($section['label']) && is_numeric($index) ? $index + 1 : null,
                     'accent' => $section['color'] ?? $design['section_colors'][$index] ?? 'slate',
-                    'body_html' => self::rich($description, $design, '/sections/'.$index.'/description'),
-                    'body_inline' => !self::blockHtml($description),
+                    'body_html' => $descriptionHtml,
+                    'body_inline' => !self::blockHtml((string) $descriptionHtml),
                     'examples' => array_map(self::example(...), $section['examples'] ?? []), 'tail' => []];
                 if (!empty($section['note'])) { $item['tail'][] = ['kind' => 'note', 'html' => self::rich($section['note'], $design, '/sections/'.$index.'/note')]; }
                 self::detail($item, $pointSections, $index);
@@ -83,13 +89,19 @@ final class TheoryLegacyAdapter
                     'wrong_en' => TheoryInlineHtml::render($item['wrong'] ?? ''),
                     'right_en' => self::rich($item['right'] ?? '', $design, '/items/'.$index.'/right'),
                     'hint_html' => self::rich($item['hint'] ?? '', $design, '/items/'.$index.'/hint')];
+                $mixed = self::mixedExample($item['right'] ?? '', $design, '/items/'.$index.'/right');
+                if ($mixed !== null && !TheoryComponents::present($mixed['context'])) {
+                    $point['right_en'] = $mixed['en'];
+                    $point['right_uk'] = $mixed['uk'];
+                }
                 self::detail($point, $pointSections, $index);
                 $node['items'][] = $point;
             }
         } elseif ($type === 'summary-list') {
             $node['fallback'] = '✓'; $items = [];
             foreach ($data['items'] ?? [] as $index => $text) {
-                $item = ['html' => self::rich($text, $design, '/items/'.$index), 'block_html' => self::blockHtml($text)];
+                $html = self::rich($text, $design, '/items/'.$index);
+                $item = ['html' => $html, 'block_html' => self::blockHtml((string) $html)];
                 self::detail($item, $pointSections, $index); $items[] = $item;
             }
             $node['items'][] = ['kind' => 'summary', 'items' => $items];
@@ -135,7 +147,22 @@ final class TheoryLegacyAdapter
 
     private static function rich(string $html, ?array $design, string $pointer): HtmlString
     {
-        return TheoryHtmlAdapter::fragment(M42NativeDesignPackage::richFragment($html, $design, $pointer));
+        return TheoryHtmlAdapter::nativeFragment($html, $design, $pointer);
+    }
+
+    /** Use only the existing hash-bound language ranges, never infer a pair from prose. */
+    private static function mixedExample(string $html, ?array $design, string $pointer): ?array
+    {
+        if (!isset($design['rich_mixed_fields'][$pointer])) { return null; }
+        $annotated = M42NativeDesignPackage::richFragment($html, $design, $pointer);
+        // richFragment verifies the complete finite plan and the field hash.
+        // Its exact generated spans are the boundary between metadata and views.
+        $pattern = '~\A(?:<span class="m42-form-context" lang="uk" data-m42-mixed-role="form-context">(?<context>[^<]*)</span>)?'
+            .'<span class="m42-english" lang="en" data-m42-mixed-role="en">(?<en>[^<]*)</span>'
+            .'<span class="m42-paired-translation" lang="uk" data-m42-mixed-role="translation">(?<uk>[^<]*)</span>\z~u';
+        if ($annotated === $html || preg_match($pattern, $annotated, $parts) !== 1) { return null; }
+        return ['context' => new HtmlString($parts['context'] ?? ''),
+            'en' => new HtmlString($parts['en']), 'uk' => new HtmlString($parts['uk'])];
     }
 
     private static function blockHtml(string $html): bool

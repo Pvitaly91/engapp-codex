@@ -14,12 +14,44 @@ use Illuminate\Support\HtmlString;
  */
 final class TheoryHtmlAdapter
 {
-    public static function fragment(string $html): HtmlString
+    /** Preserve the existing finite language annotations; only known fields opt into quotation pairs. */
+    public static function nativeFragment(string $html, ?array $design, string $pointer): HtmlString
+    {
+        $annotated = M42NativeDesignPackage::richFragment($html, $design, $pointer);
+        $explicitTranslations = false;
+        try {
+            if (str_contains($html, '<blockquote') && is_array($design['rich_fields'][$pointer] ?? null)) {
+                foreach ($design['rich_fields'][$pointer] as $variant) {
+                    if (!is_array($variant) || !is_string($variant['sha256'] ?? null)
+                        || !hash_equals($variant['sha256'], hash('sha256', $html))) { continue; }
+                    // A zero-em basic fragment legitimately keeps its original bytes.
+                    // Verify its complete existing plan too; a caller cannot forge a range.
+                    foreach (M42NativeDesignPackage::load()['targets'] as $target) {
+                        foreach ($target['blocks'] as $candidate) {
+                            if ($candidate === $design) { $explicitTranslations = true; break 3; }
+                        }
+                    }
+                }
+            }
+        } catch (\Throwable) { /* Keep the complete existing HTML fallback. */ }
+        return self::fragment($annotated, $explicitTranslations);
+    }
+
+    public static function fragment(string $html, bool $explicitTranslations = false): HtmlString
     {
         $parsed = self::parse($html);
         if ($parsed === null) { return new HtmlString($html); }
         [$dom, $root, $xpath] = $parsed;
         $changed = false;
+        // These language roles come from the unchanged hash-bound metadata, not
+        // an English-language guess. Inline words/formulas remain inline content.
+        foreach (iterator_to_array($xpath->query('.//em[@data-m42-em-language="en"]', $root)) as $emphasis) {
+            $text = $dom->createElement('span');
+            foreach ($emphasis->attributes as $attribute) { $text->setAttribute($attribute->name, $attribute->value); }
+            while ($emphasis->firstChild !== null) { $text->appendChild($emphasis->firstChild); }
+            $emphasis->parentNode->replaceChild($text, $emphasis);
+            $changed = true;
+        }
         // Work from the inside out. A full bilingual pair uses the same component
         // as a structured source; inline emphasis is deliberately not guessed.
         foreach (array_reverse(iterator_to_array($xpath->query('.//div[contains(concat(" ",normalize-space(@class)," ")," theory-example ")]', $root))) as $example) {
@@ -70,7 +102,66 @@ final class TheoryHtmlAdapter
                 $changed = self::replace($parent, TheoryAuthoredAdapter::render($node)) || $changed;
             } else { $changed = self::replace($table, TheoryAuthoredAdapter::render($node)) || $changed; }
         }
+        if ($explicitTranslations) {
+            foreach (iterator_to_array($xpath->query('.//blockquote', $root)) as $quotation) {
+                $pair = self::quotationPair($quotation, $dom);
+                if ($pair === null) { continue; }
+                if (self::replace($quotation, TheoryAuthoredAdapter::render($pair['node']))) {
+                    foreach ($pair['consumed'] as $sibling) { $sibling->parentNode?->removeChild($sibling); }
+                    $changed = true;
+                }
+            }
+        }
         return new HtmlString($changed ? self::inner($root) : $html);
+    }
+
+    /** A source-explicit quotation + translation label, with no inferred prose boundaries. */
+    private static function quotationPair(DOMElement $quotation, DOMDocument $dom): ?array
+    {
+        if (!self::supportedAttributes($quotation, ['id', 'class'], true)) { return null; }
+        $children = array_values(array_filter(iterator_to_array($quotation->childNodes),
+            static fn ($child) => $child->nodeType !== XML_TEXT_NODE || trim($child->textContent) !== ''));
+        if (count($children) !== 1 || !$children[0] instanceof DOMElement) { return null; }
+        $english = $children[0];
+        if ($english->tagName === 'p') {
+            if (!self::supportedAttributes($english, ['lang'])
+                || ($english->hasAttribute('lang') && $english->getAttribute('lang') !== 'en')) { return null; }
+        } elseif ($english->tagName !== 'span' || $english->getAttribute('data-m42-em-language') !== 'en'
+            || !self::supportedAttributes($english, ['lang', 'data-m42-em-language'])) { return null; }
+
+        $consumed = []; $next = $quotation->nextSibling;
+        while ($next !== null && (($next->nodeType === XML_TEXT_NODE && trim($next->textContent) === '')
+            || ($next instanceof DOMElement && $next->tagName === 'br' && !$next->hasAttributes()))) {
+            $consumed[] = $next; $next = $next->nextSibling;
+        }
+        $strongLabel = $next instanceof DOMElement && $next->tagName === 'strong'
+            && !$next->hasAttributes() && trim($next->textContent) === 'Переклад:';
+        $plainLabel = $next?->nodeType === XML_TEXT_NODE && preg_match('/^\s*Переклад:/u', $next->textContent) === 1;
+        if (!$strongLabel && !$plainLabel) { return null; }
+        $translation = '';
+        while ($next !== null) {
+            if ($next instanceof DOMElement && $next->tagName === 'br') {
+                if ($next->hasAttributes()) { return null; }
+                $separators = []; $cursor = $next; $breaks = 0;
+                while ($cursor !== null && (($cursor->nodeType === XML_TEXT_NODE && trim($cursor->textContent) === '')
+                    || ($cursor instanceof DOMElement && $cursor->tagName === 'br' && !$cursor->hasAttributes()))) {
+                    if ($cursor instanceof DOMElement) { $breaks++; }
+                    $separators[] = $cursor; $cursor = $cursor->nextSibling;
+                }
+                if ($breaks >= 2) { array_push($consumed, ...$separators); break; }
+            } elseif ($next instanceof DOMElement && !in_array($next->tagName,
+                ['strong', 'b', 'em', 'i', 'span', 'a', 'u', 's', 'del', 'code', 'small', 'sub', 'sup'], true)) {
+                break;
+            } elseif (!in_array($next->nodeType, [XML_ELEMENT_NODE, XML_TEXT_NODE], true)) {
+                return null;
+            }
+            $translation .= $dom->saveHTML($next); $consumed[] = $next; $next = $next->nextSibling;
+        }
+        if (trim(preg_replace('/^\s*Переклад:/u', '', strip_tags($translation)) ?? '') === '') { return null; }
+        $node = ['kind' => 'example', 'en' => new HtmlString(self::inner($english)),
+            'uk' => new HtmlString($translation), 'attrs' => self::technicalAttributes($quotation)];
+        if ($quotation->hasAttribute('id')) { $node['id'] = $quotation->getAttribute('id'); }
+        return ['node' => $node, 'consumed' => $consumed];
     }
 
     /** Normalize already recognized rich sections, retaining their exact anchors. */

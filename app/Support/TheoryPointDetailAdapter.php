@@ -22,7 +22,7 @@ final class TheoryPointDetailAdapter
         if (in_array($type, ['m27-author-html', 'm28-author-html', 'm29-author-html', 'm30-author-html', 'm31-author-html',
             'm32-author-html', 'm33-author-html', 'm34-author-html', 'm35-author-html', 'm36-author-html', 'm37-author-html',
             'm38-author-html', 'm39-author-html', 'm41-author-html', 'm43-author-html', 'm44-author-html'], true)) {
-            $node['body_html'] = TheoryHtmlAdapter::fragment(M42NativeDesignPackage::richFragment((string) $value, $design, '/details/'.$fragment['id']));
+            $node['body_html'] = TheoryHtmlAdapter::nativeFragment((string) $value, $design, '/details/'.$fragment['id']);
         } elseif ($type === 'intro' || $type === 'summary-list') {
             $node['body_html'] = new HtmlString((string) $value); $node['body_role'] = 'paragraph';
             if ($type === 'intro') { $node['body_tone'] = 'muted'; }
