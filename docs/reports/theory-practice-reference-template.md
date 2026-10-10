@@ -133,3 +133,10 @@ URL guard не вимикався, очікувана адреса не підс
 Локальну збірку лише `catalog-public.css` / `catalog-public.js` виконано: CSS `catalog-public-BG9H-hya.css`, JS `catalog-public-CgUm4gux.js`; інші manifest entries збережено. Це крок реалізації, не browser/test acceptance. Generated assets, приватні proofs і snapshot-и не включені до commit.
 
 Handoff — scoped commit і normal push `codex/theory-single-reference-template`; остаточний SHA повідомляється окремо після push. Без deploy, main changes або production HTTP/DB. Подальше тестове/live-приймання не виконувалося за прямою вказівкою користувача.
+
+## Виправлення помилки 500 після інтеграції
+
+2026-10-10 користувач повідомив про HTTP 500 на Will vs Be Going To. Причина — змішування inline `@php(...)` із наступним `@php … @endphp` у `authored-practice-ui`: Laravel захоплював проміжну Blade-розмітку як PHP та отримував `unexpected token endforeach`. Усі PHP-вставки цього шаблону переведено в явні блоки; навчальні дані й JS не редагувалися.
+
+Для діагностики конкретного збою скомпільовано 16 шаблонів практики й перевірено синтаксис отриманого PHP — помилок немає. GET `http://gramlyze.loc/theory/maibutni-formy/future-simple/will-vs-be-going-to` після виправлення повернув HTTP 200. Це підтверджує усунення серверного збою на цій сторінці; повна візуальна матриця та інтерактивне приймання не виконувалися.
+

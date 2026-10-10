@@ -8,8 +8,10 @@
 @once($practiceScope.'-authored-practice-wrapper')
     <script src="{{ asset($practiceScript) }}?v={{ filemtime(public_path($practiceScript)) }}"></script>
 @endonce
-@php($author = \App\Support\TheoryPracticePresentation::author($data['author_self_check'], $data['cases']))
-@php($linked = $data['linked_practice'])
+@php
+    $author = \App\Support\TheoryPracticePresentation::author($data['author_self_check'], $data['cases']);
+    $linked = $data['linked_practice'];
+@endphp
 <section id="block-{{ $block->id }}" class="theory-native-block scroll-mt-24" style="text-transform:none" data-{{ $practiceScope }}-practice-ui>
     <div class="theory-section-card rounded-2xl border border-border/60 bg-card" x-data="{{ $practiceFactory }}(@js(['cases' => $data['cases']]))">
         <x-theory-native-header :title="$data['title']" :level="$block->level ?? null" fallback="⚡" />
@@ -19,13 +21,17 @@
                 <div class="text-base text-muted-foreground leading-relaxed" data-practice-instruction data-{{ $practiceScope }}-self-check-intro>{!! $author['intro'] !!}</div>
             @endif
             @foreach($data['cases'] as $i => $task)
-                @php($presentation = $author['presentation'][$i])
+                @php
+                    $presentation = $author['presentation'][$i];
+                @endphp
                 <x-theory-practice-exercise tag="article" :accent="$presentation['accent']" :attributes="new \Illuminate\View\ComponentAttributeBag(['data-'.$practiceScope.'-ui-case' => $task['source_index'], 'data-'.$practiceScope.'-ui-interaction' => $task['interaction']])">
                     <x-theory-practice-header :accent="$presentation['accent']" class="text-base leading-relaxed" data-practice-instruction :attributes="new \Illuminate\View\ComponentAttributeBag(['data-'.$practiceScope.'-author-prompt' => $task['source_index']])">{!! $presentation['prompt_html'] !!}</x-theory-practice-header>
                     <div class="p-4 space-y-3">
                     @foreach($task['controls'] as $p => $control)
-                        @php($fieldId = $practiceScope.'-'.$block->id.'-'.$i.'-'.$p)
-                        @php($controlPresentation = $presentation['controls'][$p])
+                        @php
+                            $fieldId = $practiceScope.'-'.$block->id.'-'.$i.'-'.$p;
+                            $controlPresentation = $presentation['controls'][$p];
+                        @endphp
                         <x-theory-practice-control :accent="$controlPresentation['accent']" :marker="$controlPresentation['marker']" :technical="$controlPresentation['marker_technical'] ?? true" :wrap="true" :attributes="new \Illuminate\View\ComponentAttributeBag(['data-'.$practiceScope.'-control-panel' => ''])">
                         <fieldset class="space-y-2" data-{{ $practiceScope }}-control="{{ $control['id'] }}" data-{{ $practiceScope }}-control-kind="{{ $control['kind'] }}" style="min-width:0;text-transform:none">
                             <legend class="text-sm font-semibold mb-2">{{ $controlPresentation['label'] }}</legend>
