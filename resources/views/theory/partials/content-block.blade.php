@@ -1,13 +1,13 @@
 @php
     $theoryCanonical = ($theoryCanonical ?? false) === true;
-    $nativeView = \App\Support\TheoryPresentation::nativeView($block->type);
-    $decodedBody = json_decode($block->body ?? '', true);
-    $m45StoredAuthor = is_array($decodedBody) && \App\Support\M45FutureComparisonsPackage::hasStoredAuthor($decodedBody);
-    if (!$nativeView && $m45StoredAuthor) { $nativeView = 'engram.theory.blocks-v3.m45-static-fallback'; }
-    $m44StoredAuthor = is_array($decodedBody) && \App\Support\M44AuthoredFutureFormsPackage::hasStoredAuthor($decodedBody);
-    if (!$nativeView && $m44StoredAuthor) { $nativeView = 'engram.theory.blocks-v3.m44-static-fallback'; }
-    $m43StoredAuthor = is_array($decodedBody) && \App\Support\M43AuthoredTenseUsagePackage::hasStoredAuthor($decodedBody);
-    if (!$nativeView && $m43StoredAuthor) { $nativeView = 'engram.theory.blocks-v3.m43-static-fallback'; }
+    $source = \App\Support\TheoryContentSource::resolve($block, [
+        'm42StyleContext' => $m42StyleContext ?? false,
+        'm43StyleContext' => $m43StyleContext ?? false,
+        'm44StyleContext' => $m44StyleContext ?? false,
+        'm45StyleContext' => $m45StyleContext ?? false,
+    ]);
+    $nativeView = $source['view'];
+    $decodedBody = $source['stored'];
     $blockAnchor = 'block-' . $block->id;
 @endphp
 
@@ -19,49 +19,17 @@
         <div data-theory-render-fallback="invalid-native-data">
     @endif
     @php
-        $m27 = is_array($decodedBody) ? (($m45StyleContext ?? false ? \App\Support\M45FutureComparisonsPackage::presentation($block, $decodedBody) : null)
-            ?? ($m44StyleContext ?? false ? \App\Support\M44AuthoredFutureFormsPackage::presentation($block, $decodedBody) : null)
-            ?? ($m43StyleContext ?? false ? \App\Support\M43AuthoredTenseUsagePackage::presentation($block, $decodedBody) : null)
-            ?? \App\Support\M41AuthoredTenseComparisonsPackage::presentation($block, $decodedBody)
-            ?? \App\Support\M40TensesB1Package::presentation($block, $decodedBody)
-            ?? \App\Support\M39PracticeUiPackage::presentation($block, $decodedBody)
-            ?? \App\Support\M39AuthoredRevisionPackage::presentation($block, $decodedBody)
-            ?? \App\Support\M38ArticlesCollocationsPackage::presentation($block, $decodedBody)
-            ?? \App\Support\M37GrammarStructuresPackage::presentation($block, $decodedBody)
-            ?? \App\Support\M36ModalsSubjunctivePackage::presentation($block, $decodedBody)
-            ?? \App\Support\M35PassiveReportingPackage::presentation($block, $decodedBody)
-            ?? \App\Support\M34ArgumentationCohesionPackage::presentation($block, $decodedBody)
-            ?? \App\Support\M33AcademicEnglishPackage::presentation($block, $decodedBody)
-            ?? \App\Support\M32FormalEnglishPackage::presentation($block, $decodedBody)
-            ?? \App\Support\M31ConditionalsPackage::presentation($block, $decodedBody)
-            ?? \App\Support\M30ParticipleClausesPackage::presentation($block, $decodedBody)
-            ?? \App\Support\M29SentenceStructurePackage::presentation($block, $decodedBody)
-            ?? \App\Support\M28EmphasisPackage::presentation($block, $decodedBody)
-            ?? \App\Support\M27LinkingWordsPackage::presentation($block, $decodedBody)) : null;
-        // A caller-owned theory-only opt-in, never a URL/category or DB view-name guess.
-        // Decoration leaves every existing package's data, fragments and keys intact.
-        $m27 = is_array($decodedBody)
-            ? (\App\Support\M42NativeDesignPackage::decorate($block, $decodedBody, $m27, $m42StyleContext ?? false) ?? $m27)
-            : $m27;
-        $m42Design = $m27['m42_native_design'] ?? null;
-        $renderData = $m27['data'] ?? $decodedBody;
-        // The finite package returns a code-owned constant after complete identity checks.
-        if (($m27['native_view'] ?? null) !== null) { $nativeView = $m27['native_view']; }
-        if ($m27 === null && $m45StoredAuthor) { $nativeView = 'engram.theory.blocks-v3.m45-static-fallback'; }
-        if ($m27 === null && $m44StoredAuthor) {
-            $nativeView = 'engram.theory.blocks-v3.m44-static-fallback';
-        }
-        if ($m27 === null && $m43StoredAuthor) {
-            $nativeView = 'engram.theory.blocks-v3.m43-static-fallback';
-        }
-        $basicHtml = view($nativeView, [
+        $m27 = $source['presentation'];
+        $m42Design = $source['design'];
+        $renderData = $source['data'];
+        $basicHtml = \App\Support\TheoryContentRenderer::render($nativeView, [
             'theoryCanonical' => $theoryCanonical,
             'block' => $block,
             'data' => is_array($renderData) ? $renderData : [],
             'm42Design' => $m42Design,
             'practiceQuestions' => $practiceQuestions ?? collect(),
             'lessonLinks' => $lessonLinks ?? [],
-        ])->render();
+        ]);
         $points = $m27['points'] ?? (is_array($decodedBody) ? \App\Support\M26PointDetails::fragmentsFor($block, $decodedBody) : null);
         $pointSections = [];
         foreach ($points ?? [] as $index => $point) {
@@ -79,8 +47,8 @@
             if ($section->detail === null) {
                 $pointSections = [];
                 // An invalid detail must never hide its complete stored author text.
-                if ($m27 !== null) { $basicHtml = view($m44StoredAuthor ? 'engram.theory.blocks-v3.m44-static-fallback' : ($m43StoredAuthor ? 'engram.theory.blocks-v3.m43-static-fallback' : $nativeView), ['block' => $block, 'data' => $decodedBody,
-                    'practiceQuestions' => $practiceQuestions ?? collect(), 'lessonLinks' => $lessonLinks ?? [], 'theoryCanonical' => $theoryCanonical])->render(); }
+                if ($m27 !== null) { $basicHtml = \App\Support\TheoryContentRenderer::render($source['detail_fallback_view'], ['block' => $block, 'data' => $decodedBody,
+                    'practiceQuestions' => $practiceQuestions ?? collect(), 'lessonLinks' => $lessonLinks ?? [], 'theoryCanonical' => $theoryCanonical]); }
                 $m42Design = null;
                 break;
             }
@@ -106,7 +74,7 @@
     @endif
     @if($pointSections !== [])
         {{-- Every disclosure belongs to its own existing basic point. --}}
-        @include($nativeView, [
+        {!! \App\Support\TheoryContentRenderer::render($nativeView, [
             'theoryCanonical' => $theoryCanonical,
             'block' => $block,
             'data' => $renderData,
@@ -114,7 +82,7 @@
             'pointSections' => $pointSections,
             'practiceQuestions' => $practiceQuestions ?? collect(),
             'lessonLinks' => $lessonLinks ?? [],
-        ])
+        ]) !!}
     @else
         {!! $basicHtml !!}
     @endif
@@ -123,18 +91,13 @@
         </div>
     @endif
 @elseif($block->type === 'box' || empty($block->type))
-    <div id="{{ $blockAnchor }}" class="theory-content-block">
-        <x-theory-rich-box :block="$block" :presentation="$presentation ?? \App\Support\TheoryPresentation::html($block, canonical: $theoryCanonical)" />
-    </div>
+    @include('theory.content', ['content' => [
+        'kind' => 'legacy-box',
+        'presentation' => $presentation ?? \App\Support\TheoryPresentation::html($block, canonical: $theoryCanonical),
+    ]])
 @elseif($block->type === 'subtitle')
     {{-- Intro text is already in the hero; retain the old unique fragment target. --}}
-    <div id="{{ $blockAnchor }}" class="theory-subtitle-anchor" aria-hidden="true"></div>
+    @include('theory.content', ['content' => ['kind' => 'anchor', 'id' => $blockAnchor]])
 @elseif(!empty($block->body))
-    <article id="{{ $blockAnchor }}" class="theory-section-card theory-section-body" data-theory-render-fallback="unknown-format">
-        @if(!empty($block->heading))
-            <h2 class="theory-section-title">{{ $block->heading }}</h2>
-        @endif
-        {{-- Unknown formats are text, never a DB-selected executable Blade view. --}}
-        <div class="theory-fallback-content">{{ $block->body }}</div>
-    </article>
+    @include('theory.content', ['content' => ['kind' => 'text-fallback']])
 @endif

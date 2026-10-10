@@ -15,6 +15,21 @@
 
 Заголовок секції використовує `components.theory-native-header`; point-level disclosure — спільні `theory.partials.point-disclosure` і `theory.partials.section-disclosure`. Спільні стилі — `resources/css/theory-unified-design.css`. Механіки практики залишаються окремими; їхні візуальні частини використовують спільні компоненти й `engram.theory.blocks-v3.authored-practice-ui`.
 
+## Єдиний вхід для контенту
+
+Погоджені еталони: [Past Perfect Continuous: Forms and Use](http://gramlyze.loc/theory/tenses/past-perfect-continuous/past-perfect-continuous-forms), [Concessive and Contrastive Structures](http://gramlyze.loc/theory/clauses-and-linking-words/concessive-and-contrastive-structures), [Advanced Linking Devices](http://gramlyze.loc/theory/clauses-and-linking-words/advanced-linking-devices), [Linking Words for Reason, Result and Contrast](http://gramlyze.loc/theory/clauses-and-linking-words/linking-words-reason-result-contrast).
+
+`theory.show` → `theory.partials.content-block` → `TheoryContentSource` → `TheoryContentRenderer` → **`theory.content`** → спільні `theory.components.*`.
+
+- `TheoryContentSource` вибирає погоджене джерело через незмінні identity/locale/body guards. Реєстр пакетів і fallback-рішення знаходяться в PHP, а не у візуальній в’юсі.
+- `TheoryContentRenderer` нормалізує сім native-типів та authored-структури через чинні адаптери. Реєстр виконуваних views закритий і належить коду; поля payload `view` / `native_view` не перемикають шаблон. Невідоме canonical view-name відхиляється.
+- `resources/views/theory/content.blade.php` — єдина в’юха відображення контенту. Вона приймає підготовлену модель `node`, `legacy-box`, `anchor` або `text-fallback` і не додає нової зовнішньої рамки.
+- Спільні компоненти та `theory-unified-design.css` визначають структуру, типографіку, кольори й відступи. Дозволені тип блока, роль акценту та basic/detail зв’язок описують навчальний зміст; довільні CSS-класи, inline styles або власні Blade-шаблони в нових контентних пакетах не допускаються.
+- Сторінка, практика, hero/navigation та non-theory compatibility зберігають чинні межі. Рефакторинг контенту не змінює answer engine чи передані JS bindings. Для контенту canonical caller обходить історичні package-specific section views; вони залишаються лише для сумісності.
+- Двофазна перевірка point-level details зберігається: повний basic render → перевірка точних detail-фрагментів → фінальний render із власниками поглиблень. Невалідний guard не приховує авторський матеріал.
+
+Історичний trusted HTML має окремий сумісний шлях `legacy-box` / adapter fallback. Його невідомі структури не очищаються глобальним видаленням класів і не оголошуються новим форматом даних. Ця сумісність потрібна для збереження старих текстів, anchors і таблиць; нові матеріали повинні користуватися структурованими типами й спільними компонентами. Зміна shared CSS впливає на всіх canonical consumers, тому її перевіряють на чотирьох еталонах.
+
 ## Спільне представлення практики
 
 Практика використовує не лише спільну зовнішню оболонку. Native `practice-set` і авторський `authored-practice-ui` складають інтерфейс із компонентів `resources/views/components/theory-practice-*.blade.php`:
