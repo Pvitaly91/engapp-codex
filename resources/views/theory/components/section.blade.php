@@ -6,7 +6,7 @@
         default => 'border-border/60 bg-card',
     } }}" @endunless>
         @if(!($node['embedded'] ?? false) && \App\Support\TheoryComponents::present($node['title'] ?? null))
-            <x-theory-native-header :title="$node['title']" :level="$node['level'] ?? null" :fallback="$node['fallback'] ?? '#'" :reference="$node['reference'] ?? false" />
+            <x-theory-native-header :title="$node['title']" :level="$node['level'] ?? null" :fallback="$node['fallback'] ?? '#'" />
         @endif
         <div class="theory-section-body p-5{{ ($node['layout'] ?? 'stack') === 'stack' ? ' space-y-4' : '' }}">
             @if(\App\Support\TheoryComponents::present($node['intro_html'] ?? null))

@@ -1,4 +1,4 @@
-@props(['title', 'level' => null, 'fallback' => '#', 'reference' => false])
+@props(['title', 'level' => null, 'fallback' => '#'])
 
 @php
     // Only an authored, leading section number is structural. B1/C2 and
@@ -6,7 +6,7 @@
     $heading = is_string($title) ? $title : '';
     $number = null;
     if (preg_match('/^(\d+[.)])\s+/u', $heading, $match)) {
-        $number = $reference ? rtrim($match[1], '.)') : $match[1];
+        $number = $match[1];
         $heading = substr($heading, strlen($match[0]));
     }
 @endphp

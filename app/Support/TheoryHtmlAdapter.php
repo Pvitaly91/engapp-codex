@@ -55,24 +55,6 @@ final class TheoryHtmlAdapter
         return null;
     }
 
-    /** Caller-level grouping excludes practice, navigation and unknown owners. */
-    public static function referenceContent(object $block): bool
-    {
-        if (($block->locale ?? null) !== 'uk'
-            || !in_array($block->type ?? null, ['usage-panels', 'comparison-table', 'summary-list', 'forms-grid', 'lesson-rule-cards', 'mistakes-grid', 'tense-forms-table'], true)) { return false; }
-        try {
-            $known = false;
-            foreach (self::pointPanelMapping()['targets'] ?? [] as $target) {
-                if (($target['identity'] ?? null) === ($block->seeder ?? null)) { $known = true; break; }
-            }
-            if (!$known) { return false; }
-            $data = json_decode($block->body ?? '', true, flags: JSON_THROW_ON_ERROR);
-            if (!is_array($data)) { return false; }
-            $binding = M42NativeDesignPackage::binding($block, $data);
-            return $binding !== null && self::nativePointPanels($binding['plan']) !== null;
-        } catch (\Throwable) { return false; }
-    }
-
     /** Exact semantic ranges for the first three reviewed native lessons. */
     private const NATIVE_PRESENTATIONS = [
         'docs/content/theory-inline-examples/linking-words-reason-result-contrast.v1.json' => 'a82e38f30300b4523d5a10f25262021dbed145cda0714d26f297488a318c06cb',

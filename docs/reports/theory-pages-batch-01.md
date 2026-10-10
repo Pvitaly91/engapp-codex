@@ -84,3 +84,19 @@ CSS вимагає одночасно `data-theory-component="section"` і guard
 Перед змінами збережено незалежний private BEFORE `reference-panels-before-7fc0c95d0` для ROOT/WT. Це файлова реалізація й локальна CSS-збірка, без HTTP, браузера, PHP/Blade execution, тестів, БД чи production. Фотографічний або live browser PASS не заявляється.
 
 Власні hunks та metadata перенесено в served ROOT, збережено сторонній PPC bootstrap у `theory.show` та PPC hooks у practice view. Локальна CSS-збірка активна як `assets/catalog-public-Bs1I27Td.css`; інші manifest entries і JavaScript незмінні. Новий asset, приватні generator/backup та caches не входять до commit. У цьому проході немає diff у native/shared practice views.
+
+### Виправлення зайвих рамок за актуальним PPC-фото, 2026-10-11
+
+Попередній прохід `64cdd8b81` додав зайву вкладеність і не відповідав актуальному еталону користувача. Цей follow-up прибирає зовнішній білий контейнер, внутрішній компактний frame секцій, рамки й кольорові заливки usage-пунктів, а також окремі monospace/italic стилі прикладів.
+
+Усі три сторінки тепер використовують наявний спільний CSS PPC: окремі білі секції з 24px проміжками; світлий номер із крапкою; заголовок без нижнього розділювача; нейтральні світло-сірі пункти без обводки; кольорові назви й круглі номери; приклади зі синьою лівою лінією, звичайним шрифтом і некурсивним перекладом. Видалено допоміжний `referenceContent()` і grouping у `theory.show`; порядок blocks та include bindings збережено.
+
+Скінченні 24 цілі пункти та 13 meaningful details залишаються на своїх місцях; metadata SHA, авторські джерела, практика, її механіка й тексти не змінювалися. Оновлені сторінки:
+
+1. [Linking Words for Reason, Result and Contrast](http://gramlyze.loc/theory/clauses-and-linking-words/linking-words-reason-result-contrast)
+2. [Advanced Linking Devices](http://gramlyze.loc/theory/clauses-and-linking-words/advanced-linking-devices)
+3. [Concessive and Contrastive Structures](http://gramlyze.loc/theory/clauses-and-linking-words/concessive-and-contrastive-structures)
+
+Виконано файловий перегляд змін; джерела синхронізовано точковими hunks у served ROOT зі збереженням стороннього PPC bootstrap. BEFORE збережений приватно як `border-removal-before-64cdd8b81`. HTTP/браузерні й автоматичні тести за попередньою вказівкою користувача не запускалися; візуальний PASS не заявляється. БД і production не змінювалися.
+
+Локальна CSS-збірка успішна: активний asset — `assets/catalog-public-Cc_VDKog.css`. Решту manifest entries та JavaScript збережено; generated build і private BEFORE не входять до commit.

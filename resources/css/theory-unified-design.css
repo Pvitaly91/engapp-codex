@@ -238,94 +238,18 @@
 .dark .theory-design [data-theory-reference="native"] [data-theory-point-panel][data-theory-accent="rose"] {
     --theory-role-bg: #3d2330; --theory-role-line: #7a4058; --theory-role-ink: #fda4af;
 }
-.theory-design [data-theory-palette="canonical"] .theory-section-number {
-    background-color: var(--theory-role-bg);
-    color: var(--theory-role-ink);
-}
-/* Native-reference hierarchy: one white lesson container, compact sections,
-   colored whole points, and light examples inside them. Practice is outside. */
-.theory-design .theory-reference-content[data-theory-reference="native"] {
-    padding: 1.25rem;
-    border: 1px solid var(--line);
-    border-radius: 1.5rem;
-    background: var(--theory-panel);
-    box-shadow: var(--theory-shadow);
-}
-.theory-design [data-theory-component="section"][data-theory-reference="native"] > .theory-section-card {
-    border-radius: .75rem;
-    box-shadow: none;
-    background: var(--theory-panel);
-}
-.theory-design [data-theory-component="section"][data-theory-reference="native"] > .theory-section-card > .theory-section-header {
-    align-items: center;
-    padding: .75rem 1rem;
-    border-bottom: 1px solid var(--line);
-    border-radius: .75rem .75rem 0 0;
-    background: var(--theory-panel);
-}
-.theory-design [data-theory-component="section"][data-theory-reference="native"] > .theory-section-card > .theory-section-header .theory-section-title {
-    align-items: center;
-    gap: .6rem;
-    font-size: 1rem;
-    font-weight: 700;
-}
-.theory-design [data-theory-component="section"][data-theory-reference="native"] > .theory-section-card > .theory-section-header .theory-section-number {
-    min-width: 1.4rem;
-    min-height: 1.4rem;
-    padding: .1rem .25rem;
-    border-radius: .35rem;
-    background: #4f46e5;
-    color: #fff;
-    font-size: .75rem;
-}
-.theory-design [data-theory-component="section"][data-theory-reference="native"] > .theory-section-card > .theory-section-body {
-    padding: 1rem;
-}
+/* Reviewed whole points use the same neutral surfaces and example typography
+   as PPC. Only their semantic heading accents need an explicit color. */
 .theory-design [data-theory-reference="native"] [data-theory-point-panel][data-theory-accent="slate"] {
     --theory-role-bg: #f8fafc; --theory-role-line: #e2e8f0; --theory-role-ink: #334155;
 }
 .dark .theory-design [data-theory-reference="native"] [data-theory-point-panel][data-theory-accent="slate"] {
     --theory-role-bg: #243044; --theory-role-line: #46546c; --theory-role-ink: #cbd5e1;
 }
-.theory-design [data-theory-reference="native"] [data-theory-point-panel].theory-item {
-    border: 1px solid var(--theory-role-line);
-    border-radius: .75rem;
-    background-color: var(--theory-role-bg);
-}
 .theory-design [data-theory-reference="native"] [data-theory-point-panel] > .p-4 > .flex:first-child > span:last-child {
     color: var(--theory-role-ink);
 }
-.theory-design [data-theory-reference="native"] [data-theory-point-panel] [data-theory-component="example"].theory-example:not(:where([data-sentence-builder] *, .theory-exercise *)) {
-    border: 1px solid color-mix(in srgb, var(--theory-panel) 80%, transparent);
-    border-inline-start: 1px solid color-mix(in srgb, var(--theory-panel) 80%, transparent);
-    border-radius: .5rem;
-    background: color-mix(in srgb, var(--theory-panel) 60%, transparent);
-    padding: .75rem;
-}
-.theory-design [data-theory-reference="native"] [data-theory-point-panel] [data-theory-component="example"].theory-example p[lang="en"]:not(:where([data-sentence-builder] *, .theory-exercise *)) {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-    font-size: .8125rem;
-    line-height: 1.65;
-}
-.theory-design [data-theory-reference="native"] [data-theory-point-panel] [data-theory-component="example"] .theory-translation:not(:where([data-sentence-builder] *, .theory-exercise *)) {
-    font-size: .8125rem;
-    font-style: italic;
-    line-height: 1.65;
-}
-.theory-design [data-theory-component="section"][data-theory-reference="native"][data-theory-section-variant="summary"] > .theory-section-card {
-    border-color: var(--theory-role-line);
-}
-.theory-design [data-theory-component="section"][data-theory-reference="native"][data-theory-section-variant="summary"] > .theory-section-card > .theory-section-header {
-    background-color: var(--theory-role-bg);
-    border-bottom-color: var(--theory-role-line);
-}
-.theory-design [data-theory-component="section"][data-theory-reference="native"] [data-theory-component="form"].theory-item:not(:where([data-sentence-builder] *, .theory-exercise *)) {
-    border: 1px solid var(--line);
-    background: var(--theory-panel);
-}
 @media (max-width: 639px) {
-    .theory-design .theory-reference-content[data-theory-reference="native"] { padding: .9rem; }
-    .theory-design [data-theory-component="section"][data-theory-reference="native"] > .theory-section-card > :is(.theory-section-header, .theory-section-body) { padding: .85rem; }
     .theory-design :is(.theory-hero, .theory-section-body, .theory-section-main, .theory-section-detail-body, .theory-rich-section-body) { padding: 1rem; }
     .theory-design :is(.theory-section-header, .theory-html-content .theory-html-heading) { padding: 1rem; gap: .6rem; }
     .theory-design .theory-section-title { font-size: 1.05rem; gap: .6rem; }
@@ -339,7 +263,6 @@
     .theory-design *, .theory-design *::before, .theory-design *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 @media print {
-    .theory-design .theory-reference-content[data-theory-reference="native"] { box-shadow: none; }
     .theory-design [data-theory-reference="native"] [data-theory-point-panel] {
         --theory-role-bg: #fff !important;
         --theory-role-line: #000 !important;

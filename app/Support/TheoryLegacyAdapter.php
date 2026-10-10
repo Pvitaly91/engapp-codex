@@ -26,9 +26,7 @@ final class TheoryLegacyAdapter
         }
         $reference = $nativeProse ? TheoryHtmlAdapter::nativePointPanels($design) : null;
         if ($reference !== null) {
-            $node['reference'] = true;
             $node['attrs']['data-theory-reference'] = 'native';
-            $node['attrs']['data-theory-section-variant'] = $node['variant'];
         }
         if (!empty($data['intro'])) { $node['intro_html'] = self::rich($data['intro'], $design, '/intro'); }
         if (in_array($type, ['forms-grid', 'lesson-rule-cards'], true)) {
