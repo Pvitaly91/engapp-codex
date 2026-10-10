@@ -1,5 +1,5 @@
 @if(($node['variant'] ?? 'box') === 'table-cell')
-    <p data-theory-component="example" @if(!empty($node['id'])) id="{{ $node['id'] }}" @endif lang="en">{{ \App\Support\TheoryComponents::body($node['en'] ?? '') }}</p>
+    <p data-theory-component="example" @if(!empty($node['id'])) id="{{ $node['id'] }}" @endif lang="en"{{ \App\Support\TheoryComponents::attrs($node['attrs'] ?? []) }}>{{ \App\Support\TheoryComponents::body($node['en'] ?? '') }}</p>
     @if(\App\Support\TheoryComponents::present($node['uk'] ?? null))<p lang="uk" class="theory-translation">{{ \App\Support\TheoryComponents::body($node['uk']) }}</p>@endif
     @if(\App\Support\TheoryComponents::present($node['note_uk'] ?? null))<p lang="uk" class="text-xs text-muted-foreground mt-2">{{ \App\Support\TheoryComponents::body($node['note_uk']) }}</p>@endif
 @elseif(($node['variant'] ?? 'box') === 'short-answer')

@@ -14,30 +14,43 @@ use Illuminate\Support\HtmlString;
  */
 final class TheoryHtmlAdapter
 {
-    /** Preserve the existing finite language annotations; only known fields opt into quotation pairs. */
+    /** Only the unchanged, finite native plan can select paragraph-flow presentation. */
+    public static function verifiedNativeDesign(?array $design): bool
+    {
+        if ($design === null) { return false; }
+        try {
+            foreach (M42NativeDesignPackage::load()['targets'] as $target) {
+                foreach ($target['blocks'] as $candidate) {
+                    if ($candidate === $design) { return true; }
+                }
+            }
+        } catch (\Throwable) { /* Unknown data keeps its complete native fallback. */ }
+        return false;
+    }
+
+    /** Preserve the finite language annotations; only exact known fields opt into bilingual pairs. */
     public static function nativeFragment(string $html, ?array $design, string $pointer): HtmlString
     {
         $annotated = M42NativeDesignPackage::richFragment($html, $design, $pointer);
         $explicitTranslations = false;
         try {
-            if (str_contains($html, '<blockquote') && is_array($design['rich_fields'][$pointer] ?? null)) {
+            if (is_array($design['rich_fields'][$pointer] ?? null)) {
                 foreach ($design['rich_fields'][$pointer] as $variant) {
                     if (!is_array($variant) || !is_string($variant['sha256'] ?? null)
                         || !hash_equals($variant['sha256'], hash('sha256', $html))) { continue; }
                     // A zero-em basic fragment legitimately keeps its original bytes.
                     // Verify its complete existing plan too; a caller cannot forge a range.
-                    foreach (M42NativeDesignPackage::load()['targets'] as $target) {
-                        foreach ($target['blocks'] as $candidate) {
-                            if ($candidate === $design) { $explicitTranslations = true; break 3; }
-                        }
-                    }
+                    $explicitTranslations = self::verifiedNativeDesign($design);
+                    break;
                 }
             }
         } catch (\Throwable) { /* Keep the complete existing HTML fallback. */ }
-        return self::fragment($annotated, $explicitTranslations);
+        $exampleVariant = ($design['component'] ?? null) === 'comparison-table'
+            && str_starts_with($pointer, '/rows/') ? 'table-cell' : 'box';
+        return self::fragment($annotated, $explicitTranslations, $exampleVariant);
     }
 
-    public static function fragment(string $html, bool $explicitTranslations = false): HtmlString
+    public static function fragment(string $html, bool $explicitTranslations = false, string $exampleVariant = 'box'): HtmlString
     {
         $parsed = self::parse($html);
         if ($parsed === null) { return new HtmlString($html); }
@@ -103,9 +116,22 @@ final class TheoryHtmlAdapter
             } else { $changed = self::replace($table, TheoryAuthoredAdapter::render($node)) || $changed; }
         }
         if ($explicitTranslations) {
+            // A verified field supplies the English role. A whole paragraph (or
+            // explicit double-break segment) supplies the translation boundary.
+            // Inline terms and mixed explanation sentences are not guessed.
+            foreach (iterator_to_array($xpath->query('.//span[@data-m42-em-language="en"]', $root)) as $english) {
+                $pair = self::paragraphPair($english, $root, $dom);
+                if ($pair === null) { continue; }
+                if ($exampleVariant === 'table-cell') { $pair['node']['variant'] = 'table-cell'; }
+                if (self::replace($pair['replace'], TheoryAuthoredAdapter::render($pair['node']))) {
+                    foreach ($pair['consumed'] as $sibling) { $sibling->parentNode?->removeChild($sibling); }
+                    $changed = true;
+                }
+            }
             foreach (iterator_to_array($xpath->query('.//blockquote', $root)) as $quotation) {
                 $pair = self::quotationPair($quotation, $dom);
                 if ($pair === null) { continue; }
+                if ($exampleVariant === 'table-cell') { $pair['node']['variant'] = 'table-cell'; }
                 if (self::replace($quotation, TheoryAuthoredAdapter::render($pair['node']))) {
                     foreach ($pair['consumed'] as $sibling) { $sibling->parentNode?->removeChild($sibling); }
                     $changed = true;
@@ -113,6 +139,69 @@ final class TheoryHtmlAdapter
             }
         }
         return new HtmlString($changed ? self::inner($root) : $html);
+    }
+
+    /** Source-explicit EN — UK paragraph; no sentence splitting or inferred translation. */
+    private static function paragraphPair(DOMElement $english, DOMNode $root, DOMDocument $dom): ?array
+    {
+        $parent = $english->parentNode;
+        if (!$parent instanceof DOMElement
+            || ($parent !== $root && !in_array($parent->tagName, ['p', 'li', 'td', 'th'], true))) { return null; }
+        $first = $english->nextSibling;
+        if ($first?->nodeType !== XML_TEXT_NODE
+            || preg_match('/\A(?<end>[.!?])?(?<translation>\s+[—–]\s+\S[\s\S]*)\z/u', $first->textContent, $parts) !== 1) { return null; }
+        // A formula/term stays inline even when its author provides a gloss.
+        if (in_array(strtolower(trim($english->textContent)), ['e.g.', 'i.e.', 'etc.', 'vs.'], true)) { return null; }
+        if (preg_match('/[.!?][\x{2019}\x{201D}\x{0022}\x{0027}]?\s*$/u', $english->textContent) !== 1
+            && ($parts['end'] ?? '') === '') { return null; }
+        if (str_contains($english->textContent, '→') || str_contains($english->textContent, ' + ')) { return null; }
+        $previous = $english->previousSibling; $breaks = 0;
+        while ($previous !== null) {
+            if ($previous->nodeType === XML_TEXT_NODE && trim($previous->textContent) === '') {
+                $previous = $previous->previousSibling; continue;
+            }
+            if ($previous instanceof DOMElement && $previous->tagName === 'br' && !$previous->hasAttributes()) {
+                $breaks++; $previous = $previous->previousSibling; continue;
+            }
+            break;
+        }
+        if ($previous !== null && $breaks < 2) { return null; }
+        $next = $english->nextSibling;
+        $translation = ''; $consumed = [];
+        while ($next !== null) {
+            if ($next instanceof DOMElement) {
+                if ($next->tagName === 'br') {
+                    $cursor = $next; $count = 0;
+                    while ($cursor !== null && (($cursor->nodeType === XML_TEXT_NODE && trim($cursor->textContent) === '')
+                        || ($cursor instanceof DOMElement && $cursor->tagName === 'br' && !$cursor->hasAttributes()))) {
+                        if ($cursor instanceof DOMElement) { $count++; }
+                        $cursor = $cursor->nextSibling;
+                    }
+                    if ($count >= 2) { break; }
+                    return null;
+                }
+                if (!in_array($next->tagName, ['strong', 'b', 'i', 'span', 'a', 'u', 's', 'del', 'small', 'sub', 'sup'], true)
+                    || $next->getAttribute('data-m42-em-language') !== ''
+                    || (new DOMXPath($dom))->query('.//*[@data-m42-em-language]', $next)->length > 0) { return null; }
+            } elseif ($next->nodeType !== XML_TEXT_NODE) { return null; }
+            $translation .= $next === $first
+                ? htmlspecialchars($parts['translation'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')
+                : $dom->saveHTML($next);
+            $consumed[] = $next; $next = $next->nextSibling;
+        }
+        $node = ['kind' => 'example', 'en' => new HtmlString($dom->saveHTML($english).($parts['end'] ?? '')),
+            'uk' => new HtmlString($translation)];
+        if (in_array($parent->tagName, ['td', 'th'], true)) {
+            $node['variant'] = 'table-cell';
+        }
+        if ($parent->tagName === 'p') {
+            // Replacing the complete paragraph avoids invalid div-inside-p markup.
+            if ($previous !== null || $next !== null || !self::supportedAttributes($parent, ['id', 'class'], true)) { return null; }
+            $node['attrs'] = self::technicalAttributes($parent);
+            if ($parent->hasAttribute('id')) { $node['id'] = $parent->getAttribute('id'); }
+            return ['node' => $node, 'replace' => $parent, 'consumed' => []];
+        }
+        return ['node' => $node, 'replace' => $english, 'consumed' => $consumed];
     }
 
     /** A source-explicit quotation + translation label, with no inferred prose boundaries. */

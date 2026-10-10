@@ -7,6 +7,8 @@ Actual base: `afb54868f6a8d0292b157c0b57ed7cd1731a2716`.
 
 ## Scope та джерела
 
+Подальше зауваження користувача зі скриншотами показало, що описаний тут файловий прохід не завершив оформлення: безіменні абзаци лишалися сірими картками, а частина native-відповідей — великими uppercase-кнопками. Окреме виправлення цих розбіжностей зафіксоване у [theory-passed-pages-layout-correction.md](theory-passed-pages-layout-correction.md); попередні результати не видаються за приймання цього нового оформлення.
+
 Рівно **54 унікальні UK owners**: 42 M11–M24 у чинних редакціях M27–M40/M42 + по три M41, M43, M44 і M45. M27–M40 не рахуються повторно. EN/PL URLs, locale fallback, category pages, курси й окремі `/test` routes не є додатковими цільовими owners. Чотири M26/PPC — окрема межа збереження. Підтвердженого наступного завершеного пакета понад цей scope не додано; M46 не створюється.
 
 Вихідний перелік відновлено за [versioned theory registry](theory-single-reference-registry.json), [M42 identity/block registry](../../database/content-patches/m42-native-design-registry.v1.json), чинними definitions і content-patches. [M42](seo-m42-m11-m24-native-design.md), [M43.1](seo-m43-1-ppc-reference-design.md), [спрощена M44](m44-simplified-basic.md), [M45](seo-m45-compact-future-comparisons.md), [єдиний шаблон](theory-single-reference-template.md) та [практика](theory-practice-reference-template.md) прочитані як історичні звіти. Попередній приватний practice inventory використано лише для зіставлення збережених Page ID/owner/форматів, не як новий DB proof.

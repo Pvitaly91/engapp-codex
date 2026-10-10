@@ -1,4 +1,4 @@
-@props(['accent' => 'blue', 'selected' => null, 'checked' => 'false', 'correct' => 'false', 'uppercase' => true, 'compact' => false, 'wrap' => false])
+@props(['accent' => 'blue', 'selected' => null, 'checked' => 'false', 'correct' => 'false', 'uppercase' => true, 'compact' => false, 'wrap' => false, 'presentation' => 'chip'])
 @php
     [$active, $idle] = match ($accent) {
         'amber' => ['border-amber-600 bg-amber-600 text-white shadow-sm', 'border-amber-200 bg-white text-amber-700 hover:border-amber-400 hover:bg-amber-50'],
@@ -8,6 +8,10 @@
     };
     $base = $compact ? 'rounded-xl border px-3 py-2 text-left text-sm font-semibold transition'
         : 'min-w-12 rounded-xl border px-4 py-2 text-sm font-extrabold'.($uppercase ? ' uppercase' : ' text-left').' transition';
+    if ($presentation === 'prose') {
+        $base = 'w-full min-w-0 rounded-xl border px-4 py-3 text-left text-sm font-medium leading-relaxed normal-case transition';
+        $wrap = true;
+    }
     $state = $selected === null ? null : "[($selected) ? '$active' : '$idle', ($checked) && ($selected) ? (($correct) ? 'ring-2 ring-emerald-300' : 'ring-2 ring-rose-300') : ''].join(' ')";
 @endphp
 <button type="button" {{ $attributes->class([$base]) }} @if($state !== null) :class="{{ $state }}" @endif @if($wrap) style="text-transform:none;white-space:normal;overflow-wrap:anywhere;max-width:100%" @endif>{{ $slot }}</button>

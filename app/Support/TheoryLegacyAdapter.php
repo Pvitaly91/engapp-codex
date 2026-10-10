@@ -11,6 +11,11 @@ final class TheoryLegacyAdapter
     public static function section(object $block, array $data, array $pointSections = [], array $lessonLinks = [], bool $embedded = false, ?array $design = null): array
     {
         $type = $block->type ?? '';
+        $nativeProse = is_array($design)
+            && ($design['uuid'] ?? null) === ($block->uuid ?? null)
+            && ($design['component'] ?? null) === $type
+            && ($block->locale ?? null) === 'uk'
+            && TheoryHtmlAdapter::verifiedNativeDesign($design);
         $node = ['kind' => 'section', 'id' => 'block-'.$block->id, 'title' => $data['title'] ?? '',
             'variant' => match ($type) { 'summary-list' => 'summary', 'mistakes-grid' => 'mistakes', default => 'plain' },
             'level' => $block->level ?? null, 'embedded' => $embedded, 'footer' => true,
@@ -48,13 +53,26 @@ final class TheoryLegacyAdapter
                     'body_html' => $descriptionHtml,
                     'body_inline' => !self::blockHtml((string) $descriptionHtml),
                     'examples' => array_map(self::example(...), $section['examples'] ?? []), 'tail' => []];
+                // In these accepted sources an unlabelled section is one author
+                // paragraph, not a separately titled rule group. Keep its point
+                // position and disclosure owner without inventing a grey panel.
+                if ($nativeProse && empty($section['label'])) {
+                    $item = ['kind' => 'fragment', 'body_html' => $descriptionHtml,
+                        'body_role' => self::blockHtml((string) $descriptionHtml) ? null : 'paragraph',
+                        'examples' => $item['examples'], 'tail' => []];
+                }
                 if (!empty($section['note'])) { $item['tail'][] = ['kind' => 'note', 'html' => self::rich($section['note'], $design, '/sections/'.$index.'/note')]; }
                 self::detail($item, $pointSections, $index);
                 $node['items'][] = $item;
             }
         } elseif ($type === 'comparison-table') {
+            if ($nativeProse && !empty($data['sections'])) { $node['layout'] = 'stack'; }
             foreach ($data['sections'] ?? [] as $index => $section) {
                 $item = ['kind' => 'usage', 'body_html' => self::rich($section['description'] ?? '', $design, '/sections/'.$index.'/description'), 'body_inline' => false];
+                if ($nativeProse && empty($section['label'])) {
+                    $item['kind'] = 'fragment';
+                    $item['body_role'] = self::blockHtml((string) $item['body_html']) ? null : 'paragraph';
+                }
                 self::detail($item, $pointSections, $index);
                 $node['items'][] = $item;
             }

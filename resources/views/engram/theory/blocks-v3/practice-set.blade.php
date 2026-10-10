@@ -85,6 +85,16 @@
     $choiceExerciseNumber = !empty($selects) ? 2 : 1;
     $inputExerciseNumber = 1 + (!empty($selects) ? 1 : 0) + (!empty($choices) ? 1 : 0);
     $rephraseExerciseNumber = $inputExerciseNumber + (!empty($inputs) ? 1 : 0);
+    // The dispatcher supplies this metadata only after the exact UK owner/body
+    // guard. Keep reference lessons, courses and unverified fallback unchanged.
+    $nativePracticePresentation = ($theoryCanonical ?? false) === true
+        && is_array($m42Design ?? null) && ($m42Design['component'] ?? null) === 'practice-set';
+    // Sentence/explanation options are prose, unlike A/B or lexical form chips.
+    // This is display-only: the original option still owns every JS binding.
+    $optionPresentation = static fn ($option) => $nativePracticePresentation
+        && is_string($option) && preg_match('/\s/u', $option) === 1
+        && preg_match('/[.!?;:,—–\r\n]/u', $option) === 1 ? 'prose' : 'chip';
+    $instructionPresentation = $nativePracticePresentation ? ' [&_em]:not-italic' : '';
 @endphp
 
 <section id="block-{{ $block->id }}" class="theory-native-block scroll-mt-24">
@@ -113,11 +123,11 @@
 
         <div class="theory-section-body p-5 space-y-6">
             @if($m30AuthorSelfCheck !== null)
-                <div class="text-base text-muted-foreground leading-relaxed" data-practice-instruction data-{{ $authorSelfCheckStage }}-self-check-intro>{!! $m30AuthorSelfCheck['intro'] !!}</div>
+                <div class="text-base text-muted-foreground leading-relaxed{{ $instructionPresentation }}" data-practice-instruction data-{{ $authorSelfCheckStage }}-self-check-intro>{!! $m30AuthorSelfCheck['intro'] !!}</div>
                 <noscript>
                     <div class="theory-item rounded-xl p-4 bg-muted/50" data-{{ $authorSelfCheckStage }}-self-check-no-js>
                         <p class="text-sm text-muted-foreground mb-3">Інтерактивна перевірка потребує JavaScript. Завдання й авторські пояснення доступні нижче.</p>
-                        <ol class="list-decimal pl-5 space-y-3 text-sm leading-relaxed">
+                        <ol class="list-decimal pl-5 space-y-3 text-sm leading-relaxed{{ $instructionPresentation }}">
                             @foreach($m30AuthorSelfCheck['prompts'] as $prompt)<li>{!! $prompt !!}</li>@endforeach
                         </ol>
                     </div>
@@ -126,22 +136,22 @@
             {{-- Select Exercise --}}
             @if(!empty($selects))
                 <x-theory-practice-exercise accent="blue">
-                    <x-theory-practice-header accent="blue">
+                    <x-theory-practice-header accent="blue" :class="trim($instructionPresentation)">
                         <x-theory-practice-heading :title="$data['select_title'] ?? __('theory_blocks.practice.select_title')" :number="1" accent="blue"
                             :instruction="!empty($data['select_intro']) ? new \Illuminate\Support\HtmlString($data['select_intro']) : null" />
                     </x-theory-practice-header>
                     <div class="p-4 space-y-3">
                         @foreach($selects as $index => $item)
-                            <x-theory-practice-control accent="blue" :marker="chr(97 + $index)">
+                            <x-theory-practice-control accent="blue" :marker="chr(97 + $index)" :align="$nativePracticePresentation && !empty($item['context']) ? 'start' : 'center'" :wrap="$nativePracticePresentation">
                                     @if($m30AuthorSelfCheck !== null && !empty($item['context']))
-                                        <div class="text-base text-foreground/80 leading-relaxed mb-2" data-practice-instruction data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
+                                        <div class="text-base text-foreground/80 leading-relaxed mb-2{{ $instructionPresentation }}" data-practice-instruction data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
                                     @endif
-                                    <label class="block text-sm text-foreground/80 mb-1.5">
+                                    <label class="block text-sm text-foreground/80 mb-1.5{{ $instructionPresentation }}">
                                         {!! $item['label'] ?? '' !!}
                                     </label>
                                     <div class="flex flex-wrap gap-2">
                                         @foreach($item['options'] ?? $options as $option)
-                                            <x-theory-practice-option accent="blue"
+                                            <x-theory-practice-option accent="blue" :presentation="$optionPresentation($option)"
                                                 :selected="'selectAnswers['.$index.'] === '.\Illuminate\Support\Js::from($option)"
                                                 :checked="'isChecked(\'selects\') && hasAnswer(\'selects\', '.$index.')'"
                                                 :correct="'isCorrect(\'selects\', '.$index.')'"
@@ -175,25 +185,25 @@
             {{-- Choice Exercise --}}
             @if(!empty($choices))
                 <x-theory-practice-exercise accent="amber">
-                    <x-theory-practice-header accent="amber">
+                    <x-theory-practice-header accent="amber" :class="trim($instructionPresentation)">
                         <x-theory-practice-heading :title="$data['choice_title'] ?? __('theory_blocks.practice.select_title')" :number="$choiceExerciseNumber" accent="amber"
                             :instruction="!empty($data['choice_intro']) ? new \Illuminate\Support\HtmlString($data['choice_intro']) : null" />
                     </x-theory-practice-header>
                     <div class="p-4 space-y-3">
                         @foreach($choices as $index => $item)
-                            <x-theory-practice-control accent="amber" :marker="chr(97 + $index)">
+                            <x-theory-practice-control accent="amber" :marker="chr(97 + $index)" :align="$nativePracticePresentation && !empty($item['context']) ? 'start' : 'center'" :wrap="$nativePracticePresentation">
                                     @if($m30AuthorSelfCheck !== null && !empty($item['context']))
-                                        <div class="text-base text-foreground/80 leading-relaxed mb-2" data-practice-instruction data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
+                                        <div class="text-base text-foreground/80 leading-relaxed mb-2{{ $instructionPresentation }}" data-practice-instruction data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
                                     @endif
-                                    <label class="block text-sm text-foreground/80 mb-1.5">
+                                    <label class="block text-sm text-foreground/80 mb-1.5{{ $instructionPresentation }}">
                                         {!! $item['label'] ?? '' !!}
                                     </label>
                                     @if(!empty($item['prompt']))
-                                        <p class="mb-2 text-base text-muted-foreground leading-relaxed" data-practice-instruction>{!! $item['prompt'] !!}</p>
+                                        <p class="mb-2 text-base text-muted-foreground leading-relaxed{{ $instructionPresentation }}" data-practice-instruction>{!! $item['prompt'] !!}</p>
                                     @endif
                                     <div class="flex flex-wrap gap-2">
                                         @foreach($item['options'] ?? $choiceOptions as $option)
-                                            <x-theory-practice-option accent="amber"
+                                            <x-theory-practice-option accent="amber" :presentation="$optionPresentation($option)"
                                                 :selected="'choiceAnswers['.$index.'] === '.\Illuminate\Support\Js::from($option)"
                                                 :checked="'isChecked(\'choices\') && hasAnswer(\'choices\', '.$index.')'"
                                                 :correct="'isCorrect(\'choices\', '.$index.')'"
@@ -227,7 +237,7 @@
             {{-- Input Exercise --}}
             @if(!empty($inputs))
                 <x-theory-practice-exercise accent="emerald" :visible-overflow="true">
-                    <x-theory-practice-header accent="emerald">
+                    <x-theory-practice-header accent="emerald" :class="trim($instructionPresentation)">
                         <x-theory-practice-heading :title="$data['input_title'] ?? __('theory_blocks.practice.input_title')" :number="$inputExerciseNumber" accent="emerald"
                             :instruction="!empty($data['input_intro']) ? new \Illuminate\Support\HtmlString($data['input_intro']) : null" />
                     </x-theory-practice-header>
@@ -241,14 +251,14 @@
                             <x-theory-practice-control layout="inline" accent="emerald" :marker="chr(97 + $index)">
                                 <x-slot:before>
                                 @if($m30AuthorSelfCheck !== null && !empty($item['context']))
-                                    <div class="w-full text-base text-foreground/80 leading-relaxed" data-practice-instruction data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
+                                    <div class="w-full text-base text-foreground/80 leading-relaxed{{ $instructionPresentation }}" data-practice-instruction data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
                                 @endif
                                 </x-slot:before>
                                 @unless($hasInputTokenBank)
-                                    <span>{!! $item['before'] ?? '' !!}</span>
+                                    <span @if($nativePracticePresentation) class="[&_em]:not-italic" @endif>{!! $item['before'] ?? '' !!}</span>
                                 @endunless
                                 @if(!empty($item['after']))
-                                    <span class="font-semibold text-foreground">{!! $item['after'] !!}</span>
+                                    <span class="font-semibold text-foreground{{ $instructionPresentation }}">{!! $item['after'] !!}</span>
                                 @endif
                                 @if($hasInputTokenBank)
                                     <x-theory-practice-token-bank>
