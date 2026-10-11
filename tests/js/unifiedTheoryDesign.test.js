@@ -9,6 +9,83 @@ const entry = source('resources/js/catalog-public.js');
 const cssAst = postcss.parse(css);
 
 describe('scoped unified lesson design', () => {
+    it('matches mistake sentences, translations and hints to lesson examples without resizing other consumers', () => {
+        const mistakeRules = [];
+        const exampleRules = [];
+        cssAst.walkRules(rule => {
+            if (rule.selector.includes('[data-theory-component="mistake"]')) mistakeRules.push(rule);
+            if (rule.selector === '.theory-design .theory-example :is(p, code)') exampleRules.push(rule);
+        });
+        expect(mistakeRules).toHaveLength(1);
+        expect(exampleRules).toHaveLength(1);
+        const mistakeRule = mistakeRules[0];
+        expect(mistakeRule.selector.replace(/\s+/g, ' ').trim()).toBe([
+            '.theory-design [data-theory-component="mistake"] .theory-example > :is(code, span[lang="en"]),',
+            '.theory-design [data-theory-component="mistake"] .theory-translation,',
+            '.theory-design [data-theory-component="mistake"] .theory-note > span',
+        ].join(' '));
+        expect(mistakeRule.nodes.map(node => [node.prop, node.value])).toEqual([
+            ['font-size', '.9rem'], ['line-height', '1.75'],
+        ]);
+
+        const card = (prefix, canonical = false) => `<article ${canonical ? 'data-theory-component="mistake"' : ''}>
+            <span id="${prefix}-badge" class="caption">1</span>
+            <span id="${prefix}-label" class="caption">Форма дієслова</span>
+            <h3 id="${prefix}-title" class="text-sm">Після will не ставимо to.</h3>
+            <div class="theory-example"><code id="${prefix}-wrong" lang="en" class="text-xs">We will to start.</code></div>
+            <p id="${prefix}-wrong-uk" lang="uk" class="theory-translation text-xs">Ми почнемо.</p>
+            <div class="theory-example"><span id="${prefix}-right" lang="en" class="text-xs">We will start.</span></div>
+            <p id="${prefix}-right-uk" lang="uk" class="theory-translation text-xs">Ми почнемо.</p>
+            <div class="theory-note"><span id="${prefix}-hint" class="text-xs leading-relaxed">Після will потрібна базова форма.</span></div>
+        </article>`;
+        const fixture = document.createElement('div');
+        fixture.innerHTML = `<style>
+            .text-xs { font-size: 12px; line-height: 16px; }
+            .leading-relaxed { line-height: 1.625; }
+            .caption { font-size: 10px; line-height: 15px; }
+            .text-sm { font-size: 14px; line-height: 20px; }
+            ${exampleRules[0].toString()}
+        </style>
+            <div class="theory-design">${card('canonical', true)}
+                <div class="theory-example"><p id="reference-example">We start at nine.</p></div>
+                <div class="theory-exercise">${card('practice')}</div>
+                <div data-sentence-builder>${card('linked-bank')}</div>
+            </div>
+            <div class="theory-design">${card('course')}</div>
+            <div>${card('outside', true)}</div>
+            <div data-test-page>${card('standalone')}</div>`;
+        document.body.append(fixture);
+        try {
+            const textRoles = ['wrong', 'right', 'wrong-uk', 'right-uk', 'hint'];
+            const captionRoles = ['badge', 'label', 'title'];
+            const protectedIds = [
+                ...captionRoles.map(role => `canonical-${role}`),
+                ...['course', 'practice', 'linked-bank', 'outside', 'standalone']
+                    .flatMap(prefix => [...textRoles, ...captionRoles].map(role => `${prefix}-${role}`)),
+            ];
+            const snapshot = element => {
+                const computed = getComputedStyle(element);
+                return ['font-size', 'line-height', 'color', 'background-color', 'padding', 'margin']
+                    .map(property => [property, computed.getPropertyValue(property)]);
+            };
+            const before = new Map(protectedIds.map(id => [id, snapshot(fixture.querySelector(`#${id}`))]));
+            const typography = document.createElement('style');
+            typography.textContent = mistakeRule.toString();
+            fixture.append(typography);
+            const reference = getComputedStyle(fixture.querySelector('#reference-example'));
+            for (const role of textRoles) {
+                const element = fixture.querySelector(`#canonical-${role}`);
+                expect(element.matches(mistakeRule.selector)).toBe(true);
+                expect(getComputedStyle(element).fontSize).toBe(reference.fontSize);
+                expect(getComputedStyle(element).lineHeight).toBe(reference.lineHeight);
+            }
+            for (const id of protectedIds) {
+                const element = fixture.querySelector(`#${id}`);
+                expect(element.matches(mistakeRule.selector)).toBe(false);
+                expect(snapshot(element)).toEqual(before.get(id));
+            }
+        } finally { fixture.remove(); }
+    });
     it('limits new fragment wrapping to canonical nodes, not unchanged course details', () => {
         const rules = [];
         cssAst.walkRules(rule => {

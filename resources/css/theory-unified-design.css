@@ -119,6 +119,14 @@
     overflow-wrap: anywhere;
 }
 .theory-design .theory-example :is(p, code) { font-family: inherit; font-size: .9rem; line-height: 1.75; }
+/* Correction sentences, translations and hints share the normal example size.
+   The canonical mistake marker keeps course compatibility and practice outside this rule. */
+.theory-design [data-theory-component="mistake"] .theory-example > :is(code, span[lang="en"]),
+.theory-design [data-theory-component="mistake"] .theory-translation,
+.theory-design [data-theory-component="mistake"] .theory-note > span {
+    font-size: .9rem;
+    line-height: 1.75;
+}
 .theory-design .theory-native-block code.theory-example { display: block; }
 .dark .theory-design .theory-native-block :is(.text-emerald-700, .text-sky-700, .text-amber-700, .text-slate-700) { color: var(--text); }
 .dark .theory-design .theory-exercise :is(.text-blue-700, .text-amber-700, .text-purple-700) { color: var(--accent); }
