@@ -11,6 +11,7 @@ namespace App\Support;
 final class TheoryContentSource
 {
     private const PRESENTERS = [
+        [M46ConditionalsPackage::class, 'm42StyleContext'],
         [M45FutureComparisonsPackage::class, 'm45StyleContext'],
         [M44AuthoredFutureFormsPackage::class, 'm44StyleContext'],
         [M43AuthoredTenseUsagePackage::class, 'm43StyleContext'],

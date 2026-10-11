@@ -224,7 +224,7 @@ class TheoryCourseManifestService
             return null;
         }
 
-        return Page::query()
+        $page = Page::query()
             ->with([
                 'category.parent.parent.parent.parent.parent',
                 'tags',
@@ -236,6 +236,8 @@ class TheoryCourseManifestService
             ->whereKey($pageId)
             ->where('type', 'theory')
             ->first();
+
+        return \App\Support\M46ConditionalsPackage::preserveCoursePage($page);
     }
 
     public function lessonUrl(string $categoryPath, string $pageSlug, bool $test = false): string
