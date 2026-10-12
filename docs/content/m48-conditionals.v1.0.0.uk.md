@@ -1,0 +1,1004 @@
+# M48 — In case, Wish / If only, Would rather
+
+Версія 1.0.0. Навчальні дані під незмінні native-компоненти. Відповіді нижче — редакторська читабельна версія, не початковий UI сайту.
+
+## in-case
+
+In case: запобіжна дія, різниця з if, теперішній і минулий контекст, just in case та in case of — з перекладами й практикою.
+
+### in-case-hero — hero
+
+level: B1-B2
+intro: <strong>In case</strong> пояснює дію з огляду на можливу ситуацію — майбутню або вже наявну, але невідому мовцеві.
+rules: label: ГОТУЄМОСЯ ДО МОЖЛИВОГО
+color: emerald
+text: Беремо потрібну річ або вживаємо заходів, не чекаючи підтвердження, що вони знадобляться.
+example: <span lang="en">Take an umbrella in case it rains.</span><br><span lang="uk">Візьми парасолю на випадок, якщо піде дощ.</span>
+
+label: ЧАС ВИЗНАЧАЄ КОНТЕКСТ
+color: blue
+text: Можна готуватися до майбутнього, зважати на невідомий стан зараз або розповідати про минулу пересторогу.
+
+label: НЕ МЕХАНІЧНА ЗАМІНА IF
+color: amber
+text: If ставить дію в залежність від умови. In case пояснює, навіщо діяти з перестороги.
+
+### in-case-forms — forms-grid
+
+title: 1. Будова: підрядна частина, іменник і коротка фраза
+intro: Після <strong>in case</strong> може стояти підмет із дієсловом; після <strong>in case of</strong> — іменникова група. У звичайному майбутньому значенні в in case-частині беремо теперішню форму, а не will. Це не правило «завжди лише Present Simple»: є минулі форми, а у формальному британському вживанні — також in case + should + базова форма.
+items: label: ТЕПЕРІШНЄ АБО МАЙБУТНЄ
+title: main clause + in case + present
+subtitle: У головній частині може бути намір, порада або інша дія. Теперішня форма після in case не робить можливу майбутню подію фактом.
+rules: label: Підготовка до можливого збою
+example: <span lang="en">I'll save the file in case the computer crashes.</span><br><span lang="uk">Я збережу файл на випадок, якщо комп’ютер дасть збій.</span>
+
+label: Щоб мати запис
+example: <span lang="en">I'll write it down in case I forget.</span><br><span lang="uk">Я це запишу на випадок, якщо забуду.</span>
+
+label: МИНУЛА ПЕРЕСТОРОГА
+title: in case + past
+subtitle: Розповідаємо про реальну підготовчу дію в минулому та ситуацію, можливість якої тоді допускали. Її здійснення не стверджується.
+rules: label: Приклад
+example: <span lang="en">I took some cash in case the card didn't work.</span><br><span lang="uk">Я взяв трохи готівки на випадок, якщо картка не спрацює.</span>
+
+label: ІМЕННИКОВА ГРУПА
+title: in case of + noun
+subtitle: Після of потрібна назва ситуації, а не звичайна підрядна частина. Час виконання дії визначає ціле повідомлення.
+rules: label: Приклад оголошення
+example: <span lang="en">In case of fire, use the stairs.</span><br><span lang="uk">У разі пожежі користуйтеся сходами.</span>
+
+label: БЕЗ ПОВТОРЕННЯ СИТУАЦІЇ
+title: just in case
+subtitle: Коротко: «про всяк випадок». Співрозмовники розуміють, навіщо може знадобитися річ або дія.
+rules: label: Приклад
+example: <span lang="en">I'll bring a charger just in case.</span><br><span lang="uk">Я візьму із собою зарядний пристрій про всяк випадок.</span>
+
+label: ПИТАННЯ Й ЗАПЕРЕЧЕННЯ
+title: Shall I … in case + subject + verb?
+subtitle: Питання утворюємо в головній частині. Після in case лишається звичайний порядок: підмет → дієслово. Not ставимо в тій частині, яку потрібно заперечити.
+rules: label: Питання про підготовку
+example: <span lang="en">Shall I bring a blanket in case it gets cold?</span><br><span lang="uk">Мені взяти ковдру на випадок, якщо стане холодно?</span>
+
+label: Можлива відсутність
+example: <span lang="en">I'll leave a message in case you aren't at your desk.</span><br><span lang="uk">Я залишу повідомлення на випадок, якщо тебе не буде за робочим столом.</span>
+
+### in-case-uses — usage-panels
+
+title: 2. Що саме ми враховуємо
+sections: label: Готуємося до можливої події
+color: emerald
+description: Ще не знаємо, чи стане холодно або чи виникне проблема з пошуком адреси. Підготовку не відкладаємо до цієї події.
+examples: en: Take a jacket in case it gets cold later.
+ua: Візьми куртку на випадок, якщо пізніше стане холодно.
+
+en: I'll send you the address in case you can't find the place.
+ua: Я надішлю тобі адресу на випадок, якщо ти не зможеш знайти це місце.
+note: In case пояснює причину перестороги, а не обіцяє, що можливість обов’язково здійсниться.
+
+label: Ситуація може бути актуальною вже зараз
+color: blue
+description: Ми стоїмо за дверима й не знаємо, чи дитина спить. Тихий стукіт потрібний з огляду на можливий теперішній стан, не лише на майбутню подію.
+examples: en: I'll knock quietly in case the baby is asleep.
+ua: Я постукаю тихо на випадок, якщо дитина спить.
+note: Is asleep стосується стану зараз. Формула «спершу дія зараз, потім обов’язково подія в майбутньому» тут не підходить.
+
+label: Запобіжна дія в минулому
+color: sky
+description: Минулої суботи перед вечірньою прогулянкою ми не знали, чи освітлена доріжка. Ліхтарик узяли до того, як це з’ясували.
+examples: en: We took a torch in case the path was dark.
+ua: Ми взяли ліхтарик на випадок, якщо доріжка буде темною.
+note: Took називає реальну минулу дію; was dark — можливість з тодішньої точки зору. Речення не доводить, що доріжка справді була темною.
+
+label: If — умова, in case — пересторога
+color: amber
+description: Плануємо прогулянку й поки не знаємо, чи піде дощ. У першому прикладі перебування всередині залежить від дощу. У другому парасолі беремо завчасно, не чекаючи дощу.
+examples: en: If it rains, we'll stay inside.
+ua: Якщо піде дощ, ми залишимося всередині.
+
+en: We'll take umbrellas in case it rains.
+ua: Ми візьмемо парасолі на випадок, якщо піде дощ.
+note: Саме дієслово call або stay не робить речення з in case помилковим. Потрібно з’ясувати, чи йдеться про підготовку, чи про реакцію лише після виконання умови. Прозору пару з тією самою дією дивись у порівнянні нижче.
+
+label: Just in case: про всяк випадок
+color: slate
+description: Можливу потребу можна не називати повторно: додаткова копія або вода вже зрозумілі із ситуації. Just підкреслює пересторогу, а не певність майбутньої проблеми.
+examples: en: I'll print one more copy, just in case.
+ua: Я роздрукую ще одну копію про всяк випадок.
+
+en: Put some water in your bag, just in case.
+ua: Поклади в сумку трохи води про всяк випадок.
+note: Фраза може завершувати речення сама; після неї не обов’язково додавати підмет і дієслово.
+
+label: In case of: перевір і форму, і час дії
+color: rose
+description: Після in case of стоїть іменникова група. В оголошенні це часто означає «якщо / коли виникне ситуація», але сполука також може описувати підготовку: вирішує зміст головної частини.
+examples: en: In case of rain, the picnic will move indoors.
+ua: У разі дощу пікнік перенесуть у приміщення.
+
+en: We keep a spare blanket in case of cold weather.
+ua: Ми тримаємо запасну ковдру на випадок холодної погоди.
+note: Перенесення пікніка залежить від дощу; ковдра вже зберігається про запас. Не замінюй in case на in case of механічно: треба перебудувати частину з дієсловом в іменникову групу й зберегти задуманий час дії.
+
+### in-case-mistakes — mistakes-grid
+
+title: 3. Типові помилки у формі
+items: label: ЗВИЧАЙНЕ МАЙБУТНЄ
+color: rose
+title: У звичайному майбутньому значенні тут потрібне gets, а не will get.
+wrong: <span lang="en">Take a coat in case it will get cold.</span><br><span lang="uk">Візьми пальто на випадок, якщо стане холодно.</span>
+right: <span lang="en">Take a coat in case it gets cold.</span><br><span lang="uk">Візьми пальто на випадок, якщо стане холодно.</span>
+wrong_en: Take a coat in case it will get cold.
+wrong_ua: Візьми пальто на випадок, якщо стане холодно.
+right_en: Take a coat in case it gets cold.
+right_ua: Візьми пальто на випадок, якщо стане холодно.
+hint: Обидва рядки мають той самий задуманий зміст. Для цієї перестороги в in case-частині використовуємо теперішню форму. Не поширюй це пояснення на всі минулі або модальні конструкції.
+
+label: ПІСЛЯ OF
+color: amber
+title: Не став звичайну підрядну частину безпосередньо після in case of.
+wrong: <span lang="en">In case of it rains, we'll eat indoors.</span><br><span lang="uk">У разі дощу ми поїмо в приміщенні.</span>
+right: <span lang="en">In case of rain, we'll eat indoors.</span><br><span lang="uk">У разі дощу ми поїмо в приміщенні.</span>
+wrong_en: In case of it rains, we'll eat indoors.
+wrong_ua: У разі дощу ми поїмо в приміщенні.
+right_en: In case of rain, we'll eat indoors.
+right_ua: У разі дощу ми поїмо в приміщенні.
+hint: Rain тут — іменник. Якщо потрібні підмет it і дієслово rains, обирай конструкцію без of та окремо перевіряй, чи збережено часову логіку повідомлення.
+
+label: ПОРЯДОК У ПІДРЯДНІЙ ЧАСТИНІ
+color: sky
+title: У прямому питанні не переносимо інверсію після in case.
+wrong: <span lang="en">Shall I take a map in case do we get lost?</span><br><span lang="uk">Мені взяти карту на випадок, якщо ми заблукаємо?</span>
+right: <span lang="en">Shall I take a map in case we get lost?</span><br><span lang="uk">Мені взяти карту на випадок, якщо ми заблукаємо?</span>
+wrong_en: Shall I take a map in case do we get lost?
+wrong_ua: Мені взяти карту на випадок, якщо ми заблукаємо?
+right_en: Shall I take a map in case we get lost?
+right_ua: Мені взяти карту на випадок, якщо ми заблукаємо?
+hint: Питаємо Shall I …? У частині in case we get lost залишається порядок we + get; допоміжне do для питання там не потрібне.
+
+### in-case-summary — summary-list
+
+title: 4. Короткий підсумок
+items: In case пояснює пересторогу щодо можливої ситуації; вона може стосуватися майбутнього або вже бути актуальною, але невідомою.
+
+У звичайному майбутньому контексті після in case використовуй теперішню форму. Для розповіді про минулу пересторогу добирай форму за минулим контекстом.
+
+If ставить дію в залежність від умови; in case не є його механічним синонімом.
+
+Just in case може означати «про всяк випадок» без продовження; in case of потребує іменникової групи.
+
+Для майбутньої умови дивись <a href="/theory/conditionals/first-conditional">First Conditional</a>, для винятку й інших умов — <a href="/theory/conditionals/unless-provided-as-long-as">Unless / Provided / As long as</a>.
+
+### in-case-navigation — navigation-chips
+
+title: Сторінки цього розділу
+items: label: Zero Conditional
+url: /theory/conditionals/zero-conditional
+current: false
+
+label: First Conditional
+url: /theory/conditionals/first-conditional
+current: false
+
+label: Second Conditional
+url: /theory/conditionals/second-conditional
+current: false
+
+label: Third Conditional
+url: /theory/conditionals/third-conditional
+current: false
+
+label: Mixed Conditionals
+url: /theory/conditionals/mixed-conditionals
+current: false
+
+label: Unless / Provided / As long as
+url: /theory/conditionals/unless-provided-as-long-as
+current: false
+
+label: In case
+url: /theory/conditionals/in-case
+current: true
+
+label: Wish / If only
+url: /theory/conditionals/wish-if-only
+current: false
+
+label: Would rather
+url: /theory/conditionals/would-rather
+current: false
+
+label: Had better
+url: /theory/conditionals/had-better
+current: false
+
+### in-case-timing-comparison — comparison-table
+
+title: 5. Та сама парасоля — різні інструкції
+intro: Зараз дощу немає; ми ще не знаємо, чи піде він під час прогулянки. Інструкцію можна дати зараз в обох випадках, але підстава й момент виконання дії різні.
+headers: Інструкція
+
+Переклад
+
+Коли брати парасолю
+rows: en: Take an umbrella if it rains.
+ua: Візьми парасолю, якщо піде дощ.
+note: Для цього порівняння задано конкретну інструкцію: у разі дощу взяти парасолю, а без дощу — залишити її вдома. Обмеження «лише за умови дощу» походить із цієї інструкції; саме if не стверджує, що без дощу парасолю не можна брати з іншої причини.
+
+en: Take an umbrella in case it rains.
+ua: Візьми парасолю на випадок, якщо піде дощ.
+note: Бери її вже перед виходом як підготовку. Чи дощитиме, ще невідомо; парасоля може так і не знадобитися.
+outro: Відмінність не в слові «дощ», а в плані дії: реакція за умови чи готовність до можливості. У минулому ця логіка також не доводить, що можлива подія відбулася.
+
+### in-case-practice — practice-set
+
+title: 6. Практика
+select_title: Віднови форму в заданому контексті
+select_intro: Обери форму для пропуску. Час і заперечення вже задані українською умовою.
+selects: id: m48-in-case-future
+source_index: 1
+label: Перед завтрашньою прогулянкою я кладу светр у сумку: завтра може похолодати. Доповни звичайну майбутню in case-конструкцію.<br><span lang="en">I'll pack a jumper in case it ___ cold tomorrow.</span>
+options: gets
+
+will get
+
+get
+answer: gets
+accepted: gets
+feedback: gets: Правильно: I'll pack a jumper in case it gets cold tomorrow. — Я покладу светр у сумку на випадок, якщо завтра стане холодно. У звичайному майбутньому значенні після in case вживаємо теперішню форму; з it потрібне gets.
+will get: Правильна відповідь: gets. I'll pack a jumper in case it gets cold tomorrow. — Я покладу светр у сумку на випадок, якщо завтра стане холодно. У цій звичайній in case-частині майбутнє значення не потребує will.
+get: Правильна відповідь: gets. I'll pack a jumper in case it gets cold tomorrow. — Я покладу светр у сумку на випадок, якщо завтра стане холодно. Get без -s не узгоджується з it у цій стверджувальній формі.
+
+id: m48-in-case-present-negative
+source_index: 2
+label: Я не знаю, чи Марта зараз удома. Залишу записку, зважаючи саме на можливу відсутність Марти. Доповни заперечну форму be.<br><span lang="en">I'll leave a note in case Marta ___ at home.</span>
+options: is
+
+isn't
+
+doesn't
+answer: isn't
+accepted: isn't
+
+is not
+feedback: is: Цей варіант дає інший зміст: I'll leave a note in case Marta is at home. — Я залишу записку на випадок, якщо Марта вдома. Тут потрібна можлива відсутність: I'll leave a note in case Marta isn't at home. — Я залишу записку на випадок, якщо Марти немає вдома.
+isn't: Правильно: I'll leave a note in case Marta isn't at home. — Я залишу записку на випадок, якщо Марти немає вдома. Isn't заперечує теперішній стан, який може бути актуальним уже зараз.
+is not: Правильно: I'll leave a note in case Marta is not at home. — Я залишу записку на випадок, якщо Марти немає вдома. Повна й скорочена форми передають ту саму можливу відсутність.
+doesn't: Правильна відповідь: isn't. I'll leave a note in case Marta isn't at home. — Я залишу записку на випадок, якщо Марти немає вдома. Перед at home тут потрібне be; саме doesn't не замінює is not.
+
+id: m48-in-case-past
+source_index: 3
+label: Учора перед зустріччю я взяв запасну ручку: тоді не знав, чи моя писатиме. Розкажи про цю завершену підготовку, зберігаючи минулий план обох частин.<br><span lang="en">I took a spare pen in case mine ___.</span>
+options: doesn't work
+
+didn't work
+
+won't work
+answer: didn't work
+accepted: didn't work
+
+did not work
+feedback: doesn't work: Правильна відповідь для заданої минулої розповіді: didn't work. I took a spare pen in case mine didn't work. — Я взяв запасну ручку на випадок, якщо моя не писатиме. Doesn't work переносить опис ручки в теперішній план; це не той часовий вибір, якого вимагає ця вправа.
+didn't work: Правильно: I took a spare pen in case mine didn't work. — Я взяв запасну ручку на випадок, якщо моя не писатиме. Запасну ручку справді взяли; конструкція не повідомляє, чи перша зрештою писала.
+did not work: Правильно: I took a spare pen in case mine did not work. — Я взяв запасну ручку на випадок, якщо моя не писатиме. Повна й скорочена форми рівнозначні в цій минулій розповіді.
+won't work: Правильна відповідь: didn't work. I took a spare pen in case mine didn't work. — Я взяв запасну ручку на випадок, якщо моя не писатиме. Won't work не зберігає потрібного минулого плану; у цій вправі не передаємо новий прогноз на теперішнє чи майбутнє.
+choice_title: Збережи час дії, питання й зміст
+choice_intro: Обери речення для названої ситуації. Граматично можливий інший зміст не стає автоматично правильною відповіддю на цю умову.
+choices: id: m48-in-case-timing
+source_index: 4
+label: Перед виходом я ще не знаю, чи відчинена кав’ярня. Перекус беру саме зараз про запас, не чекаючи цієї інформації. Який варіант передає мій план?
+options: I'll take a snack if the café is closed.
+
+I'll take a snack in case the café is closed.
+answer: I'll take a snack in case the café is closed.
+accepted: I'll take a snack in case the café is closed.
+
+I will take a snack in case the café is closed.
+feedback: i'll take a snack if the café is closed.: Це означає: «Я візьму перекус, якщо кав’ярня зачинена». Дія залежить від виконання умови. Потрібно: I'll take a snack in case the café is closed. — Я візьму перекус на випадок, якщо кав’ярня зачинена. За умовою перекус беремо до отримання інформації.
+i'll take a snack in case the café is closed.: Правильно: I'll take a snack in case the café is closed. — Я візьму перекус на випадок, якщо кав’ярня зачинена. Перекус уже беремо про запас; стан кав’ярні може бути актуальним зараз, але нам ще невідомий.
+i will take a snack in case the café is closed.: Правильно: I will take a snack in case the café is closed. — Я візьму перекус на випадок, якщо кав’ярня зачинена. Повне will і скорочене 'll передають той самий намір.
+
+id: m48-in-case-question
+source_index: 5
+label: Ми не знаємо, чи автобус запізниться. Я пропоную вийти раніше, щоб мати запас часу. Обери правильно побудоване пряме питання з in case.
+options: Shall we leave early in case is the bus late?
+
+Shall we leave early in case the bus is late?
+answer: Shall we leave early in case the bus is late?
+accepted: Shall we leave early in case the bus is late?
+feedback: shall we leave early in case is the bus late?: Задуманий зміст: «Може, вийдемо раніше на випадок, якщо автобус запізниться?» Правильно: Shall we leave early in case the bus is late? — Може, вийдемо раніше на випадок, якщо автобус запізниться? Після in case потрібний звичайний порядок the bus is, не питальний is the bus.
+shall we leave early in case the bus is late?: Правильно: Shall we leave early in case the bus is late? — Може, вийдемо раніше на випадок, якщо автобус запізниться? Питальне shall стоїть перед we лише в головній частині; підрядна має порядок the bus is.
+
+id: m48-in-case-of-paraphrase
+source_index: 6
+label: В оголошенні сказано користуватися накритим входом лише за умови дощу; без дощу користуються звичайним входом. Обери перефразування, яке зберігає цю інструкцію.
+prompt: <span lang="en">If it rains, use the covered entrance.</span>
+options: Use the covered entrance in case it rains.
+
+In case of rain, use the covered entrance.
+answer: In case of rain, use the covered entrance.
+accepted: In case of rain, use the covered entrance.
+feedback: use the covered entrance in case it rains.: Це означає: «Користуйтеся накритим входом на випадок, якщо піде дощ» — пересторога, не очікування фактичного дощу. Початкове If it rains, use the covered entrance. — Якщо піде дощ, користуйтеся накритим входом. Його зміст тут зберігає In case of rain, use the covered entrance. — У разі дощу користуйтеся накритим входом.
+in case of rain, use the covered entrance.: Правильно: In case of rain, use the covered entrance. — У разі дощу користуйтеся накритим входом. Початкове If it rains, use the covered entrance. — Якщо піде дощ, користуйтеся накритим входом. В обох інструкціях дощ є умовою; після of стоїть іменник rain.
+inputs:
+rephrase:
+
+### Point-level details
+
+Чому call і stay не варто виправляти без контексту
+Owner: in-case-uses /sections/3
+sections: label: Коли саме потрібно телефонувати
+color: blue
+description: Для вказівки «дзвони тільки після того, як виникне потреба» прозоро підходить if. Стара фраза з in case без ситуації не пояснює, яку підготовку мав би забезпечити дзвінок: не навчаємо її як простого синоніма if і не ставимо універсальне ❌ лише за дієсловом call. Якщо задум — попередній контакт, назви його час і мету прямо.
+examples: en: Call me in case you need help.
+ua: Зателефонуй мені на випадок, якщо тобі знадобиться допомога.
+
+en: Call me if you need help.
+ua: Зателефонуй мені, якщо тобі потрібна допомога.
+
+en: I'll call you before the walk in case you have any questions.
+ua: Я зателефоную тобі до прогулянки на випадок, якщо в тебе є якісь запитання.
+note: Перший рядок збережено як контекстно недостатній старий приклад, а не як універсальний зразок заміни if. В останньому реченні попередній дзвінок має явну підставу; наявність запитань ще невідома.
+
+label: Залишитися вдома як пересторога чи за умови
+color: amber
+description: In case може пояснювати рішення вже залишитися вдома, щоб не потрапити під можливий дощ. Для другого прикладу задаємо конкретний план: якщо піде дощ, людина залишиться вдома, а без дощу вийде. Намір вийти за відсутності дощу заданий цим планом, а не випливає з самого if. Обидва задуми можливі, тому без названого плану одне речення не є автоматичним виправленням іншого.
+examples: en: I'll stay at home in case it rains.
+ua: Я залишуся вдома на випадок, якщо піде дощ.
+
+en: I'll stay at home if it rains.
+ua: Я залишуся вдома, якщо піде дощ.
+note: Щоб оцінювати відповідь, умова вправи повинна прямо задавати час дії. Не підмінюй зміст: пересторога й реакція лише після події — різні повідомлення.
+
+## wish-if-only
+
+Wish / If only: теперішнє бажання, минулий жаль, could і would, приклади з перекладом, типові помилки та вправи.
+
+### wish-hero — hero
+
+level: B1-B2
+intro: <strong>Wish / If only</strong> допомагають уявити, що небажана реальність інша. Спочатку визнач, що хочеш змінити: <strong>стан або процес зараз, минулу подію, можливість чи чиюсь поведінку</strong>. Past-форма після wish не обов’язково означає минулий час.
+rules: label: ІНША СИТУАЦІЯ ЗАРАЗ
+color: emerald
+text: Зараз я не знаю відповіді й хотів би її знати.
+example: <span lang="en">I wish I knew the answer.</span><br><span lang="uk">Шкода, що я не знаю відповіді.</span>
+
+label: ІНШЕ МИНУЛЕ
+color: blue
+text: Я тоді тебе не послухав; тепер шкодую про це.
+example: <span lang="en">If only I had listened to you.</span><br><span lang="uk">От якби я тоді тебе послухав.</span>
+
+label: БАЖАНА ЗМІНА
+color: amber
+text: Сусіди шумлять; я хочу, щоб вони поводилися тихіше. Це бажання, не повідомлення про їхню згоду.
+example: <span lang="en">I wish the neighbours would be quieter.</span><br><span lang="uk">Хотілося б, щоб сусіди поводилися тихіше.</span>
+
+### wish-forms — forms-grid
+
+title: 1. Обери форму за змістом бажання
+intro: Після wish називаємо підмет бажаної ситуації: він може збігатися з тим, хто бажає, або бути іншим. <strong>V3</strong> — третя форма дієслова. If only використовує ті самі часові моделі, але не потребує дієслова wish.
+items: label: Стан або процес зараз
+title: wish / if only + past form
+subtitle: Для стану часто потрібен Past Simple; для процесу в певний момент — Past Continuous. Це уявна альтернатива теперішньому.
+rules: label: Стан
+formula: wish + підмет + Past Simple
+text: Часу зараз бракує.
+example: <span lang="en">I wish I had more time.</span><br><span lang="uk">Шкода, що в мене немає більше часу.</span>
+
+label: Процес у цей момент
+formula: wish + підмет + was / were + V-ing
+text: Зараз я працюю, а хотів би читати біля річки.
+example: <span lang="en">I wish I were reading by the river now.</span><br><span lang="uk">От якби я зараз читав біля річки.</span>
+
+label: Жаль про минулу подію
+title: wish / if only + had + V3
+subtitle: Реальна подія вже відбулася або потрібна дія не відбулася. Заперечення: had not / hadn't + V3.
+rules: label: Бажана інша дія тоді
+formula: wish + підмет + Past Perfect
+text: Коли я вчився до того іспиту, зусиль було замало; зараз шкодую про це.
+example: <span lang="en">I wish I had studied harder.</span><br><span lang="uk">Шкода, що я тоді не вчився старанніше.</span>
+
+label: Бажана зміна
+title: wish / if only + would / wouldn't + базова форма
+subtitle: Хочемо, щоб щось почало, перестало або стало інакше відбуватися. Часто це невдоволення повторюваною поведінкою чи ситуацією.
+rules: label: Хочемо дії
+formula: wish + підмет + would + дієслово
+text: Він залишає повідомлення без відповіді; я хочу змінити цю поведінку.
+example: <span lang="en">I wish he would answer my messages.</span><br><span lang="uk">Хотілося б, щоб він відповідав на мої повідомлення.</span>
+
+label: Хочемо припинення дії
+formula: wish + підмет + wouldn't + дієслово
+text: Він регулярно телефонує під час моїх зустрічей; мене це дратує.
+example: <span lang="en">I wish he wouldn't call me during meetings.</span><br><span lang="uk">Хотілося б, щоб він не телефонував мені під час зустрічей.</span>
+
+label: Бажана здатність або можливість
+title: wish / if only + could + базова форма
+subtitle: Хотів би вміти або мати змогу, але зараз такої здатності чи можливості немає. Час уточнює ситуація, а не сама назва could.
+rules: label: Здатність
+formula: wish + підмет + could + дієслово
+text: Я не вмію полагодити замок самостійно.
+example: <span lang="en">I wish I could repair this lock myself.</span><br><span lang="uk">Хотілося б уміти полагодити цей замок самому.</span>
+
+### wish-uses — usage-panels
+
+title: 2. Що реально відбувається і чого хочемо натомість
+sections: label: Інший стан зараз
+color: emerald
+description: У першому прикладі я незадоволений своїм теперішнім зростом. У другому нам зараз тісно у квартирі. Форми were та had не повідомляють, що колись я був вищим або квартира була просторішою: вони показують бажану альтернативу.
+examples: en: I wish I were taller.
+ua: Шкода, що я не вищий.
+
+en: If only we had more space in this flat.
+ua: От якби в цій квартирі було більше місця.
+note: З I/he/she/it у такому бажанні можливі was і were. Were часто обирають у формальнішому стилі; was прийнятне в неформальному мовленні. Не вважай was помилкою лише тому, що в ключі наведено were. Для процесу потрібне, наприклад, was/were + -ing, а не автоматично Past Simple.
+
+label: Шкодуємо про те, що вже сталося
+color: blue
+description: Я не подзвонив їй раніше й тепер про це шкодую. Вони не перевірили квитки перед іншою дією; мовець хотів би, щоб перевірка тоді відбулася. Підмет після wish / if only називає того, чию дію уявно змінюємо, не обов’язково того, хто шкодує.
+examples: en: I wish I had called her earlier.
+ua: Шкода, що я не подзвонив їй раніше.
+
+en: If only they had checked the tickets first.
+ua: От якби вони спочатку перевірили квитки.
+note: Якщо небажана дія відбулася, у бажаній альтернативі заперечуємо її: hadn't + V3. Важлива реальна історія, а не механічна заміна часу після слова yesterday.
+
+label: Хочемо зміни: люди, погода, предмети
+color: amber
+description: Дощ досі йде, а мій телефон знову працює зі збоями. Через would висловлюю бажання, щоб ситуація нарешті змінилася. Це не лише про свідому поведінку людини: так можна говорити про погоду або роботу предмета. Конструкція часто передає нетерпіння, але сама не гарантує зміни.
+examples: en: I wish it would stop raining.
+ua: Хотілося б, щоб дощ нарешті припинився.
+
+en: I wish my phone would work properly.
+ua: Хотілося б, щоб телефон нормально працював.
+note: Would не є універсальною формою будь-якого майбутнього бажання. Для наявного зросту потрібна бажана інша характеристика з were/was, для браку можливості — could. Не підставляй would до будь-якого речення лише тому, що хочеш зміни.
+
+label: Хотів би мати змогу
+color: sky
+description: Could підкреслює не просто бажаний факт, а здатність або доступну можливість. Я не вмію плавати; в іншій ситуації завтра працюю й не можу поїхати з вами. Це дві різні перешкоди, тому час і причина мають бути відомі з контексту.
+examples: en: I wish I could swim.
+ua: Хотілося б уміти плавати.
+
+en: If only I could join you tomorrow.
+ua: От якби я міг приєднатися до вас завтра.
+note: Це не доказ, що навчитися або змінити плани неможливо назавжди. Мовець описує обмеження тієї ситуації, про яку говорить.
+
+### wish-mistakes — mistakes-grid
+
+title: 3. Типові помилки в конкретній ситуації
+items: label: Не знаю відповіді зараз
+color: rose
+title: Для бажаного іншого знання потрібна past-форма.
+wrong: I wish I know the answer.<br><span>Шкода, що я не знаю відповіді.</span>
+right: I wish I knew the answer.<br><span>Шкода, що я не знаю відповіді.</span>
+wrong_en: I wish I know the answer.
+wrong_ua: Шкода, що я не знаю відповіді.
+right_en: I wish I knew the answer.
+right_ua: Шкода, що я не знаю відповіді.
+hint: Я зараз розв’язую задачу й відповіді не знаю. Обидва варіанти мають цей задуманий переклад, але в моделі бажаної іншої ситуації потрібно knew. Це не повідомлення про минуле знання.
+
+label: Не знав відповіді під час учорашньої гри
+color: amber
+title: Жаль про конкретний завершений епізод — Past Perfect.
+wrong: I wish I knew the answer yesterday.<br><span>Шкода, що я вчора не знав відповіді.</span>
+right: I wish I had known the answer yesterday.<br><span>Шкода, що я вчора не знав відповіді.</span>
+wrong_en: I wish I knew the answer yesterday.
+wrong_ua: Шкода, що я вчора не знав відповіді.
+right_en: I wish I had known the answer yesterday.
+right_ua: Шкода, що я вчора не знав відповіді.
+hint: Учора під час вікторини я не знав потрібної відповіді; сьогодні вже дізнався її й шкодую саме про вчорашній момент. Тому потрібне had known. Не вирішуємо за одним словом yesterday і не видаляємо його, змінюючи задум.
+
+label: Інший теперішній зріст
+color: sky
+title: Не замінюй бажаний стан автоматично на would.
+wrong: I wish I would be taller.<br><span>Шкода, що я не вищий.</span>
+right: I wish I were taller.<br><span>Шкода, що я не вищий.</span>
+wrong_en: I wish I would be taller.
+wrong_ua: Шкода, що я не вищий.
+right_en: I wish I were taller.
+right_ua: Шкода, що я не вищий.
+hint: Задано бажання бути вищим зараз, не прохання припинити поведінку чи припущення про майбутнє зростання. Тому показуємо were; у неформальному стилі was теж доречне. Це виправлення конкретного стану, не глобальна заборона всіх конструкцій зі спільним підметом.
+
+### wish-summary — summary-list
+
+title: 4. Перевір себе перед вибором форми
+items: Інший стан зараз: past form; інший процес у цей момент: was/were + -ing.
+
+Жаль про вже минулу подію: had + V3; небажана дія відбулася — часто потрібне hadn't + V3.
+
+Бажана здатність або можливість: could + базова форма.
+
+Бажана зміна чи припинення повторюваної дії: would/wouldn't + базова форма, не будь-яке майбутнє бажання.
+
+If only може бути самостійним висловленням; результат із would не обов’язковий. Збережи в перекладі особу, час і заперечення.
+
+### wish-navigation — navigation-chips
+
+title: Сторінки цього розділу
+items: label: Zero Conditional
+url: /theory/conditionals/zero-conditional
+current: false
+
+label: First Conditional
+url: /theory/conditionals/first-conditional
+current: false
+
+label: Second Conditional
+url: /theory/conditionals/second-conditional
+current: false
+
+label: Third Conditional
+url: /theory/conditionals/third-conditional
+current: false
+
+label: Mixed Conditionals
+url: /theory/conditionals/mixed-conditionals
+current: false
+
+label: Unless / Provided / As long as
+url: /theory/conditionals/unless-provided-as-long-as
+current: false
+
+label: In case
+url: /theory/conditionals/in-case
+current: false
+
+label: Wish / If only
+url: /theory/conditionals/wish-if-only
+current: true
+
+label: Would rather
+url: /theory/conditionals/would-rather
+current: false
+
+label: Had better
+url: /theory/conditionals/had-better
+current: false
+
+### wish-if-only-independent — usage-panels
+
+title: 5. If only: самостійне бажання або жаль
+sections: label: Не шукай обов’язкової другої частини
+color: blue
+description: If only часто звучить сильніше, ніж I wish, і може бути цілим висловленням. Це не незавершена вправа на звичайне if + результат. У першому прикладі ми живемо далеко одне від одного; у другому я вже надіслав повідомлення й хотів би змінити саме свою минулу дію.
+examples: en: If only we lived closer.
+ua: От якби ми жили ближче одне до одного.
+
+en: If only I hadn't sent that message!
+ua: От якби я не надіслав того повідомлення!
+note: Інші значення wish мають іншу будову. <span lang="en">I wish you a safe journey.</span> — <span lang="uk">Бажаю тобі безпечної подорожі.</span> Це побажання людині, не нереальна ситуація. <span lang="en">I wish to cancel my booking.</span> — <span lang="uk">Я хочу скасувати своє бронювання.</span> Wish to — формальніший спосіб висловити бажання зробити дію.
+
+### wish-hope-comparison — comparison-table
+
+title: 6. Wish чи hope: що вже відомо?
+intro: Hope виражає надію на бажаний результат, який мовець ще вважає відкритим. Wish у наведених ситуаціях уявно змінює відому перешкоду або минулу подію. Це не правило «будь-яке tomorrow → hope»: з wish можливі could/would та інші форми, коли цього потребує зміст.
+headers: Речення
+
+Переклад
+
+Контекст
+rows: en: I hope Olha can come tomorrow.
+ua: Сподіваюся, Оля зможе прийти завтра.
+note: Її планів ще не знаю й сподіваюся, що можливість прийти буде.
+
+en: I wish Olha could come tomorrow.
+ua: Шкода, що Оля не зможе прийти завтра.
+note: Я вже знаю: завтра Оля працює й прийти не може. Бажання висловлюю я; бажана можливість стосується Олі.
+outro: Споріднену логіку уявного теперішнього дивись у <a href="/theory/conditionals/second-conditional">Second Conditional</a>, а форм минулої альтернативи — у <a href="/theory/conditionals/third-conditional">Third Conditional</a>. Тут вчимося висловлювати бажання, не будуємо обов’язковий умовний результат.
+
+### wish-practice — practice-set
+
+title: 7. Практика: форма та зміст бажання
+select_title: Доповни за ситуацією
+select_intro: Обери доречну форму. Якщо в заданій ситуації граматично можливі альтернативи, вони також приймаються. Переклад і розбір — після перевірки.
+selects: id: m48-wish-continuous-now
+source_index: 1
+label: Я зараз працюю в офісі, але в неформальній розмові уявляю інший процес у цю мить — сиджу біля озера. Доповни бажання.<br><span lang="en">I wish I ___ sitting by the lake now.</span>
+options: were
+
+was
+
+am
+answer: were
+accepted: were
+
+was
+feedback: were: Правильно. I wish I were sitting by the lake now. Переклад: От якби я зараз сидів біля озера. Were sitting описує бажаний інший процес зараз. У заданій неформальній ситуації was sitting теж приймається.
+was: Правильно. I wish I was sitting by the lake now. Переклад: От якби я зараз сидів біля озера. Was sitting доречне в неформальному мовленні; were sitting також правильне. Обидва варіанти зберігають бажаний процес зараз.
+am: Для цієї уявної альтернативи потрібно were або was. I wish I were sitting by the lake now. Переклад: От якби я зараз сидів біля озера. Am sitting не передає потрібної past-форми після wish.
+
+id: m48-wish-negative-past
+source_index: 2
+label: Учора я залишив квиток удома й через це пропустив виставу. Хочу, щоб саме ця минула дія не відбулася. Доповни жаль через wish.<br><span lang="en">I wish I ___ my ticket at home yesterday.</span>
+options: didn't leave
+
+hadn't left
+
+haven't left
+answer: hadn't left
+accepted: hadn't left
+
+hadn’t left
+
+had not left
+feedback: didn't leave: Потрібне hadn't left. I wish I hadn't left my ticket at home yesterday. Переклад: Шкода, що я вчора залишив свій квиток удома. Реальна дія відбулася; бажана альтернатива заперечує її через Past Perfect, а не Past Simple.
+hadn't left: Правильно. I wish I hadn't left my ticket at home yesterday. Переклад: Шкода, що я вчора залишив свій квиток удома. Hadn't left означає бажання, щоб минула дія не відбулася.
+hadn’t left: Правильно. I wish I hadn’t left my ticket at home yesterday. Переклад: Шкода, що я вчора залишив свій квиток удома. Типографічний апостроф не змінює заперечення чи час.
+had not left: Правильно. I wish I had not left my ticket at home yesterday. Переклад: Шкода, що я вчора залишив свій квиток удома. Повна форма має той самий зміст, що й hadn't left.
+haven't left: Потрібне hadn't left. I wish I hadn't left my ticket at home yesterday. Переклад: Шкода, що я вчора залишив свій квиток удома. Тут уявно змінюємо конкретну завершену дію, а не повідомляємо про теперішній результат через Present Perfect.
+
+id: m48-wish-capability
+source_index: 3
+label: Я хочу піти з вами завтра, але мушу працювати й не маю такої можливості. Обери модальне дієслово для бажаної можливості, не обіцянки.<br><span lang="en">I wish I ___ join you tomorrow.</span>
+options: can
+
+will
+
+could
+answer: could
+accepted: could
+feedback: can: Потрібне could. I wish I could join you tomorrow. Переклад: Хотілося б мати змогу приєднатися до вас завтра. Задано відсутню можливість; після wish у цій моделі потрібне could, не can.
+will: Потрібне could. I wish I could join you tomorrow. Переклад: Хотілося б мати змогу приєднатися до вас завтра. Will не виражає потрібної тут бажаної, але недоступної можливості; слово tomorrow саме не обирає форму.
+could: Правильно. I wish I could join you tomorrow. Переклад: Хотілося б мати змогу приєднатися до вас завтра. Could передає бажану можливість, якої за цим контекстом немає.
+choice_title: Збережи намір і зміст
+choice_intro: Вибери A або B відповідно до ситуації. Граматично можливий варіант може не відповідати саме заданому наміру.
+choice_options: a
+
+b
+choices: id: m48-wish-hope-contrast
+source_index: 4
+label: Я ще не знаю, чи буде в Лесі вільний час завтра, і сподіваюся, що вона приєднається. Обери висловлення відкритої надії, не бажання змінити вже відому неможливість.
+prompt: <strong>A)</strong> <span lang="en">I hope Lesia can join us tomorrow.</span><br><strong>B)</strong> <span lang="en">I wish Lesia could join us tomorrow.</span>
+answer: a
+accepted: a
+feedback: a: Правильно: A. I hope Lesia can join us tomorrow. Переклад: Сподіваюся, Леся зможе приєднатися до нас завтра. B: I wish Lesia could join us tomorrow. Переклад: Хотілося б, щоб Леся могла приєднатися до нас завтра. B у такому зіставленні передає бажання всупереч відомій перешкоді; у завданні її не задано.
+b: За заданим наміром потрібне A: I hope Lesia can join us tomorrow. Переклад: Сподіваюся, Леся зможе приєднатися до нас завтра. B: I wish Lesia could join us tomorrow. Переклад: Хотілося б, щоб Леся могла приєднатися до нас завтра. B граматичне, але в цій парі подає інший погляд на можливість, не відкриту надію.
+
+id: m48-wish-wouldnt-change
+source_index: 5
+label: Принтер знову й знову зупиняється посеред роботи. Я хочу, щоб ця повторювана несправність припинилася, а не шкодую лише про одну минулу зупинку. Обери відповідне бажання.
+prompt: <strong>A)</strong> <span lang="en">I wish the printer hadn't stopped yesterday.</span><br><strong>B)</strong> <span lang="en">I wish the printer wouldn't stop every few pages.</span>
+answer: b
+accepted: b
+feedback: a: Для бажаної зміни потрібне B. B: I wish the printer wouldn't stop every few pages. Переклад: Хотілося б, щоб принтер не зупинявся через кожні кілька сторінок. A: I wish the printer hadn't stopped yesterday. Переклад: Шкода, що принтер учора зупинився. A граматичне, але виражає жаль про окрему минулу подію, а не зміну повторюваної роботи предмета.
+b: Правильно: B. I wish the printer wouldn't stop every few pages. Переклад: Хотілося б, щоб принтер не зупинявся через кожні кілька сторінок. A: I wish the printer hadn't stopped yesterday. Переклад: Шкода, що принтер учора зупинився. Wouldn't тут стосується бажаної зміни роботи предмета, не лише поведінки людини.
+
+id: m48-wish-if-only-paraphrase
+source_index: 6
+label: Данило говорить про себе: учора він надіслав повідомлення й тепер шкодує про це. Перефразуй його слова через If only, зберігши того, хто діяв, час і заперечення.<br><span lang="en">I wish I hadn't sent that message last night.</span>
+prompt: <strong>A)</strong> <span lang="en">If only I hadn't sent that message last night!</span><br><strong>B)</strong> <span lang="en">If only I had sent that message last night!</span>
+answer: a
+accepted: a
+feedback: a: Правильно: A. If only I hadn't sent that message last night! Переклад: От якби я не надіслав того повідомлення вчора ввечері! Вихідне I wish I hadn't sent that message last night означає: Шкода, що я надіслав те повідомлення вчора ввечері. B: If only I had sent that message last night! Переклад: От якби я надіслав те повідомлення вчора ввечері! B змінює бажану альтернативу на протилежну.
+b: Потрібне A: If only I hadn't sent that message last night! Переклад: От якби я не надіслав того повідомлення вчора ввечері! Вихідне I wish I hadn't sent that message last night означає: Шкода, що я надіслав те повідомлення вчора ввечері. B: If only I had sent that message last night! Переклад: От якби я надіслав те повідомлення вчора ввечері! Вилучення not змінює зміст. Додавати умовний результат до самостійного If only не потрібно.
+inputs:
+rephrase:
+
+### Point-level details
+
+Небажаний стан чи очікувана зміна?
+Owner: wish-uses /sections/2
+sections: label: Два погляди на ту саму несправність
+color: slate
+description: В обох прикладах екран працює неналежно. Past-форма описує бажаний інший стан пристрою; would додає фокус на тому, щоб робота нарешті змінилася, і може звучати нетерпляче. Ці значення можуть перетинатися, тому без контексту не треба оголошувати одну конструкцію єдино правильною. Вибирай форму за тим, що саме хочеш підкреслити, а не за поділом «людина або предмет».
+examples: en: I wish this screen worked properly.
+ua: Хотілося б, щоб цей екран працював нормально.
+
+en: I wish this screen would work properly.
+ua: Хотілося б, щоб цей екран нарешті запрацював нормально.
+note: Слово «нарешті» у другому перекладі передає задане контекстом нетерпіння; would саме по собі не завжди потребує цього українського слова.
+
+## would-rather
+
+Would rather: власна дія чи дія іншої людини, заперечення, запитання, порівняння з than і практика з поясненнями.
+
+### m48-rather-hero — hero
+
+level: B1-B2
+intro: <strong>Would rather</strong> виражає перевагу: що людина воліє зробити сама або чого хотіла б від іншої людини. Спочатку визнач виконавця дії, потім обери форму.
+rules: label: ВЛАСНА ДІЯ
+color: emerald
+text: Після would rather — базова форма без to.
+example: <span lang="en">I'd rather stay home tonight.</span><br><span lang="uk">Я б краще залишився вдома сьогодні ввечері.</span>
+
+label: НЕБАЖАНИЙ ВАРІАНТ
+color: blue
+text: Для власної дії: would rather not + базова форма.
+example: <span lang="en">I'd rather not talk about it now.</span><br><span lang="uk">Я б волів не говорити про це зараз.</span>
+
+label: ІНША ЛЮДИНА
+color: amber
+text: Для бажаної дії іншої людини відпрацюємо модель із Past Simple, навіть коли йдеться про завтра.
+example: <span lang="en">I'd rather you came earlier tomorrow.</span><br><span lang="uk">Я б волів, щоб ти завтра прийшов раніше.</span>
+
+### m48-rather-forms — forms-grid
+
+title: 1. Форма: хто має виконати дію?
+intro: У скороченні I'd / we'd / she'd літера 'd тут означає would. Rather не замінює would.
+items: label: ВЛАСНА ДІЯ
+title: підмет + would rather + базова форма
+subtitle: Не додаємо to або -ing після would rather.
+rules: label: ПРИКЛАД
+formula:
+text:
+example: <span lang="en">I'd rather take the train.</span><br><span lang="uk">Я б краще поїхав потягом.</span>
+
+label: ВЛАСНЕ ЗАПЕРЕЧЕННЯ
+title: підмет + would rather not + базова форма
+subtitle: Not стоїть після rather і заперечує саме бажану дію.
+rules: label: ПРИКЛАД
+formula:
+text:
+example: <span lang="en">We'd rather not wait outside.</span><br><span lang="uk">Ми б воліли не чекати надворі.</span>
+
+label: ІНШИЙ ВИКОНАВЕЦЬ
+title: would rather + інший підмет + Past Simple
+subtitle: Ця past form може стосуватися теперішнього або майбутнього. Для заперечення в цій моделі: didn't + базова форма.
+rules: label: ПРИКЛАД
+formula:
+text:
+example: <span lang="en">I'd rather he stayed here.</span><br><span lang="uk">Я б волів, щоб він залишився тут.</span>
+
+label: ПРЯМЕ ЗАПИТАННЯ
+title: Would + підмет + rather + базова форма?
+subtitle: Would ставимо перед підметом. Допоміжне do не потрібне.
+rules: label: ВЛАСНИЙ ВИБІР
+formula:
+text:
+example: <span lang="en">Would you rather go now or later?</span><br><span lang="uk">Ти б волів піти зараз чи пізніше?</span>
+
+label: ВИБІР ЧУЖОЇ ДІЇ
+formula: Would + підмет + rather + інший підмет + Past Simple?
+text: У частині після rather зберігай порядок «підмет + дієслово», без другої інверсії.
+example: <span lang="en">Would you rather I waited here?</span><br><span lang="uk">Ти б волів, щоб я зачекав тут?</span>
+
+### m48-rather-uses — usage-panels
+
+title: 2. Перевага, вибір і час дії
+sections: label: Обираю власну дію
+color: emerald
+description: Назвати можна один бажаний варіант або два варіанти через <strong>than</strong>. У моделі з двома діями зберігай паралельні базові форми: walk ... than wait.
+examples: en: I'd rather walk than wait for the bus.
+ua: Я б краще пішов пішки, ніж чекав автобус.
+
+en: She'd rather study at home tonight.
+ua: Вона б краще повчилася сьогодні ввечері вдома.
+note: Не перенось сюди to з іншої конструкції: would prefer to + дієслово, але would rather + дієслово без to.
+
+label: Хочу, щоб інша людина вчинила інакше
+color: blue
+description: Другий підмет називає виконавця бажаної дії. У заперечній моделі з Past Simple ставимо <strong>didn't</strong> саме в частині після цього підмета.
+examples: en: I'd rather you didn't mention this to Alex.
+ua: Я б волів, щоб ти не згадував про це Алексу.
+
+en: We'd rather the children stayed inside.
+ua: Ми б воліли, щоб діти залишилися всередині.
+note: Ми повідомляємо про власну перевагу, а не про згоду іншої людини. Таке висловлення може бути проханням або наполяганням: тон і ситуація важливі, сама конструкція не гарантує ввічливості.
+
+label: Запитую про вибір або відмовляюся
+color: amber
+description: <strong>Would you rather ...?</strong> запитує про бажаний варіант. Коротке <strong>I'd rather not</strong> означає небажання виконувати запропоновану власну дію; зрозуміле з контексту дієслово не повторюємо.
+examples: en: Would you rather sit by the window?
+ua: Ти б волів сидіти біля вікна?
+
+en: Would you rather meet on Friday or Saturday?
+ua: Ти б волів зустрітися в п’ятницю чи суботу?
+
+en: Would you like to join the quiz? — I'd rather not.
+ua: Хочеш долучитися до вікторини? — Я б краще не долучався.
+note: Коротка відмова сама собою не пояснює причини й не означає, що мовець забороняє участь іншим.
+
+label: Past form, але подія ще попереду
+color: slate
+description: У моделі про іншу людину <strong>Past Simple</strong> не обов’язково позначає минулий час. У цьому реченні tomorrow прямо відносить бажану дію до завтра.
+examples: en: I'd rather Lina joined us tomorrow.
+ua: Я б волів, щоб Ліна приєдналася до нас завтра.
+note: Для переваги щодо вже завершеного минулого потрібні інші форми; їх порівняно в «Докладніше» цього пункту.
+
+### m48-rather-mistakes — mistakes-grid
+
+title: 3. Перевір будову
+items: label: ЗАЙВЕ TO
+color: rose
+title: Власна дія після would rather — без to.
+wrong: <span lang="en">I'd rather to stay home.</span><br><span lang="uk">Намір: я б краще залишився вдома.</span>
+right: <span lang="en">I'd rather stay home.</span><br><span lang="uk">Я б краще залишився вдома.</span>
+wrong_en: I'd rather to stay home.
+wrong_ua: Намір: я б краще залишився вдома.
+right_en: I'd rather stay home.
+right_ua: Я б краще залишився вдома.
+hint: Верхній варіант помилковий саме за будовою. Після would prefer потрібне to, але це інша конструкція.
+
+label: ПРОПУЩЕНЕ WOULD
+color: amber
+title: Для цієї переваги зберігай would / 'd.
+wrong: <span lang="en">I rather stay home today.</span><br><span lang="uk">Намір: я б краще залишився вдома сьогодні.</span>
+right: <span lang="en">I'd rather stay home today.</span><br><span lang="uk">Я б краще залишився вдома сьогодні.</span>
+wrong_en: I rather stay home today.
+wrong_ua: Намір: я б краще залишився вдома сьогодні.
+right_en: I'd rather stay home today.
+right_ua: Я б краще залишився вдома сьогодні.
+hint: У цільовій конструкції rather не є самостійною заміною would rather.
+
+label: ЗАЙВА ІНВЕРСІЯ
+color: sky
+title: У підрядній частині іншого виконавця ставимо перед дієсловом.
+wrong: <span lang="en">Would you rather did I wait here?</span><br><span lang="uk">Намір: ти б волів, щоб я зачекав тут?</span>
+right: <span lang="en">Would you rather I waited here?</span><br><span lang="uk">Ти б волів, щоб я зачекав тут?</span>
+wrong_en: Would you rather did I wait here?
+wrong_ua: Намір: ти б волів, щоб я зачекав тут?
+right_en: Would you rather I waited here?
+right_ua: Ти б волів, щоб я зачекав тут?
+hint: Запитання вже утворене через Would you. Частина I waited не стає окремим прямим запитанням did I wait.
+
+### m48-rather-summary — summary-list
+
+title: 4. Короткий орієнтир
+items: Власна дія: <strong>would rather + базова форма</strong>; власне заперечення: <strong>would rather not + базова форма</strong>.
+
+Інший виконавець у моделі цього уроку: <strong>would rather + підмет + Past Simple</strong>. Час події визначай за змістом, не лише за формою.
+
+Дві власні дії порівнюй через <strong>than</strong>; у прямому запитанні винеси would перед першим підметом.
+
+Перевага не дорівнює факту, обіцянці або згоді співрозмовника. Для поради з можливими наслідками дивись окремий урок <a href="/theory/conditionals/had-better">Had better</a>.
+
+### m48-rather-navigation — navigation-chips
+
+title: Сторінки цього розділу
+items: label: Zero Conditional
+url: /theory/conditionals/zero-conditional
+current: false
+
+label: First Conditional
+url: /theory/conditionals/first-conditional
+current: false
+
+label: Second Conditional
+url: /theory/conditionals/second-conditional
+current: false
+
+label: Third Conditional
+url: /theory/conditionals/third-conditional
+current: false
+
+label: Mixed Conditionals
+url: /theory/conditionals/mixed-conditionals
+current: false
+
+label: Unless / Provided / As long as
+url: /theory/conditionals/unless-provided-as-long-as
+current: false
+
+label: In case
+url: /theory/conditionals/in-case
+current: false
+
+label: Wish / If only
+url: /theory/conditionals/wish-if-only
+current: false
+
+label: Would rather
+url: /theory/conditionals/would-rather
+current: true
+
+label: Had better
+url: /theory/conditionals/had-better
+current: false
+
+### m48-rather-variation — comparison-table
+
+title: 5. Чому come не позначено безумовною помилкою
+intro: У цьому уроці для іншого виконавця відпрацьовуємо поширену модель із past form. В американському вживанні трапляється й базова форма; не варто перетворювати навчальний ключ на заборону для всіх варіантів англійської.
+headers: Варіант
+
+Переклад
+
+Як читати
+rows: en: I'd rather you came tomorrow.
+ua: Я б волів, щоб ти прийшов завтра.
+note: Модель із past form для майбутньої переваги; саме її тренуємо, коли так сказано в умові.
+
+en: I'd rather you come tomorrow.
+ua: Я б волів, щоб ти прийшов завтра.
+note: Варіант із базовою формою, засвідчений в американському вживанні. Тут він не є прикладом універсальної граматичної помилки.
+warning: Обидва приклади говорять про бажаний прихід, а не доводять, що співрозмовник уже погодився. Не виводь із come / came різний ступінь реальності або ввічливості без контексту.
+
+### m48-rather-practice — practice-set
+
+title: 6. Практика
+select_title: Доповни форму за ситуацією
+select_intro: Обери один варіант для кожного пропуску. Переклад і пояснення відкриються після перевірки.
+selects: source_index: 1
+label: Данило обирає для себе потяг о сьомій завтра. Доповни його вислів.<br><span lang="en">I'd rather ___ the seven o'clock train tomorrow.</span>
+options: taking
+
+take
+
+to take
+answer: take
+accepted: take
+feedback: taking: Потрібна базова форма: I'd rather take the seven o'clock train tomorrow. Переклад: Я б краще поїхав завтра потягом о сьомій. Taking не підходить безпосередньо після would rather для цієї власної дії.
+take: Правильно. I'd rather take the seven o'clock train tomorrow. Переклад: Я б краще поїхав завтра потягом о сьомій. Виконавець той самий, тому після would rather ставимо take без to.
+to take: To тут зайве. I'd rather take the seven o'clock train tomorrow. Переклад: Я б краще поїхав завтра потягом о сьомій. Не переносимо to з would prefer до would rather.
+id: m48-would-rather-task-1
+
+source_index: 2
+label: Ми не хочемо чекати надворі сьогодні ввечері. Обери заперечну форму для нашої власної дії.<br><span lang="en">We'd rather ___ outside tonight.</span>
+options: don't wait
+
+not to wait
+
+not wait
+answer: not wait
+accepted: not wait
+feedback: don't wait: У цій конструкції правильно: We'd rather not wait outside tonight. Переклад: Ми б воліли не чекати надворі сьогодні ввечері. Для власної дії not стоїть після rather; don't тут не потрібне.
+not to wait: Після not не додаємо to: We'd rather not wait outside tonight. Переклад: Ми б воліли не чекати надворі сьогодні ввечері. Would rather not поєднується з базовою формою wait.
+not wait: Правильно. We'd rather not wait outside tonight. Переклад: Ми б воліли не чекати надворі сьогодні ввечері. Заперечення стосується нашого очікування, а не дії іншої людини.
+id: m48-would-rather-task-2
+
+source_index: 3
+label: Запитай, чи співрозмовник воліє, щоб ти зачекав тут завтра вранці. Використай модель з Past Simple для іншого виконавця.<br><span lang="en">Would you rather ___ here tomorrow morning?</span>
+options: I waited
+
+did I wait
+
+I had waited
+answer: I waited
+accepted: I waited
+feedback: i waited: Правильно. Would you rather I waited here tomorrow morning? Переклад: Ти б волів, щоб я зачекав тут завтра вранці? Tomorrow morning задає майбутню дію; після rather порядок I waited, без інверсії.
+did i wait: Підрядна частина не є окремим прямим запитанням. Правильно: Would you rather I waited here tomorrow morning? Переклад: Ти б волів, щоб я зачекав тут завтра вранці? Would you уже оформлює запитання; did I wait порушує потрібний порядок.
+i had waited: Ціль завдання — Past Simple для бажаної завтрашньої дії, не Past Perfect про попереднє минуле. Правильно: Would you rather I waited here tomorrow morning? Переклад: Ти б волів, щоб я зачекав тут завтра вранці?
+id: m48-would-rather-task-3
+choice_title: Збережи перевагу й виконавця
+choice_intro: Обери один варіант, що точно відповідає ситуації. Граматично правильне речення може передавати інший намір.
+choices: source_index: 4
+label: Сьогодні ввечері ти волієш приготувати їжу, а не замовити піцу. Яке речення передає напрям цього вибору?
+options: I'd rather order pizza tonight than cook.
+
+I'd rather cook tonight than order pizza.
+answer: I'd rather cook tonight than order pizza.
+accepted: I'd rather cook tonight than order pizza.
+feedback: i'd rather order pizza tonight than cook.: Це інша перевага. I'd rather order pizza tonight than cook. Переклад: Я б краще замовив піцу сьогодні ввечері, ніж готував. Для заданого вибору: I'd rather cook tonight than order pizza. Переклад: Я б краще приготував їжу сьогодні ввечері, ніж замовляв піцу. Обидві конструкції граматичні; у першій обрано не ту дію.
+i'd rather cook tonight than order pizza.: Правильно. I'd rather cook tonight than order pizza. Переклад: Я б краще приготував їжу сьогодні ввечері, ніж замовляв піцу. Після rather і than стоять паралельні базові форми cook та order. Інший варіант, I'd rather order pizza tonight than cook, означає: Я б краще замовив піцу сьогодні ввечері, ніж готував.
+id: m48-would-rather-task-4
+
+source_index: 5
+label: Перефразуй через would rather, зберігши іншого виконавця, заперечення, Ольгу й час до полудня.<br><span lang="en">I would prefer you not to send the file to Olha before noon.</span>
+options: I'd rather you didn't send the file to Olha before noon.
+
+I'd rather not send the file to Olha before noon.
+answer: I'd rather you didn't send the file to Olha before noon.
+accepted: I'd rather you didn't send the file to Olha before noon.
+feedback: i'd rather you didn't send the file to olha before noon.: Правильно. I'd rather you didn't send the file to Olha before noon. Переклад: Я б волів, щоб ти не надсилав файл Ользі до полудня. Вихідне I would prefer you not to send the file to Olha before noon має той самий зміст: Я б волів, щоб ти не надсилав файл Ользі до полудня. Інший варіант, I'd rather not send the file to Olha before noon, означає: Я б волів не надсилати файл Ользі до полудня — тут файл мав би надсилати сам мовець.
+i'd rather not send the file to olha before noon.: Змінено виконавця. I'd rather not send the file to Olha before noon. Переклад: Я б волів не надсилати файл Ользі до полудня. У вихідному I would prefer you not to send the file to Olha before noon ідеться про тебе: Я б волів, щоб ти не надсилав файл Ользі до полудня. Потрібно: I'd rather you didn't send the file to Olha before noon. Переклад: Я б волів, щоб ти не надсилав файл Ользі до полудня.
+id: m48-would-rather-task-5
+
+source_index: 6
+label: Тебе запрошують заспівати сьогодні ввечері на вечірці. Ти сам не хочеш співати, але не заперечуєш проти співу співрозмовника. Обери коротку відмову.<br><span lang="en">Would you like to sing at tonight's party?</span>
+options: I'd rather you didn't.
+
+I'd rather not.
+answer: I'd rather not.
+accepted: I'd rather not.
+feedback: i'd rather you didn't.: Це звернення до іншого виконавця: I'd rather you didn't. Переклад у цій ситуації: Я б волів, щоб ти не співав. Запитання Would you like to sing at tonight's party? означає: Хочеш заспівати сьогодні ввечері на вечірці? Для власної відмови: I'd rather not. Переклад: Я б краще не співав.
+i'd rather not.: Правильно. Would you like to sing at tonight's party? Переклад: Хочеш заспівати сьогодні ввечері на вечірці? I'd rather not. Переклад: Я б краще не співав. Дію зрозуміло із запрошення. Інший варіант, I'd rather you didn't, означає: Я б волів, щоб ти не співав; він не передає заданої власної відмови.
+id: m48-would-rather-task-6
+inputs:
+rephrase:
+
+### Point-level details
+
+Перевага щодо минулого: чия дія?
+Owner: m48-rather-uses /sections/3
+sections: label: Власна минула дія
+color: emerald
+description: Коли оцінюємо вже завершений власний вибір, після <strong>would rather</strong> використовуємо <strong>have + V3</strong>. У прикладі нижче я вчора обрав автобус, а тепер віддаю перевагу іншому минулому варіанту. Це не план поїхати потягом завтра.
+examples: en: I took the bus yesterday, but I'd rather have taken the train.
+ua: Учора я поїхав автобусом, але волів би тоді поїхати потягом.
+note: Виконавець обох дій — I. Have taken тут стосується оцінюваного минулого вибору.
+
+label: Минула дія іншої людини
+color: blue
+description: Якщо йдеться про вже здійснену дію іншої людини, після другого підмета використовуємо <strong>Past Perfect</strong>. Ніна вчора поділилася фотографією, а я хотів би іншого результату. Заперечення hadn't shared стосується її дії, не мого висловлення переваги.
+examples: en: Nina shared the photo yesterday. I'd rather she hadn't shared it.
+ua: Ніна вчора поділилася фотографією. Я б волів, щоб вона тоді не поділилася нею.
+note: На відміну від майбутнього joined у basic, shared позначає тут відомий минулий факт. Конструкція висловлює ставлення до нього, а не змінює сам факт.
