@@ -237,6 +237,8 @@ class TheoryCourseManifestService
             ->where('type', 'theory')
             ->first();
 
+        $page = \App\Support\PracticeCompletionPackage::preserveCoursePage($page);
+
         return \App\Support\M49AdviceModalsPackage::preserveCoursePage(\App\Support\M48ConditionalsPackage::preserveCoursePage(\App\Support\M47ConditionalsPackage::preserveCoursePage(\App\Support\M46ConditionalsPackage::preserveCoursePage($page))));
     }
 

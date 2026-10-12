@@ -6,6 +6,7 @@ use App\Models\Page;
 use App\Models\TextBlock;
 use App\Support\M26DetailPackage;
 use App\Support\M48ConditionalsPackage as Package;
+use App\Support\PracticeCompletionPackage;
 use App\Support\TheoryContentRenderer;
 use App\Support\TheoryContentSource;
 use DOMDocument;
@@ -151,13 +152,46 @@ class M48ConditionalsPackageTest extends TestCase
         self::assertSame('4208b6f6bf760f898a260bdb1395ca3c5a47a6085cb41473b6feeb5a47c20a7d',
             hash_file('sha256', base_path(Package::SOURCE)));
         Package::validate($before, $source, $master);
+        [$completionBefore, $completionSource, $completionMaster] = PracticeCompletionPackage::load();
+        PracticeCompletionPackage::validate($completionBefore, $completionSource, $completionMaster);
+        $completionBeforeByOwner = array_column($completionBefore['targets'], null, 'identity');
+        $completionAfterByOwner = array_column($completionSource['targets'], null, 'identity');
 
         foreach ($master['lessons'] as $i => $lesson) {
             $old = $before['targets'][$i]['before'];
             $target = $source['targets'][$i];
             self::assertSame($target['after'], Package::definition($lesson, $old));
-            self::assertSame($target['after'], json_decode(file_get_contents(base_path($target['path'])), true, flags: JSON_THROW_ON_ERROR),
-                'The versioned definition itself matches the pinned source projection');
+            // Historical projection remains independently asserted above; only the new pinned
+            // supplemental practice body may differ in the current versioned definition.
+            self::assertArrayHasKey($target['identity'], $completionBeforeByOwner);
+            self::assertArrayHasKey($target['identity'], $completionAfterByOwner);
+            $completionBeforeTarget = $completionBeforeByOwner[$target['identity']];
+            $completionTarget = $completionAfterByOwner[$target['identity']];
+            self::assertSame($target['path'], $completionBeforeTarget['definition']);
+            self::assertSame($target['path'], $completionTarget['definition']);
+            $expectedActive = $target['after'];
+            $practiceSlots = array_keys(array_filter($expectedActive['page']['blocks'],
+                static fn (array $block): bool => $block['type'] === 'practice-set'));
+            self::assertCount(1, $practiceSlots);
+            $practiceSlot = $practiceSlots[0];
+            $historicalPractice = $expectedActive['page']['blocks'][$practiceSlot];
+            $expectedPracticeBefore = [
+                'type' => $historicalPractice['type'],
+                'column' => $historicalPractice['column'] ?? null,
+                'heading' => $historicalPractice['heading'] ?? null,
+                'level' => $historicalPractice['level'] ?? null,
+                'css_class' => $historicalPractice['css_class'] ?? null,
+                'sort_order' => $practiceSlot + 1,
+                'uuid' => M26DetailPackage::uuid($target['identity'], $historicalPractice, $practiceSlot + 1),
+                'body' => $historicalPractice['body'],
+            ];
+            self::assertSame($expectedPracticeBefore, $completionBeforeTarget['practice']);
+            self::assertSame($expectedPracticeBefore, $completionTarget['before']['practice']);
+            self::assertSame(array_diff_key($expectedPracticeBefore, ['body' => true]),
+                array_diff_key($completionTarget['after']['practice'], ['body' => true]));
+            $expectedActive['page']['blocks'][$practiceSlot]['body'] = $completionTarget['after']['practice']['body'];
+            self::assertSame($expectedActive, json_decode(file_get_contents(base_path($target['path'])), true, flags: JSON_THROW_ON_ERROR),
+                'The current definition is historical AFTER plus the exact pinned supplemental practice body only');
             self::assertSame('uk', $lesson['locale']);
             self::assertSame('B1-B2', $lesson['display_level']);
             self::assertSame('B1', $lesson['technical_block_level']);
