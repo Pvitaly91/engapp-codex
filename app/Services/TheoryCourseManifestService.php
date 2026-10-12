@@ -237,7 +237,7 @@ class TheoryCourseManifestService
             ->where('type', 'theory')
             ->first();
 
-        return \App\Support\M46ConditionalsPackage::preserveCoursePage($page);
+        return \App\Support\M47ConditionalsPackage::preserveCoursePage(\App\Support\M46ConditionalsPackage::preserveCoursePage($page));
     }
 
     public function lessonUrl(string $categoryPath, string $pageSlug, bool $test = false): string

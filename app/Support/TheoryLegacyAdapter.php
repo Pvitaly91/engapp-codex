@@ -127,6 +127,8 @@ final class TheoryLegacyAdapter
                 }
                 $correction = M46ConditionalsPackage::correction($item, $design);
                 if ($correction !== null) { $point = array_replace($point, $correction); }
+                $correction = M47ConditionalsPackage::correction($item, $design);
+                if ($correction !== null) { $point = array_replace($point, $correction); }
                 self::detail($point, $pointSections, $index);
                 $node['items'][] = $point;
             }

@@ -33,6 +33,7 @@ final class TheoryHtmlAdapter
     /** Whole author points receive the existing native usage-panel component. */
     public static function nativePointPanels(?array $design): ?array
     {
+        if (($design['package'] ?? null) === 'm47-native-v1') { return M47ConditionalsPackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm46-native-v1') { return M46ConditionalsPackage::pointPanels($design); }
         if ($design === null || !self::verifiedNativeDesign($design)) { return null; }
         foreach (self::pointPanelMapping()['targets'] ?? [] as $target) {
@@ -110,6 +111,7 @@ final class TheoryHtmlAdapter
     /** Only the unchanged, finite native plan can select paragraph-flow presentation. */
     public static function verifiedNativeDesign(?array $design): bool
     {
+        if (($design['package'] ?? null) === 'm47-native-v1') { return M47ConditionalsPackage::validDesign($design); }
         if ($design === null) { return false; }
         if (($design['package'] ?? null) === 'm46-native-v1') { return M46ConditionalsPackage::validDesign($design); }
         try {
