@@ -300,7 +300,8 @@ final class PracticeCompletionPackage
             if ($old === null || ($old['points'] ?? []) !== [] || ($old['m42_native_design']['component'] ?? null) !== 'practice-set') {
                 return null;
             }
-            return ['data' => $data, 'points' => [], 'legacy_section' => null, 'legacy_practice_id' => null,
+            return ['data' => PracticeCompletionLinkedPractice::presentationData($block, $data),
+                'points' => [], 'legacy_section' => null, 'legacy_practice_id' => null,
                 'm42_native_design' => ['package' => self::PACKAGE, 'identity' => $target['identity'], 'locale' => 'uk',
                     'uuid' => $target['after']['practice']['uuid'], 'source_index' => $target['after']['practice']['sort_order'] - 1,
                     'body_sha256' => hash('sha256', $target['after']['practice']['body']), 'component' => 'practice-set']];

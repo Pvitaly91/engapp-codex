@@ -187,3 +187,52 @@ Private browser receipt ui-live-v101-complete.json SHA-256 d43875045390abcb5fe0d
 Звіт фіналізовано до commit після завершення контентного, UI, ізольованого test і свіжого local приймання. Scoped staged review, normal commit/push робочої гілки та звірка remote SHA == HEAD завершують доставку; їхній фактичний результат і full commit SHA наводяться в окремому handoff. Цей звіт не заявляє наперед уже виконаний push і не містить само-посилального commit hash.
 
 .env, secrets, DB backups/dumps, private captures/proofs/screenshots, caches, generated assets та сторонні dirty changes не включаються до commit. Історичні M46–M49 звіти й frozen learning releases не переписуються.
+
+## Follow-up: вбудована «Вправа 4. Побудуй речення»
+
+Окреме виправлення після завершеного вище Practice Completion, за прямим уточненням користувача: на цих самих 12 сторінках потрібний вбудований sentence-builder widget, як на PPC Forms, а не лише linked card до окремого тесту. Історичний звіт вище, його counts і receipts залишені без змін. Source-backup commit перед цим follow-up: 10ceafdb668554027325db1832cd8ec4a2af0378; гілка — codex/m46-m49-practice-completion.
+
+### Що змінено
+
+Додано тільки render-only підключення наявного native widget до 12 точних UK practice owners. У stored practice body не дописується linked_practice; всі frozen master/BEFORE/source 1.0.1 та 12 активних definitions залишаються незмінними. Це display-only follow-up: DB writes — 0; нового content apply чи DB backup для нього не потрібно.
+
+[Скінченний manifest](../content/practice-completion-linked-widgets.v1.json) містить 12 exact metadata/body bindings і лише шість наявних config keys: source, question_types, seeder_classes, title, intro, footer. SHA-256 manifest — af9883ee79793d3f0182fe2bd41e5846c905722de1e1b1f380073079c3f2ccc2. Новий app/Support/PracticeCompletionLinkedPractice.php має SHA-256 5b356e7c97505851d7933a39f6bc4216925c3409a46994560177a6d12058e6a5; ROOT/WT копії ідентичні.
+
+- PracticeCompletionPackage додає config лише до повернених presentation data після підтвердження відомого AFTER. Original model і raw body не мутуються.
+- PageController використовує matching-only clone виключно за pageType === theory та showView === theory.show. Clone передається чинному TextBlockToQuestionsMatcherService; оригінальні page/textBlocks залишаються незмінними.
+- Helper вимагає canonical caller, app locale UK, block locale UK, точні owner/Page/category/UUID/type/column/heading/level/css_class/sort_order, raw AFTER hash і відповідність decoded data. Manifest та source 1.0.1 перевіряються за pinned SHA. Foreign/courses/EN/PL/змінений body повертають попередні data/model без opt-in.
+- Чинний matcher використовує source=theory_links, лише type 4, один точний bank seeder, page-wide linked UUID pool і незмінений exact technical CEFR level. Він бере максимум п’ять питань. Немає broad fallback до іншого банку або зняття CEFR filter.
+- Існуючий practice-set уже передає questions/title/intro/footer у text-block-practice-questions. Нових Blade, CSS, JS, шрифтів, кнопок, grader або форми вправи не створено. Курсовий caller не отримує цей opt-in.
+
+Усі 18 pins чинного content manifest 1.0.1, 326 visual files і 12 source definitions linked banks незмінні. Question banks, pivot relations, saved tests, answers/aliases та локалізації не редагуються.
+
+### Рахунок завдань і початковий доказ
+
+72 старі власні завдання + 24 власні inputs = 96, без змін. Вбудований widget обліковується окремо, не замінює inputs і не збільшує їхній score.
+
+У 12 чинних банках є 864 наявні питання (по 72), а не 864 нові. Read-only inventory підтвердив для кожного exact bank/page pool 12 питань потрібного technical CEFR level, достатніх для штатного limit 5. Прямих links на practice UUID немає; чинний page-wide matcher використовує links на інші theory blocks тієї самої сторінки. Окремий fresh HTTP audit підтвердив фактичне відображення: 12 theory URL повернули 200; на кожній сторінці рівно один native data-sentence-builder і п’ять JSON questions, разом 60. Усі питання мають type 4 і точний target CEFR. Це 60 відібраних existing linked questions, а не новий банк і не 60 browser interactions.
+
+На May / Might фактичний DOM уже показав H4 «Вправа 4. Побудуй речення», лічильник 1/5, українську умову й банк слів; попередні три own-practice cards і два manual inputs залишилися. Це початковий доказ однієї сторінки, не завершена matrix для всіх 12.
+
+### Приймання follow-up
+
+| Перевірка | Поточний стан |
+| --- | --- |
+| Новий helper/manifest і ROOT/WT parity | PASS; обидва PHP-файли helper/test пройшли lint |
+| Ізольовані чотири suites: PracticeCompletionLinkedPracticeTest, PracticeCompletionPackageTest, TextBlockToQuestionsMatcherTest, M26InteractivePracticePackageTest | PASS: 27 унікальних тестів / 3541 assertions; protected window CLOSED, 46 661 файл без змін |
+| 12 HTTP widget datasets / scope | PASS: 12 / 12 HTTP 200, один widget і п’ять питань на кожній сторінці, разом 60; exact type 4 / CEFR |
+| Browser desktop/mobile, native interactions | ОБМЕЖЕНО: May initial presence + п’ять dataset records підтверджені; click acceptance цього follow-up не завершено через недоступність керування browser |
+| Fresh read-only after-v7: 24 theory/course HTTP та protected projection 46 SQL tables | PASS: 24 / 24 HTTP 200, 46 protected tables, 326 visual files, 0 theory/metadata/course changes; DB apply не виконувався |
+| Scoped Git-доставка follow-up | Звіт фіналізовано з явним browser limitation; actual normal commit/push і full SHA підтверджуються окремим handoff |
+
+Фінальний ізольований прохід follow-up: PracticeCompletionLinkedPracticeTest — 6 / 1073; PracticeCompletionPackageTest — 6 / 2054; TextBlockToQuestionsMatcherTest — 11 / 24; M26InteractivePracticePackageTest — 4 / 390. Разом 27 унікальних тестів / 3541 assertions, failures/errors/skips 0, child/runner exit 0. Receipt practice-completion-linked-widget-v2-7ca764e7503a4d758c4b01527522f999-result.json SHA-256 ef069823a6154dbb73ddc7a53b302237bdf31fb37649d1d5e016b3d5d79cd38e; JUnit SHA-256 de6785f265e4ae1c7600effc40b9c965224bf940825708e8a4fa0acc7bd97249. PHP 8.5.10 / PHPUnit 12.5.35, SQLite :memory:, array cache/session, working environment не завантажувався. Protected BEFORE/AFTER: 46 661 файл, змін 0. Та сама одна PDO constant deprecation з config/database.php:62 спрацювала під час 27 тестів; config не змінено.
+
+Перший follow-up запуск мав 27 / 3412, 1 failure і 1 error; він не є PASS і не додається до фінального coverage. Виправлено тільки дві нові test fixtures: reference equality для intro помилково брала старе WT формулювання PPC замість уже погодженого actual ROOT «за українською умовою»; temporary-path assertion викликався до створення owned child directory. Перевірка parent ownership, створення child і його повторна перевірка зберігають isolation guard. Runtime/manifest/PPC sources для проходження тестів не змінювалися. Initial receipt SHA-256 7c138b15fabc7bf694f667d0975661b7782ad100dd1f12a425a35ed503f40c59; protected changes також 0.
+
+Browser limitation поточного follow-up: на May / Might підтверджено лише початкову видимість widget та dataset із п’яти питань. Жодний новий click acceptance не завершено. Спроби відновлення керування повторно закінчилися timeout у CDP Runtime.evaluate / Page.getFrameTree; після reset новий inventory показав власну tab 2 на Zero, але binding не встановився через Emulation.setFocusEmulationEnabled. open_in_codex повернув queued, що не є доказом успішної взаємодії. Інтерактивне покриття 12 сторінок, mobile або dark у цьому follow-up не заявляється. Попередні UI 48 / 96 у незмінній історичній частині стосуються іншого завершеного етапу й не підміняють цю перевірку.
+
+HTTP receipt linked-widget-http-v1.json SHA-256 7d3a0f6374f268df98acf79e7325fd7bfaee0288900277af01f7526182cda311 підтверджує 12 actual widget datasets. Це server-response/JSON evidence, не browser state, click, score, retry/reset або mobile acceptance.
+
+Read-only after-v7.json SHA-256 5f86425d650028f42d46de7313cf8a801c5b2334b4f9e2bcaf4ff35cf460b1df підтвердив 24 theory/course HTTP 200, protected projection усіх 46 SQL tables, 326 visual files, незмінні 72 old tasks і 24 inputs, відсутність theory/metadata/course changes. Окремого apply або backup не створювали: database content не змінюється.
+
+Цей додаток не перепризначає історичні counts/результати Practice Completion: наведені вище 393 тести не є новим follow-up coverage. Actual scoped commit/push і full SHA підтверджуються окремим handoff, без заяви наперед або само-посилального hash у звіті.

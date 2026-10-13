@@ -289,14 +289,20 @@ class PracticeCompletionPackageTest extends TestCase
             $data = json_decode($block->body, true, flags: JSON_THROW_ON_ERROR);
             $presentation = Package::presentation($block, $data);
             self::assertNotNull($presentation, $target['slug']);
-            self::assertSame($data, $presentation['data']);
+            self::assertArrayNotHasKey('linked_practice', $data, 'Frozen stored AFTER stays unchanged.');
+            self::assertSame($data, array_diff_key($presentation['data'], ['linked_practice' => true]),
+                'Only the explicitly bound render-only linked configuration may be added.');
+            self::assertSame('theory_links', $presentation['data']['linked_practice']['source']);
+            self::assertSame(['4'], $presentation['data']['linked_practice']['question_types']);
+            self::assertCount(1, $presentation['data']['linked_practice']['seeder_classes']);
+            self::assertSame('Вправа 4. Побудуй речення', $presentation['data']['linked_practice']['title']);
             self::assertSame([], $presentation['points']);
             self::assertSame(Package::PACKAGE, $presentation['m42_native_design']['package']);
             self::assertSame('practice-set', $presentation['m42_native_design']['component']);
             self::assertNull(TheoryContentSource::resolve($block)['presentation']);
             $resolved = TheoryContentSource::resolve($block, ['m42StyleContext' => true]);
             self::assertSame($presentation, $resolved['presentation']);
-            self::assertSame($data, $resolved['data']);
+            self::assertSame($presentation['data'], $resolved['data']);
             self::assertSame('engram.theory.blocks-v3.practice-set', $resolved['view']);
 
             foreach (['page_id' => $target['page']['id'] + 10000,
