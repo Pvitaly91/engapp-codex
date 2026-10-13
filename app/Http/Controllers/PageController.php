@@ -614,7 +614,8 @@ class PageController extends Controller
                 $localizedTitle = $localizedTitles[$modelId][$locale] ?? null;
 
                 if ($model instanceof Page) {
-                    $localizedTitle = \App\Support\M45FutureComparisonsPackage::displayTitle($model, $locale) ?? $localizedTitle;
+                    $localizedTitle = \App\Support\M50ObligationAdvicePackage::displayTitle($model, $locale, $this->routePrefix)
+                        ?? \App\Support\M45FutureComparisonsPackage::displayTitle($model, $locale) ?? $localizedTitle;
                 }
 
                 if (is_string($localizedTitle) && $localizedTitle !== '') {
