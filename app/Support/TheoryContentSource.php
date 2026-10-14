@@ -11,6 +11,7 @@ namespace App\Support;
 final class TheoryContentSource
 {
     private const PRESENTERS = [
+        [M51ModalMeaningsPackage::class, 'm42StyleContext'],
         [M50ObligationAdvicePackage::class, 'm42StyleContext'],
         [PracticeCompletionPackage::class, 'm42StyleContext'],
         [M49AdviceModalsPackage::class, 'm42StyleContext'],

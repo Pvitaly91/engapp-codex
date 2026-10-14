@@ -488,6 +488,8 @@ class TestJsV2Controller extends Controller
                     }
                     $block = \App\Support\M50ObligationAdvicePackage::preserveExcludedTextBlock($block, 'standalone_test');
                     if ($block === null) { continue; }
+                    $block = \App\Support\M51ModalMeaningsPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
                     if (isset($seenBlockUuids[$block->uuid])) {
                         continue;
                     }
@@ -504,6 +506,7 @@ class TestJsV2Controller extends Controller
             if ($theoryBlocks === [] && ! empty($q->theory_text_block_uuid)) {
                 $textBlock = TextBlock::where('uuid', $q->theory_text_block_uuid)->first();
                 if ($textBlock) { $textBlock = \App\Support\M50ObligationAdvicePackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M51ModalMeaningsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) {
                     $theoryBlocks[] = [
                         'uuid' => $textBlock->uuid,
@@ -1297,6 +1300,8 @@ class TestJsV2Controller extends Controller
                 }
                 $block = \App\Support\M50ObligationAdvicePackage::preserveExcludedTextBlock($block, 'standalone_test');
                 if ($block === null) { continue; }
+                $block = \App\Support\M51ModalMeaningsPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
                 $seen[$block->uuid] = true;
                 $blocks[] = [
                     'uuid' => $block->uuid,
@@ -1310,6 +1315,7 @@ class TestJsV2Controller extends Controller
         if ($blocks === [] && ! empty($question->theory_text_block_uuid)) {
             $textBlock = TextBlock::where('uuid', $question->theory_text_block_uuid)->first();
             if ($textBlock) { $textBlock = \App\Support\M50ObligationAdvicePackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M51ModalMeaningsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) {
                 $blocks[] = [
                     'uuid' => $textBlock->uuid,

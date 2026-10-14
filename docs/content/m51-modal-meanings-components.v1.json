@@ -1,0 +1,778 @@
+{
+    "schema_version": 1,
+    "status": "frozen",
+    "source": "docs/content/m51-modal-meanings.v1.0.0.json",
+    "policy": {
+        "source_order_preserved": true,
+        "whole_meaningful_points": true,
+        "global_word_threshold": false,
+        "new_visual_components": false,
+        "anonymous_learning_rules": false
+    },
+    "targets": [
+        {
+            "identity": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsDeductionTheorySeeder",
+            "slug": "modals-of-deduction",
+            "local_url": "http://gramlyze.loc/theory/modal-verbs/modals-of-deduction",
+            "display_level": "B1-B2",
+            "technical_block_level": "B1",
+            "blocks": [
+                {
+                    "key": "modals-of-deduction-hero",
+                    "existing_source_index": 0,
+                    "type": "hero",
+                    "column": "header",
+                    "level": "B1",
+                    "source_pointer": "/lessons/0/blocks/0/data",
+                    "component": "engram.theory.blocks-v3.hero",
+                    "basic": {
+                        "all_fields_visible": true
+                    },
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                },
+                {
+                    "key": "modals-of-deduction-forms",
+                    "existing_source_index": 1,
+                    "type": "forms-grid",
+                    "column": "left",
+                    "level": "B1",
+                    "source_pointer": "/lessons/0/blocks/1/data",
+                    "component": "theory.content → theory.components.form",
+                    "basic": [
+                        {
+                            "pointer": "/items/0",
+                            "label": "ДІЄСЛОВО",
+                            "visible_fields": [
+                                "title",
+                                "subtitle",
+                                "rules"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/items/1",
+                            "label": "BE ТА ДОПОВНЕННЯ",
+                            "visible_fields": [
+                                "title",
+                                "subtitle",
+                                "rules"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/items/2",
+                            "label": "ПРОЦЕС ЗАРАЗ",
+                            "visible_fields": [
+                                "title",
+                                "subtitle",
+                                "rules"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/items/3",
+                            "label": "ПИТАННЯ ПРО МОЖЛИВІСТЬ",
+                            "visible_fields": [
+                                "title",
+                                "subtitle",
+                                "rules"
+                            ],
+                            "detail_key": null
+                        }
+                    ],
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                },
+                {
+                    "key": "modals-of-deduction-uses",
+                    "existing_source_index": 2,
+                    "type": "usage-panels",
+                    "column": "left",
+                    "level": "B1",
+                    "source_pointer": "/lessons/0/blocks/2/data",
+                    "component": "theory.content → theory.components.usage",
+                    "basic": [
+                        {
+                            "pointer": "/sections/0",
+                            "label": "MUST: ПЕРЕКОНЛИВИЙ ВИСНОВОК",
+                            "accent": "emerald",
+                            "visible_fields": [
+                                "description",
+                                "examples",
+                                "note"
+                            ],
+                            "detail_key": "deduction-evidence-and-confidence"
+                        },
+                        {
+                            "pointer": "/sections/1",
+                            "label": "MAY / MIGHT / COULD: ОДНА З ВЕРСІЙ",
+                            "accent": "blue",
+                            "visible_fields": [
+                                "description",
+                                "examples",
+                                "note"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/sections/2",
+                            "label": "CAN'T: ВЕРСІЯ СУПЕРЕЧИТЬ ЗАДАНОМУ ФАКТУ",
+                            "accent": "amber",
+                            "visible_fields": [
+                                "description",
+                                "examples",
+                                "note"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/sections/3",
+                            "label": "MAY NOT / MIGHT NOT: МОЖЛИВО, НЕ",
+                            "accent": "sky",
+                            "visible_fields": [
+                                "description",
+                                "examples",
+                                "note"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/sections/4",
+                            "label": "ВИСНОВОК, ВИМОГА ЧИ ЗДАТНІСТЬ",
+                            "accent": "slate",
+                            "visible_fields": [
+                                "description",
+                                "examples",
+                                "note"
+                            ],
+                            "detail_key": null
+                        }
+                    ],
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                },
+                {
+                    "key": "modals-of-deduction-mistakes",
+                    "existing_source_index": 3,
+                    "type": "mistakes-grid",
+                    "column": "right",
+                    "level": "B1",
+                    "source_pointer": "/lessons/0/blocks/3/data",
+                    "component": "theory.content → theory.components.mistake",
+                    "basic": {
+                        "all_fields_visible": true
+                    },
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                },
+                {
+                    "key": "modals-of-deduction-summary",
+                    "existing_source_index": 4,
+                    "type": "summary-list",
+                    "column": "right",
+                    "level": "B1",
+                    "source_pointer": "/lessons/0/blocks/4/data",
+                    "component": "theory.content → theory.components.summary",
+                    "basic": {
+                        "all_fields_visible": true
+                    },
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                },
+                {
+                    "key": "modals-of-deduction-navigation",
+                    "existing_source_index": 5,
+                    "type": "navigation-chips",
+                    "column": "footer",
+                    "source_pointer": "/lessons/0/blocks/5/data",
+                    "component": "engram.theory.blocks-v3.navigation-chips",
+                    "basic": {
+                        "all_fields_visible": true
+                    },
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                },
+                {
+                    "key": "modals-of-deduction-practice",
+                    "existing_source_index": null,
+                    "type": "practice-set",
+                    "column": "right",
+                    "level": "B1",
+                    "source_pointer": "/lessons/0/blocks/6/data",
+                    "component": "engram.theory.blocks-v3.practice-set",
+                    "basic": {
+                        "groups": {
+                            "selects": 2,
+                            "choices": 2,
+                            "inputs": 2
+                        },
+                        "source_indices": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6
+                        ],
+                        "input_modes": [
+                            "manual",
+                            "tokens"
+                        ],
+                        "input_visible_instruction_field": "after",
+                        "input_token_field": "before",
+                        "feedback_visibility": "after item check",
+                        "linked_widget": {
+                            "component": "components.text-block-practice-questions",
+                            "question_type": "4",
+                            "question_count": 5,
+                            "level": "B1",
+                            "bank_seeders": [
+                                "Database\\Seeders\\V3\\Polyglot\\PolyglotModalsOfDeductionThematicLessonSeeder"
+                            ],
+                            "question_source": "reviewed new exact-form thematic questions; actual local apply acceptance is separate",
+                            "reviewed_question_ids": [
+                                59661,
+                                59662,
+                                59663,
+                                59664,
+                                59665
+                            ]
+                        }
+                    },
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                }
+            ],
+            "details": [
+                {
+                    "key": "deduction-evidence-and-confidence",
+                    "title": "Ознака, переконання та непідтверджені факти",
+                    "owner_block_key": "modals-of-deduction-uses",
+                    "owner_pointer": "/sections/0",
+                    "fragment_type": "usage-panels",
+                    "sections": 1,
+                    "basic_complete_without_detail": true,
+                    "reason": "Пояснений розбір меж висновку й нових невідомих фактів; basic вже містить силу must, приклади, переклади та застереження."
+                }
+            ],
+            "navigation": {
+                "old_destinations": 8,
+                "preserved_exact": true,
+                "contextual_links": "Explicit current UK destinations; neighbouring owners read-only"
+            }
+        },
+        {
+            "identity": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsPastModalsTheorySeeder",
+            "slug": "past-modals",
+            "local_url": "http://gramlyze.loc/theory/modal-verbs/past-modals",
+            "display_level": "B1-B2",
+            "technical_block_level": "B1",
+            "blocks": [
+                {
+                    "key": "past-modals-hero",
+                    "existing_source_index": 0,
+                    "type": "hero",
+                    "column": "header",
+                    "level": "B1",
+                    "source_pointer": "/lessons/1/blocks/0/data",
+                    "component": "engram.theory.blocks-v3.hero",
+                    "basic": {
+                        "all_fields_visible": true
+                    },
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                },
+                {
+                    "key": "past-modals-forms",
+                    "existing_source_index": 1,
+                    "type": "forms-grid",
+                    "column": "left",
+                    "level": "B1",
+                    "source_pointer": "/lessons/1/blocks/1/data",
+                    "component": "theory.content → theory.components.form",
+                    "basic": [
+                        {
+                            "pointer": "/items/0",
+                            "label": "ОСНОВНА БУДОВА",
+                            "visible_fields": [
+                                "title",
+                                "subtitle",
+                                "rules"
+                            ],
+                            "detail_key": "past-modals-process-and-passive"
+                        },
+                        {
+                            "pointer": "/items/1",
+                            "label": "ЗАПЕРЕЧЕННЯ",
+                            "visible_fields": [
+                                "title",
+                                "subtitle",
+                                "rules"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/items/2",
+                            "label": "ДОРЕЧНЕ ПИТАННЯ",
+                            "visible_fields": [
+                                "title",
+                                "subtitle",
+                                "rules"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/items/3",
+                            "label": "СКОРОЧЕННЯ",
+                            "visible_fields": [
+                                "title",
+                                "subtitle",
+                                "rules"
+                            ],
+                            "detail_key": null
+                        }
+                    ],
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                },
+                {
+                    "key": "past-modals-uses",
+                    "existing_source_index": 2,
+                    "type": "usage-panels",
+                    "column": "left",
+                    "level": "B1",
+                    "source_pointer": "/lessons/1/blocks/2/data",
+                    "component": "theory.content → theory.components.usage",
+                    "basic": [
+                        {
+                            "pointer": "/sections/0",
+                            "label": "MUST HAVE: СИЛЬНИЙ ВИСНОВОК",
+                            "accent": "emerald",
+                            "visible_fields": [
+                                "description",
+                                "examples",
+                                "note"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/sections/1",
+                            "label": "MAY / MIGHT / COULD HAVE: РЕЗУЛЬТАТ НЕВІДОМИЙ",
+                            "accent": "blue",
+                            "visible_fields": [
+                                "description",
+                                "examples",
+                                "note"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/sections/2",
+                            "label": "CAN'T / COULDN'T HAVE: ВІДКИДАЄМО ПОДІЮ",
+                            "accent": "amber",
+                            "visible_fields": [
+                                "description",
+                                "examples",
+                                "note"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/sections/3",
+                            "label": "COULD HAVE: МОЖЛИВІСТЬ НЕ ВИКОРИСТАНА",
+                            "accent": "sky",
+                            "visible_fields": [
+                                "description",
+                                "examples",
+                                "note"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/sections/4",
+                            "label": "SHOULD / SHOULDN'T HAVE: ОЦІНКА ВИБОРУ",
+                            "accent": "rose",
+                            "visible_fields": [
+                                "description",
+                                "examples",
+                                "note"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/sections/5",
+                            "label": "SHOULD HAVE: ОЧІКУВАНИЙ РЕЗУЛЬТАТ",
+                            "accent": "slate",
+                            "visible_fields": [
+                                "description",
+                                "examples",
+                                "note"
+                            ],
+                            "detail_key": null
+                        }
+                    ],
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                },
+                {
+                    "key": "past-modals-mistakes",
+                    "existing_source_index": 3,
+                    "type": "mistakes-grid",
+                    "column": "right",
+                    "level": "B1",
+                    "source_pointer": "/lessons/1/blocks/3/data",
+                    "component": "theory.content → theory.components.mistake",
+                    "basic": {
+                        "all_fields_visible": true
+                    },
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                },
+                {
+                    "key": "past-modals-summary",
+                    "existing_source_index": 4,
+                    "type": "summary-list",
+                    "column": "right",
+                    "level": "B1",
+                    "source_pointer": "/lessons/1/blocks/4/data",
+                    "component": "theory.content → theory.components.summary",
+                    "basic": {
+                        "all_fields_visible": true
+                    },
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                },
+                {
+                    "key": "past-modals-navigation",
+                    "existing_source_index": 5,
+                    "type": "navigation-chips",
+                    "column": "footer",
+                    "source_pointer": "/lessons/1/blocks/5/data",
+                    "component": "engram.theory.blocks-v3.navigation-chips",
+                    "basic": {
+                        "all_fields_visible": true
+                    },
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                },
+                {
+                    "key": "past-modals-practice",
+                    "existing_source_index": null,
+                    "type": "practice-set",
+                    "column": "right",
+                    "level": "B1",
+                    "source_pointer": "/lessons/1/blocks/6/data",
+                    "component": "engram.theory.blocks-v3.practice-set",
+                    "basic": {
+                        "groups": {
+                            "selects": 2,
+                            "choices": 2,
+                            "inputs": 2
+                        },
+                        "source_indices": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6
+                        ],
+                        "input_modes": [
+                            "manual",
+                            "tokens"
+                        ],
+                        "input_visible_instruction_field": "after",
+                        "input_token_field": "before",
+                        "feedback_visibility": "after item check",
+                        "linked_widget": {
+                            "component": "components.text-block-practice-questions",
+                            "question_type": "4",
+                            "question_count": 5,
+                            "level": "B1",
+                            "bank_seeders": [
+                                "Database\\Seeders\\V3\\Polyglot\\PolyglotPastModalsThematicLessonSeeder"
+                            ],
+                            "question_source": "reviewed new exact-form thematic questions; actual local apply acceptance is separate",
+                            "reviewed_question_ids": [
+                                59666,
+                                59667,
+                                59668,
+                                59669,
+                                59670
+                            ]
+                        }
+                    },
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                }
+            ],
+            "details": [
+                {
+                    "key": "past-modals-process-and-passive",
+                    "title": "Попередній процес чи дія над предметом",
+                    "owner_block_key": "past-modals-forms",
+                    "owner_pointer": "/items/0",
+                    "fragment_type": "usage-panels",
+                    "sections": 2,
+                    "basic_complete_without_detail": true,
+                    "reason": "Дві окремі пояснені будови з been: попередній процес і passive; не потрібні для виконання основного modal + have + V3."
+                }
+            ],
+            "navigation": {
+                "old_destinations": 8,
+                "preserved_exact": true,
+                "contextual_links": "Explicit current UK destinations; neighbouring owners read-only"
+            }
+        },
+        {
+            "identity": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsRequestsOffersSuggestionsTheorySeeder",
+            "slug": "requests-offers-suggestions",
+            "local_url": "http://gramlyze.loc/theory/modal-verbs/requests-offers-suggestions",
+            "display_level": "A2-B1",
+            "technical_block_level": "A2",
+            "blocks": [
+                {
+                    "key": "requests-offers-suggestions-hero",
+                    "existing_source_index": 0,
+                    "type": "hero",
+                    "column": "header",
+                    "level": "A2",
+                    "source_pointer": "/lessons/2/blocks/0/data",
+                    "component": "engram.theory.blocks-v3.hero",
+                    "basic": {
+                        "all_fields_visible": true
+                    },
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                },
+                {
+                    "key": "requests-offers-suggestions-forms",
+                    "existing_source_index": 1,
+                    "type": "forms-grid",
+                    "column": "left",
+                    "level": "A2",
+                    "source_pointer": "/lessons/2/blocks/1/data",
+                    "component": "theory.content → theory.components.form",
+                    "basic": [
+                        {
+                            "pointer": "/items/0",
+                            "label": "ПРОХАННЯ ДО СПІВРОЗМОВНИКА",
+                            "visible_fields": [
+                                "title",
+                                "subtitle",
+                                "rules"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/items/1",
+                            "label": "ДІЮ ПРОПОНУЄ МОВЕЦЬ",
+                            "visible_fields": [
+                                "title",
+                                "subtitle",
+                                "rules"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/items/2",
+                            "label": "ПРОПОЗИЦІЯ РЕЧІ",
+                            "visible_fields": [
+                                "title",
+                                "subtitle",
+                                "rules"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/items/3",
+                            "label": "ЗАПРОШЕННЯ ДО ДІЇ",
+                            "visible_fields": [
+                                "title",
+                                "subtitle",
+                                "rules"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/items/4",
+                            "label": "МОЯ ДОПОМОГА ДЛЯ ТЕБЕ",
+                            "visible_fields": [
+                                "title",
+                                "subtitle",
+                                "rules"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/items/5",
+                            "label": "СПІЛЬНИЙ ПЛАН",
+                            "visible_fields": [
+                                "title",
+                                "subtitle",
+                                "rules"
+                            ],
+                            "detail_key": null
+                        }
+                    ],
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                },
+                {
+                    "key": "requests-offers-suggestions-uses",
+                    "existing_source_index": 2,
+                    "type": "usage-panels",
+                    "column": "left",
+                    "level": "A2",
+                    "source_pointer": "/lessons/2/blocks/2/data",
+                    "component": "theory.content → theory.components.usage",
+                    "basic": [
+                        {
+                            "pointer": "/sections/0",
+                            "label": "ПРОХАННЯ: ДІЮ ВИКОНУЄ СПІВРОЗМОВНИК",
+                            "accent": "emerald",
+                            "visible_fields": [
+                                "description",
+                                "examples",
+                                "note"
+                            ],
+                            "detail_key": "requests-mind-actors-and-replies"
+                        },
+                        {
+                            "pointer": "/sections/1",
+                            "label": "ПРОПОЗИЦІЯ: ДІЮ ВИКОНУЄ МОВЕЦЬ",
+                            "accent": "blue",
+                            "visible_fields": [
+                                "description",
+                                "examples",
+                                "note"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/sections/2",
+                            "label": "РІЧ АБО ЗАПРОШЕННЯ",
+                            "accent": "amber",
+                            "visible_fields": [
+                                "description",
+                                "examples",
+                                "note"
+                            ],
+                            "detail_key": null
+                        },
+                        {
+                            "pointer": "/sections/3",
+                            "label": "СПІЛЬНИЙ ПЛАН І ЗУСТРІЧНА ПРОПОЗИЦІЯ",
+                            "accent": "sky",
+                            "visible_fields": [
+                                "description",
+                                "examples",
+                                "note"
+                            ],
+                            "detail_key": null
+                        }
+                    ],
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                },
+                {
+                    "key": "requests-offers-suggestions-mistakes",
+                    "existing_source_index": 3,
+                    "type": "mistakes-grid",
+                    "column": "right",
+                    "level": "A2",
+                    "source_pointer": "/lessons/2/blocks/3/data",
+                    "component": "theory.content → theory.components.mistake",
+                    "basic": {
+                        "all_fields_visible": true
+                    },
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                },
+                {
+                    "key": "requests-offers-suggestions-summary",
+                    "existing_source_index": 4,
+                    "type": "summary-list",
+                    "column": "right",
+                    "level": "A2",
+                    "source_pointer": "/lessons/2/blocks/4/data",
+                    "component": "theory.content → theory.components.summary",
+                    "basic": {
+                        "all_fields_visible": true
+                    },
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                },
+                {
+                    "key": "requests-offers-suggestions-navigation",
+                    "existing_source_index": 5,
+                    "type": "navigation-chips",
+                    "column": "footer",
+                    "source_pointer": "/lessons/2/blocks/5/data",
+                    "component": "engram.theory.blocks-v3.navigation-chips",
+                    "basic": {
+                        "all_fields_visible": true
+                    },
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                },
+                {
+                    "key": "requests-offers-suggestions-practice",
+                    "existing_source_index": null,
+                    "type": "practice-set",
+                    "column": "right",
+                    "level": "A2",
+                    "source_pointer": "/lessons/2/blocks/6/data",
+                    "component": "engram.theory.blocks-v3.practice-set",
+                    "basic": {
+                        "groups": {
+                            "selects": 2,
+                            "choices": 2,
+                            "inputs": 2
+                        },
+                        "source_indices": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6
+                        ],
+                        "input_modes": [
+                            "manual",
+                            "tokens"
+                        ],
+                        "input_visible_instruction_field": "after",
+                        "input_token_field": "before",
+                        "feedback_visibility": "after item check",
+                        "linked_widget": {
+                            "component": "components.text-block-practice-questions",
+                            "question_type": "4",
+                            "question_count": 5,
+                            "level": "A2",
+                            "bank_seeders": [
+                                "Database\\Seeders\\V3\\Polyglot\\PolyglotRequestsOffersSuggestionsThematicLessonSeeder"
+                            ],
+                            "question_source": "reviewed new exact-form thematic questions; actual local apply acceptance is separate",
+                            "reviewed_question_ids": [
+                                59671,
+                                59672,
+                                59673,
+                                59674,
+                                59675
+                            ]
+                        }
+                    },
+                    "detail_ownership": "finite owner/pointer; no global runtime word threshold"
+                }
+            ],
+            "details": [
+                {
+                    "key": "requests-mind-actors-and-replies",
+                    "title": "Would you mind: хто діє і що означає відповідь",
+                    "owner_block_key": "requests-offers-suggestions-uses",
+                    "owner_pointer": "/sections/0",
+                    "fragment_type": "usage-panels",
+                    "sections": 2,
+                    "basic_complete_without_detail": true,
+                    "reason": "B1 зіставлення двох виконавців та значення відповіді на mind; не коротка ремарка або прихований переклад."
+                }
+            ],
+            "navigation": {
+                "old_destinations": 8,
+                "preserved_exact": true,
+                "contextual_links": "Explicit current UK destinations; neighbouring owners read-only"
+            }
+        }
+    ],
+    "acceptance": {
+        "content_review": "main-reviewed-native-render",
+        "runtime_local_apply": "not_claimed",
+        "browser_visibility": "not_claimed",
+        "bank_questions_review": "main-reviewed-insert-only",
+        "freeze": true,
+        "freeze_at_utc": "2026-10-14 18:09:45 UTC"
+    }
+}
+

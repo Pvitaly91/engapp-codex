@@ -1,0 +1,1179 @@
+{
+    "schema_version": 1,
+    "package": "m51-modal-meanings-widget-questions",
+    "version": "1.0.0",
+    "status": "frozen",
+    "locale": "uk",
+    "purpose_uk": "Мінімальне доповнення трьох тематичних банків для окремих native-конструкторів M51. Це 15 нових питань, окремих від 18 авторських завдань practice-set.",
+    "write_scope_uk": "Рівно п’ять нових питань type 4 для кожної з трьох тем. Source UID та exact bank identity задані тут; числові DB IDs і SQL rows оголошено окремим перевіреним finite plan. Старі питання, відповіді, підказки, options, зв’язки та прогрес не змінюються.",
+    "selection_rationale_uk": "Чинний matcher добирає page-wide links → type 4 → точний bank seeder → exact CEFR і сортує questions.uuid. Він не підтримує довільну п’ятірку UUID. Щонайменше один фактично перший старий кандидат кожної теми не проходить нові вимоги; видалення старих links або переписування старих питань не дозволяється. Тому додаються тільки п’ять потрібних питань до окремого тематичного банку кожної теми, а не переписуються старі банки.",
+    "grading_contract_uk": "Питання прямо називає конструкцію, яку тут треба побудувати. Ключ перевіряє цю конструкцію і збереження заданого змісту, а не оголошує всі інші перефразування неграматичними. Обидва списки токенів містять окремі повні слова та окрему пунктуацію; повторювані слова залишені окремими instances. Ordered tokens_correct — тільки ключ для server payload, не видима підказка.",
+    "banks": [
+        {
+            "owner": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsDeductionTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/modal-verbs/modals-of-deduction",
+            "bank_seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotModalsOfDeductionThematicLessonSeeder",
+            "level": "B1",
+            "type": 4,
+            "questions": [
+                {
+                    "source_uid": "m51-ded-b1-01",
+                    "question_uk": "Після повторних хибних сигналів майстерка робить сильний висновок про прилад зараз: цей сигналізатор, мабуть, несправний. Використай must.",
+                    "context_uk": "Майстерка вже перевірила батарею; її висновок про несправність є переконанням на основі ознак, а не математичним доказом.",
+                    "criterion_uk": "Сильний висновок про теперішній стан приладу за допомогою must.",
+                    "translation_uk": "Цей сигналізатор, мабуть, несправний.",
+                    "canonical_en": "This alarm must be broken.",
+                    "tokens_correct": [
+                        "This",
+                        "alarm",
+                        "must",
+                        "be",
+                        "broken",
+                        "."
+                    ],
+                    "tokens_shuffled": [
+                        "broken",
+                        "alarm",
+                        ".",
+                        "be",
+                        "This",
+                        "must"
+                    ],
+                    "distractors": [],
+                    "ambiguity_note_uk": "Намір — сильний висновок, а не обов’язок; потрібний modal названо. Не треба домислювати, що сигналізатор справді зламаний: передаємо оцінку майстерки.",
+                    "learning_requirements": [
+                        "present-inference",
+                        "must-strong-belief",
+                        "modal-be-state",
+                        "evidence-not-proof"
+                    ]
+                },
+                {
+                    "source_uid": "m51-ded-b1-02",
+                    "question_uk": "Адміністраторка театру не знає, де гість: фоє — лише один варіант. Гість, можливо, у фоє. Передай можливість за допомогою may.",
+                    "context_uk": "Місце гостя зараз не підтверджене; інші місця не виключені.",
+                    "criterion_uk": "Одне можливе пояснення теперішнього місця гостя; у цьому завданні потрібне may.",
+                    "translation_uk": "Гість, можливо, у фоє.",
+                    "canonical_en": "The guest may be in the foyer.",
+                    "tokens_correct": [
+                        "The",
+                        "guest",
+                        "may",
+                        "be",
+                        "in",
+                        "the",
+                        "foyer",
+                        "."
+                    ],
+                    "tokens_shuffled": [
+                        "foyer",
+                        "may",
+                        "the",
+                        ".",
+                        "guest",
+                        "in",
+                        "The",
+                        "be"
+                    ],
+                    "distractors": [],
+                    "ambiguity_note_uk": "May, might і could можуть передавати близьку можливість, але умова явно називає may. Дві форми the — окремі токени, початкове The не є підказкою порядку всього речення.",
+                    "learning_requirements": [
+                        "present-possibility",
+                        "may-fixed-construction",
+                        "modal-be-location",
+                        "no-artificial-certainty-scale"
+                    ]
+                },
+                {
+                    "source_uid": "m51-ded-b1-03",
+                    "question_uk": "Шухляда відкрита, і в ній видно конверти. Ця шухляда не може бути порожньою. Передай несумісність з видимим фактом скороченням can't.",
+                    "context_uk": "Конверти видно саме в цій шухляді зараз; не треба припускати відстань, час руху або поведінку людини.",
+                    "criterion_uk": "Негативний висновок про теперішній стан предмета; потрібне скорочення can't.",
+                    "translation_uk": "Ця шухляда не може бути порожньою.",
+                    "canonical_en": "This drawer can't be empty.",
+                    "tokens_correct": [
+                        "This",
+                        "drawer",
+                        "can't",
+                        "be",
+                        "empty",
+                        "."
+                    ],
+                    "tokens_shuffled": [
+                        "be",
+                        "empty",
+                        "drawer",
+                        ".",
+                        "can't",
+                        "This"
+                    ],
+                    "distractors": [],
+                    "ambiguity_note_uk": "Can't означає логічну несумісність з фактом, а не нездатність шухляди або заборону. Cannot — можливе перефразування, але тут прямо вимагається скорочення.",
+                    "learning_requirements": [
+                        "present-impossibility",
+                        "cant-not-prohibition",
+                        "transparent-evidence",
+                        "contracted-negative"
+                    ]
+                },
+                {
+                    "source_uid": "m51-ded-b1-04",
+                    "question_uk": "Із сусідньої кімнати чути принтер, але його не видно. Принтер, можливо, зараз друкує етикетки. Використай might для можливого процесу зараз. Почни з The printer; now постав наприкінці.",
+                    "context_uk": "Мовець не підтверджує, що етикетки справді друкуються: він називає можливе пояснення звуку.",
+                    "criterion_uk": "Можливий процес у момент мовлення; потрібне might та форма V-ing. Підмет The printer — на початку, now — наприкінці.",
+                    "translation_uk": "Принтер, можливо, зараз друкує етикетки.",
+                    "canonical_en": "The printer might be printing the labels now.",
+                    "tokens_correct": [
+                        "The",
+                        "printer",
+                        "might",
+                        "be",
+                        "printing",
+                        "the",
+                        "labels",
+                        "now",
+                        "."
+                    ],
+                    "tokens_shuffled": [
+                        "now",
+                        "the",
+                        "printer",
+                        "printing",
+                        ".",
+                        "be",
+                        "labels",
+                        "The",
+                        "might"
+                    ],
+                    "distractors": [],
+                    "ambiguity_note_uk": "Звук не названо доказом конкретної роботи. Умова фіксує might і поточний процес, тому стан принтера або процес у минулому не підміняють заданий зміст. Інші природні позиції now не оголошуються неграматичними: тут його кінцеве місце задане прямо.",
+                    "learning_requirements": [
+                        "present-process",
+                        "might-possibility",
+                        "modal-be-ving",
+                        "evidence-not-proof"
+                    ]
+                },
+                {
+                    "source_uid": "m51-ded-b1-05",
+                    "question_uk": "Шафку ще не перевірили; мовець допускає відсутність кабелю. Запасного кабелю, можливо, немає у шафці. Використай may із not для значення «можливо, не».",
+                    "context_uk": "Наявність і відсутність кабелю залишаються можливими: це не впевненість у відсутності.",
+                    "criterion_uk": "Негативна можливість про теперішнє місце предмета, не висновок про неможливість.",
+                    "translation_uk": "Запасного кабелю, можливо, немає у шафці.",
+                    "canonical_en": "The spare cable may not be in the cabinet.",
+                    "tokens_correct": [
+                        "The",
+                        "spare",
+                        "cable",
+                        "may",
+                        "not",
+                        "be",
+                        "in",
+                        "the",
+                        "cabinet",
+                        "."
+                    ],
+                    "tokens_shuffled": [
+                        "cabinet",
+                        "not",
+                        "The",
+                        "in",
+                        "spare",
+                        ".",
+                        "may",
+                        "the",
+                        "cable",
+                        "be"
+                    ],
+                    "distractors": [],
+                    "ambiguity_note_uk": "Умова явно задає may і not; це не автоматичне can't та не повідомлення про заборону користуватися кабелем. Повторений артикль має два instances.",
+                    "learning_requirements": [
+                        "negative-possibility",
+                        "may-not-not-impossibility",
+                        "present-location",
+                        "fixed-construction"
+                    ]
+                }
+            ]
+        },
+        {
+            "owner": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsPastModalsTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/modal-verbs/past-modals",
+            "bank_seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotPastModalsThematicLessonSeeder",
+            "level": "B1",
+            "type": 4,
+            "questions": [
+                {
+                    "source_uid": "m51-past-b1-01",
+                    "question_uk": "Біля відчиненої шафки є запис архівістки в журналі. Мовець робить сильний висновок про попередню дію: архівістка, мабуть, відімкнула шафку. Використай must для цього висновку про минуле.",
+                    "context_uk": "Оцінювання відбувається зараз, відімкнення — раніше. Це висновок мовця, а не повідомлення про обов’язок архівістки.",
+                    "criterion_uk": "Сильний висновок зараз про дію в минулому; потрібне must з perfect-конструкцією.",
+                    "translation_uk": "Архівістка, мабуть, відімкнула шафку.",
+                    "canonical_en": "The archivist must have unlocked the cabinet.",
+                    "tokens_correct": [
+                        "The",
+                        "archivist",
+                        "must",
+                        "have",
+                        "unlocked",
+                        "the",
+                        "cabinet",
+                        "."
+                    ],
+                    "tokens_shuffled": [
+                        "cabinet",
+                        "have",
+                        "archivist",
+                        ".",
+                        "the",
+                        "must",
+                        "The",
+                        "unlocked"
+                    ],
+                    "distractors": [],
+                    "ambiguity_note_uk": "Ознаки мотивують переконання мовця; сама відчинена шафка не доводить виконавицю. Намір і must задані прямо, тому had to не є відповіддю на цей висновок.",
+                    "learning_requirements": [
+                        "past-strong-inference",
+                        "must-have-not-had-to",
+                        "evaluation-now-event-before",
+                        "evidence-not-proof"
+                    ]
+                },
+                {
+                    "source_uid": "m51-past-b1-02",
+                    "question_uk": "Посилку доставлено, але ніхто не бачив, яким входом зайшов кур’єр. Кур’єр, можливо, скористався бічним входом. Використай might; факт вибору входу невідомий.",
+                    "context_uk": "Бічний вхід був доступний. Мовець не стверджує, що кур’єр його використав або не використав.",
+                    "criterion_uk": "Можливе пояснення минулої події, не встановлений факт; потрібне might у perfect-конструкції.",
+                    "translation_uk": "Кур’єр, можливо, скористався бічним входом.",
+                    "canonical_en": "The courier might have used the side entrance.",
+                    "tokens_correct": [
+                        "The",
+                        "courier",
+                        "might",
+                        "have",
+                        "used",
+                        "the",
+                        "side",
+                        "entrance",
+                        "."
+                    ],
+                    "tokens_shuffled": [
+                        "used",
+                        "entrance",
+                        "might",
+                        "the",
+                        ".",
+                        "courier",
+                        "side",
+                        "The",
+                        "have"
+                    ],
+                    "distractors": [],
+                    "ambiguity_note_uk": "May або could також можуть передавати можливість, але умова задає might. Не додаємо but чи твердження, що цей варіант не реалізувався.",
+                    "learning_requirements": [
+                        "past-unknown-possibility",
+                        "might-have",
+                        "unknown-not-unused",
+                        "fixed-construction"
+                    ]
+                },
+                {
+                    "source_uid": "m51-past-b1-03",
+                    "question_uk": "У нас був вільний склад, але коробки фактично залишилися надворі. Ми могли поставити коробки всередині, але залишили їх надворі. Почни з We й використай could для невикористаного варіанта.",
+                    "context_uk": "Місце в складі було доступне; ми його не використали. Факт залишення коробок надворі не змінюється.",
+                    "criterion_uk": "Невикористана можливість у минулому; збережи другу частину з фактичною дією і почни з We.",
+                    "translation_uk": "Ми могли поставити коробки всередині, але залишили їх надворі.",
+                    "canonical_en": "We could have put the boxes inside, but we left them outside.",
+                    "tokens_correct": [
+                        "We",
+                        "could",
+                        "have",
+                        "put",
+                        "the",
+                        "boxes",
+                        "inside",
+                        ",",
+                        "but",
+                        "we",
+                        "left",
+                        "them",
+                        "outside",
+                        "."
+                    ],
+                    "tokens_shuffled": [
+                        "outside",
+                        "have",
+                        "we",
+                        "boxes",
+                        ",",
+                        "put",
+                        "them",
+                        "could",
+                        ".",
+                        "inside",
+                        "We",
+                        "left",
+                        "the",
+                        "but"
+                    ],
+                    "distractors": [],
+                    "ambiguity_note_uk": "Перший виконавець — ми, друга частина описує наш реальний вибір. Could have тут не є припущенням, що коробки, можливо, поставили всередині. Початковий підмет фіксує порядок частин без показу готового речення.",
+                    "learning_requirements": [
+                        "past-unused-opportunity",
+                        "could-have",
+                        "unknown-versus-unused",
+                        "preserve-performed-alternative",
+                        "repeated-token-instances"
+                    ]
+                },
+                {
+                    "source_uid": "m51-past-b1-04",
+                    "question_uk": "Юрій пересунув драбину, поки колега ще стояв на ній; мовець критикує цей зроблений вибір. Юрієві не слід було пересувати драбину. Використай скорочення shouldn't для оцінки минулої дії.",
+                    "context_uk": "Пересування відбулося. Критика не перетворює факт виконання на невиконану дію.",
+                    "criterion_uk": "Негативна оцінка зробленого минулого вибору; потрібне скорочення shouldn't у perfect-конструкції.",
+                    "translation_uk": "Юрієві не слід було пересувати драбину.",
+                    "canonical_en": "Yurii shouldn't have moved the ladder.",
+                    "tokens_correct": [
+                        "Yurii",
+                        "shouldn't",
+                        "have",
+                        "moved",
+                        "the",
+                        "ladder",
+                        "."
+                    ],
+                    "tokens_shuffled": [
+                        "ladder",
+                        "moved",
+                        ".",
+                        "Yurii",
+                        "the",
+                        "have",
+                        "shouldn't"
+                    ],
+                    "distractors": [],
+                    "ambiguity_note_uk": "Намір — критика зробленої дії, не можливість і не висновок про неможливість. Should not є допустимою повною формою, але умова явно вимагає скорочення.",
+                    "learning_requirements": [
+                        "past-choice-evaluation",
+                        "shouldnt-have-criticism",
+                        "preserve-performed-action",
+                        "modal-contraction"
+                    ]
+                },
+                {
+                    "source_uid": "m51-past-b1-05",
+                    "question_uk": "За розкладом прибуття було десять хвилин тому; фактичного прибуття ще не перевірили. Потяг мав би вже прибути на станцію. Використай should для очікуваного результату, а не критики. Почни з The train; by now постав наприкінці.",
+                    "context_uk": "Мовець оцінює зараз очікуваний попередній результат. Він не підтверджує прибуття і не заявляє, що потяг запізнився.",
+                    "criterion_uk": "Очікуваний до теперішнього моменту результат за розкладом; потрібне should у perfect-конструкції. Підмет The train — на початку, by now — наприкінці.",
+                    "translation_uk": "Потяг мав би вже прибути на станцію.",
+                    "canonical_en": "The train should have arrived at the station by now.",
+                    "tokens_correct": [
+                        "The",
+                        "train",
+                        "should",
+                        "have",
+                        "arrived",
+                        "at",
+                        "the",
+                        "station",
+                        "by",
+                        "now",
+                        "."
+                    ],
+                    "tokens_shuffled": [
+                        "by",
+                        "station",
+                        "have",
+                        "train",
+                        ".",
+                        "at",
+                        "now",
+                        "The",
+                        "arrived",
+                        "the",
+                        "should"
+                    ],
+                    "distractors": [],
+                    "ambiguity_note_uk": "Should have не обмежено жалем: тут задано очікування й відсутність перевірки. Не додається факт фактичного прибуття або неприбуття. Початкове чи інше розміщення by now можливе в інших формулюваннях, але в цьому завданні його місце прямо зафіксовано наприкінці.",
+                    "learning_requirements": [
+                        "should-have-expected-result",
+                        "expectation-not-regret",
+                        "actual-event-not-inferred",
+                        "evaluation-now-event-before"
+                    ]
+                }
+            ]
+        },
+        {
+            "owner": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsRequestsOffersSuggestionsTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/modal-verbs/requests-offers-suggestions",
+            "bank_seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotRequestsOffersSuggestionsThematicLessonSeeder",
+            "level": "A2",
+            "type": 4,
+            "questions": [
+                {
+                    "source_uid": "m51-requests-a2-01",
+                    "question_uk": "Я не почув назву книжки й прошу співрозмовницю повторити її: не могла б ти повторити назву? Сформулюй прохання за допомогою Could; повторює співрозмовниця.",
+                    "context_uk": "Мовець просить дію від слухачки, а не пропонує сам повторити назву.",
+                    "criterion_uk": "Прохання до іншої людини з Could.",
+                    "translation_uk": "Не могла б ти повторити назву?",
+                    "canonical_en": "Could you repeat the title?",
+                    "tokens_correct": [
+                        "Could",
+                        "you",
+                        "repeat",
+                        "the",
+                        "title",
+                        "?"
+                    ],
+                    "tokens_shuffled": [
+                        "title",
+                        "you",
+                        "?",
+                        "repeat",
+                        "Could",
+                        "the"
+                    ],
+                    "distractors": [],
+                    "ambiguity_note_uk": "Виконавиця — слухачка. Could прямо задано, а не обрано як нібито універсально найввічливіший modal. Знак питання має окремий токен.",
+                    "learning_requirements": [
+                        "listener-request",
+                        "could-you",
+                        "explicit-actor",
+                        "no-absolute-politeness-ranking"
+                    ]
+                },
+                {
+                    "source_uid": "m51-requests-a2-02",
+                    "question_uk": "У колеги зайняті руки, і я пропоную свою допомогу: понести тобі папку? Використай Shall I; папку понесу я.",
+                    "context_uk": "Мовець пропонує власну дію для колеги, а не просить колегу понести папку.",
+                    "criterion_uk": "Пропозиція власної допомоги з Shall I.",
+                    "translation_uk": "Понести тобі папку?",
+                    "canonical_en": "Shall I carry the folder for you?",
+                    "tokens_correct": [
+                        "Shall",
+                        "I",
+                        "carry",
+                        "the",
+                        "folder",
+                        "for",
+                        "you",
+                        "?"
+                    ],
+                    "tokens_shuffled": [
+                        "for",
+                        "folder",
+                        "I",
+                        "?",
+                        "carry",
+                        "you",
+                        "the",
+                        "Shall"
+                    ],
+                    "distractors": [],
+                    "ambiguity_note_uk": "I — виконавець, you — отримувач допомоги. Shall I тут не підміняється Could you, бо це змінило б виконавця.",
+                    "learning_requirements": [
+                        "own-help-offer",
+                        "shall-i",
+                        "explicit-actor",
+                        "request-versus-offer"
+                    ]
+                },
+                {
+                    "source_uid": "m51-requests-a2-03",
+                    "question_uk": "У мене є запасна закладка, і я пропоную її тобі: хочеш закладку? Використай Would you like для пропозиції речі.",
+                    "context_uk": "Мовець пропонує предмет слухачеві, а не просить слухача виконати дію.",
+                    "criterion_uk": "Пропозиція речі за допомогою Would you like та іменника.",
+                    "translation_uk": "Хочеш закладку?",
+                    "canonical_en": "Would you like a bookmark?",
+                    "tokens_correct": [
+                        "Would",
+                        "you",
+                        "like",
+                        "a",
+                        "bookmark",
+                        "?"
+                    ],
+                    "tokens_shuffled": [
+                        "bookmark",
+                        "you",
+                        "?",
+                        "a",
+                        "Would",
+                        "like"
+                    ],
+                    "distractors": [],
+                    "ambiguity_note_uk": "Функцію й конструкцію задано: це пропозиція речі. Не тестується гіпотетичний смак до закладок або запрошення щось робити.",
+                    "learning_requirements": [
+                        "thing-offer",
+                        "would-you-like-noun",
+                        "offer-not-request"
+                    ]
+                },
+                {
+                    "source_uid": "m51-requests-a2-04",
+                    "question_uk": "Я вже записалася на екскурсію й запрошую тебе долучитися: хочеш приєднатися до екскурсії? Використай Would you like to; приєднаєшся ти.",
+                    "context_uk": "Мовець запрошує слухача до дії. Це не пропозиція мовця зробити щось за слухача.",
+                    "criterion_uk": "Запрошення слухача до дії за допомогою Would you like to.",
+                    "translation_uk": "Хочеш приєднатися до екскурсії?",
+                    "canonical_en": "Would you like to join the tour?",
+                    "tokens_correct": [
+                        "Would",
+                        "you",
+                        "like",
+                        "to",
+                        "join",
+                        "the",
+                        "tour",
+                        "?"
+                    ],
+                    "tokens_shuffled": [
+                        "join",
+                        "tour",
+                        "you",
+                        "?",
+                        "like",
+                        "the",
+                        "Would",
+                        "to"
+                    ],
+                    "distractors": [],
+                    "ambiguity_note_uk": "Дію join виконуватиме адресат you. Would you like me to змінило б виконавця й не відповідало заданому запрошенню.",
+                    "learning_requirements": [
+                        "listener-invitation",
+                        "would-you-like-to",
+                        "explicit-actor",
+                        "to-infinitive"
+                    ]
+                },
+                {
+                    "source_uid": "m51-requests-a2-05",
+                    "question_uk": "Ми плануємо спільне дозвілля, і я пропоную ідею нам обом: може, відвідаємо галерею після обіду? Використай Shall we; галерею відвідаємо разом. Почни з Shall we; after lunch постав наприкінці.",
+                    "context_uk": "Мовець входить до групи we і пропонує спільний план, а не дає завдання лише слухачеві.",
+                    "criterion_uk": "Пропозиція спільної дії за допомогою Shall we; збережи час після обіду. Shall we — на початку, after lunch — наприкінці.",
+                    "translation_uk": "Може, відвідаємо галерею після обіду?",
+                    "canonical_en": "Shall we visit the gallery after lunch?",
+                    "tokens_correct": [
+                        "Shall",
+                        "we",
+                        "visit",
+                        "the",
+                        "gallery",
+                        "after",
+                        "lunch",
+                        "?"
+                    ],
+                    "tokens_shuffled": [
+                        "lunch",
+                        "we",
+                        "gallery",
+                        "?",
+                        "Shall",
+                        "after",
+                        "the",
+                        "visit"
+                    ],
+                    "distractors": [],
+                    "ambiguity_note_uk": "Shall we прямо задано; Let's або Why don't we можуть бути доречними перефразуваннями, але не є цією конструкцією. Спільний виконавець і час збережені. Початкова обставина After lunch граматично можлива, але тут потрібно поставити цю обставину наприкінці, як прямо визначає умова.",
+                    "learning_requirements": [
+                        "shared-action-suggestion",
+                        "shall-we",
+                        "speaker-included",
+                        "preserve-time"
+                    ]
+                }
+            ]
+        }
+    ],
+    "rejection_ledger": {
+        "scope_uk": "Незалежний знімок versioned джерел до нового draft. First-five — прогноз добору за поточним matcher і source UUID, не твердження про числові DB IDs чи свіжий стан БД. Main має звірити фактичні п’ять persisted questions до freeze/apply. Ledger відхиляє deterministic selection, а не оголошує кожне старе питання неправильним.",
+        "selector": "page-wide theory_links; type 4; exact bank; exact B1/B1/A2; ORDER BY questions.uuid; LIMIT 5",
+        "targets": [
+            {
+                "owner": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsDeductionTheorySeeder",
+                "bank": "Database\\Seeders\\V3\\Polyglot\\PolyglotModalsOfDeductionAllLevelsLessonSeeder",
+                "definition": "database/seeders/V3/Polyglot/PolyglotModalsOfDeductionAllLevelsLessonSeeder/definition.json",
+                "definition_sha256": "e8716329234adc0940858305ffac4c1623761cfcd740c7e6730702a2cf9af820",
+                "link_manifest": "database/seeders/V3/TheoryLinks/data/modal-verbs-modals-of-deduction-theory-links.json",
+                "link_manifest_sha256": "63bbcf981ae267dc6182767586e49d13e96cb000c905b75198ae779382e14555",
+                "level": "B1",
+                "source_eligible_pool_count": 12,
+                "first_five": [
+                    {
+                        "source_uid": "mv-ded-poly-b1-01",
+                        "condition_uk": "Він, мабуть, удома, бо світло ввімкнене.",
+                        "canonical_en": "He must be at home because the light is on.",
+                        "answer_tokens": [
+                            "He",
+                            "must",
+                            "be",
+                            "at",
+                            "home",
+                            "because",
+                            "the",
+                            "light",
+                            "is",
+                            "on",
+                            "."
+                        ],
+                        "options": [
+                            "He",
+                            "must",
+                            "be",
+                            "at",
+                            "home",
+                            "because",
+                            "the",
+                            "light",
+                            "is",
+                            "on",
+                            ".",
+                            "can",
+                            "could",
+                            "may",
+                            "might"
+                        ],
+                        "variants": [],
+                        "assessment": "needs_fixed_intention",
+                        "reason_uk": "Речення граматичне як оцінка мовця, але світло не доводить присутності. Умова не задає силу висновку або modal, тоді як банк містить кілька можливих modal choices, які strict key не приймає."
+                    },
+                    {
+                        "source_uid": "mv-ded-poly-b1-02",
+                        "condition_uk": "Він не може бути вдома, бо я щойно бачив його в місті.",
+                        "canonical_en": "He cannot be at home because I just saw him in town.",
+                        "answer_tokens": [
+                            "He",
+                            "cannot",
+                            "be",
+                            "at",
+                            "home",
+                            "because",
+                            "I",
+                            "just",
+                            "saw",
+                            "him",
+                            "in",
+                            "town",
+                            "."
+                        ],
+                        "options": [
+                            "He",
+                            "cannot",
+                            "be",
+                            "at",
+                            "home",
+                            "because",
+                            "I",
+                            "just",
+                            "saw",
+                            "him",
+                            "in",
+                            "town",
+                            ".",
+                            "can",
+                            "could",
+                            "may",
+                            "might"
+                        ],
+                        "variants": [],
+                        "assessment": "hidden_context_required",
+                        "reason_uk": "Попередня зустріч без заданих відстані та часу не виключає теперішню присутність удома. M51 прямо вимагає не змушувати учня домислювати переміщення."
+                    },
+                    {
+                        "source_uid": "mv-ded-poly-b1-03",
+                        "condition_uk": "Можливо, вона зараз на зустрічі.",
+                        "canonical_en": "She might be in a meeting now.",
+                        "answer_tokens": [
+                            "She",
+                            "might",
+                            "be",
+                            "in",
+                            "a",
+                            "meeting",
+                            "now",
+                            "."
+                        ],
+                        "options": [
+                            "She",
+                            "might",
+                            "be",
+                            "in",
+                            "a",
+                            "meeting",
+                            "now",
+                            ".",
+                            "can",
+                            "could",
+                            "may",
+                            "must",
+                            "should",
+                            "would"
+                        ],
+                        "variants": [],
+                        "assessment": "multiple_natural_modal_answers",
+                        "reason_uk": "May і could також передають цю можливість та є в options. Умова не фіксує might, а native compose checker приймає тільки його canonical token sequence."
+                    },
+                    {
+                        "source_uid": "mv-ded-poly-b1-04",
+                        "condition_uk": "Це, мабуть, пральна машина шумить.",
+                        "canonical_en": "That noise must be the washing machine.",
+                        "answer_tokens": [
+                            "That",
+                            "noise",
+                            "must",
+                            "be",
+                            "the",
+                            "washing",
+                            "machine",
+                            "."
+                        ],
+                        "options": [
+                            "That",
+                            "noise",
+                            "must",
+                            "be",
+                            "the",
+                            "washing",
+                            "machine",
+                            ".",
+                            "can",
+                            "could",
+                            "may",
+                            "might",
+                            "should",
+                            "would"
+                        ],
+                        "variants": [],
+                        "assessment": "needs_fixed_intention",
+                        "reason_uk": "Граматичний сильний висновок можливий, але source не фіксує переконання мовця або потрібний modal. Кілька слабших пояснень також доступні у банку й strict key їх не приймає."
+                    },
+                    {
+                        "source_uid": "mv-ded-poly-b1-05",
+                        "condition_uk": "Можливо, щось сталося, бо він засмучений.",
+                        "canonical_en": "Something must have happened because he looks upset.",
+                        "answer_tokens": [
+                            "Something",
+                            "must",
+                            "have",
+                            "happened",
+                            "because",
+                            "he",
+                            "looks",
+                            "upset",
+                            "."
+                        ],
+                        "options": [
+                            "Something",
+                            "must",
+                            "have",
+                            "happened",
+                            "because",
+                            "he",
+                            "looks",
+                            "upset",
+                            ".",
+                            "can",
+                            "could",
+                            "may",
+                            "might",
+                            "should"
+                        ],
+                        "variants": [],
+                        "assessment": "modal_strength_and_time_scope_mismatch",
+                        "reason_uk": "Українське «Можливо» не задає сильний must have; «засмучений» і looks upset теж не тотожні. Key стосується минулої події, тоді як ця M51 ціль має фокус на теперішньому."
+                    }
+                ],
+                "legacy_alternative": {
+                    "bank": "Database\\Seeders\\V3\\Polyglot\\PolyglotModalVerbsOfDeductionLessonSeeder",
+                    "definition": "database/seeders/V3/Polyglot/PolyglotModalVerbsOfDeductionLessonSeeder/definition.json",
+                    "definition_sha256": "9390c1774fc776f80e68fbd603903fbf08cee0d7f363e8887728da3323f96106",
+                    "uk_localization": "database/seeders/V3/Polyglot/PolyglotModalVerbsOfDeductionLessonSeeder/localizations/uk.json",
+                    "uk_localization_sha256": "05774aabc3657369878e0abcb466e8eaeb728ced8e91fc5983ad75d49adac420",
+                    "source_eligible_pool_count": 48,
+                    "persistent_uuid_rule": "QuestionUuidResolver: source UIDs longer than 36 bytes use first 27 bytes trimmed of final '-' plus '-' plus first 8 lowercase SHA-1 hex digits.",
+                    "first_five_source_uids": [
+                        "polyglot-modal-verbs-of-deduction-b1-q26",
+                        "polyglot-modal-verbs-of-deduction-b1-q11",
+                        "polyglot-modal-verbs-of-deduction-b1-q15",
+                        "polyglot-modal-verbs-of-deduction-b1-q34",
+                        "polyglot-modal-verbs-of-deduction-b1-q09"
+                    ],
+                    "first_five_persistent_uids": [
+                        "polyglot-modal-verbs-of-ded-080a7801",
+                        "polyglot-modal-verbs-of-ded-09c1c128",
+                        "polyglot-modal-verbs-of-ded-13eb2f65",
+                        "polyglot-modal-verbs-of-ded-15e590a1",
+                        "polyglot-modal-verbs-of-ded-17fafce3"
+                    ],
+                    "reason_uk": "Deterministic п’ятірка містить дві perfect-конструкції про минуле і не містить завдання із сильним must-висновком. Довільні кращі UUID вибрати чинною конфігурацією не можна."
+                }
+            },
+            {
+                "owner": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsPastModalsTheorySeeder",
+                "bank": "Database\\Seeders\\V3\\Polyglot\\PolyglotModalVerbsPastModalsAllLevelsLessonSeeder",
+                "definition": "database/seeders/V3/Polyglot/PolyglotModalVerbsPastModalsAllLevelsLessonSeeder/definition.json",
+                "definition_sha256": "41b7b574ec469db8652e33245b17c8fdc65afbe80c497497376b20cefa5ede95",
+                "link_manifest": "database/seeders/V3/TheoryLinks/data/modal-verbs-past-modals-theory-links.json",
+                "link_manifest_sha256": "8689f4c7befd5fc9d6e51f52fbdb7d19e62306b6bc7d6d2cebd542f3abd829fe",
+                "level": "B1",
+                "source_eligible_pool_count": 12,
+                "first_five": [
+                    {
+                        "source_uid": "mv-pm-poly-b1-01",
+                        "condition_uk": "Тобі слід було сказати мені раніше.",
+                        "canonical_en": "You should have told me earlier.",
+                        "answer_tokens": [
+                            "You",
+                            "should",
+                            "have",
+                            "told",
+                            "me",
+                            "earlier",
+                            "."
+                        ],
+                        "options": [
+                            "You",
+                            "should",
+                            "have",
+                            "told",
+                            "me",
+                            "earlier",
+                            ".",
+                            "can",
+                            "could",
+                            "may",
+                            "might",
+                            "must",
+                            "would",
+                            "shall"
+                        ],
+                        "variants": [],
+                        "assessment": "individually_usable",
+                        "reason_uk": "Українська оцінка вибору і canonical should have узгоджуються; саме це питання не є підставою оголосити старий банк неграматичним. П’ятірка в цілому не проходить наступні cases."
+                    },
+                    {
+                        "source_uid": "mv-pm-poly-b1-02",
+                        "condition_uk": "Тобі не слід було цього казати.",
+                        "canonical_en": "You should not have said that.",
+                        "answer_tokens": [
+                            "You",
+                            "should",
+                            "not",
+                            "have",
+                            "said",
+                            "that",
+                            "."
+                        ],
+                        "options": [
+                            "You",
+                            "should",
+                            "not",
+                            "have",
+                            "said",
+                            "that",
+                            ".",
+                            "can",
+                            "could",
+                            "may",
+                            "might",
+                            "must",
+                            "would",
+                            "shall"
+                        ],
+                        "variants": [],
+                        "assessment": "individually_usable",
+                        "reason_uk": "Негативна оцінка і canonical answer збігаються. Не стверджуємо, що речення неправильне; новий bank доданий через непридатність deterministic selection як цілого."
+                    },
+                    {
+                        "source_uid": "mv-pm-poly-b1-03",
+                        "condition_uk": "Ми могли взяти таксі, але пішли пішки.",
+                        "canonical_en": "We could have taken a taxi, but we walked.",
+                        "answer_tokens": [
+                            "We",
+                            "could",
+                            "have",
+                            "taken",
+                            "a",
+                            "taxi",
+                            ",",
+                            "but",
+                            "we",
+                            "walked",
+                            "."
+                        ],
+                        "options": [
+                            "We",
+                            "could",
+                            "have",
+                            "taken",
+                            "a",
+                            "taxi",
+                            ",",
+                            "but",
+                            "we",
+                            "walked",
+                            ".",
+                            "can",
+                            "may",
+                            "might",
+                            "must"
+                        ],
+                        "variants": [],
+                        "assessment": "individually_usable",
+                        "reason_uk": "Друга частина задає зроблену альтернативу, тож could have прочитується як невикористаний варіант. Це корисний старий матеріал, який не змінюється."
+                    },
+                    {
+                        "source_uid": "mv-pm-poly-b1-04",
+                        "condition_uk": "Можливо, вона пропустила поїзд.",
+                        "canonical_en": "She might have missed the train.",
+                        "answer_tokens": [
+                            "She",
+                            "might",
+                            "have",
+                            "missed",
+                            "the",
+                            "train",
+                            "."
+                        ],
+                        "options": [
+                            "She",
+                            "might",
+                            "have",
+                            "missed",
+                            "the",
+                            "train",
+                            ".",
+                            "can",
+                            "could",
+                            "may",
+                            "must",
+                            "should",
+                            "would",
+                            "shall"
+                        ],
+                        "variants": [],
+                        "assessment": "multiple_natural_modal_answers",
+                        "reason_uk": "Можливість передають may/might/could have, і всі потрібні modal tokens доступні. Умова не фіксує might, а strict compose checker приймає тільки canonical sequence."
+                    },
+                    {
+                        "source_uid": "mv-pm-poly-b1-05",
+                        "condition_uk": "Вони, мабуть, працювали всю ніч.",
+                        "canonical_en": "They must have worked all night.",
+                        "answer_tokens": [
+                            "They",
+                            "must",
+                            "have",
+                            "worked",
+                            "all",
+                            "night",
+                            "."
+                        ],
+                        "options": [
+                            "They",
+                            "must",
+                            "have",
+                            "worked",
+                            "all",
+                            "night",
+                            ".",
+                            "can",
+                            "could",
+                            "may",
+                            "might",
+                            "should",
+                            "would",
+                            "shall"
+                        ],
+                        "variants": [],
+                        "assessment": "needs_fixed_intention",
+                        "reason_uk": "Ключ граматичний, але source не задає силу переконання або required modal; «мабуть» допускає і слабше припущення. Новий case фіксує strong inference явно й не покладається лише на втому."
+                    }
+                ],
+                "legacy_alternative_uk": "Задекларований PolyglotModalPerfectDeductionAndRegretB2LessonSeeder має exact B2 і не підміняє потрібний B1."
+            },
+            {
+                "owner": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsRequestsOffersSuggestionsTheorySeeder",
+                "bank": "Database\\Seeders\\V3\\Polyglot\\PolyglotModalVerbsRequestsOffersSuggestionsAllLevelsLessonSeeder",
+                "definition": "database/seeders/V3/Polyglot/PolyglotModalVerbsRequestsOffersSuggestionsAllLevelsLessonSeeder/definition.json",
+                "definition_sha256": "ffbff02aeb628a8a89f99bafeee946a08b737263e8cf55da8e3122ddd6079d3e",
+                "link_manifest": "database/seeders/V3/TheoryLinks/data/modal-verbs-requests-offers-suggestions-theory-links.json",
+                "link_manifest_sha256": "0c953c74754b19829c8b7318476317c8ad20e9adaa3f4dac4472d7afc42d528e",
+                "level": "A2",
+                "source_eligible_pool_count": 12,
+                "first_five": [
+                    {
+                        "source_uid": "mv-ros-poly-a2-01",
+                        "condition_uk": "Чи не могли б ви допомогти мені?",
+                        "canonical_en": "Could you help me, please?",
+                        "answer_tokens": [
+                            "Could",
+                            "you",
+                            "help",
+                            "me",
+                            ",",
+                            "please",
+                            "?"
+                        ],
+                        "options": [
+                            "Could",
+                            "you",
+                            "help",
+                            "me",
+                            ",",
+                            "please",
+                            "?",
+                            "can",
+                            "could",
+                            "may",
+                            "might",
+                            "must",
+                            "should",
+                            "would"
+                        ],
+                        "variants": [],
+                        "assessment": "needs_fixed_construction",
+                        "reason_uk": "Could you є природним проханням, але умова не задає саме його; Would you також доступне й може бути доречним проханням. Please — додана courtesy marker, яку українська умова окремо не просить."
+                    },
+                    {
+                        "source_uid": "mv-ros-poly-a2-02",
+                        "condition_uk": "Можеш відкрити вікно?",
+                        "canonical_en": "Can you open the window?",
+                        "answer_tokens": [
+                            "Can",
+                            "you",
+                            "open",
+                            "the",
+                            "window",
+                            "?"
+                        ],
+                        "options": [
+                            "Can",
+                            "you",
+                            "open",
+                            "the",
+                            "window",
+                            "?",
+                            "can",
+                            "could",
+                            "may",
+                            "might",
+                            "must",
+                            "should",
+                            "would",
+                            "shall"
+                        ],
+                        "variants": [],
+                        "assessment": "needs_fixed_intention",
+                        "reason_uk": "Граматичний key, але коротка умова сама не розділяє запит про здатність і прохання та не задає required construction. M51 потребує явних наміру й виконавця."
+                    },
+                    {
+                        "source_uid": "mv-ros-poly-a2-03",
+                        "condition_uk": "Можна поставити запитання?",
+                        "canonical_en": "May I ask a question?",
+                        "answer_tokens": [
+                            "May",
+                            "I",
+                            "ask",
+                            "a",
+                            "question",
+                            "?"
+                        ],
+                        "options": [
+                            "May",
+                            "I",
+                            "ask",
+                            "a",
+                            "question",
+                            "?",
+                            "can",
+                            "could",
+                            "may",
+                            "might",
+                            "must",
+                            "should",
+                            "would",
+                            "shall"
+                        ],
+                        "variants": [],
+                        "assessment": "multiple_natural_modal_answers",
+                        "reason_uk": "Can I та Could I також можуть просити дозволу; потрібний modal чи регістр не заданий. Це permission case, а не достатнє покриття прохання/власної допомоги/спільного плану."
+                    },
+                    {
+                        "source_uid": "mv-ros-poly-a2-04",
+                        "condition_uk": "Піднести вам цю сумку?",
+                        "canonical_en": "Shall I carry that bag for you?",
+                        "answer_tokens": [
+                            "Shall",
+                            "I",
+                            "carry",
+                            "that",
+                            "bag",
+                            "for",
+                            "you",
+                            "?"
+                        ],
+                        "options": [
+                            "Shall",
+                            "I",
+                            "carry",
+                            "that",
+                            "bag",
+                            "for",
+                            "you",
+                            "?",
+                            "can",
+                            "could",
+                            "may",
+                            "might",
+                            "must",
+                            "should"
+                        ],
+                        "variants": [],
+                        "assessment": "needs_fixed_construction",
+                        "reason_uk": "Власна пропозиція допомоги доречна, але Shall I й Can I можуть її передавати; source не фіксує Shall I. «Цю» в UK і that у key — невелика deictic різниця, яку новий task не переносить."
+                    },
+                    {
+                        "source_uid": "mv-ros-poly-a2-05",
+                        "condition_uk": "Хочете чаю?",
+                        "canonical_en": "Would you like some tea?",
+                        "answer_tokens": [
+                            "Would",
+                            "you",
+                            "like",
+                            "some",
+                            "tea",
+                            "?"
+                        ],
+                        "options": [
+                            "Would",
+                            "you",
+                            "like",
+                            "some",
+                            "tea",
+                            "?",
+                            "can",
+                            "could",
+                            "may",
+                            "might",
+                            "must",
+                            "should",
+                            "would",
+                            "shall"
+                        ],
+                        "variants": [],
+                        "assessment": "individually_usable",
+                        "reason_uk": "Коректна пропозиція речі; це питання саме по собі не є помилкою. Deterministic п’ятірка загалом не має пропозиції спільної дії і містить попередні неоднозначні choices."
+                    }
+                ],
+                "additional_rejected_source_uk": "Поза first-five A2 source mv-ros-poly-a2-07 має canonical Why do not we take a break? із неправильним порядком у нескороченому негативному питанні. Старий source лишається незмінним."
+            }
+        ]
+    },
+    "review": {
+        "status": "main-reviewed-frozen",
+        "freeze_at_utc": "2026-10-14 18:09:45 UTC",
+        "new_questions": 15,
+        "canonical_tokens_unchanged": true,
+        "original_shared_options_unchanged": true
+    }
+}
