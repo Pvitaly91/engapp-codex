@@ -1,0 +1,394 @@
+<?php
+
+namespace App\Support;
+
+use App\Models\Page;
+use App\Models\TextBlock;
+use Illuminate\Database\Eloquent\Collection;
+use RuntimeException;
+
+/**
+ * Data-only boundary for reviewed native releases. Existing M49 serialisation
+ * and canonical components are reused; a release cannot choose a view/style.
+ * Historical packages retain their original implementation and frozen bytes.
+ */
+final class TheoryNativeContentRelease
+{
+    public function __construct(private readonly array $profile) {}
+
+    private function fail(string $message): never
+    {
+        throw new RuntimeException($this->profile['label'].': '.$message);
+    }
+
+    public function load(?string $root = null): array
+    {
+        $root ??= base_path(); $out = [];
+        foreach ($this->profile['artifacts'] as $path => $sha) {
+            if (!is_string($sha) || preg_match('/^[a-f0-9]{64}$/D', $sha) !== 1
+                || !is_file($root.'/'.$path) || is_link($root.'/'.$path)) {
+                $this->fail('release is not reviewed/frozen: '.$path);
+            }
+            $bytes = file_get_contents($root.'/'.$path);
+            if (!is_string($bytes) || !hash_equals($sha, hash('sha256', $bytes))) {
+                $this->fail('immutable source differs: '.$path);
+            }
+            $out[] = json_decode($bytes, true, flags: JSON_THROW_ON_ERROR);
+        }
+        return $out;
+    }
+
+    /** Pure projection: only the unchanged accepted serializer owns HTML. */
+    public function definition(array $lesson, array $before): array
+    {
+        $after = M49AdviceModalsPackage::definition($lesson, $before);
+        $rename = function (array $value) use (&$rename): array {
+            $out = [];
+            foreach ($value as $key => $child) {
+                $key = match ($key) {
+                    'm49_native_v1' => $this->profile['marker'],
+                    'm49_detail_key' => $this->profile['detail_marker'],
+                    default => $key,
+                };
+                $out[$key] = is_array($child) ? $rename($child) : $child;
+            }
+            return $out;
+        };
+        foreach ($after['page']['blocks'] as &$block) {
+            $block['body'] = M26DetailPackage::json($rename(json_decode($block['body'], true, flags: JSON_THROW_ON_ERROR)));
+            if (isset($block['uuid_key']) && str_starts_with($block['uuid_key'], 'm49:')) {
+                $block['uuid_key'] = $this->profile['uuid_prefix'].substr($block['uuid_key'], 4);
+            }
+        }
+        unset($block);
+        return $after;
+    }
+
+    public function validate(array $before, array $patch, array $master, ?array $contract = null): void
+    {
+        $contract ??= $this->load()[3]; $bindings = $this->profile['bindings'];
+        $owners = array_column($bindings, 'identity');
+        foreach ([$before, $patch, $master] as $artifact) {
+            if (($artifact['schema_version'] ?? null) !== 1 || ($artifact['base_sha'] ?? null) !== $this->profile['base_sha']) {
+                $this->fail('schema/base differs.');
+            }
+        }
+        if (($master['version'] ?? null) !== $this->profile['version'] || ($contract['schema_version'] ?? null) !== 1
+            || array_column($before['targets'] ?? [], 'identity') !== $owners
+            || array_column($patch['targets'] ?? [], 'identity') !== $owners
+            || array_column($master['lessons'] ?? [], 'identity') !== $owners
+            || array_column($contract['targets'] ?? [], 'identity') !== $owners) {
+            $this->fail('exact independent owner/version/bank scope differs.');
+        }
+        $taskIds = []; $detailKeys = [];
+        foreach ($master['lessons'] as $i => $lesson) {
+            $binding = $bindings[$i]; $old = $before['targets'][$i];
+            $target = $patch['targets'][$i]; $declaration = $contract['targets'][$i];
+            $path = TheorySentenceBuilderAcceptance::definitionPath($binding['identity']);
+            $pageBinding = ['id' => $binding['page_id'], 'page_category_id' => $binding['category_id']];
+            if ($binding['page_id'] < 1 || $binding['category_id'] < 1 || ($old['path'] ?? null) !== $path
+                || ($old['before']['seeder']['class'] ?? null) !== $binding['identity']
+                || ($old['before']['slug'] ?? null) !== $binding['slug'] || ($old['before']['type'] ?? null) !== 'theory'
+                || ($old['before']['page']['locale'] ?? null) !== 'uk'
+                || ($old['before']['page']['category']['slug'] ?? null) !== end($binding['ancestry'])
+                || ($lesson['locale'] ?? null) !== 'uk' || ($lesson['slug'] ?? null) !== $binding['slug']
+                || ($lesson['technical_block_level'] ?? null) !== $binding['practice_level']
+                || ($lesson['display_level'] ?? null) !== $binding['display_level']
+                || ($lesson['blocks'][0]['data']['level'] ?? null) !== $binding['display_level']
+                || ($target['path'] ?? null) !== $path || ($target['slug'] ?? null) !== $binding['slug']
+                || ($target['ancestry'] ?? null) !== $binding['ancestry'] || ($target['page_binding'] ?? null) !== $pageBinding
+                || ($target['local_url'] ?? null) !== $binding['local_url'] || ($declaration['definition'] ?? null) !== $path
+                || ($declaration['local_url'] ?? null) !== $binding['local_url']
+                || ($declaration['level'] ?? null) !== $binding['practice_level']
+                || ($target['after'] ?? null) !== $this->definition($lesson, $old['before'])
+                || ($target['block_keys'] ?? null) !== array_column($lesson['blocks'], 'key')) {
+                $this->fail('owner/category/locale/display or exact projection differs.');
+            }
+            foreach ([$old['before']['page']['subtitle_html'], $lesson['subtitle_html'] ?? ''] as $subtitle) {
+                if (preg_match('/^\s*<p>\s*<strong>(.*?)<\/strong>/su', $subtitle, $title) !== 1
+                    || html_entity_decode(strip_tags($title[1]), ENT_QUOTES | ENT_HTML5, 'UTF-8') !== $binding['rendered_title']) {
+                    $this->fail('supported subtitle changed the independently captured display title.');
+                }
+            }
+            $count = count($old['before']['page']['blocks']);
+            if ($count !== count($binding['continuing_levels']) || count($lesson['blocks']) !== $count + 1
+                || array_column($lesson['blocks'], 'existing_source_index') !== [...range(0, $count - 1), null]
+                || count(array_unique(array_column($lesson['blocks'], 'key'))) !== $count + 1) {
+                $this->fail('actual continuing slots/order or appended practice differs.');
+            }
+            $protected = $target['after']; $protected['page']['blocks'] = $old['before']['page']['blocks'];
+            foreach (['subtitle_html', 'subtitle_text'] as $field) { $protected['page'][$field] = $old['before']['page'][$field]; }
+            if ($protected !== $old['before']) { $this->fail('protected raw title/slug/category/tags metadata changed.'); }
+            foreach ($lesson['blocks'] as $slot => $block) {
+                $expectedLevel = $slot < $count ? $binding['continuing_levels'][$slot] : $binding['practice_level'];
+                if (($block['level'] ?? null) !== $expectedLevel) { $this->fail('exact per-slot technical CEFR differs.'); }
+                if ($slot < $count) {
+                    $oldConfig = $old['before']['page']['blocks'][$slot]; $newConfig = $target['after']['page']['blocks'][$slot];
+                    if (($oldConfig['level'] ?? null) !== $expectedLevel) { $this->fail('independent BEFORE level vector differs.'); }
+                    unset($oldConfig['body'], $newConfig['body']);
+                    if ($oldConfig !== $newConfig) { $this->fail('continuing metadata/UUID/order changed.'); }
+                }
+                $this->assertSections($block['data']['sections'] ?? []);
+                if ($block['type'] === 'navigation-chips') {
+                    foreach ($block['data']['items'] ?? [] as $item) {
+                        if (empty($item['current']) && (!is_string($item['url'] ?? null)
+                            || preg_match('~^/theory/[a-z0-9-]+(?:/[a-z0-9-]+)*$~D', $item['url']) !== 1)) {
+                            $this->fail('navigation needs an explicit supported local destination.');
+                        }
+                    }
+                }
+                if ($block['type'] === 'mistakes-grid') {
+                    foreach ($block['data']['items'] ?? [] as $item) {
+                        foreach (['wrong_en', 'wrong_ua', 'right_en', 'right_ua'] as $field) {
+                            if (!is_string($item[$field] ?? null) || trim($item[$field]) === '') {
+                                $this->fail('paired correction translation is missing.');
+                            }
+                        }
+                    }
+                }
+            }
+            $practice = $lesson['blocks'][$count];
+            if ($practice['type'] !== 'practice-set' || $practice['column'] !== 'left') {
+                $this->fail('one appended native practice-set is required.');
+            }
+            $this->assertPractice($practice['data'], $declaration['bank_seeders'] ?? [], $taskIds);
+            $pointOwners = []; $byKey = array_column($lesson['blocks'], null, 'key');
+            foreach ($lesson['details'] as $detail) {
+                $owner = ($detail['owner_block_key'] ?? '').':'.($detail['owner_pointer'] ?? '');
+                $ownerBlock = $byKey[$detail['owner_block_key'] ?? ''] ?? null;
+                $field = ['forms-grid' => 'items', 'usage-panels' => 'sections'][$ownerBlock['type'] ?? ''] ?? null;
+                $pointer = explode('/', $detail['owner_pointer'] ?? '');
+                if (!is_string($detail['key'] ?? null) || $detail['key'] === '' || isset($detailKeys[$detail['key']])
+                    || isset($pointOwners[$owner]) || count($pointer) !== 3 || $pointer[1] !== $field || !ctype_digit($pointer[2])
+                    || !isset($ownerBlock['data'][$field][(int) $pointer[2]])
+                    || ($detail['fragment']['type'] ?? null) !== 'usage-panels' || empty($detail['fragment']['data']['sections'])) {
+                    $this->fail('duplicate/incomplete semantic detail owner.');
+                }
+                $detailKeys[$detail['key']] = true; $pointOwners[$owner] = true;
+                $this->assertSections($detail['fragment']['data']['sections']);
+                foreach ($detail['fragment']['data']['sections'] as $section) {
+                    if (empty($section['description']) || empty($section['examples'])) { $this->fail('meaningful detail is incomplete.'); }
+                }
+            }
+            $this->assertLearningData($lesson['blocks']); $this->assertLearningData($lesson['details']);
+        }
+    }
+
+    private function assertPractice(array $data, array $banks, array &$ids): void
+    {
+        if ($banks === [] || count(array_unique($banks)) !== count($banks)
+            || count($data['selects'] ?? []) !== 2 || count($data['choices'] ?? []) !== 2 || count($data['inputs'] ?? []) !== 2
+            || array_column([...$data['selects'], ...$data['choices'], ...$data['inputs']], 'source_index') !== range(1, 6)
+            || ($data['linked_practice']['source'] ?? null) !== 'theory_links'
+            || ($data['linked_practice']['question_types'] ?? null) !== ['4']
+            || ($data['linked_practice']['seeder_classes'] ?? null) !== $banks) {
+            $this->fail('own 2/2/2 groups or independent thematic banks differ.');
+        }
+        foreach ($banks as $bank) {
+            if (!is_string($bank) || preg_match('/^Database\\\\Seeders\\\\V3\\\\[A-Za-z0-9_]+\\\\[A-Za-z0-9_]+$/D', $bank) !== 1) {
+                $this->fail('declared bank identity is invalid.');
+            }
+        }
+        foreach (['selects', 'choices', 'inputs'] as $group) {
+            foreach ($data[$group] as $task) {
+                if (!is_string($task['id'] ?? null) || $task['id'] === '' || isset($ids[$task['id']])
+                    || !in_array($task['answer'] ?? null, $task['accepted'] ?? [], true)) { $this->fail('task ID/canonical answer differs.'); }
+                $ids[$task['id']] = true;
+                foreach ($task['options'] ?? ($group === 'choices' ? ($data['choice_options'] ?? ['a', 'b']) : $task['accepted']) as $option) {
+                    if (!is_string($option) || !is_string($task['feedback'][mb_strtolower(trim($option))] ?? null)) {
+                        $this->fail('supported per-option feedback is missing.');
+                    }
+                }
+            }
+        }
+        foreach ($data['inputs'] as $input) {
+            if (!is_string($input['before'] ?? null) || !str_contains($input['before'], '/')
+                || !is_string($input['after'] ?? null) || preg_match('/[\x{0400}-\x{04FF}]/u', $input['after']) !== 1) {
+                $this->fail('visible Ukrainian input condition or native bank is missing.');
+            }
+        }
+    }
+
+    private function assertSections(array $sections): void
+    {
+        foreach ($sections as $section) {
+            if (empty($section['label']) || !in_array($section['color'] ?? null, ['blue', 'emerald', 'sky', 'amber', 'rose', 'slate'], true)) {
+                $this->fail('unnamed native point or unsupported semantic accent.');
+            }
+            foreach ($section['examples'] ?? [] as $example) {
+                if (empty($example['en']) || empty($example['ua'])) { $this->fail('bilingual example is missing.'); }
+            }
+        }
+    }
+
+    private function assertLearningData(array $values): void
+    {
+        foreach ($values as $key => $value) {
+            if (is_string($key) && in_array(strtolower($key), ['view', 'native_view', 'stylesheet', 'css_class', 'class', 'style'], true)) {
+                $this->fail('learning data cannot select presentation.');
+            }
+            if (is_array($value)) { $this->assertLearningData($value); }
+            elseif (is_string($value) && preg_match('~<[^>]*\s(?:class|style|on[a-z]+)\s*=|<(?:script|style|iframe)\b~i', $value)) {
+                $this->fail('learning data contains executable/styled markup.');
+            }
+        }
+    }
+
+    private function binding(object $block, array $data): ?array
+    {
+        $owners = array_column($this->profile['bindings'], 'identity');
+        if (($block->locale ?? null) !== 'uk' || !in_array($block->seeder ?? null, $owners, true)
+            || !isset($data[$this->profile['marker']])) { return null; }
+        try {
+            [$before, $patch, $master, $contract] = $this->load(); $this->validate($before, $patch, $master, $contract);
+            $i = array_search($block->seeder, $owners, true); $target = $patch['targets'][$i];
+            if (($block->page_id ?? null) !== $target['page_binding']['id']
+                || ($block->page_category_id ?? null) !== $target['page_binding']['page_category_id']) { return null; }
+            foreach ($target['after']['page']['blocks'] as $slot => $source) {
+                if (($block->uuid ?? null) !== M26DetailPackage::uuid($target['identity'], $source, $slot + 1)) { continue; }
+                foreach (['type', 'column', 'heading', 'level', 'css_class'] as $field) {
+                    if (($block->$field ?? null) !== ($source[$field] ?? null)) { return null; }
+                }
+                if ((int) ($block->sort_order ?? -1) !== $slot + 1 || ($block->body ?? null) !== $source['body']
+                    || $data !== json_decode($source['body'], true, flags: JSON_THROW_ON_ERROR)) { return null; }
+                return ['target' => $target, 'lesson' => $master['lessons'][$i], 'source' => $source, 'slot' => $slot];
+            }
+        } catch (\Throwable) { /* Full stored fallback stays available on any stale/foreign source. */ }
+        return null;
+    }
+
+    private function design(array $binding): array
+    {
+        return ['package' => $this->profile['design'], 'identity' => $binding['target']['identity'], 'locale' => 'uk',
+            'uuid' => M26DetailPackage::uuid($binding['target']['identity'], $binding['source'], $binding['slot'] + 1),
+            'source_index' => $binding['slot'], 'body_sha256' => hash('sha256', $binding['source']['body']),
+            'component' => $binding['source']['type']];
+    }
+
+    public function presentation(object $block, array $data): ?array
+    {
+        if (app()->getLocale() !== 'uk') { return null; }
+        $binding = $this->binding($block, $data); if ($binding === null) { return null; } $points = [];
+        foreach ($binding['lesson']['details'] as $detail) {
+            if ($detail['owner_block_key'] !== $data[$this->profile['marker']]['key']) { continue; }
+            $index = (int) explode('/', $detail['owner_pointer'])[2];
+            $points[$index] = ['key' => $detail['key'], 'title' => $detail['title'], 'fragments' => array_map(
+                static fn ($section, $n) => ['id' => $detail['key'].'-detail-'.$n, 'type' => 'usage-panels', 'value' => $section],
+                $detail['fragment']['data']['sections'], array_keys($detail['fragment']['data']['sections']))];
+        }
+        return ['data' => $binding['lesson']['blocks'][$binding['slot']]['data'] + [$this->profile['marker'] => $data[$this->profile['marker']]],
+            'points' => $points, 'legacy_section' => null, 'legacy_practice_id' => null, 'm42_native_design' => $this->design($binding)];
+    }
+
+    public function validDesign(?array $design): bool
+    {
+        if (($design['package'] ?? null) !== $this->profile['design']) { return false; }
+        try {
+            [$before, $patch, $master, $contract] = $this->load(); $this->validate($before, $patch, $master, $contract);
+            foreach ($patch['targets'] as $target) {
+                foreach ($target['after']['page']['blocks'] as $slot => $source) {
+                    if ($design === $this->design(compact('target', 'source', 'slot'))) { return true; }
+                }
+            }
+        } catch (\Throwable) {}
+        return false;
+    }
+
+    public function pointPanels(?array $design): ?array
+    {
+        if (!$this->validDesign($design) || $design['component'] !== 'usage-panels') { return null; }
+        [, , $master] = $this->load();
+        $i = array_search($design['identity'], array_column($this->profile['bindings'], 'identity'), true); $points = [];
+        foreach ($master['lessons'][$i]['blocks'][$design['source_index']]['data']['sections'] as $n => $section) {
+            $points[$n] = ['label' => $section['label'], 'accent' => $section['color'],
+                'description_sha256' => [hash('sha256', $section['description'])]];
+        }
+        return ['points_by_index' => $points];
+    }
+
+    public function correction(array $item, ?array $design): ?array
+    {
+        if (!$this->validDesign($design) || $design['component'] !== 'mistakes-grid') { return null; }
+        [, $patch] = $this->load(); $i = array_search($design['identity'], array_column($this->profile['bindings'], 'identity'), true);
+        $items = json_decode($patch['targets'][$i]['after']['page']['blocks'][$design['source_index']]['body'], true)['items'];
+        if (!in_array($item, $items, true)) { return null; }
+        return ['wrong_en' => TheoryInlineHtml::render($item['wrong_en']), 'wrong_uk' => TheoryInlineHtml::render($item['wrong_ua']),
+            'right_en' => TheoryInlineHtml::render($item['right_en']), 'right_uk' => TheoryInlineHtml::render($item['right_ua']),
+            'hint_html' => TheoryInlineHtml::render($item['note'] ?? '')];
+    }
+
+    private function exactSubtitle(object $block, array $target, array $old): bool
+    {
+        $source = ['type' => 'subtitle', 'column' => 'header', 'heading' => null, 'css_class' => null,
+            'level' => $old['page']['subtitle_level'] ?? null, 'uuid_key' => $old['page']['subtitle_uuid_key'] ?? 'subtitle'];
+        $expected = ['uuid' => M26DetailPackage::uuid($target['identity'], $source, 0), 'page_id' => $target['page_binding']['id'],
+            'page_category_id' => $target['page_binding']['page_category_id'], 'seeder' => $target['identity'], 'locale' => 'uk',
+            'sort_order' => 0, 'type' => 'subtitle', 'column' => 'header', 'heading' => null, 'css_class' => null,
+            'level' => $source['level'], 'body' => $target['after']['page']['subtitle_html']];
+        foreach ($expected as $field => $value) { if (($block->$field ?? null) !== $value) { return false; } }
+        return true;
+    }
+
+    private function cloneBody(object $block, string $body): object
+    {
+        $copy = clone $block;
+        if (method_exists($copy, 'setRawAttributes') && method_exists($copy, 'getAttributes')) {
+            $copy->setRawAttributes(array_replace($copy->getAttributes(), ['body' => $body]), true);
+        } else { $copy->body = $body; }
+        return $copy;
+    }
+
+    public function preserveExcludedTextBlock(object $block, string $caller): ?object
+    {
+        $owners = array_column($this->profile['bindings'], 'identity');
+        if ($caller !== 'standalone_test' || ($block->locale ?? null) !== 'uk'
+            || !in_array($block->seeder ?? null, $owners, true)) { return $block; }
+        try {
+            [$before, $patch, $master, $contract] = $this->load(); $this->validate($before, $patch, $master, $contract);
+            $i = array_search($block->seeder, $owners, true); $target = $patch['targets'][$i]; $old = $before['targets'][$i]['before'];
+            if (($block->page_id ?? null) !== $target['page_binding']['id']
+                || ($block->page_category_id ?? null) !== $target['page_binding']['page_category_id']) { return $block; }
+            if ($block->type === 'subtitle') {
+                return $this->exactSubtitle($block, $target, $old) ? $this->cloneBody($block, $old['page']['subtitle_html']) : $block;
+            }
+            $binding = $this->binding($block, json_decode((string) $block->body, true, flags: JSON_THROW_ON_ERROR));
+            if ($binding === null) { return $block; }
+            if ($binding['slot'] === count($old['page']['blocks'])) { return $binding['source']['type'] === 'practice-set' ? null : $block; }
+            return $this->cloneBody($block, $old['page']['blocks'][$binding['slot']]['body']);
+        } catch (\Throwable) { return $block; }
+    }
+
+    public function preserveCoursePage(?Page $page): ?Page
+    {
+        $owners = array_column($this->profile['bindings'], 'identity');
+        if ($page === null || !in_array($page->getRawOriginal('seeder'), $owners, true) || !$page->relationLoaded('textBlocks')) { return $page; }
+        try {
+            [$before, $patch, $master, $contract] = $this->load(); $this->validate($before, $patch, $master, $contract);
+            $i = array_search($page->getRawOriginal('seeder'), $owners, true); $target = $patch['targets'][$i];
+            $old = $before['targets'][$i]['before']; $blocks = $page->getRelation('textBlocks');
+            $expected = ['id' => $target['page_binding']['id'], 'page_category_id' => $target['page_binding']['page_category_id'],
+                'seeder' => $target['identity'], 'slug' => $target['slug'], 'title' => $old['page']['title'], 'type' => 'theory',
+                'text' => $target['after']['page']['subtitle_text']];
+            foreach ($expected as $field => $value) {
+                if ($page->getRawOriginal($field) !== $value || $page->getAttribute($field) !== $value) { return $page; }
+            }
+            $uk = $blocks->where('locale', 'uk')->values();
+            if ($uk->count() !== count($target['after']['page']['blocks']) + 1) { return $page; }
+            foreach ($target['after']['page']['blocks'] as $slot => $source) {
+                $matches = $uk->where('uuid', M26DetailPackage::uuid($target['identity'], $source, $slot + 1))->values();
+                if ($matches->count() !== 1 || !$matches[0] instanceof TextBlock
+                    || $this->binding($matches[0], json_decode($matches[0]->body, true, flags: JSON_THROW_ON_ERROR)) === null) { return $page; }
+            }
+            $subtitles = $uk->where('type', 'subtitle')->values();
+            if ($subtitles->count() !== 1 || !$this->exactSubtitle($subtitles[0], $target, $old)) { return $page; }
+            $copy = clone $page; $copy->setRawAttributes(array_replace($page->getAttributes(), ['text' => $old['page']['subtitle_text']]), true);
+            $restored = $blocks->reject(static fn ($block) => $block->locale === 'uk')->values();
+            $restored->push($this->cloneBody($subtitles[0], $old['page']['subtitle_html']));
+            foreach ($old['page']['blocks'] as $slot => $source) {
+                $restored->push($this->cloneBody($uk->firstWhere('uuid', M26DetailPackage::uuid($target['identity'], $source, $slot + 1)), $source['body']));
+            }
+            $copy->setRelation('textBlocks', new Collection($restored->sortBy('sort_order')->values()->all()));
+            return $copy;
+        } catch (\Throwable) { return $page; }
+    }
+}

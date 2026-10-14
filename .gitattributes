@@ -164,3 +164,26 @@ tools/diagnostics/m52*.php -text
 database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceFormationRulesTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceNegativesQuestionsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceModalVerbsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# M53 exact reviewed release bytes; historical releases are not normalised.
+docs/content/m53-*.json -text
+docs/content/m53-*.md -text
+docs/content/theory-sentence-builders/m53-passive-constructions.v1.json -text
+docs/reports/seo-m53-passive-constructions-standard-view.md -text
+database/content-patches/m53-passive-constructions*.json -text
+app/Support/M53*.php -text
+app/Support/TheoryNativeContentRelease.php -text
+app/Services/M53*.php -text
+app/Services/TheoryNativeContentPatch.php -text
+app/Services/TheoryLocalReleaseGuard.php -text
+app/Console/Commands/PatchM53Content.php -text
+tests/Feature/M53*.php -text
+tests/Feature/TheoryNativeContent*.php -text
+tests/Browser/m53*.cjs -text
+tools/diagnostics/m53*.php -text
+tools/diagnostics/frozen-readonly-profile.php -text
+database/seeders/V3/Polyglot/M53GetPassiveB1SupplementSeeder* -text
+database/seeders/V3/Polyglot/M53GetPassiveB1SupplementSeeder/* -text
+database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceCausativeTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceGetPassiveTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceImpersonalPassiveTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

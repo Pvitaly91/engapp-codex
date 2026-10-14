@@ -61,6 +61,9 @@ final class TheoryContentRenderer
         self::assertKnownView($nativeView);
         if (in_array($nativeView, self::PRACTICE_VIEWS, true)
             || in_array($nativeView, self::AUXILIARY_VIEWS, true)) {
+            if (in_array($nativeView, self::PRACTICE_VIEWS, true)) {
+                $bindings = M53BuilderHintPresentation::bindings($bindings);
+            }
             return view($nativeView, $bindings)->render();
         }
 

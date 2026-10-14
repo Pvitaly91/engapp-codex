@@ -241,6 +241,7 @@ class TheoryCourseManifestService
         $page = \App\Support\M50ObligationAdvicePackage::preserveCoursePage($page);
         $page = \App\Support\M51ModalMeaningsPackage::preserveCoursePage($page);
         $page = \App\Support\M52PassiveBasicsPackage::preserveCoursePage($page);
+        $page = \App\Support\M53PassiveConstructionsPackage::preserveCoursePage($page);
 
         return \App\Support\M49AdviceModalsPackage::preserveCoursePage(\App\Support\M48ConditionalsPackage::preserveCoursePage(\App\Support\M47ConditionalsPackage::preserveCoursePage(\App\Support\M46ConditionalsPackage::preserveCoursePage($page))));
     }

@@ -13,6 +13,7 @@ final class TheoryContentSource
     private const PRESENTERS = [
         [M51ModalMeaningsPackage::class, 'm42StyleContext'],
         [M52PassiveBasicsPackage::class, 'm42StyleContext'],
+        [M53PassiveConstructionsPackage::class, 'm42StyleContext'],
         [M50ObligationAdvicePackage::class, 'm42StyleContext'],
         [PracticeCompletionPackage::class, 'm42StyleContext'],
         [M49AdviceModalsPackage::class, 'm42StyleContext'],
