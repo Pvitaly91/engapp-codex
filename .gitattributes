@@ -148,3 +148,19 @@ database/seeders/Page_V3/ModalVerbs/ModalVerbsRequestsOffersSuggestionsTheorySee
 database/seeders/V3/Polyglot/PolyglotModalsOfDeductionThematicLessonSeeder/definition.json -text
 database/seeders/V3/Polyglot/PolyglotPastModalsThematicLessonSeeder/definition.json -text
 database/seeders/V3/Polyglot/PolyglotRequestsOffersSuggestionsThematicLessonSeeder/definition.json -text
+
+# M52 exact release bytes: new UTF-8 files have LF and one EOF before freezing.
+docs/content/m52-passive-basics*.json -text
+docs/content/m52-passive-basics*.md -text
+docs/content/theory-sentence-builders/m52-passive-basics.v1.json -text
+docs/reports/seo-m52-passive-basics-standard-view.md -text
+database/content-patches/m52-passive-basics*.json -text
+app/Support/M52PassiveBasicsPackage.php -text
+app/Services/M52*.php -text
+app/Console/Commands/PatchM52Content.php -text
+tests/Feature/M52*.php -text
+tests/Browser/m52*.cjs -text
+tools/diagnostics/m52*.php -text
+database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceFormationRulesTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceNegativesQuestionsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceModalVerbsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

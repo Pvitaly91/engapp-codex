@@ -34,6 +34,7 @@ final class TheoryHtmlAdapter
     public static function nativePointPanels(?array $design): ?array
     {
         if (($design['package'] ?? null) === 'm51-native-v1') { return M51ModalMeaningsPackage::pointPanels($design); }
+        if (($design['package'] ?? null) === 'm52-native-v1') { return M52PassiveBasicsPackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::pointPanels($design); }
@@ -116,6 +117,7 @@ final class TheoryHtmlAdapter
     public static function verifiedNativeDesign(?array $design): bool
     {
         if (($design['package'] ?? null) === 'm51-native-v1') { return M51ModalMeaningsPackage::validDesign($design); }
+        if (($design['package'] ?? null) === 'm52-native-v1') { return M52PassiveBasicsPackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::validDesign($design); }
