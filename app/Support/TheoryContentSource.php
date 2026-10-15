@@ -18,6 +18,7 @@ final class TheoryContentSource
         [M55PassiveReviewInfinitivePackage::class, 'm42StyleContext'],
         [M56GerundSimplePassivesPackage::class, 'm42StyleContext'],
         [M57ContinuousPerfectPassivesPackage::class, 'm42StyleContext'],
+        [M58PastFuturePassivesPackage::class, 'm42StyleContext'],
         [M50ObligationAdvicePackage::class, 'm42StyleContext'],
         [PracticeCompletionPackage::class, 'm42StyleContext'],
         [M49AdviceModalsPackage::class, 'm42StyleContext'],

@@ -253,3 +253,20 @@ database/seeders/V3/Polyglot/M57*SupplementSeeder.php -text
 database/seeders/Page_V3/PassiveVoice/Tenses/PassiveVoicePresentContinuousTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/PassiveVoice/Tenses/PassiveVoicePastContinuousTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/PassiveVoice/Tenses/PassiveVoicePresentPerfectTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# M58 finite UTF-8 release bytes; preserve accepted M57/M56 and all frozen history.
+docs/content/m58-*.json -text
+docs/content/m58-*.md -text
+docs/content/theory-sentence-builders/m58-past-future-passives.v1.json -text
+docs/reports/seo-m58-past-future-passives-standard-view.md -text
+database/content-patches/m58-past-future-passives*.json -text
+app/Support/M58*.php -text
+app/Services/M58*.php -text
+app/Console/Commands/PatchM58Content.php -text
+tests/Feature/M58*.php -text
+tests/Browser/m58*.cjs -text
+tools/diagnostics/m58*.php -text
+database/seeders/V3/Polyglot/M58*SupplementSeeder.php -text
+database/seeders/Page_V3/PassiveVoice/Tenses/PassiveVoicePastPerfectTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/PassiveVoice/Tenses/PassiveVoiceFutureSimpleTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/PassiveVoice/Tenses/PassiveVoiceFuturePerfectTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
