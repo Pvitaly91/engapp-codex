@@ -141,6 +141,8 @@ final class TheoryLegacyAdapter
                 if ($correction !== null) { $point = array_replace($point, $correction); }
                 $correction = M53PassiveConstructionsPackage::correction($item, $design);
                 if ($correction !== null) { $point = array_replace($point, $correction); }
+                $correction = M54PassivePatternsPackage::correction($item, $design);
+                if ($correction !== null) { $point = array_replace($point, $correction); }
                 self::detail($point, $pointSections, $index);
                 $node['items'][] = $point;
             }

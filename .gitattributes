@@ -187,3 +187,19 @@ database/seeders/V3/Polyglot/M53GetPassiveB1SupplementSeeder/* -text
 database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceCausativeTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceGetPassiveTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceImpersonalPassiveTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# M54 exact reviewed bytes survive checkout; historical rules remain unchanged.
+docs/content/m54-*.json -text
+docs/content/m54-*.md -text
+docs/content/theory-sentence-builders/m54-passive-patterns.v1.json -text
+docs/reports/seo-m54-passive-patterns-standard-view.md -text
+database/content-patches/m54-passive-patterns*.json -text
+app/Support/M54*.php -text
+app/Services/M54*.php -text
+app/Console/Commands/PatchM54Content.php -text
+tests/Feature/M54*.php -text
+tests/Browser/m54*.cjs -text
+tools/diagnostics/m54*.php -text
+database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoicePhrasalVerbsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceRestrictionsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceTwoObjectVerbsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

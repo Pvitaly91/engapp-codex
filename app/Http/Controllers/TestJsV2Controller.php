@@ -494,6 +494,8 @@ class TestJsV2Controller extends Controller
                     if ($block === null) { continue; }
                     $block = \App\Support\M53PassiveConstructionsPackage::preserveExcludedTextBlock($block, 'standalone_test');
                     if ($block === null) { continue; }
+                    $block = \App\Support\M54PassivePatternsPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
                     if (isset($seenBlockUuids[$block->uuid])) {
                         continue;
                     }
@@ -513,6 +515,7 @@ class TestJsV2Controller extends Controller
                 if ($textBlock) { $textBlock = \App\Support\M51ModalMeaningsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) { $textBlock = \App\Support\M52PassiveBasicsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) { $textBlock = \App\Support\M53PassiveConstructionsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M54PassivePatternsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) {
                     $theoryBlocks[] = [
                         'uuid' => $textBlock->uuid,
@@ -1312,6 +1315,8 @@ class TestJsV2Controller extends Controller
                 if ($block === null) { continue; }
                 $block = \App\Support\M53PassiveConstructionsPackage::preserveExcludedTextBlock($block, 'standalone_test');
                 if ($block === null) { continue; }
+                $block = \App\Support\M54PassivePatternsPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
                 $seen[$block->uuid] = true;
                 $blocks[] = [
                     'uuid' => $block->uuid,
@@ -1328,6 +1333,7 @@ class TestJsV2Controller extends Controller
             if ($textBlock) { $textBlock = \App\Support\M51ModalMeaningsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) { $textBlock = \App\Support\M52PassiveBasicsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) { $textBlock = \App\Support\M53PassiveConstructionsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M54PassivePatternsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) {
                 $blocks[] = [
                     'uuid' => $textBlock->uuid,

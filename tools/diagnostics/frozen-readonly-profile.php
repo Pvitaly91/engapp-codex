@@ -10,7 +10,8 @@ function runFrozenReadOnlyProfile(string $file, string $sha256, array $replaceme
     global $argv;
     if (PHP_SAPI !== 'cli' || PHP_OS_FAMILY !== 'Windows'
         || !in_array($file, ['m52-working-local.php', 'm52-old-consumers.php',
-            'm52-runtime-proof.php', 'm52-source-sync.php', 'm52-sentence-builder-audit.php'], true)
+            'm52-runtime-proof.php', 'm52-source-sync.php', 'm52-sentence-builder-audit.php',
+            'm53-project-author.php', 'm53-postconditions.php', 'm53-live-pages.php'], true)
         || preg_match('/^[a-f0-9]{64}$/D', $sha256) !== 1) {
         throw new RuntimeException('Read-only diagnostic profile is outside its finite allowlist.');
     }
