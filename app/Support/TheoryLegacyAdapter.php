@@ -10,10 +10,13 @@ final class TheoryLegacyAdapter
 {
     public static function section(object $block, array $data, array $pointSections = [], array $lessonLinks = [], bool $embedded = false, ?array $design = null): array
     {
-        $type = $block->type ?? '';
+        $storedType = $block->type ?? '';
+        $type = M55PassiveReviewInfinitivePackage::semanticComponent($block, $data, $design) ?? $storedType;
         $nativeProse = is_array($design)
             && ($design['uuid'] ?? null) === ($block->uuid ?? null)
             && ($design['component'] ?? null) === $type
+            && ($type === $storedType || (($design['stored_component'] ?? null) === $storedType
+                && hash_equals($design['body_sha256'] ?? '', hash('sha256', (string) ($block->body ?? '')))))
             && ($block->locale ?? null) === 'uk'
             && TheoryHtmlAdapter::verifiedNativeDesign($design);
         $node = ['kind' => 'section', 'id' => 'block-'.$block->id, 'title' => $data['title'] ?? '',
@@ -142,6 +145,8 @@ final class TheoryLegacyAdapter
                 $correction = M53PassiveConstructionsPackage::correction($item, $design);
                 if ($correction !== null) { $point = array_replace($point, $correction); }
                 $correction = M54PassivePatternsPackage::correction($item, $design);
+                if ($correction !== null) { $point = array_replace($point, $correction); }
+                $correction = M55PassiveReviewInfinitivePackage::correction($item, $design);
                 if ($correction !== null) { $point = array_replace($point, $correction); }
                 self::detail($point, $pointSections, $index);
                 $node['items'][] = $point;

@@ -203,3 +203,19 @@ tools/diagnostics/m54*.php -text
 database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoicePhrasalVerbsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceRestrictionsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceTwoObjectVerbsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# M55 finite UTF-8 release bytes; existing frozen sources are not normalised.
+docs/content/m55-*.json -text
+docs/content/m55-*.md -text
+docs/content/theory-sentence-builders/m55-passive-review-infinitive.v1.json -text
+docs/reports/seo-m55-passive-review-infinitive-standard-view.md -text
+database/content-patches/m55-passive-review-infinitive*.json -text
+app/Support/M55*.php -text
+app/Services/M55*.php -text
+app/Console/Commands/PatchM55Content.php -text
+tests/Feature/M55*.php -text
+tests/Browser/m55*.cjs -text
+tools/diagnostics/m55*.php -text
+database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceCommonMistakesTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceFormalityStyleTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/PassiveVoice/InfinitivesGerund/PassiveVoicePassiveInfinitiveTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

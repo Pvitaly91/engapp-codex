@@ -88,6 +88,7 @@ final class TheoryNativeContentRelease
             $pageBinding = ['id' => $binding['page_id'], 'page_category_id' => $binding['category_id']];
             if ($binding['page_id'] < 1 || $binding['category_id'] < 1 || ($old['path'] ?? null) !== $path
                 || ($old['before']['seeder']['class'] ?? null) !== $binding['identity']
+                || ($old['before']['content_type'] ?? null) !== 'page'
                 || ($old['before']['slug'] ?? null) !== $binding['slug'] || ($old['before']['type'] ?? null) !== 'theory'
                 || ($old['before']['page']['locale'] ?? null) !== 'uk'
                 || ($old['before']['page']['category']['slug'] ?? null) !== end($binding['ancestry'])
@@ -104,7 +105,22 @@ final class TheoryNativeContentRelease
                 || ($target['block_keys'] ?? null) !== array_column($lesson['blocks'], 'key')) {
                 $this->fail('owner/category/locale/display or exact projection differs.');
             }
-            foreach ([$old['before']['page']['subtitle_html'], $lesson['subtitle_html'] ?? ''] as $subtitle) {
+            foreach ([$old['before']['page']['subtitle_html'], $lesson['subtitle_html'] ?? ''] as $phase => $subtitle) {
+                if ($phase === 0 && isset($binding['before_subtitle'])) {
+                    $capture = $binding['before_subtitle'];
+                    $metadata = array_values(array_filter($master['editorial_review']['pre_apply_metadata'] ?? [],
+                        static fn ($record) => ($record['identity'] ?? null) === $binding['identity']));
+                    if (($capture['mode'] ?? null) !== 'captured-plain'
+                        || preg_match('/^[a-f0-9]{64}$/D', $capture['sha256'] ?? '') !== 1
+                        || !hash_equals($capture['sha256'], hash('sha256', $subtitle))
+                        || ($capture['raw_page_title'] ?? null) !== $old['before']['page']['title']
+                        || ($capture['extracted_title'] ?? null) !== $binding['rendered_title']
+                        || ($capture['h1'] ?? null) !== $binding['rendered_title']
+                        || count($metadata) !== 1 || ($metadata[0]['h1'] ?? null) !== $binding['rendered_title']) {
+                        $this->fail('independently captured plain subtitle/title differs.');
+                    }
+                    continue;
+                }
                 if (preg_match('/^\s*<p>\s*<strong>(.*?)<\/strong>/su', $subtitle, $title) !== 1
                     || html_entity_decode(strip_tags($title[1]), ENT_QUOTES | ENT_HTML5, 'UTF-8') !== $binding['rendered_title']) {
                     $this->fail('supported subtitle changed the independently captured display title.');
@@ -116,10 +132,25 @@ final class TheoryNativeContentRelease
                 || count(array_unique(array_column($lesson['blocks'], 'key'))) !== $count + 1) {
                 $this->fail('actual continuing slots/order or appended practice differs.');
             }
+            foreach ($binding['component_overrides'] ?? [] as $slot => $component) {
+                if (!is_int($slot) || $slot < 0 || $slot >= $count || $component !== 'usage-panels') {
+                    $this->fail('finite semantic component slot/type differs.');
+                }
+            }
             $protected = $target['after']; $protected['page']['blocks'] = $old['before']['page']['blocks'];
             foreach (['subtitle_html', 'subtitle_text'] as $field) { $protected['page'][$field] = $old['before']['page'][$field]; }
             if ($protected !== $old['before']) { $this->fail('protected raw title/slug/category/tags metadata changed.'); }
             foreach ($lesson['blocks'] as $slot => $block) {
+                $override = $binding['component_overrides'][$slot] ?? null;
+                if ($override !== null && ($override !== 'usage-panels' || $block['type'] !== 'mistakes-grid'
+                    || ($block['semantic_component'] ?? null) !== $override
+                    || !is_array($block['data']['sections'] ?? null) || $block['data']['sections'] === []
+                    || array_key_exists('items', $block['data']) || $this->hasCorrectionFields($block['data']))) {
+                    $this->fail('finite neutral component projection differs.');
+                }
+                if ($override === null && array_key_exists('semantic_component', $block)) {
+                    $this->fail('unregistered semantic component projection.');
+                }
                 $expectedLevel = $slot < $count ? $binding['continuing_levels'][$slot] : $binding['practice_level'];
                 if (($block['level'] ?? null) !== $expectedLevel) { $this->fail('exact per-slot technical CEFR differs.'); }
                 if ($slot < $count) {
@@ -137,7 +168,7 @@ final class TheoryNativeContentRelease
                         }
                     }
                 }
-                if ($block['type'] === 'mistakes-grid') {
+                if ($block['type'] === 'mistakes-grid' && $override === null) {
                     foreach ($block['data']['items'] ?? [] as $item) {
                         foreach (['wrong_en', 'wrong_ua', 'right_en', 'right_ua'] as $field) {
                             if (!is_string($item[$field] ?? null) || trim($item[$field]) === '') {
@@ -172,6 +203,15 @@ final class TheoryNativeContentRelease
             }
             $this->assertLearningData($lesson['blocks']); $this->assertLearningData($lesson['details']);
         }
+    }
+
+    private function hasCorrectionFields(array $data): bool
+    {
+        foreach ($data as $key => $value) {
+            if (in_array($key, ['wrong', 'right', 'wrong_en', 'wrong_ua', 'right_en', 'right_ua'], true)
+                || (is_array($value) && $this->hasCorrectionFields($value))) { return true; }
+        }
+        return false;
     }
 
     private function assertPractice(array $data, array $banks, array &$ids): void
@@ -259,10 +299,13 @@ final class TheoryNativeContentRelease
 
     private function design(array $binding): array
     {
+        $owner = array_search($binding['target']['identity'], array_column($this->profile['bindings'], 'identity'), true);
+        $override = $this->profile['bindings'][$owner]['component_overrides'][$binding['slot']] ?? null;
         return ['package' => $this->profile['design'], 'identity' => $binding['target']['identity'], 'locale' => 'uk',
             'uuid' => M26DetailPackage::uuid($binding['target']['identity'], $binding['source'], $binding['slot'] + 1),
             'source_index' => $binding['slot'], 'body_sha256' => hash('sha256', $binding['source']['body']),
-            'component' => $binding['source']['type']];
+            'component' => $override ?? $binding['source']['type']]
+            + ($override === null ? [] : ['stored_component' => $binding['source']['type']]);
     }
 
     public function presentation(object $block, array $data): ?array

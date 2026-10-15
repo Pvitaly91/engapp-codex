@@ -64,6 +64,7 @@ final class TheoryContentRenderer
             if (in_array($nativeView, self::PRACTICE_VIEWS, true)) {
                 $bindings = M53BuilderHintPresentation::bindings($bindings);
                 $bindings = M54BuilderTokenPresentation::bindings($bindings);
+                $bindings = M55BuilderContextPresentation::bindings($bindings);
             }
             return view($nativeView, $bindings)->render();
         }
