@@ -219,3 +219,20 @@ tools/diagnostics/m55*.php -text
 database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceCommonMistakesTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceFormalityStyleTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/PassiveVoice/InfinitivesGerund/PassiveVoicePassiveInfinitiveTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# M56 finite UTF-8 release bytes; prior frozen artifacts remain unchanged.
+docs/content/m56-*.json -text
+docs/content/m56-*.md -text
+docs/content/theory-sentence-builders/m56-gerund-simple-passives.v1.json -text
+docs/reports/seo-m56-gerund-simple-passives-standard-view.md -text
+database/content-patches/m56-gerund-simple-passives*.json -text
+app/Support/M56*.php -text
+app/Services/M56*.php -text
+app/Console/Commands/PatchM56Content.php -text
+app/Console/Commands/PatchM56Hrefs.php -text
+tests/Feature/M56*.php -text
+tests/Browser/m56*.cjs -text
+tools/diagnostics/m56*.php -text
+database/seeders/Page_V3/PassiveVoice/InfinitivesGerund/PassiveVoicePassiveGerundTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/PassiveVoice/Tenses/PassiveVoicePresentSimpleTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/PassiveVoice/Tenses/PassiveVoicePastSimpleTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

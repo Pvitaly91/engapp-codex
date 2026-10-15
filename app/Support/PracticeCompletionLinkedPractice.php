@@ -107,6 +107,7 @@ final class PracticeCompletionLinkedPractice
     /** The controller passes only this unsaved copy to the unchanged page-wide matcher. */
     public static function matchingBlock(TextBlock $block, bool $canonicalTheory): TextBlock
     {
+        $block = M56BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);
         try {
             $data = json_decode((string) $block->body, true, flags: JSON_THROW_ON_ERROR);
             if (!is_array($data)) { return $block; }
