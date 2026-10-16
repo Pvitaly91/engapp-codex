@@ -17,7 +17,11 @@ abstract class TheoryNativeContentPatch extends M26ContentPatch
 
     protected function allowedPageUpdateFields(): array { return ['text']; }
     protected function localGuard(): string { return static::policy()['guard']; }
-    protected function expectedInsertCount(): int { return count(static::NAMES); }
+    protected function expectedInsertCount(): int
+    {
+        $package = static::packageClass();
+        return array_sum(array_map(static fn ($binding) => count($binding['appended_blocks'] ?? [null]), $package::profile()['bindings']));
+    }
     public function restore(string $backupPath, ?string $expectedDatabase = null): array
     {
         throw new RuntimeException('Native release restore is outside this approved scope; no writes.');
@@ -76,6 +80,7 @@ abstract class TheoryNativeContentPatch extends M26ContentPatch
     public static function assertDefinitionScope(array $before, array $after, array $target, int $i): void
     {
         $package = static::packageClass(); $binding = $package::profile()['bindings'][$i] ?? null;
+        $added = count($binding['appended_blocks'] ?? [null]);
         if ($binding === null || ($target['identity'] ?? null) !== $binding['identity']
             || ($before['seeder']['class'] ?? null) !== $binding['identity'] || ($before['page']['locale'] ?? null) !== 'uk'
             || ($before['type'] ?? null) !== 'theory' || ($before['slug'] ?? null) !== $binding['slug']
@@ -85,21 +90,30 @@ abstract class TheoryNativeContentPatch extends M26ContentPatch
             || ($target['page_binding'] ?? null) !== ['id' => $binding['page_id'], 'page_category_id' => $binding['category_id']]
             || ($target['local_url'] ?? null) !== $binding['local_url']
             || count($before['page']['blocks']) !== count($binding['continuing_levels'])
-            || count($after['page']['blocks']) !== count($before['page']['blocks']) + 1) {
+            || $added < 1 || count($after['page']['blocks']) !== count($before['page']['blocks']) + $added) {
             throw new RuntimeException('Native exact definition/owner/category/actual slots differ.');
         }
         $protected = $after; $protected['page']['blocks'] = $before['page']['blocks'];
         foreach (['subtitle_html', 'subtitle_text'] as $field) { $protected['page'][$field] = $before['page'][$field]; }
         if ($protected !== $before) { throw new RuntimeException('Native protected definition metadata changed.'); }
+        $projection = (new \App\Support\TheoryNativeContentRelease($package::profile()))->projectedBefore($before);
         foreach ($before['page']['blocks'] as $slot => $old) {
             $new = $after['page']['blocks'][$slot];
             if (($old['level'] ?? null) !== $binding['continuing_levels'][$slot]) {
                 throw new RuntimeException('Native independent continuing level vector differs.');
             }
-            unset($old['body'], $new['body']);
+            $old = $projection['page']['blocks'][$slot]; unset($old['body'], $new['body']);
             if ($old !== $new) { throw new RuntimeException('Native continuing metadata/UUID/order changed.'); }
         }
-        $practice = $after['page']['blocks'][count($before['page']['blocks'])];
+        foreach ($binding['appended_blocks'] ?? [] as $offset => $config) {
+            $source = $after['page']['blocks'][count($before['page']['blocks']) + $offset];
+            if (($source['type'] ?? null) !== $config['type'] || ($source['column'] ?? null) !== $config['column']
+                || ($source['level'] ?? null) !== $config['level']
+                || ($source['uuid_key'] ?? null) !== $package::profile()['uuid_prefix'].$binding['slug'].':'.$config['key']) {
+                throw new RuntimeException('Native finite appended teaching identity differs.');
+            }
+        }
+        $practice = $after['page']['blocks'][count($after['page']['blocks']) - 1];
         if ($practice['type'] !== 'practice-set' || $practice['column'] !== 'left'
             || ($practice['level'] ?? null) !== $binding['practice_level']
             || !str_starts_with($practice['uuid_key'] ?? '', $package::profile()['uuid_prefix'].$binding['slug'].':')) {
@@ -138,7 +152,7 @@ abstract class TheoryNativeContentPatch extends M26ContentPatch
                 || $page['slug'] !== $old['slug'] || $page['title'] !== $old['page']['title'] || $page['type'] !== 'theory'
                 || array_column($chain, 'slug') !== $target['ancestry']) { throw new RuntimeException('Native Page/category identity differs.'); }
             $rows = $this->rows('text_blocks', static fn ($q) => $q->where('page_id', $page['id']), $lock);
-            if ($baseline !== null) { M49ContentPatch::assertMetadataBaseline($baseline['pages'][$name], $page, $rows); }
+            if ($baseline !== null) { $this->assertMetadataBaseline($baseline['pages'][$name], $page, $rows, $old, $new, $i); }
             $subtitle = ['type' => 'subtitle', 'column' => 'header', 'heading' => null,
                 'level' => $old['page']['subtitle_level'] ?? null, 'uuid_key' => $old['page']['subtitle_uuid_key'] ?? 'subtitle',
                 'body' => $old['page']['subtitle_html']];
@@ -153,36 +167,42 @@ abstract class TheoryNativeContentPatch extends M26ContentPatch
                 $matches = $this->rows('text_blocks', static fn ($q) => $q->where('uuid', $uuid), $lock);
                 if (count($matches) !== 1) { throw new RuntimeException('Native continuing row missing or ambiguous.'); }
                 $row = $matches[0]; $this->assertOwner($row, $page, $name, $position);
+                $fields = $this->allowedUpdateFields(); $oldValues = []; $newValues = [];
                 foreach (['type', 'column', 'heading', 'level', 'css_class'] as $field) {
-                    if ($row[$field] !== ($config[$field] ?? null)) { throw new RuntimeException('Native continuing metadata differs: '.$field); }
+                    if (!in_array($field, $fields, true) && $row[$field] !== ($config[$field] ?? null)) {
+                        throw new RuntimeException('Native continuing metadata differs: '.$field);
+                    }
                 }
+                foreach ($fields as $field) { $oldValues[$field] = $config[$field] ?? null; $newValues[$field] = $newConfigs[$position][$field] ?? null; }
                 $targetIds[] = $row['id'];
-                $state = $this->candidate($plan['updates'], 'text_blocks', $row, $name, ['body' => $config['body']], ['body' => $newConfigs[$position]['body']]);
+                $state = $this->candidate($plan['updates'], 'text_blocks', $row, $name, $oldValues, $newValues);
                 if ($state !== null) { $rowStates[] = $state; }
             }
             $rowStates = array_values(array_unique($rowStates));
             if (count($rowStates) !== 1) { throw new RuntimeException('Native partial/manual owner state; no writes.'); }
-            $state = $rowStates[0]; $position = count($oldConfigs); $practice = $newConfigs[$position];
-            $uuid = $this->resolveUuid($name, $practice, $position);
-            $fields = ['uuid' => $uuid, 'page_id' => $page['id'], 'page_category_id' => $page['page_category_id'], 'locale' => 'uk',
-                'type' => $practice['type'], 'column' => $practice['column'], 'heading' => $practice['heading'] ?? null,
-                'css_class' => $practice['css_class'] ?? null, 'sort_order' => $position,
-                'body' => $practice['body'], 'level' => $practice['level'], 'seeder' => $name];
-            $matches = $this->rows('text_blocks', static fn ($q) => $q->where('uuid', $uuid), $lock);
-            if ($state === 'before') {
-                if ($matches !== []) { throw new RuntimeException('Native new practice UUID collides or is partially present.'); }
-                $plan['inserts'][] = ['table' => 'text_blocks', 'seeder' => $name, 'fields' => $fields, 'sha256' => self::digest($fields)];
-            } else {
-                if (count($matches) !== 1) { throw new RuntimeException('Native applied practice missing or duplicated.'); }
-                foreach ($fields as $field => $value) {
-                    if ($matches[0][$field] !== $value) { throw new RuntimeException('Native appended practice edited: '.$field); }
+            $state = $rowStates[0]; $addedCount = count($newConfigs) - count($oldConfigs);
+            foreach (array_slice($newConfigs, count($oldConfigs), null, true) as $position => $source) {
+                $uuid = $this->resolveUuid($name, $source, $position);
+                $fields = ['uuid' => $uuid, 'page_id' => $page['id'], 'page_category_id' => $page['page_category_id'], 'locale' => 'uk',
+                    'type' => $source['type'], 'column' => $source['column'], 'heading' => $source['heading'] ?? null,
+                    'css_class' => $source['css_class'] ?? null, 'sort_order' => $position,
+                    'body' => $source['body'], 'level' => $source['level'] ?? null, 'seeder' => $name];
+                $matches = $this->rows('text_blocks', static fn ($q) => $q->where('uuid', $uuid), $lock);
+                if ($state === 'before') {
+                    if ($matches !== []) { throw new RuntimeException('Native new block UUID collides or is partially present.'); }
+                    $plan['inserts'][] = ['table' => 'text_blocks', 'seeder' => $name, 'fields' => $fields, 'sha256' => self::digest($fields)];
+                } else {
+                    if (count($matches) !== 1) { throw new RuntimeException('Native applied block missing or duplicated.'); }
+                    foreach ($fields as $field => $value) {
+                        if ($matches[0][$field] !== $value) { throw new RuntimeException('Native appended block edited: '.$field); }
+                    }
+                    if (empty($matches[0]['created_at']) || $matches[0]['created_at'] !== $matches[0]['updated_at']) {
+                        throw new RuntimeException('Native block creation timestamps differ.');
+                    }
+                    $targetIds[] = $matches[0]['id'];
                 }
-                if (empty($matches[0]['created_at']) || $matches[0]['created_at'] !== $matches[0]['updated_at']) {
-                    throw new RuntimeException('Native practice creation timestamps differ.');
-                }
-                $targetIds[] = $matches[0]['id'];
             }
-            if (count(array_filter($rows, static fn ($r) => $r['locale'] === 'uk')) !== count($oldConfigs) + (int) ($state === 'after')) {
+            if (count(array_filter($rows, static fn ($r) => $r['locale'] === 'uk')) !== count($oldConfigs) + ($state === 'after' ? $addedCount : 0)) {
                 throw new RuntimeException('Native unexpected UK row count.');
             }
             $relations = $this->relations($page, $rows, $lock);
@@ -208,10 +228,41 @@ abstract class TheoryNativeContentPatch extends M26ContentPatch
     {
         $package = static::packageClass(); $i = array_search($page['seeder'], $package::OWNERS, true);
         if ($i === false) { throw new RuntimeException('Native relation owner is outside the descriptor.'); }
-        $position = $package::CONTINUING_COUNTS[$i] + 1;
-        $continuing = array_values(array_filter($blocks, static fn ($block) => !($block['locale'] === 'uk'
-            && $block['seeder'] === $page['seeder'] && $block['type'] === 'practice-set' && (int) $block['sort_order'] === $position)));
+        $patch = $package::load(dirname($this->databasePath))[1]; $target = $patch['targets'][$i];
+        $appended = [];
+        foreach (array_slice($target['after']['page']['blocks'], $package::CONTINUING_COUNTS[$i], null, true) as $slot => $config) {
+            $uuid = $this->resolveUuid($page['seeder'], $config, $slot + 1);
+            $appended[$uuid] = ['uuid' => $uuid, 'seeder' => $page['seeder'], 'locale' => 'uk',
+                'page_id' => $page['id'], 'page_category_id' => $page['page_category_id'], 'sort_order' => $slot + 1,
+                'type' => $config['type'], 'column' => $config['column'], 'heading' => $config['heading'] ?? null,
+                'level' => $config['level'] ?? null, 'css_class' => $config['css_class'] ?? null, 'body' => $config['body']];
+        }
+        $continuing = array_values(array_filter($blocks, static function ($block) use ($appended) {
+            $expected = $appended[$block['uuid']] ?? null;
+            if ($expected === null) { return true; }
+            foreach ($expected as $field => $value) { if (($block[$field] ?? null) !== $value) { return true; } }
+            return false;
+        }));
         return parent::relations($page, $continuing, $lock);
+    }
+
+    /** Normalize only a fully proven AFTER transition on copies, never original rows. */
+    private function assertMetadataBaseline(array $captured, array $page, array $rows, array $old, array $new, int $index): void
+    {
+        $package = static::packageClass(); $binding = $package::profile()['bindings'][$index];
+        foreach ($binding['continuing_metadata'] ?? [] as $slot => $transition) {
+            $uuid = $this->resolveUuid($page['seeder'], $old['page']['blocks'][$slot], $slot + 1);
+            foreach ($rows as &$row) {
+                if ($row['uuid'] !== $uuid || $row['locale'] !== 'uk') { continue; }
+                $source = $new['page']['blocks'][$slot]; $matches = true;
+                foreach (['type', 'column', 'heading', 'level', 'css_class', 'body'] as $field) {
+                    if ($row[$field] !== ($source[$field] ?? null)) { $matches = false; }
+                }
+                if ($matches) { foreach ($transition['before'] as $field => $value) { $row[$field] = $value; } }
+            }
+            unset($row);
+        }
+        M49ContentPatch::assertMetadataBaseline($captured, $page, $rows);
     }
 
     /** Descriptor supplements can recognise only rows already proven by their finite projection. */

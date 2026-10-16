@@ -504,6 +504,8 @@ class TestJsV2Controller extends Controller
                     if ($block === null) { continue; }
                     $block = \App\Support\M58PastFuturePassivesPackage::preserveExcludedTextBlock($block, 'standalone_test');
                     if ($block === null) { continue; }
+                    $block = \App\Support\M59PassiveFutureAgentReviewPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
                     if (isset($seenBlockUuids[$block->uuid])) {
                         continue;
                     }
@@ -528,6 +530,7 @@ class TestJsV2Controller extends Controller
                 if ($textBlock) { $textBlock = \App\Support\M56GerundSimplePassivesPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) { $textBlock = \App\Support\M57ContinuousPerfectPassivesPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) { $textBlock = \App\Support\M58PastFuturePassivesPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M59PassiveFutureAgentReviewPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) {
                     $theoryBlocks[] = [
                         'uuid' => $textBlock->uuid,
@@ -1337,6 +1340,8 @@ class TestJsV2Controller extends Controller
                 if ($block === null) { continue; }
                 $block = \App\Support\M58PastFuturePassivesPackage::preserveExcludedTextBlock($block, 'standalone_test');
                 if ($block === null) { continue; }
+                $block = \App\Support\M59PassiveFutureAgentReviewPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
                 $seen[$block->uuid] = true;
                 $blocks[] = [
                     'uuid' => $block->uuid,
@@ -1358,6 +1363,7 @@ class TestJsV2Controller extends Controller
             if ($textBlock) { $textBlock = \App\Support\M56GerundSimplePassivesPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) { $textBlock = \App\Support\M57ContinuousPerfectPassivesPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) { $textBlock = \App\Support\M58PastFuturePassivesPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M59PassiveFutureAgentReviewPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) {
                 $blocks[] = [
                     'uuid' => $textBlock->uuid,

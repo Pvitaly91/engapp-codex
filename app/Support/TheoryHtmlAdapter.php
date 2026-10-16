@@ -41,6 +41,7 @@ final class TheoryHtmlAdapter
         if (($design['package'] ?? null) === 'm56-native-v1') { return M56GerundSimplePassivesPackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm57-native-v1') { return M57ContinuousPerfectPassivesPackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm58-native-v1') { return M58PastFuturePassivesPackage::pointPanels($design); }
+        if (($design['package'] ?? null) === 'm59-native-v1') { return M59PassiveFutureAgentReviewPackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::pointPanels($design); }
@@ -130,6 +131,7 @@ final class TheoryHtmlAdapter
         if (($design['package'] ?? null) === 'm56-native-v1') { return M56GerundSimplePassivesPackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm57-native-v1') { return M57ContinuousPerfectPassivesPackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm58-native-v1') { return M58PastFuturePassivesPackage::validDesign($design); }
+        if (($design['package'] ?? null) === 'm59-native-v1') { return M59PassiveFutureAgentReviewPackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::validDesign($design); }

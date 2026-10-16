@@ -270,3 +270,19 @@ database/seeders/V3/Polyglot/M58*SupplementSeeder.php -text
 database/seeders/Page_V3/PassiveVoice/Tenses/PassiveVoicePastPerfectTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/PassiveVoice/Tenses/PassiveVoiceFutureSimpleTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/PassiveVoice/Tenses/PassiveVoiceFuturePerfectTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# M59 finite UTF-8 release bytes; preserve accepted M58/M57/M56 and frozen history.
+docs/content/m59-*.json -text
+docs/content/m59-*.md -text
+docs/content/theory-sentence-builders/m59-passive-future-agent-review.v1.json -text
+docs/reports/seo-m59-passive-future-agent-review-standard-view.md -text
+database/content-patches/m59-passive-future-agent-review*.json -text
+app/Support/M59*.php -text
+app/Services/M59*.php -text
+app/Console/Commands/PatchM59Content.php -text
+tests/Feature/M59*.php -text
+tests/Browser/m59*.cjs -text
+tools/diagnostics/m59*.php -text
+database/seeders/Page_V3/PassiveVoice/Tenses/PassiveVoiceFutureContinuousTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/PassiveVoice/SpecialCases/PassiveVoiceByPhraseTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/PassiveVoice/AdvancedPassiveVoiceTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -247,6 +247,7 @@ class TheoryCourseManifestService
         $page = \App\Support\M56GerundSimplePassivesPackage::preserveCoursePage($page);
         $page = \App\Support\M57ContinuousPerfectPassivesPackage::preserveCoursePage($page);
         $page = \App\Support\M58PastFuturePassivesPackage::preserveCoursePage($page);
+        $page = \App\Support\M59PassiveFutureAgentReviewPackage::preserveCoursePage($page);
 
         return \App\Support\M49AdviceModalsPackage::preserveCoursePage(\App\Support\M48ConditionalsPackage::preserveCoursePage(\App\Support\M47ConditionalsPackage::preserveCoursePage(\App\Support\M46ConditionalsPackage::preserveCoursePage($page))));
     }

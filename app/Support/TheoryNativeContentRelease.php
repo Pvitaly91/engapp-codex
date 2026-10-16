@@ -41,7 +41,7 @@ final class TheoryNativeContentRelease
     /** Pure projection: only the unchanged accepted serializer owns HTML. */
     public function definition(array $lesson, array $before): array
     {
-        $after = M49AdviceModalsPackage::definition($lesson, $before);
+        $after = M49AdviceModalsPackage::definition($lesson, $this->projectedBefore($before));
         $rename = function (array $value) use (&$rename): array {
             $out = [];
             foreach ($value as $key => $child) {
@@ -62,6 +62,42 @@ final class TheoryNativeContentRelease
         }
         unset($block);
         return $after;
+    }
+
+    /** Explicit finite metadata transitions; the independent BEFORE remains unchanged. */
+    public function projectedBefore(array $before): array
+    {
+        $owners = array_column($this->profile['bindings'], 'identity');
+        $index = array_search($before['seeder']['class'] ?? null, $owners, true);
+        if ($index === false) { $this->fail('metadata projection has a foreign owner.'); }
+        $binding = $this->profile['bindings'][$index]; $projected = $before;
+        foreach ($binding['continuing_metadata'] ?? [] as $slot => $transition) {
+            if (!is_int($slot) || $slot < 0 || !isset($before['page']['blocks'][$slot])
+                || array_keys($transition) !== ['column', 'before', 'after']
+                || array_keys($transition['before']) !== ['type', 'heading', 'level']
+                || array_keys($transition['after']) !== ['type', 'heading', 'level']) {
+                $this->fail('finite continuing metadata declaration differs.');
+            }
+            $old = $before['page']['blocks'][$slot];
+            if (($old['column'] ?? null) !== $transition['column'] || $transition['column'] !== 'left') {
+                $this->fail('finite metadata transition column differs.');
+            }
+            foreach ($transition['before'] as $field => $value) {
+                if (($old[$field] ?? null) !== $value) { $this->fail('independent metadata transition BEFORE differs.'); }
+            }
+            foreach ($transition['after'] as $field => $value) {
+                if ($value === null) { unset($projected['page']['blocks'][$slot][$field]); }
+                else { $projected['page']['blocks'][$slot][$field] = $value; }
+            }
+            $new = $projected['page']['blocks'][$slot];
+            if (!in_array($new['type'], ['forms-grid', 'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list'], true)
+                || !in_array($new['level'] ?? null, ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], true)
+                || M26DetailPackage::uuid($binding['identity'], $old, $slot + 1)
+                    !== M26DetailPackage::uuid($binding['identity'], $new, $slot + 1)) {
+                $this->fail('finite metadata transition changes identity or unsupported native type/level.');
+            }
+        }
+        return $projected;
     }
 
     public function validate(array $before, array $patch, array $master, ?array $contract = null): void
@@ -127,10 +163,29 @@ final class TheoryNativeContentRelease
                 }
             }
             $count = count($old['before']['page']['blocks']);
-            if ($count !== count($binding['continuing_levels']) || count($lesson['blocks']) !== $count + 1
-                || array_column($lesson['blocks'], 'existing_source_index') !== [...range(0, $count - 1), null]
-                || count(array_unique(array_column($lesson['blocks'], 'key'))) !== $count + 1) {
+            $appended = $binding['appended_blocks'] ?? null; $addedCount = $appended === null ? 1 : count($appended);
+            $projectedBefore = $this->projectedBefore($old['before']);
+            if ($addedCount < 1 || $count !== count($binding['continuing_levels'])
+                || count($lesson['blocks']) !== $count + $addedCount
+                || array_column($lesson['blocks'], 'existing_source_index') !== [...range(0, $count - 1), ...array_fill(0, $addedCount, null)]
+                || count(array_unique(array_column($lesson['blocks'], 'key'))) !== $count + $addedCount) {
                 $this->fail('actual continuing slots/order or appended practice differs.');
+            }
+            if ($appended !== null) {
+                foreach ($appended as $offset => $config) {
+                    $source = $lesson['blocks'][$count + $offset];
+                    if (array_keys($config) !== ['key', 'type', 'column', 'level']
+                        || ['key' => $source['key'] ?? null, 'type' => $source['type'] ?? null,
+                            'column' => $source['column'] ?? null, 'level' => $source['level'] ?? null] !== $config
+                        || preg_match('/^[a-z0-9]+(?:-[a-z0-9]+)*$/D', $config['key']) !== 1
+                        || !in_array($config['type'], ['forms-grid', 'usage-panels', 'comparison-table', 'mistakes-grid',
+                            'summary-list', 'navigation-chips', 'practice-set'], true)
+                        || ($config['type'] === 'practice-set') !== ($offset === $addedCount - 1)
+                        || ($config['type'] === 'navigation-chips' ? ($config['column'] !== 'footer' || $config['level'] !== null)
+                            : ($config['column'] !== 'left' || $config['level'] !== $binding['practice_level']))) {
+                        $this->fail('finite appended teaching/practice metadata differs.');
+                    }
+                }
             }
             foreach ($binding['component_overrides'] ?? [] as $slot => $component) {
                 if (!is_int($slot) || $slot < 0 || $slot >= $count || $component !== 'usage-panels') {
@@ -151,11 +206,14 @@ final class TheoryNativeContentRelease
                 if ($override === null && array_key_exists('semantic_component', $block)) {
                     $this->fail('unregistered semantic component projection.');
                 }
-                $expectedLevel = $slot < $count ? $binding['continuing_levels'][$slot] : $binding['practice_level'];
+                $expectedLevel = $slot < $count ? ($projectedBefore['page']['blocks'][$slot]['level'] ?? null)
+                    : ($appended === null ? $binding['practice_level'] : $appended[$slot - $count]['level']);
                 if (($block['level'] ?? null) !== $expectedLevel) { $this->fail('exact per-slot technical CEFR differs.'); }
                 if ($slot < $count) {
-                    $oldConfig = $old['before']['page']['blocks'][$slot]; $newConfig = $target['after']['page']['blocks'][$slot];
-                    if (($oldConfig['level'] ?? null) !== $expectedLevel) { $this->fail('independent BEFORE level vector differs.'); }
+                    $oldConfig = $projectedBefore['page']['blocks'][$slot]; $newConfig = $target['after']['page']['blocks'][$slot];
+                    if (($old['before']['page']['blocks'][$slot]['level'] ?? null) !== $binding['continuing_levels'][$slot]) {
+                        $this->fail('independent BEFORE level vector differs.');
+                    }
                     unset($oldConfig['body'], $newConfig['body']);
                     if ($oldConfig !== $newConfig) { $this->fail('continuing metadata/UUID/order changed.'); }
                 }
@@ -178,7 +236,9 @@ final class TheoryNativeContentRelease
                     }
                 }
             }
-            $practice = $lesson['blocks'][$count];
+            $practices = array_values(array_filter($lesson['blocks'], static fn ($block) => $block['type'] === 'practice-set'));
+            if (count($practices) !== 1) { $this->fail('exactly one appended native practice-set is required.'); }
+            $practice = $practices[0];
             if ($practice['type'] !== 'practice-set' || $practice['column'] !== 'left') {
                 $this->fail('one appended native practice-set is required.');
             }
@@ -381,6 +441,16 @@ final class TheoryNativeContentRelease
         return $copy;
     }
 
+    private function cloneConfig(object $block, array $config): object
+    {
+        $copy = clone $block; $fields = ['body' => $config['body']];
+        foreach (['type', 'column', 'heading', 'level', 'css_class'] as $field) { $fields[$field] = $config[$field] ?? null; }
+        if (method_exists($copy, 'setRawAttributes') && method_exists($copy, 'getAttributes')) {
+            $copy->setRawAttributes(array_replace($copy->getAttributes(), $fields), true);
+        } else { foreach ($fields as $field => $value) { $copy->$field = $value; } }
+        return $copy;
+    }
+
     public function preserveExcludedTextBlock(object $block, string $caller): ?object
     {
         $owners = array_column($this->profile['bindings'], 'identity');
@@ -396,8 +466,8 @@ final class TheoryNativeContentRelease
             }
             $binding = $this->binding($block, json_decode((string) $block->body, true, flags: JSON_THROW_ON_ERROR));
             if ($binding === null) { return $block; }
-            if ($binding['slot'] === count($old['page']['blocks'])) { return $binding['source']['type'] === 'practice-set' ? null : $block; }
-            return $this->cloneBody($block, $old['page']['blocks'][$binding['slot']]['body']);
+            if ($binding['slot'] >= count($old['page']['blocks'])) { return null; }
+            return $this->cloneConfig($block, $old['page']['blocks'][$binding['slot']]);
         } catch (\Throwable) { return $block; }
     }
 
@@ -428,7 +498,7 @@ final class TheoryNativeContentRelease
             $restored = $blocks->reject(static fn ($block) => $block->locale === 'uk')->values();
             $restored->push($this->cloneBody($subtitles[0], $old['page']['subtitle_html']));
             foreach ($old['page']['blocks'] as $slot => $source) {
-                $restored->push($this->cloneBody($uk->firstWhere('uuid', M26DetailPackage::uuid($target['identity'], $source, $slot + 1)), $source['body']));
+                $restored->push($this->cloneConfig($uk->firstWhere('uuid', M26DetailPackage::uuid($target['identity'], $source, $slot + 1)), $source));
             }
             $copy->setRelation('textBlocks', new Collection($restored->sortBy('sort_order')->values()->all()));
             return $copy;
