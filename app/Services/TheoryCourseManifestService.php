@@ -250,6 +250,7 @@ class TheoryCourseManifestService
         $page = \App\Support\M59PassiveFutureAgentReviewPackage::preserveCoursePage($page);
         $page = \App\Support\M60ReportedSpeechBasicsPackage::preserveCoursePage($page);
         $page = \App\Support\M61ReportedSpeechChangesPackage::preserveCoursePage($page);
+        $page = \App\Support\M62ReportedReviewRelativeBasicsPackage::preserveCoursePage($page);
 
         return \App\Support\M49AdviceModalsPackage::preserveCoursePage(\App\Support\M48ConditionalsPackage::preserveCoursePage(\App\Support\M47ConditionalsPackage::preserveCoursePage(\App\Support\M46ConditionalsPackage::preserveCoursePage($page))));
     }
