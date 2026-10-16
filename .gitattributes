@@ -303,3 +303,19 @@ tools/diagnostics/m60*.php -text
 database/seeders/Page_V3/ReportedSpeech/ReportedSpeechStatementsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/ReportedSpeech/ReportedSpeechQuestionsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/ReportedSpeech/ReportedSpeechCommandsRequestsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# M61 finite UTF-8 release bytes; preserve M60 1.0.1 and all accepted frozen history.
+docs/content/m61-*.json -text
+docs/content/m61-*.md -text
+docs/content/theory-sentence-builders/m61-reported-speech-changes.v1.json -text
+docs/reports/seo-m61-reported-speech-changes-standard-view.md -text
+database/content-patches/m61-reported-speech-changes*.json -text
+app/Support/M61*.php -text
+app/Services/M61*.php -text
+app/Console/Commands/PatchM61Content.php -text
+tests/Feature/M61*.php -text
+tests/Browser/m61*.cjs -text
+tools/diagnostics/m61*.php -text
+database/seeders/Page_V3/ReportedSpeech/ReportedSpeechBackshiftTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/ReportedSpeech/ReportedSpeechTimePlaceChangesTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/ReportedSpeech/ReportedSpeechSayTellAskTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

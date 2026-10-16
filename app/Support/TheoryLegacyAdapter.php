@@ -158,6 +158,8 @@ final class TheoryLegacyAdapter
                 if ($correction !== null) { $point = array_replace($point, $correction); }
                 $correction = M60ReportedSpeechBasicsPackage::correction($item, $design);
                 if ($correction !== null) { $point = array_replace($point, $correction); }
+                $correction = M61ReportedSpeechChangesPackage::correction($item, $design);
+                if ($correction !== null) { $point = array_replace($point, $correction); }
                 self::detail($point, $pointSections, $index);
                 $node['items'][] = $point;
             }
