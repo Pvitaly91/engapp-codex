@@ -37,6 +37,7 @@ class TextBlockToQuestionsMatcherService
         if (($linkedPractice['source'] ?? null) === 'theory_links') {
             $excludeQuestionIds = \App\Support\M56BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
             $excludeQuestionIds = \App\Support\M59BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M60BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
             return $this->loadExplicitlyLinkedQuestions(
                 $block,
                 $limit,

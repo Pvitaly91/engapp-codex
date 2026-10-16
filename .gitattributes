@@ -286,3 +286,20 @@ tools/diagnostics/m59*.php -text
 database/seeders/Page_V3/PassiveVoice/Tenses/PassiveVoiceFutureContinuousTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/PassiveVoice/SpecialCases/PassiveVoiceByPhraseTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/PassiveVoice/AdvancedPassiveVoiceTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# M60 finite UTF-8 release bytes; preserve M59 and all accepted frozen history.
+docs/content/m60-*.json -text
+docs/content/m60-*.md -text
+docs/content/theory-sentence-builders/m60-reported-speech-basics.v1.json -text
+docs/reports/seo-m60-reported-speech-basics-standard-view.md -text
+database/content-patches/m60-reported-speech-basics*.json -text
+app/Support/M60*.php -text
+app/Services/M60*.php -text
+app/Console/Commands/PatchM60Content.php -text
+app/Console/Commands/PatchM60PracticeFeedback.php -text
+tests/Feature/M60*.php -text
+tests/Browser/m60*.cjs -text
+tools/diagnostics/m60*.php -text
+database/seeders/Page_V3/ReportedSpeech/ReportedSpeechStatementsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/ReportedSpeech/ReportedSpeechQuestionsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/ReportedSpeech/ReportedSpeechCommandsRequestsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

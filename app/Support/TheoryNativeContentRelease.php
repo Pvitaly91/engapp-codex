@@ -71,6 +71,15 @@ final class TheoryNativeContentRelease
         $index = array_search($before['seeder']['class'] ?? null, $owners, true);
         if ($index === false) { $this->fail('metadata projection has a foreign owner.'); }
         $binding = $this->profile['bindings'][$index]; $projected = $before;
+        $preserved = array_key_exists('preserved_native_metadata', $binding) ? $binding['preserved_native_metadata'] : [];
+        if (!is_array($preserved)) { $this->fail('finite preserved native metadata declaration differs.'); }
+        foreach ($preserved as $slot => $metadata) {
+            if (!is_int($slot) || $slot < 0 || !isset($binding['continuing_metadata'][$slot])
+                || !is_array($metadata) || array_keys($metadata) !== ['column', 'level']
+                || !in_array($metadata['column'], ['left', 'right'], true) || $metadata['level'] !== null) {
+                $this->fail('finite preserved native metadata slot/column/null level differs.');
+            }
+        }
         foreach ($binding['continuing_metadata'] ?? [] as $slot => $transition) {
             if (!is_int($slot) || $slot < 0 || !isset($before['page']['blocks'][$slot])
                 || array_keys($transition) !== ['column', 'before', 'after']
@@ -79,7 +88,12 @@ final class TheoryNativeContentRelease
                 $this->fail('finite continuing metadata declaration differs.');
             }
             $old = $before['page']['blocks'][$slot];
-            if (($old['column'] ?? null) !== $transition['column'] || $transition['column'] !== 'left') {
+            $preserve = $preserved[$slot] ?? null;
+            if (($old['column'] ?? null) !== $transition['column']
+                || ($preserve === null && $transition['column'] !== 'left')
+                || ($preserve !== null && ($transition['column'] !== $preserve['column']
+                    || ($old['type'] ?? null) !== 'box' || ($old['level'] ?? null) !== null
+                    || $transition['before']['level'] !== null || $transition['after']['level'] !== null))) {
                 $this->fail('finite metadata transition column differs.');
             }
             foreach ($transition['before'] as $field => $value) {
@@ -91,7 +105,8 @@ final class TheoryNativeContentRelease
             }
             $new = $projected['page']['blocks'][$slot];
             if (!in_array($new['type'], ['forms-grid', 'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list'], true)
-                || !in_array($new['level'] ?? null, ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], true)
+                || ($preserve === null ? !in_array($new['level'] ?? null, ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], true)
+                    : ($new['level'] ?? null) !== null)
                 || M26DetailPackage::uuid($binding['identity'], $old, $slot + 1)
                     !== M26DetailPackage::uuid($binding['identity'], $new, $slot + 1)) {
                 $this->fail('finite metadata transition changes identity or unsupported native type/level.');
