@@ -45,6 +45,7 @@ final class TheoryHtmlAdapter
         if (($design['package'] ?? null) === 'm60-native-v1') { return M60ReportedSpeechBasicsPackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm61-native-v1') { return M61ReportedSpeechChangesPackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm62-native-v1') { return M62ReportedReviewRelativeBasicsPackage::pointPanels($design); }
+        if (($design['package'] ?? null) === 'm63-native-v1') { return M63RelativeCompletionLinkingPackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::pointPanels($design); }
@@ -138,6 +139,7 @@ final class TheoryHtmlAdapter
         if (($design['package'] ?? null) === 'm60-native-v1') { return M60ReportedSpeechBasicsPackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm61-native-v1') { return M61ReportedSpeechChangesPackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm62-native-v1') { return M62ReportedReviewRelativeBasicsPackage::validDesign($design); }
+        if (($design['package'] ?? null) === 'm63-native-v1') { return M63RelativeCompletionLinkingPackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::validDesign($design); }

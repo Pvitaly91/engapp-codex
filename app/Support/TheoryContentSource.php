@@ -23,6 +23,7 @@ final class TheoryContentSource
         [M60ReportedSpeechBasicsPackage::class, 'm42StyleContext'],
         [M61ReportedSpeechChangesPackage::class, 'm42StyleContext'],
         [M62ReportedReviewRelativeBasicsPackage::class, 'm42StyleContext'],
+        [M63RelativeCompletionLinkingPackage::class, 'm42StyleContext'],
         [M50ObligationAdvicePackage::class, 'm42StyleContext'],
         [PracticeCompletionPackage::class, 'm42StyleContext'],
         [M49AdviceModalsPackage::class, 'm42StyleContext'],
