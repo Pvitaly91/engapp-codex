@@ -516,6 +516,8 @@ class TestJsV2Controller extends Controller
                     if ($block === null) { continue; }
                     $block = \App\Support\M64ReasonResultContrastPackage::preserveExcludedTextBlock($block, 'standalone_test');
                     if ($block === null) { continue; }
+                    $block = \App\Support\M65PurposeGerundInfinitivePackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
                     if (isset($seenBlockUuids[$block->uuid])) {
                         continue;
                     }
@@ -546,6 +548,7 @@ class TestJsV2Controller extends Controller
                 if ($textBlock) { $textBlock = \App\Support\M62ReportedReviewRelativeBasicsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) { $textBlock = \App\Support\M63RelativeCompletionLinkingPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) { $textBlock = \App\Support\M64ReasonResultContrastPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M65PurposeGerundInfinitivePackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) {
                     $theoryBlocks[] = [
                         'uuid' => $textBlock->uuid,
@@ -1367,6 +1370,8 @@ class TestJsV2Controller extends Controller
                 if ($block === null) { continue; }
                 $block = \App\Support\M64ReasonResultContrastPackage::preserveExcludedTextBlock($block, 'standalone_test');
                 if ($block === null) { continue; }
+                $block = \App\Support\M65PurposeGerundInfinitivePackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
                 $seen[$block->uuid] = true;
                 $blocks[] = [
                     'uuid' => $block->uuid,
@@ -1394,6 +1399,7 @@ class TestJsV2Controller extends Controller
             if ($textBlock) { $textBlock = \App\Support\M62ReportedReviewRelativeBasicsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) { $textBlock = \App\Support\M63RelativeCompletionLinkingPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) { $textBlock = \App\Support\M64ReasonResultContrastPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M65PurposeGerundInfinitivePackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) {
                 $blocks[] = [
                     'uuid' => $textBlock->uuid,

@@ -370,3 +370,22 @@ database/seeders/V3/Polyglot/M64*/definition.json -text
 database/seeders/Page_V3/ClausesAndLinkingWords/ClausesAndLinkingWordsReasonTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/ClausesAndLinkingWords/ClausesAndLinkingWordsResultTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/ClausesAndLinkingWords/ClausesAndLinkingWordsContrastTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# M65 finite frozen UTF-8/LF bytes; no changes to accepted M64 rules.
+docs/content/m65-*.json -text
+docs/content/m65-*.md -text
+docs/content/theory-sentence-builders/m65-purpose-gerund-infinitive.v1.json -text
+docs/reports/seo-m65-purpose-gerund-infinitive-standard-view.md -text
+database/content-patches/m65-purpose-gerund-infinitive*.json -text
+app/Support/M65*.php -text
+app/Services/M65*.php -text
+app/Console/Commands/PatchM65Content.php -text
+tests/Feature/M65*.php -text
+tests/Browser/m65*.cjs -text
+tools/diagnostics/m65*.php -text
+database/seeders/V3/Polyglot/M65*.php -text
+database/seeders/V3/Polyglot/M65*/*.php -text
+database/seeders/V3/Polyglot/M65*/definition.json -text
+database/seeders/Page_V3/ClausesAndLinkingWords/ClausesAndLinkingWordsPurposeTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/VerbPatterns/VerbPatternsGerundTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/VerbPatterns/VerbPatternsToInfinitiveTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
