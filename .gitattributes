@@ -351,3 +351,22 @@ tools/diagnostics/m63*.php -text
 database/seeders/Page_V3/ClausesAndLinkingWords/ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/ClausesAndLinkingWords/ClausesAndLinkingWordsOmittingRelativePronounsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/ClausesAndLinkingWords/ClausesAndLinkingWordsLinkingWordsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# M64 finite UTF-8/LF release bytes; preserve all accepted M63 and earlier history.
+docs/content/m64-*.json -text
+docs/content/m64-*.md -text
+docs/content/theory-sentence-builders/m64-reason-result-contrast.v1.json -text
+docs/reports/seo-m64-reason-result-contrast-standard-view.md -text
+database/content-patches/m64-reason-result-contrast*.json -text
+app/Support/M64*.php -text
+app/Services/M64*.php -text
+app/Console/Commands/PatchM64Content.php -text
+tests/Feature/M64*.php -text
+tests/Browser/m64*.cjs -text
+tools/diagnostics/m64*.php -text
+database/seeders/V3/Polyglot/M64*.php -text
+database/seeders/V3/Polyglot/M64*/*.php -text
+database/seeders/V3/Polyglot/M64*/definition.json -text
+database/seeders/Page_V3/ClausesAndLinkingWords/ClausesAndLinkingWordsReasonTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/ClausesAndLinkingWords/ClausesAndLinkingWordsResultTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/ClausesAndLinkingWords/ClausesAndLinkingWordsContrastTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

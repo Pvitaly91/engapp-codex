@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "status": "frozen",
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Polyglot\\M64ContrastB1SupplementSeeder",
+    "uuid_namespace": "M64ContrastB1SupplementSeeder"
+  },
+  "taxonomy_status": "confirmed-existing-only",
+  "taxonomy_note_uk": "Використано чинні English Sentence Builder та source цієї теми. Це versioned авторське доповнення; робочу БД змінює лише окремий guarded insert-only M64 workflow, не reseed.",
+  "defaults": {
+    "default_locale": "uk",
+    "flag": 0,
+    "type": 4,
+    "level_difficulty": {
+      "B1": 3
+    }
+  },
+  "category": {
+    "name": "English Sentence Builder"
+  },
+  "sources": {
+    "contrast": {
+      "name": "Contrast: although / though / however"
+    }
+  },
+  "tags": {},
+  "default_tag_keys": [],
+  "questions": [
+    {
+      "uuid": "m64-contrast-b1-01",
+      "source_uid": "m64-contrast-b1-01",
+      "question": "Вона закінчила звіт, хоча була втомлена. Через втому вона очікувала не завершити роботу, але завершила. Почни із She finished і постав though перед частиною про втому; не змінюй жодного факту.",
+      "level": "B1",
+      "type": 4,
+      "source_text_uk": "Вона закінчила звіт, хоча була втомлена. Через втому вона очікувала не завершити роботу, але завершила. Почни із She finished і постав though перед частиною про втому; не змінюй жодного факту.",
+      "target_text": "She finished the report though she was tired.",
+      "tokens_correct": [
+        "She",
+        "finished",
+        "the",
+        "report",
+        "though",
+        "she",
+        "was",
+        "tired",
+        "."
+      ],
+      "answers": {
+        "a1": "She",
+        "a2": "finished",
+        "a3": "the",
+        "a4": "report",
+        "a5": "though",
+        "a6": "she",
+        "a7": "was",
+        "a8": "tired",
+        "a9": "."
+      },
+      "options": [
+        "She",
+        "finished",
+        "the",
+        "report",
+        "though",
+        "she",
+        "was",
+        "tired",
+        ".",
+        "however",
+        "because",
+        "finish"
+      ],
+      "source": "contrast"
+    },
+    {
+      "uuid": "m64-contrast-b1-02",
+      "source_uid": "m64-contrast-b1-02",
+      "question": "Проте вона нам сподобалася. Співрозмовник щойно сказав, що прогулянка була довгою. Передай наведену відповідь про прогулянку, почни з We та постав though наприкінці; enjoyed — отримали задоволення, it — ця прогулянка.",
+      "level": "B1",
+      "type": 4,
+      "source_text_uk": "Проте вона нам сподобалася. Співрозмовник щойно сказав, що прогулянка була довгою. Передай наведену відповідь про прогулянку, почни з We та постав though наприкінці; enjoyed — отримали задоволення, it — ця прогулянка.",
+      "target_text": "We enjoyed it, though.",
+      "tokens_correct": [
+        "We",
+        "enjoyed",
+        "it",
+        ",",
+        "though",
+        "."
+      ],
+      "answers": {
+        "a1": "We",
+        "a2": "enjoyed",
+        "a3": "it",
+        "a4": ",",
+        "a5": "though",
+        "a6": "."
+      },
+      "options": [
+        "We",
+        "enjoyed",
+        "it",
+        ",",
+        "though",
+        ".",
+        "although",
+        "because",
+        "so"
+      ],
+      "source": "contrast"
+    },
+    {
+      "uuid": "m64-contrast-b1-03",
+      "source_uid": "m64-contrast-b1-03",
+      "question": "Однак ключа немає в шухляді. Раніше очікували знайти ключ у шухляді, але його там немає. Почни з The key, постав however після підмета й збережи not; drawer — шухляда.",
+      "level": "B1",
+      "type": 4,
+      "source_text_uk": "Однак ключа немає в шухляді. Раніше очікували знайти ключ у шухляді, але його там немає. Почни з The key, постав however після підмета й збережи not; drawer — шухляда.",
+      "target_text": "The key, however, is not in the drawer.",
+      "tokens_correct": [
+        "The",
+        "key",
+        ",",
+        "however",
+        ",",
+        "is",
+        "not",
+        "in",
+        "the",
+        "drawer",
+        "."
+      ],
+      "answers": {
+        "a1": "The",
+        "a2": "key",
+        "a3": ",",
+        "a4": "however",
+        "a5": ",",
+        "a6": "is",
+        "a7": "not",
+        "a8": "in",
+        "a9": "the",
+        "a10": "drawer",
+        "a11": "."
+      },
+      "options": [
+        "The",
+        "key",
+        ",",
+        "however",
+        ",",
+        "is",
+        "not",
+        "in",
+        "the",
+        "drawer",
+        ".",
+        "although",
+        "because",
+        "are"
+      ],
+      "source": "contrast"
+    }
+  ]
+}
