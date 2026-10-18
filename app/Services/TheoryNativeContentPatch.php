@@ -20,7 +20,8 @@ abstract class TheoryNativeContentPatch extends M26ContentPatch
     protected function expectedInsertCount(): int
     {
         $package = static::packageClass();
-        return array_sum(array_map(static fn ($binding) => count($binding['appended_blocks'] ?? [null]), $package::profile()['bindings']));
+        return array_sum(array_map(static fn ($binding) => count($binding['appended_blocks'] ?? [null])
+            + (($binding['before_subtitle']['mode'] ?? null) === 'captured-absent' ? 1 : 0), $package::profile()['bindings']));
     }
     public function restore(string $backupPath, ?string $expectedDatabase = null): array
     {
@@ -94,7 +95,10 @@ abstract class TheoryNativeContentPatch extends M26ContentPatch
             throw new RuntimeException('Native exact definition/owner/category/actual slots differ.');
         }
         $protected = $after; $protected['page']['blocks'] = $before['page']['blocks'];
-        foreach (['subtitle_html', 'subtitle_text'] as $field) { $protected['page'][$field] = $before['page'][$field]; }
+        foreach (['subtitle_html', 'subtitle_text'] as $field) {
+            if (array_key_exists($field, $before['page'])) { $protected['page'][$field] = $before['page'][$field]; }
+            else { unset($protected['page'][$field]); }
+        }
         if ($protected !== $before) { throw new RuntimeException('Native protected definition metadata changed.'); }
         $projection = (new \App\Support\TheoryNativeContentRelease($package::profile()))->projectedBefore($before);
         foreach ($before['page']['blocks'] as $slot => $old) {
@@ -153,13 +157,20 @@ abstract class TheoryNativeContentPatch extends M26ContentPatch
                 || array_column($chain, 'slug') !== $target['ancestry']) { throw new RuntimeException('Native Page/category identity differs.'); }
             $rows = $this->rows('text_blocks', static fn ($q) => $q->where('page_id', $page['id']), $lock);
             if ($baseline !== null) { $this->assertMetadataBaseline($baseline['pages'][$name], $page, $rows, $old, $new, $i); }
+            $release = new \App\Support\TheoryNativeContentRelease($package::profile());
+            $subtitleAbsent = $release->subtitleWasAbsent($old);
             $subtitle = ['type' => 'subtitle', 'column' => 'header', 'heading' => null,
                 'level' => $old['page']['subtitle_level'] ?? null, 'uuid_key' => $old['page']['subtitle_uuid_key'] ?? 'subtitle',
-                'body' => $old['page']['subtitle_html']];
+                'body' => $subtitleAbsent ? null : $old['page']['subtitle_html']];
             $afterSubtitle = $subtitle; $afterSubtitle['body'] = $new['page']['subtitle_html'];
-            $oldConfigs = [$subtitle, ...$old['page']['blocks']]; $newConfigs = [$afterSubtitle, ...$new['page']['blocks']]; $rowStates = [];
+            $oldConfigs = $subtitleAbsent ? [] : [$subtitle];
+            foreach ($old['page']['blocks'] as $slot => $config) {
+                if ($subtitleAbsent) { $config['uuid'] = $package::profile()['bindings'][$i]['continuing_uuids'][$slot]; }
+                $oldConfigs[$slot + 1] = $config;
+            }
+            $newConfigs = [$afterSubtitle, ...$new['page']['blocks']]; $rowStates = [];
             $state = $this->candidate($plan['updates'], 'pages', $page, $name,
-                ['text' => $old['page']['subtitle_text']], ['text' => $new['page']['subtitle_text']]);
+                ['text' => $subtitleAbsent ? null : $old['page']['subtitle_text']], ['text' => $new['page']['subtitle_text']]);
             if ($state !== null) { $rowStates[] = $state; }
             foreach ($oldConfigs as $position => $config) {
                 $uuid = $this->resolveUuid($name, $config, $position);
@@ -181,7 +192,7 @@ abstract class TheoryNativeContentPatch extends M26ContentPatch
             $rowStates = array_values(array_unique($rowStates));
             if (count($rowStates) !== 1) { throw new RuntimeException('Native partial/manual owner state; no writes.'); }
             $state = $rowStates[0]; $addedCount = count($newConfigs) - count($oldConfigs);
-            foreach (array_slice($newConfigs, count($oldConfigs), null, true) as $position => $source) {
+            foreach (array_diff_key($newConfigs, $oldConfigs) as $position => $source) {
                 $uuid = $this->resolveUuid($name, $source, $position);
                 $fields = ['uuid' => $uuid, 'page_id' => $page['id'], 'page_category_id' => $page['page_category_id'], 'locale' => 'uk',
                     'type' => $source['type'], 'column' => $source['column'], 'heading' => $source['heading'] ?? null,
@@ -237,6 +248,15 @@ abstract class TheoryNativeContentPatch extends M26ContentPatch
                 'type' => $config['type'], 'column' => $config['column'], 'heading' => $config['heading'] ?? null,
                 'level' => $config['level'] ?? null, 'css_class' => $config['css_class'] ?? null, 'body' => $config['body']];
         }
+        if (($package::profile()['bindings'][$i]['before_subtitle']['mode'] ?? null) === 'captured-absent') {
+            $old = $package::load(dirname($this->databasePath))[0]['targets'][$i]['before'];
+            $config = ['type' => 'subtitle', 'column' => 'header', 'heading' => null, 'css_class' => null,
+                'level' => $old['page']['subtitle_level'] ?? null, 'uuid_key' => $old['page']['subtitle_uuid_key'] ?? 'subtitle'];
+            $uuid = $this->resolveUuid($page['seeder'], $config, 0);
+            $appended[$uuid] = ['uuid' => $uuid, 'seeder' => $page['seeder'], 'locale' => 'uk', 'page_id' => $page['id'],
+                'page_category_id' => $page['page_category_id'], 'sort_order' => 0, 'type' => 'subtitle', 'column' => 'header',
+                'heading' => null, 'css_class' => null, 'level' => $config['level'], 'body' => $target['after']['page']['subtitle_html']];
+        }
         $continuing = array_values(array_filter($blocks, static function ($block) use ($appended) {
             $expected = $appended[$block['uuid']] ?? null;
             if ($expected === null) { return true; }
@@ -250,8 +270,27 @@ abstract class TheoryNativeContentPatch extends M26ContentPatch
     private function assertMetadataBaseline(array $captured, array $page, array $rows, array $old, array $new, int $index): void
     {
         $package = static::packageClass(); $binding = $package::profile()['bindings'][$index];
+        $release = new \App\Support\TheoryNativeContentRelease($package::profile());
+        if ($release->subtitleWasAbsent($old)) {
+            $capturedUk = array_values(array_filter($captured['blocks'], static fn ($row) => $row['locale'] === 'uk'));
+            if ($captured['page']['id'] !== $binding['page_id'] || $captured['page']['page_category_id'] !== $binding['category_id']
+                || $captured['page']['text'] !== null || count($capturedUk) !== count($binding['continuing_uuids'])
+                || array_filter($capturedUk, static fn ($row) => $row['type'] === 'subtitle') !== []) {
+                throw new RuntimeException('Native independently captured SQL subtitle absence differs.');
+            }
+            foreach ($binding['continuing_uuids'] as $slot => $uuid) {
+                $matches = array_values(array_filter($capturedUk, static fn ($row) => $row['uuid'] === $uuid));
+                if (count($matches) !== 1 || $matches[0]['sort_order'] !== $slot + 1
+                    || $matches[0]['seeder'] !== $binding['identity'] || $matches[0]['page_id'] !== $binding['page_id']
+                    || $matches[0]['page_category_id'] !== $binding['category_id']) {
+                    throw new RuntimeException('Native captured continuing UUID/order differs.');
+                }
+            }
+        }
         foreach ($binding['continuing_metadata'] ?? [] as $slot => $transition) {
-            $uuid = $this->resolveUuid($page['seeder'], $old['page']['blocks'][$slot], $slot + 1);
+            $sourceBefore = $old['page']['blocks'][$slot];
+            if ($release->subtitleWasAbsent($old)) { $sourceBefore['uuid'] = $binding['continuing_uuids'][$slot]; }
+            $uuid = $this->resolveUuid($page['seeder'], $sourceBefore, $slot + 1);
             foreach ($rows as &$row) {
                 if ($row['uuid'] !== $uuid || $row['locale'] !== 'uk') { continue; }
                 $source = $new['page']['blocks'][$slot]; $matches = true;

@@ -442,3 +442,48 @@ tools/diagnostics/m68*.php -text
 database/seeders/Page_V3/Adjectives/AdjectivesDegreesOfComparisonTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/Adjectives/AdjectivesComparativeVsSuperlativeTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/Adjectives/AdjectivesEqualityComparisonAsAsNotAsAsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# M69 finite raw-byte rules; keep both frozen revisions and own source EOL intact.
+app/Console/Commands/ContentPatchM69.php -text
+app/Services/M69ContentPatch.php -text
+app/Services/M69LocalTargetGuard.php -text
+app/Services/M69SubtitleCorrectionPatch.php -text
+app/Support/M69AdjectivesAdverbs.php -text
+app/Support/M69BuilderSelectionPresentation.php -text
+app/Support/TheoryBuilderSelectionPresentation.php -text
+database/seeders/Page_V3/Adjectives/AdjectivesVsAdverbsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/Adjectives/AdjectivesOrderOfAdjectivesTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/Adjectives/AdjectivesEdIngAdjectivesTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tests/Feature/M69AcceptedM68LineageTest.php -text
+tests/Feature/M69AuthoredReleaseTest.php -text
+tests/Feature/M69BuilderSelectionDerivationTest.php -text
+tests/Feature/M69BuilderSelectionPresentationTest.php -text
+tests/Feature/M69ContentPatchTest.php -text
+tests/Feature/M69CurrentRuntimeCompatibilityTest.php -text
+tests/Feature/M69DiagnosticProfilesTest.php -text
+tests/Feature/M69LocalTargetGuardTest.php -text
+tests/Feature/M69NativeMetadataTest.php -text
+tests/Feature/M69SemanticBoundariesTest.php -text
+tests/Feature/M69SentenceBuilderContractTest.php -text
+tests/Feature/M69SubtitleCorrectionPatchTest.php -text
+tests/Feature/M69SubtitleFallbackTest.php -text
+tests/Feature/M69SubtitleTransitionTest.php -text
+docs/content/m69-adjectives-adverbs.v1.0.0.json -text
+docs/content/m69-adjectives-adverbs.v1.0.1.json -text
+docs/content/m69-adjectives-adverbs.v1.0.0.uk.md -text
+docs/content/m69-adjectives-adverbs.v1.0.1.uk.md -text
+docs/content/m69-adjectives-adverbs.editorial.v1.md -text
+docs/content/m69-adjectives-adverbs.editorial.v1.0.1.md -text
+docs/content/m69-before-source.v1.json -text
+docs/content/m69-adjectives-adverbs.components.v1.json -text
+docs/content/m69-adjectives-adverbs-bank-audit.v1.json -text
+docs/content/m69-source-checksums.v1.json -text
+docs/content/m69-source-checksums.v1.0.1.json -text
+docs/content/theory-sentence-builders/m69-adjectives-adverbs.v1.json -text
+database/content-patches/m69-adjectives-adverbs.v1.json -text
+database/content-patches/m69-adjectives-adverbs.v1.0.1.json -text
+tools/diagnostics/m69-before-registry.php -text
+tools/diagnostics/m69-old-consumers.php -text
+tools/diagnostics/m69-postconditions.php -text
+tools/diagnostics/m69-sentence-builder-audit.php -text
+docs/reports/seo-m69-adjectives-adverbs-standard-view.md -text

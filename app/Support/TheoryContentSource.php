@@ -29,6 +29,7 @@ final class TheoryContentSource
         [M66VerbPatternsCorePackage::class, 'm42StyleContext'],
         [M67VerbPatternsCompletion::class, 'm42StyleContext'],
         [M68ComparisonBasics::class, 'm42StyleContext'],
+        [M69AdjectivesAdverbs::class, 'm42StyleContext'],
         [M50ObligationAdvicePackage::class, 'm42StyleContext'],
         [PracticeCompletionPackage::class, 'm42StyleContext'],
         [M49AdviceModalsPackage::class, 'm42StyleContext'],

@@ -64,6 +64,42 @@ final class TheoryNativeContentRelease
         return $after;
     }
 
+    /** An opt-in, independently captured missing subtitle never becomes an empty old row. */
+    public function subtitleWasAbsent(array $before): bool
+    {
+        $owners = array_column($this->profile['bindings'], 'identity');
+        $index = array_search($before['seeder']['class'] ?? null, $owners, true);
+        if ($index === false) { $this->fail('subtitle projection has a foreign owner.'); }
+        $binding = $this->profile['bindings'][$index]; $capture = $binding['before_subtitle'] ?? [];
+        if (($capture['mode'] ?? null) !== 'captured-absent') {
+            if (array_key_exists('continuing_uuids', $binding)) { $this->fail('continuing UUID pins require a captured missing subtitle.'); }
+            return false;
+        }
+        if (array_keys($capture) !== ['mode', 'source_html_present', 'source_text_present', 'page_text', 'subtitle_rows',
+                'raw_page_title', 'extracted_title', 'h1']
+            || $capture['source_html_present'] !== false || $capture['source_text_present'] !== false
+            || $capture['page_text'] !== null || $capture['subtitle_rows'] !== 0 || $capture['extracted_title'] !== null
+            || $capture['raw_page_title'] !== ($before['page']['title'] ?? null)
+            || $capture['h1'] !== ($binding['rendered_title'] ?? null)
+            || array_key_exists('subtitle_html', $before['page']) || array_key_exists('subtitle_text', $before['page'])
+            || ($before['content_type'] ?? null) !== 'page' || ($before['type'] ?? null) !== 'theory'
+            || ($before['slug'] ?? null) !== $binding['slug'] || ($before['page']['locale'] ?? null) !== 'uk'
+            || ($before['page']['category']['slug'] ?? null) !== end($binding['ancestry'])) {
+            $this->fail('independently captured absent subtitle/source identity differs.');
+        }
+        $pins = $binding['continuing_uuids'] ?? null; $blocks = $before['page']['blocks'] ?? [];
+        if (!is_array($pins) || !array_is_list($pins) || $pins === [] || count($pins) !== count($blocks)
+            || count($pins) !== count($binding['continuing_levels'])) { $this->fail('captured continuing UUID vector differs.'); }
+        foreach ($pins as $slot => $uuid) {
+            if (!is_string($uuid) || preg_match('/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/D', $uuid) !== 1
+                || $uuid !== M26DetailPackage::uuid($binding['identity'], $blocks[$slot], $slot)) {
+                $this->fail('captured zero-counter continuing UUID differs.');
+            }
+        }
+        if (count(array_unique($pins)) !== count($pins)) { $this->fail('captured continuing UUID repeats.'); }
+        return true;
+    }
+
     /** Explicit finite metadata transitions; the independent BEFORE remains unchanged. */
     public function projectedBefore(array $before): array
     {
@@ -71,6 +107,9 @@ final class TheoryNativeContentRelease
         $index = array_search($before['seeder']['class'] ?? null, $owners, true);
         if ($index === false) { $this->fail('metadata projection has a foreign owner.'); }
         $binding = $this->profile['bindings'][$index]; $projected = $before;
+        if ($this->subtitleWasAbsent($before)) {
+            foreach ($binding['continuing_uuids'] as $slot => $uuid) { $projected['page']['blocks'][$slot]['uuid'] = $uuid; }
+        }
         $preserved = array_key_exists('preserved_native_metadata', $binding) ? $binding['preserved_native_metadata'] : [];
         if (!is_array($preserved)) { $this->fail('finite preserved native metadata declaration differs.'); }
         foreach ($preserved as $slot => $metadata) {
@@ -107,7 +146,7 @@ final class TheoryNativeContentRelease
             if (!in_array($new['type'], ['forms-grid', 'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list'], true)
                 || ($preserve === null ? !in_array($new['level'] ?? null, ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], true)
                     : ($new['level'] ?? null) !== null)
-                || M26DetailPackage::uuid($binding['identity'], $old, $slot + 1)
+                || M26DetailPackage::uuid($binding['identity'], $old, $this->subtitleWasAbsent($before) ? $slot : $slot + 1)
                     !== M26DetailPackage::uuid($binding['identity'], $new, $slot + 1)) {
                 $this->fail('finite metadata transition changes identity or unsupported native type/level.');
             }
@@ -156,8 +195,25 @@ final class TheoryNativeContentRelease
                 || ($target['block_keys'] ?? null) !== array_column($lesson['blocks'], 'key')) {
                 $this->fail('owner/category/locale/display or exact projection differs.');
             }
-            foreach ([$old['before']['page']['subtitle_html'], $lesson['subtitle_html'] ?? ''] as $phase => $subtitle) {
-                if ($phase === 0 && isset($binding['before_subtitle'])) {
+            $subtitleAbsent = $this->subtitleWasAbsent($old['before']);
+            if ($subtitleAbsent) {
+                $metadata = array_values(array_filter($master['editorial_review']['pre_apply_metadata'] ?? [],
+                    static fn ($record) => ($record['identity'] ?? null) === $binding['identity']));
+                if (count($metadata) !== 1) { $this->fail('independent absent subtitle metadata is missing.'); }
+                foreach (['source_html_present', 'source_text_present', 'page_text', 'subtitle_rows', 'extracted_title', 'h1'] as $field) {
+                    if (!array_key_exists($field, $metadata[0]) || $metadata[0][$field] !== $binding['before_subtitle'][$field]) {
+                        $this->fail('independent absent subtitle metadata differs.');
+                    }
+                }
+            }
+            $subtitles = $subtitleAbsent ? [$lesson['subtitle_html'] ?? '']
+                : [$old['before']['page']['subtitle_html'], $lesson['subtitle_html'] ?? ''];
+            if (array_key_exists('after_subtitle', $binding)) {
+                $this->assertPlainFallbackSubtitle($old['before'], $binding, $lesson['subtitle_html'] ?? '', $master);
+                $subtitles = []; // Only this exact reviewed missing-subtitle owner opts out of a strong title.
+            }
+            foreach ($subtitles as $phase => $subtitle) {
+                if (!$subtitleAbsent && $phase === 0 && isset($binding['before_subtitle'])) {
                     $capture = $binding['before_subtitle'];
                     $metadata = array_values(array_filter($master['editorial_review']['pre_apply_metadata'] ?? [],
                         static fn ($record) => ($record['identity'] ?? null) === $binding['identity']));
@@ -208,7 +264,10 @@ final class TheoryNativeContentRelease
                 }
             }
             $protected = $target['after']; $protected['page']['blocks'] = $old['before']['page']['blocks'];
-            foreach (['subtitle_html', 'subtitle_text'] as $field) { $protected['page'][$field] = $old['before']['page'][$field]; }
+            foreach (['subtitle_html', 'subtitle_text'] as $field) {
+                if (array_key_exists($field, $old['before']['page'])) { $protected['page'][$field] = $old['before']['page'][$field]; }
+                else { unset($protected['page'][$field]); }
+            }
             if ($protected !== $old['before']) { $this->fail('protected raw title/slug/category/tags metadata changed.'); }
             foreach ($lesson['blocks'] as $slot => $block) {
                 $override = $binding['component_overrides'][$slot] ?? null;
@@ -277,6 +336,32 @@ final class TheoryNativeContentRelease
                 }
             }
             $this->assertLearningData($lesson['blocks']); $this->assertLearningData($lesson['details']);
+        }
+    }
+
+    /** A finite plain AFTER paragraph preserves a captured raw-title fallback, never a new title heuristic. */
+    private function assertPlainFallbackSubtitle(array $before, array $binding, string $subtitle, array $master): void
+    {
+        $after = $binding['after_subtitle'];
+        if (!$this->subtitleWasAbsent($before) || !is_array($after)
+            || array_keys($after) !== ['mode', 'sha256', 'extracted_title', 'h1']
+            || $after['mode'] !== 'plain-fallback' || !is_string($after['sha256'])
+            || preg_match('/^[a-f0-9]{64}$/D', $after['sha256']) !== 1
+            || !hash_equals($after['sha256'], hash('sha256', $subtitle))
+            || $after['extracted_title'] !== null || $after['h1'] !== $before['page']['title']
+            || $after['h1'] !== $binding['rendered_title']
+            || preg_match('/^<p>([^<>]+)<\/p>$/suD', $subtitle, $paragraph) !== 1) {
+            $this->fail('exact plain fallback subtitle declaration/body differs.');
+        }
+        $plain = html_entity_decode($paragraph[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+        if (str_contains($plain, '<') || str_contains($plain, '>') || mb_strlen(trim($plain)) <= 110
+            || preg_match('/[\x{0400}-\x{04FF}]/u', $plain) !== 1) {
+            $this->fail('plain fallback subtitle must be one meaningful non-heading Ukrainian paragraph.');
+        }
+        $metadata = array_values(array_filter($master['editorial_review']['post_apply_metadata'] ?? [],
+            static fn ($record) => ($record['identity'] ?? null) === $binding['identity']));
+        if (count($metadata) !== 1 || $metadata[0] !== ['identity' => $binding['identity']] + $after) {
+            $this->fail('explicit plain fallback subtitle metadata proof differs.');
         }
     }
 
@@ -477,7 +562,8 @@ final class TheoryNativeContentRelease
             if (($block->page_id ?? null) !== $target['page_binding']['id']
                 || ($block->page_category_id ?? null) !== $target['page_binding']['page_category_id']) { return $block; }
             if ($block->type === 'subtitle') {
-                return $this->exactSubtitle($block, $target, $old) ? $this->cloneBody($block, $old['page']['subtitle_html']) : $block;
+                if (!$this->exactSubtitle($block, $target, $old)) { return $block; }
+                return $this->subtitleWasAbsent($old) ? null : $this->cloneBody($block, $old['page']['subtitle_html']);
             }
             $binding = $this->binding($block, json_decode((string) $block->body, true, flags: JSON_THROW_ON_ERROR));
             if ($binding === null) { return $block; }
@@ -509,11 +595,12 @@ final class TheoryNativeContentRelease
             }
             $subtitles = $uk->where('type', 'subtitle')->values();
             if ($subtitles->count() !== 1 || !$this->exactSubtitle($subtitles[0], $target, $old)) { return $page; }
-            $copy = clone $page; $copy->setRawAttributes(array_replace($page->getAttributes(), ['text' => $old['page']['subtitle_text']]), true);
+            $subtitleAbsent = $this->subtitleWasAbsent($old); $projected = $this->projectedBefore($old);
+            $copy = clone $page; $copy->setRawAttributes(array_replace($page->getAttributes(), ['text' => $subtitleAbsent ? null : $old['page']['subtitle_text']]), true);
             $restored = $blocks->reject(static fn ($block) => $block->locale === 'uk')->values();
-            $restored->push($this->cloneBody($subtitles[0], $old['page']['subtitle_html']));
+            if (!$subtitleAbsent) { $restored->push($this->cloneBody($subtitles[0], $old['page']['subtitle_html'])); }
             foreach ($old['page']['blocks'] as $slot => $source) {
-                $restored->push($this->cloneConfig($uk->firstWhere('uuid', M26DetailPackage::uuid($target['identity'], $source, $slot + 1)), $source));
+                $restored->push($this->cloneConfig($uk->firstWhere('uuid', M26DetailPackage::uuid($target['identity'], $projected['page']['blocks'][$slot], $slot + 1)), $source));
             }
             $copy->setRelation('textBlocks', new Collection($restored->sortBy('sort_order')->values()->all()));
             return $copy;
