@@ -389,3 +389,24 @@ database/seeders/V3/Polyglot/M65*/definition.json -text
 database/seeders/Page_V3/ClausesAndLinkingWords/ClausesAndLinkingWordsPurposeTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/VerbPatterns/VerbPatternsGerundTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/VerbPatterns/VerbPatternsToInfinitiveTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# M66 finite UTF-8 release bytes; historical mixed/CRLF shared seams remain unchanged.
+docs/content/m66-*.json -text
+docs/content/m66-*.md -text
+docs/content/theory-sentence-builders/m66-verb-patterns-core.v1.json -text
+docs/reports/seo-m66-verb-patterns-core-standard-view.md -text
+database/content-patches/m66-verb-patterns-core*.json -text
+app/Support/M66*.php -text
+app/Services/M66*.php -text
+app/Console/Commands/PatchM66Content.php -text
+tests/Feature/M66*.php -text
+tests/Browser/m66*.cjs -text
+tools/diagnostics/m66*.php -text
+app/Support/PracticeCompletionLinkedPractice.php -text
+app/Support/TheoryContentRenderer.php -text
+app/Support/TheoryContentSource.php -text
+app/Support/TheoryHtmlAdapter.php -text
+app/Support/TheoryLegacyAdapter.php -text
+database/seeders/Page_V3/VerbPatterns/VerbPatternsBareInfinitiveTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/VerbPatterns/VerbPatternsGerundVsInfinitiveTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/VerbPatterns/VerbPatternsVerbsPlusGerundTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
