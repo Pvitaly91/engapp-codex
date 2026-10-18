@@ -49,6 +49,7 @@ final class TheoryHtmlAdapter
         if (($design['package'] ?? null) === 'm64-native-v1') { return M64ReasonResultContrastPackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm65-native-v1') { return M65PurposeGerundInfinitivePackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm66-native-v1') { return M66VerbPatternsCorePackage::pointPanels($design); }
+        if (($design['package'] ?? null) === 'm67-native-v1') { return M67VerbPatternsCompletion::pointPanels($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::pointPanels($design); }
@@ -146,6 +147,7 @@ final class TheoryHtmlAdapter
         if (($design['package'] ?? null) === 'm64-native-v1') { return M64ReasonResultContrastPackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm65-native-v1') { return M65PurposeGerundInfinitivePackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm66-native-v1') { return M66VerbPatternsCorePackage::validDesign($design); }
+        if (($design['package'] ?? null) === 'm67-native-v1') { return M67VerbPatternsCompletion::validDesign($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::validDesign($design); }

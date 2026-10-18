@@ -255,6 +255,7 @@ class TheoryCourseManifestService
         $page = \App\Support\M64ReasonResultContrastPackage::preserveCoursePage($page);
         $page = \App\Support\M65PurposeGerundInfinitivePackage::preserveCoursePage($page);
         $page = \App\Support\M66VerbPatternsCorePackage::preserveCoursePage($page);
+        $page = \App\Support\M67VerbPatternsCompletion::preserveCoursePage($page);
 
         return \App\Support\M49AdviceModalsPackage::preserveCoursePage(\App\Support\M48ConditionalsPackage::preserveCoursePage(\App\Support\M47ConditionalsPackage::preserveCoursePage(\App\Support\M46ConditionalsPackage::preserveCoursePage($page))));
     }

@@ -410,3 +410,19 @@ app/Support/TheoryLegacyAdapter.php -text
 database/seeders/Page_V3/VerbPatterns/VerbPatternsBareInfinitiveTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/VerbPatterns/VerbPatternsGerundVsInfinitiveTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/VerbPatterns/VerbPatternsVerbsPlusGerundTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# M67 finite UTF-8 release bytes; preserve all accepted sources and shared mixed/CRLF seams.
+docs/content/m67-*.json -text
+docs/content/m67-*.md -text
+docs/content/theory-sentence-builders/m67-verb-patterns-completion.v1.json -text
+docs/reports/seo-m67-verb-patterns-completion-standard-view.md -text
+database/content-patches/m67-verb-patterns-completion*.json -text
+app/Support/M67*.php -text
+app/Services/M67*.php -text
+app/Console/Commands/ContentPatchM67.php -text
+tests/Feature/M67*.php -text
+tests/Browser/m67*.cjs -text
+tools/diagnostics/m67*.php -text
+database/seeders/Page_V3/VerbPatterns/VerbPatternsVerbsPlusInfinitiveTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/VerbPatterns/VerbPatternsStopRememberForgetTryRegretTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/VerbPatterns/VerbPatternsBeUsedToGetUsedToUsedToTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

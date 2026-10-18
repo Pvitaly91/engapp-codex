@@ -74,6 +74,7 @@ final class TheoryContentRenderer
                 $bindings = M64BuilderSelectionPresentation::bindings($bindings);
                 $bindings = M65BuilderSelectionPresentation::bindings($bindings);
                 $bindings = M66BuilderSelectionPresentation::bindings($bindings);
+                $bindings = M67BuilderSelectionPresentation::bindings($bindings);
             }
             return view($nativeView, $bindings)->render();
         }

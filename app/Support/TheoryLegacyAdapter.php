@@ -170,6 +170,8 @@ final class TheoryLegacyAdapter
                 if ($correction !== null) { $point = array_replace($point, $correction); }
                 $correction = M66VerbPatternsCorePackage::correction($item, $design);
                 if ($correction !== null) { $point = array_replace($point, $correction); }
+                $correction = M67VerbPatternsCompletion::correction($item, $design);
+                if ($correction !== null) { $point = array_replace($point, $correction); }
                 self::detail($point, $pointSections, $index);
                 $node['items'][] = $point;
             }
