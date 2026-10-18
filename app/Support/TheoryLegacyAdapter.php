@@ -11,7 +11,7 @@ final class TheoryLegacyAdapter
     public static function section(object $block, array $data, array $pointSections = [], array $lessonLinks = [], bool $embedded = false, ?array $design = null): array
     {
         $storedType = $block->type ?? '';
-        $type = M55PassiveReviewInfinitivePackage::semanticComponent($block, $data, $design) ?? $storedType;
+        $type = M68ComparisonBasics::semanticComponent($block, $data, $design) ?? M55PassiveReviewInfinitivePackage::semanticComponent($block, $data, $design) ?? $storedType;
         $nativeProse = is_array($design)
             && ($design['uuid'] ?? null) === ($block->uuid ?? null)
             && ($design['component'] ?? null) === $type
@@ -171,6 +171,8 @@ final class TheoryLegacyAdapter
                 $correction = M66VerbPatternsCorePackage::correction($item, $design);
                 if ($correction !== null) { $point = array_replace($point, $correction); }
                 $correction = M67VerbPatternsCompletion::correction($item, $design);
+                if ($correction !== null) { $point = array_replace($point, $correction); }
+                $correction = M68ComparisonBasics::correction($item, $design);
                 if ($correction !== null) { $point = array_replace($point, $correction); }
                 self::detail($point, $pointSections, $index);
                 $node['items'][] = $point;

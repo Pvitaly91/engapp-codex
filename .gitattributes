@@ -426,3 +426,19 @@ tools/diagnostics/m67*.php -text
 database/seeders/Page_V3/VerbPatterns/VerbPatternsVerbsPlusInfinitiveTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/VerbPatterns/VerbPatternsStopRememberForgetTryRegretTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 database/seeders/Page_V3/VerbPatterns/VerbPatternsBeUsedToGetUsedToUsedToTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# M68 finite UTF-8/LF release bytes; accepted historical bytes and shared EOL stay intact.
+docs/content/m68-*.json -text
+docs/content/m68-*.md -text
+docs/content/theory-sentence-builders/m68-comparison-basics.v1.json -text
+docs/reports/seo-m68-comparison-basics-standard-view.md -text
+database/content-patches/m68-comparison-basics*.json -text
+app/Support/M68*.php -text
+app/Services/M68*.php -text
+app/Console/Commands/ContentPatchM68.php -text
+tests/Feature/M68*.php -text
+tests/Browser/m68*.cjs -text
+tools/diagnostics/m68*.php -text
+database/seeders/Page_V3/Adjectives/AdjectivesDegreesOfComparisonTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/Adjectives/AdjectivesComparativeVsSuperlativeTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+database/seeders/Page_V3/Adjectives/AdjectivesEqualityComparisonAsAsNotAsAsTheorySeeder/definition.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
