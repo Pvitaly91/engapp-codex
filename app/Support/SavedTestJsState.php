@@ -25,11 +25,17 @@ class SavedTestJsState
         'verb_hints',
         'options',
         'tense',
+        'is_past_perfect_continuous',
         'level',
         'theory_block',
         'theory_blocks',
         'marker_tags',
         'tech_info',
+    ];
+
+    private const OPT_IN_QUESTION_FIELDS = [
+        'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+        'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question', 'reorder_template_constraint',
     ];
 
     public static function isStarted(mixed $state): bool
@@ -155,7 +161,9 @@ class SavedTestJsState
 
                 $state['items'][$index] = array_replace(
                     $item,
-                    Arr::only($current, self::CURRENT_QUESTION_FIELDS)
+                    Arr::only($current, empty($current['compose_content_revision'])
+                        ? self::CURRENT_QUESTION_FIELDS
+                        : [...self::CURRENT_QUESTION_FIELDS, ...self::OPT_IN_QUESTION_FIELDS])
                 );
             }
         }

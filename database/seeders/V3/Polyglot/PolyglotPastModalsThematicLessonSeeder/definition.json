@@ -1,0 +1,430 @@
+{
+    "schema_version": 1,
+    "status": "frozen",
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\PolyglotPastModalsThematicLessonSeeder",
+        "uuid_namespace": "PolyglotPastModalsThematicLessonSeeder"
+    },
+    "author_source": {
+        "path": "docs/content/m51-modal-meanings-widget-questions.v1.0.0.json",
+        "sha256": "9a8fd25f5e4f9c952a438aed2951dafbdb26551e52babf71aaeab2c09cd0a1e0",
+        "projection": "derived-from-frozen-author"
+    },
+    "taxonomy_status": "confirmed-existing-only",
+    "taxonomy_note_uk": "Category і source names підтверджено свіжим inventory; numeric IDs не зашиті й нова taxonomy не створюється. Tags не додаються. Погоджене локальне застосування виконує лише guarded insert-only supplement, не mutating JsonTestSeeder.",
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "B1": 3,
+            "A2": 2
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "theory_page_past_modals": {
+            "name": "Past Modals"
+        }
+    },
+    "tags": {},
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "uuid": "m51-past-b1-01",
+            "source_uid": "m51-past-b1-01",
+            "question": "Біля відчиненої шафки є запис архівістки в журналі. Мовець робить сильний висновок про попередню дію: архівістка, мабуть, відімкнула шафку. Використай must для цього висновку про минуле.",
+            "level": "B1",
+            "type": 4,
+            "source_text_uk": "Архівістка, мабуть, відімкнула шафку.",
+            "target_text": "The archivist must have unlocked the cabinet.",
+            "tokens_correct": [
+                "The",
+                "archivist",
+                "must",
+                "have",
+                "unlocked",
+                "the",
+                "cabinet",
+                "."
+            ],
+            "answers": {
+                "a1": "The",
+                "a2": "archivist",
+                "a3": "must",
+                "a4": "have",
+                "a5": "unlocked",
+                "a6": "the",
+                "a7": "cabinet",
+                "a8": "."
+            },
+            "options_by_marker": {
+                "a1": [
+                    "The"
+                ],
+                "a2": [
+                    "archivist"
+                ],
+                "a3": [
+                    "must"
+                ],
+                "a4": [
+                    "have"
+                ],
+                "a5": [
+                    "unlocked"
+                ],
+                "a6": [
+                    "the"
+                ],
+                "a7": [
+                    "cabinet"
+                ],
+                "a8": [
+                    "."
+                ]
+            },
+            "options": [
+                "cabinet",
+                "have",
+                "archivist",
+                ".",
+                "the",
+                "must",
+                "The",
+                "unlocked"
+            ],
+            "variants": [],
+            "source": "theory_page_past_modals",
+            "tag_keys": []
+        },
+        {
+            "uuid": "m51-past-b1-02",
+            "source_uid": "m51-past-b1-02",
+            "question": "Посилку доставлено, але ніхто не бачив, яким входом зайшов кур’єр. Кур’єр, можливо, скористався бічним входом. Використай might; факт вибору входу невідомий.",
+            "level": "B1",
+            "type": 4,
+            "source_text_uk": "Кур’єр, можливо, скористався бічним входом.",
+            "target_text": "The courier might have used the side entrance.",
+            "tokens_correct": [
+                "The",
+                "courier",
+                "might",
+                "have",
+                "used",
+                "the",
+                "side",
+                "entrance",
+                "."
+            ],
+            "answers": {
+                "a1": "The",
+                "a2": "courier",
+                "a3": "might",
+                "a4": "have",
+                "a5": "used",
+                "a6": "the",
+                "a7": "side",
+                "a8": "entrance",
+                "a9": "."
+            },
+            "options_by_marker": {
+                "a1": [
+                    "The"
+                ],
+                "a2": [
+                    "courier"
+                ],
+                "a3": [
+                    "might"
+                ],
+                "a4": [
+                    "have"
+                ],
+                "a5": [
+                    "used"
+                ],
+                "a6": [
+                    "the"
+                ],
+                "a7": [
+                    "side"
+                ],
+                "a8": [
+                    "entrance"
+                ],
+                "a9": [
+                    "."
+                ]
+            },
+            "options": [
+                "used",
+                "entrance",
+                "might",
+                "the",
+                ".",
+                "courier",
+                "side",
+                "The",
+                "have"
+            ],
+            "variants": [],
+            "source": "theory_page_past_modals",
+            "tag_keys": []
+        },
+        {
+            "uuid": "m51-past-b1-03",
+            "source_uid": "m51-past-b1-03",
+            "question": "У нас був вільний склад, але коробки фактично залишилися надворі. Ми могли поставити коробки всередині, але залишили їх надворі. Почни з We й використай could для невикористаного варіанта.",
+            "level": "B1",
+            "type": 4,
+            "source_text_uk": "Ми могли поставити коробки всередині, але залишили їх надворі.",
+            "target_text": "We could have put the boxes inside, but we left them outside.",
+            "tokens_correct": [
+                "We",
+                "could",
+                "have",
+                "put",
+                "the",
+                "boxes",
+                "inside",
+                ",",
+                "but",
+                "we",
+                "left",
+                "them",
+                "outside",
+                "."
+            ],
+            "answers": {
+                "a1": "We",
+                "a2": "could",
+                "a3": "have",
+                "a4": "put",
+                "a5": "the",
+                "a6": "boxes",
+                "a7": "inside",
+                "a8": ",",
+                "a9": "but",
+                "a10": "we",
+                "a11": "left",
+                "a12": "them",
+                "a13": "outside",
+                "a14": "."
+            },
+            "options_by_marker": {
+                "a1": [
+                    "We"
+                ],
+                "a2": [
+                    "could"
+                ],
+                "a3": [
+                    "have"
+                ],
+                "a4": [
+                    "put"
+                ],
+                "a5": [
+                    "the"
+                ],
+                "a6": [
+                    "boxes"
+                ],
+                "a7": [
+                    "inside"
+                ],
+                "a8": [
+                    ","
+                ],
+                "a9": [
+                    "but"
+                ],
+                "a10": [
+                    "we"
+                ],
+                "a11": [
+                    "left"
+                ],
+                "a12": [
+                    "them"
+                ],
+                "a13": [
+                    "outside"
+                ],
+                "a14": [
+                    "."
+                ]
+            },
+            "options": [
+                "outside",
+                "have",
+                "we",
+                "boxes",
+                ",",
+                "put",
+                "them",
+                "could",
+                ".",
+                "inside",
+                "We",
+                "left",
+                "the",
+                "but"
+            ],
+            "variants": [],
+            "source": "theory_page_past_modals",
+            "tag_keys": []
+        },
+        {
+            "uuid": "m51-past-b1-04",
+            "source_uid": "m51-past-b1-04",
+            "question": "Юрій пересунув драбину, поки колега ще стояв на ній; мовець критикує цей зроблений вибір. Юрієві не слід було пересувати драбину. Використай скорочення shouldn't для оцінки минулої дії.",
+            "level": "B1",
+            "type": 4,
+            "source_text_uk": "Юрієві не слід було пересувати драбину.",
+            "target_text": "Yurii shouldn't have moved the ladder.",
+            "tokens_correct": [
+                "Yurii",
+                "shouldn't",
+                "have",
+                "moved",
+                "the",
+                "ladder",
+                "."
+            ],
+            "answers": {
+                "a1": "Yurii",
+                "a2": "shouldn't",
+                "a3": "have",
+                "a4": "moved",
+                "a5": "the",
+                "a6": "ladder",
+                "a7": "."
+            },
+            "options_by_marker": {
+                "a1": [
+                    "Yurii"
+                ],
+                "a2": [
+                    "shouldn't"
+                ],
+                "a3": [
+                    "have"
+                ],
+                "a4": [
+                    "moved"
+                ],
+                "a5": [
+                    "the"
+                ],
+                "a6": [
+                    "ladder"
+                ],
+                "a7": [
+                    "."
+                ]
+            },
+            "options": [
+                "ladder",
+                "moved",
+                ".",
+                "Yurii",
+                "the",
+                "have",
+                "shouldn't"
+            ],
+            "variants": [],
+            "source": "theory_page_past_modals",
+            "tag_keys": []
+        },
+        {
+            "uuid": "m51-past-b1-05",
+            "source_uid": "m51-past-b1-05",
+            "question": "За розкладом прибуття було десять хвилин тому; фактичного прибуття ще не перевірили. Потяг мав би вже прибути на станцію. Використай should для очікуваного результату, а не критики. Почни з The train; by now постав наприкінці.",
+            "level": "B1",
+            "type": 4,
+            "source_text_uk": "Потяг мав би вже прибути на станцію.",
+            "target_text": "The train should have arrived at the station by now.",
+            "tokens_correct": [
+                "The",
+                "train",
+                "should",
+                "have",
+                "arrived",
+                "at",
+                "the",
+                "station",
+                "by",
+                "now",
+                "."
+            ],
+            "answers": {
+                "a1": "The",
+                "a2": "train",
+                "a3": "should",
+                "a4": "have",
+                "a5": "arrived",
+                "a6": "at",
+                "a7": "the",
+                "a8": "station",
+                "a9": "by",
+                "a10": "now",
+                "a11": "."
+            },
+            "options_by_marker": {
+                "a1": [
+                    "The"
+                ],
+                "a2": [
+                    "train"
+                ],
+                "a3": [
+                    "should"
+                ],
+                "a4": [
+                    "have"
+                ],
+                "a5": [
+                    "arrived"
+                ],
+                "a6": [
+                    "at"
+                ],
+                "a7": [
+                    "the"
+                ],
+                "a8": [
+                    "station"
+                ],
+                "a9": [
+                    "by"
+                ],
+                "a10": [
+                    "now"
+                ],
+                "a11": [
+                    "."
+                ]
+            },
+            "options": [
+                "by",
+                "station",
+                "have",
+                "train",
+                ".",
+                "at",
+                "now",
+                "The",
+                "arrived",
+                "the",
+                "should"
+            ],
+            "variants": [],
+            "source": "theory_page_past_modals",
+            "tag_keys": []
+        }
+    ]
+}

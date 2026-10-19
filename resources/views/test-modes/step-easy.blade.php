@@ -395,6 +395,7 @@ async function init(forceFresh = false) {
           item.activeSlot = findFirstUnfilledSlot(item);
           if (item.activeSlot === -1) item.activeSlot = 0;
         }
+        restoreSavedPpcRetryState(item);
         clampActiveSlot(item);
         // Regenerate optionsBySlot from base questions if available
         const baseQ = QUESTIONS[idx] || item;
@@ -472,7 +473,7 @@ function render() {
             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
-            ${testUi('question.show_help')}
+            <span data-authored-compose-help-label>${testUi('question.show_help')}</span>
           </button>
           ${getTheoryBlocks(q).length ? `<button type="button" id="theory-btn" class="ml-2 sm:ml-3 inline-flex items-center text-[13px] sm:text-sm text-emerald-600 hover:text-emerald-700 font-medium transition-colors">
             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -761,7 +762,14 @@ document.getElementById('question-card').addEventListener('input', (e) => {
   }
   manualInput.value = manualInput.value.replace(/\s+/g, '');
   q.manualWordIndexBySlot[slotIndex] = wordIndex;
-  q.manualInputsBySlot[slotIndex] = collectManualAnswer(manualInput.closest('[data-manual-input-group]'));
+  const draft = collectManualAnswer(manualInput.closest('[data-manual-input-group]'));
+  if (q.manualInputsBySlot[slotIndex] !== draft && clearManualAnswerFeedbackOnEdit(q, slotIndex, wordIndex)) {
+    document.getElementById('feedback').innerHTML = '';
+    manualInput.dataset.answerState = 'active';
+    manualInput.classList.remove('border-red-400', 'bg-red-50', 'text-red-800', 'ring-4', 'ring-red-100', 'focus:border-red-500', 'focus:ring-red-100');
+    manualInput.classList.add('border-indigo-300', 'focus:border-indigo-500', 'focus:ring-4', 'focus:ring-indigo-100');
+  }
+  q.manualInputsBySlot[slotIndex] = draft;
   searchManualWords(state.current, slotIndex, manualInput.value);
   persistState(state);
 });
@@ -832,6 +840,7 @@ function onChoose(opt) {
   } else {
     rememberFeedbackAnswer(q, slotIndex, 'incorrect', opt, expected);
     q.manualWordIndexBySlot[slotIndex] = 0;
+    if (isPastPerfectContinuousQuestion(q)) q.manualInputsBySlot[slotIndex] = '';
     if (!q.explanationsCache) {
       q.explanationsCache = {};
     }
@@ -844,7 +853,7 @@ function onChoose(opt) {
     q.lastWrongBySlot[slotIndex] = opt;
     q.attemptsBySlot[slotIndex] = (q.attemptsBySlot[slotIndex] || 0) + 1;
     
-    if (q.attemptsBySlot[slotIndex] >= 2) {
+    if (q.attemptsBySlot[slotIndex] >= 2 && !isPastPerfectContinuousQuestion(q)) {
       // Auto-fill with correct answer after 2 wrong attempts
       q.chosen[slotIndex] = expected;
       q.attemptsBySlot[slotIndex] = 0;
@@ -1436,6 +1445,7 @@ function showSummary() {
 }
 
 function fetchHints(q, refresh = false) {
+  if (toggleAuthoredComposeHelp(q, 'hints', document.getElementById('help'))) return;
   const payload = q.id ? { question_id: q.id, locale: TEST_LOCALE } : { question: q.question, locale: TEST_LOCALE };
   if (refresh) payload.refresh = true;
   showLoader(true);
@@ -1462,6 +1472,10 @@ function fetchHints(q, refresh = false) {
 function renderHints(q) {
   const el = document.getElementById('hints');
   if (!el) return;
+  if (getAuthoredComposeHelpText(q)) {
+    el.innerHTML = '';
+    return;
+  }
   if (!q.hints || (!q.hints.chatgpt && !q.hints.gemini)) {
     el.innerHTML = '';
     return;

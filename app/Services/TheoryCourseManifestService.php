@@ -224,7 +224,7 @@ class TheoryCourseManifestService
             return null;
         }
 
-        return Page::query()
+        $page = Page::query()
             ->with([
                 'category.parent.parent.parent.parent.parent',
                 'tags',
@@ -236,6 +236,30 @@ class TheoryCourseManifestService
             ->whereKey($pageId)
             ->where('type', 'theory')
             ->first();
+
+        $page = \App\Support\PracticeCompletionPackage::preserveCoursePage($page);
+        $page = \App\Support\M50ObligationAdvicePackage::preserveCoursePage($page);
+        $page = \App\Support\M51ModalMeaningsPackage::preserveCoursePage($page);
+        $page = \App\Support\M52PassiveBasicsPackage::preserveCoursePage($page);
+        $page = \App\Support\M53PassiveConstructionsPackage::preserveCoursePage($page);
+        $page = \App\Support\M54PassivePatternsPackage::preserveCoursePage($page);
+        $page = \App\Support\M55PassiveReviewInfinitivePackage::preserveCoursePage($page);
+        $page = \App\Support\M56GerundSimplePassivesPackage::preserveCoursePage($page);
+        $page = \App\Support\M57ContinuousPerfectPassivesPackage::preserveCoursePage($page);
+        $page = \App\Support\M58PastFuturePassivesPackage::preserveCoursePage($page);
+        $page = \App\Support\M59PassiveFutureAgentReviewPackage::preserveCoursePage($page);
+        $page = \App\Support\M60ReportedSpeechBasicsPackage::preserveCoursePage($page);
+        $page = \App\Support\M61ReportedSpeechChangesPackage::preserveCoursePage($page);
+        $page = \App\Support\M62ReportedReviewRelativeBasicsPackage::preserveCoursePage($page);
+        $page = \App\Support\M63RelativeCompletionLinkingPackage::preserveCoursePage($page);
+        $page = \App\Support\M64ReasonResultContrastPackage::preserveCoursePage($page);
+        $page = \App\Support\M65PurposeGerundInfinitivePackage::preserveCoursePage($page);
+        $page = \App\Support\M66VerbPatternsCorePackage::preserveCoursePage($page);
+        $page = \App\Support\M67VerbPatternsCompletion::preserveCoursePage($page);
+        $page = \App\Support\M68ComparisonBasics::preserveCoursePage($page);
+        $page = \App\Support\M69AdjectivesAdverbs::preserveCoursePage($page);
+
+        return \App\Support\M49AdviceModalsPackage::preserveCoursePage(\App\Support\M48ConditionalsPackage::preserveCoursePage(\App\Support\M47ConditionalsPackage::preserveCoursePage(\App\Support\M46ConditionalsPackage::preserveCoursePage($page))));
     }
 
     public function lessonUrl(string $categoryPath, string $pageSlug, bool $test = false): string

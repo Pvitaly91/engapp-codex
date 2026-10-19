@@ -1,0 +1,1611 @@
+{
+  "schema_version": 1,
+  "version": "1.0.1",
+  "status": "frozen",
+  "id": "m60-reported-speech-basics",
+  "base_sha": "69994e34da410c66d6807a0921b588f85b81908c",
+  "scope": "Рівно три UK theory owners: Reported Statements, Reported Questions, Reported Commands and Requests. Тільки навчальні дані в чинних native-компонентах; hero B1 / display B1-B2, старі чотири box slots із null level і незмінними columns.",
+  "policy": {
+    "native_components": true,
+    "visual_changes": false,
+    "course_content_changes": false,
+    "production_access": false,
+    "existing_question_rows_unchanged": true,
+    "existing_answers_progress_unchanged": true,
+    "linked_bank_contract_status": "reviewed-15-existing-type4-B1-questions; no-new-question-rows-or-links"
+  },
+  "editorial_review": {
+    "status": "reviewed-before-apply",
+    "new_own_tasks": 18,
+    "groups_per_lesson": {
+      "selects": 2,
+      "choices": 2,
+      "inputs": 2
+    },
+    "input_methods": [
+      "manual",
+      "tokens"
+    ],
+    "old_continuing_blocks_per_lesson": [
+      6,
+      6,
+      6
+    ],
+    "new_practice_blocks": 3,
+    "additional_teaching_blocks": 3,
+    "meaningful_details": {
+      "statements": 1,
+      "questions": 1,
+      "commands": 1
+    },
+    "input_accepted_variants_total": 17,
+    "before_source_db_http_sha256": "2cf4f9d9038a66546b90aee3d26e25a1a9b31aa5fd552ea870a70ef2d81f705f",
+    "internal_links_proof_sha256": "b15e05b5eb3471967a755f87ab60ef348b9149271c03c148a44cf63efc95d220",
+    "translation_visibility_exceptions": [
+      "У шести meaning choices точний переклад англійського стимулу відкривається після Check, бо він розкриває відповідь; український контекст і критерій видно одразу."
+    ],
+    "note": "Main і незалежний bank reviewer повністю прочитали три уроки, 18 own tasks, 36 options/feedback, 6 canonical inputs + 11 aliases (17 accepted variants) і 3 meaningful details. Actual unchanged shipped factory:22/22 PASS у private draft mode включно з curly apostrophe feedback. Exact six hrefs перевірено до apply через independent target capture та fresh old-consumer capture. Pre-apply metadata v2 зберігає actual BEFORE canonical/breadcrumb і використовує поточний PageMetadata; v1 із navigation URL замість canonical явно superseded. Freeze не доводить DB/browser/widget acceptance.",
+    "author_draft_reviewed_sha256": "cccc4b5431e2a41ca7c5e187bee0ad166944c71cc2b1f2ec130c6953073e0fe8",
+    "linked_bank_questions_separate": 15,
+    "new_linked_bank_questions": 0,
+    "reused_linked_bank_questions": 15,
+    "new_question_links": 0,
+    "linked_bank_contract_sha256": "58ca869b0f34adb0c97f494780e9e267b6bec3f949fa7aabbf48516024647785",
+    "pre_apply_metadata_proof_sha256": "bb5ff8906eb78fb8175a19f95bddf002cd216a5290f60252e0eb8523f5bff34e",
+    "metadata_service_sha256": "1d782d27483bdc0cff63515a1d69153dc908adbf2c3b3eea47bec35f141e0a9e",
+    "pre_apply_metadata": [
+      {
+        "identity": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechStatementsTheorySeeder",
+        "raw_page_title": "Reported Statements",
+        "h1": "Reported Statements",
+        "canonical": "https://gramlyze.com/theory/reported-speech/reported-statements",
+        "breadcrumb": "Головна / Теорія / Непряма мова / Reported Statements",
+        "expected_learning_resource_description": "Reported Statements передає зміст чиїхось слів, а не оформлює дослівну цитату. Спершу визнач, хто говорив, кому й коли; тоді обери say або tell, займенники та потрібну часову перспективу.",
+        "expected_seo": {
+          "title": "Reported Statements — правила | Gramlyze",
+          "description": "Reported Statements передає зміст чиїхось слів, а не оформлює дослівну цитату."
+        }
+      },
+      {
+        "identity": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechQuestionsTheorySeeder",
+        "raw_page_title": "Reported Questions",
+        "h1": "Reported Questions",
+        "canonical": "https://gramlyze.com/theory/reported-speech/reported-questions",
+        "breadcrumb": "Головна / Теорія / Непряма мова / Reported Questions",
+        "expected_learning_resource_description": "Reported Questions передає, що хтось запитав, а не відповідь на це питання. Для yes/no додаємо if або whether; для wh-питання зберігаємо питальне слово. Усередині reported clause немає інверсії прямого питання.",
+        "expected_seo": {
+          "title": "Reported Questions — правила | Gramlyze",
+          "description": "Reported Questions передає, що хтось запитав, а не відповідь на це питання."
+        }
+      },
+      {
+        "identity": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechCommandsRequestsTheorySeeder",
+        "raw_page_title": "Reported Commands and Requests",
+        "h1": "Reported Commands and Requests",
+        "canonical": "https://gramlyze.com/theory/reported-speech/reported-commands-and-requests",
+        "breadcrumb": "Головна / Теорія / Непряма мова / Reported Commands and Requests",
+        "expected_learning_resource_description": "Reported Commands and Requests передає, що одна людина попросила, порадила або веліла зробити іншій. У базовій моделі називаємо адресата й дію через to; для негативної вказівки — not to. Дієслово обираємо за наміром і контекстом, не лише за словом please.",
+        "expected_seo": {
+          "title": "Reported Commands and Requests — правила | Gramlyze",
+          "description": "Reported Commands and Requests передає, що одна людина попросила, порадила або веліла зробити іншій."
+        }
+      }
+    ],
+    "feedback_plain_text_correction": {
+      "version": "1.0.1",
+      "previous_master": "docs/content/m60-reported-speech-basics.v1.0.0.json",
+      "previous_master_sha256": "edbc02cd1032ee29fc32ae9c9da8c791c38716bc9d68cfdd4acd1f6d15b20633",
+      "reason": "Live browser acceptance found literal span/br markup in practice explanations rendered by the existing native x-text binding.",
+      "scope": "Only practice-set data.selects/choices/inputs[*].feedback values.",
+      "changed_feedback_values": 94,
+      "unique_explanation_strings": 48,
+      "changed_values_by_lesson": [
+        52,
+        22,
+        20
+      ],
+      "transformation": "Replace exact <br> with a newline; unwrap exact <span lang=\"en\"> and <span lang=\"uk\"> / </span>; preserve every other character.",
+      "unchanged": "All teaching outside feedback; all18 task conditions/stimuli/options/answers/accepted variants/token banks;17 accepted input variants;3meaningful details;15selected existing bank questions;all course/standalone data and runtime/rendering code.",
+      "runtime_or_design_changes": false,
+      "db_writes_by_author_tools": 0
+    }
+  },
+  "sources": [
+    {
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/reported-speech-statements",
+      "access": "Author direct open: main editorial grammar body read in full. Signed replies and learner comments identified separately, not substituted for the main body.",
+      "used_for": "Direct/report distinction, usual backshift rather than universal obligation, current relevance, context-dependent pronouns/time/place. Original scenarios/tasks not copied from publisher exercises."
+    },
+    {
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/reported-speech-questions",
+      "access": "Author direct open: main editorial grammar body read in full. Learner comments not normative.",
+      "used_for": "If/whether and wh clause order; question versus request depends on context. No claim that indirect questions assert an answer."
+    },
+    {
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/reported-speech-reporting-verbs",
+      "access": "Author direct open: main editorial grammar body read in full; signed responses separately identified.",
+      "used_for": "Reporting verb patterns, object + to, not to, offer + to and suggest + -ing. Not a blanket ban on other reporting-clause patterns."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/reported-speech-indirect-speech",
+      "access": "Main independent review: direct 403; official publisher-indexed main body read at the same URL and https://dictionary.cambridge.org/us/grammar/british-grammar/reported-speech-indirect-speech.",
+      "used_for": "Pronoun perspective, no-backshift contexts, statements and commands; original examples use explicit speaker/addressee/reporter."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/reporting-clauses",
+      "access": "Main independent review: direct 403; official publisher-indexed editorial body read.",
+      "used_for": "Said + clause; said to recipient + clause; told recipient + clause, limited to the intended message patterns."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/if-or-whether",
+      "access": "Main independent review: direct 403; official publisher-indexed editorial body read at https://dictionary.cambridge.org/us/grammar/british-grammar/if-or-whether.",
+      "used_for": "Simple if/whether alternatives; whether to; whether or not versus if ... or not."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/ask-and-ask-for",
+      "access": "Main independent review: direct 403; official publisher-indexed editorial body read.",
+      "used_for": "Ask to versus ask someone to: different actor roles, not a universal requirement for an object after ask."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/ask",
+      "access": "Main independent review: direct 403; official publisher-indexed REQUEST entry read.",
+      "used_for": "Formal ask + that exists; the B1 practice may specify object + to without declaring every that-clause ungrammatical."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/punctuation",
+      "access": "Main independent review: official publisher-indexed main body read; no direct-access success claimed.",
+      "used_for": "Punctuation follows the complete main sentence: reported questions inside a statement versus an outer direct question."
+    },
+    {
+      "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "access": "Main independent direct read of full official article; date reported by main 2026-10-05.",
+      "used_for": "Useful original complete teaching for learners, not preferred word counts, fabricated authorship or ranking guarantees."
+    }
+  ],
+  "lessons": [
+    {
+      "schema_version": 1,
+      "status": "frozen",
+      "identity": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechStatementsTheorySeeder",
+      "slug": "reported-statements",
+      "locale": "uk",
+      "display_level": "B1-B2",
+      "technical_block_level": "B1",
+      "category_ancestry": [
+        "reported-speech"
+      ],
+      "local_url": "http://gramlyze.loc/theory/reported-speech/reported-statements",
+      "subtitle_html": "<p><strong>Reported Statements</strong> — як передавати твердження через say і tell, зберігаючи учасників, час і зміст.</p>",
+      "subtitle_text": "Reported Statements — як передавати твердження через say і tell, зберігаючи учасників, час і зміст.",
+      "blocks": [
+        {
+          "key": "statements-hero",
+          "existing_source_index": 0,
+          "type": "hero",
+          "column": "header",
+          "level": "B1",
+          "data": {
+            "level": "B1-B2",
+            "intro": "Reported Statements передає зміст чиїхось слів, а не оформлює дослівну цитату. Спершу визнач, хто говорив, кому й коли; тоді обери say або tell, займенники та потрібну часову перспективу.",
+            "rules": [
+              {
+                "label": "ПОВІДОМЛЕННЯ",
+                "color": "emerald",
+                "text": "Reporting clause називає мовця; reported clause передає зміст.",
+                "example": "<span lang=\"en\">Oksana said that the room was cold.</span><br><span lang=\"uk\">Оксана сказала, що в кімнаті холодно.</span>"
+              },
+              {
+                "label": "АДРЕСАТ ПІСЛЯ TELL",
+                "color": "blue",
+                "text": "У моделі повідомлення tell називаємо того, кому сказали.",
+                "example": "<span lang=\"en\">Oksana told Petro that the room was cold.</span><br><span lang=\"uk\">Оксана сказала Петрові, що в кімнаті холодно.</span>"
+              },
+              {
+                "label": "КОНТЕКСТ, НЕ АВТОЗАМІНА",
+                "color": "amber",
+                "text": "Час, особа й місце залежать від нової ситуації переказу.",
+                "example": "<span lang=\"en\">I said that I needed a pen.</span><br><span lang=\"uk\">Я сказав, що мені потрібна ручка.</span>"
+              }
+            ]
+          }
+        },
+        {
+          "key": "statements-forms",
+          "existing_source_index": 1,
+          "type": "forms-grid",
+          "column": "left",
+          "level": null,
+          "data": {
+            "title": "1. Say, tell і частина з повідомленням",
+            "intro": "У цих моделях said/told — минулі форми say/tell. That вводить повідомлення й часто опускається без зміни змісту.",
+            "items": [
+              {
+                "label": "SAY БЕЗ АДРЕСАТА",
+                "title": "підмет + said + (that) + повідомлення",
+                "subtitle": "<span lang=\"en\">Nazar said that the shop was closed.</span><br><span lang=\"uk\">Назар сказав, що магазин зачинений.</span>"
+              },
+              {
+                "label": "SAY І НАЗВАНИЙ АДРЕСАТ",
+                "title": "підмет + said to + адресат + (that) + повідомлення",
+                "subtitle": "<span lang=\"en\">Nazar said to me that the shop was closed.</span><br><span lang=\"uk\">Назар сказав мені, що магазин зачинений.</span>"
+              },
+              {
+                "label": "TELL І НАЗВАНИЙ АДРЕСАТ",
+                "title": "підмет + told + адресат + (that) + повідомлення",
+                "subtitle": "<span lang=\"en\">Nazar told me that the shop was closed.</span><br><span lang=\"uk\">Назар сказав мені, що магазин зачинений.</span>"
+              },
+              {
+                "label": "З THAT АБО БЕЗ НЬОГО",
+                "title": "said (that) / told someone (that)",
+                "subtitle": "<span lang=\"en\">Nazar said the shop was closed.</span><br><span lang=\"uk\">Назар сказав, що магазин зачинений.</span> Це те саме повідомлення без that."
+              }
+            ]
+          }
+        },
+        {
+          "key": "statements-comparison",
+          "existing_source_index": 2,
+          "type": "comparison-table",
+          "column": "left",
+          "level": null,
+          "data": {
+            "title": "2. Прямі слова й переказ: спершу учасники",
+            "intro": "Кожен рядок має власну ситуацію. Лапки належать до прямої мови; reported clause тут передає її зміст без лапок.",
+            "headers": [
+              "Ситуація й пряма мова",
+              "Непряма мова і переклад",
+              "Що змінилося"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "У понеділок Ірина говорить Олегові про свій тодішній стан: <span lang=\"en\">I am busy.</span><br><span lang=\"uk\">Я зайнята.</span>",
+                  "<span lang=\"en\">Iryna told Oleh that she was busy.</span><br><span lang=\"uk\">Ірина сказала Олегові, що зайнята.</span>",
+                  "У вівторковому переказі she — Ірина; was передає минулу точку мовлення."
+                ]
+              },
+              {
+                "cells": [
+                  "Тарас стоїть біля свого брата в майстерні й каже: <span lang=\"en\">My brother is here.</span><br><span lang=\"uk\">Мій брат тут.</span>",
+                  "<span lang=\"en\">Taras said that his brother was there.</span><br><span lang=\"uk\">Тарас сказав, що його брат там.</span>",
+                  "Пізніше Олена переказує це з дому: his — Тарасів; there — у майстерні, не біля Олени."
+                ]
+              },
+              {
+                "cells": [
+                  "Петро каже Марії: <span lang=\"en\">My sister will call you.</span><br><span lang=\"uk\">Моя сестра зателефонує тобі.</span>",
+                  "<span lang=\"en\">Petro told me that his sister would call me.</span><br><span lang=\"uk\">Петро сказав мені, що його сестра зателефонує мені.</span>",
+                  "Це переказ самої Марії пізніше: his — Петрів; обидва me — Марія."
+                ]
+              },
+              {
+                "cells": [
+                  "Катерина сказала: <span lang=\"en\">I work at the library.</span><br><span lang=\"uk\">Я працюю в бібліотеці.</span> Пізніше інша людина переказує це; робота Катерини досі актуальна.",
+                  "<span lang=\"en\">Kateryna said that she works at the library.</span><br><span lang=\"uk\">Катерина сказала, що працює в бібліотеці.</span>",
+                  "Без backshift можна підкреслити актуальність. Варіант worked теж можливий і сам по собі не означає, що вона звільнилася."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "key": "statements-mistakes",
+          "existing_source_index": 3,
+          "type": "mistakes-grid",
+          "column": "right",
+          "level": null,
+          "data": {
+            "title": "3. Не змішуй моделі й точки зору",
+            "items": [
+              {
+                "label": "АДРЕСАТ У TELL",
+                "color": "rose",
+                "title": "У цій моделі told потрібен адресат.",
+                "wrong_en": "He told that the lift was broken.",
+                "wrong_ua": "Задум: він сказав мені, що ліфт зламаний.",
+                "right_en": "He told me that the lift was broken.",
+                "right_ua": "Він сказав мені, що ліфт зламаний.",
+                "note": "Якщо адресат невідомий, можна обрати said, а не вигадувати me. Це правило моделі повідомлення: сполуки на кшталт tell a story — «розповідати історію» — мають іншу будову."
+              },
+              {
+                "label": "SAY TO SOMEONE",
+                "color": "amber",
+                "title": "Не став адресата прямо після said.",
+                "wrong_en": "She said me that the train was late.",
+                "wrong_ua": "Задум: вона сказала мені, що потяг запізнюється.",
+                "right_en": "She said to me that the train was late.",
+                "right_ua": "Вона сказала мені, що потяг запізнюється.",
+                "note": "Інша правильна модель: <span lang=\"en\">She told me that the train was late.</span><br><span lang=\"uk\">Вона сказала мені, що потяг запізнюється.</span>"
+              },
+              {
+                "label": "НЕ ЦИТАТА ВСЕРЕДИНІ ПЕРЕКАЗУ",
+                "color": "sky",
+                "title": "Збережи одну систему осіб.",
+                "wrong_en": "Olena said that “I am busy.”",
+                "wrong_ua": "Задум: інша людина переказує слова Олени «Я зайнята».",
+                "right_en": "Olena said that she was busy.",
+                "right_ua": "Олена сказала, що зайнята.",
+                "note": "Проблема не в «інверсії»: твердження вже мають звичайний порядок слів. Тут змішані цитатне I й переказ від іншої особи. Дослівну цитату оформлюють окремо: <span lang=\"en\">Olena said, “I am busy.”</span><br><span lang=\"uk\">Олена сказала: «Я зайнята».</span>"
+              }
+            ]
+          }
+        },
+        {
+          "key": "statements-summary",
+          "existing_source_index": 4,
+          "type": "summary-list",
+          "column": "right",
+          "level": null,
+          "data": {
+            "title": "4. Коротке правило",
+            "items": [
+              "Спершу встанови мовця, адресата й нового оповідача. I може лишитися I, якщо людина переказує власні слова.",
+              "Для повідомлення: said (that), said to someone (that), told someone (that). That часто необов’язкове.",
+              "Після минулого said/told backshift частий, але не автоматичний. Минула форма не доводить, що факт уже неправдивий.",
+              "Зміни here, today, tomorrow та this потрібні тоді, коли змінилася точка відліку. Не перенось заперечення між reporting clause і повідомленням."
+            ]
+          }
+        },
+        {
+          "key": "statements-navigation",
+          "existing_source_index": 5,
+          "type": "navigation-chips",
+          "column": "footer",
+          "level": null,
+          "data": {
+            "title": "Сторінки цього розділу",
+            "items": [
+              {
+                "label": "Reported Statements",
+                "url": "/theory/reported-speech/reported-statements",
+                "current": true
+              },
+              {
+                "label": "Reported Questions",
+                "url": "/theory/reported-speech/reported-questions",
+                "current": false
+              },
+              {
+                "label": "Reported Commands and Requests",
+                "url": "/theory/reported-speech/reported-commands-and-requests",
+                "current": false
+              },
+              {
+                "label": "Backshift of Tenses",
+                "url": "/theory/reported-speech/backshift-of-tenses",
+                "current": false
+              },
+              {
+                "label": "Time and Place Changes",
+                "url": "/theory/reported-speech/time-and-place-changes",
+                "current": false
+              },
+              {
+                "label": "Say / Tell / Ask",
+                "url": "/theory/reported-speech/say-tell-ask",
+                "current": false
+              }
+            ]
+          }
+        },
+        {
+          "key": "statements-context",
+          "existing_source_index": null,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "5. Час, вказівні слова й заперечення",
+            "sections": [
+              {
+                "label": "BACKSHIFT У ПОТРІБНІЙ ПЕРСПЕКТИВІ",
+                "color": "emerald",
+                "description": "Типові переходи для минулої точки переказу: Present Simple → Past Simple; Present Continuous → Past Continuous; Present Perfect → Past Perfect; will → would. Past Simple часто переходить у Past Perfect, а Past Perfect зазвичай лишається без зміни. Це не наказ зсувати будь-яку форму в будь-якому контексті.",
+                "examples": [
+                  {
+                    "en": "Sofiia said that she had lost her ticket.",
+                    "ua": "Софія сказала, що загубила квиток."
+                  }
+                ],
+                "note": "Тут загублений квиток — частина повідомлення Софії. Повну систему часів і модальних форм розглядає окремий урок про backshift."
+              },
+              {
+                "label": "TOMORROW ЗАЛЕЖИТЬ ВІД ДНЯ ПЕРЕКАЗУ",
+                "color": "blue",
+                "description": "У понеділок Денис говорить про вівторок. Переказуючи ще в понеділок, можемо залишити tomorrow. Переказуючи пізніше, називаємо день відносно його репліки: the next day / the following day.",
+                "examples": [
+                  {
+                    "en": "Denys said that he would return tomorrow.",
+                    "ua": "Денис сказав, що повернеться завтра."
+                  },
+                  {
+                    "en": "Denys said that he would return the next day.",
+                    "ua": "Денис сказав, що повернеться наступного дня."
+                  }
+                ],
+                "note": "Today, here і this теж змінюються лише за потреби нової точки відліку, не за правилом «замінити завжди»."
+              },
+              {
+                "label": "ЩО САМЕ ЗАПЕРЕЧЕНО",
+                "color": "amber",
+                "description": "Перше речення не приписує Олегові обіцянки прийти. Друге передає його повідомлення про те, що він не прийде. Це різні факти про його слова.",
+                "examples": [
+                  {
+                    "en": "Oleh did not say that he would come.",
+                    "ua": "Олег не говорив, що прийде."
+                  },
+                  {
+                    "en": "Oleh said that he would not come.",
+                    "ua": "Олег сказав, що не прийде."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "key": "statements-practice",
+          "existing_source_index": null,
+          "type": "practice-set",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "Практика",
+            "select_title": "Доповни задану модель",
+            "select_intro": "Збережи учасників і прямо задану форму повідомлення.",
+            "selects": [
+              {
+                "id": "m60-statements-form-recipient",
+                "source_index": 1,
+                "label": "Марта повідомила Ірині, що автобус запізнюється. Доповни саме модель told + адресат + that.<br><span lang=\"en\">Marta told ___ that the bus was late.</span><br><span lang=\"uk\">Марта сказала Ірині, що автобус запізнюється.</span>",
+                "options": [
+                  "to Iryna",
+                  "Iryna",
+                  "that Iryna"
+                ],
+                "answer": "Iryna",
+                "accepted": [
+                  "Iryna"
+                ],
+                "feedback": {
+                  "to iryna": "У цій моделі адресат стоїть без to: Marta told Iryna that the bus was late.\nМарта сказала Ірині, що автобус запізнюється.",
+                  "iryna": "Marta told Iryna that the bus was late.\nМарта сказала Ірині, що автобус запізнюється. Told + Iryna + that-clause.",
+                  "that iryna": "That вводить саме повідомлення, не адресата: Marta told Iryna that the bus was late.\nМарта сказала Ірині, що автобус запізнюється."
+                }
+              },
+              {
+                "id": "m60-statements-form-backshift",
+                "source_index": 2,
+                "label": "У понеділок Олег сказав: «Я працюю над звітом». У вівторок інша людина передає його слова: he — Олег. Використай заданий backshift: Present Continuous → Past Continuous.<br><span lang=\"en\">Oleh said that he ___ on the report.</span><br><span lang=\"uk\">Олег сказав, що працює над звітом.</span>",
+                "options": [
+                  "is working",
+                  "was working",
+                  "had work"
+                ],
+                "answer": "was working",
+                "accepted": [
+                  "was working"
+                ],
+                "feedback": {
+                  "is working": "Is working можливе за доречного актуального контексту, але тут прямо задано Past Continuous: Oleh said that he was working on the report.\nОлег сказав, що працює над звітом.",
+                  "was working": "Oleh said that he was working on the report.\nОлег сказав, що працює над звітом. Was working передає процес із минулої точки повідомлення; це не доводить, що тепер роботу припинено.",
+                  "had work": "Past Continuous утворюємо як was + V-ing: Oleh said that he was working on the report.\nОлег сказав, що працює над звітом."
+                }
+              }
+            ],
+            "choice_title": "Обери точний зміст",
+            "choice_intro": "Не додавай фактів, яких повідомлення не стверджує. Переклад англійського стимулу відкривається після перевірки.",
+            "choices": [
+              {
+                "id": "m60-statements-meaning-negation",
+                "source_index": 3,
+                "label": "У повідомленні he — Тарас. Який зміст передано точно? Не перенось заперечення на сам факт висловлювання.",
+                "options": [
+                  "Тарас не говорив, що приєднається до нас.",
+                  "Тарас сказав, що не приєднається до нас.",
+                  "Тарас уже приєднався до нас."
+                ],
+                "answer": "Тарас сказав, що не приєднається до нас.",
+                "accepted": [
+                  "Тарас сказав, що не приєднається до нас."
+                ],
+                "feedback": {
+                  "тарас не говорив, що приєднається до нас.": "Taras said that he would not join us.\nТарас сказав, що не приєднається до нас. Він зробив повідомлення; заперечена участь, а не дієслово said.",
+                  "тарас сказав, що не приєднається до нас.": "Taras said that he would not join us.\nТарас сказав, що не приєднається до нас. Not належить до would join.",
+                  "тарас уже приєднався до нас.": "Taras said that he would not join us.\nТарас сказав, що не приєднається до нас. Речення передає його слова про подальшу участь, не здійснений прихід."
+                },
+                "prompt": "<span lang=\"en\">Taras said that he would not join us.</span>"
+              },
+              {
+                "id": "m60-statements-meaning-self-report",
+                "source_index": 4,
+                "label": "Марія сама переповідає власні попередні слова. Хто потребував ключа?",
+                "options": [
+                  "Марія, яка зараз говорить.",
+                  "Інша жінка, не Марія.",
+                  "Співрозмовник Марії."
+                ],
+                "answer": "Марія, яка зараз говорить.",
+                "accepted": [
+                  "Марія, яка зараз говорить."
+                ],
+                "feedback": {
+                  "марія, яка зараз говорить.": "I said that I needed the key.\nЯ сказала, що мені потрібен ключ. У цьому контексті обидва I — сама Марія.",
+                  "інша жінка, не марія.": "I said that I needed the key.\nЯ сказала, що мені потрібен ключ. Самопереказ не вимагає заміни I на she.",
+                  "співрозмовник марії.": "I said that I needed the key.\nЯ сказала, що мені потрібен ключ. Потребу називає друге I, не неназваний адресат."
+                },
+                "prompt": "<span lang=\"en\">I said that I needed the key.</span>"
+              }
+            ],
+            "input_title": "Побудуй повне речення",
+            "input_intro": "Введи відповідь або склади її з усіх токенів. Для ручного вводу дозволені лише рівнозначні варіанти, описані в умові.",
+            "inputs": [
+              {
+                "id": "m60-statements-build-tomorrow",
+                "source_index": 5,
+                "before": "next / the / she / Olena / the / bring / that / day. / map / would / said",
+                "after": "У понеділок Олена сказала: «Я принесу карту завтра». У вівторок інша людина переповідає ці слова про Олену; у переказі she — Олена. Напиши: «Олена сказала, що принесе карту наступного дня». Почни з Olena said, використай would bring — принесе та задане the map — цю відому карту; обставину постав наприкінці. That можна опустити; дозволені the next day і the following day, а she would можна скоротити до she’d.",
+                "answer": "Olena said that she would bring the map the next day.",
+                "accepted": [
+                  "Olena said that she would bring the map the next day.",
+                  "Olena said she would bring the map the next day.",
+                  "Olena said that she would bring the map the following day.",
+                  "Olena said she would bring the map the following day.",
+                  "Olena said that she'd bring the map the next day.",
+                  "Olena said she'd bring the map the next day.",
+                  "Olena said that she'd bring the map the following day.",
+                  "Olena said she'd bring the map the following day."
+                ],
+                "feedback": {
+                  "olena said that she would bring the map the next day.": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said that she would bring the map the next day": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said she would bring the map the next day.": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said she would bring the map the next day": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said that she would bring the map the following day.": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said that she would bring the map the following day": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said she would bring the map the following day.": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said she would bring the map the following day": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said that she'd bring the map the next day.": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said that she'd bring the map the next day": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said that she’d bring the map the next day.": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said that she’d bring the map the next day": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said she'd bring the map the next day.": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said she'd bring the map the next day": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said she’d bring the map the next day.": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said she’d bring the map the next day": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said that she'd bring the map the following day.": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said that she'd bring the map the following day": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said that she’d bring the map the following day.": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said that she’d bring the map the following day": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said she'd bring the map the following day.": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said she'd bring the map the following day": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said she’d bring the map the following day.": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said she’d bring the map the following day": "Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня. She — Олена; the next/following day відраховуємо від понеділкової репліки, тобто йдеться про вівторок.",
+                  "olena said that i would bring the map the next day.": "I помилково робить виконавцем нового оповідача. Умова називає Олену: Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня.",
+                  "olena said that i would bring the map the next day": "I помилково робить виконавцем нового оповідача. Умова називає Олену: Olena said that she would bring the map the next day.\nОлена сказала, що принесе карту наступного дня."
+                }
+              },
+              {
+                "id": "m60-statements-build-negative",
+                "source_index": 6,
+                "before": "hungry. / not / was / he / that / said / Danylo",
+                "after": "Данило сказав іншій людині: «Я не голодний». Тепер інший оповідач передає: «Данило сказав, що він не голодний»; he — Данило. Почни з Danylo said, використай заданий Past Simple: was not hungry. That можна опустити; was not можна скоротити до wasn’t.",
+                "answer": "Danylo said that he was not hungry.",
+                "accepted": [
+                  "Danylo said that he was not hungry.",
+                  "Danylo said he was not hungry.",
+                  "Danylo said that he wasn't hungry.",
+                  "Danylo said he wasn't hungry."
+                ],
+                "feedback": {
+                  "danylo said that he was not hungry.": "Danylo said that he was not hungry.\nДанило сказав, що він не голодний. Заперечення належить до його стану. Was not і wasn’t рівнозначні; that тут необов’язкове.",
+                  "danylo said that he was not hungry": "Danylo said that he was not hungry.\nДанило сказав, що він не голодний. Заперечення належить до його стану. Was not і wasn’t рівнозначні; that тут необов’язкове.",
+                  "danylo said he was not hungry.": "Danylo said that he was not hungry.\nДанило сказав, що він не голодний. Заперечення належить до його стану. Was not і wasn’t рівнозначні; that тут необов’язкове.",
+                  "danylo said he was not hungry": "Danylo said that he was not hungry.\nДанило сказав, що він не голодний. Заперечення належить до його стану. Was not і wasn’t рівнозначні; that тут необов’язкове.",
+                  "danylo said that he wasn't hungry.": "Danylo said that he was not hungry.\nДанило сказав, що він не голодний. Заперечення належить до його стану. Was not і wasn’t рівнозначні; that тут необов’язкове.",
+                  "danylo said that he wasn't hungry": "Danylo said that he was not hungry.\nДанило сказав, що він не голодний. Заперечення належить до його стану. Was not і wasn’t рівнозначні; that тут необов’язкове.",
+                  "danylo said that he wasn’t hungry.": "Danylo said that he was not hungry.\nДанило сказав, що він не голодний. Заперечення належить до його стану. Was not і wasn’t рівнозначні; that тут необов’язкове.",
+                  "danylo said that he wasn’t hungry": "Danylo said that he was not hungry.\nДанило сказав, що він не голодний. Заперечення належить до його стану. Was not і wasn’t рівнозначні; that тут необов’язкове.",
+                  "danylo said he wasn't hungry.": "Danylo said that he was not hungry.\nДанило сказав, що він не голодний. Заперечення належить до його стану. Was not і wasn’t рівнозначні; that тут необов’язкове.",
+                  "danylo said he wasn't hungry": "Danylo said that he was not hungry.\nДанило сказав, що він не голодний. Заперечення належить до його стану. Was not і wasn’t рівнозначні; that тут необов’язкове.",
+                  "danylo said he wasn’t hungry.": "Danylo said that he was not hungry.\nДанило сказав, що він не голодний. Заперечення належить до його стану. Was not і wasn’t рівнозначні; that тут необов’язкове.",
+                  "danylo said he wasn’t hungry": "Danylo said that he was not hungry.\nДанило сказав, що він не голодний. Заперечення належить до його стану. Was not і wasn’t рівнозначні; that тут необов’язкове.",
+                  "danylo did not say that he was hungry.": "Це «Данило не сказав, що голодний»: заперечено іншу частину. Потрібно: Danylo said that he was not hungry.\nДанило сказав, що він не голодний.",
+                  "danylo did not say that he was hungry": "Це «Данило не сказав, що голодний»: заперечено іншу частину. Потрібно: Danylo said that he was not hungry.\nДанило сказав, що він не голодний."
+                }
+              }
+            ],
+            "rephrase": [],
+            "linked_practice": {
+              "source": "theory_links",
+              "question_types": [
+                "4"
+              ],
+              "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotReportedSpeechStatementsAllLevelsLessonSeeder"
+              ],
+              "title": "Вправа 4. Побудуй речення",
+              "intro": "Склади англійське речення за українською умовою, клікаючи на слова. Збережи мовця, адресата й зміст.",
+              "footer": "Завдання підібрані лише для цієї теми."
+            }
+          }
+        }
+      ],
+      "details": [
+        {
+          "key": "statements-backshift-current-truth",
+          "title": "Минулий переказ і теперішня правдивість",
+          "owner_block_key": "statements-context",
+          "owner_pointer": "/sections/0",
+          "fragment": {
+            "type": "usage-panels",
+            "data": {
+              "sections": [
+                {
+                  "label": "Минулий переказ і теперішня правдивість",
+                  "color": "slate",
+                  "description": "У понеділок Лідія повідомила про свою роботу в музеї. У вівторок це можна передати з worked, обравши минулу точку її слів, або з works, підкресливши актуальну роботу. Перша форма не повідомляє сама по собі, чи Лідія й далі там працює. Для висновку про звільнення потрібен додатковий контекст, а не лише backshift. Так само відсутність зсуву не змінює того, хто є джерелом повідомлення.",
+                  "examples": [
+                    {
+                      "en": "Lidiia said that she worked at the museum.",
+                      "ua": "Лідія сказала, що працює в музеї."
+                    },
+                    {
+                      "en": "Lidiia said that she works at the museum.",
+                      "ua": "Лідія сказала, що працює в музеї."
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "status": "frozen",
+      "identity": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechQuestionsTheorySeeder",
+      "slug": "reported-questions",
+      "locale": "uk",
+      "display_level": "B1-B2",
+      "technical_block_level": "B1",
+      "category_ancestry": [
+        "reported-speech"
+      ],
+      "local_url": "http://gramlyze.loc/theory/reported-speech/reported-questions",
+      "subtitle_html": "<p><strong>Reported Questions</strong> — як передавати yes/no- і wh-питання без вкладеної інверсії, не гублячи учасників і заперечення.</p>",
+      "subtitle_text": "Reported Questions — як передавати yes/no- і wh-питання без вкладеної інверсії, не гублячи учасників і заперечення.",
+      "blocks": [
+        {
+          "key": "questions-hero",
+          "existing_source_index": 0,
+          "type": "hero",
+          "column": "header",
+          "level": "B1",
+          "data": {
+            "level": "B1-B2",
+            "intro": "Reported Questions передає, що хтось запитав, а не відповідь на це питання. Для yes/no додаємо if або whether; для wh-питання зберігаємо питальне слово. Усередині reported clause немає інверсії прямого питання.",
+            "rules": [
+              {
+                "label": "ПИТАННЯ «ЧИ»",
+                "color": "emerald",
+                "text": "Asked + if / whether + підмет + присудок.",
+                "example": "<span lang=\"en\">Marta asked if the gate was open.</span><br><span lang=\"uk\">Марта запитала, чи відчинена хвіртка.</span>"
+              },
+              {
+                "label": "WH-ПИТАННЯ",
+                "color": "blue",
+                "text": "Питальне слово лишається, а підмет стоїть перед присудком.",
+                "example": "<span lang=\"en\">Marta asked where the key was.</span><br><span lang=\"uk\">Марта запитала, де ключ.</span>"
+              },
+              {
+                "label": "ЗМІСТ НЕ СТАЄ ВІДПОВІДДЮ",
+                "color": "amber",
+                "text": "Питання не стверджує, що подія відбулася.",
+                "example": "<span lang=\"en\">Marta asked whether the parcel had arrived.</span><br><span lang=\"uk\">Марта запитала, чи прибула посилка.</span>"
+              }
+            ]
+          }
+        },
+        {
+          "key": "questions-forms",
+          "existing_source_index": 1,
+          "type": "forms-grid",
+          "column": "left",
+          "level": null,
+          "data": {
+            "title": "1. Як увести непряме питання",
+            "intro": "Ask можна вжити без названого адресата або з ним. Якщо текст не каже, кому поставили питання, не додавай me чи us від себе.",
+            "items": [
+              {
+                "label": "YES / NO",
+                "title": "asked + if / whether + підмет + присудок",
+                "subtitle": "<span lang=\"en\">Danylo asked whether the office was open.</span><br><span lang=\"uk\">Данило запитав, чи відчинений офіс.</span>"
+              },
+              {
+                "label": "WH",
+                "title": "asked + where / why / when… + підмет + присудок",
+                "subtitle": "<span lang=\"en\">Danylo asked when the meeting started.</span><br><span lang=\"uk\">Данило запитав, коли починається зустріч.</span>"
+              },
+              {
+                "label": "НАЗВАНИЙ АДРЕСАТ",
+                "title": "asked + адресат + reported clause",
+                "subtitle": "<span lang=\"en\">Danylo asked me where the exit was.</span><br><span lang=\"uk\">Данило запитав мене, де вихід.</span>"
+              },
+              {
+                "label": "ПІДМЕТ WHO",
+                "title": "asked + who + присудок",
+                "subtitle": "<span lang=\"en\">Danylo asked who had opened the window.</span><br><span lang=\"uk\">Данило запитав, хто відчинив вікно.</span> Who тут уже є підметом."
+              }
+            ]
+          }
+        },
+        {
+          "key": "questions-comparison",
+          "existing_source_index": 2,
+          "type": "comparison-table",
+          "column": "left",
+          "level": null,
+          "data": {
+            "title": "2. Пряме питання → переказ",
+            "intro": "У цих прикладах новий оповідач передає питання пізніше й використовує backshift. Займенник визначаємо за названими учасниками.",
+            "headers": [
+              "Хто питає кого; прямі слова",
+              "Непряма мова і переклад",
+              "Що збережено"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Марія питає Олега: <span lang=\"en\">Do you like jazz?</span><br><span lang=\"uk\">Тобі подобається джаз?</span>",
+                  "<span lang=\"en\">Mariia asked Oleh if he liked jazz.</span><br><span lang=\"uk\">Марія запитала Олега, чи подобається йому джаз.</span>",
+                  "He — Олег; do як питальне допоміжне зникло, але час передано формою liked."
+                ]
+              },
+              {
+                "cells": [
+                  "Петро питає Олену про гостей у понеділок увечері: <span lang=\"en\">Are they coming tonight?</span><br><span lang=\"uk\">Вони прийдуть сьогодні ввечері?</span>",
+                  "<span lang=\"en\">Petro asked Olena whether they were coming that night.</span><br><span lang=\"uk\">Петро запитав Олену, чи вони прийдуть того вечора.</span>",
+                  "Переказ відбувається у вівторок; that night — понеділковий вечір."
+                ]
+              },
+              {
+                "cells": [
+                  "Ірина питає Тараса у вівторок про його ранній відхід у понеділок: <span lang=\"en\">Why did you leave early?</span><br><span lang=\"uk\">Чому ти пішов рано?</span>",
+                  "<span lang=\"en\">Iryna asked Taras why he had left early.</span><br><span lang=\"uk\">Ірина запитала Тараса, чому він пішов рано.</span>",
+                  "У пізнішому переказі задано had left; did не лишається перед he."
+                ]
+              },
+              {
+                "cells": [
+                  "Олег питає про виконавця дії: <span lang=\"en\">Who called you?</span><br><span lang=\"uk\">Хто тобі телефонував?</span>",
+                  "<span lang=\"en\">Oleh asked me who had called me.</span><br><span lang=\"uk\">Олег запитав мене, хто мені телефонував.</span>",
+                  "Who — той, хто телефонував; me — адресат дзвінка й теперішній оповідач."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "key": "questions-mistakes",
+          "existing_source_index": 3,
+          "type": "mistakes-grid",
+          "column": "right",
+          "level": null,
+          "data": {
+            "title": "3. Порядок слів і роль допоміжного",
+            "items": [
+              {
+                "label": "БЕЗ ВКЛАДЕНОЇ ІНВЕРСІЇ",
+                "color": "rose",
+                "title": "Дієслово не переносимо перед підметом.",
+                "wrong_en": "He asked where was the station.",
+                "wrong_ua": "Задум: він запитав, де станція.",
+                "right_en": "He asked where the station was.",
+                "right_ua": "Він запитав, де станція.",
+                "note": "The station — підмет; was стоїть після нього."
+              },
+              {
+                "label": "IF / WHETHER ДЛЯ «ЧИ»",
+                "color": "amber",
+                "title": "Не губи зв’язок yes/no-питання.",
+                "wrong_en": "She asked the door was locked.",
+                "wrong_ua": "Задум: вона запитала, чи замкнені двері.",
+                "right_en": "She asked if the door was locked.",
+                "right_ua": "Вона запитала, чи замкнені двері.",
+                "note": "Whether тут теж можливе. If означає «чи», не умовне «якщо»."
+              },
+              {
+                "label": "DO ЯК ДОПОМІЖНЕ Й ЯК ДІЯ",
+                "color": "sky",
+                "title": "Прибираємо питальне do/does/did, а не будь-яке слово do.",
+                "wrong_en": "She asked what did I do.",
+                "wrong_ua": "Задум: вона запитала, що я робив.",
+                "right_en": "She asked what I did.",
+                "right_ua": "Вона запитала, що я робив.",
+                "note": "У правильному реченні did — основне дієслово «робив». Заперечення теж треба зберегти: <span lang=\"en\">She asked why I had not called.</span><br><span lang=\"uk\">Вона запитала, чому я не зателефонував.</span>"
+              }
+            ]
+          }
+        },
+        {
+          "key": "questions-summary",
+          "existing_source_index": 4,
+          "type": "summary-list",
+          "column": "right",
+          "level": null,
+          "data": {
+            "title": "4. Коротке правило",
+            "items": [
+              "Yes/no-питання вводимо через if або whether. Wh-слово зберігаємо. Після них — порядок твердження, але зміст лишається питанням.",
+              "Who може бути підметом без нового he/she або об’єктом поряд з окремим підметом. Перевіряй, хто виконує дію.",
+              "Питальні do/does/did не переносимо всередину reported clause. Час і заперечення передаємо потрібними формами, а не викидаємо.",
+              "Крапка чи знак питання залежать від цілого речення. Переказ He asked… зазвичай закінчується крапкою; зовнішнє Did he ask…? — питанням."
+            ]
+          }
+        },
+        {
+          "key": "questions-navigation",
+          "existing_source_index": 5,
+          "type": "navigation-chips",
+          "column": "footer",
+          "level": null,
+          "data": {
+            "title": "Сторінки цього розділу",
+            "items": [
+              {
+                "label": "Reported Statements",
+                "url": "/theory/reported-speech/reported-statements",
+                "current": false
+              },
+              {
+                "label": "Reported Questions",
+                "url": "/theory/reported-speech/reported-questions",
+                "current": true
+              },
+              {
+                "label": "Reported Commands and Requests",
+                "url": "/theory/reported-speech/reported-commands-and-requests",
+                "current": false
+              },
+              {
+                "label": "Backshift of Tenses",
+                "url": "/theory/reported-speech/backshift-of-tenses",
+                "current": false
+              },
+              {
+                "label": "Time and Place Changes",
+                "url": "/theory/reported-speech/time-and-place-changes",
+                "current": false
+              },
+              {
+                "label": "Say / Tell / Ask",
+                "url": "/theory/reported-speech/say-tell-ask",
+                "current": false
+              }
+            ]
+          }
+        },
+        {
+          "key": "questions-context",
+          "existing_source_index": null,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "5. Контекст: час, намір і пунктуація",
+            "sections": [
+              {
+                "label": "ЧАС НЕ ЗСУВАЄТЬСЯ МЕХАНІЧНО",
+                "color": "emerald",
+                "description": "Якщо питання щойно поставили й воно досі актуальне, можна залишити теперішню форму. Інша минула перспектива теж можлива. Tonight змінюється на that night, коли це вже не вечір нового оповідача.",
+                "examples": [
+                  {
+                    "en": "Oksana asked where you live.",
+                    "ua": "Оксана запитала, де ти живеш."
+                  }
+                ],
+                "note": "Оповідач звертається до того самого you; місце проживання лишається актуальним."
+              },
+              {
+                "label": "IF І WHETHER: ДЕ ВИБІР ВІЛЬНИЙ",
+                "color": "blue",
+                "description": "У простому непрямому yes/no-питанні обидва варіанти можливі. Перед to-інфінітивом потрібне whether. У сполуці whether or not слова or not можуть стояти одразу після whether; після if вони стоять наприкінці відповідної частини.",
+                "examples": [
+                  {
+                    "en": "He asked if the shop was open. / He asked whether the shop was open.",
+                    "ua": "Він запитав, чи відчинений магазин."
+                  },
+                  {
+                    "en": "She wondered whether to call.",
+                    "ua": "Вона міркувала, чи телефонувати."
+                  }
+                ]
+              },
+              {
+                "label": "ПИТАЄМО ЗАРАЗ ЧИ ПЕРЕПОВІДАЄМО",
+                "color": "amber",
+                "description": "Ввічливе непряме питання до співрозмовника — не те саме, що розповідь про минуле питання. В обох вкладених частинах немає інверсії.",
+                "examples": [
+                  {
+                    "en": "Could you tell me where the office is?",
+                    "ua": "Скажіть, будь ласка, де офіс?"
+                  },
+                  {
+                    "en": "He asked where the office was.",
+                    "ua": "Він запитав, де офіс."
+                  },
+                  {
+                    "en": "Did he ask where the office was?",
+                    "ua": "Він запитав, де офіс?"
+                  }
+                ]
+              },
+              {
+                "label": "ПИТАННЯ МОЖЕ БУТИ ПРОХАННЯМ",
+                "color": "slate",
+                "description": "Репліка з Could you…? може з’ясовувати можливість або ввічливо просити про дію. Обирай переказ за наміром і ситуацією; форма asked if… могла б також передати непряме прохання, тому її не оголошуємо завжди неправильною.",
+                "examples": [
+                  {
+                    "en": "Could you carry this box?",
+                    "ua": "Ти міг би понести цю коробку?"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "key": "questions-practice",
+          "existing_source_index": null,
+          "type": "practice-set",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "Практика",
+            "select_title": "Доповни задану модель",
+            "select_intro": "Збережи учасників і прямо задану форму повідомлення.",
+            "selects": [
+              {
+                "id": "m60-questions-form-embedded-order",
+                "source_index": 1,
+                "label": "Ірина запитала, о котрій відчиняється музей. У непрямому питанні збережи звичайний порядок підмет + присудок.<br><span lang=\"en\">Iryna asked what time ___.</span><br><span lang=\"uk\">Ірина запитала, о котрій відчиняється музей.</span>",
+                "options": [
+                  "did the museum open",
+                  "the museum opened",
+                  "opened the museum"
+                ],
+                "answer": "the museum opened",
+                "accepted": [
+                  "the museum opened"
+                ],
+                "feedback": {
+                  "did the museum open": "У reported clause не переносимо did перед підметом: Iryna asked what time the museum opened.\nІрина запитала, о котрій відчиняється музей.",
+                  "the museum opened": "Iryna asked what time the museum opened.\nІрина запитала, о котрій відчиняється музей. Підмет the museum стоїть перед opened.",
+                  "opened the museum": "The museum — підмет, тому не ставимо opened перед ним: Iryna asked what time the museum opened.\nІрина запитала, о котрій відчиняється музей."
+                }
+              },
+              {
+                "id": "m60-questions-form-subject-who",
+                "source_index": 2,
+                "label": "Олег запитав: «Хто забрав папку?» Передай питання із заданим Past Perfect. Who — підмет, нового he не додаємо.<br><span lang=\"en\">Oleh asked who ___ the folder.</span><br><span lang=\"uk\">Олег запитав, хто забрав папку.</span>",
+                "options": [
+                  "had taken",
+                  "he had taken",
+                  "had he taken"
+                ],
+                "answer": "had taken",
+                "accepted": [
+                  "had taken"
+                ],
+                "feedback": {
+                  "had taken": "Oleh asked who had taken the folder.\nОлег запитав, хто забрав папку. Who саме виконує роль підмета.",
+                  "he had taken": "Who вже є підметом; he тут дублює цю роль: Oleh asked who had taken the folder.\nОлег запитав, хто забрав папку.",
+                  "had he taken": "Інверсія had he не потрібна, і окремого he немає в умові: Oleh asked who had taken the folder.\nОлег запитав, хто забрав папку."
+                }
+              }
+            ],
+            "choice_title": "Обери точний зміст",
+            "choice_intro": "Не додавай фактів, яких повідомлення не стверджує. Переклад англійського стимулу відкривається після перевірки.",
+            "choices": [
+              {
+                "id": "m60-questions-meaning-open-answer",
+                "source_index": 3,
+                "label": "У повідомленні he — Назар. Який висновок прямо випливає з повідомлення? Відповідь на питання не наведено.",
+                "options": [
+                  "Назар користувався запасним ключем.",
+                  "Назар не користувався запасним ключем.",
+                  "Олена запитала Назара, чи користувався він запасним ключем."
+                ],
+                "answer": "Олена запитала Назара, чи користувався він запасним ключем.",
+                "accepted": [
+                  "Олена запитала Назара, чи користувався він запасним ключем."
+                ],
+                "feedback": {
+                  "назар користувався запасним ключем.": "Olena asked Nazar whether he had used the spare key.\nОлена запитала Назара, чи користувався він запасним ключем. Це питання, не підтвердження використання.",
+                  "назар не користувався запасним ключем.": "Olena asked Nazar whether he had used the spare key.\nОлена запитала Назара, чи користувався він запасним ключем. Заперечної відповіді теж не наведено.",
+                  "олена запитала назара, чи користувався він запасним ключем.": "Olena asked Nazar whether he had used the spare key.\nОлена запитала Назара, чи користувався він запасним ключем. Whether означає «чи»; результат розмови невідомий."
+                },
+                "prompt": "<span lang=\"en\">Olena asked Nazar whether he had used the spare key.</span>"
+              },
+              {
+                "id": "m60-questions-meaning-object-who",
+                "source_index": 4,
+                "label": "Передано питання до Олега; he — Олег. Які ролі мають he і who в тому питанні?",
+                "options": [
+                  "Питали, кому телефонував Олег, не хто телефонував йому.",
+                  "Питали, хто телефонував Олегові, не кому він телефонував.",
+                  "Питали, кому телефонувала Ірина, не Олег."
+                ],
+                "answer": "Питали, кому телефонував Олег, не хто телефонував йому.",
+                "accepted": [
+                  "Питали, кому телефонував Олег, не хто телефонував йому."
+                ],
+                "feedback": {
+                  "питали, кому телефонував олег, не хто телефонував йому.": "Iryna asked Oleh who he had called.\nІрина запитала Олега, кому він телефонував. He — Олег; who тут об’єкт call, а не той, хто телефонував.",
+                  "питали, хто телефонував олегові, не кому він телефонував.": "Iryna asked Oleh who he had called.\nІрина запитала Олега, кому він телефонував. Це не питання «хто телефонував Олегові»: підмет reported clause — he.",
+                  "питали, кому телефонувала ірина, не олег.": "Iryna asked Oleh who he had called.\nІрина запитала Олега, кому він телефонував. Iryna — авторка питання, а не підмет had called."
+                },
+                "prompt": "<span lang=\"en\">Iryna asked Oleh who he had called.</span>"
+              }
+            ],
+            "input_title": "Побудуй повне речення",
+            "input_intro": "Введи відповідь або склади її з усіх токенів. Для ручного вводу дозволені лише рівнозначні варіанти, описані в умові.",
+            "inputs": [
+              {
+                "id": "m60-questions-build-if-whether",
+                "source_index": 5,
+                "before": "Olena / if / asked / Taras / gate. / the / locked / had",
+                "after": "Тарас запитав Олену: «Ти замкнула хвіртку?» Інша людина переповідає це пізніше: «Тарас запитав, чи Олена замкнула хвіртку». Почни з Taras asked, використай заданий Past Perfect: had locked. Для «чи» приймаються if або whether; закінчи the gate.",
+                "answer": "Taras asked if Olena had locked the gate.",
+                "accepted": [
+                  "Taras asked if Olena had locked the gate.",
+                  "Taras asked whether Olena had locked the gate."
+                ],
+                "feedback": {
+                  "taras asked if olena had locked the gate.": "Taras asked if Olena had locked the gate.\nТарас запитав, чи Олена замкнула хвіртку. If і whether тут рівнозначні. Порядок після них: Olena + had locked; відповіді Олени ми не додаємо.",
+                  "taras asked if olena had locked the gate": "Taras asked if Olena had locked the gate.\nТарас запитав, чи Олена замкнула хвіртку. If і whether тут рівнозначні. Порядок після них: Olena + had locked; відповіді Олени ми не додаємо.",
+                  "taras asked whether olena had locked the gate.": "Taras asked if Olena had locked the gate.\nТарас запитав, чи Олена замкнула хвіртку. If і whether тут рівнозначні. Порядок після них: Olena + had locked; відповіді Олени ми не додаємо.",
+                  "taras asked whether olena had locked the gate": "Taras asked if Olena had locked the gate.\nТарас запитав, чи Олена замкнула хвіртку. If і whether тут рівнозначні. Порядок після них: Olena + had locked; відповіді Олени ми не додаємо.",
+                  "taras asked if had olena locked the gate.": "Це інверсія прямого питання, а потрібен порядок Olena had locked: Taras asked if Olena had locked the gate.\nТарас запитав, чи Олена замкнула хвіртку.",
+                  "taras asked if had olena locked the gate": "Це інверсія прямого питання, а потрібен порядок Olena had locked: Taras asked if Olena had locked the gate.\nТарас запитав, чи Олена замкнула хвіртку."
+                }
+              },
+              {
+                "id": "m60-questions-build-main-question",
+                "source_index": 6,
+                "before": "where / Petro / worked? / Did / Iryna / ask",
+                "after": "Тепер саме ти ставиш питання: «Ірина запитала, де працює Петро?» Почни з Did Iryna ask, далі where. У вкладеній частині використай заданий Past Simple: Petro worked; наприкінці постав знак питання.",
+                "answer": "Did Iryna ask where Petro worked?",
+                "accepted": [
+                  "Did Iryna ask where Petro worked?"
+                ],
+                "feedback": {
+                  "did iryna ask where petro worked?": "Did Iryna ask where Petro worked?\nІрина запитала, де працює Петро? Зовнішнє питання має Did Iryna ask і знак питання. Усередині лишається where Petro worked, не where did Petro work.",
+                  "did iryna ask where petro worked": "Did Iryna ask where Petro worked?\nІрина запитала, де працює Петро? Зовнішнє питання має Did Iryna ask і знак питання. Усередині лишається where Petro worked, не where did Petro work.",
+                  "did iryna ask where did petro work?": "Інверсія потрібна тільки в зовнішньому питанні: Did Iryna ask where Petro worked?\nІрина запитала, де працює Петро?",
+                  "did iryna ask where did petro work": "Інверсія потрібна тільки в зовнішньому питанні: Did Iryna ask where Petro worked?\nІрина запитала, де працює Петро?"
+                }
+              }
+            ],
+            "rephrase": [],
+            "linked_practice": {
+              "source": "theory_links",
+              "question_types": [
+                "4"
+              ],
+              "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotReportedSpeechQuestionsAllLevelsLessonSeeder",
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotReportedQuestionsLessonSeeder"
+              ],
+              "title": "Вправа 4. Побудуй речення",
+              "intro": "Склади англійське речення за українською умовою, клікаючи на слова. Збережи мовця, адресата й зміст.",
+              "footer": "Завдання підібрані лише для цієї теми."
+            }
+          }
+        }
+      ],
+      "details": [
+        {
+          "key": "questions-ability-or-request",
+          "title": "Ті самі слова, різний намір",
+          "owner_block_key": "questions-context",
+          "owner_pointer": "/sections/3",
+          "fragment": {
+            "type": "usage-panels",
+            "data": {
+              "sections": [
+                {
+                  "label": "Ті самі слова, різний намір",
+                  "color": "slate",
+                  "description": "Під час перевірки фізичних можливостей інструктор справді питає, чи людина може підняти ящик: доречний переказ питання про можливість. У коридорі з вільними руками ці самі слова можуть бути проханням допомогти; object + to прямо передає бажану дію. Обидва перекази граматичні, але описують ситуацію з різним фокусом. Не роби висновок про намір лише зі слова could й не вигадуй, що адресат виконав прохання.",
+                  "examples": [
+                    {
+                      "en": "The instructor asked me if I could lift the box.",
+                      "ua": "Інструктор запитав мене, чи можу я підняти ящик."
+                    },
+                    {
+                      "en": "The instructor asked me to lift the box.",
+                      "ua": "Інструктор попросив мене підняти ящик."
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "status": "frozen",
+      "identity": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechCommandsRequestsTheorySeeder",
+      "slug": "reported-commands-and-requests",
+      "locale": "uk",
+      "display_level": "B1-B2",
+      "technical_block_level": "B1",
+      "category_ancestry": [
+        "reported-speech"
+      ],
+      "local_url": "http://gramlyze.loc/theory/reported-speech/reported-commands-and-requests",
+      "subtitle_html": "<p><strong>Reported Commands and Requests</strong> — прохання, вказівки й поради через object + to / not to зі збереженням наміру та ролей.</p>",
+      "subtitle_text": "Reported Commands and Requests — прохання, вказівки й поради через object + to / not to зі збереженням наміру та ролей.",
+      "blocks": [
+        {
+          "key": "commands-hero",
+          "existing_source_index": 0,
+          "type": "hero",
+          "column": "header",
+          "level": "B1",
+          "data": {
+            "level": "B1-B2",
+            "intro": "Reported Commands and Requests передає, що одна людина попросила, порадила або веліла зробити іншій. У базовій моделі називаємо адресата й дію через to; для негативної вказівки — not to. Дієслово обираємо за наміром і контекстом, не лише за словом please.",
+            "rules": [
+              {
+                "label": "АДРЕСАТ І ДІЯ",
+                "color": "emerald",
+                "text": "Reporting verb + object + to + базова форма.",
+                "example": "<span lang=\"en\">The teacher told us to open our books.</span><br><span lang=\"uk\">Учитель сказав нам відкрити книжки.</span>"
+              },
+              {
+                "label": "НЕГАТИВНА ВКАЗІВКА",
+                "color": "rose",
+                "text": "Reporting verb + object + not to + базова форма.",
+                "example": "<span lang=\"en\">The teacher told us not to write yet.</span><br><span lang=\"uk\">Учитель сказав нам поки не писати.</span>"
+              },
+              {
+                "label": "СИЛА Й НАМІР",
+                "color": "blue",
+                "text": "Ask — прохання; advise — порада; order — наказ.",
+                "example": "<span lang=\"en\">The guide asked us to wait.</span><br><span lang=\"uk\">Гід попросив нас зачекати.</span>"
+              }
+            ]
+          }
+        },
+        {
+          "key": "commands-forms",
+          "existing_source_index": 1,
+          "type": "forms-grid",
+          "column": "left",
+          "level": null,
+          "data": {
+            "title": "1. Хто просить і хто має виконати дію",
+            "intro": "У цій моделі підмет називає того, хто дає вказівку або просить. Object — адресат і передбачуваний виконавець to-дії. Після to потрібна базова форма, не минуле закінчення.",
+            "items": [
+              {
+                "label": "СТВЕРДЖУВАЛЬНА ВКАЗІВКА",
+                "title": "told / asked / ordered + object + to + дієслово",
+                "subtitle": "<span lang=\"en\">Sofiia asked Denys to close the window.</span><br><span lang=\"uk\">Софія попросила Дениса зачинити вікно.</span>"
+              },
+              {
+                "label": "НЕГАТИВНА ВКАЗІВКА",
+                "title": "told / asked / warned + object + not to + дієслово",
+                "subtitle": "<span lang=\"en\">Sofiia asked Denys not to close the window.</span><br><span lang=\"uk\">Софія попросила Дениса не зачиняти вікно.</span>"
+              },
+              {
+                "label": "ОБ’ЄКТНІ ЗАЙМЕННИКИ",
+                "title": "me / you / him / her / us / them",
+                "subtitle": "<span lang=\"en\">Sofiia told him to call her.</span><br><span lang=\"uk\">Софія сказала йому зателефонувати їй.</span> У цьому контексті him — Денис, her — Софія."
+              },
+              {
+                "label": "ЗОВНІШНЄ ПИТАННЯ",
+                "title": "Did + підмет + ask / tell + object + to…?",
+                "subtitle": "<span lang=\"en\">Did Sofiia ask Denys to wait?</span><br><span lang=\"uk\">Софія попросила Дениса зачекати?</span> Інверсія зовні; to wait лишається без зміни."
+              }
+            ]
+          }
+        },
+        {
+          "key": "commands-comparison",
+          "existing_source_index": 2,
+          "type": "comparison-table",
+          "column": "left",
+          "level": null,
+          "data": {
+            "title": "2. Обирай дієслово за ситуацією",
+            "intro": "Однакова наказова форма прямої репліки може бути вказівкою, проханням або застереженням. Намір і учасників у цих рядках задано явно.",
+            "headers": [
+              "Ситуація й прямі слова",
+              "Непряма мова і переклад",
+              "Намір і ролі"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Керівник дає мені звичайну робочу вказівку: <span lang=\"en\">Send the file today.</span><br><span lang=\"uk\">Надішли файл сьогодні.</span>",
+                  "<span lang=\"en\">The manager told me to send the file that day.</span><br><span lang=\"uk\">Керівник сказав мені надіслати файл того дня.</span>",
+                  "Told — вказівка. Я переповідаю її пізніше, тому today → that day."
+                ]
+              },
+              {
+                "cells": [
+                  "Олена просить Петра допомогти з її сумкою: <span lang=\"en\">Please help me with my bag.</span><br><span lang=\"uk\">Будь ласка, допоможи мені з моєю сумкою.</span>",
+                  "<span lang=\"en\">Olena asked Petro to help her with her bag.</span><br><span lang=\"uk\">Олена попросила Петра допомогти їй з її сумкою.</span>",
+                  "Допомогти має Петро; her і her bag стосуються Олени. Це переказ іншої людини, а не підтвердження виконання."
+                ]
+              },
+              {
+                "cells": [
+                  "Інженер попереджає нашу групу про оголений дріт: <span lang=\"en\">Do not touch that wire.</span><br><span lang=\"uk\">Не торкайтеся того дроту.</span>",
+                  "<span lang=\"en\">The engineer warned us not to touch that wire.</span><br><span lang=\"uk\">Інженер застеріг нас не торкатися того дроту.</span>",
+                  "Warned відповідає названій небезпеці. Us — та сама група."
+                ]
+              },
+              {
+                "cells": [
+                  "Друг дає мені пораду через утому: <span lang=\"en\">You should take a break.</span><br><span lang=\"uk\">Тобі варто зробити перерву.</span>",
+                  "<span lang=\"en\">My friend advised me to take a break.</span><br><span lang=\"uk\">Мій друг порадив мені зробити перерву.</span>",
+                  "Порада, не сильний наказ і не повідомлення, що я вже відпочив."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "key": "commands-mistakes",
+          "existing_source_index": 3,
+          "type": "mistakes-grid",
+          "column": "right",
+          "level": null,
+          "data": {
+            "title": "3. Не губи адресата, to й not",
+            "items": [
+              {
+                "label": "АДРЕСАТ У TELL",
+                "color": "rose",
+                "title": "У моделі tell someone to do не пропускай someone.",
+                "wrong_en": "He told to sit down.",
+                "wrong_ua": "Задум: він сказав мені сісти.",
+                "right_en": "He told me to sit down.",
+                "right_ua": "Він сказав мені сісти.",
+                "note": "To sit — інфінітив, не наказова форма. Me тут задане змістом; якщо адресат невідомий, не вигадуй його."
+              },
+              {
+                "label": "БАЗОВА ФОРМА ПІСЛЯ TO",
+                "color": "amber",
+                "title": "Минуле told не робить сам інфінітив минулим.",
+                "wrong_en": "She told us to waited.",
+                "wrong_ua": "Задум: вона сказала нам зачекати.",
+                "right_en": "She told us to wait.",
+                "right_ua": "Вона сказала нам зачекати.",
+                "note": "Told виражає минуле повідомлення; to wait лишається інфінітивом."
+              },
+              {
+                "label": "МІСЦЕ ЗАПЕРЕЧЕННЯ",
+                "color": "sky",
+                "title": "Для негативної вказівки в цій моделі потрібне not to.",
+                "wrong_en": "They told us not be late.",
+                "wrong_ua": "Задум: вони сказали нам не запізнюватися.",
+                "right_en": "They told us not to be late.",
+                "right_ua": "Вони сказали нам не запізнюватися.",
+                "note": "Не замінюй це на didn’t tell us to be late: там заперечено факт вказівки, а не задано не запізнюватися."
+              }
+            ]
+          }
+        },
+        {
+          "key": "commands-summary",
+          "existing_source_index": 4,
+          "type": "summary-list",
+          "column": "right",
+          "level": null,
+          "data": {
+            "title": "4. Коротке правило",
+            "items": [
+              "Базова модель: reporting verb + адресат + to + дія; негативна вказівка — адресат + not to + дія.",
+              "Назви того самого адресата й виконавця; займенники my, me, you залежать від того, хто зараз переповідає слова.",
+              "Tell, ask, order, advise і warn не рівнозначні за наміром. Please — підказка ввічливості, а не автоматичний вибір одного reporting verb.",
+              "Вказівка, прохання й порада не доводять, що їх виконали. Told us not to… не те саме, що did not tell us to… ."
+            ]
+          }
+        },
+        {
+          "key": "commands-navigation",
+          "existing_source_index": 5,
+          "type": "navigation-chips",
+          "column": "footer",
+          "level": null,
+          "data": {
+            "title": "Сторінки цього розділу",
+            "items": [
+              {
+                "label": "Reported Statements",
+                "url": "/theory/reported-speech/reported-statements",
+                "current": false
+              },
+              {
+                "label": "Reported Questions",
+                "url": "/theory/reported-speech/reported-questions",
+                "current": false
+              },
+              {
+                "label": "Reported Commands and Requests",
+                "url": "/theory/reported-speech/reported-commands-and-requests",
+                "current": true
+              },
+              {
+                "label": "Backshift of Tenses",
+                "url": "/theory/reported-speech/backshift-of-tenses",
+                "current": false
+              },
+              {
+                "label": "Time and Place Changes",
+                "url": "/theory/reported-speech/time-and-place-changes",
+                "current": false
+              },
+              {
+                "label": "Say / Tell / Ask",
+                "url": "/theory/reported-speech/say-tell-ask",
+                "current": false
+              }
+            ]
+          }
+        },
+        {
+          "key": "commands-context",
+          "existing_source_index": null,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "5. Близькі моделі з різними ролями",
+            "sections": [
+              {
+                "label": "ASK SOMEONE TO / ASK TO / ASK IF",
+                "color": "emerald",
+                "description": "Object перед to змінює, хто має діяти. У питанні через if з’ясовують можливість; за контекстом це може бути й непряме прохання. Не вважай ці три моделі взаємозамінними лише через ask.",
+                "examples": [
+                  {
+                    "en": "Olena asked me to leave.",
+                    "ua": "Олена попросила мене піти."
+                  },
+                  {
+                    "en": "Olena asked to leave.",
+                    "ua": "Олена попросила дозволу піти."
+                  },
+                  {
+                    "en": "Olena asked if I could leave.",
+                    "ua": "Олена запитала, чи можу я піти."
+                  }
+                ]
+              },
+              {
+                "label": "НЕ КОЖНЕ NOT TO — ЗАБОРОНА",
+                "color": "blue",
+                "description": "Слова підтримки можуть мати таку саму негативну форму, не перетворюючись на сувору заборону. Характер репліки визначає ситуація.",
+                "examples": [
+                  {
+                    "en": "Mum told me not to worry.",
+                    "ua": "Мама сказала мені не хвилюватися."
+                  }
+                ],
+                "note": "У цьому контексті мама заспокоює, а не карає за хвилювання."
+              },
+              {
+                "label": "ПРОХАННЯ, ПРОПОЗИЦІЯ ДОПОМОГИ Й ІДЕЯ",
+                "color": "amber",
+                "description": "Asked me to називає бажану дію адресата; offered to — дію того, хто пропонує; suggested може вводити -ing або that-clause. Не поширюй модель object + to на всі дієслова повідомлення.",
+                "examples": [
+                  {
+                    "en": "He asked me to drive.",
+                    "ua": "Він попросив мене повести машину."
+                  },
+                  {
+                    "en": "He offered to drive.",
+                    "ua": "Він запропонував сам повести машину."
+                  },
+                  {
+                    "en": "He suggested taking a taxi.",
+                    "ua": "Він запропонував узяти таксі."
+                  }
+                ],
+                "note": "Цей урок тренує object + to. Інші that-моделі теж бувають граматичні; навіть формальне ask that існує, але не є цільовою моделлю цих базових вправ."
+              }
+            ]
+          }
+        },
+        {
+          "key": "commands-practice",
+          "existing_source_index": null,
+          "type": "practice-set",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "Практика",
+            "select_title": "Доповни задану модель",
+            "select_intro": "Збережи учасників і прямо задану форму повідомлення.",
+            "selects": [
+              {
+                "id": "m60-commands-form-negative",
+                "source_index": 1,
+                "label": "Охоронець наказав нам не входити. Доповни саме object + not to + базова форма.<br><span lang=\"en\">The guard ordered us ___ enter.</span><br><span lang=\"uk\">Охоронець наказав нам не входити.</span>",
+                "options": [
+                  "to not to",
+                  "not to",
+                  "not"
+                ],
+                "answer": "not to",
+                "accepted": [
+                  "not to"
+                ],
+                "feedback": {
+                  "to not to": "У заданій моделі одне to після not: The guard ordered us not to enter.\nОхоронець наказав нам не входити.",
+                  "not to": "The guard ordered us not to enter.\nОхоронець наказав нам не входити. Us — адресати, які не мають входити.",
+                  "not": "Для інфінітива enter у цій моделі потрібне to: The guard ordered us not to enter.\nОхоронець наказав нам не входити."
+                }
+              },
+              {
+                "id": "m60-commands-form-object",
+                "source_index": 2,
+                "label": "Директорка дала Андрієві вказівку зачекати. Доповни модель told + адресат + to wait.<br><span lang=\"en\">The director told ___ to wait.</span><br><span lang=\"uk\">Директорка сказала Андрієві зачекати.</span>",
+                "options": [
+                  "to Andrii",
+                  "Andrii",
+                  "that Andrii"
+                ],
+                "answer": "Andrii",
+                "accepted": [
+                  "Andrii"
+                ],
+                "feedback": {
+                  "to andrii": "У цій моделі адресат без прийменника to; to стоїть перед дією: The director told Andrii to wait.\nДиректорка сказала Андрієві зачекати.",
+                  "andrii": "The director told Andrii to wait.\nДиректорка сказала Андрієві зачекати. Andrii — адресат і передбачуваний виконавець wait.",
+                  "that andrii": "Умова вимагає object + to, не that-clause: The director told Andrii to wait.\nДиректорка сказала Андрієві зачекати."
+                }
+              }
+            ],
+            "choice_title": "Обери точний зміст",
+            "choice_intro": "Не додавай фактів, яких повідомлення не стверджує. Переклад англійського стимулу відкривається після перевірки.",
+            "choices": [
+              {
+                "id": "m60-commands-meaning-requester",
+                "source_index": 3,
+                "label": "Ірина звернулася до керівника. Хто просив дозволу вийти?",
+                "options": [
+                  "Ірина просила дозволу вийти сама.",
+                  "Ірина попросила керівника вийти.",
+                  "Керівник наказав Ірині вийти."
+                ],
+                "answer": "Ірина просила дозволу вийти сама.",
+                "accepted": [
+                  "Ірина просила дозволу вийти сама."
+                ],
+                "feedback": {
+                  "ірина просила дозволу вийти сама.": "Iryna asked to leave early.\nІрина попросила дозволу піти раніше. Без object перед to leave виконавиця цієї дії — Ірина.",
+                  "ірина попросила керівника вийти.": "Iryna asked to leave early.\nІрина попросила дозволу піти раніше. Тут немає object, який називав би іншу людину виконавцем leave.",
+                  "керівник наказав ірині вийти.": "Iryna asked to leave early.\nІрина попросила дозволу піти раніше. Суб’єкт asked — Ірина, не керівник; наказу немає."
+                },
+                "prompt": "<span lang=\"en\">Iryna asked to leave early.</span>"
+              },
+              {
+                "id": "m60-commands-meaning-no-compliance",
+                "source_index": 4,
+                "label": "Що речення повідомляє напевно? Про подальші дії Павла нічого не сказано.",
+                "options": [
+                  "Павло зупинився відпочити.",
+                  "Павлові порадили зробити перерву.",
+                  "Павлові заборонили працювати назавжди."
+                ],
+                "answer": "Павлові порадили зробити перерву.",
+                "accepted": [
+                  "Павлові порадили зробити перерву."
+                ],
+                "feedback": {
+                  "павло зупинився відпочити.": "The nurse advised Pavlo to take a break.\nМедсестра порадила Павлові зробити перерву. Порада не доводить, що він її виконав.",
+                  "павлові порадили зробити перерву.": "The nurse advised Pavlo to take a break.\nМедсестра порадила Павлові зробити перерву. Advised передає пораду, не факт виконання.",
+                  "павлові заборонили працювати назавжди.": "The nurse advised Pavlo to take a break.\nМедсестра порадила Павлові зробити перерву. Не додавай заборони й назавжди: цих значень у повідомленні немає."
+                },
+                "prompt": "<span lang=\"en\">The nurse advised Pavlo to take a break.</span>"
+              }
+            ],
+            "input_title": "Побудуй повне речення",
+            "input_intro": "Введи відповідь або склади її з усіх токенів. Для ручного вводу дозволені лише рівнозначні варіанти, описані в умові.",
+            "inputs": [
+              {
+                "id": "m60-commands-build-request",
+                "source_index": 5,
+                "before": "box. / the / carry / to / Oksana / asked / Marta",
+                "after": "Марта ввічливо попросила Оксану: «Понеси цю коробку, будь ласка». Передай: «Марта попросила Оксану понести коробку». Почни з Marta asked, використай саме модель asked + Oksana + to carry; закінчи the box. У цьому переказі назви адресатку на ім’я, не займенником.",
+                "answer": "Marta asked Oksana to carry the box.",
+                "accepted": [
+                  "Marta asked Oksana to carry the box."
+                ],
+                "feedback": {
+                  "marta asked oksana to carry the box.": "Marta asked Oksana to carry the box.\nМарта попросила Оксану понести коробку. Марта просить; Оксана — адресатка й та, хто має нести. Виконання прохання не стверджується.",
+                  "marta asked oksana to carry the box": "Marta asked Oksana to carry the box.\nМарта попросила Оксану понести коробку. Марта просить; Оксана — адресатка й та, хто має нести. Виконання прохання не стверджується.",
+                  "marta asked to carry the box.": "Без Oksana цей варіант робить виконавицею carry саму Марту. Потрібно: Marta asked Oksana to carry the box.\nМарта попросила Оксану понести коробку.",
+                  "marta asked to carry the box": "Без Oksana цей варіант робить виконавицею carry саму Марту. Потрібно: Marta asked Oksana to carry the box.\nМарта попросила Оксану понести коробку."
+                }
+              },
+              {
+                "id": "m60-commands-build-negative",
+                "source_index": 6,
+                "before": "coach / not / to / The / us / run / door. / told / to / the",
+                "after": "Тренер звернувся до нашої групи: «Не біжіть до дверей». Ми передаємо його вказівку: «Тренер сказав нам не бігти до дверей». Почни з The coach told us, використай модель not to run, закінчи to the door. Не заперечуй told.",
+                "answer": "The coach told us not to run to the door.",
+                "accepted": [
+                  "The coach told us not to run to the door."
+                ],
+                "feedback": {
+                  "the coach told us not to run to the door.": "The coach told us not to run to the door.\nТренер сказав нам не бігти до дверей. Перше to вводить run, друге належить до напрямку to the door. Not заперечує дію run, не факт вказівки.",
+                  "the coach told us not to run to the door": "The coach told us not to run to the door.\nТренер сказав нам не бігти до дверей. Перше to вводить run, друге належить до напрямку to the door. Not заперечує дію run, не факт вказівки.",
+                  "the coach did not tell us to run to the door.": "Це «Тренер не казав нам бігти до дверей» — не те саме, що негативна вказівка. Потрібно: The coach told us not to run to the door.\nТренер сказав нам не бігти до дверей.",
+                  "the coach did not tell us to run to the door": "Це «Тренер не казав нам бігти до дверей» — не те саме, що негативна вказівка. Потрібно: The coach told us not to run to the door.\nТренер сказав нам не бігти до дверей."
+                }
+              }
+            ],
+            "rephrase": [],
+            "linked_practice": {
+              "source": "theory_links",
+              "question_types": [
+                "4"
+              ],
+              "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotReportedSpeechCommandsRequestsAllLevelsLessonSeeder"
+              ],
+              "title": "Вправа 4. Побудуй речення",
+              "intro": "Склади англійське речення за українською умовою, клікаючи на слова. Збережи мовця, адресата й зміст.",
+              "footer": "Завдання підібрані лише для цієї теми."
+            }
+          }
+        }
+      ],
+      "details": [
+        {
+          "key": "commands-negation-scope",
+          "title": "Не було вказівки чи була негативна вказівка",
+          "owner_block_key": "commands-context",
+          "owner_pointer": "/sections/1",
+          "fragment": {
+            "type": "usage-panels",
+            "data": {
+              "sections": [
+                {
+                  "label": "Не було вказівки чи була негативна вказівка",
+                  "color": "slate",
+                  "description": "Порівняй дві розмови про зачинені двері. У першій керівниця не давала вказівки замикати їх: це не доводить ані протилежної вказівки, ані того, що двері лишили відчиненими. У другій керівниця прямо веліла не замикати двері. Це різні повідомлення; обидва не описують автоматично, що працівники зробили насправді. Зміна місця not змінює зміст, а не лише стиль.",
+                  "examples": [
+                    {
+                      "en": "The manager did not tell us to lock the door.",
+                      "ua": "Керівниця не казала нам замикати двері."
+                    },
+                    {
+                      "en": "The manager told us not to lock the door.",
+                      "ua": "Керівниця сказала нам не замикати двері."
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "internal_links": {
+    "proof_sha256": "b15e05b5eb3471967a755f87ab60ef348b9149271c03c148a44cf63efc95d220",
+    "target_before_sha256": "2cf4f9d9038a66546b90aee3d26e25a1a9b31aa5fd552ea870a70ef2d81f705f",
+    "policy": "Усі шість чинних native href підтверджено actual local anonymous GET 200 до apply; production URL canonical лише збережено з BEFORE metadata, без відвідування production."
+  }
+}

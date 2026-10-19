@@ -1,15 +1,21 @@
 @php
     $blocks = $page->textBlocks ?? collect();
+    $blocks = \App\Support\M45FutureComparisonsPackage::preserveCourseBlocks($blocks);
+    $blocks = \App\Support\M43AuthoredTenseUsagePackage::preserveCourseBlocks($blocks);
+    $blocks = \App\Support\M44AuthoredFutureFormsPackage::preserveCourseBlocks($blocks);
     $heroBlock = $blocks->firstWhere('type', 'hero-v2') ?? $blocks->firstWhere('type', 'hero');
     $heroData = $heroBlock ? (json_decode($heroBlock->body ?? '[]', true) ?? []) : [];
     $contentBlocks = $blocks->reject(fn ($block) => in_array($block->type, ['hero', 'hero-v2', 'navigation-chips']));
+    $presentationByBlock = $contentBlocks->mapWithKeys(fn ($block) => [
+        $block->id => ($block->type === 'box' || empty($block->type)) ? \App\Support\TheoryPresentation::html($block) : null,
+    ]);
     $navBlock = $blocks->firstWhere('type', 'navigation-chips');
     $practiceQuestionsByBlock = $practiceQuestionsByBlock ?? [];
 @endphp
 
-<div class="space-y-6">
+<div class="theory-design space-y-6">
     @if(!empty($heroData['intro']) || !empty($heroData['rules']))
-        <section class="rounded-[28px] border p-6 surface-card-strong" style="border-color: var(--line);">
+        <section class="theory-hero" style="border-color: var(--line);">
             @if(!empty($heroData['level']))
                 <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.22em] soft-accent" style="border-color: var(--line); color: var(--accent);">
                     {{ __('theory_blocks.hero.level', ['level' => $heroData['level']]) }}
@@ -21,7 +27,7 @@
                 </div>
             @endif
             @if(!empty($heroData['rules']))
-                <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                <div class="theory-rules mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                     @foreach($heroData['rules'] as $rule)
                         <article class="rounded-[22px] border p-5 surface-card" style="border-color: var(--line);">
                             @if(!empty($rule['label']))
@@ -29,7 +35,7 @@
                             @endif
                             <div class="mt-3 text-sm leading-6" style="color: var(--text);">{!! $rule['text'] ?? '' !!}</div>
                             @if(!empty($rule['example']))
-                                <code class="mt-4 block rounded-[16px] px-3 py-2 text-xs" style="background: var(--accent-soft); color: var(--text);">{{ \App\Support\TheoryInlineHtml::render($rule['example']) }}</code>
+                                <code class="theory-example mt-4 block rounded-[16px] px-3 py-2 text-xs" style="background: var(--accent-soft); color: var(--text);">{{ \App\Support\TheoryRichContent::example($rule['example']) }}</code>
                             @endif
                         </article>
                     @endforeach
@@ -38,28 +44,13 @@
         </section>
     @endif
 
-    <section class="rounded-[30px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
+    <section class="theory-content-blocks">
         <div class="space-y-6">
             @foreach($contentBlocks as $block)
-                <div id="block-{{ $block->id }}">
-                    @if(in_array($block->type, ['forms-grid', 'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list', 'practice-set']))
-                        @includeIf('engram.theory.blocks-v3.' . $block->type, [
-                            'page' => $page,
-                            'block' => $block,
-                            'data' => json_decode($block->body ?? '[]', true),
-                            'practiceQuestions' => $practiceQuestionsByBlock[$block->uuid] ?? collect(),
-                        ])
-                    @elseif($block->type === 'box' || empty($block->type))
-                        <article class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
-                            @if(!empty($block->heading))
-                                <h3 class="font-display text-lg font-extrabold leading-tight">{{ $block->heading }}</h3>
-                            @endif
-                            <div class="prose prose-sm mt-4 max-w-none leading-7" style="color: var(--muted);">
-                                {!! $block->body !!}
-                            </div>
-                        </article>
-                    @endif
-                </div>
+                @include('theory.partials.content-block', [
+                    'presentation' => $presentationByBlock[$block->id],
+                    'practiceQuestions' => $practiceQuestionsByBlock[$block->uuid] ?? collect(),
+                ])
             @endforeach
         </div>
 

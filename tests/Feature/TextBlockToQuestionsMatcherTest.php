@@ -13,6 +13,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class TextBlockToQuestionsMatcherTest extends TestCase
@@ -28,7 +29,7 @@ class TextBlockToQuestionsMatcherTest extends TestCase
         $this->service = app(TextBlockToQuestionsMatcherService::class);
     }
 
-    /** @test */
+    #[Test]
     public function it_returns_empty_collection_when_block_has_no_tags(): void
     {
         $pageCategory = PageCategory::create([
@@ -58,7 +59,7 @@ class TextBlockToQuestionsMatcherTest extends TestCase
         $this->assertTrue($result->isEmpty());
     }
 
-    /** @test */
+    #[Test]
     public function explicit_linked_practice_uses_the_exact_untagged_page_pool_while_tag_fallback_stays_unchanged(): void
     {
         $pageCategory = PageCategory::create([
@@ -165,7 +166,7 @@ class TextBlockToQuestionsMatcherTest extends TestCase
         $this->assertTrue($this->service->findBestQuestionsForTextBlock($plainUntaggedBlock)->isEmpty());
     }
 
-    /** @test */
+    #[Test]
     public function it_finds_questions_matching_block_tags(): void
     {
         $pageCategory = PageCategory::create([
@@ -217,7 +218,7 @@ class TextBlockToQuestionsMatcherTest extends TestCase
         $this->assertTrue($result->contains('id', $question->id));
     }
 
-    /** @test */
+    #[Test]
     public function it_matches_questions_with_the_same_level_as_the_block(): void
     {
         $pageCategory = PageCategory::create([
@@ -274,7 +275,7 @@ class TextBlockToQuestionsMatcherTest extends TestCase
         $this->assertFalse($result->contains('id', $differentLevelQuestion->id));
     }
 
-    /** @test */
+    #[Test]
     public function it_does_not_match_on_only_general_tags(): void
     {
         $pageCategory = PageCategory::create([
@@ -321,7 +322,7 @@ class TextBlockToQuestionsMatcherTest extends TestCase
         $this->assertTrue($result->isEmpty());
     }
 
-    /** @test */
+    #[Test]
     public function it_requires_multitag_overlap_with_modal_variants(): void
     {
         $pageCategory = PageCategory::create([
@@ -379,7 +380,7 @@ class TextBlockToQuestionsMatcherTest extends TestCase
         $this->assertTrue($result->contains('id', $questionWithModal->id), 'Questions with matching modal variant should be included');
     }
 
-    /** @test */
+    #[Test]
     public function it_prioritizes_questions_with_more_matching_tags(): void
     {
         $pageCategory = PageCategory::create([
@@ -440,7 +441,7 @@ class TextBlockToQuestionsMatcherTest extends TestCase
         $this->assertTrue($result->contains('id', $question2->id));
     }
 
-    /** @test */
+    #[Test]
     public function it_excludes_specified_question_ids(): void
     {
         $pageCategory = PageCategory::create([
@@ -497,7 +498,7 @@ class TextBlockToQuestionsMatcherTest extends TestCase
         $this->assertTrue($result->contains('id', $question2->id));
     }
 
-    /** @test */
+    #[Test]
     public function it_batches_questions_for_multiple_blocks_without_duplicates(): void
     {
         $pageCategory = PageCategory::create([
@@ -575,7 +576,7 @@ class TextBlockToQuestionsMatcherTest extends TestCase
         $this->assertTrue($allScores->filter(fn ($score) => $score >= 1.0)->count() > 0);
     }
 
-    /** @test */
+    #[Test]
     public function it_prioritizes_reference_seeder_questions_for_types_of_questions_blocks(): void
     {
         $pageCategory = PageCategory::create([
@@ -633,7 +634,7 @@ class TextBlockToQuestionsMatcherTest extends TestCase
         $this->assertNotEmpty($result->first()->getAttribute('matched_tag_ids'));
     }
 
-    /** @test */
+    #[Test]
     public function it_returns_marker_tags_grouped_by_marker(): void
     {
         $pageCategory = PageCategory::create([

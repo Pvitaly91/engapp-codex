@@ -1,0 +1,62 @@
+{
+  "schema": "gramlyze.author-correction-handoff.v1",
+  "package": "M41",
+  "revision": "1.0.1",
+  "scope": "One explicit author wording correction; two metadata fields updated. No other content changes.",
+  "original_file": "M41_AUTHOR_MASTER.v1.json",
+  "original_sha256": "a9569a61f37643951e7342de66dc7f3967951d4d7187c106a0f8703cf3653dcf",
+  "new_file": "M41_AUTHOR_MASTER.v1.0.1.json",
+  "new_sha256": "9020cf977e903c76f93c7165bbe402567b5fbf40a98a8139dc6751b223b34553",
+  "encoding": "UTF-8, LF, one terminal LF",
+  "changes": [
+    {
+      "json_pointer": "/version",
+      "before": "1.0.0",
+      "after": "1.0.1"
+    },
+    {
+      "json_pointer": "/status",
+      "before": "author_preview_pending_approval",
+      "after": "author_revision_ready_for_local_implementation"
+    },
+    {
+      "json_pointer": "/lessons/2/sections/2/points/1/paragraphs_uk/1",
+      "before": "Зразок нижче не означає, що форма написалася двічі: це одна подія, подана спочатку як новий результат, потім із часом.",
+      "after": "У прикладі нижче форму надіслали лише один раз: спочатку повідомляємо про результат, а потім уточнюємо час надсилання."
+    }
+  ],
+  "unchanged_practice_and_detail_counts": [
+    {
+      "lesson": "past-comparison",
+      "theory_path": "/theory/tenses/past-simple-vs-past-continuous",
+      "tasks": 6,
+      "controls": 11,
+      "details": 4
+    },
+    {
+      "lesson": "present-comparison",
+      "theory_path": "/theory/tenses/present-simple-vs-present-continuous",
+      "tasks": 6,
+      "controls": 10,
+      "details": 5
+    },
+    {
+      "lesson": "perfect-past-comparison",
+      "theory_path": "/theory/tenses/present-perfect-vs-past-simple",
+      "tasks": 6,
+      "controls": 11,
+      "details": 5
+    }
+  ],
+  "verification": {
+    "json_parse": "PASS",
+    "exact_change_allowlist": "PASS",
+    "original_bytes_unchanged": true,
+    "practice_payloads_unchanged": "PASS",
+    "detail_payloads_unchanged": "PASS",
+    "sources_and_policy_unchanged": "PASS",
+    "user_local_preview_v2_accessed": false,
+    "browser_recheck_of_revision": "NOT_RUN_HERE; required locally before apply",
+    "local_site_or_database_modified": false
+  }
+}

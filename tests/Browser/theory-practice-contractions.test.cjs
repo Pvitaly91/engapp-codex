@@ -18,5 +18,6 @@ for (const [expected, answer, correct] of [
     practice.userAnswer = () => answer;
     practice.hasAnswer = () => true;
     practice.acceptedAnswers = () => [expected];
+    practice.item = () => ({});
     assert.equal(practice.isCorrect('inputs', 0), correct);
 });

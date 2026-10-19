@@ -35,6 +35,18 @@ class TextBlockToQuestionsMatcherService
         $linkedPractice = $this->linkedPracticeConfig($block);
 
         if (($linkedPractice['source'] ?? null) === 'theory_links') {
+            $excludeQuestionIds = \App\Support\M56BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M59BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M60BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M61BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M62BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M63BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M64BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M65BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M66BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M67BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M68BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M69BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
             return $this->loadExplicitlyLinkedQuestions(
                 $block,
                 $limit,
@@ -195,7 +207,9 @@ class TextBlockToQuestionsMatcherService
             $query->whereIn('questions.seeder', $seederClasses);
         }
 
-        if ($block->level && $this->hasQuestionLevelColumn()) {
+        // A native block may carry a display range such as A2–B1. Only an
+        // exact CEFR level is a question-bank filter; ranges are not stored levels.
+        if (preg_match('/^[ABC][12]$/', (string) $block->level) === 1 && $this->hasQuestionLevelColumn()) {
             $query->where('questions.level', $block->level);
         }
 

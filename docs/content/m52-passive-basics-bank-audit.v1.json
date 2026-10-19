@@ -1,0 +1,593 @@
+{
+  "schema_version": 1,
+  "content_type": "M52_independent_existing_sentence_builder_bank_audit",
+  "status": "independent_before_source_DB_bank_review_complete; content apply/server/browser acceptance remain separate",
+  "before_receipt_sha256": "2ca4aa326eb5de3bafdb714967a5172f0f30c5614266fe76f576550f3c990bff",
+  "selection_policy": "page-wide question_theory_text_blocks -> type 4 -> exact seeder classes -> exact block CEFR -> questions.uuid ascending -> limit 5",
+  "decision": {
+    "reuse_existing_banks": 3,
+    "new_questions": 0,
+    "new_options": 0,
+    "new_answers": 0,
+    "new_links": 0,
+    "reseed": false,
+    "question_payload_rewrites": false,
+    "matcher_grader_view_changes": false,
+    "ambiguity_resolution": "Explicit finite word-order/aspect/modal/lexical criteria in the already-supported native linked_practice.intro authored field. These are conditions of the five construction exercises, not universal English grammar restrictions."
+  },
+  "targets": [
+    {
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\Basics\\PassiveVoiceFormationRulesTheorySeeder",
+      "definition": "database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceFormationRulesTheorySeeder/definition.json",
+      "local_url": "http://gramlyze.loc/theory/passive-voice/theory-passive-voice-formation-rules",
+      "page_id": 1,
+      "category_id": 1,
+      "level": "A2",
+      "bank_seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoiceBasicsLessonSeeder",
+      "bank_definition": "database/seeders/V3/Polyglot/PolyglotPassiveVoiceBasicsLessonSeeder/definition.json",
+      "bank_definition_sha256": "9940448b374fc7f89560006e23ffb04275b5e5d466d57a8e1c43be03dbb02594",
+      "UK_pagewide_eligible_count": 24,
+      "expected_selected_ids": [
+        240,
+        241,
+        242,
+        243,
+        244
+      ],
+      "expected_selected_uuids": [
+        "polyglot-passive-voice-basics-a2-q01",
+        "polyglot-passive-voice-basics-a2-q02",
+        "polyglot-passive-voice-basics-a2-q03",
+        "polyglot-passive-voice-basics-a2-q04",
+        "polyglot-passive-voice-basics-a2-q05"
+      ],
+      "intro_criteria_status": "Finite supported linked_practice.intro wording for main/editorial review before release freeze; no question/model/prompt override",
+      "reviewed_intro_uk": "Склади пасивне речення у Present Simple. Для цих п’яти завдань починай із Glass, Letters, This room, Food або Cars відповідно. Обставини став наприкінці; якщо є місце й час, спочатку місце, потім час. Для слова «магазин» у цій вправі обери shop. Це умови вправи, а не єдиний можливий порядок слів.",
+      "first_five": [
+        {
+          "id": 240,
+          "uuid": "polyglot-passive-voice-basics-a2-q01",
+          "condition_uk": "Скло роблять із піску.",
+          "canonical": "Glass is made from sand.",
+          "correct_tokens": [
+            "Glass",
+            "is",
+            "made",
+            "from",
+            "sand"
+          ],
+          "UK_link_ids": [
+            119705,
+            119706
+          ],
+          "UK_block_uuids": [
+            "536ceee4-4072-591e-9f8f-163ed8495374",
+            "81af789f-0527-5100-8bf3-9707ee1cbcc8"
+          ],
+          "source_DB_fidelity": "condition exact; ordered answers case-normalized exact; unique options case-normalized exact; markers exact",
+          "ordered_answer_rows": 5,
+          "option_pivot_rows": 8,
+          "hint_rows": 1,
+          "verb_hint_rows": 0
+        },
+        {
+          "id": 241,
+          "uuid": "polyglot-passive-voice-basics-a2-q02",
+          "condition_uk": "Листи доставляють щодня.",
+          "canonical": "Letters are delivered every day.",
+          "correct_tokens": [
+            "Letters",
+            "are",
+            "delivered",
+            "every",
+            "day"
+          ],
+          "UK_link_ids": [
+            119707,
+            119708
+          ],
+          "UK_block_uuids": [
+            "536ceee4-4072-591e-9f8f-163ed8495374",
+            "81af789f-0527-5100-8bf3-9707ee1cbcc8"
+          ],
+          "source_DB_fidelity": "condition exact; ordered answers case-normalized exact; unique options case-normalized exact; markers exact",
+          "ordered_answer_rows": 5,
+          "option_pivot_rows": 8,
+          "hint_rows": 1,
+          "verb_hint_rows": 0
+        },
+        {
+          "id": 242,
+          "uuid": "polyglot-passive-voice-basics-a2-q03",
+          "condition_uk": "Цю кімнату прибирають щодня.",
+          "canonical": "This room is cleaned every day.",
+          "correct_tokens": [
+            "This",
+            "room",
+            "is",
+            "cleaned",
+            "every",
+            "day"
+          ],
+          "UK_link_ids": [
+            119709,
+            119710
+          ],
+          "UK_block_uuids": [
+            "536ceee4-4072-591e-9f8f-163ed8495374",
+            "81af789f-0527-5100-8bf3-9707ee1cbcc8"
+          ],
+          "source_DB_fidelity": "condition exact; ordered answers case-normalized exact; unique options case-normalized exact; markers exact",
+          "ordered_answer_rows": 6,
+          "option_pivot_rows": 9,
+          "hint_rows": 1,
+          "verb_hint_rows": 0
+        },
+        {
+          "id": 243,
+          "uuid": "polyglot-passive-voice-basics-a2-q04",
+          "condition_uk": "Їжу подають тут о сьомій.",
+          "canonical": "Food is served here at seven.",
+          "correct_tokens": [
+            "Food",
+            "is",
+            "served",
+            "here",
+            "at",
+            "seven"
+          ],
+          "UK_link_ids": [
+            119711,
+            119712
+          ],
+          "UK_block_uuids": [
+            "536ceee4-4072-591e-9f8f-163ed8495374",
+            "81af789f-0527-5100-8bf3-9707ee1cbcc8"
+          ],
+          "source_DB_fidelity": "condition exact; ordered answers case-normalized exact; unique options case-normalized exact; markers exact",
+          "ordered_answer_rows": 6,
+          "option_pivot_rows": 9,
+          "hint_rows": 1,
+          "verb_hint_rows": 0
+        },
+        {
+          "id": 244,
+          "uuid": "polyglot-passive-voice-basics-a2-q05",
+          "condition_uk": "Машини продають у цьому магазині.",
+          "canonical": "Cars are sold in this shop.",
+          "correct_tokens": [
+            "Cars",
+            "are",
+            "sold",
+            "in",
+            "this",
+            "shop"
+          ],
+          "UK_link_ids": [
+            119713,
+            119714
+          ],
+          "UK_block_uuids": [
+            "536ceee4-4072-591e-9f8f-163ed8495374",
+            "81af789f-0527-5100-8bf3-9707ee1cbcc8"
+          ],
+          "source_DB_fidelity": "condition exact; ordered answers case-normalized exact; unique options case-normalized exact; markers exact",
+          "ordered_answer_rows": 6,
+          "option_pivot_rows": 9,
+          "hint_rows": 1,
+          "verb_hint_rows": 0
+        }
+      ]
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\Basics\\PassiveVoiceNegativesQuestionsTheorySeeder",
+      "definition": "database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceNegativesQuestionsTheorySeeder/definition.json",
+      "local_url": "http://gramlyze.loc/theory/passive-voice/theory-passive-voice-negatives-questions",
+      "page_id": 98,
+      "category_id": 1,
+      "level": "B1",
+      "bank_seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoiceNegativesQuestionsAllLevelsLessonSeeder",
+      "bank_definition": "database/seeders/V3/Polyglot/PolyglotPassiveVoiceNegativesQuestionsAllLevelsLessonSeeder/definition.json",
+      "bank_definition_sha256": "4c436331f38a88c5ded1bece8a692bd09ecfb2fa78e4af696da05f2ee32e360f",
+      "UK_pagewide_eligible_count": 12,
+      "expected_selected_ids": [
+        37311,
+        37312,
+        37313,
+        37314,
+        37315
+      ],
+      "expected_selected_uuids": [
+        "pvnq-poly-b1-01",
+        "pvnq-poly-b1-02",
+        "pvnq-poly-b1-03",
+        "pvnq-poly-b1-04",
+        "pvnq-poly-b1-05"
+      ],
+      "intro_criteria_status": "Finite supported linked_practice.intro wording for main/editorial review before release freeze; no question/model/prompt override",
+      "reviewed_intro_uk": "Склади пасивне заперечення. У цій п’ятірці: листи й офіс — повторювані дії у Present Simple, вікна — Past Simple, звіт — Present Perfect, контракт — Future Simple. Починай із названого об’єкта; not став відразу після першого допоміжного дієслова, усі обставини та yet — наприкінці. Для офісу використай on Sundays. Це заданий порядок вправи.",
+      "first_five": [
+        {
+          "id": 37311,
+          "uuid": "pvnq-poly-b1-01",
+          "condition_uk": "Ці листи не надсилають щодня.",
+          "canonical": "These letters are not sent every day.",
+          "correct_tokens": [
+            "These",
+            "letters",
+            "are",
+            "not",
+            "sent",
+            "every",
+            "day",
+            "."
+          ],
+          "UK_link_ids": [
+            118813,
+            118814,
+            118815
+          ],
+          "UK_block_uuids": [
+            "1adcdabb-d0ae-5fe4-b6b1-ec08b1902658",
+            "bea29441-22ad-5aff-aa7a-95ccfe2f3fa8",
+            "5cbbb38e-75b7-5387-bad9-e974d0a7b1cd"
+          ],
+          "source_DB_fidelity": "condition exact; ordered answers case-normalized exact; unique options case-normalized exact; markers exact",
+          "ordered_answer_rows": 8,
+          "option_pivot_rows": 32,
+          "hint_rows": 0,
+          "verb_hint_rows": 0
+        },
+        {
+          "id": 37312,
+          "uuid": "pvnq-poly-b1-02",
+          "condition_uk": "Офіс не прибирають у неділю.",
+          "canonical": "The office is not cleaned on Sundays.",
+          "correct_tokens": [
+            "The",
+            "office",
+            "is",
+            "not",
+            "cleaned",
+            "on",
+            "Sundays",
+            "."
+          ],
+          "UK_link_ids": [
+            118816,
+            118817
+          ],
+          "UK_block_uuids": [
+            "1adcdabb-d0ae-5fe4-b6b1-ec08b1902658",
+            "5cbbb38e-75b7-5387-bad9-e974d0a7b1cd"
+          ],
+          "source_DB_fidelity": "condition exact; ordered answers case-normalized exact; unique options case-normalized exact; markers exact",
+          "ordered_answer_rows": 8,
+          "option_pivot_rows": 32,
+          "hint_rows": 0,
+          "verb_hint_rows": 0
+        },
+        {
+          "id": 37313,
+          "uuid": "pvnq-poly-b1-03",
+          "condition_uk": "Вікна не розбили під час бурі.",
+          "canonical": "The windows were not broken during the storm.",
+          "correct_tokens": [
+            "The",
+            "windows",
+            "were",
+            "not",
+            "broken",
+            "during",
+            "the",
+            "storm",
+            "."
+          ],
+          "UK_link_ids": [
+            118818,
+            118819
+          ],
+          "UK_block_uuids": [
+            "bea29441-22ad-5aff-aa7a-95ccfe2f3fa8",
+            "5cbbb38e-75b7-5387-bad9-e974d0a7b1cd"
+          ],
+          "source_DB_fidelity": "condition exact; ordered answers case-normalized exact; unique options case-normalized exact; markers exact",
+          "ordered_answer_rows": 9,
+          "option_pivot_rows": 32,
+          "hint_rows": 0,
+          "verb_hint_rows": 0
+        },
+        {
+          "id": 37314,
+          "uuid": "pvnq-poly-b1-04",
+          "condition_uk": "Звіт ще не завершили.",
+          "canonical": "The report has not been finished yet.",
+          "correct_tokens": [
+            "The",
+            "report",
+            "has",
+            "not",
+            "been",
+            "finished",
+            "yet",
+            "."
+          ],
+          "UK_link_ids": [
+            118820,
+            118821,
+            118822
+          ],
+          "UK_block_uuids": [
+            "dc3191f6-baab-5cf0-b974-0926dd8b3be3",
+            "b0aff30f-898b-53b6-8f30-baed70aa6b90",
+            "5cbbb38e-75b7-5387-bad9-e974d0a7b1cd"
+          ],
+          "source_DB_fidelity": "condition exact; ordered answers case-normalized exact; unique options case-normalized exact; markers exact",
+          "ordered_answer_rows": 8,
+          "option_pivot_rows": 31,
+          "hint_rows": 0,
+          "verb_hint_rows": 0
+        },
+        {
+          "id": 37315,
+          "uuid": "pvnq-poly-b1-05",
+          "condition_uk": "Контракт завтра не підпишуть.",
+          "canonical": "The contract will not be signed tomorrow.",
+          "correct_tokens": [
+            "The",
+            "contract",
+            "will",
+            "not",
+            "be",
+            "signed",
+            "tomorrow",
+            "."
+          ],
+          "UK_link_ids": [
+            118823,
+            118824,
+            118825
+          ],
+          "UK_block_uuids": [
+            "dc3191f6-baab-5cf0-b974-0926dd8b3be3",
+            "b0aff30f-898b-53b6-8f30-baed70aa6b90",
+            "5cbbb38e-75b7-5387-bad9-e974d0a7b1cd"
+          ],
+          "source_DB_fidelity": "condition exact; ordered answers case-normalized exact; unique options case-normalized exact; markers exact",
+          "ordered_answer_rows": 8,
+          "option_pivot_rows": 31,
+          "hint_rows": 0,
+          "verb_hint_rows": 0
+        }
+      ]
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\Basics\\PassiveVoiceModalVerbsTheorySeeder",
+      "definition": "database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceModalVerbsTheorySeeder/definition.json",
+      "local_url": "http://gramlyze.loc/theory/passive-voice/theory-passive-voice-modal-verbs",
+      "page_id": 97,
+      "category_id": 1,
+      "level": "B1",
+      "bank_seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoiceModalVerbsAllLevelsLessonSeeder",
+      "bank_definition": "database/seeders/V3/Polyglot/PolyglotPassiveVoiceModalVerbsAllLevelsLessonSeeder/definition.json",
+      "bank_definition_sha256": "467ada025c07003ee15fbf22f9acb752000b259b04c08674498c9fbbcf3a4881",
+      "UK_pagewide_eligible_count": 12,
+      "expected_selected_ids": [
+        37239,
+        37240,
+        37241,
+        37242,
+        37243
+      ],
+      "expected_selected_uuids": [
+        "pvmv-poly-b1-01",
+        "pvmv-poly-b1-02",
+        "pvmv-poly-b1-03",
+        "pvmv-poly-b1-04",
+        "pvmv-poly-b1-05"
+      ],
+      "intro_criteria_status": "Finite supported linked_practice.intro wording for main/editorial review before release freeze; no question/model/prompt override",
+      "reviewed_intro_uk": "Склади модальний пасив за основною моделлю modal + be + V3. У цій п’ятірці для проблеми використай can, для документів — must, для звіту — should, для зустрічі — may, для плану — could. Починай із предмета дії; обставини став наприкінці, carefully — після checked. Це умови вправи, не заборона інших природних формулювань.",
+      "first_five": [
+        {
+          "id": 37239,
+          "uuid": "pvmv-poly-b1-01",
+          "condition_uk": "Цю проблему можна вирішити сьогодні.",
+          "canonical": "This problem can be solved today.",
+          "correct_tokens": [
+            "This",
+            "problem",
+            "can",
+            "be",
+            "solved",
+            "today",
+            "."
+          ],
+          "UK_link_ids": [
+            120019,
+            120020,
+            120021
+          ],
+          "UK_block_uuids": [
+            "ad55fd9f-0f4c-5d38-b3eb-eb99f07292e2",
+            "10f06c67-a45e-5119-8566-b8131be3ad92",
+            "5b4d0f41-65e2-53a9-91ba-bb623f75f893"
+          ],
+          "source_DB_fidelity": "condition exact; ordered answers case-normalized exact; unique options case-normalized exact; markers exact",
+          "ordered_answer_rows": 7,
+          "option_pivot_rows": 31,
+          "hint_rows": 0,
+          "verb_hint_rows": 0
+        },
+        {
+          "id": 37240,
+          "uuid": "pvmv-poly-b1-02",
+          "condition_uk": "Документи потрібно підписати до п’ятниці.",
+          "canonical": "The documents must be signed by Friday.",
+          "correct_tokens": [
+            "The",
+            "documents",
+            "must",
+            "be",
+            "signed",
+            "by",
+            "Friday",
+            "."
+          ],
+          "UK_link_ids": [
+            120022,
+            120023,
+            120024
+          ],
+          "UK_block_uuids": [
+            "ad55fd9f-0f4c-5d38-b3eb-eb99f07292e2",
+            "10f06c67-a45e-5119-8566-b8131be3ad92",
+            "5b4d0f41-65e2-53a9-91ba-bb623f75f893"
+          ],
+          "source_DB_fidelity": "condition exact; ordered answers case-normalized exact; unique options case-normalized exact; markers exact",
+          "ordered_answer_rows": 8,
+          "option_pivot_rows": 31,
+          "hint_rows": 0,
+          "verb_hint_rows": 0
+        },
+        {
+          "id": 37241,
+          "uuid": "pvmv-poly-b1-03",
+          "condition_uk": "Звіт слід уважно перевірити.",
+          "canonical": "The report should be checked carefully.",
+          "correct_tokens": [
+            "The",
+            "report",
+            "should",
+            "be",
+            "checked",
+            "carefully",
+            "."
+          ],
+          "UK_link_ids": [
+            120025,
+            120026,
+            120027
+          ],
+          "UK_block_uuids": [
+            "ad55fd9f-0f4c-5d38-b3eb-eb99f07292e2",
+            "10f06c67-a45e-5119-8566-b8131be3ad92",
+            "5b4d0f41-65e2-53a9-91ba-bb623f75f893"
+          ],
+          "source_DB_fidelity": "condition exact; ordered answers case-normalized exact; unique options case-normalized exact; markers exact",
+          "ordered_answer_rows": 7,
+          "option_pivot_rows": 31,
+          "hint_rows": 0,
+          "verb_hint_rows": 0
+        },
+        {
+          "id": 37242,
+          "uuid": "pvmv-poly-b1-04",
+          "condition_uk": "Зустріч можуть перенести.",
+          "canonical": "The meeting may be postponed.",
+          "correct_tokens": [
+            "The",
+            "meeting",
+            "may",
+            "be",
+            "postponed",
+            "."
+          ],
+          "UK_link_ids": [
+            120028,
+            120029,
+            120030
+          ],
+          "UK_block_uuids": [
+            "ad55fd9f-0f4c-5d38-b3eb-eb99f07292e2",
+            "10f06c67-a45e-5119-8566-b8131be3ad92",
+            "5b4d0f41-65e2-53a9-91ba-bb623f75f893"
+          ],
+          "source_DB_fidelity": "condition exact; ordered answers case-normalized exact; unique options case-normalized exact; markers exact",
+          "ordered_answer_rows": 6,
+          "option_pivot_rows": 30,
+          "hint_rows": 0,
+          "verb_hint_rows": 0
+        },
+        {
+          "id": 37243,
+          "uuid": "pvmv-poly-b1-05",
+          "condition_uk": "План можна було б змінити пізніше.",
+          "canonical": "The plan could be changed later.",
+          "correct_tokens": [
+            "The",
+            "plan",
+            "could",
+            "be",
+            "changed",
+            "later",
+            "."
+          ],
+          "UK_link_ids": [
+            120031,
+            120032,
+            120033
+          ],
+          "UK_block_uuids": [
+            "ad55fd9f-0f4c-5d38-b3eb-eb99f07292e2",
+            "10f06c67-a45e-5119-8566-b8131be3ad92",
+            "5b4d0f41-65e2-53a9-91ba-bb623f75f893"
+          ],
+          "source_DB_fidelity": "condition exact; ordered answers case-normalized exact; unique options case-normalized exact; markers exact",
+          "ordered_answer_rows": 7,
+          "option_pivot_rows": 31,
+          "hint_rows": 0,
+          "verb_hint_rows": 0
+        }
+      ]
+    }
+  ],
+  "before_HTTP_sql_unchanged": {
+    "tables": 46,
+    "selected_question_families": [
+      {
+        "table": "question_answers",
+        "count": 197688,
+        "sha256": "c822726c5d805b1a5155b1aca2cb515bff7659af75ee4541e8fac7651e812e23"
+      },
+      {
+        "table": "question_hints",
+        "count": 8843,
+        "sha256": "6b8125c6fc6f183412744314eb989384328e4cea4179364897aa91f083da5366"
+      },
+      {
+        "table": "question_option_question",
+        "count": 539767,
+        "sha256": "71a54d756d33a044236c14d170258c9085b774cc946406f12de6127a965868a1"
+      },
+      {
+        "table": "question_options",
+        "count": 29217,
+        "sha256": "7386df898ea144b0e549b0405571578e1d042b8ccd2f4831027ecded9c796300"
+      },
+      {
+        "table": "question_theory_text_blocks",
+        "count": 134204,
+        "sha256": "9eca2afdfed4f90002468903442a5ffb7a9e93d978bfa05ebc6b68528dbe22b6"
+      },
+      {
+        "table": "questions",
+        "count": 44475,
+        "sha256": "0b218734031895856e9b1956e9426163f436883b18756f73ef88161a2306b69a"
+      }
+    ]
+  },
+  "alternatives_reviewed": [
+    {
+      "bank": "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoiceFormationRulesAllLevelsLessonSeeder",
+      "definition_sha256": "b5547685fa2983919c18669c9d937c11e1a52f35566acd037c9fd47f878d7a28",
+      "reason_not_selected": "a2-04 translates an active metagrammatical statement The object becomes the subject in a passive sentence; a2-05 is modal metagrammatical agent statement, not direct A2 formation practice. a2-04/a2-05 repeated the/the token instances are reconstructed by ComposeTokenCase, but semantic mismatch remains. Do not reseed/delete accepted bank. Prefer direct Basics bank if its live pool is viable."
+    },
+    {
+      "bank": "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoiceWithModalsLessonSeeder",
+      "definition_sha256": "c24dd3e2cf73cb41a8dafa22b04ddba0b07b1a78f0cc727787693f6ad781bb1d",
+      "reason_not_selected": "Viable exact-theme B1 alternative, but source/current UK hints contain English helper labels; AllLevels selected with explicit finite criteria and zero hints."
+    }
+  ],
+  "preservation_policy": "All existing question-family rows, options, answers, UK links, saved tests, previous banks and progress remain unchanged. Actual after acceptance must compare against this independent before; no DB write occurred in this audit."
+}

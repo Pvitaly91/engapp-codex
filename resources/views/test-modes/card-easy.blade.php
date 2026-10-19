@@ -371,6 +371,7 @@ async function init(forceFresh = false) {
       state.answered = Number.isFinite(saved.answered) ? saved.answered : 0;
       state.activeCardIdx = Number.isFinite(saved.activeCardIdx) ? saved.activeCardIdx : 0;
       restored = true;
+      let reopenedPpcSlot = false;
       state.items.forEach((item, idx) => {
         if (typeof item.explanation !== 'string') item.explanation = '';
         if (!item.explanationsCache || typeof item.explanationsCache !== 'object') item.explanationsCache = {};
@@ -409,11 +410,13 @@ async function init(forceFresh = false) {
           item.activeSlot = findFirstUnfilledSlot(item);
           if (item.activeSlot === -1) item.activeSlot = 0;
         }
+        reopenedPpcSlot = restoreSavedPpcRetryState(item) || reopenedPpcSlot;
         clampActiveSlot(item);
         // Regenerate optionsBySlot from base questions if available
         const baseQ = QUESTIONS[idx] || item;
         item.optionsBySlot = normalizeOptionsBySlot(baseQ);
       });
+      if (reopenedPpcSlot) state.answered = state.items.filter(item => item.done).length;
     }
   }
 
@@ -523,11 +526,11 @@ function renderQuestions(showOnlyWrong = false) {
           </div>
           <div class="text-base sm:text-xl leading-relaxed text-gray-900 font-medium mb-2.5 sm:mb-3">${sentence}</div>
           <div id="polyglot-translation-preview-${idx}">${polyglotTranslationPreview}</div>
-          <button type="button" class="help-btn inline-flex items-center text-[13px] sm:text-sm text-indigo-600 hover:text-indigo-700 font-medium transition-colors" data-help-idx="${idx}">
+          <button type="button" class="help-btn inline-flex items-center text-[13px] sm:text-sm text-indigo-600 hover:text-indigo-700 font-medium transition-colors" data-help-idx="${idx}" ${getAuthoredComposeHelpText(q) ? `aria-expanded="false" aria-controls="hints-${idx}"` : ''}>
             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
-            ${testUi('question.show_help')}
+            <span data-authored-compose-help-label>${testUi('question.show_help')}</span>
           </button>
           ${getTheoryBlocks(q).length ? `<button type="button" class="theory-btn ml-2 sm:ml-3 inline-flex items-center text-[13px] sm:text-sm text-emerald-600 hover:text-emerald-700 font-medium transition-colors" data-theory-idx="${idx}">
             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -650,7 +653,14 @@ function renderQuestions(showOnlyWrong = false) {
       }
       manualInput.value = manualInput.value.replace(/\s+/g, '');
       q.manualWordIndexBySlot[slotIndex] = wordIndex;
-      q.manualInputsBySlot[slotIndex] = collectManualAnswer(manualInput.closest('[data-manual-input-group]'));
+      const draft = collectManualAnswer(manualInput.closest('[data-manual-input-group]'));
+      if (q.manualInputsBySlot[slotIndex] !== draft && clearManualAnswerFeedbackOnEdit(q, slotIndex, wordIndex)) {
+        card.querySelector(`#feedback-${idx}`).innerHTML = '';
+        manualInput.dataset.answerState = 'active';
+        manualInput.classList.remove('border-red-400', 'bg-red-50', 'text-red-800', 'ring-4', 'ring-red-100', 'focus:border-red-500', 'focus:ring-red-100');
+        manualInput.classList.add('border-indigo-300', 'focus:border-indigo-500', 'focus:ring-4', 'focus:ring-indigo-100');
+      }
+      q.manualInputsBySlot[slotIndex] = draft;
       searchManualWords(idx, slotIndex, manualInput.value);
       persistState(state);
     });
@@ -898,6 +908,7 @@ function onChoose(idx, opt) {
   } else {
     rememberFeedbackAnswer(item, slotIndex, 'incorrect', opt, expected);
     item.manualWordIndexBySlot[slotIndex] = 0;
+    if (isPastPerfectContinuousQuestion(item)) item.manualInputsBySlot[slotIndex] = '';
     if (!item.explanationsCache) {
       item.explanationsCache = {};
     }
@@ -910,7 +921,7 @@ function onChoose(idx, opt) {
     item.lastWrongBySlot[slotIndex] = opt;
     item.attemptsBySlot[slotIndex] = (item.attemptsBySlot[slotIndex] || 0) + 1;
     
-    if (item.attemptsBySlot[slotIndex] >= 2) {
+    if (item.attemptsBySlot[slotIndex] >= 2 && !isPastPerfectContinuousQuestion(item)) {
       // Auto-fill with correct answer after 2 wrong attempts
       item.chosen[slotIndex] = expected;
       item.attemptsBySlot[slotIndex] = 0;
@@ -1504,6 +1515,7 @@ function ensureExplanation(item, idx, selected, expected, key, slotIndex) {
 }
 
 function fetchHints(q, idx, refresh = false) {
+  if (toggleAuthoredComposeHelp(q, `hints-${idx}`, document.querySelector(`button[data-help-idx="${idx}"]`))) return;
   const payload = q.id ? { question_id: q.id, locale: TEST_LOCALE } : { question: q.question, locale: TEST_LOCALE };
   if (refresh) payload.refresh = true;
   showLoader(true);
@@ -1530,6 +1542,10 @@ function fetchHints(q, idx, refresh = false) {
 function renderHints(q, idx) {
   const el = document.getElementById(`hints-${idx}`);
   if (!el) return;
+  if (getAuthoredComposeHelpText(q)) {
+    el.innerHTML = '';
+    return;
+  }
   if (!q.hints || (!q.hints.chatgpt && !q.hints.gemini)) {
     el.innerHTML = '';
     return;

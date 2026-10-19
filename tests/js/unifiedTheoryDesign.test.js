@@ -1,0 +1,197 @@
+import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+import postcss from 'postcss';
+
+const source = relative => fs.readFileSync(path.resolve(process.cwd(), relative), 'utf8');
+const css = source('resources/css/theory-unified-design.css');
+const entry = source('resources/js/catalog-public.js');
+const cssAst = postcss.parse(css);
+
+describe('scoped unified lesson design', () => {
+    it('matches mistake sentences, translations and hints to lesson examples without resizing other consumers', () => {
+        const mistakeRules = [];
+        const exampleRules = [];
+        cssAst.walkRules(rule => {
+            if (rule.selector.includes('[data-theory-component="mistake"]')) mistakeRules.push(rule);
+            if (rule.selector === '.theory-design .theory-example :is(p, code)') exampleRules.push(rule);
+        });
+        expect(mistakeRules).toHaveLength(1);
+        expect(exampleRules).toHaveLength(1);
+        const mistakeRule = mistakeRules[0];
+        expect(mistakeRule.selector.replace(/\s+/g, ' ').trim()).toBe([
+            '.theory-design [data-theory-component="mistake"] .theory-example > :is(code, span[lang="en"]),',
+            '.theory-design [data-theory-component="mistake"] .theory-translation,',
+            '.theory-design [data-theory-component="mistake"] .theory-note > span',
+        ].join(' '));
+        expect(mistakeRule.nodes.map(node => [node.prop, node.value])).toEqual([
+            ['font-size', '.9rem'], ['line-height', '1.75'],
+        ]);
+
+        const card = (prefix, canonical = false) => `<article ${canonical ? 'data-theory-component="mistake"' : ''}>
+            <span id="${prefix}-badge" class="caption">1</span>
+            <span id="${prefix}-label" class="caption">Форма дієслова</span>
+            <h3 id="${prefix}-title" class="text-sm">Після will не ставимо to.</h3>
+            <div class="theory-example"><code id="${prefix}-wrong" lang="en" class="text-xs">We will to start.</code></div>
+            <p id="${prefix}-wrong-uk" lang="uk" class="theory-translation text-xs">Ми почнемо.</p>
+            <div class="theory-example"><span id="${prefix}-right" lang="en" class="text-xs">We will start.</span></div>
+            <p id="${prefix}-right-uk" lang="uk" class="theory-translation text-xs">Ми почнемо.</p>
+            <div class="theory-note"><span id="${prefix}-hint" class="text-xs leading-relaxed">Після will потрібна базова форма.</span></div>
+        </article>`;
+        const fixture = document.createElement('div');
+        fixture.innerHTML = `<style>
+            .text-xs { font-size: 12px; line-height: 16px; }
+            .leading-relaxed { line-height: 1.625; }
+            .caption { font-size: 10px; line-height: 15px; }
+            .text-sm { font-size: 14px; line-height: 20px; }
+            ${exampleRules[0].toString()}
+        </style>
+            <div class="theory-design">${card('canonical', true)}
+                <div class="theory-example"><p id="reference-example">We start at nine.</p></div>
+                <div class="theory-exercise">${card('practice')}</div>
+                <div data-sentence-builder>${card('linked-bank')}</div>
+            </div>
+            <div class="theory-design">${card('course')}</div>
+            <div>${card('outside', true)}</div>
+            <div data-test-page>${card('standalone')}</div>`;
+        document.body.append(fixture);
+        try {
+            const textRoles = ['wrong', 'right', 'wrong-uk', 'right-uk', 'hint'];
+            const captionRoles = ['badge', 'label', 'title'];
+            const protectedIds = [
+                ...captionRoles.map(role => `canonical-${role}`),
+                ...['course', 'practice', 'linked-bank', 'outside', 'standalone']
+                    .flatMap(prefix => [...textRoles, ...captionRoles].map(role => `${prefix}-${role}`)),
+            ];
+            const snapshot = element => {
+                const computed = getComputedStyle(element);
+                return ['font-size', 'line-height', 'color', 'background-color', 'padding', 'margin']
+                    .map(property => [property, computed.getPropertyValue(property)]);
+            };
+            const before = new Map(protectedIds.map(id => [id, snapshot(fixture.querySelector(`#${id}`))]));
+            const typography = document.createElement('style');
+            typography.textContent = mistakeRule.toString();
+            fixture.append(typography);
+            const reference = getComputedStyle(fixture.querySelector('#reference-example'));
+            for (const role of textRoles) {
+                const element = fixture.querySelector(`#canonical-${role}`);
+                expect(element.matches(mistakeRule.selector)).toBe(true);
+                expect(getComputedStyle(element).fontSize).toBe(reference.fontSize);
+                expect(getComputedStyle(element).lineHeight).toBe(reference.lineHeight);
+            }
+            for (const id of protectedIds) {
+                const element = fixture.querySelector(`#${id}`);
+                expect(element.matches(mistakeRule.selector)).toBe(false);
+                expect(snapshot(element)).toEqual(before.get(id));
+            }
+        } finally { fixture.remove(); }
+    });
+    it('limits new fragment wrapping to canonical nodes, not unchanged course details', () => {
+        const rules = [];
+        cssAst.walkRules(rule => {
+            if (rule.nodes.some(node => node.prop === 'overflow-wrap' && node.value === 'anywhere')) rules.push(rule);
+        });
+        const fragmentRules = rules.filter(rule => rule.selector.includes('theory-point-fragment'));
+        expect(fragmentRules).toHaveLength(1);
+        expect(fragmentRules[0].selector.split(',').map(value => value.trim())).toEqual([
+            '.theory-design [data-theory-component].theory-point-fragment',
+            '.theory-design [data-theory-component] .theory-point-fragment',
+        ]);
+        const fixture = document.createElement('div');
+        fixture.innerHTML = `<style>${fragmentRules[0].toString()}</style>
+            <div class="theory-design"><section class="theory-point-fragment" id="course-fragment">Original course detail</section></div>
+            <div class="theory-design"><section class="theory-point-fragment" data-theory-component="fragment" id="canonical-fragment">Theory detail</section>
+                <article data-theory-component="usage"><div class="theory-point-fragment" id="canonical-body">Theory body</div></article></div>`;
+        document.body.append(fixture);
+        try {
+            const course = fixture.querySelector('#course-fragment');
+            expect(course.matches(fragmentRules[0].selector)).toBe(false);
+            expect(getComputedStyle(course).overflowWrap).not.toBe('anywhere');
+            for (const id of ['canonical-fragment', 'canonical-body']) {
+                const element = fixture.querySelector(`#${id}`);
+                expect(element.matches(fragmentRules[0].selector)).toBe(true);
+                expect(getComputedStyle(element).overflowWrap).toBe('anywhere');
+                expect(getComputedStyle(element).minWidth).toBe('0');
+            }
+        } finally { fixture.remove(); }
+    });
+    it('limits extracted tense-matrix rules to canonical tables, not course markup', () => {
+        const rules = [];
+        cssAst.walkRules(rule => {
+            // The pre-existing :not(:has(.tense-forms-table)) scroll rule is
+            // intentionally outside this extracted matrix-style contract.
+            if (/(?:^|\s)\.tense-forms-(table|corner|cell)/.test(rule.selector)) rules.push(rule);
+        });
+        expect(rules).toHaveLength(6);
+        for (const rule of rules) {
+            expect(rule.selector).toMatch(/^\.theory-design \[data-theory-component="table"\] /);
+        }
+        const fixture = document.createElement('div');
+        fixture.innerHTML = `<style>${rules.map(rule => rule.toString()).join('\n')}</style>
+            <div class="theory-design"><div class="theory-table-scroll"><table id="course-matrix" class="tense-forms-table"><tbody><tr><td>Course</td></tr></tbody></table></div></div>
+            <div class="theory-design"><div class="theory-table-scroll" data-theory-component="table"><table id="canonical-matrix" class="tense-forms-table"><tbody><tr><td>Theory</td></tr></tbody></table></div></div>`;
+        document.body.append(fixture);
+        try {
+            expect(getComputedStyle(fixture.querySelector('#course-matrix')).minWidth).not.toBe('900px');
+            expect(getComputedStyle(fixture.querySelector('#canonical-matrix')).minWidth).toBe('900px');
+        } finally { fixture.remove(); }
+    });
+    it('does not introduce global typography, hidden content or text truncation', () => {
+        const rules = [...css.matchAll(/([^{}]+)\{/g)].map(match => match[1].replace(/\/\*[\s\S]*?\*\//g, '').trim());
+        for (const selector of rules.filter(rule => !rule.startsWith('@'))) {
+            expect(selector).toContain('.theory-design');
+        }
+        expect(css).not.toMatch(/line-clamp|text-overflow\s*:\s*ellipsis|content-visibility\s*:\s*hidden/);
+        expect(css).not.toMatch(/past-simple|m11|m24|@import\s+url/);
+    });
+    it('supports narrow tables, focus, dark tokens, print and reduced motion', () => {
+        for (const value of ['var(--text)', 'var(--surface-strong)', 'overflow-x: auto', 'focus-visible', '@media print', '::details-content', 'prefers-reduced-motion', '.theory-section-details[open]']) {
+            expect(css).toContain(value);
+        }
+        expect(css).toContain('.theory-design [id] { scroll-margin-top: 8rem; }');
+        expect(css).not.toContain('52vh');
+        expect(css).not.toContain('--theory-sidebar-height');
+        expect(css).toContain('.theory-native-block code.theory-example { display: block; }');
+        expect(css).toContain('.dark .theory-design .theory-native-block :is(.text-emerald-700, .text-sky-700, .text-amber-700, .text-slate-700) { color: var(--text); }');
+        expect(css).toContain('.theory-exercise > .border-b { background-color: var(--theory-soft); border-color: var(--line); }');
+        expect(css).toContain('.theory-exercise .text-rose-700 { color: #fda4af; }');
+    });
+    it('keeps the existing sole Alpine owner and enhances only delivered DOM', () => {
+        expect(entry).toContain("import { initTheorySections } from './theory-sections.js'");
+        expect(entry).not.toMatch(/import .*Alpine|Alpine\.start|unpkg|cdn\.tailwindcss/);
+        const module = source('resources/js/theory-sections.js');
+        expect(module).not.toMatch(/fetch\(|setTimeout|innerHTML|createElement\('template'/);
+        expect(module).toContain("window.addEventListener('popstate'");
+    });
+    it('does not override the restored legacy menu, icons, search or sidebar allocation', () => {
+        expect(css).not.toMatch(/theory-sidebar|theory-nav-link|theory-nav-icon|theory-nav-label|theory-nav-count|data-theory-sidebar/);
+        const view = source('resources/views/theory/show.blade.php');
+        expect(view).toMatch(/class="[^"]*theory-design[^"]*"\s+data-theory-main/);
+        expect(view).not.toContain('class="nd-page theory-design"');
+        cssAst.walkRules(rule => {
+            if (rule.selector.includes('[data-theory-aside]')) {
+                expect(rule.parent.name).toBe('media');
+                expect(rule.parent.params).toBe('print');
+            }
+        });
+    });
+    it('retains the original viewport-sized menu and full desktop tree search styling', () => {
+        const catalog = postcss.parse(source('resources/css/catalog-public.css'));
+        const allocations = [];
+        catalog.walkRules(rule => {
+            if (rule.selector === '[data-theory-aside] [data-theory-sidebar]') allocations.push(rule);
+        });
+        expect(allocations).toHaveLength(1);
+        expect(allocations[0].parent.params).toBe('(min-width: 1024px)');
+        expect(allocations[0].nodes.some(node => node.prop === 'block-size' && node.value === 'calc(100vh - 7rem)')).toBe(true);
+        const tree = source('resources/views/theory/partials/tree-nav.blade.php');
+        expect(tree).toContain('inline-size: 390px');
+        expect(tree).toContain('inline-size: 410px');
+        expect(tree).toContain('inline-size: 116px');
+        const navigation = source('resources/views/theory/partials/mobile-navigation-content.blade.php');
+        expect(navigation).toMatch(/class="[^"]*min-h-0[^"]*overflow-y-auto[^"]*"\s+data-theory-sidebar-scroll/);
+        const search = source('resources/views/theory/partials/tree-nav-search.blade.php');
+        expect(search).toContain('rounded-[24px] border p-3 shadow-sm surface-card');
+        expect(search).toContain('rounded-[18px] border px-3 py-2.5 surface-card-strong');
+    });
+});

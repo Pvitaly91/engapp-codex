@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Question;
+use App\Support\PpcOrderedTheoryLinks;
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
 use Illuminate\Support\Collection;
@@ -34,6 +35,11 @@ class QuestionExportService
             'chatgpt_explanations' => $this->formatChatGptExplanations($question),
         ];
 
+        $theoryLinks = PpcOrderedTheoryLinks::export($question);
+        if ($theoryLinks !== null) {
+            $payload[PpcOrderedTheoryLinks::FIELD] = $theoryLinks;
+        }
+
         $this->writeJson($question->uuid, $payload);
     }
 
@@ -48,6 +54,10 @@ class QuestionExportService
             'category_id' => $question->category_id,
             'source_id' => $question->source_id,
             'flag' => $question->flag,
+            'type' => $question->type,
+            'seeder' => $question->seeder,
+            'options_by_marker' => $question->options_by_marker,
+            'theory_text_block_uuid' => $question->theory_text_block_uuid,
             'created_at' => $this->formatDate($question->created_at),
             'updated_at' => $this->formatDate($question->updated_at),
         ];
@@ -143,6 +153,7 @@ class QuestionExportService
                     'id' => $hint->id,
                     'question_id' => $hint->question_id,
                     'marker' => $hint->marker,
+                    'locale' => $hint->locale,
                     'option_id' => $hint->option_id,
                     'created_at' => $this->formatDate($hint->created_at),
                     'updated_at' => $this->formatDate($hint->updated_at),

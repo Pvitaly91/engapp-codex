@@ -209,6 +209,95 @@ function html(str) {
         .replaceAll("'", '&#039;');
 }
 
+// Use the exact category or finite builder authorship, never the URL or lesson text.
+function isPastPerfectContinuousQuestion(q) {
+    if (typeof q?.is_past_perfect_continuous === 'boolean') return q.is_past_perfect_continuous;
+    if (String(q?.tense ?? '').split('/').pop().trim().toLowerCase() === 'past perfect continuous') return true;
+    const seeder = String(q?.tech_info?.seeder?.class ?? q?.seeder ?? '');
+    return [
+        'Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectContinuousFormsAllLevelsLessonSeeder',
+        'Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectContinuousNegativesAllLevelsLessonSeeder',
+        'Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectContinuousQuestionsAllLevelsLessonSeeder',
+        'Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectContinuousTimeExpressionsAllLevelsLessonSeeder',
+        'Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectContinuousBasicsB2LessonSeeder',
+    ].includes(seeder);
+}
+
+function clearManualAnswerFeedbackOnEdit(q, slotIndex, wordIndex) {
+    const meta = q?.feedbackMeta;
+    if (!isPastPerfectContinuousQuestion(q) || q.done || meta?.result !== 'incorrect'
+        || meta.slotIndex !== slotIndex
+        || (Number.isInteger(meta.wordIndex) && meta.wordIndex !== wordIndex)) return false;
+
+    q.feedback = '';
+    q.feedbackMeta = null;
+    q.explanation = '';
+    q.pendingExplanationKey = null;
+    if (Array.isArray(q.lastWrongBySlot)) q.lastWrongBySlot[slotIndex] = null;
+    // Keep attempts and wrongAttempt: editing is not a new first attempt.
+    return true;
+}
+
+// Older snapshots can contain a canonical answer silently revealed after two
+// mistakes. Reopen only a slot for which the recorded submission proves this.
+function restoreSavedPpcRetryState(q) {
+    const meta = q?.feedbackMeta;
+    const slot = meta?.slotIndex;
+    if (!isPastPerfectContinuousQuestion(q) || meta?.result !== 'incorrect'
+        || !Array.isArray(q.answers) || !Array.isArray(q.chosen)
+        || !Number.isInteger(slot) || slot < 0 || slot >= (q.answers?.length ?? 0)
+        || meta.wordIndex !== null || typeof q.done !== 'boolean' || !q.wrongAttempt || !q.chosen?.[slot]
+        || !testAnswerMatches(q, slot, q.chosen[slot])
+        || !String(meta.submittedAnswer ?? '').trim()
+        || testAnswerMatches(q, slot, meta.submittedAnswer)) return false;
+
+    q.chosen[slot] = null;
+    q.activeSlot = slot;
+    q.done = false;
+    q.wrongAttempt = true;
+    q.manualInputsBySlot[slot] = '';
+    q.manualWordIndexBySlot[slot] = 0;
+    q.attemptsBySlot[slot] = Math.max(2, Number(q.attemptsBySlot[slot]) || 0);
+    q.lastWrongBySlot[slot] = meta.submittedAnswer;
+    q.feedback = '';
+    q.feedbackMeta = null;
+    q.explanation = '';
+    q.pendingExplanationKey = null;
+    return true;
+}
+
+// Authored PPC help is a disclosure, never part of the translation heading.
+function getAuthoredComposeHelpText(q) {
+    return String(q?.type ?? '') === '4'
+        && /^[a-f0-9]{64}$/.test(String(q?.compose_content_revision ?? ''))
+        && typeof q?.hint === 'string'
+        ? q.hint.trim()
+        : '';
+}
+
+function renderAuthoredComposeHelp(q) {
+    const hint = getAuthoredComposeHelpText(q);
+    return hint
+        ? `<p data-authored-compose-hint class="text-sm text-gray-600 whitespace-pre-line leading-normal font-normal">${html(hint)}</p>`
+        : '';
+}
+
+function toggleAuthoredComposeHelp(q, panelId, button) {
+    if (!getAuthoredComposeHelpText(q)) return false;
+    const panel = document.getElementById(panelId);
+    if (!panel) return true;
+    const opened = !panel.hasAttribute('data-authored-compose-help-open');
+    panel.innerHTML = opened ? renderAuthoredComposeHelp(q) : '';
+    panel.toggleAttribute('data-authored-compose-help-open', opened);
+    if (button) {
+        button.setAttribute('aria-expanded', String(opened));
+        button.setAttribute('aria-controls', panelId);
+        const label = button.querySelector('[data-authored-compose-help-label]');
+        if (label) label.textContent = testUi(opened ? 'question.hide_help' : 'question.show_help');
+    }
+    return true;
+}
+
 function techInfoUi(key, fallback = '') {
     return testUi(`tech_info.${key}`, {}, fallback);
 }
@@ -1325,6 +1414,7 @@ function mergeFreshQuestionContentIntoSavedState(state) {
         'verb_hints',
         'options',
         'tense',
+        'is_past_perfect_continuous',
         'level',
         'theory_block',
         'theory_blocks',
@@ -1371,7 +1461,11 @@ function mergeFreshQuestionContentIntoSavedState(state) {
         // Keep answer/progress-only fields from the snapshot, but always use
         // the current question, options, theory and verb hints from the page.
         const merged = { ...savedItem };
-        canonicalQuestionFields.forEach((field) => {
+        const fields = freshQuestion.compose_content_revision
+            ? [...canonicalQuestionFields, 'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+                'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question', 'reorder_template_constraint']
+            : canonicalQuestionFields;
+        fields.forEach((field) => {
             if (Object.prototype.hasOwnProperty.call(freshQuestion, field)) {
                 merged[field] = cloneState(freshQuestion[field]);
             }

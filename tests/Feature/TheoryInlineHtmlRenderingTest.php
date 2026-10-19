@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Page;
 use App\Models\TextBlock;
+use App\Support\M43AuthoredTenseUsagePackage;
 use DOMDocument;
 use DOMXPath;
 use Illuminate\Support\Facades\File;
@@ -34,6 +35,25 @@ class TheoryInlineHtmlRenderingTest extends TestCase
     public function test_existing_affected_fields_render_as_markup_in_shared_theory_and_course_views(string $definitionPath): void
     {
         $definition = json_decode(File::get(base_path('database/seeders/Page_V3/'.$definitionPath.'/definition.json')), true, 512, JSON_THROW_ON_ERROR);
+        if ($definitionPath === 'Tenses/TensesUsedToWouldTheorySeeder') {
+            // M43 stores plain structured author fields, not legacy rich-field HTML.
+            // Keep the old renderer/XSS regression on its hash-bound BEFORE data;
+            // M43AuthorFidelityTest covers exact AFTER native text/DOM, while
+            // M43CoursePreservationTest proves that the course still renders BEFORE.
+            [$before, $package] = M43AuthoredTenseUsagePackage::load();
+            M43AuthoredTenseUsagePackage::validate($before, $package);
+            $path = 'database/seeders/Page_V3/'.$definitionPath.'/definition.json';
+            $index = array_search($path, array_column($package['targets'], 'path'), true);
+            self::assertNotFalse($index, 'The legacy fixture must have one explicit M43 owner');
+            $target = $package['targets'][$index];
+            $record = $before['targets'][$index];
+            self::assertSame($path, $target['path']);
+            self::assertSame($path, $record['path']);
+            self::assertSame('Database\\Seeders\\Page_V3\\Tenses\\TensesUsedToWouldTheorySeeder', $target['identity']);
+            self::assertSame($target['identity'], $record['before']['seeder']['class']);
+            self::assertSame($target['after'], $definition, 'The current definition must exactly match the frozen M43 projection');
+            $definition = $record['before'];
+        }
         $blocks = $definition['page']['blocks'] ?? $definition['description']['blocks'];
         $affected = 0;
 

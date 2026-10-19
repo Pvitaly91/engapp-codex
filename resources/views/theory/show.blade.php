@@ -34,15 +34,36 @@
 @section('body_class', 'scroll-optimized')
 
 @section('content')
+{{-- Bootstrap before native blocks: their discarded pre-render must not consume @once assets. --}}
+@if(in_array((string) $page->getRawOriginal('seeder'), array_column(\App\Support\M26InteractivePractice::load()['targets'], 'identity'), true))
+    @include('components.english-answer-variants')
+@endif
 @php
     $blocks = $page->textBlocks ?? collect();
+    $m45StyleContext = \App\Support\M45FutureComparisonsPackage::allowsTheoryContext($blocks, app()->getLocale());
+    $blocks = \App\Support\M43AuthoredTenseUsagePackage::orderBlocks($blocks);
+    $m44StyleContext = \App\Support\M44AuthoredFutureFormsPackage::allowsTheoryContext($blocks, app()->getLocale());
+    $blocks = \App\Support\M44AuthoredFutureFormsPackage::orderBlocks($blocks);
     $routePrefix = $routePrefix ?? 'theory';
     $heroBlock = $blocks->firstWhere('type', 'hero-v2') ?? $blocks->firstWhere('type', 'hero');
     $heroData = $heroBlock ? (json_decode($heroBlock->body ?? '[]', true) ?? []) : [];
     $contentBlocks = $blocks->reject(fn ($block) => in_array($block->type, ['hero', 'hero-v2', 'navigation-chips']));
+    $presentationByBlock = $contentBlocks->mapWithKeys(fn ($block) => [
+        $block->id => ($block->type === 'box' || empty($block->type)) ? \App\Support\TheoryPresentation::html($block, canonical: true) : null,
+    ]);
     $navBlock = $blocks->firstWhere('type', 'navigation-chips');
     $categoryPages = $categoryPages ?? collect();
-    $tocBlocks = $contentBlocks->filter(fn ($block) => !empty(json_decode($block->body ?? '[]', true)['title'] ?? ''));
+    $lessonToc = [];
+    foreach ($contentBlocks as $tocBlock) {
+        $tocData = \App\Support\TheoryPresentation::data($tocBlock->body);
+        if (!empty($tocData['title']) && is_string($tocData['title'])) {
+            $lessonToc[] = ['id' => 'block-' . $tocBlock->id, 'title' => $tocData['title']];
+        } elseif (!empty($presentationByBlock[$tocBlock->id]['toc'])) {
+            $lessonToc = array_merge($lessonToc, $presentationByBlock[$tocBlock->id]['toc']);
+        } elseif (!empty($tocBlock->heading)) {
+            $lessonToc[] = ['id' => 'block-' . $tocBlock->id, 'title' => $tocBlock->heading];
+        }
+    }
     $practiceQuestionsByBlock = $practiceQuestionsByBlock ?? [];
     $pageTags = $page->tags ?? collect();
 
@@ -93,73 +114,14 @@
         data-theory-layout
     >
         <aside class="relative hidden shrink-0 overflow-visible lg:block lg:self-stretch" data-theory-aside>
-            <div class="space-y-6">
-                <section
-                    class="flex max-h-[calc(100vh-7rem)] flex-col rounded-[28px] border p-4 shadow-card surface-card-strong xl:p-5"
-                    :data-collapsed="theorySidebarCollapsed.toString()"
-                    data-theory-sidebar
-                    style="border-color: var(--line);"
-                >
-                    <div class="shrink-0 flex items-end justify-between gap-3">
-                        <div class="theory-sidebar-expanded-only">
-                            <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.copilot_theory.map') }}</p>
-                            <h2 class="mt-2 font-display text-xl font-extrabold leading-none">{{ __('public.common.categories') }}</h2>
-                        </div>
-                        <button
-                            type="button"
-                            class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border transition hover:border-ocean surface-card"
-                            style="border-color: var(--line); color: var(--muted);"
-                            aria-label="{{ __('public.common.categories') }}"
-                            @click="toggleTheorySidebar()"
-                        >
-                            <svg class="h-4 w-4 transition-transform duration-200" :class="{ 'rotate-180': theorySidebarCollapsed }" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                            </svg>
-                        </button>
-                    </div>
-                    @include('theory.partials.desktop-navigation-loader', [
-                        'selectedCategory' => $selectedCategory ?? null,
-                        'currentPage' => $page,
-                        'routePrefix' => $routePrefix,
-                    ])
-                </section>
-
-                @if($tocBlocks->isNotEmpty())
-                    <div x-show="!theorySidebarCollapsed && theorySidebarSettled" x-cloak data-theory-toc-pin-root>
-                    <section class="rounded-[28px] border p-4 shadow-card surface-card xl:p-5" style="border-color: var(--line);" data-theory-toc-card>
-                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('frontend.copilot_theory.contents') }}</p>
-                        <div class="mt-4 space-y-2">
-                            @foreach($tocBlocks as $tocBlock)
-                                @php($tocData = json_decode($tocBlock->body ?? '[]', true))
-                                @if(!empty($tocData['title']))
-                                    <a href="#block-{{ $tocBlock->id }}" class="flex items-start gap-3 rounded-[18px] border px-3 py-3 text-sm transition hover:-translate-y-0.5 surface-card-strong" style="border-color: var(--line); color: var(--muted);">
-                                        <span class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-amber text-[10px] font-extrabold text-white">{{ $loop->iteration }}</span>
-                                        <span class="min-w-0 break-words leading-5">{{ preg_replace('/^\d+\.\s*/', '', $tocData['title']) }}</span>
-                                    </a>
-                                @endif
-                            @endforeach
-                        </div>
-                    </section>
-                    </div>
-                @endif
-
-                @if($pageTags->isNotEmpty())
-                    <section x-show="!theorySidebarCollapsed && theorySidebarSettled" x-cloak class="rounded-[28px] border p-4 shadow-card surface-card xl:p-5" style="border-color: var(--line);">
-                        <p class="text-[11px] font-extrabold uppercase tracking-[0.22em]" style="color: var(--accent);">{{ __('public.common.page_tags') }}</p>
-                        <div class="mt-4 flex flex-wrap gap-2">
-                            @foreach($pageTags as $tag)
-                                <span class="rounded-full px-3 py-1.5 text-xs font-bold" style="background: var(--accent-soft); color: var(--text);">{{ \App\Support\TheoryTagLabel::display($tag->name, app()->getLocale()) }}</span>
-                            @endforeach
-                        </div>
-                    </section>
-                @endif
-            </div>
+            @include('theory.partials.desktop-sidebar', [
+                'currentPage' => $page,
+                'sidebarTags' => $pageTags,
+            ])
         </aside>
 
-        <div class="min-w-0 flex-1 space-y-8" data-theory-main>
-            <section class="relative overflow-hidden rounded-[30px] border p-7 shadow-card surface-card-strong" style="border-color: var(--line);">
-                <div class="absolute -right-10 top-0 hidden h-36 w-36 rounded-full border-[18px] border-ocean/30 lg:block"></div>
-                <div class="absolute bottom-0 right-0 hidden h-44 w-14 rounded-tl-[2rem] bg-ocean lg:block"></div>
+        <div class="min-w-0 flex-1 space-y-8 theory-design" data-theory-main>
+            <section class="theory-hero" style="border-color: var(--line);">
                 <div class="relative">
                     @if(!empty($heroData['level']))
                         <span class="inline-flex items-center rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.22em] soft-accent" style="border-color: var(--line); color: var(--accent);">
@@ -167,6 +129,9 @@
                         </span>
                     @endif
                     <h1 class="mt-4 max-w-4xl font-display text-3xl font-extrabold leading-[1.04] sm:text-4xl">{{ $page->title }}</h1>
+                    @if($m45StyleContext)
+                        <p lang="uk" data-m45-subtitle class="mt-4 max-w-3xl text-sm leading-7 sm:text-base text-muted-foreground">{{ $page->getRawOriginal('text') }}</p>
+                    @endif
                     @if(!empty($heroData['intro']))
                         <div class="mt-5 max-w-3xl text-sm leading-7 sm:text-base" style="color: var(--muted);">
                             {!! $heroData['intro'] !!}
@@ -183,8 +148,15 @@
                 'routePrefix' => $routePrefix,
             ])
 
+            @if($lessonToc !== [])
+                <details class="theory-mobile-toc lg:hidden" data-theory-ui>
+                    <summary>{{ __('theory_blocks.section.contents') }}</summary>
+                    @include('theory.partials.lesson-toc')
+                </details>
+            @endif
+
             @if(!empty($heroData['rules']))
-                <section class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                <section class="theory-rules grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                     @foreach($heroData['rules'] as $rule)
                         <article class="rounded-[24px] border p-5 shadow-card surface-card-strong" style="border-color: var(--line);">
                             @if(!empty($rule['label']))
@@ -192,35 +164,24 @@
                             @endif
                             <div class="mt-3 text-sm leading-6" style="color: var(--text);">{!! $rule['text'] ?? '' !!}</div>
                             @if(!empty($rule['example']))
-                                <code class="mt-4 block rounded-[16px] px-3 py-2 text-xs" style="background: var(--accent-soft); color: var(--text);">{{ \App\Support\TheoryInlineHtml::render($rule['example']) }}</code>
+                                <code class="theory-example mt-4 block rounded-[16px] px-3 py-2 text-xs" style="background: var(--accent-soft); color: var(--text);">{{ \App\Support\TheoryRichContent::example($rule['example']) }}</code>
                             @endif
                         </article>
                     @endforeach
                 </section>
             @endif
 
-            <section class="rounded-[30px] border p-6 shadow-card surface-card-strong" style="border-color: var(--line);">
+            <section class="theory-content-blocks">
                 <div class="space-y-6">
                     @foreach($contentBlocks as $block)
-                        <div id="block-{{ $block->id }}" class="theory-lazy-section">
-                            @if(in_array($block->type, ['forms-grid', 'lesson-rule-cards', 'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list', 'practice-set', 'tense-forms-table']))
-                                @includeIf('engram.theory.blocks-v3.' . $block->type, [
-                                    'page' => $page,
-                                    'block' => $block,
-                                    'data' => json_decode($block->body ?? '[]', true),
-                                    'practiceQuestions' => $practiceQuestionsByBlock[$block->uuid] ?? collect(),
-                                ])
-                            @elseif($block->type === 'box' || empty($block->type))
-                                <article class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">
-                                    @if(!empty($block->heading))
-                                        <h3 class="font-display text-lg font-extrabold leading-tight">{{ $block->heading }}</h3>
-                                    @endif
-                                    <div class="prose prose-sm mt-4 max-w-none leading-7" style="color: var(--muted);">
-                                        {!! $block->body !!}
-                                    </div>
-                                </article>
-                            @endif
-                        </div>
+                        @include('theory.partials.content-block', [
+                            'theoryCanonical' => true,
+                            'm42StyleContext' => app()->getLocale() === 'uk',
+                            'm43StyleContext' => app()->getLocale() === 'uk',
+                            'm44StyleContext' => $m44StyleContext,
+                            'presentation' => $presentationByBlock[$block->id],
+                            'practiceQuestions' => $practiceQuestionsByBlock[$block->uuid] ?? collect(),
+                        ])
                     @endforeach
                 </div>
 
@@ -262,122 +223,5 @@
     </div>
 </div>
 
-@if($tocBlocks->isNotEmpty())
-    <script>
-        (() => {
-            const resetTheoryTocPin = (root, card) => {
-                root.style.minHeight = '';
-                card.style.position = '';
-                card.style.top = '';
-                card.style.left = '';
-                card.style.width = '';
-                card.style.maxHeight = '';
-                card.style.overflowY = '';
-                card.style.zIndex = '';
-                card.style.bottom = '';
-            };
-
-            const theoryTocTopOffset = () => {
-                const header = document.getElementById('site-header');
-                const headerBottom = header ? header.getBoundingClientRect().bottom : 0;
-                const gap = 16;
-
-                return {
-                    gap,
-                    top: Math.max(gap, Math.round(headerBottom + gap)),
-                };
-            };
-
-            const updateTheoryTocPin = () => {
-                const root = document.querySelector('[data-theory-toc-pin-root]');
-                const card = root?.querySelector('[data-theory-toc-card]');
-
-                if (!root || !card) {
-                    return;
-                }
-
-                if (window.innerWidth < 1024 || root.offsetParent === null) {
-                    resetTheoryTocPin(root, card);
-                    return;
-                }
-
-                resetTheoryTocPin(root, card);
-
-                const { gap, top } = theoryTocTopOffset();
-                const rootRect = root.getBoundingClientRect();
-                const aside = root.closest('[data-theory-aside]');
-                const asideRect = aside?.getBoundingClientRect();
-                const rootDocumentTop = window.scrollY + rootRect.top;
-                const shouldPin = window.scrollY >= rootDocumentTop - top;
-
-                if (!shouldPin) {
-                    return;
-                }
-
-                root.style.minHeight = `${card.offsetHeight}px`;
-                card.style.left = `${Math.round(rootRect.left)}px`;
-                card.style.width = `${Math.round(rootRect.width)}px`;
-                card.style.maxHeight = `calc(100vh - ${top + gap}px)`;
-                card.style.overflowY = 'auto';
-                card.style.zIndex = '30';
-
-                const cardHeight = card.offsetHeight;
-                const asideDocumentBottom = asideRect ? window.scrollY + asideRect.bottom : Number.POSITIVE_INFINITY;
-                const fixedBottom = window.scrollY + top + cardHeight;
-
-                if (fixedBottom >= asideDocumentBottom - gap && aside) {
-                    card.style.position = 'absolute';
-                    card.style.top = '';
-                    card.style.bottom = '0';
-                    card.style.left = '0';
-                    return;
-                }
-
-                card.style.position = 'fixed';
-                card.style.top = `${top}px`;
-            };
-
-            const scheduleTheoryTocPin = () => window.requestAnimationFrame(updateTheoryTocPin);
-
-            const handleTheoryTocClick = (event) => {
-                const link = event.target.closest('[data-theory-toc-card] a[href^="#block-"]');
-
-                if (!link) {
-                    return;
-                }
-
-                const targetId = link.getAttribute('href')?.slice(1);
-                const target = targetId ? document.getElementById(targetId) : null;
-
-                if (!target) {
-                    return;
-                }
-
-                event.preventDefault();
-
-                const { top } = theoryTocTopOffset();
-                const targetTop = window.scrollY + target.getBoundingClientRect().top - top;
-
-                window.scrollTo({
-                    top: Math.max(0, targetTop),
-                    behavior: 'smooth',
-                });
-
-                if (history.pushState) {
-                    history.pushState(null, '', `#${targetId}`);
-                }
-
-                window.setTimeout(scheduleTheoryTocPin, 450);
-            };
-
-            document.addEventListener('DOMContentLoaded', scheduleTheoryTocPin);
-            document.addEventListener('click', handleTheoryTocClick);
-            document.addEventListener('alpine:initialized', scheduleTheoryTocPin);
-            window.addEventListener('load', scheduleTheoryTocPin);
-            window.addEventListener('resize', scheduleTheoryTocPin);
-            window.addEventListener('scroll', scheduleTheoryTocPin, { passive: true });
-        })();
-    </script>
-@endif
 @endsection
 

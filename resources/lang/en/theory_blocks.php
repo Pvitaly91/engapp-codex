@@ -1,6 +1,13 @@
 <?php
 
 return [
+    'section' => [
+        'contents' => 'Lesson contents',
+        'more' => 'More details',
+        'less' => 'Collapse',
+        'no_js' => 'Without JavaScript, open the details using the section label:',
+    ],
+
     'practice' => [
         'select_title' => 'Choose the correct word',
         'select_placeholder' => '— choose —',

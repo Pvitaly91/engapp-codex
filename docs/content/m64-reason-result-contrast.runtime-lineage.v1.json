@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "package": "M64 technical compatibility follow-up",
+  "teaching_version": "1.0.0",
+  "teaching_artifacts_changed": 0,
+  "db_reapply_writes": 0,
+  "reason": "Actual explicit-link matcher adds three known non-DB attributes. Complete 14-column database snapshot remains opaque-hash bound; only match_score=null, matched_tag_ids=[] and array marker_tags are allowed as computed decorations. Unknown/partial decorations still reject all five. Original models and shared options are not mutated.",
+  "transitions": {
+    "app/Support/M64BuilderSelectionPresentation.php": {
+      "before": "04381f64f06424cd21f636be3e3f6627b987b4b82269fddc5c32db8ff662501d",
+      "after": "9e857d85a0eaa20e0d84926d4a547a816fa71c1f412d2d7ccebc60d701dde630"
+    },
+    "app/Services/M64ContentPatch.php": {
+      "before": "9c8205f29242e999e88c6eec4bb78ac9ae60114e3af9521ee2af852418e5c0bb",
+      "after": "aa93456e5fd35dd2b8aeb1e28a095e7fc1076d874a47c4808716efd004aeb706"
+    }
+  },
+  "source_sync_predecessor": "source-sync-v1.json",
+  "final_source_sync": "source-sync-v2.json",
+  "final_source_sync_sha256": "bd75a927c3db82cccf41325d64f4d4bdc3d0b5b88edbdae4e1f3dc2034fefb7e",
+  "original_apply_plan_digest": "88b32cbad901066e9062f9b79197688cbe957d739183f21b48359774fefca8e8",
+  "final_after_plan_digest": "efac31b8472068a394b38c06411824a4055d48eecc07efbab1cf4da237b8f865",
+  "verification": "Final profile v3: 63 tests, 7782 assertions, zero protected-file changes; one existing deprecation. Final guarded AFTER/no-op has zero writes in every family. Both exact technical hashes are explicitly rebound by M64 postconditions, not by changing historical receipts."
+}
