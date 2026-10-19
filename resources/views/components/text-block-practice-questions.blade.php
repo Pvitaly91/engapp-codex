@@ -59,7 +59,7 @@
     };
     
     // Prepare questions data for JavaScript
-    $questionsData = $questions->map(function($q) use ($isAdmin, $normalizeTags, $normalizeMarkerTags) {
+    $questionsData = $questions->map(function($q) use ($isAdmin, $normalizeTags, $normalizeMarkerTags, $locale) {
         $matchedTagIds = collect($q->getAttribute('matched_tag_ids') ?? []);
         $tags = $normalizeTags($q->tags, $matchedTagIds);
 
@@ -70,17 +70,18 @@
             : collect();
 
         // Get verb hints by marker
-        $verbHints = $q->verbHints->mapWithKeys(function($vh) {
+        $localized = \App\Support\LocalizedComposeText::optedIn($q);
+        $verbHints = $q->verbHints->filter(fn ($vh) => !$localized || \App\Support\LocalizedComposeText::locale((string) $vh->locale) === \App\Support\LocalizedComposeText::locale($locale))->mapWithKeys(function($vh) {
             return [$vh->marker => $vh->option->option ?? ''];
         })->toArray();
         
         // Get hints/explanations
-        $hints = $q->hints->map(function($h) {
+        $hints = $q->hints->filter(fn ($h) => $h->provider !== \App\Support\LocalizedComposeText::PROVIDER && (!$localized || \App\Support\LocalizedComposeText::locale((string) $h->locale) === \App\Support\LocalizedComposeText::locale($locale)))->map(function($h) {
             return [
                 'provider' => $h->provider,
                 'hint' => $h->hint,
             ];
-        })->toArray();
+        })->values()->toArray();
 
         $answers = $q->answers
             ->sortBy(function ($answer) {
@@ -104,14 +105,16 @@
         $options = $q->options->pluck('option')->toArray();
 
         if ((string) $q->type === (string) \App\Models\Question::TYPE_COMPOSE_TOKENS) {
-            $correctTokens = \App\Support\ComposeTokenCase::normalize($correctTokens);
+            $correctTokens = \App\Support\LocalizedComposeText::normalizeTokens($q, $correctTokens);
             $options = \App\Support\ComposeTokenCase::mergeOptions($options, $correctTokens);
         }
 
-        return [
+        return array_merge([
             'id' => $q->id,
             'type' => (string) $q->type,
-            'question' => $q->question,
+            'authored_compose' => $localized,
+            'compose_punctuation' => $localized ? (str_ends_with(trim((string) $q->question), '?') ? '?' : (str_ends_with(trim((string) $q->question), '!') ? '!' : '.')) : null,
+            'question' => (string) $q->type === \App\Models\Question::TYPE_COMPOSE_TOKENS ? \App\Support\LocalizedComposeText::source($q, $locale) : $q->question,
             'level' => $q->level,
             'options' => $options,
             'answers' => $answers->toArray(),
@@ -120,7 +123,10 @@
             'hints' => $hints,
             'tags' => $tags->toArray(),
             'marker_tags' => $markerTags->toArray(),
-        ];
+        ], \App\Support\LocalizedComposeText::revisionEligible($q)
+            && (string) $q->type === (string) \App\Models\Question::TYPE_COMPOSE_TOKENS
+                ? ['compose_preanswer_hint' => \App\Support\LocalizedComposeText::hint($q)]
+                : []);
     })->values()->toArray();
 
     $practiceI18n = [
@@ -129,6 +135,8 @@
         'matched_tags' => __('theory_blocks.practice_questions.matched_tags'),
         'marker_tags' => __('theory_blocks.practice_questions.marker_tags'),
         'hint' => __('theory_blocks.practice_questions.hint'),
+        'show_help' => __('frontend.tests.question.show_help'),
+        'hide_help' => __('frontend.tests.question.hide_help'),
         'check_answer' => __('theory_blocks.practice_questions.check_answer'),
         'correct' => __('theory_blocks.practice_questions.correct'),
         'incorrect' => __('theory_blocks.practice_questions.incorrect', ['answer' => ':answer']),
@@ -143,6 +151,7 @@
 @endphp
 
 @if($questions->isNotEmpty())
+    @include('components.english-answer-variants')
     <div class="mt-4 pt-4 border-t border-border/40">
         <div 
             x-data="practiceQuestion_{{ str_replace('-', '_', $uniqueId) }}()"
@@ -235,6 +244,14 @@
                                 💡 {{ __('theory_blocks.practice_questions.hint') }}: <span x-text="currentVerbHint"></span>
                             </span>
                         </div>
+                        @if(collect($questionsData)->contains(fn (array $question) => array_key_exists('compose_preanswer_hint', $question)))
+                            <details x-show="!answered && currentComposeHint" :open="composeHintOpen" @toggle="composeHintOpen = $el.open" class="mt-2" data-authored-compose-hint>
+                                <summary class="cursor-pointer text-xs font-semibold text-indigo-600" :aria-expanded="composeHintOpen" x-text="composeHintOpen ? practiceI18n.hide_help : practiceI18n.show_help"></summary>
+                                <div class="mt-2 text-xs text-rose-600 font-semibold whitespace-pre-line">
+                                    <span x-text="currentComposeHint"></span>
+                                </div>
+                            </details>
+                        @endif
                     </div>
                 </template>
             </div>
@@ -409,8 +426,18 @@
                 correctAnswer: '',
                 correctCount: 0,
                 answeredIndices: [],
+                composeHintOpen: false,
                 currentVerbHint: '',
                 currentExplanation: '',
+                get currentComposeHint() {
+                    const question = this.currentQuestion;
+                    if (question?.authored_compose !== true || String(question?.type ?? '') !== '4') {
+                        return '';
+                    }
+                    return typeof question?.compose_preanswer_hint === 'string'
+                        ? question.compose_preanswer_hint.trim()
+                        : '';
+                },
                 selectedTokens: [],
                 tokenBank: [],
                 
@@ -525,6 +552,7 @@
                     this.selectedOption = null;
                     this.answered = false;
                     this.isCorrect = false;
+                    this.composeHintOpen = false;
                     this.currentExplanation = '';
                     this.selectedTokens = [];
                     this.tokenBank = [];
@@ -660,6 +688,12 @@
                 composeTextFromTokens(tokens) {
                     if (!Array.isArray(tokens) || tokens.length === 0) return '';
 
+                    if (this.currentQuestion?.authored_compose && /^(?:yes|no)$/i.test(tokens[0])) {
+                        const lead = String(tokens[0]);
+                        return `${lead.charAt(0).toUpperCase()}${lead.slice(1).toLowerCase()}, ${tokens.slice(1).join(' ')}.`
+                            .replace(/\s+([?.!,;:])/g, '$1');
+                    }
+
                     const shortAnswerIndex = tokens.findIndex((token, index) => (
                         index > 0 && /^(?:yes|no)$/i.test(token)
                     ));
@@ -686,6 +720,9 @@
                     const normalized = String(text || '').trim();
 
                     if (/[?.!]$/.test(normalized)) return '';
+                    if (this.currentQuestion?.authored_compose && /^[?.!]$/.test(this.currentQuestion.compose_punctuation || '')) {
+                        return this.currentQuestion.compose_punctuation;
+                    }
                     if (source.endsWith('?')) return '?';
 
                     return /^(?:(?:by\s+(?:when|what\s+time))|will|what|when|where|why|who|which|how)\b/i.test(normalized)
@@ -744,7 +781,9 @@
                         if (this.selectedTokens.length === 0) return;
 
                         this.answered = true;
-                        this.isCorrect = this.normalizeAnswer(this.composeSelectedText()) === this.normalizeAnswer(this.correctAnswer);
+                        this.isCorrect = this.currentQuestion.authored_compose && window.EnglishAnswerVariants
+                            ? window.EnglishAnswerVariants.matches(this.correctAnswer, this.composeSelectedText())
+                            : this.normalizeAnswer(this.composeSelectedText()) === this.normalizeAnswer(this.correctAnswer);
 
                         if (this.isCorrect) {
                             this.correctCount++;

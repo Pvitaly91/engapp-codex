@@ -67,6 +67,7 @@
 @include('components.english-answer-variants')
 @php
     $data = $data ?? json_decode($block->body ?? '[]', true) ?? [];
+    $data = \App\Support\PastPerfectContinuousPracticeQuality::presentation($block, $data, app()->getLocale()) ?? $data;
     $selects = $data['selects'] ?? [];
     $choices = $data['choices'] ?? [];
     $inputs = $data['inputs'] ?? [];
@@ -294,6 +295,9 @@
                             @endphp
                             <x-theory-practice-control layout="inline" accent="emerald" :marker="chr(97 + $index)">
                                 <x-slot:before>
+                                @if(!empty($item['prompt']))
+                                    <p class="w-full mb-2 text-sm text-foreground/80" data-practice-input-prompt>{{ $item['prompt'] }}</p>
+                                @endif
                                 @if($m30AuthorSelfCheck !== null && !empty($item['context']))
                                     <div class="w-full text-base text-foreground/80 leading-relaxed{{ $instructionPresentation }}" data-practice-instruction data-{{ $authorSelfCheckStage }}-author-prompt="{{ $item['source_index'] }}">{!! $item['context'] !!}</div>
                                 @endif

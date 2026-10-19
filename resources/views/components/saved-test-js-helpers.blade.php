@@ -266,6 +266,38 @@ function restoreSavedPpcRetryState(q) {
     return true;
 }
 
+// Authored PPC help is a disclosure, never part of the translation heading.
+function getAuthoredComposeHelpText(q) {
+    return String(q?.type ?? '') === '4'
+        && /^[a-f0-9]{64}$/.test(String(q?.compose_content_revision ?? ''))
+        && typeof q?.hint === 'string'
+        ? q.hint.trim()
+        : '';
+}
+
+function renderAuthoredComposeHelp(q) {
+    const hint = getAuthoredComposeHelpText(q);
+    return hint
+        ? `<p data-authored-compose-hint class="text-sm text-gray-600 whitespace-pre-line leading-normal font-normal">${html(hint)}</p>`
+        : '';
+}
+
+function toggleAuthoredComposeHelp(q, panelId, button) {
+    if (!getAuthoredComposeHelpText(q)) return false;
+    const panel = document.getElementById(panelId);
+    if (!panel) return true;
+    const opened = !panel.hasAttribute('data-authored-compose-help-open');
+    panel.innerHTML = opened ? renderAuthoredComposeHelp(q) : '';
+    panel.toggleAttribute('data-authored-compose-help-open', opened);
+    if (button) {
+        button.setAttribute('aria-expanded', String(opened));
+        button.setAttribute('aria-controls', panelId);
+        const label = button.querySelector('[data-authored-compose-help-label]');
+        if (label) label.textContent = testUi(opened ? 'question.hide_help' : 'question.show_help');
+    }
+    return true;
+}
+
 function techInfoUi(key, fallback = '') {
     return testUi(`tech_info.${key}`, {}, fallback);
 }
@@ -1429,7 +1461,11 @@ function mergeFreshQuestionContentIntoSavedState(state) {
         // Keep answer/progress-only fields from the snapshot, but always use
         // the current question, options, theory and verb hints from the page.
         const merged = { ...savedItem };
-        canonicalQuestionFields.forEach((field) => {
+        const fields = freshQuestion.compose_content_revision
+            ? [...canonicalQuestionFields, 'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+                'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question', 'reorder_template_constraint']
+            : canonicalQuestionFields;
+        fields.forEach((field) => {
             if (Object.prototype.hasOwnProperty.call(freshQuestion, field)) {
                 merged[field] = cloneState(freshQuestion[field]);
             }
