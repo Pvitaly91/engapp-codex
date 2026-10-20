@@ -259,6 +259,7 @@ class TheoryCourseManifestService
         $page = \App\Support\M68ComparisonBasics::preserveCoursePage($page);
         $page = \App\Support\M69AdjectivesAdverbs::preserveCoursePage($page);
         $page = \App\Support\M70IntensifiersNounBasics::preserveCoursePage($page);
+        $page = \App\Support\M71ArticlesQuantifiers::preserveCoursePage($page);
 
         return \App\Support\M49AdviceModalsPackage::preserveCoursePage(\App\Support\M48ConditionalsPackage::preserveCoursePage(\App\Support\M47ConditionalsPackage::preserveCoursePage(\App\Support\M46ConditionalsPackage::preserveCoursePage($page))));
     }

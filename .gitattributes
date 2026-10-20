@@ -571,3 +571,20 @@ tests/Browser/m70*.cjs -text
 tests/Fixtures/m70-owned-source-hunks.json -text
 tools/diagnostics/m70*.php -text
 docs/reports/seo-m70-intensifiers-noun-basics-standard-view.md -text
+
+# M71 finite raw-byte release; preserve all accepted historical bytes.
+docs/content/m71-*.json -text
+docs/content/m71-*.md -text
+docs/content/theory-sentence-builders/m71-articles-quantifiers.v1.json -text
+database/content-patches/m71-*.json -text
+database/seeders/Page_V3/NounsArticlesQuantity/NounsArticlesQuantityArticlesTheorySeeder/definition.json text eol=lf
+database/seeders/Page_V3/NounsArticlesQuantity/NounsArticlesQuantityZeroArticleTheorySeeder/definition.json text eol=lf
+database/seeders/Page_V3/NounsArticlesQuantity/NounsArticlesQuantityQuantifiersTheorySeeder/definition.json text eol=lf
+app/Support/M71*.php -text
+app/Services/M71*.php -text
+app/Console/Commands/ContentPatchM71.php -text
+tests/Feature/M71*.php -text
+tests/Browser/m71*.cjs -text
+tests/Fixtures/m71-owned-source-hunks.json -text
+tools/diagnostics/m71*.php -text
+docs/reports/seo-m71-articles-quantifiers-standard-view.md -text

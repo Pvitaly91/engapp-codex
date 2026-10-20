@@ -528,6 +528,7 @@ class TestJsV2Controller extends Controller
                     if ($block !== null) { $block = \App\Support\M68ComparisonBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
                     if ($block !== null) { $block = \App\Support\M69AdjectivesAdverbs::preserveExcludedTextBlock($block, 'standalone_test'); }
                     if ($block !== null) { $block = \App\Support\M70IntensifiersNounBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M71ArticlesQuantifiers::preserveExcludedTextBlock($block, 'standalone_test'); }
                     if ($block === null) { continue; }
                     if (isset($seenBlockUuids[$block->uuid])) {
                         continue;
@@ -565,6 +566,7 @@ class TestJsV2Controller extends Controller
                 if ($textBlock) { $textBlock = \App\Support\M68ComparisonBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) { $textBlock = \App\Support\M69AdjectivesAdverbs::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) { $textBlock = \App\Support\M70IntensifiersNounBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M71ArticlesQuantifiers::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) {
                     $theoryBlocks[] = [
                         'uuid' => $textBlock->uuid,
@@ -1425,6 +1427,7 @@ class TestJsV2Controller extends Controller
                 if ($block !== null) { $block = \App\Support\M68ComparisonBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
                 if ($block !== null) { $block = \App\Support\M69AdjectivesAdverbs::preserveExcludedTextBlock($block, 'standalone_test'); }
                 if ($block !== null) { $block = \App\Support\M70IntensifiersNounBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M71ArticlesQuantifiers::preserveExcludedTextBlock($block, 'standalone_test'); }
                 if ($block === null) { continue; }
                 $seen[$block->uuid] = true;
                 $blocks[] = [
@@ -1459,6 +1462,7 @@ class TestJsV2Controller extends Controller
             if ($textBlock) { $textBlock = \App\Support\M68ComparisonBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) { $textBlock = \App\Support\M69AdjectivesAdverbs::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) { $textBlock = \App\Support\M70IntensifiersNounBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M71ArticlesQuantifiers::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) {
                 $blocks[] = [
                     'uuid' => $textBlock->uuid,
