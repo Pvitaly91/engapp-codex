@@ -91,7 +91,8 @@ abstract class TheoryNativeContentPatch extends M26ContentPatch
             || ($target['page_binding'] ?? null) !== ['id' => $binding['page_id'], 'page_category_id' => $binding['category_id']]
             || ($target['local_url'] ?? null) !== $binding['local_url']
             || count($before['page']['blocks']) !== count($binding['continuing_levels'])
-            || $added < 1 || count($after['page']['blocks']) !== count($before['page']['blocks']) + $added) {
+            || ($added < 1 && !(new \App\Support\TheoryNativeContentRelease($package::profile()))->existingPractice($binding, $before))
+            || count($after['page']['blocks']) !== count($before['page']['blocks']) + $added) {
             throw new RuntimeException('Native exact definition/owner/category/actual slots differ.');
         }
         $protected = $after; $protected['page']['blocks'] = $before['page']['blocks'];
@@ -117,10 +118,12 @@ abstract class TheoryNativeContentPatch extends M26ContentPatch
                 throw new RuntimeException('Native finite appended teaching identity differs.');
             }
         }
-        $practice = $after['page']['blocks'][count($after['page']['blocks']) - 1];
+        $practiceSlot = $binding['existing_practice']['source_index'] ?? count($after['page']['blocks']) - 1;
+        $practice = $after['page']['blocks'][$practiceSlot];
         if ($practice['type'] !== 'practice-set' || $practice['column'] !== 'left'
             || ($practice['level'] ?? null) !== $binding['practice_level']
-            || !str_starts_with($practice['uuid_key'] ?? '', $package::profile()['uuid_prefix'].$binding['slug'].':')) {
+            || (!isset($binding['existing_practice'])
+                && !str_starts_with($practice['uuid_key'] ?? '', $package::profile()['uuid_prefix'].$binding['slug'].':'))) {
             throw new RuntimeException('Native appended practice identity/technical level differs.');
         }
     }

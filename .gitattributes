@@ -554,3 +554,20 @@ routes/api.php -text
 tests/Browser/manual-answer-retry.test.cjs -text
 tests/Browser/ppc-reorder-prompt.test.cjs -text
 tests/Feature/PpcTestInteractionIdentityTest.php -text
+
+# M70 finite raw-byte release; do not normalize historical or served foreign bytes.
+docs/content/m70-*.json -text
+docs/content/m70-*.md -text
+docs/content/theory-sentence-builders/m70-intensifiers-noun-basics.v1.json -text
+database/content-patches/m70-*.json -text
+database/seeders/Page_V3/Adjectives/AdjectivesIntensifiersTheorySeeder/definition.json -text
+database/seeders/Page_V3/NounsArticlesQuantity/NounsArticlesQuantityPluralNounsTheorySeeder/definition.json -text
+database/seeders/Page_V3/NounsArticlesQuantity/NounsArticlesQuantityCountableUncountableNounsTheorySeeder/definition.json -text
+app/Support/M70*.php -text
+app/Services/M70*.php -text
+app/Console/Commands/ContentPatchM70.php -text
+tests/Feature/M70*.php -text
+tests/Browser/m70*.cjs -text
+tests/Fixtures/m70-owned-source-hunks.json -text
+tools/diagnostics/m70*.php -text
+docs/reports/seo-m70-intensifiers-noun-basics-standard-view.md -text

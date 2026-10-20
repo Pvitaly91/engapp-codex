@@ -236,7 +236,7 @@ final class TheoryNativeContentRelease
             $count = count($old['before']['page']['blocks']);
             $appended = $binding['appended_blocks'] ?? null; $addedCount = $appended === null ? 1 : count($appended);
             $projectedBefore = $this->projectedBefore($old['before']);
-            if ($addedCount < 1 || $count !== count($binding['continuing_levels'])
+            if (($addedCount < 1 && !$this->existingPractice($binding, $old['before'])) || $count !== count($binding['continuing_levels'])
                 || count($lesson['blocks']) !== $count + $addedCount
                 || array_column($lesson['blocks'], 'existing_source_index') !== [...range(0, $count - 1), ...array_fill(0, $addedCount, null)]
                 || count(array_unique(array_column($lesson['blocks'], 'key'))) !== $count + $addedCount) {
@@ -316,7 +316,7 @@ final class TheoryNativeContentRelease
             if ($practice['type'] !== 'practice-set' || $practice['column'] !== 'left') {
                 $this->fail('one appended native practice-set is required.');
             }
-            $this->assertPractice($practice['data'], $declaration['bank_seeders'] ?? [], $taskIds);
+            $this->assertPractice($practice['data'], $declaration['bank_seeders'] ?? [], $taskIds, $binding['practice_contract'] ?? null);
             $pointOwners = []; $byKey = array_column($lesson['blocks'], null, 'key');
             foreach ($lesson['details'] as $detail) {
                 $owner = ($detail['owner_block_key'] ?? '').':'.($detail['owner_pointer'] ?? '');
@@ -374,11 +374,42 @@ final class TheoryNativeContentRelease
         return false;
     }
 
-    private function assertPractice(array $data, array $banks, array &$ids): void
+    /** A continuing practice keeps its captured UUID, slot and technical level. */
+    public function existingPractice(array $binding, array $before): bool
     {
+        $pin = $binding['existing_practice'] ?? null;
+        if ($pin === null) { return false; }
+        $slot = $pin['source_index'] ?? null; $source = is_int($slot) ? ($before['page']['blocks'][$slot] ?? null) : null;
+        if (!is_array($pin) || array_keys($pin) !== ['source_index', 'uuid', 'level']
+            || ($binding['appended_blocks'] ?? null) !== [] || !is_array($source)
+            || ($source['type'] ?? null) !== 'practice-set' || ($source['column'] ?? null) !== 'left'
+            || ($source['level'] ?? null) !== $pin['level'] || $pin['level'] !== $binding['practice_level']
+            || $pin['uuid'] !== M26DetailPackage::uuid($binding['identity'], $source, $slot + 1)
+            || count(array_filter($before['page']['blocks'], static fn ($block) => $block['type'] === 'practice-set')) !== 1) {
+            $this->fail('captured continuing practice identity/level differs.');
+        }
+        return true;
+    }
+
+    private function assertPractice(array $data, array $banks, array &$ids, ?array $contract = null): void
+    {
+        $counts = ['selects'=>2, 'choices'=>2, 'inputs'=>2]; $sentences = [0, 1];
+        if ($contract !== null) {
+            if (array_keys($contract) !== ['counts', 'sentence_input_indices']
+                || array_keys($contract['counts'] ?? []) !== array_keys($counts)
+                || array_filter($contract['counts'], static fn ($n) => !is_int($n) || $n < 2)
+                || !is_array($contract['sentence_input_indices']) || count($contract['sentence_input_indices']) < 2
+                || count(array_unique($contract['sentence_input_indices'])) !== count($contract['sentence_input_indices'])) {
+                $this->fail('finite retained-practice contract differs.');
+            }
+            $counts = $contract['counts']; $sentences = $contract['sentence_input_indices'];
+            foreach ($sentences as $index) {
+                if (!is_int($index) || $index < 0 || $index >= $counts['inputs']) { $this->fail('sentence input index differs.'); }
+            }
+        }
         if ($banks === [] || count(array_unique($banks)) !== count($banks)
-            || count($data['selects'] ?? []) !== 2 || count($data['choices'] ?? []) !== 2 || count($data['inputs'] ?? []) !== 2
-            || array_column([...$data['selects'], ...$data['choices'], ...$data['inputs']], 'source_index') !== range(1, 6)
+            || count($data['selects'] ?? []) !== $counts['selects'] || count($data['choices'] ?? []) !== $counts['choices'] || count($data['inputs'] ?? []) !== $counts['inputs']
+            || ($contract === null && array_column([...$data['selects'], ...$data['choices'], ...$data['inputs']], 'source_index') !== range(1, 6))
             || ($data['linked_practice']['source'] ?? null) !== 'theory_links'
             || ($data['linked_practice']['question_types'] ?? null) !== ['4']
             || ($data['linked_practice']['seeder_classes'] ?? null) !== $banks) {
@@ -391,9 +422,10 @@ final class TheoryNativeContentRelease
         }
         foreach (['selects', 'choices', 'inputs'] as $group) {
             foreach ($data[$group] as $task) {
-                if (!is_string($task['id'] ?? null) || $task['id'] === '' || isset($ids[$task['id']])
+                $id = $task['id'] ?? null;
+                if (($id === null && $contract === null) || ($id !== null && (!is_string($id) || $id === '' || isset($ids[$id])))
                     || !in_array($task['answer'] ?? null, $task['accepted'] ?? [], true)) { $this->fail('task ID/canonical answer differs.'); }
-                $ids[$task['id']] = true;
+                if ($id !== null) { $ids[$id] = true; }
                 foreach ($task['options'] ?? ($group === 'choices' ? ($data['choice_options'] ?? ['a', 'b']) : $task['accepted']) as $option) {
                     if (!is_string($option) || !is_string($task['feedback'][mb_strtolower(trim($option))] ?? null)) {
                         $this->fail('supported per-option feedback is missing.');
@@ -401,8 +433,10 @@ final class TheoryNativeContentRelease
                 }
             }
         }
-        foreach ($data['inputs'] as $input) {
+        foreach ($sentences as $index) {
+            $input = $data['inputs'][$index];
             if (!is_string($input['before'] ?? null) || !str_contains($input['before'], '/')
+                || !is_string($input['id'] ?? null) || $input['id'] === ''
                 || !is_string($input['after'] ?? null) || preg_match('/[\x{0400}-\x{04FF}]/u', $input['after']) !== 1) {
                 $this->fail('visible Ukrainian input condition or native bank is missing.');
             }

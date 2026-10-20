@@ -70,7 +70,8 @@ abstract class TheoryBuilderSelectionPresentation
         }
         foreach ($package::OWNERS as $i=>$owner) {
             $target=$audit['targets'][$i];$binding=$audit['practice_bindings'][$i];$declaration=$contract['targets'][$i];
-            $index=$package::CONTINUING_COUNTS[$i];$source=$patch['targets'][$i]['after']['page']['blocks'][$index]??[];
+            $index=defined($package.'::PRACTICE_SOURCE_INDICES') ? $package::PRACTICE_SOURCE_INDICES[$i] : $package::CONTINUING_COUNTS[$i];
+            $source=$patch['targets'][$i]['after']['page']['blocks'][$index]??[];
             if ($target['identity']!==$owner || $target['page_id']!==$package::PAGE_IDS[$i]
                 || $target['category_id']!==$package::CATEGORY_IDS[$i]
                 || $target['level']!==$package::LEVELS[$i]

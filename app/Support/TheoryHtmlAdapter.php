@@ -52,6 +52,7 @@ final class TheoryHtmlAdapter
         if (($design['package'] ?? null) === 'm67-native-v1') { return M67VerbPatternsCompletion::pointPanels($design); }
         if (($design['package'] ?? null) === 'm68-native-v1') { return M68ComparisonBasics::pointPanels($design); }
         if (($design['package'] ?? null) === 'm69-native-v1') { return M69AdjectivesAdverbs::pointPanels($design); }
+        if (($design['package'] ?? null) === 'm70-native-v1') { return M70IntensifiersNounBasics::pointPanels($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::pointPanels($design); }
@@ -152,6 +153,7 @@ final class TheoryHtmlAdapter
         if (($design['package'] ?? null) === 'm67-native-v1') { return M67VerbPatternsCompletion::validDesign($design); }
         if (($design['package'] ?? null) === 'm68-native-v1') { return M68ComparisonBasics::validDesign($design); }
         if (($design['package'] ?? null) === 'm69-native-v1') { return M69AdjectivesAdverbs::validDesign($design); }
+        if (($design['package'] ?? null) === 'm70-native-v1') { return M70IntensifiersNounBasics::validDesign($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::validDesign($design); }
