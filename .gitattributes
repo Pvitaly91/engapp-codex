@@ -588,3 +588,20 @@ tests/Browser/m71*.cjs -text
 tests/Fixtures/m71-owned-source-hunks.json -text
 tools/diagnostics/m71*.php -text
 docs/reports/seo-m71-articles-quantifiers-standard-view.md -text
+
+# M72 policy declared before freeze; new artifacts and active projections use LF.
+docs/content/m72-*.json -text
+docs/content/m72-*.md -text
+docs/content/theory-sentence-builders/m72-partitives-negatives-geography.v1.json -text
+database/content-patches/m72-*.json -text
+database/seeders/Page_V3/NounsArticlesQuantity/NounsArticlesQuantityPartitivesTheorySeeder/definition.json text eol=lf
+database/seeders/Page_V3/NounsArticlesQuantity/NounsArticlesQuantityNoNoneNeitherEitherTheorySeeder/definition.json text eol=lf
+database/seeders/Page_V3/NounsArticlesQuantity/NounsArticlesQuantityArticlesWithGeographicalNamesTheorySeeder/definition.json text eol=lf
+app/Support/M72*.php -text
+app/Services/M72*.php -text
+app/Console/Commands/ContentPatchM72.php -text
+tests/Feature/M72*.php -text
+tests/Browser/m72*.cjs -text
+tests/Fixtures/m72-owned-source-hunks.json -text
+tools/diagnostics/m72*.php -text
+docs/reports/seo-m72-partitives-negatives-geography-standard-view.md -text
