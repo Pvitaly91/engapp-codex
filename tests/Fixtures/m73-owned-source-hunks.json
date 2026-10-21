@@ -1,0 +1,1527 @@
+{
+    "schema_version": 1,
+    "base_sha": "cb55b329827e52a56cb6d41edb21e70768cf86f4",
+    "files": [
+        {
+            "path": "app/Support/TheoryContentSource.php",
+            "base_blob_sha256": "41645d444fc6d5722c7749874c292411e4cb26ce6ac9387f1f6c10b7125b771c",
+            "base_lf_sha256": "41645d444fc6d5722c7749874c292411e4cb26ce6ac9387f1f6c10b7125b771c",
+            "after_lf_sha256": "9c83148ed813c3d635a10c4ed956184d3063fc6137b5304d33d37c5010655d1f",
+            "hunks": [
+                {
+                    "before": "        [M72PartitivesNegativesGeography::class, 'm42StyleContext'],\n",
+                    "after": "        [M72PartitivesNegativesGeography::class, 'm42StyleContext'],\n        [M73GenericIrregularCollective::class, 'm42StyleContext'],\n"
+                }
+            ]
+        },
+        {
+            "path": "app/Support/TheoryHtmlAdapter.php",
+            "base_blob_sha256": "b60cf3dd9c5a1677c36ebcde0f124c9ff2f07182350e8993098541f31e332067",
+            "base_lf_sha256": "b60cf3dd9c5a1677c36ebcde0f124c9ff2f07182350e8993098541f31e332067",
+            "after_lf_sha256": "5495c71237c16e46a29c8d0a966ca1931945a196210663d98dc68e53b720974c",
+            "hunks": [
+                {
+                    "before": "        if (($design['package'] ?? null) === 'm72-native-v1') { return M72PartitivesNegativesGeography::pointPanels($design); }\n",
+                    "after": "        if (($design['package'] ?? null) === 'm72-native-v1') { return M72PartitivesNegativesGeography::pointPanels($design); }\n        if (($design['package'] ?? null) === 'm73-native-v1') { return M73GenericIrregularCollective::pointPanels($design); }\n"
+                },
+                {
+                    "before": "        if (($design['package'] ?? null) === 'm72-native-v1') { return M72PartitivesNegativesGeography::validDesign($design); }\n",
+                    "after": "        if (($design['package'] ?? null) === 'm72-native-v1') { return M72PartitivesNegativesGeography::validDesign($design); }\n        if (($design['package'] ?? null) === 'm73-native-v1') { return M73GenericIrregularCollective::validDesign($design); }\n"
+                }
+            ]
+        },
+        {
+            "path": "app/Support/TheoryLegacyAdapter.php",
+            "base_blob_sha256": "a85eb914dc84fe484e12c691488285dc8cb1c772df4568746084689e042348e8",
+            "base_lf_sha256": "a85eb914dc84fe484e12c691488285dc8cb1c772df4568746084689e042348e8",
+            "after_lf_sha256": "de25140d7f076b347b568493b5fceeacf2b3a346b27c2061d5d87ae3222ec967",
+            "hunks": [
+                {
+                    "before": "                $correction = M72PartitivesNegativesGeography::correction($item, $design);\n                if ($correction !== null) { $point = array_replace($point, $correction); }\n",
+                    "after": "                $correction = M72PartitivesNegativesGeography::correction($item, $design);\n                if ($correction !== null) { $point = array_replace($point, $correction); }\n                $correction = M73GenericIrregularCollective::correction($item, $design);\n                if ($correction !== null) { $point = array_replace($point, $correction); }\n"
+                }
+            ]
+        },
+        {
+            "path": "app/Support/TheoryContentRenderer.php",
+            "base_blob_sha256": "4ff81d9879727c479a003f300492047c526a6e51c02043393e81cd9c634a0566",
+            "base_lf_sha256": "4ff81d9879727c479a003f300492047c526a6e51c02043393e81cd9c634a0566",
+            "after_lf_sha256": "d0bbdb2425b4fd4b69b52d1f590e823ac7b330122a74f25c6c1ea55d4626d57f",
+            "hunks": [
+                {
+                    "before": "                $bindings = M72BuilderSelectionPresentation::bindings($bindings);\n",
+                    "after": "                $bindings = M72BuilderSelectionPresentation::bindings($bindings);\n                $bindings = M73BuilderSelectionPresentation::bindings($bindings);\n"
+                }
+            ]
+        },
+        {
+            "path": "app/Support/PracticeCompletionLinkedPractice.php",
+            "base_blob_sha256": "de7d97873415e7d658e963f61e9ca9e2a913305f24aca0eddd421dec1456520a",
+            "base_lf_sha256": "de7d97873415e7d658e963f61e9ca9e2a913305f24aca0eddd421dec1456520a",
+            "after_lf_sha256": "c8abb07db699835b17c4c8f970d9066abfeb08ee20aaadb972e4ef313d8cd207",
+            "hunks": [
+                {
+                    "before": "        $block = M72BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n",
+                    "after": "        $block = M72BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n        $block = M73BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n"
+                }
+            ]
+        },
+        {
+            "path": "app/Services/Theory/TextBlockToQuestionsMatcherService.php",
+            "base_blob_sha256": "3473b8d4efc3e370119f0fa6a893b8b5dd73f04cc63f7771a89c0cc98da189ed",
+            "base_lf_sha256": "3473b8d4efc3e370119f0fa6a893b8b5dd73f04cc63f7771a89c0cc98da189ed",
+            "after_lf_sha256": "bfd3717ff5be250e6124589f1837b6271231b596ba68cc78ac1551be5b3c313b",
+            "hunks": [
+                {
+                    "before": "            $excludeQuestionIds = \\App\\Support\\M72BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n",
+                    "after": "            $excludeQuestionIds = \\App\\Support\\M72BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n            $excludeQuestionIds = \\App\\Support\\M73BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n"
+                }
+            ]
+        },
+        {
+            "path": "app/Services/TheoryCourseManifestService.php",
+            "base_blob_sha256": "79de9afd953a079a49687ab67ea065f1dd88db68e750a38137a5da263f99acb5",
+            "base_lf_sha256": "79de9afd953a079a49687ab67ea065f1dd88db68e750a38137a5da263f99acb5",
+            "after_lf_sha256": "18845d8658826f8b67324958a5bc001185e7f172d56a6330481f7710d10960bc",
+            "hunks": [
+                {
+                    "before": "        $page = \\App\\Support\\M72PartitivesNegativesGeography::preserveCoursePage($page);\n",
+                    "after": "        $page = \\App\\Support\\M72PartitivesNegativesGeography::preserveCoursePage($page);\n        $page = \\App\\Support\\M73GenericIrregularCollective::preserveCoursePage($page);\n"
+                }
+            ]
+        },
+        {
+            "path": "app/Http/Controllers/TestJsV2Controller.php",
+            "base_blob_sha256": "082543611f02517c918aa90705eea8d00bf34294ed6750dfd2f13df537f3d26b",
+            "base_lf_sha256": "ad621826a34a31323b14a9e2a7f36231a958d194dd8a9f4be57ef5f4654d7e7b",
+            "after_lf_sha256": "7dcaf3674c0593789c4dfe2234ccec7fd1b37cd7d9db8ac9f7a2f317e8fb541d",
+            "hunks": [
+                {
+                    "before": "                    if ($block !== null) { $block = \\App\\Support\\M71ArticlesQuantifiers::preserveExcludedTextBlock($block, 'standalone_test'); }\n                    if ($block !== null) { $block = \\App\\Support\\M72PartitivesNegativesGeography::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+                    "after": "                    if ($block !== null) { $block = \\App\\Support\\M71ArticlesQuantifiers::preserveExcludedTextBlock($block, 'standalone_test'); }\n                    if ($block !== null) { $block = \\App\\Support\\M72PartitivesNegativesGeography::preserveExcludedTextBlock($block, 'standalone_test'); }\n                    if ($block !== null) { $block = \\App\\Support\\M73GenericIrregularCollective::preserveExcludedTextBlock($block, 'standalone_test'); }\n"
+                },
+                {
+                    "before": "                if ($textBlock) { $textBlock = \\App\\Support\\M71ArticlesQuantifiers::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n                if ($textBlock) { $textBlock = \\App\\Support\\M72PartitivesNegativesGeography::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+                    "after": "                if ($textBlock) { $textBlock = \\App\\Support\\M71ArticlesQuantifiers::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n                if ($textBlock) { $textBlock = \\App\\Support\\M72PartitivesNegativesGeography::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n                if ($textBlock) { $textBlock = \\App\\Support\\M73GenericIrregularCollective::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n"
+                },
+                {
+                    "before": "                if ($block !== null) { $block = \\App\\Support\\M71ArticlesQuantifiers::preserveExcludedTextBlock($block, 'standalone_test'); }\n                if ($block !== null) { $block = \\App\\Support\\M72PartitivesNegativesGeography::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+                    "after": "                if ($block !== null) { $block = \\App\\Support\\M71ArticlesQuantifiers::preserveExcludedTextBlock($block, 'standalone_test'); }\n                if ($block !== null) { $block = \\App\\Support\\M72PartitivesNegativesGeography::preserveExcludedTextBlock($block, 'standalone_test'); }\n                if ($block !== null) { $block = \\App\\Support\\M73GenericIrregularCollective::preserveExcludedTextBlock($block, 'standalone_test'); }\n"
+                },
+                {
+                    "before": "            if ($textBlock) { $textBlock = \\App\\Support\\M71ArticlesQuantifiers::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n            if ($textBlock) { $textBlock = \\App\\Support\\M72PartitivesNegativesGeography::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+                    "after": "            if ($textBlock) { $textBlock = \\App\\Support\\M71ArticlesQuantifiers::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n            if ($textBlock) { $textBlock = \\App\\Support\\M72PartitivesNegativesGeography::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n            if ($textBlock) { $textBlock = \\App\\Support\\M73GenericIrregularCollective::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n"
+                }
+            ]
+        }
+    ],
+    "owned_added_lines": 13,
+    "controller_raw_sha256": "79ff053c79076ac10781397d8de2b75f01e054de0850f7906770e50e7528ba82",
+    "immutable_primitives": [
+        {
+            "path": "app/Support/TheoryNativeContentRelease.php",
+            "base_lf_sha256": "0e8cd11fc42c3c1d938fd6ae17e226f6bb6bab7de8ec88db06b19b75fccda7ae"
+        },
+        {
+            "path": "app/Services/TheoryNativeContentPatch.php",
+            "base_lf_sha256": "af31eb1a0cc7375f11ace1432e68792255209b696654a93a789c580d1113ec9f"
+        },
+        {
+            "path": "app/Services/TheoryLocalReleaseGuard.php",
+            "base_lf_sha256": "4e608e71541d99409cb939fca5a2ff65adedc3d4caa74cc833a8886d46bb1a7c"
+        },
+        {
+            "path": "app/Support/TheoryBuilderSelectionPresentation.php",
+            "base_lf_sha256": "d4dd6f7ce81f7a5521676d5ae860dab5e715648455d76675e5cc5191ae2e178d"
+        }
+    ],
+    "protected_m72_sources": [
+        {
+            "path": "docs/content/m72-partitives-negatives-geography.v1.0.0.json",
+            "base_blob_sha256": "253da61264abd8544be816342b8e3522b11870c1f0ba1722b8b976eabc2f232c",
+            "bytes": 174828
+        },
+        {
+            "path": "docs/content/m72-before-source.v1.json",
+            "base_blob_sha256": "2567255a6e63255a474a6b6041ab2e99c69298a1b5ba0624e488ae44d09239bb",
+            "bytes": 86312
+        },
+        {
+            "path": "database/content-patches/m72-partitives-negatives-geography.v1.json",
+            "base_blob_sha256": "4437f03a77bac1cb9e7f49f73f0c68f0482d9708f2ffad8804972b07d74d84a3",
+            "bytes": 138287
+        },
+        {
+            "path": "docs/content/theory-sentence-builders/m72-partitives-negatives-geography.v1.json",
+            "base_blob_sha256": "baf496f103c9056cd03b1010e51dadee614df55afdd8e3fb9018b67c9dea6f22",
+            "bytes": 1465
+        },
+        {
+            "path": "docs/content/m72-partitives-negatives-geography.components.v1.json",
+            "base_blob_sha256": "6f692ddd8447e2031ce40347863c3c011d41e416ffb5c4301cd4b7f01e528adf",
+            "bytes": 70139
+        },
+        {
+            "path": "docs/content/m72-partitives-negatives-geography-bank-audit.v1.json",
+            "base_blob_sha256": "bc51862d48ec3764363574881b14fdc78f0b481730a3a72bd86b9f92264e2c1d",
+            "bytes": 99133
+        },
+        {
+            "path": "docs/content/m72-partitives-negatives-geography.v1.0.0.uk.md",
+            "base_blob_sha256": "96cc29b0acd9fc0f30dbfa7ae45f8eadaa8f556f710e3cc8dd91860ffb29be4e",
+            "bytes": 109477
+        },
+        {
+            "path": "docs/content/m72-partitives-negatives-geography.editorial.v1.md",
+            "base_blob_sha256": "403d29f16ae9b2a1095c97857063b33809b1ea485e9a19795877e7895425ee5d",
+            "bytes": 11385
+        },
+        {
+            "path": "docs/content/m72-partitives-negatives-geography.editorial.v1.json",
+            "base_blob_sha256": "59c683dd26ad8aa82f9265355117f6a3211d087496e049066dd936870dafccb4",
+            "bytes": 40875
+        },
+        {
+            "path": "docs/content/m72-source-checksums.v1.json",
+            "base_blob_sha256": "a7b32c1f05eb75c760073fcc53a5e0e752b045d788c0de46e116ad392536a4a2",
+            "bytes": 2961
+        },
+        {
+            "path": "database/seeders/Page_V3/NounsArticlesQuantity/NounsArticlesQuantityPartitivesTheorySeeder/definition.json",
+            "base_blob_sha256": "d4693fb201b9c7a4500b8328fa2579ad8475ed617474d2ce4784f9a9850ff95e",
+            "bytes": 45181,
+            "served_before_sha256": "d4693fb201b9c7a4500b8328fa2579ad8475ed617474d2ce4784f9a9850ff95e",
+            "served_before_bytes": 45181
+        },
+        {
+            "path": "database/seeders/Page_V3/NounsArticlesQuantity/NounsArticlesQuantityNoNoneNeitherEitherTheorySeeder/definition.json",
+            "base_blob_sha256": "1541b51276286cb9b44932d82c24eaa3533ea6935805cd8e41fbf301412b85ce",
+            "bytes": 49574,
+            "served_before_sha256": "1541b51276286cb9b44932d82c24eaa3533ea6935805cd8e41fbf301412b85ce",
+            "served_before_bytes": 49574
+        },
+        {
+            "path": "database/seeders/Page_V3/NounsArticlesQuantity/NounsArticlesQuantityArticlesWithGeographicalNamesTheorySeeder/definition.json",
+            "base_blob_sha256": "e1260794e7fa92a2aaaffd73b31db3dd181517ba1f008579fc7ae6884f18d043",
+            "bytes": 41234,
+            "served_before_sha256": "e1260794e7fa92a2aaaffd73b31db3dd181517ba1f008579fc7ae6884f18d043",
+            "served_before_bytes": 41234
+        },
+        {
+            "path": "docs/content/m72-partitives-negatives-geography-bank-audit.v1.0.1.json",
+            "base_blob_sha256": "803855b45aa9f01d4ae7a9c6e01b8fa108f975104624ff3825bea21015999529",
+            "bytes": 99977
+        },
+        {
+            "path": "docs/content/m72-bank-selection-revision.v1.0.1.json",
+            "base_blob_sha256": "09d3e65edf74dc1e2e05e1bc0edd11a8b63e4b4062f502d375605ea9434d00b6",
+            "bytes": 21699
+        }
+    ],
+    "visual_sources": [
+        {
+            "path": "public/js/authored-practice-ui.js",
+            "base_lf_sha256": "90c648d8ab1059c4bf6d77852a14be1e5c34b140ab6e95b228ad457e5d959274"
+        },
+        {
+            "path": "public/js/english-answer-variants.js",
+            "base_lf_sha256": "082c2072ffdb6f4aac6a17feeeec87e48cd4c6848d2c84d45ed3136cd8ecc89b"
+        },
+        {
+            "path": "public/js/m39-practice-ui.js",
+            "base_lf_sha256": "19b24458629c54111652521696ad4cb6079d3aa6fbf11432ba7da3d7cf7f9dd0"
+        },
+        {
+            "path": "public/js/m40-practice-ui.js",
+            "base_lf_sha256": "9beca2ba2d0b7858dffbafe689dd552de000dc4e60f3d97776055d91175549f8"
+        },
+        {
+            "path": "public/js/m41-practice-ui.js",
+            "base_lf_sha256": "9484e1b499220845594e874d81c97504de2aeaba568a4e45f492199c4a85c663"
+        },
+        {
+            "path": "public/js/m43-practice-ui.js",
+            "base_lf_sha256": "7148b28271e91c62336137b0c2812f597b2e85c97dac238de680f3fe7d0574f4"
+        },
+        {
+            "path": "public/js/m44-practice-ui.js",
+            "base_lf_sha256": "1bbe6658cd79ff68214c851898b905039791edc8128c1ae1c41456a996af1512"
+        },
+        {
+            "path": "public/js/m45-practice-ui.js",
+            "base_lf_sha256": "807649a2eff21f8212ee82ddabc60c096a18d5461a155b4157dfcde86fab929d"
+        },
+        {
+            "path": "public/js/polyglot-course-progress.js",
+            "base_lf_sha256": "c33036e09461be9e377c3bc337b01fc435c2211bafa4e82c161480c8c27fe6bd"
+        },
+        {
+            "path": "public/js/polyglot/admin-debug.js",
+            "base_lf_sha256": "0c68aa9a1a76c6559d1d21def51c2ba06f362294cc3b21aa582a069c793129ba"
+        },
+        {
+            "path": "public/js/polyglot/course-admin-debug.js",
+            "base_lf_sha256": "50796bcfe47fd2d0644fe9db1f5563f37e3d530498fc8144274d349217b46a31"
+        },
+        {
+            "path": "public/js/polyglot/progress/browserStore.js",
+            "base_lf_sha256": "5d513cd4cf80106a405cc5f3b95c00c157674a1cd6a8cf208743cb35478ee7e0"
+        },
+        {
+            "path": "public/js/polyglot/progress/courseProgressState.js",
+            "base_lf_sha256": "670bcfbee0058f807d5d7cef26095c9b47006661cb95689257867e921b40aa74"
+        },
+        {
+            "path": "public/js/polyglot/progress/events.js",
+            "base_lf_sha256": "d21fad0c55cfaba7fc150736268d6328fe29322d6c161d16216cd033d15df48d"
+        },
+        {
+            "path": "public/js/polyglot/progress/lessonProgressState.js",
+            "base_lf_sha256": "3510e6ab882551e6319e3581b41bdc55f506b8686ed3af4ae028b8d609dd15cc"
+        },
+        {
+            "path": "public/js/polyglot/progress/storage.js",
+            "base_lf_sha256": "442e2a9dfd4c8e4ed65b6a4ba8c6153b241ca4b7cc4e55bb6075006861763de7"
+        },
+        {
+            "path": "public/js/theory-course-progress.js",
+            "base_lf_sha256": "356f7a44e5258e22d3f9d54b4a46a6173fbcb34af6d836e9f2a1d5ce75d85645"
+        },
+        {
+            "path": "public/js/theory-mixed-test.js",
+            "base_lf_sha256": "1a23c65a680c83b5030728efb98cb8870c9e876639a0bb378a69a4df41e431d9"
+        },
+        {
+            "path": "public/js/theory-search.js",
+            "base_lf_sha256": "68953448d4e6c780107d376cedd2ed5f11beba4f8ef4b8e7aea18dba33e026ac"
+        },
+        {
+            "path": "resources/css/app.css",
+            "base_lf_sha256": "3722d677e02b542e5a3314a14f7dacf13e4417182b304a2297800843b781e80f"
+        },
+        {
+            "path": "resources/css/catalog-public-classes.json",
+            "base_lf_sha256": "a55d145210a915f862fbabf5c2f127bcde832ac529a9f7d6a71f529e16317689"
+        },
+        {
+            "path": "resources/css/catalog-public.css",
+            "base_lf_sha256": "02a5e7d154ac4bde7755601b04c4a81a666e2c975c41effc8938d574d935c8c6"
+        },
+        {
+            "path": "resources/css/theory-rich-content.css",
+            "base_lf_sha256": "741500dff222ee0d076a8e7199a76cbabcb6ed735f87c8012bbf5453af19c106"
+        },
+        {
+            "path": "resources/css/theory-unified-design.css",
+            "base_lf_sha256": "9ec6881a0878036a9ebeed1f43c7a15f4323377721ec8046df2c605855030ef8"
+        },
+        {
+            "path": "resources/js/app.js",
+            "base_lf_sha256": "cf6dab196c721f6911ff99cc4f910897f978599a2d289971a316a5fc33091f94"
+        },
+        {
+            "path": "resources/js/bootstrap.js",
+            "base_lf_sha256": "326ba857c524b23ca3b95a34cf26e9ad2e9c9a9e7605b3bb163d96b2e2b7b2aa"
+        },
+        {
+            "path": "resources/js/catalog-public.js",
+            "base_lf_sha256": "e62bea3ed0fa66fe0d28e6c38fb6ca376043c815efe7805d981e5db901f324d7"
+        },
+        {
+            "path": "resources/js/theory-navigation.js",
+            "base_lf_sha256": "0710a97673a4394b3cdb7f96fcbaf66727a44d6c129656f7464513f37030e486"
+        },
+        {
+            "path": "resources/js/theory-sections.js",
+            "base_lf_sha256": "52d15638e9f92025d4505efb3b909b5dc7c1ab9a3b4b9148328ecee1746ed428"
+        },
+        {
+            "path": "resources/views/admin/page-v3-prompt-generator/index.blade.php",
+            "base_lf_sha256": "e0fd224f6b1069669a0f361c428a22c82c713a8b5cd00ca8daf1c47b4a648844"
+        },
+        {
+            "path": "resources/views/admin/partials/codex-prompt-card.blade.php",
+            "base_lf_sha256": "4532da2a4c33e84b4e88d4e0cea68b2881ae8ae560b7f4cb3397446a02a18692"
+        },
+        {
+            "path": "resources/views/admin/polyglot-v3-prompt-generator/index.blade.php",
+            "base_lf_sha256": "c1c9bc557d695075c7e70bcb7e85c450a673214a071ccb3c83f4fed043677cf1"
+        },
+        {
+            "path": "resources/views/admin/question-reports/index.blade.php",
+            "base_lf_sha256": "a39339c6195d01e263e81131f6a7cab5af2af793a8777139fcf385a5af735156"
+        },
+        {
+            "path": "resources/views/admin/questions/list.blade.php",
+            "base_lf_sha256": "dc33a0ae13d126cdef2f2b70387cb483736661f35e6531ce7d4c2287d00e82b8"
+        },
+        {
+            "path": "resources/views/admin/site-tree/index.blade.php",
+            "base_lf_sha256": "99263ad0bb37b814615f54e9b9bb2fed186a57f17b1a8c0d4aed912986696e6c"
+        },
+        {
+            "path": "resources/views/admin/v3-prompt-generator/index.blade.php",
+            "base_lf_sha256": "881c7e2f10e4feaf15648a2cbe89d704aa8e5e0d3ec1632f1d75e5d3fbf84252"
+        },
+        {
+            "path": "resources/views/admin/words-export/index.blade.php",
+            "base_lf_sha256": "77a509c9cdde1921bafa2e8280eff54facca29350bf4518e09137044e8d615f9"
+        },
+        {
+            "path": "resources/views/admin/words-export/view.blade.php",
+            "base_lf_sha256": "5e07872c0fa606c1dccccbba7cc382d82ee96aed86b733f357387d80a0bbb84c"
+        },
+        {
+            "path": "resources/views/ai-test-complete.blade.php",
+            "base_lf_sha256": "a062ac6860dc3464d0d70ff0e95da783d35a8f9e10f5667f7532a8b8e82a943a"
+        },
+        {
+            "path": "resources/views/ai-test-form.blade.php",
+            "base_lf_sha256": "95a1fdb3337406db4811c352db9660a831bdc72b9ba2dda41853abcf2edd141a"
+        },
+        {
+            "path": "resources/views/ai-test-step.blade.php",
+            "base_lf_sha256": "dff99f6b081ffe958c5f73d621ba7a733b5b181982fcc994004dba6e2e8b6cdf"
+        },
+        {
+            "path": "resources/views/auth/login.blade.php",
+            "base_lf_sha256": "e83409fc2164c65d1be02a22cbcf83407ae6dd8e1c06e69f7be8a706e6a1b790"
+        },
+        {
+            "path": "resources/views/auto-generated-test.blade.php",
+            "base_lf_sha256": "dbae57b495a78da1e8770d5a85bf7ea06b10c717f12ca60f1d41b04a9a78f3a0"
+        },
+        {
+            "path": "resources/views/catalog-tests-cards.blade.php",
+            "base_lf_sha256": "b514a45f6ee54fd810c1a11d406ef363c11f7383f5767e79901ab95a4a13dfe3"
+        },
+        {
+            "path": "resources/views/coming-soon.blade.php",
+            "base_lf_sha256": "196004cae7bc8bccf085202c15be58a30f40e1c36f581d4c8bbc138779ab7849"
+        },
+        {
+            "path": "resources/views/components/admin-domain-switcher.blade.php",
+            "base_lf_sha256": "700efee19c1e133a89cbe9a79ecf5445f0df578d42340426872c660e97e7b56b"
+        },
+        {
+            "path": "resources/views/components/authored-compose-manual-preview.blade.php",
+            "base_lf_sha256": "765f52605d071504c2260585092bcf0b554455669a061d4c0315d93bf7ccae5f"
+        },
+        {
+            "path": "resources/views/components/auto-generated-test-card.blade.php",
+            "base_lf_sha256": "9cc99789b02788aff55bdcdd05052a0f80c4fdacacbf324f987b6f1d7b7e7e27"
+        },
+        {
+            "path": "resources/views/components/breadcrumbs.blade.php",
+            "base_lf_sha256": "e7195fd649106a4b48c9c7816368048af9ab6f9553ea30bcdf276f0d07d28690"
+        },
+        {
+            "path": "resources/views/components/english-answer-variants.blade.php",
+            "base_lf_sha256": "83dd35f4d1d1b1d8b971511c50abd6b86740fb17e66a68922ed83d2f254fc1a9"
+        },
+        {
+            "path": "resources/views/components/gramlyze-logo.blade.php",
+            "base_lf_sha256": "ffc0e5123ad0e12fafb6500c1a3242da32945674bd46cc4a4382a6cc255ee4aa"
+        },
+        {
+            "path": "resources/views/components/grammar-test-question-item.blade.php",
+            "base_lf_sha256": "0883d2bdf5283acbbc4b4c1419b82aaefabf55839ce24275877c591004f1c098"
+        },
+        {
+            "path": "resources/views/components/marker-theory-js.blade.php",
+            "base_lf_sha256": "35e92af2814854b5e692e6a615d1bd51b955234d6a269218131bf761f75ca73a"
+        },
+        {
+            "path": "resources/views/components/public/background-icon-svg.blade.php",
+            "base_lf_sha256": "82577d71b23c51ae8505470b472d3ff201083ce9de77a09b4d0bdf5aa7f320b4"
+        },
+        {
+            "path": "resources/views/components/public/fixed-background.blade.php",
+            "base_lf_sha256": "69a57a6a8657fd7cdfff85f018fe6b56af25beefab95f27cd89303a302274070"
+        },
+        {
+            "path": "resources/views/components/question-delete-modal.blade.php",
+            "base_lf_sha256": "513682e19388bc6f0dc858d4e00c95a3ea99bfff1491c841871f433213715ad9"
+        },
+        {
+            "path": "resources/views/components/question-input.blade.php",
+            "base_lf_sha256": "36996c19feabe64296e56f7ea074b676f119b15dc0843cd45831ddcf47c7cc7a"
+        },
+        {
+            "path": "resources/views/components/question-manager-scripts.blade.php",
+            "base_lf_sha256": "5639216051e611f8ca05e8f07eb50915c3f6edb75540554117dad8aafbca5796"
+        },
+        {
+            "path": "resources/views/components/question-picker-modal.blade.php",
+            "base_lf_sha256": "b051cc0590e842be7d896ced7541415d5d7ac3a2b40ca7d25f6fd0fbbf53602f"
+        },
+        {
+            "path": "resources/views/components/related-test-card.blade.php",
+            "base_lf_sha256": "c3b83e3701332bbfdc59467cd74328b67bc85edad253ba0aab44f7adac87fb54"
+        },
+        {
+            "path": "resources/views/components/saved-test-js-helpers.blade.php",
+            "base_lf_sha256": "1dc37a43ef62352d8da50a7212a3cbd9011f9463a919c0076ca6b7124e2e8457"
+        },
+        {
+            "path": "resources/views/components/saved-test-js-persistence.blade.php",
+            "base_lf_sha256": "9a266a713286951ecb3c1c440f65f89a2e1aa27e3cecee8fc933cfa9acb453d2"
+        },
+        {
+            "path": "resources/views/components/saved-test-js-restart-button.blade.php",
+            "base_lf_sha256": "1e2773c79f9748bf4b1adcf838d7420685984186f64d701242ed116c41ed3577"
+        },
+        {
+            "path": "resources/views/components/saved-test-progress.blade.php",
+            "base_lf_sha256": "32eecdf1d7f90bacd70b3dfa031633016a177b4b7992f5f5b4cfbdfbd2a22208"
+        },
+        {
+            "path": "resources/views/components/sentence-reorder-question-js.blade.php",
+            "base_lf_sha256": "55e97140d75c95cf3c7b0243e72f4a09ec29c2749bc6927a6fbe31480b33a38a"
+        },
+        {
+            "path": "resources/views/components/sticky-header-scroll.blade.php",
+            "base_lf_sha256": "46b5ac4bd509e26e52465dd35ccc8c882db8f80fa5f3aaf5d9d2300359e75257"
+        },
+        {
+            "path": "resources/views/components/test-mode-nav-new-design.blade.php",
+            "base_lf_sha256": "68c7d7c60690c7a944c411f846df2fb322eba5745502c9c4d641b443345bb72b"
+        },
+        {
+            "path": "resources/views/components/test-mode-nav-v2.blade.php",
+            "base_lf_sha256": "9f9191b3d005ccbaf83eea4e2ef1b57b49e7bd10a20e6007647bc124c0ba8055"
+        },
+        {
+            "path": "resources/views/components/test-mode-nav.blade.php",
+            "base_lf_sha256": "ac253328280f1ac03902e5c830dca87ef37ed3d82ef3f831f811826ec32b7528"
+        },
+        {
+            "path": "resources/views/components/test-suggestion-keyboard.blade.php",
+            "base_lf_sha256": "70d519b3a7d73f5774f55c9afe9baf90f241d9a8c29ea6921d7ceebfbbb5d434"
+        },
+        {
+            "path": "resources/views/components/text-block-level-badge.blade.php",
+            "base_lf_sha256": "fcdeb5a087eff615e4d01c717cbb2eb364e995d9fe9534ebb1f3a95e5a64c9db"
+        },
+        {
+            "path": "resources/views/components/text-block-practice-questions.blade.php",
+            "base_lf_sha256": "c224042fcc5fe767064a5b175369c020de4cb61ecfbdf7f73f9e5679385795f6"
+        },
+        {
+            "path": "resources/views/components/text-block-tags.blade.php",
+            "base_lf_sha256": "a5f74c89e5393724626c793f40cfb2118cfc8878e78629acbda83d27a1b83faf"
+        },
+        {
+            "path": "resources/views/components/theory-native-header.blade.php",
+            "base_lf_sha256": "e253027ef93145deb6a84b2c79739d5856d404d7813992d6894a0775e6c52278"
+        },
+        {
+            "path": "resources/views/components/theory-practice-action.blade.php",
+            "base_lf_sha256": "dbd2ba5ac22ecc88e622b6f01be571737d50ce764539fa69b797a7806f8b2aa4"
+        },
+        {
+            "path": "resources/views/components/theory-practice-actions.blade.php",
+            "base_lf_sha256": "7c1962e809ddd1f6b69d8eb52f0349d0e202cf5d884a716c40e333cbbebbf671"
+        },
+        {
+            "path": "resources/views/components/theory-practice-control.blade.php",
+            "base_lf_sha256": "74487eda6b66ad265bfb0d3c101f1678d0f4f456370e99ff7fc414230522d631"
+        },
+        {
+            "path": "resources/views/components/theory-practice-exercise.blade.php",
+            "base_lf_sha256": "de165f9767c63d1ef844766e2ec12e7a1b3b7110aaeecd43fc3a820150b25b30"
+        },
+        {
+            "path": "resources/views/components/theory-practice-explanation.blade.php",
+            "base_lf_sha256": "397f2812a8fe3ba271df2e59ee872f7cf70f69881f93ffe9b0a7ffb293d6dcde"
+        },
+        {
+            "path": "resources/views/components/theory-practice-feedback.blade.php",
+            "base_lf_sha256": "f9987432311286cb058f4598318642c04411edfb671ef8e5e6f6945a344b1fc8"
+        },
+        {
+            "path": "resources/views/components/theory-practice-header.blade.php",
+            "base_lf_sha256": "4b8b8954ef55a0ababaac46160588277b622af4f3195c17295bf7b0f37795890"
+        },
+        {
+            "path": "resources/views/components/theory-practice-heading.blade.php",
+            "base_lf_sha256": "6965a63a4a34a2fab5ea7ec9eb1a684e61a7aae0f5cff95a283ac97a2dc0b8b2"
+        },
+        {
+            "path": "resources/views/components/theory-practice-input.blade.php",
+            "base_lf_sha256": "0ff9ebf6f806269e4a3f77268e021ed0f9df0d50e783c0a4c75c9a87cd24ceb6"
+        },
+        {
+            "path": "resources/views/components/theory-practice-marker.blade.php",
+            "base_lf_sha256": "05aff659eb2f8cc5e8d50a38dac4fa6c88f10657f00f41c64a6d883d5ba69aab"
+        },
+        {
+            "path": "resources/views/components/theory-practice-option.blade.php",
+            "base_lf_sha256": "b1be20733701a61ffb3e04dba128f01fe491212a9924a15e4936477c1665befa"
+        },
+        {
+            "path": "resources/views/components/theory-practice-token-bank.blade.php",
+            "base_lf_sha256": "89682bd8a8f4a88942185952ceabc779aeb85cacf8d5fa4bc7f4f364ef8d7633"
+        },
+        {
+            "path": "resources/views/components/theory-practice-token.blade.php",
+            "base_lf_sha256": "a94cecf6b38a359280250b48fac079df30420681fb7cfc76cd2be1b76a77fe1d"
+        },
+        {
+            "path": "resources/views/components/theory-rich-box.blade.php",
+            "base_lf_sha256": "ffcdd4598a5d708d737be70af661ea6173d1a5feaca56519a1f26db9eced2558"
+        },
+        {
+            "path": "resources/views/components/theory-search.blade.php",
+            "base_lf_sha256": "a779fc5a34c6c35a454f076a1948ee78b6de7b30ca9e9758ebddf0dba007ce93"
+        },
+        {
+            "path": "resources/views/components/theory-section.blade.php",
+            "base_lf_sha256": "b07b1b20b6516984006f4f18c57caba4e4a14fbecf1084680c149afc7cdd80e5"
+        },
+        {
+            "path": "resources/views/components/word-search.blade.php",
+            "base_lf_sha256": "69817538ad3c0ef42851af3300e96a21520a76ac97e4cf4210a7362bfd75829a"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/authored-practice-ui.blade.php",
+            "base_lf_sha256": "d110339c7dab601d1bf6df28efd511a44a929b5b6464d39f1c7209d1c0326909"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/comparison-table.blade.php",
+            "base_lf_sha256": "c823e3c957dec03141463f1f8166e9e80543e72ec0dc74ade03a633939f2554d"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/forms-grid.blade.php",
+            "base_lf_sha256": "4b0286eba69edadbd70f0f3adb2dbe5931ae5c2fcc7f09b32796a73088ec1f5b"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/lesson-rule-cards.blade.php",
+            "base_lf_sha256": "19a28f871fe81442f7ee9aaa7291f60d18d7ef4407fcc4ee4f5bd75649093f59"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m41-author-section.blade.php",
+            "base_lf_sha256": "09753a9054af82e49b6382c85e138d96c0fe345fb0a5b5636aa515d563c270c8"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m41-existing-design-section.blade.php",
+            "base_lf_sha256": "e18d7aff9a8f8894fdb77570f7e3c1b54f529c86b8dbb7620eefe82c2dbdf4da"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m41-native-detail.blade.php",
+            "base_lf_sha256": "4c30ba0370fb405ded0b096cb318bbd952be9f89e12ef5234f41307011fb32f8"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m41-native-example.blade.php",
+            "base_lf_sha256": "a8660eb7626da20b0ebb897a601e0846a4e25821d8dd9e6c693ad3797805ab24"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m41-native-mistakes.blade.php",
+            "base_lf_sha256": "e56e853f3f8878e74822a18b48d063212edc00bff2ee67e1406794bd65a9ab4a"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m41-native-point-heading.blade.php",
+            "base_lf_sha256": "476b2f107afe653cf734b1864a32a48440cb19d4187468bdce5b25bed83b7f15"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m43-native-mistake.blade.php",
+            "base_lf_sha256": "198b1157327375f0ccc9b2130d3f966290155e586fa99861708d9d60faf1b79b"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m43-native-section.blade.php",
+            "base_lf_sha256": "96049e0d44dbae9a0c3310e93b2ace5fcb91aaa6749ce2c9151b1210a8bd951b"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m43-native-table.blade.php",
+            "base_lf_sha256": "a0bb2e6817e7ad742091562dffe414c5d4959bbaa54aca635d415e78646f2bd4"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m43-practice-ui.blade.php",
+            "base_lf_sha256": "5a6e1f8b2784e78826fe0333f83c97fdc3e360f9a11b0dae9144805cf509864a"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m43-static-fallback.blade.php",
+            "base_lf_sha256": "1632cb74c42e9ff7716244a340e5f61f91117d1fcedea58955c2d672ef568c95"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m44-compact-detail.blade.php",
+            "base_lf_sha256": "d58e8ab96dadce340b3228673952e21f3d070c1adb7573b1cfbafcbab50d2dd6"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m44-compact-form-comparison.blade.php",
+            "base_lf_sha256": "8daed22ff33886fdef37ffe41088ddafa21afab1542f2f47416974dada5fe924"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m44-compact-form-examples.blade.php",
+            "base_lf_sha256": "eda647154e214d8e0840af0f31245bafbc0fdb807783fe5726af52c0e93ebf24"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m44-compact-form-rows.blade.php",
+            "base_lf_sha256": "94a0573f46b6ab09ac6239ead48809bfeaf331b6d38862cd8210201a78b42267"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m44-compact-section.blade.php",
+            "base_lf_sha256": "62ec520ba272afc7f5bdbef9788073431c11d35a426171a63330d166b77692b7"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m44-native-mistake.blade.php",
+            "base_lf_sha256": "2cbf0e7fc83eaaf4f7445f5eedb19e54c151f8639dcdf04f8a764ba0dd81ce4e"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m44-native-section.blade.php",
+            "base_lf_sha256": "ec39549905e6773b48c1561e8d24e8485fe958446d91ea3ad4d0e7052b6c08d1"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m44-native-table.blade.php",
+            "base_lf_sha256": "3577165d58a50d7a934e98aa7aee0bafbea50d6860be6dfc93d85ba03af4dd3a"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m44-practice-ui.blade.php",
+            "base_lf_sha256": "1032a32ad71b278c6231b8eb21b6a7b0f9016a122b614e5d2cb9e82604736052"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m44-static-fallback.blade.php",
+            "base_lf_sha256": "831e670d3059de2e504b4d0f12036789170fc7a06f76b501b06880f6ea3343e8"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m45-detail.blade.php",
+            "base_lf_sha256": "18b2c16751822141f9e1fd23d77a733b00d957e19d26a2ecccc620e1cc8ec751"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m45-practice-ui.blade.php",
+            "base_lf_sha256": "218055aafcb5ead82359e6c29faf5e9ac8b70d1f1651985046275fb0e4e1add6"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m45-section.blade.php",
+            "base_lf_sha256": "0bb3c37ed702e7f1b67a998b0b43d1195a99d683ec82c8ef95eeea37501dd22f"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/m45-static-fallback.blade.php",
+            "base_lf_sha256": "def8a690d40b1cea0d4d2b0660c260457c03a4be50557da015eb53fda3dac054"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/mistakes-grid.blade.php",
+            "base_lf_sha256": "75d766a6a6d8499952ca72cc70fc50dd41aa6d4b4a3e69b877139c0e43f9498d"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/package-styles.blade.php",
+            "base_lf_sha256": "ca5c8a469ba001edd0b08395d44b1393b249da0bbdc975537d11c4ce0bdbd73b"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/point-detail-fragment.blade.php",
+            "base_lf_sha256": "5a81863c495663c01e2509145518b3f2edf1e2bbeab4ed0d40e473bde27db92b"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/summary-list.blade.php",
+            "base_lf_sha256": "f4ee9f7abe51932a09b4618cb1c15c365ce666d023f7167abbe1b3276f625b79"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/tense-forms-table.blade.php",
+            "base_lf_sha256": "d8637f7f8f170e9618117da0b6d5eeb1dda95e8787c892d7a60abdccfe0b11d0"
+        },
+        {
+            "path": "resources/views/courses/compatibility/theory/usage-panels.blade.php",
+            "base_lf_sha256": "8c82460dbf5a8ac745c4674424e188336e827aefed291fc110bdd3af774d11b7"
+        },
+        {
+            "path": "resources/views/courses/index.blade.php",
+            "base_lf_sha256": "84d40a3b95402dbd3e0e273d39fef3b74ca616a2aa6708f34adc789a289e81a8"
+        },
+        {
+            "path": "resources/views/courses/partials/polyglot-admin-debug-course.blade.php",
+            "base_lf_sha256": "575e6dbe33360229ee9b22d6c26de1ae1349e03ff3c7af2a246969acc34df559"
+        },
+        {
+            "path": "resources/views/courses/partials/theory-page-content.blade.php",
+            "base_lf_sha256": "d46e5e94d84d3fd08151caa7a80502878cf8fa588dd49f35876e77a3a4741c52"
+        },
+        {
+            "path": "resources/views/courses/show.blade.php",
+            "base_lf_sha256": "5791c393fc77551f17ba7293f17017a8e4b707ab2198826b740ca7900ac8586a"
+        },
+        {
+            "path": "resources/views/courses/theory-course.blade.php",
+            "base_lf_sha256": "631d492bafa5f5d3b7589cf98d5696849b356495466e230b1f2edfdb32ab7c6f"
+        },
+        {
+            "path": "resources/views/courses/theory-lesson.blade.php",
+            "base_lf_sha256": "f2e350c3e2c4eec696df35a9afccb7a420cc1938e9f97cf6e200acf09e3b22b7"
+        },
+        {
+            "path": "resources/views/engram/catalog-tests-cards.blade.php",
+            "base_lf_sha256": "91089f8e6881ccf2ad1b0084963f5d978c6812e1e653a8a9524059666d04f6f5"
+        },
+        {
+            "path": "resources/views/engram/pages/index.blade.php",
+            "base_lf_sha256": "5bbda019c4b1d7a437ac10fe7a0827bb13cd26074f37727cd44e1bb82cb2d9e2"
+        },
+        {
+            "path": "resources/views/engram/pages/partials/grammar-card-styles.blade.php",
+            "base_lf_sha256": "ff8bbf4b5cee4a70a398505d0124d1fe418d553baf234237264b9faab0f08594"
+        },
+        {
+            "path": "resources/views/engram/pages/partials/grammar-card.blade.php",
+            "base_lf_sha256": "734751a0b06d62c7e64e6ce0cfc86ee38b85a5ca1d0141fc1b3026b8176c5618"
+        },
+        {
+            "path": "resources/views/engram/pages/partials/page-grid.blade.php",
+            "base_lf_sha256": "689317b0442dc2944454d9809f91652728d0def2ea19f08cb2de3730e7b45f02"
+        },
+        {
+            "path": "resources/views/engram/pages/partials/sidebar.blade.php",
+            "base_lf_sha256": "4bf0987baa0bc2d57c04b9c222f4db683edb7f868aaff2056d94e3da57d87bf2"
+        },
+        {
+            "path": "resources/views/engram/pages/show.blade.php",
+            "base_lf_sha256": "b9f9f5897315bfb9e5b79a4f99affec42a85295b1a222f0e0259297f584b50bd"
+        },
+        {
+            "path": "resources/views/engram/saved-test-js-input.blade.php",
+            "base_lf_sha256": "2f9f94e5385427b167cbd5d7f1f5ec67d99ea12e56fccff51365b1218439df50"
+        },
+        {
+            "path": "resources/views/engram/saved-test-js-manual.blade.php",
+            "base_lf_sha256": "fe15061dc9b29d059fa4c387a1dde1f5492503bc2f548aac92c744eced47ad2b"
+        },
+        {
+            "path": "resources/views/engram/saved-test-js-select.blade.php",
+            "base_lf_sha256": "4203f6ab429b00b58d7af7b9262785b7e4b0a4e67039b5299b4b016f812011ea"
+        },
+        {
+            "path": "resources/views/engram/saved-test-js-step-input.blade.php",
+            "base_lf_sha256": "caff25f398d72431ce6f6832ba6529a89e76a16fb9a66bb3bc59124314d1da5a"
+        },
+        {
+            "path": "resources/views/engram/saved-test-js-step-manual.blade.php",
+            "base_lf_sha256": "b03fecf14d7599f61be3e68698c1260a4e1193dde299fc3b515fc96eeb5335a2"
+        },
+        {
+            "path": "resources/views/engram/saved-test-js-step-select.blade.php",
+            "base_lf_sha256": "718af7f13915cb5c43624874349a2c5ac41c9efdf4c05e1b6102f996e08781fe"
+        },
+        {
+            "path": "resources/views/engram/saved-test-js-step.blade.php",
+            "base_lf_sha256": "e81ec571388b1b9773b154e892fbfc6ceff08b53a115b7902a4873a65b68d08c"
+        },
+        {
+            "path": "resources/views/engram/saved-test-js.blade.php",
+            "base_lf_sha256": "96a5bef6964c5915f9b35f1478e33564c350d0eff9154a5f912c7fe445f00a69"
+        },
+        {
+            "path": "resources/views/engram/saved-test-tech.blade.php",
+            "base_lf_sha256": "b6b68ef05a4cf7d69a496cb3f39a5b0eb4da7205757a66f51b28799b2b368cba"
+        },
+        {
+            "path": "resources/views/engram/saved-tests-cards.blade.php",
+            "base_lf_sha256": "3e7d46aa6961061945682dca69598f0b9f8555ffe2ff930572c1534faa98fec3"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v2/comparison-table.blade.php",
+            "base_lf_sha256": "af46ead81f5f74df0bb0c76ba7d24fde67982241792a89da5ce0000df42cb88e"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v2/forms-grid.blade.php",
+            "base_lf_sha256": "7413cdf23d8c3af256662df88310579cb65e3e2503b8db28ebef5bb20c3bcf13"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v2/hero-v2.blade.php",
+            "base_lf_sha256": "16fb80bc638a7bd871676514def57026e52925a0cb2af337d29abc11172c7107"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v2/hero.blade.php",
+            "base_lf_sha256": "e8ef68ceb3753390af58a884b6061697934349998d5cee08fedfc5691eb4e3eb"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v2/mistakes-grid.blade.php",
+            "base_lf_sha256": "6c2ebd8c6eb3da41437ffe5a270b968b3e18e9929e165f9edee118c461122a03"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v2/navigation-chips.blade.php",
+            "base_lf_sha256": "9b9d9e96668a98cbafd93f5460c52e189528e53659e86cfaf1d80a1d1a927e38"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v2/practice-set.blade.php",
+            "base_lf_sha256": "2f965b4042651848f37cc342056760d2d2245291822cc712fc25161be0a1dc36"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v2/summary-list.blade.php",
+            "base_lf_sha256": "e2d374dac697727d69d4e9018412c7e143dbb062ed9cb97553d6b1ce65c282ff"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v2/usage-panels.blade.php",
+            "base_lf_sha256": "6492960c8019cd3fbe9e74a18e40fcce5733e57d1b166a3de0dd15df0e189398"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/authored-practice-ui.blade.php",
+            "base_lf_sha256": "94b0edd79de0a3d2e444b3ef44ffba95779127651cfefb42182aa9a264d48369"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/comparison-table.blade.php",
+            "base_lf_sha256": "197e5c2f35edeaa8a0767d87f6985a9da338ed2bb839b960f9462573d30126b1"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/forms-grid.blade.php",
+            "base_lf_sha256": "343b16965e96212913e46debed025f55b81adb39ce810d3ea79e57db6787d374"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/hero-v2.blade.php",
+            "base_lf_sha256": "6b14586a3c3230e3f6d65d1a2050b9dc0bd2fae91c749855b7928bd632919652"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/hero.blade.php",
+            "base_lf_sha256": "6c8df218cda2b7fac65d33699b5119f98e703650cad4e8632cebe4fc8a7be479"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/lesson-rule-cards.blade.php",
+            "base_lf_sha256": "12a1db15c2271214211e028965c56f57a3b121752dad54307fe0f1e0d066235b"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m39-practice-ui.blade.php",
+            "base_lf_sha256": "8b592895926fff633e39d0381d0fd15dc8c4c8c47bb5b8c4b5d257b8524678bd"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m40-practice-ui.blade.php",
+            "base_lf_sha256": "5e99a003d9cae99b360c94eae022f4a61bde269337a462e572bc4214176552f9"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m41-author-section.blade.php",
+            "base_lf_sha256": "3326368337311d7826281414a013369609ac53067d6c691914745f05bc067d98"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m41-existing-design-section.blade.php",
+            "base_lf_sha256": "df5e58b80b1d13dfd37f0bd15c56690bff0609c157bd1f75ccfd0143ca856bb5"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m41-existing-design-styles.blade.php",
+            "base_lf_sha256": "450d11b547a14f326f099e81ed92dc6f2fdefcd812f899330bfca345af2d0b7c"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m41-native-detail.blade.php",
+            "base_lf_sha256": "18d95874cb746b40790533256f420e1c358799f2a92bb9742f6a272731b5efdf"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m41-native-example.blade.php",
+            "base_lf_sha256": "c7c265f4226ee326a8b3ce35ce4b0d1b5d60bfb6ce963a4aaf9ecdab5bcc3c60"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m41-native-mistakes.blade.php",
+            "base_lf_sha256": "fb5a8cc0883ec20c461ed21cb4fba976db4d57dd4012c7a28734abf5be465f47"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m41-native-point-heading.blade.php",
+            "base_lf_sha256": "fc717892bd3832ca772e9046d04490b84dbbabfc1a667fe2766d30579d08ea65"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m41-practice-ui.blade.php",
+            "base_lf_sha256": "f7aad58971a9dfb0af9c5c6437bf0eae474cef1d25549d2f35c53b65dfde4b44"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m41-section-styles.blade.php",
+            "base_lf_sha256": "1b62d6bfbb8061e9b5f9d5176df5cc48ad140fc237cfacb4b096ea91c6ca644c"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m42-native-design-styles.blade.php",
+            "base_lf_sha256": "a2dd8f08025a7867b81b23b2fe247dd53352952a3d8e0413ee3a097ac064a3a8"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m43-native-mistake.blade.php",
+            "base_lf_sha256": "d99fdf2e93e34deb464a50caa5cdb1a5cedcdd86da1db75be44d9d000554eb4b"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m43-native-section.blade.php",
+            "base_lf_sha256": "e6e980bc5cf4b405ddbe1b55a305ce702f91b7578cf5f3e7e2194fc5221b2298"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m43-native-styles.blade.php",
+            "base_lf_sha256": "7a630ce76a39ac94889b5e0dc9b73668088503f17d3b6c5a93bd7290b93589a2"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m43-native-table.blade.php",
+            "base_lf_sha256": "95586e35a77a279eca29ca2ec352fae27e0667cc9ebc1ffccfe3f7da2fe5c045"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m43-practice-ui.blade.php",
+            "base_lf_sha256": "5053ea9c6bbe63f3ba25a999d9f52951b22b1c72a1ad92fab8ef29b2ad93a027"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m43-static-fallback.blade.php",
+            "base_lf_sha256": "0e53ad21e6ff0832587d9490088c1f9ba6e252c3371ba8d7ab084d24aa67dbc6"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m44-compact-detail.blade.php",
+            "base_lf_sha256": "9e1ac4b872ae6056bc51ef111fbf76a2135aa0208773bf24761103bda9ffd431"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m44-compact-form-comparison.blade.php",
+            "base_lf_sha256": "61b6549c57d4eb4367c6ead76f21d4b869daae3c04ff0d194c297dcfe893c8e0"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m44-compact-form-examples.blade.php",
+            "base_lf_sha256": "6b1c8205bce7c47a86030fc8d16451e9ce1f1721c0a6595cb86e1d16bce51732"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m44-compact-form-rows.blade.php",
+            "base_lf_sha256": "68a1885398057ecfd407f8633c1696df9d8cf0ad1292db0b7689663ba5bcdef2"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m44-compact-section.blade.php",
+            "base_lf_sha256": "f89acf83dd6cf5f4ec37a7e234c14578824d487a48929a32d9d8d844f905574c"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m44-native-mistake.blade.php",
+            "base_lf_sha256": "c7b14996796c1c1aae41df4aac6ae5d808683b91267a4026c615c8c8ed9b15d3"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m44-native-section.blade.php",
+            "base_lf_sha256": "1a681295c0de2988fff0905708ddb5bd0f5a3a9245438a84b7120f0990ed9ca9"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m44-native-styles.blade.php",
+            "base_lf_sha256": "a8539f335ddd32e4f4dff216c18b72524f432042b8a77428f7fd0594c3775c1f"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m44-native-table.blade.php",
+            "base_lf_sha256": "be91dcde584929229c496cb99e86c38c9acd5964b7839fb672ee709b071fe73b"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m44-nojs-tokens.blade.php",
+            "base_lf_sha256": "7c8d410dcabf5b71df469d636ed5479a8c67f615c666c437e96cbbf9e1efc4b3"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m44-practice-ui.blade.php",
+            "base_lf_sha256": "817d76fcc02f2365f0b10fe54d052baf65498397e57a8dca1934893a340b3e36"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m44-static-fallback.blade.php",
+            "base_lf_sha256": "3d6eeacfa2160adee0d6d52af6aac2d55c6500db7538a25fd87f7e5d0fc5e017"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m45-detail.blade.php",
+            "base_lf_sha256": "c072e111f7ffee76170a1e173088d3316792defcf6c6520f5fbde3b36dc7f113"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m45-nojs-tokens.blade.php",
+            "base_lf_sha256": "198024542a083cb970416cdb67961cea124690ff77ed649c2d078ff465db147b"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m45-practice-ui.blade.php",
+            "base_lf_sha256": "f7e3c4aac340ab79a77bd21975f2294657baf0ddd623635b6877cb1edaff3f05"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m45-section.blade.php",
+            "base_lf_sha256": "53ac7f0153083d8ba4f8540ab39224e291a2dc94c58f9748cf3d66b43e7cd392"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/m45-static-fallback.blade.php",
+            "base_lf_sha256": "dd670a642c7b0166fc857c545f35433d30bdf78c74b1838dafc0cce1fb9ef06a"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/mistakes-grid.blade.php",
+            "base_lf_sha256": "98f9d5047e62533047e600e1b32fa58633a43695946930b864ef22849f38d862"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/navigation-chips.blade.php",
+            "base_lf_sha256": "13c3dff2c17e98dd8cf8a7142864835c8abe7b5894de52f8a4833ff968abfc49"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/practice-set.blade.php",
+            "base_lf_sha256": "c15696702486805e66fd3fb15937f724f294ea518dfb918951747919cffe758d"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/summary-list.blade.php",
+            "base_lf_sha256": "0a921b0906958cf3bcc5c1b4dbc5b42996d42bbbb3153cb71ba4bdb8eb726793"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/tense-forms-table.blade.php",
+            "base_lf_sha256": "88589bbe4daf34701b48ed080e0bdc29bfff10285ff8e5da14b29e4a749ff63c"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks-v3/usage-panels.blade.php",
+            "base_lf_sha256": "0b17482d70e5766c4cb1210ac619fbecb28b00337a222833eac0812e16049a69"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks/comparison-table.blade.php",
+            "base_lf_sha256": "6b8af06ce984396d22066ea688f6644c7643697fbe834861e15e5a7782e70563"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks/forms-grid.blade.php",
+            "base_lf_sha256": "ae4e011df53e4a09dcf31b2beffc79fd8401ae4e3b392ac4e342c8b07d89d104"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks/hero.blade.php",
+            "base_lf_sha256": "8a93633fece1e7bc2400fa5c750cd3a89a02673ac82a5fe2d26fb0cb75d179b9"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks/mistakes-grid.blade.php",
+            "base_lf_sha256": "a3a4f5c6a272bdde82a6cc4a1382d98a8f919a936d7643a411bdc00f23b97e21"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks/navigation-chips.blade.php",
+            "base_lf_sha256": "73248f57a7c863abce718f18eb59e606823826f5f350c44d7de804ae3388d79d"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks/practice-set.blade.php",
+            "base_lf_sha256": "1858fa3bd4ecc692d88dadbcdf11dcd0d06fe11d18c575c7d593595d5c156b96"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks/summary-list.blade.php",
+            "base_lf_sha256": "b980af83b09fef3a4704d04a20555a85fe1bdb6ffad1db529e43ce1fd8bd76fe"
+        },
+        {
+            "path": "resources/views/engram/theory/blocks/usage-panels.blade.php",
+            "base_lf_sha256": "5c8596afe1bff45aef8aba55c8503028b71feced5cf4b76cd0ac6f816302f0ef"
+        },
+        {
+            "path": "resources/views/engram/theory/partials/category-description-v3.blade.php",
+            "base_lf_sha256": "fc78495daa72415f0c82341035267c373e6256c12bf29486f27ea99b31574420"
+        },
+        {
+            "path": "resources/views/engram/theory/partials/nested-category-nav-mobile.blade.php",
+            "base_lf_sha256": "d4d4a645c15f5d2dd3776d2bb42963d97997ba66d0cd8fe7154bf06842f5c376"
+        },
+        {
+            "path": "resources/views/engram/theory/partials/nested-category-nav.blade.php",
+            "base_lf_sha256": "c00a2b6d1c6b71b2f027dbcd04b692acfb6e9821b9c025d2ebaeaed8912db7b4"
+        },
+        {
+            "path": "resources/views/engram/theory/partials/sidebar-navigation-mobile.blade.php",
+            "base_lf_sha256": "3c235c8f36d4bb0474cfa75b4a4b61a93fa975df0889b4f020419caba6d8a5b0"
+        },
+        {
+            "path": "resources/views/engram/theory/widgets/lesson-rule-cards.blade.php",
+            "base_lf_sha256": "92e6e4495c2a76aebc493924e9dcfbfcd512d5cda17b13f6e7bbfc87c6d427d3"
+        },
+        {
+            "path": "resources/views/errors/403.blade.php",
+            "base_lf_sha256": "3c709433ab5e69d806855744892e1792fa3e07752d91d40d6054bd08bcb59a75"
+        },
+        {
+            "path": "resources/views/errors/404.blade.php",
+            "base_lf_sha256": "e11f8cd54fab4f6d8693543bc11510874d14c8ded09a8d91d3f53324c3350077"
+        },
+        {
+            "path": "resources/views/errors/419.blade.php",
+            "base_lf_sha256": "49e0ab2fdea1e7d8514b75230eff190a24b1110e65976c9890ed37fd78efabc4"
+        },
+        {
+            "path": "resources/views/errors/429.blade.php",
+            "base_lf_sha256": "3a43be6872b0a722994560086d87facf1c173821e8af4975fa61cef65c25cf41"
+        },
+        {
+            "path": "resources/views/errors/4xx.blade.php",
+            "base_lf_sha256": "33662d5d83749872bc53d3cc64cf52598ee413a9b4a4f856c99d1de175291ab1"
+        },
+        {
+            "path": "resources/views/errors/500.blade.php",
+            "base_lf_sha256": "102e471b584dc6e4c3f54cc73d4b82443995133a898dc3460c7527f800b86593"
+        },
+        {
+            "path": "resources/views/errors/503.blade.php",
+            "base_lf_sha256": "6cde125a8f78f9f75e946d85ae89a8860575213e49a3ee9e41fd937b31881dee"
+        },
+        {
+            "path": "resources/views/errors/5xx.blade.php",
+            "base_lf_sha256": "017cc18b477b1d79b0ebbb40a51787731ab6efe6d7ec0f84d3d303f912772d3b"
+        },
+        {
+            "path": "resources/views/errors/layout.blade.php",
+            "base_lf_sha256": "2fdd13186480195ba48a9199e60655b975abef6fbe878bbacf45aa3125d24e09"
+        },
+        {
+            "path": "resources/views/grammar-test-result.blade.php",
+            "base_lf_sha256": "05d71ef12f195e82fe4ffea684842c338d97d4bd05b21aed21a44aeac6bab17e"
+        },
+        {
+            "path": "resources/views/grammar-test.blade.php",
+            "base_lf_sha256": "3eb54ef60699286a3708964a8c5ca41931fea9f9bfc832f17339654ed6c0733b"
+        },
+        {
+            "path": "resources/views/home.blade.php",
+            "base_lf_sha256": "81f4a11c9962d5dc8ff25110f20a2c0a50b36568f65ecf740595ca59f9260aa1"
+        },
+        {
+            "path": "resources/views/layouts/app.blade.php",
+            "base_lf_sha256": "7253dfea256d2057e9da7cb5bd3a0fe37d5e2761e0aac92da7b23ad417eaf568"
+        },
+        {
+            "path": "resources/views/layouts/catalog-public.blade.php",
+            "base_lf_sha256": "67255acbea7d638e5f1d91cb6580c140c0e714e3508ca3731fc79479fe46b442"
+        },
+        {
+            "path": "resources/views/layouts/engram.blade.php",
+            "base_lf_sha256": "7584bbe017ab8c6aba2505038dd7317a1b059dd6105c12be73df4a2a1a9e33d3"
+        },
+        {
+            "path": "resources/views/layouts/partials/social-meta.blade.php",
+            "base_lf_sha256": "16eb2bda0808cfd2d6aa059fa88b1dd4b426b71f134b6027753f657b25eee853"
+        },
+        {
+            "path": "resources/views/livewire/words-test.blade.php",
+            "base_lf_sha256": "1e594b23a22c7915c667f90b1f9093631684c29fce3dbb24a2209d63e53ef986"
+        },
+        {
+            "path": "resources/views/question-review-complete.blade.php",
+            "base_lf_sha256": "756504f12107f243832a25493324a61dfbed11e223f53743fab49797d055f56f"
+        },
+        {
+            "path": "resources/views/question-review-results.blade.php",
+            "base_lf_sha256": "1e23834d7b097dd1945cf91a47bb92b3256611b11b9d227d3aca007ad2f64f98"
+        },
+        {
+            "path": "resources/views/question-review.blade.php",
+            "base_lf_sha256": "81e227864a6ba9e2022bfd1cc77920963bf81aa4335add9c3e9ee6614142b03c"
+        },
+        {
+            "path": "resources/views/saved-test-complete.blade.php",
+            "base_lf_sha256": "2f8e4edae6377d26f27c00ee85a5f66c087d3a294621e916bf2289bec3affcc0"
+        },
+        {
+            "path": "resources/views/saved-test-random.blade.php",
+            "base_lf_sha256": "6098f9cf5d0135284edb85de70218391403d5c614c592143239f711583779767"
+        },
+        {
+            "path": "resources/views/saved-test-step.blade.php",
+            "base_lf_sha256": "01a6247d2d011b0292a46379c4403d2278693a928fd30f54e52abf8ae0c081b5"
+        },
+        {
+            "path": "resources/views/saved-test.blade.php",
+            "base_lf_sha256": "0ef59410b0312c8b4541a81188bc747a5dd7de41fbc846965c051b3311c1122e"
+        },
+        {
+            "path": "resources/views/saved-tests-edit.blade.php",
+            "base_lf_sha256": "bcd53839cc32ad17327c184c57d43056c60411dd8e3d6c9bde932fcfaf60e725"
+        },
+        {
+            "path": "resources/views/saved-tests.blade.php",
+            "base_lf_sha256": "1338ff004f729cd6e5f2dd4a505c31096a4169adc1e237eff80a02d0162eb315"
+        },
+        {
+            "path": "resources/views/search/results.blade.php",
+            "base_lf_sha256": "0002dfedf786c0f0291feee24e46bad86cf8fc6c1f524542c26a319320c69591"
+        },
+        {
+            "path": "resources/views/seed-runs/index.blade.php",
+            "base_lf_sha256": "19ac4148aecff2cbc1211db4a8ef0feece8781fef0c27566f2de00a1e6791277"
+        },
+        {
+            "path": "resources/views/seed-runs/partials/executed-node.blade.php",
+            "base_lf_sha256": "38fbe51aca7016706cc116491d5dabf6585d2fee75b21e706e7ee5368fc42818"
+        },
+        {
+            "path": "resources/views/seed-runs/partials/node-collection.blade.php",
+            "base_lf_sha256": "21310cbc03fa049f08de7298c674bdad8a8cd33dc2ffdcd870c1630d52e2c68d"
+        },
+        {
+            "path": "resources/views/seed-runs/partials/pending-node.blade.php",
+            "base_lf_sha256": "53f8d32c506014aedd9797d47809d4cabc19301a253a759401f80d210f5270f2"
+        },
+        {
+            "path": "resources/views/seed-runs/partials/question-answers.blade.php",
+            "base_lf_sha256": "e4bb595eec52c1c6d293db3b021cd0f14f47a143be3b8df0bba29f6128ab491a"
+        },
+        {
+            "path": "resources/views/seed-runs/partials/question-tags.blade.php",
+            "base_lf_sha256": "f956d97ff02b8c9c4808d79aab6a914081ab73be890a5a77e192820eac105c51"
+        },
+        {
+            "path": "resources/views/seed-runs/partials/seeder-categories.blade.php",
+            "base_lf_sha256": "5d29767d70c46a9b0496a935bd765d0aed4e49ba4d181d371f598a420a8fc546"
+        },
+        {
+            "path": "resources/views/seed-runs/partials/source-questions.blade.php",
+            "base_lf_sha256": "07dabaa7e22f8b3341f8ba1b53d0dccdcbccafe98127663e4a5f85e4e501e814"
+        },
+        {
+            "path": "resources/views/seed-runs/partials/theory-test-pages.blade.php",
+            "base_lf_sha256": "a9d9afaf420592da23924ff7a268979f53855005cb557117c739ed96998804a5"
+        },
+        {
+            "path": "resources/views/seed-runs/preview.blade.php",
+            "base_lf_sha256": "2fc0c4f3e6aec9dc3f1732edb4189cbd5c7d4717bfce6c7b2895e5dc0b0c1f96"
+        },
+        {
+            "path": "resources/views/sitemap.blade.php",
+            "base_lf_sha256": "a68dabbbcfd5d9378408c2bfa462669f40a7d9a6a34a2263657c889635f14c5c"
+        },
+        {
+            "path": "resources/views/test-modes/card-easy.blade.php",
+            "base_lf_sha256": "35740908251dcb4594fa619e70c545bc1ee3f1c7d1a10b3ab446df0a8bdf0f79"
+        },
+        {
+            "path": "resources/views/test-modes/card-expert.blade.php",
+            "base_lf_sha256": "abf1e7edb0ecf0c9c5cd29cdde39eae142cb2625c4fd03cdb7c6337dfb2c2b73"
+        },
+        {
+            "path": "resources/views/test-modes/card-hard.blade.php",
+            "base_lf_sha256": "49d74c519edfeaadabcb08585f9543e939234c28759a2b2e16aa891e758bfb79"
+        },
+        {
+            "path": "resources/views/test-modes/card-medium.blade.php",
+            "base_lf_sha256": "d157c960cb8c3e828e7dd4affcce51bb3b239b6d112f81a663b47e2f195f484d"
+        },
+        {
+            "path": "resources/views/test-modes/dialogue.blade.php",
+            "base_lf_sha256": "0b7948e05be4c685badc55f1276c840ad4b703729faf661f112b6067789c6ea7"
+        },
+        {
+            "path": "resources/views/test-modes/drag-drop.blade.php",
+            "base_lf_sha256": "0b0f88527d6b85439be6072058ee8d4f8561a933c44dee2e3888aa7c22a174f1"
+        },
+        {
+            "path": "resources/views/test-modes/match.blade.php",
+            "base_lf_sha256": "33ad9bcf72e8dcc702ec3f7a768222dffcec522f4a82d9e94c22d4435f4e40ba"
+        },
+        {
+            "path": "resources/views/test-modes/partials/polyglot-admin-debug-controls.blade.php",
+            "base_lf_sha256": "fe20e9a9b59b799a13072322faaf3be14f9dd96f172dab02597c1cbc464aec30"
+        },
+        {
+            "path": "resources/views/test-modes/partials/polyglot-admin-debug.blade.php",
+            "base_lf_sha256": "caec69b22860627e65f9e6b27a87dae3bbab56a544a9b3c1fd3aa0b6c2ec7784"
+        },
+        {
+            "path": "resources/views/test-modes/step-compose.blade.php",
+            "base_lf_sha256": "66a149e88c48fa01d136253e4fcddcc75bf11908af73e4f22bf67878b00894d5"
+        },
+        {
+            "path": "resources/views/test-modes/step-easy.blade.php",
+            "base_lf_sha256": "9682667223c336e5536c2aa6a92e3d05cbe0ee1cb97905f0c53ea5c62e9489a5"
+        },
+        {
+            "path": "resources/views/test-modes/step-expert.blade.php",
+            "base_lf_sha256": "2b3a1cbb7bb5a41c640602a6687414e56c0bfb084f3f3d91cf524e4d2c2b7e69"
+        },
+        {
+            "path": "resources/views/test-modes/step-hard.blade.php",
+            "base_lf_sha256": "14cbeb9eb70553274013e69d03ce194f3b4c12643453ed3228c2ff2107183659"
+        },
+        {
+            "path": "resources/views/test-modes/step-medium.blade.php",
+            "base_lf_sha256": "a40f707a0ebda2042765455d9e88ec3ad010f3c034a7428df711f021c7e94068"
+        },
+        {
+            "path": "resources/views/test-modes/theory-mixed.blade.php",
+            "base_lf_sha256": "3bef4d3e39d2a1c90dbc8053a969ea92a9c429e6a2040de314dc670499072694"
+        },
+        {
+            "path": "resources/views/test-show.blade.php",
+            "base_lf_sha256": "6cb3f29b01f09feb733a546dc352e5f964101848fb1d217145d36be12edc797f"
+        },
+        {
+            "path": "resources/views/test-tags/aggregations/index.blade.php",
+            "base_lf_sha256": "6984dbfcce67afc39b8d49c2dadeb88c4e4540b3cdccf21dbad4af7125bdff73"
+        },
+        {
+            "path": "resources/views/test-tags/aggregations/partials/aggregations-section.blade.php",
+            "base_lf_sha256": "6cb4c70489f301e3c1304ecf52fdd73910dcadfd9607bbd5c5a939316e83bfe2"
+        },
+        {
+            "path": "resources/views/test-tags/aggregations/partials/non-aggregated-section.blade.php",
+            "base_lf_sha256": "0cff2509ce9112615320740fa6b5dc0a820d98a8b13f77150afb14b3a3e1c791"
+        },
+        {
+            "path": "resources/views/test-tags/categories/edit.blade.php",
+            "base_lf_sha256": "a6a6310ebccc1092556714eab4bc9d51e27623c43f857da3b00919d4a5311925"
+        },
+        {
+            "path": "resources/views/test-tags/create.blade.php",
+            "base_lf_sha256": "195c1b3717b41ed7b3cbf415be32e66d3126684a1e2a56b0c72c9f1c5cdaf7b3"
+        },
+        {
+            "path": "resources/views/test-tags/edit.blade.php",
+            "base_lf_sha256": "99c030e23235d53fa4c412087a61b512828c6b7ee9f3855c803d3a3f46785f83"
+        },
+        {
+            "path": "resources/views/test-tags/index.blade.php",
+            "base_lf_sha256": "7f6c0ead9a4c209abb0d010738cee454c3c3d3bcd68a5fa14be66967d57657a0"
+        },
+        {
+            "path": "resources/views/test-tags/view-export.blade.php",
+            "base_lf_sha256": "34e81d9c6d528d4caa4318e3989c59c7f33a57704e50546ad2eab3d7eaadfac2"
+        },
+        {
+            "path": "resources/views/theory/category.blade.php",
+            "base_lf_sha256": "b84e24af443a67aa02f9872db21bd6057ac849a0bd1405551786590f5bb80497"
+        },
+        {
+            "path": "resources/views/theory/components/aliases.blade.php",
+            "base_lf_sha256": "c8793bf515437819f8700516685e4d142d342dd22e3985037272375e7fb61afb"
+        },
+        {
+            "path": "resources/views/theory/components/children.blade.php",
+            "base_lf_sha256": "a2329ad1c33743ef196e23c5f777843ff5751161d9f85943ab580d9ea19d0ec0"
+        },
+        {
+            "path": "resources/views/theory/components/correction.blade.php",
+            "base_lf_sha256": "924451423f09759c01a050d74829a4086f8bda2a2848b26096429142f0cf142b"
+        },
+        {
+            "path": "resources/views/theory/components/disclosure.blade.php",
+            "base_lf_sha256": "203290d89fdf24dac0f77525b85fd0fa296df014864abab11ac8458581b6f34b"
+        },
+        {
+            "path": "resources/views/theory/components/example.blade.php",
+            "base_lf_sha256": "4781629414a7b19fefee7869329c649f1c430ef1d383f26a8c2b0871f9347404"
+        },
+        {
+            "path": "resources/views/theory/components/form-heading.blade.php",
+            "base_lf_sha256": "4c9ab6fc9e04fd0404596ace4320f69e52b26db4ababc24413e089e444239d78"
+        },
+        {
+            "path": "resources/views/theory/components/form.blade.php",
+            "base_lf_sha256": "53f3061ebb8660fb7405786f8430dadd71278b45b88fc63b5f6e05887b4ab855"
+        },
+        {
+            "path": "resources/views/theory/components/fragment.blade.php",
+            "base_lf_sha256": "05232fd8a7b952e7712b0079cf5f06ef28182b3d1646340849aa43b8cd1d114b"
+        },
+        {
+            "path": "resources/views/theory/components/group.blade.php",
+            "base_lf_sha256": "28456624435bea1ff9b5723d0da640a980be165cf92e962414841894b3883278"
+        },
+        {
+            "path": "resources/views/theory/components/mistake.blade.php",
+            "base_lf_sha256": "604803be11a35f3233ee1f7ca8b83d61ef2a06dab0542f01196157bca32ef7ba"
+        },
+        {
+            "path": "resources/views/theory/components/node.blade.php",
+            "base_lf_sha256": "be59af99a482e226202a88255bae4f25b9baab9403dd4823369daa4d1fbc96a9"
+        },
+        {
+            "path": "resources/views/theory/components/note.blade.php",
+            "base_lf_sha256": "1f65380569fed97e69f584f3c09d852739020e568f98eb572174b40a6266a733"
+        },
+        {
+            "path": "resources/views/theory/components/paragraph.blade.php",
+            "base_lf_sha256": "15f7e33b34c33d19d7bf97a92bce27fb89a58e17f5ddc53856e016702e3a83a9"
+        },
+        {
+            "path": "resources/views/theory/components/section.blade.php",
+            "base_lf_sha256": "ca136279e3a2875c7d409fa3eb524c6c514ad8f68938dab0c3469d5ea5d4992d"
+        },
+        {
+            "path": "resources/views/theory/components/summary.blade.php",
+            "base_lf_sha256": "d1169e7bc361d8132bc0a79f9be43a05915fdecb8c03e4ce45b74649b1560828"
+        },
+        {
+            "path": "resources/views/theory/components/table.blade.php",
+            "base_lf_sha256": "573308e4c38d1a02ad3ef05f98a1897f1e51d16b8d9e80dee98302c051da2bd9"
+        },
+        {
+            "path": "resources/views/theory/components/tense-matrix.blade.php",
+            "base_lf_sha256": "d9037e702d329ae47874b62cef1bab3048eb146809481e562ef9eca83118a034"
+        },
+        {
+            "path": "resources/views/theory/components/usage.blade.php",
+            "base_lf_sha256": "5320ce28cf15b1f27129e9db7d1c34e0d4626c3f49b3fa00de5bec6462ca920a"
+        },
+        {
+            "path": "resources/views/theory/content.blade.php",
+            "base_lf_sha256": "b1d48407722b3e5542b141c2ef0f7dba02c1d681d2d52698972c2d734eb0059e"
+        },
+        {
+            "path": "resources/views/theory/index.blade.php",
+            "base_lf_sha256": "3330f9e097567b3a22a4d19883e9635e80d4d7b723d63e23bb678d586ecb7d5c"
+        },
+        {
+            "path": "resources/views/theory/partials/authored-fallback.blade.php",
+            "base_lf_sha256": "dac71eb2d78318610eaaf8d61dcfd215fd43d5cc8945cd087ccbbff76a77609a"
+        },
+        {
+            "path": "resources/views/theory/partials/authored-section.blade.php",
+            "base_lf_sha256": "dcd1222b2a1f7a2741e46f705f4c44a41e10a7a3a3207dab5ec53bc4e0a987cc"
+        },
+        {
+            "path": "resources/views/theory/partials/category-description.blade.php",
+            "base_lf_sha256": "8eb7e053102c7550b6eebfec58495535f5fae25d299b17e689d53c2250bd31db"
+        },
+        {
+            "path": "resources/views/theory/partials/category-icon.blade.php",
+            "base_lf_sha256": "96c277e563a266de92e9d6a5e4be3c3b181c361785ec7da2b2ed10c630a2c3d8"
+        },
+        {
+            "path": "resources/views/theory/partials/content-block.blade.php",
+            "base_lf_sha256": "e2bd46722b3cafd445fcdfa046c10b1d6d25eda5b4bd2a5a3e3c89b91ef1242d"
+        },
+        {
+            "path": "resources/views/theory/partials/desktop-navigation-loader.blade.php",
+            "base_lf_sha256": "80ad9b2c64281b4c6a72e0b2d7c06e8250488e9a416099dd35a717ca61660dcc"
+        },
+        {
+            "path": "resources/views/theory/partials/desktop-sidebar.blade.php",
+            "base_lf_sha256": "6ba7fc5b946db7e6b6fb9bf630e95e313ffa66fd8b810dee48e0e997cdc123aa"
+        },
+        {
+            "path": "resources/views/theory/partials/lesson-toc.blade.php",
+            "base_lf_sha256": "66bd7e64510876ba79f888ffa3bd89bfebee4acc1e599904e5c79e9c8ea78035"
+        },
+        {
+            "path": "resources/views/theory/partials/mobile-navigation-content.blade.php",
+            "base_lf_sha256": "97eca78867f8afb50609341d118f0fece4bb2866939d9f13df6a58a6e3149500"
+        },
+        {
+            "path": "resources/views/theory/partials/mobile-navigation.blade.php",
+            "base_lf_sha256": "725425fecd57e0de202845de64f0da2ed59a757731b070c769285952113b129c"
+        },
+        {
+            "path": "resources/views/theory/partials/point-detail-fragment.blade.php",
+            "base_lf_sha256": "ac5c80cffff070d02a14c2ebc7cb7eb9510397b746435ec68ba19b74eb2f4e87"
+        },
+        {
+            "path": "resources/views/theory/partials/point-disclosure.blade.php",
+            "base_lf_sha256": "f28f1d5ef53ca3a59cb9fe92bc2ccada2853869dd894455a0605105474b875b4"
+        },
+        {
+            "path": "resources/views/theory/partials/practice-nojs-tokens.blade.php",
+            "base_lf_sha256": "1916c5825a1e77ae342a565308e5ed89e5a1c019ad4b93a41ab9bad95f3a591e"
+        },
+        {
+            "path": "resources/views/theory/partials/section-disclosure.blade.php",
+            "base_lf_sha256": "e42416dc596c981e194f3188c6187eeb706cd92c6493e8fb02b260884a485c23"
+        },
+        {
+            "path": "resources/views/theory/partials/tree-nav-mobile.blade.php",
+            "base_lf_sha256": "13944ccdeda4f4df7fd31a8758c964dac8ae259b553856fb0f398b7df8f939d7"
+        },
+        {
+            "path": "resources/views/theory/partials/tree-nav-search.blade.php",
+            "base_lf_sha256": "abf59316041624400864e8919d33269e619c0563a9f6c914163eff4215414d0f"
+        },
+        {
+            "path": "resources/views/theory/partials/tree-nav.blade.php",
+            "base_lf_sha256": "12627ad520c8b559fd2d991b190d0aaeb033d4a75edcedad7d1e3e79d0057f7c"
+        },
+        {
+            "path": "resources/views/theory/show.blade.php",
+            "base_lf_sha256": "b7cd364247c702d916a3d8777ac6b36c8808da1a751996a1d0fa87068ebcdb43"
+        },
+        {
+            "path": "resources/views/translate/complete.blade.php",
+            "base_lf_sha256": "053b917ed055df45f166654732a64e303f8eba99369aad20c614b5b8d8b50114"
+        },
+        {
+            "path": "resources/views/translate/test.blade.php",
+            "base_lf_sha256": "0da7f239fb8e311f71cfc732d804bcb467fcbce2c9cdb09fc35238971fa2a1e5"
+        },
+        {
+            "path": "resources/views/translate/test2.blade.php",
+            "base_lf_sha256": "06e76231986e7f2c1efc128cdeb39e7fa7624ab7a1e678857f505b505599924b"
+        },
+        {
+            "path": "resources/views/verbs/test.blade.php",
+            "base_lf_sha256": "1ce306aa23726279dbea76e89b6f183f99febacdf027c6dd01d2521bd5111bc7"
+        },
+        {
+            "path": "resources/views/welcome.blade.php",
+            "base_lf_sha256": "bc6ac4b6fa31f298cb1ce064f5bc5f2425cc740492fe06ae66f5339b37e69d53"
+        },
+        {
+            "path": "resources/views/words/complete.blade.php",
+            "base_lf_sha256": "426bc15926cefc751b02576632b0c630eb582e2c4e91be2245b8867445b42f39"
+        },
+        {
+            "path": "resources/views/words/test.blade.php",
+            "base_lf_sha256": "ad94cc85daad34412774b0716660a2bf7e93232c6fbf8a7b6bae0012785edd91"
+        }
+    ]
+}

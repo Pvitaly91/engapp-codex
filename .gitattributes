@@ -605,3 +605,20 @@ tests/Browser/m72*.cjs -text
 tests/Fixtures/m72-owned-source-hunks.json -text
 tools/diagnostics/m72*.php -text
 docs/reports/seo-m72-partitives-negatives-geography-standard-view.md -text
+
+# M73 policy declared before freeze; new artifacts and active projections use LF.
+docs/content/m73-*.json -text
+docs/content/m73-*.md -text
+docs/content/theory-sentence-builders/m73-generic-irregular-collective.v1.json -text
+database/content-patches/m73-*.json -text
+database/seeders/Page_V3/NounsArticlesQuantity/NounsArticlesQuantityAdvancedArticlesGenericReferenceTheorySeeder/definition.json text eol=lf
+database/seeders/Page_V3/NounsArticlesQuantity/NounsArticlesQuantityIrregularPluralsTheorySeeder/definition.json text eol=lf
+database/seeders/Page_V3/NounsArticlesQuantity/NounsArticlesQuantityCollectiveNounsTheorySeeder/definition.json text eol=lf
+app/Support/M73*.php -text
+app/Services/M73*.php -text
+app/Console/Commands/ContentPatchM73.php -text
+tests/Feature/M73*.php -text
+tests/Browser/m73*.cjs -text
+tests/Fixtures/m73-owned-source-hunks.json -text
+tools/diagnostics/m73*.php -text
+docs/reports/seo-m73-generic-irregular-collective-standard-view.md -text
