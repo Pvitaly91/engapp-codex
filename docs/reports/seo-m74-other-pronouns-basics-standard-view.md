@@ -1,6 +1,6 @@
 # M74 — Another / Other / The Other; Pronouns; Personal / Object Pronouns
 
-Локальне приймання active v1.0.1 завершено: guarded apply, repeated no-op, independent46-table postconditions, browser coverage, final HTTP/SSR, target gate, full registry і cleanup404 — PASS. Another alternative та defined remainder перевірено фактичним widget5/5. Початкові35 correct own tasks,24 full-sentence cases,15 settled widget answers і18 viewport/theme states збережено як v1.0.0 acceptance; новий довгий condition окремо перевірено320px light/dark. Current exact runtime tests9/4821 проходять; historical failures наведено без all-green твердження. Scoped staged review завершено; **PENDING залишаються commit і push.**
+Локальне приймання active v1.0.1 завершено: guarded apply, repeated no-op, independent46-table postconditions, browser coverage, final HTTP/SSR, target gate, full registry і cleanup404 — PASS. Another alternative та defined remainder перевірено фактичним widget5/5. Початкові35 correct own tasks,24 full-sentence cases,15 settled widget answers і18 viewport/theme states збережено як v1.0.0 acceptance; новий довгий condition окремо перевірено320px light/dark. Current exact runtime tests9/4821 проходять; historical failures наведено без all-green твердження. Scoped staged review, content commit і normal push завершено; remote SHA незалежно звірено.
 
 ## Три сторінки й межі
 
@@ -232,6 +232,12 @@ Navigation gate:26 source/rendered chips,23 noncurrent clickable anchors,17 dist
 | Final read-only після всіх UI/SSR/registry/cleanup | PASS:46 old-table fingerprints/timestamps/progress exact;326 visual /2591 frozen /35 sync exact |
 | No-JS / print / formal WCAG audit | Not checked; не входить у заявлені18 measured states |
 | Staged diff / frozen-source / scope review | PASS:65 explicit paths;40 PHP syntax checks; index bytes/accepted EOL та frozen manifests verified |
-| Commit / normal push робочої гілки | PENDING |
+| Commit / normal push робочої гілки | PASS:content commit `58f4a1eb5613d148bc668cdf07ec3fd5c759c389`; remote SHA independently equals local content HEAD |
 
-Active v1.0.1 реалізовано й прийнято на gramlyze.loc: Another coverage повна в межах finite widget, working apply/no-op/postconditions і фінальні SSR/registry/cleanup gates пройдено. Historical failures збережено, current runtime coverage наведено окремо. Staged allowlist —65 власних файлів; сторонні untracked storage/tool files, backups, proofs, screenshots і routes до index не потрапили. `git diff --cached --check` пройдено з accepted `cr-at-eol` whitespace profile; frozen release/index bytes перевірено окремо. Незавершені лише commit і push робочої гілки. Production не перевірявся й не змінювався в межах цього етапу.
+Active v1.0.1 реалізовано й прийнято на gramlyze.loc: Another coverage повна в межах finite widget, working apply/no-op/postconditions і фінальні SSR/registry/cleanup gates пройдено. Historical failures збережено, current runtime coverage наведено окремо. Staged allowlist —65 власних файлів; сторонні untracked storage/tool files, backups, proofs, screenshots і routes до index не потрапили. `git diff --cached --check` пройдено з accepted `cr-at-eol` whitespace profile; frozen release/index bytes перевірено окремо. Production не перевірявся й не змінювався в межах цього етапу.
+
+## Git delivery
+
+Content commit: `58f4a1eb5613d148bc668cdf07ec3fd5c759c389` — `feat(content): modernize M74 other and pronoun lessons`,65 scoped files. Normal push виконано лише в `codex/seo-m74-other-pronouns-basics-standard-view`; незалежний `git ls-remote --heads` підтвердив remote SHA рівним local content HEAD. Обидва accepted ancestors M73/report-only збережені. Main, PR, merge, force push і deploy не виконувалися.
+
+Цей delivery record додано окремим report-only follow-up, без змін навчальних, runtime або frozen файлів. Його власний SHA не вбудовується рекурсивно у звіт: остаточний HEAD гілки наведено у фінальній відповіді й доступний у Git.
