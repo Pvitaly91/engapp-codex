@@ -212,6 +212,21 @@ final class TheoryNativeContentRelease
                 $this->assertPlainFallbackSubtitle($old['before'], $binding, $lesson['subtitle_html'] ?? '', $master);
                 $subtitles = []; // Only this exact reviewed missing-subtitle owner opts out of a strong title.
             }
+            if (array_key_exists('preserved_plain_subtitle', $binding)) {
+                $plain = $binding['preserved_plain_subtitle'];
+                $metadata = array_values(array_filter($master['editorial_review']['post_apply_metadata'] ?? [],
+                    static fn ($record) => ($record['identity'] ?? null) === $binding['identity']));
+                if (($binding['before_subtitle']['mode'] ?? null) !== 'captured-plain' || $subtitleAbsent
+                    || !is_array($plain) || array_keys($plain) !== ['sha256', 'extracted_title', 'h1']
+                    || preg_match('/^[a-f0-9]{64}$/D', $plain['sha256'] ?? '') !== 1
+                    || !hash_equals($plain['sha256'], hash('sha256', $lesson['subtitle_html'] ?? ''))
+                    || $plain['extracted_title'] !== $binding['rendered_title'] || $plain['h1'] !== $binding['rendered_title']
+                    || preg_match('/^<p>[^<>]+<\/p>$/suD', $lesson['subtitle_html'] ?? '') !== 1
+                    || $metadata !== [['identity' => $binding['identity']] + $plain]) {
+                    $this->fail('exact continuing plain subtitle/independent H1 metadata differs.');
+                }
+                unset($subtitles[1]); // Finite plain AFTER only; captured BEFORE still passes its original proof below.
+            }
             foreach ($subtitles as $phase => $subtitle) {
                 if (!$subtitleAbsent && $phase === 0 && isset($binding['before_subtitle'])) {
                     $capture = $binding['before_subtitle'];

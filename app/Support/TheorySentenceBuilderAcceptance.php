@@ -47,6 +47,7 @@ final class TheorySentenceBuilderAcceptance
         $files = glob($root.'/'.self::CONTRACT_DIRECTORY.'/*.json') ?: [];
         sort($files);
         foreach ($files as $file) {
+            $file = M74BankRevision::contractFile($root, $file);
             $source = self::json($file);
             if (($source['schema_version'] ?? null) !== 1 || !is_array($source['targets'] ?? null)
                 || !array_is_list($source['targets'])) {

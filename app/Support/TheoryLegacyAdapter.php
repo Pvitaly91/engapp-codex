@@ -184,6 +184,8 @@ final class TheoryLegacyAdapter
                 if ($correction !== null) { $point = array_replace($point, $correction); }
                 $correction = M73GenericIrregularCollective::correction($item, $design);
                 if ($correction !== null) { $point = array_replace($point, $correction); }
+                $correction = M74OtherPronounsBasics::correction($item, $design);
+                if ($correction !== null) { $point = array_replace($point, $correction); }
                 self::detail($point, $pointSections, $index);
                 $node['items'][] = $point;
             }
