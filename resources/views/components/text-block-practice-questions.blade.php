@@ -284,7 +284,7 @@
                             type="button"
                             @click="selectToken(token)"
                             class="rounded-md border border-border/70 bg-background px-3 py-1.5 text-sm text-foreground/85 transition hover:border-primary/40 hover:bg-primary/5"
-                            x-text="token.value"
+                            x-text="Object.prototype.hasOwnProperty.call(currentQuestion?.token_labels ?? {}, token.value) && typeof currentQuestion.token_labels[token.value] === 'string' ? currentQuestion.token_labels[token.value] : token.value"
                         ></button>
                     </template>
                 </div>

@@ -53,6 +53,7 @@ class TextBlockToQuestionsMatcherService
             $excludeQuestionIds = \App\Support\M73BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
             $excludeQuestionIds = \App\Support\M74BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
             $excludeQuestionIds = \App\Support\M75BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M76BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
             return $this->loadExplicitlyLinkedQuestions(
                 $block,
                 $limit,

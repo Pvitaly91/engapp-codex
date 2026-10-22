@@ -36,6 +36,7 @@ final class TheoryContentSource
         [M73GenericIrregularCollective::class, 'm42StyleContext'],
         [M74OtherPronounsBasics::class, 'm42StyleContext'],
         [M75PronounForms::class, 'm42StyleContext'],
+        [M76PronounRelations::class, 'm42StyleContext'],
         [M50ObligationAdvicePackage::class, 'm42StyleContext'],
         [PracticeCompletionPackage::class, 'm42StyleContext'],
         [M49AdviceModalsPackage::class, 'm42StyleContext'],

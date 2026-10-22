@@ -110,12 +110,40 @@ final class TheoryNativeContentRelease
         if ($this->subtitleWasAbsent($before)) {
             foreach ($binding['continuing_uuids'] as $slot => $uuid) { $projected['page']['blocks'][$slot]['uuid'] = $uuid; }
         }
+        // An exact legacy source may carry obsolete parallel payloads. Only a
+        // frozen per-slot declaration can consume them into a native component.
+        $legacy = $binding['legacy_box_projection'] ?? [];
+        if (!is_array($legacy)) { $this->fail('finite legacy box projection differs.'); }
+        $secondaryFields = ['layout', 'hero_image', 'content', 'columns', 'exercises', 'mistakes', 'summary_points', 'links'];
+        foreach ($legacy as $slot => $pin) {
+            $old = is_int($slot) ? ($before['page']['blocks'][$slot] ?? null) : null;
+            $transition = $binding['continuing_metadata'][$slot] ?? null;
+            $nativeColumn = is_array($transition) ? match ($transition['after']['type'] ?? null) {
+                'hero' => 'header', 'navigation-chips' => 'footer',
+                'forms-grid' => in_array($transition['column'] ?? null, ['left', 'footer'], true) ? $transition['column'] : null,
+                'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list', 'practice-set' => 'left',
+                default => null,
+            } : null;
+            if (!is_int($slot) || $slot < 0 || !is_array($old) || !is_array($pin)
+                || array_keys($pin) !== ['before_sha256', 'remove_fields']
+                || preg_match('/^[a-f0-9]{64}$/D', $pin['before_sha256'] ?? '') !== 1
+                || !hash_equals($pin['before_sha256'], M26DetailPackage::digest($old))
+                || ($old['type'] ?? null) !== 'box' || ($old['column'] ?? null) !== $nativeColumn
+                || ($old['level'] ?? null) !== null || ($old['css_class'] ?? null) !== null
+                || ($binding['preserved_native_metadata'][$slot] ?? null) !== ['column' => $nativeColumn, 'level' => null]
+                || !is_array($pin['remove_fields']) || !array_is_list($pin['remove_fields'])
+                || $pin['remove_fields'] !== array_values(array_intersect($secondaryFields, array_keys($old)))) {
+                $this->fail('exact legacy box source/column/secondary-field projection differs.');
+            }
+            foreach ($pin['remove_fields'] as $field) { unset($projected['page']['blocks'][$slot][$field]); }
+        }
         $preserved = array_key_exists('preserved_native_metadata', $binding) ? $binding['preserved_native_metadata'] : [];
         if (!is_array($preserved)) { $this->fail('finite preserved native metadata declaration differs.'); }
         foreach ($preserved as $slot => $metadata) {
             if (!is_int($slot) || $slot < 0 || !isset($binding['continuing_metadata'][$slot])
                 || !is_array($metadata) || array_keys($metadata) !== ['column', 'level']
-                || !in_array($metadata['column'], ['left', 'right'], true) || $metadata['level'] !== null) {
+                || !in_array($metadata['column'], isset($legacy[$slot]) ? ['header', 'left', 'footer'] : ['left', 'right'], true)
+                || $metadata['level'] !== null) {
                 $this->fail('finite preserved native metadata slot/column/null level differs.');
             }
         }
@@ -143,7 +171,10 @@ final class TheoryNativeContentRelease
                 else { $projected['page']['blocks'][$slot][$field] = $value; }
             }
             $new = $projected['page']['blocks'][$slot];
-            if (!in_array($new['type'], ['forms-grid', 'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list'], true)
+            $allowedTypes = isset($legacy[$slot])
+                ? ['hero', 'forms-grid', 'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list', 'practice-set', 'navigation-chips']
+                : ['forms-grid', 'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list'];
+            if (!in_array($new['type'], $allowedTypes, true)
                 || ($preserve === null ? !in_array($new['level'] ?? null, ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], true)
                     : ($new['level'] ?? null) !== null)
                 || M26DetailPackage::uuid($binding['identity'], $old, $this->subtitleWasAbsent($before) ? $slot : $slot + 1)
@@ -394,13 +425,14 @@ final class TheoryNativeContentRelease
     {
         $pin = $binding['existing_practice'] ?? null;
         if ($pin === null) { return false; }
-        $slot = $pin['source_index'] ?? null; $source = is_int($slot) ? ($before['page']['blocks'][$slot] ?? null) : null;
+        $projected = $this->projectedBefore($before);
+        $slot = $pin['source_index'] ?? null; $source = is_int($slot) ? ($projected['page']['blocks'][$slot] ?? null) : null;
         if (!is_array($pin) || array_keys($pin) !== ['source_index', 'uuid', 'level']
             || ($binding['appended_blocks'] ?? null) !== [] || !is_array($source)
             || ($source['type'] ?? null) !== 'practice-set' || ($source['column'] ?? null) !== 'left'
             || ($source['level'] ?? null) !== $pin['level'] || $pin['level'] !== $binding['practice_level']
             || $pin['uuid'] !== M26DetailPackage::uuid($binding['identity'], $source, $slot + 1)
-            || count(array_filter($before['page']['blocks'], static fn ($block) => $block['type'] === 'practice-set')) !== 1) {
+            || count(array_filter($projected['page']['blocks'], static fn ($block) => $block['type'] === 'practice-set')) !== 1) {
             $this->fail('captured continuing practice identity/level differs.');
         }
         return true;
