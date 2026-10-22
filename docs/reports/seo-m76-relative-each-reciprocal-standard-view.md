@@ -288,4 +288,4 @@ Whitespace: звичайний staged `diff --check` після accepted CRLF п
 | tools/diagnostics/m76-anchor-postconditions-v2.php | 08fb1f397ef56a2595fca2573a5a171ae61f39fbb7ee602d2730e4b47bd7d2d2 |
 | tools/diagnostics/m76-anchor-postconditions.php | e5a69523214962f44c9b9d1bec747d76467e89594125f5e8227b7781a2ff448b |
 
-Scoped commit/full SHA, normal push робочої гілки та незалежний remote SHA == HEAD: pending. Production/deploy не виконуються цією операцією.
+Implementation commit: `0775763d856d6ad2bf484b65e360e3ad194cded0` — `feat(content): complete M76 pronoun theory and practice`,66explicit files. Normal push виконано тільки в `codex/seo-m76-relative-each-reciprocal-standard-view`; окремий `git ls-remote --heads` підтвердив remote SHA == implementation HEAD. Цей delivery record додано окремим documentation-only follow-up, без зміни implementation/artifacts. Поточний фінальний full HEAD наведено у повідомленні доставки; усі implementation bytes залишаються у зазначеному commit. Production, `main`, PR і deploy не змінено.
