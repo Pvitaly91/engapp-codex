@@ -263,6 +263,7 @@ class TheoryCourseManifestService
         $page = \App\Support\M72PartitivesNegativesGeography::preserveCoursePage($page);
         $page = \App\Support\M73GenericIrregularCollective::preserveCoursePage($page);
         $page = \App\Support\M74OtherPronounsBasics::preserveCoursePage($page);
+        $page = \App\Support\M75PronounForms::preserveCoursePage($page);
 
         return \App\Support\M49AdviceModalsPackage::preserveCoursePage(\App\Support\M48ConditionalsPackage::preserveCoursePage(\App\Support\M47ConditionalsPackage::preserveCoursePage(\App\Support\M46ConditionalsPackage::preserveCoursePage($page))));
     }

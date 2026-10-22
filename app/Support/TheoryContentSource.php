@@ -35,6 +35,7 @@ final class TheoryContentSource
         [M72PartitivesNegativesGeography::class, 'm42StyleContext'],
         [M73GenericIrregularCollective::class, 'm42StyleContext'],
         [M74OtherPronounsBasics::class, 'm42StyleContext'],
+        [M75PronounForms::class, 'm42StyleContext'],
         [M50ObligationAdvicePackage::class, 'm42StyleContext'],
         [PracticeCompletionPackage::class, 'm42StyleContext'],
         [M49AdviceModalsPackage::class, 'm42StyleContext'],

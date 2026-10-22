@@ -57,6 +57,7 @@ final class TheoryHtmlAdapter
         if (($design['package'] ?? null) === 'm72-native-v1') { return M72PartitivesNegativesGeography::pointPanels($design); }
         if (($design['package'] ?? null) === 'm73-native-v1') { return M73GenericIrregularCollective::pointPanels($design); }
         if (($design['package'] ?? null) === 'm74-native-v1') { return M74OtherPronounsBasics::pointPanels($design); }
+        if (($design['package'] ?? null) === 'm75-native-v1') { return M75PronounForms::pointPanels($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::pointPanels($design); }
@@ -162,6 +163,7 @@ final class TheoryHtmlAdapter
         if (($design['package'] ?? null) === 'm72-native-v1') { return M72PartitivesNegativesGeography::validDesign($design); }
         if (($design['package'] ?? null) === 'm73-native-v1') { return M73GenericIrregularCollective::validDesign($design); }
         if (($design['package'] ?? null) === 'm74-native-v1') { return M74OtherPronounsBasics::validDesign($design); }
+        if (($design['package'] ?? null) === 'm75-native-v1') { return M75PronounForms::validDesign($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::validDesign($design); }
