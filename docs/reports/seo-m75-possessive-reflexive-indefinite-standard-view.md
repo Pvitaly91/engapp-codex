@@ -8,7 +8,8 @@
 - Базова гілка: `codex/seo-m74-other-pronouns-basics-standard-view`.
 - Робоча гілка: `codex/seo-m75-possessive-reflexive-indefinite-standard-view`.
 - Served ROOT має окремий пізніший історичний стан; його сторонні dirty changes, видалення та EOL не включаються до цієї гілки. Зокрема стороннє видалення ROOT `.gitattributes` не відновлювалося.
-- Delivery SHA для коду та перевірка normal push наведені у фінальному повідомленні; цей звіт версіонується разом із результатом, а не підмінює Git identity власним самопосилальним SHA.
+- Перевірений content/code commit: `4cc1daa10a6727a85a106f7cdf246f79c2dba6fe`. Normal push цієї робочої гілки завершився exit0; незалежний `ls-remote --exit-code origin refs/heads/codex/seo-m75-possessive-reflexive-indefinite-standard-view` повернув саме цей повний SHA.
+- Окремий documentation-only follow-up фіксує цей delivery result у звіті. Повний фінальний HEAD після нього та повторну remote verification наведено у фінальному повідомленні; власний SHA документа не вигадується як самопосилання.
 
 ## Перевірені сторінки
 
