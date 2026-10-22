@@ -1,0 +1,825 @@
+{
+    "schema_version": 1,
+    "package": "m78-phrasal-question-basics-widget-selection",
+    "version": "1.0.0",
+    "independent_before_sha256": "327424de32f1cebaad86adef078d25aa1d4747b257894be3fdadc6706c630422",
+    "review": "Agent candidates independently read/reviewed by main; not human review, browser evidence or SQL mutation.",
+    "selection_policy": "Coverage defined before selection; existing exact type4 pools preferred. Full key/options/hints snapshots and actual native formatter are separately validated by the bank projection.",
+    "scope_exclusions": [
+        {
+            "identity": "Database\\Seeders\\Page_V3\\PrepositionsAndPhrasalVerbs\\CommonPhrasalVerbsByTopicTheorySeeder",
+            "id": 43441,
+            "reason": "Middle Follow remains uppercase under unchanged native casing; condition-only clone cannot repair the displayed token."
+        },
+        {
+            "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsAnswersToQuestionsTheorySeeder",
+            "id": 34846,
+            "reason": "Same key as34839; omitted for five-function diversity, not declared invalid."
+        },
+        {
+            "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsAnswersToQuestionsTheorySeeder",
+            "id": 34850,
+            "reason": "Source condition omits the reason required by its key; not selected without an explicit contextual clone."
+        }
+    ],
+    "sources": [
+        {
+            "url": "https://dictionary.cambridge.org/dictionary/english/get-off",
+            "access": "Official indexed dictionary body read by agent and main; not direct-body claim.",
+            "verified": "Leave a train/bus/aircraft in the selected travel context."
+        }
+    ],
+    "targets": [
+        {
+            "identity": "Database\\Seeders\\Page_V3\\PrepositionsAndPhrasalVerbs\\PhrasalVerbsSeparableInseparableTheorySeeder",
+            "selected": [
+                {
+                    "id": 43360,
+                    "uuid": "sip-poly-b1-02",
+                    "level": "B1",
+                    "source": "Склади речення: Вона щодня після обіду доглядає за молодшим братом.",
+                    "raw_tokens": [
+                        "She",
+                        "looks",
+                        "after",
+                        "her",
+                        "younger",
+                        "brother",
+                        "every",
+                        "afternoon",
+                        "."
+                    ],
+                    "condition": "Вона щодня пополудні доглядає свого молодшого брата. Почни з She. Доглядати — look after; молодший брат — younger brother; щодня пополудні — every afternoon. Збережи присвійний зв’язок.",
+                    "translation": "Вона щодня пополудні доглядає свого молодшого брата.",
+                    "settled": "She looks after her younger brother every afternoon.",
+                    "tokens": [
+                        "She",
+                        "looks",
+                        "after",
+                        "her",
+                        "younger",
+                        "brother",
+                        "every",
+                        "afternoon",
+                        "."
+                    ],
+                    "coverage": "Inseparable care; present singular and possessive"
+                },
+                {
+                    "id": 43363,
+                    "uuid": "sip-poly-b1-05",
+                    "level": "B1",
+                    "source": "Склади речення: Світло було надто яскраве, тому я його вимкнув.",
+                    "raw_tokens": [
+                        "the",
+                        "light",
+                        "was",
+                        "too",
+                        "bright",
+                        ",",
+                        "so",
+                        "I",
+                        "turned",
+                        "it",
+                        "off",
+                        "."
+                    ],
+                    "condition": "Світло було надто яскравим, тому я його вимкнув. Почни з The light. Надто яскраве — too bright; тому — so. Вимкнути — turn off; у другій частині заміни те саме світло займенником it.",
+                    "translation": "Світло було надто яскравим, тому я його вимкнув.",
+                    "settled": "The light was too bright, so I turned it off.",
+                    "tokens": [
+                        "The",
+                        "light",
+                        "was",
+                        "too",
+                        "bright",
+                        ",",
+                        "so",
+                        "I",
+                        "turned",
+                        "it",
+                        "off",
+                        "."
+                    ],
+                    "coverage": "Separable personal pronoun with same antecedent"
+                },
+                {
+                    "id": 43364,
+                    "uuid": "sip-poly-b1-06",
+                    "level": "B1",
+                    "source": "Склади речення: Я підняв ключі зі столу.",
+                    "raw_tokens": [
+                        "I",
+                        "picked",
+                        "up",
+                        "the",
+                        "keys",
+                        "from",
+                        "the",
+                        "desk",
+                        "."
+                    ],
+                    "condition": "Я підняв ключі з письмового столу. Почни з I. Підняти — pick up у минулому часі; ключі — the keys; з письмового столу — from the desk. У цьому завданні постав фразове дієслово перед іменниковим додатком. Інший порядок іменника теж граматичний.",
+                    "translation": "Я підняв ключі з письмового столу.",
+                    "settled": "I picked up the keys from the desk.",
+                    "tokens": [
+                        "I",
+                        "picked",
+                        "up",
+                        "the",
+                        "keys",
+                        "from",
+                        "the",
+                        "desk",
+                        "."
+                    ],
+                    "coverage": "Separable noun; task-specific order, alternative acknowledged"
+                },
+                {
+                    "id": 43366,
+                    "uuid": "sip-poly-b1-08",
+                    "level": "B1",
+                    "source": "Склади речення: Вона зняла взуття біля дверей.",
+                    "raw_tokens": [
+                        "She",
+                        "took",
+                        "off",
+                        "her",
+                        "shoes",
+                        "at",
+                        "the",
+                        "door",
+                        "."
+                    ],
+                    "condition": "Вона зняла своє взуття біля дверей. Почни з She. Зняти одяг — take off у минулому часі; своє взуття — her shoes; біля дверей — at the door. У цьому завданні постав фразове дієслово перед іменниковим додатком; інший порядок іменника теж граматичний.",
+                    "translation": "Вона зняла своє взуття біля дверей.",
+                    "settled": "She took off her shoes at the door.",
+                    "tokens": [
+                        "She",
+                        "took",
+                        "off",
+                        "her",
+                        "shoes",
+                        "at",
+                        "the",
+                        "door",
+                        "."
+                    ],
+                    "coverage": "Clothing sense, not flight; noun order"
+                },
+                {
+                    "id": 43370,
+                    "uuid": "sip-poly-b1-12",
+                    "level": "B1",
+                    "source": "Склади речення: Я випадково зустрів старого друга на станції.",
+                    "raw_tokens": [
+                        "I",
+                        "ran",
+                        "into",
+                        "an",
+                        "old",
+                        "friend",
+                        "at",
+                        "the",
+                        "station",
+                        "."
+                    ],
+                    "condition": "Я випадково зустрів давнього друга на станції. Почни з I. Випадково зустріти — run into у минулому часі; давній друг — an old friend; на станції — at the station. Не змінюй значення на зіткнення.",
+                    "translation": "Я випадково зустрів давнього друга на станції.",
+                    "settled": "I ran into an old friend at the station.",
+                    "tokens": [
+                        "I",
+                        "ran",
+                        "into",
+                        "an",
+                        "old",
+                        "friend",
+                        "at",
+                        "the",
+                        "station",
+                        "."
+                    ],
+                    "coverage": "Inseparable accidental encounter, not collision"
+                }
+            ]
+        },
+        {
+            "identity": "Database\\Seeders\\Page_V3\\PrepositionsAndPhrasalVerbs\\CommonPhrasalVerbsByTopicTheorySeeder",
+            "selected": [
+                {
+                    "id": 43431,
+                    "uuid": "cpt-poly-b1-01",
+                    "level": "B1",
+                    "source": "Склади речення: У будні я встаю рано.",
+                    "raw_tokens": [
+                        "I",
+                        "get",
+                        "up",
+                        "early",
+                        "on",
+                        "weekdays",
+                        "."
+                    ],
+                    "condition": "У будні я встаю рано. Почни з I. Вставати з ліжка — get up; рано — early; у будні — on weekdays. Це звична дія, не лише припинення сну.",
+                    "translation": "У будні я встаю рано.",
+                    "settled": "I get up early on weekdays.",
+                    "tokens": [
+                        "I",
+                        "get",
+                        "up",
+                        "early",
+                        "on",
+                        "weekdays",
+                        "."
+                    ],
+                    "coverage": "Routine: get up versus wake up"
+                },
+                {
+                    "id": 43435,
+                    "uuid": "cpt-poly-b1-05",
+                    "level": "B1",
+                    "source": "Склади речення: Ми вийшли з поїзда на останній зупинці.",
+                    "raw_tokens": [
+                        "We",
+                        "got",
+                        "off",
+                        "the",
+                        "train",
+                        "at",
+                        "the",
+                        "last",
+                        "stop",
+                        "."
+                    ],
+                    "condition": "Ми вийшли з поїзда на останній зупинці. Почни з We. Вийти з поїзда — get off the train у минулому часі; на останній зупинці — at the last stop. Тут названо поїзд, не автомобіль.",
+                    "translation": "Ми вийшли з поїзда на останній зупинці.",
+                    "settled": "We got off the train at the last stop.",
+                    "tokens": [
+                        "We",
+                        "got",
+                        "off",
+                        "the",
+                        "train",
+                        "at",
+                        "the",
+                        "last",
+                        "stop",
+                        "."
+                    ],
+                    "coverage": "Travel: leave train, not car"
+                },
+                {
+                    "id": 43436,
+                    "uuid": "cpt-poly-b1-06",
+                    "level": "B1",
+                    "source": "Склади речення: Нам потрібно розібратися з цією проблемою сьогодні.",
+                    "raw_tokens": [
+                        "We",
+                        "need",
+                        "to",
+                        "sort",
+                        "out",
+                        "this",
+                        "issue",
+                        "today",
+                        "."
+                    ],
+                    "condition": "Нам потрібно владнати це питання сьогодні. Почни з We need to. Владнати — sort out; це питання — this issue; сьогодні — today. У цьому завданні фразове дієслово постав перед іменниковим додатком. Речення повідомляє про потребу, а не вже досягнутий результат.",
+                    "translation": "Нам потрібно владнати це питання сьогодні.",
+                    "settled": "We need to sort out this issue today.",
+                    "tokens": [
+                        "We",
+                        "need",
+                        "to",
+                        "sort",
+                        "out",
+                        "this",
+                        "issue",
+                        "today",
+                        "."
+                    ],
+                    "coverage": "Need/process does not entail achieved result"
+                },
+                {
+                    "id": 43437,
+                    "uuid": "cpt-poly-b1-07",
+                    "level": "B1",
+                    "source": "Склади речення: Вона добре ладнає з колегами.",
+                    "raw_tokens": [
+                        "She",
+                        "gets",
+                        "along",
+                        "with",
+                        "her",
+                        "colleagues",
+                        "very",
+                        "well",
+                        "."
+                    ],
+                    "condition": "Вона дуже добре ладнає зі своїми колегами. Почни з She. Ладнати — get along with; свої колеги — her colleagues; дуже добре — very well. Мова про стосунки, а не фізичний рух.",
+                    "translation": "Вона дуже добре ладнає зі своїми колегами.",
+                    "settled": "She gets along with her colleagues very well.",
+                    "tokens": [
+                        "She",
+                        "gets",
+                        "along",
+                        "with",
+                        "her",
+                        "colleagues",
+                        "very",
+                        "well",
+                        "."
+                    ],
+                    "coverage": "Social relationship; possessive and very well"
+                },
+                {
+                    "id": 43438,
+                    "uuid": "cpt-poly-b1-08",
+                    "level": "B1",
+                    "source": "Склади речення: Студенти мають здати есе до п’ятниці.",
+                    "raw_tokens": [
+                        "Students",
+                        "must",
+                        "hand",
+                        "in",
+                        "their",
+                        "essays",
+                        "by",
+                        "Friday",
+                        "."
+                    ],
+                    "condition": "Студенти мусять здати свої есе до п’ятниці. Почни з Students. Мусять — must; здати роботу — hand in; свої есе — their essays; до п’ятниці — by Friday. Постав hand in перед іменниковим додатком; інший порядок іменника теж граматичний, але тут потрібна ця послідовність.",
+                    "translation": "Студенти мусять здати свої есе до п’ятниці.",
+                    "settled": "Students must hand in their essays by Friday.",
+                    "tokens": [
+                        "Students",
+                        "must",
+                        "hand",
+                        "in",
+                        "their",
+                        "essays",
+                        "by",
+                        "Friday",
+                        "."
+                    ],
+                    "coverage": "Study/work submission and deadline; noun order"
+                }
+            ]
+        },
+        {
+            "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\QuestionsNegationsQuestionFormsTheorySeeder",
+            "selected": [
+                {
+                    "id": 34263,
+                    "uuid": "qf-poly-a1-01",
+                    "level": "A1",
+                    "source": "Ти готовий?",
+                    "raw_tokens": [
+                        "are",
+                        "You",
+                        "ready?"
+                    ],
+                    "condition": "Запитай нейтрально про теперішній стан співрозмовника: «Ти готовий?»",
+                    "translation": "Ти готовий?",
+                    "settled": "Are you ready?",
+                    "tokens": [
+                        "Are",
+                        "you",
+                        "ready?"
+                    ],
+                    "coverage": "Present be state"
+                },
+                {
+                    "id": 34265,
+                    "uuid": "qf-poly-a1-03",
+                    "level": "A1",
+                    "source": "Вона працює тут?",
+                    "raw_tokens": [
+                        "does",
+                        "She",
+                        "work",
+                        "here?"
+                    ],
+                    "condition": "Запитай нейтрально про її звичну роботу: «Вона тут працює?»",
+                    "translation": "Вона тут працює?",
+                    "settled": "Does she work here?",
+                    "tokens": [
+                        "Does",
+                        "she",
+                        "work",
+                        "here?"
+                    ],
+                    "coverage": "Lexical does plus base"
+                },
+                {
+                    "id": 34266,
+                    "uuid": "qf-poly-a1-04",
+                    "level": "A1",
+                    "source": "Де вони живуть?",
+                    "raw_tokens": [
+                        "Where",
+                        "do",
+                        "They",
+                        "live?"
+                    ],
+                    "condition": "Дізнайся теперішнє місце їхнього проживання: «Де вони живуть?»",
+                    "translation": "Де вони живуть?",
+                    "settled": "Where do they live?",
+                    "tokens": [
+                        "Where",
+                        "do",
+                        "they",
+                        "live?"
+                    ],
+                    "coverage": "Wh-location plus do"
+                },
+                {
+                    "id": 34269,
+                    "uuid": "qf-poly-a1-07",
+                    "level": "A1",
+                    "source": "Ти можеш допомогти мені?",
+                    "raw_tokens": [
+                        "can",
+                        "You",
+                        "help",
+                        "me?"
+                    ],
+                    "condition": "Запитай співрозмовника про можливість допомоги: «Ти можеш мені допомогти?» Використай звичайну питальну модель.",
+                    "translation": "Ти можеш мені допомогти?",
+                    "settled": "Can you help me?",
+                    "tokens": [
+                        "Can",
+                        "you",
+                        "help",
+                        "me?"
+                    ],
+                    "coverage": "Can possibility/help"
+                },
+                {
+                    "id": 34272,
+                    "uuid": "qf-poly-a1-10",
+                    "level": "A1",
+                    "source": "Хто зателефонував тобі?",
+                    "raw_tokens": [
+                        "Who",
+                        "called",
+                        "you?"
+                    ],
+                    "condition": "Хтось зателефонував тобі вчора. Нейтрально запитай, хто саме, без підсилення; час у питанні не повторюй.",
+                    "translation": "Хто тобі телефонував?",
+                    "settled": "Who called you?",
+                    "tokens": [
+                        "Who",
+                        "called",
+                        "you?"
+                    ],
+                    "coverage": "Neutral past subject Who; no added did"
+                }
+            ]
+        },
+        {
+            "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder",
+            "selected": [
+                {
+                    "id": 34335,
+                    "uuid": "ynq-poly-a1-01",
+                    "level": "A1",
+                    "source": "Ти любиш чай?",
+                    "raw_tokens": [
+                        "do",
+                        "You",
+                        "like",
+                        "tea?"
+                    ],
+                    "condition": "Нейтрально запитай співрозмовника про вподобання: «Тобі подобається чай?»",
+                    "translation": "Тобі подобається чай?",
+                    "settled": "Do you like tea?",
+                    "tokens": [
+                        "Do",
+                        "you",
+                        "like",
+                        "tea?"
+                    ],
+                    "coverage": "Do preferences"
+                },
+                {
+                    "id": 34338,
+                    "uuid": "ynq-poly-a1-04",
+                    "level": "A1",
+                    "source": "Вона вчителька?",
+                    "raw_tokens": [
+                        "is",
+                        "She",
+                        "a",
+                        "teacher?"
+                    ],
+                    "condition": "Запитай нейтрально про її теперішню професію: «Вона вчителька?»",
+                    "translation": "Вона вчителька?",
+                    "settled": "Is she a teacher?",
+                    "tokens": [
+                        "Is",
+                        "she",
+                        "a",
+                        "teacher?"
+                    ],
+                    "coverage": "Be profession"
+                },
+                {
+                    "id": 34339,
+                    "uuid": "ynq-poly-a1-05",
+                    "level": "A1",
+                    "source": "Ти можеш плавати?",
+                    "raw_tokens": [
+                        "can",
+                        "You",
+                        "swim?"
+                    ],
+                    "condition": "Запитай співрозмовника про навичку, а не дозвіл: «Ти вмієш плавати?»",
+                    "translation": "Ти вмієш плавати?",
+                    "settled": "Can you swim?",
+                    "tokens": [
+                        "Can",
+                        "you",
+                        "swim?"
+                    ],
+                    "coverage": "Can learned ability"
+                },
+                {
+                    "id": 34341,
+                    "uuid": "ynq-poly-a1-07",
+                    "level": "A1",
+                    "source": "Вчора йшов дощ?",
+                    "raw_tokens": [
+                        "did",
+                        "it",
+                        "rain",
+                        "yesterday?"
+                    ],
+                    "condition": "Запитай нейтрально, чи йшов дощ учора. Почни з допоміжного дієслова, а слово про час постав наприкінці.",
+                    "translation": "Учора йшов дощ?",
+                    "settled": "Did it rain yesterday?",
+                    "tokens": [
+                        "Did",
+                        "it",
+                        "rain",
+                        "yesterday?"
+                    ],
+                    "coverage": "Did weather event"
+                },
+                {
+                    "id": 34345,
+                    "uuid": "ynq-poly-a1-11",
+                    "level": "A1",
+                    "source": "Зустріч починається о девʼятій?",
+                    "raw_tokens": [
+                        "does",
+                        "the",
+                        "meeting",
+                        "start",
+                        "at",
+                        "nine?"
+                    ],
+                    "condition": "Перевір теперішній розклад: «Зустріч починається о дев’ятій?» Потрібне загальне питання про вказаний час, не запит «коли?».",
+                    "translation": "Зустріч починається о дев’ятій?",
+                    "settled": "Does the meeting start at nine?",
+                    "tokens": [
+                        "Does",
+                        "the",
+                        "meeting",
+                        "start",
+                        "at",
+                        "nine?"
+                    ],
+                    "coverage": "Does singular timetable"
+                }
+            ]
+        },
+        {
+            "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder",
+            "selected": [
+                {
+                    "id": 34409,
+                    "uuid": "whq-poly-a1-03",
+                    "level": "A1",
+                    "source": "Коли вони прибули?",
+                    "raw_tokens": [
+                        "When",
+                        "did",
+                        "They",
+                        "arrive?"
+                    ],
+                    "condition": "Коли вони прибули?",
+                    "translation": "Коли вони прибули?",
+                    "settled": "When did they arrive?",
+                    "tokens": [
+                        "When",
+                        "did",
+                        "they",
+                        "arrive?"
+                    ],
+                    "coverage": "When completed event"
+                },
+                {
+                    "id": 34410,
+                    "uuid": "whq-poly-a1-04",
+                    "level": "A1",
+                    "source": "Чому він тут?",
+                    "raw_tokens": [
+                        "Why",
+                        "is",
+                        "He",
+                        "here?"
+                    ],
+                    "condition": "Чому він тут?",
+                    "translation": "Чому він тут?",
+                    "settled": "Why is he here?",
+                    "tokens": [
+                        "Why",
+                        "is",
+                        "he",
+                        "here?"
+                    ],
+                    "coverage": "Why reason for presence"
+                },
+                {
+                    "id": 34411,
+                    "uuid": "whq-poly-a1-05",
+                    "level": "A1",
+                    "source": "Кого ти бачив учора?",
+                    "raw_tokens": [
+                        "Who",
+                        "did",
+                        "You",
+                        "see",
+                        "yesterday?"
+                    ],
+                    "condition": "Кого ти бачив учора?",
+                    "translation": "Кого ти бачив учора?",
+                    "settled": "Who did you see yesterday?",
+                    "tokens": [
+                        "Who",
+                        "did",
+                        "you",
+                        "see",
+                        "yesterday?"
+                    ],
+                    "coverage": "Who object, not subject"
+                },
+                {
+                    "id": 34412,
+                    "uuid": "whq-poly-a1-06",
+                    "level": "A1",
+                    "source": "Скільки книжок тобі потрібно?",
+                    "raw_tokens": [
+                        "How",
+                        "many",
+                        "books",
+                        "do",
+                        "You",
+                        "need?"
+                    ],
+                    "condition": "Скільки книжок тобі потрібно?",
+                    "translation": "Скільки книжок тобі потрібно?",
+                    "settled": "How many books do you need?",
+                    "tokens": [
+                        "How",
+                        "many",
+                        "books",
+                        "do",
+                        "you",
+                        "need?"
+                    ],
+                    "coverage": "How many countable plural"
+                },
+                {
+                    "id": 34414,
+                    "uuid": "whq-poly-a1-08",
+                    "level": "A1",
+                    "source": "Куди ти йдеш зараз?",
+                    "raw_tokens": [
+                        "Where",
+                        "are",
+                        "You",
+                        "going",
+                        "now?"
+                    ],
+                    "condition": "Куди ти йдеш зараз?",
+                    "translation": "Куди ти йдеш зараз?",
+                    "settled": "Where are you going now?",
+                    "tokens": [
+                        "Where",
+                        "are",
+                        "you",
+                        "going",
+                        "now?"
+                    ],
+                    "coverage": "Where current direction"
+                }
+            ]
+        },
+        {
+            "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsAnswersToQuestionsTheorySeeder",
+            "selected": [
+                {
+                    "id": 34839,
+                    "uuid": "atq-poly-a1-01",
+                    "level": "A1",
+                    "source": "Коротко відповідай ствердно: ти любиш чай.",
+                    "raw_tokens": [
+                        "Yes,",
+                        "I",
+                        "do."
+                    ],
+                    "condition": "Андрій питає одну Олю: «Do you like tea?» — «Ти любиш чай?» Оля любить чай і відповідає про себе. Склади всю стверджувальну коротку відповідь за моделлю з підметом і допоміжним. Запитання не повторюй.",
+                    "translation": "Так, люблю.",
+                    "settled": "Yes, I do.",
+                    "tokens": [
+                        "Yes,",
+                        "I",
+                        "do."
+                    ],
+                    "coverage": "Short do/I with explicit speaker"
+                },
+                {
+                    "id": 34841,
+                    "uuid": "atq-poly-a1-03",
+                    "level": "A1",
+                    "source": "Коротко відповідай ствердно: вона готова.",
+                    "raw_tokens": [
+                        "Yes,",
+                        "She",
+                        "is."
+                    ],
+                    "condition": "Андрій питає про Олю: «Is she ready?» — «Вона готова?» Марта знає, що Оля готова, й підтверджує це. Склади всю стверджувальну коротку відповідь про неї з підметом і be. Запитання не повторюй.",
+                    "translation": "Так, вона готова.",
+                    "settled": "Yes, she is.",
+                    "tokens": [
+                        "Yes,",
+                        "she",
+                        "is."
+                    ],
+                    "coverage": "Short be/she with explicit referent"
+                },
+                {
+                    "id": 34843,
+                    "uuid": "atq-poly-a1-05",
+                    "level": "A1",
+                    "source": "Коротко відповідай ствердно: ти вмієш плавати.",
+                    "raw_tokens": [
+                        "Yes,",
+                        "I",
+                        "can."
+                    ],
+                    "condition": "Андрій питає одну Олю про її вміння: «Can you swim?» — «Ти вмієш плавати?» Оля вміє плавати й відповідає про себе. Склади всю стверджувальну коротку модель з can. Це відповідь про вміння, не прохання виконати дію.",
+                    "translation": "Так, я вмію.",
+                    "settled": "Yes, I can.",
+                    "tokens": [
+                        "Yes,",
+                        "I",
+                        "can."
+                    ],
+                    "coverage": "Short can/I for ability"
+                },
+                {
+                    "id": 34847,
+                    "uuid": "atq-poly-a1-09",
+                    "level": "A1",
+                    "source": "Коротко відповідай на питання про місце проживання.",
+                    "raw_tokens": [
+                        "in",
+                        "Kyiv."
+                    ],
+                    "condition": "Оля живе в Києві. Андрій питає її: «Where do you live?» — «Де ти живеш?» Відповідай лише короткою фразою про місце з прийменником, без повного речення та без Yes/No. Запитання не повторюй.",
+                    "translation": "У Києві.",
+                    "settled": "In Kyiv.",
+                    "tokens": [
+                        "In",
+                        "Kyiv."
+                    ],
+                    "coverage": "Where response phrase without Yes/No"
+                },
+                {
+                    "id": 34849,
+                    "uuid": "atq-poly-a1-11",
+                    "level": "A1",
+                    "source": "Коротко відповідай заперечно: вони запізнилися.",
+                    "raw_tokens": [
+                        "No,",
+                        "They",
+                        "weren't."
+                    ],
+                    "condition": "Запитують про Марту й Андрія: «Were they late?» — «Вони запізнилися?» Вони прийшли вчасно. Склади всю заперечну коротку відповідь про них у минулому часі. Для цього завдання використай скорочене заперечення з банку; повна форма теж граматична, але тут не є цільовою.",
+                    "translation": "Ні, вони не запізнилися.",
+                    "settled": "No, they weren't.",
+                    "tokens": [
+                        "No,",
+                        "they",
+                        "weren't."
+                    ],
+                    "coverage": "Past negative they; contracted bank target"
+                }
+            ]
+        }
+    ]
+}
+

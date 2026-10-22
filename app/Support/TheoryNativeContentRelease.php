@@ -362,7 +362,15 @@ final class TheoryNativeContentRelease
             if ($practice['type'] !== 'practice-set' || $practice['column'] !== 'left') {
                 $this->fail('one appended native practice-set is required.');
             }
-            $this->assertPractice($practice['data'], $declaration['bank_seeders'] ?? [], $taskIds, $binding['practice_contract'] ?? null);
+            $capturedPractice = null;
+            if ($this->existingPractice($binding, $old['before'])) {
+                $capturedBody = $old['before']['page']['blocks'][$binding['existing_practice']['source_index']]['body'];
+                $decoded = json_decode($capturedBody, true);
+                // HTML-only legacy practice is not a native task-identity ledger.
+                if (is_array($decoded) && is_array($decoded['inputs'] ?? null)) { $capturedPractice = $decoded; }
+            }
+            $this->assertPractice($practice['data'], $declaration['bank_seeders'] ?? [], $taskIds,
+                $binding['practice_contract'] ?? null, $capturedPractice);
             $pointOwners = []; $byKey = array_column($lesson['blocks'], null, 'key');
             foreach ($lesson['details'] as $detail) {
                 $owner = ($detail['owner_block_key'] ?? '').':'.($detail['owner_pointer'] ?? '');
@@ -438,7 +446,7 @@ final class TheoryNativeContentRelease
         return true;
     }
 
-    private function assertPractice(array $data, array $banks, array &$ids, ?array $contract = null): void
+    private function assertPractice(array $data, array $banks, array &$ids, ?array $contract = null, ?array $capturedPractice = null): void
     {
         $counts = ['selects'=>2, 'choices'=>2, 'inputs'=>2]; $sentences = [0, 1];
         if ($contract !== null) {
@@ -468,8 +476,21 @@ final class TheoryNativeContentRelease
             }
         }
         foreach (['selects', 'choices', 'inputs'] as $group) {
-            foreach ($data[$group] as $task) {
+            foreach ($data[$group] as $index => $task) {
                 $id = $task['id'] ?? null;
+                if ($capturedPractice !== null) {
+                    $retained = $capturedPractice[$group][$index] ?? null;
+                    if (is_array($retained)) {
+                        foreach (['id', 'source_index'] as $field) {
+                            if (array_key_exists($field, $retained) !== array_key_exists($field, $task)
+                                || (array_key_exists($field, $retained) && $retained[$field] !== $task[$field])) {
+                                $this->fail('captured native task identity/absence changed.');
+                            }
+                        }
+                    } elseif (!is_string($id) || $id === '') {
+                        $this->fail('new native task requires a stable ID.');
+                    }
+                }
                 if (($id === null && $contract === null) || ($id !== null && (!is_string($id) || $id === '' || isset($ids[$id])))
                     || !in_array($task['answer'] ?? null, $task['accepted'] ?? [], true)) { $this->fail('task ID/canonical answer differs.'); }
                 if ($id !== null) { $ids[$id] = true; }
@@ -482,8 +503,10 @@ final class TheoryNativeContentRelease
         }
         foreach ($sentences as $index) {
             $input = $data['inputs'][$index];
+            $retained = $capturedPractice['inputs'][$index] ?? null;
+            $capturedWithoutId = is_array($retained) && !array_key_exists('id', $retained) && !array_key_exists('id', $input);
             if (!is_string($input['before'] ?? null) || !str_contains($input['before'], '/')
-                || !is_string($input['id'] ?? null) || $input['id'] === ''
+                || (!$capturedWithoutId && (!is_string($input['id'] ?? null) || $input['id'] === ''))
                 || !is_string($input['after'] ?? null) || preg_match('/[\x{0400}-\x{04FF}]/u', $input['after']) !== 1) {
                 $this->fail('visible Ukrainian input condition or native bank is missing.');
             }
