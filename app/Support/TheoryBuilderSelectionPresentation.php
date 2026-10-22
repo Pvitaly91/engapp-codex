@@ -58,13 +58,13 @@ abstract class TheoryBuilderSelectionPresentation
 
     public static function validateAudit(array $audit,array $patch,array $contract): void
     {
-        $package=static::packageClass();$policy=static::policy();
+        $package=static::packageClass();$policy=static::policy();$ownerCount=count($package::OWNERS);
         if (($audit['schema_version']??null)!==1 || ($audit['package']??null)!==$policy['package']
             || ($audit['status']??null)!=='frozen' || ($audit['version']??null)!==$policy['version'] || ($audit['scope']??null)!==$policy['scope']
             || ($audit['locale']??null)!=='uk' || ($audit['pending']??null)!==[]
             || ($audit['independent_before_sha256']??null)!==$policy['before_sha256']
-            || count($audit['targets']??[])!==3 || count($audit['practice_bindings']??[])!==3
-            || count($patch['targets']??[])!==3 || count($contract['targets']??[])!==3
+            || $ownerCount<1 || count($audit['targets']??[])!==$ownerCount || count($audit['practice_bindings']??[])!==$ownerCount
+            || count($patch['targets']??[])!==$ownerCount || count($contract['targets']??[])!==$ownerCount
             || M26DetailPackage::digest($audit['targets'])!==$policy['targets_sha256']) {
             throw new RuntimeException($policy['label'].' frozen finite teaching/bank scope differs.');
         }

@@ -265,6 +265,7 @@ class TheoryCourseManifestService
         $page = \App\Support\M74OtherPronounsBasics::preserveCoursePage($page);
         $page = \App\Support\M75PronounForms::preserveCoursePage($page);
         $page = \App\Support\M76PronounRelations::preserveCoursePage($page);
+        $page = \App\Support\M77OnePrepositionsPhrasal::preserveCoursePage($page);
 
         return \App\Support\M49AdviceModalsPackage::preserveCoursePage(\App\Support\M48ConditionalsPackage::preserveCoursePage(\App\Support\M47ConditionalsPackage::preserveCoursePage(\App\Support\M46ConditionalsPackage::preserveCoursePage($page))));
     }
