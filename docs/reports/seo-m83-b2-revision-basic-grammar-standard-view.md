@@ -2,13 +2,13 @@
 
 ## 1. Статус і межі
 
-**ЛОКАЛЬНЕ ВПРОВАДЖЕННЯ ПРИЙНЯТО — усі шість уроків і точкову редакцію 1.0.1 застосовано; global registry 193 і paired source review завершено, Git-доставка ще триває.** Початковий apply: 83 exact updates та 1 новий A practice, далі два no-op з 0 writes. Реально перевірено 36 станів сторінок, 64 manual/token випадки, усі 60 власних завдань і шість widgets до 5/5 з читанням 30 settled sentences. Знайдену нову помилку даних Imperatives виправлено редакцією 1.0.1: один continuing body update, що додає сім роздільників між прикладами; обидва inline no-op, canonical-package no-op, незалежні postconditions, cleanup/404 та повторні шість станів Imperatives виконано. Нові 46 isolated tests пройшли в ROOT/WT; старі 13 lists повторені з тими самими шістьма новими source-guard failures. Старі receipts не видаються за докази нових bytes; нижче явно розмежовані свіжі перевірки й transitive lineage.
+**ЛОКАЛЬНЕ ВПРОВАДЖЕННЯ ПРИЙНЯТО Й CONTENT COMMIT ДОСТАВЛЕНО — усі шість уроків і точкову редакцію 1.0.1 застосовано; global registry 193, paired source/staged review і normal push завершено.** Початковий apply: 83 exact updates та 1 новий A practice, далі два no-op з 0 writes. Реально перевірено 36 станів сторінок, 64 manual/token випадки, усі 60 власних завдань і шість widgets до 5/5 з читанням 30 settled sentences. Знайдену нову помилку даних Imperatives виправлено редакцією 1.0.1: один continuing body update, що додає сім роздільників між прикладами; обидва inline no-op, canonical-package no-op, незалежні postconditions, cleanup/404 та повторні шість станів Imperatives виконано. Нові 46 isolated tests пройшли в ROOT/WT; старі 13 lists повторені з тими самими шістьма новими source-guard failures. Старі receipts не видаються за докази нових bytes; нижче явно розмежовані свіжі перевірки й transitive lineage.
 
 Scope: шість UK-сторінок теорії, їхні versioned definitions, пояснення й власна практика та по п’ять питань чинного вбудованого конструктора. Не новий дизайн, не новий grader, не модернізація курсів або окремих тестів. Робота тільки на gramlyze.loc; production та gramlyze.ub не перевірялися і не змінювалися в межах M83.
 
 Канонічні компоненти, кольори, рамки, типографіка, відступи та caller-owned межа theory зберігаються. Контент не обирає окрему M83-верстку. Короткі пояснення, переклади, контекстні критерії та необхідні застереження залишені у visible basic. Рішення про 0 «Докладніше» для кожного уроку семантичне, а не результат глобального порога довжини.
 
-| Gate | Фактичний стан цієї чернетки |
+| Gate | Фактичний стан |
 | --- | --- |
 | Свіжий незалежний source/SQL/HTTP BEFORE | Отримано; 12 GET — 200, усі 46 SQL-таблиць незмінні під час читання |
 | Окремий paired source BEFORE | 3333 шляхи, окремі RAW/LF/EOL-профілі та відсутності ROOT/WT |
@@ -27,7 +27,7 @@ Scope: шість UK-сторінок теорії, їхні versioned definitio
 | Основне реальне браузерне приймання 1.0.0 | 36 target states, 64 full-input cases, усі 60 own tasks, 6 widgets 5/5, 30 settled sentences і 30 footer clicks виконано; окремі обмеження в §10 |
 | Post-UI SQL 1.0.0 та 1.0.1 | Початковий repeat — exact SQL AFTER; свіжий post-correction/post-UI v4 зберіг exact усі 46 таблиць відносно v3 і перевірив усі 41 source pairs |
 | Точкова редакція 1.0.1 | Лише 7 supported br у 6 inline subtitles Imperatives; apply 1/0, inline no-op ×2, canonical no-op, postconditions, cleanup/404 і 6 реальних повторних states виконано |
-| Commit / push | Очікуються після завершення й перевірки |
+| Commit / push | Content commit 6d4501df139580bc980b891e8b93e8e80771cf49, normal push у робочу гілку; незалежний ls-remote SHA == HEAD підтверджено |
 
 ## 2. Усі шість сторінок і фактичні рівні
 
@@ -351,15 +351,16 @@ Proof route 1.0.1 видалено з exact restoration та окремим GET 
 
 Після основного приймання повернуто початкову dark theme і штатний viewport. Зібрані тоді browser console error/warn logs порожні; це не повний network/performance audit.
 
-## 11. Невиконані кроки й доставка
+## 11. Доставка й явні обмеження
 
-На момент цієї редакції ще **pending**:
+Content commit: **6d4501df139580bc980b891e8b93e8e80771cf49**. Його єдиний parent — accepted base **6d1681c9e5b7ffc06d47b00537c87a5588b05df8**. Normal push виконано у **codex/seo-m83-b2-revision-basic-grammar-standard-view**; окремий git ls-remote підтвердив повну рівність remote SHA та content HEAD.
 
-- staged diff/EOL/scope перевірка явного 72-path delivery allowlist; незалежний paired source repeat уже PASS;
-- content commit, нормальний push і незалежне remote SHA == HEAD у codex/seo-m83-b2-revision-basic-grammar-standard-view.
+Staged audit перевірив точні 72 файли, усі 6666 fresh ROOT/WT source profiles, відповідність кожного staged blob перевіреним working bytes, EOL/whitespace та збереження 20 foreign untracked files. Приватних receipts, runtime caches, backups, dumps або секретів у commit немає. Після source audit змінено лише фінальний звіт і видалено зайві EOF-рядки трьох нових diagnostics; ці точні зміни перевірені окремо. Content commit має лише 12 registrations / 0 removals у восьми shared files.
+
+Це фінальне доповнення звіту доставляється окремим report-only commit поверх перевіреного content commit; воно не змінює навчальні джерела, SQL або прийнятий runtime. Остаточний report-only HEAD перевіряється окремим normal push та remote SHA comparison; власний SHA commit не вбудовується рекурсивно в його текст.
 
 Нові M82 source-guard failures описані в §8 і не оголошені старим baseline або «всі тести зелені». Повний transcript/raw diagnostic evidence залишається приватним; public report містить факти й межі перевірок.
 
 Print, повний WCAG-аудит і курсова JavaScript-прогрес-сесія — not_checked. No-JS SSR читання не є доказом повної no-JS працездатності практики. Шістнадцять старих branded course-compose 404 лишаються not_checked, а не успішно прийнятими інтерактивними уроками курсу.
 
-Delivery placeholder: перевірений content commit SHA, фактичний результат push і remote HEAD будуть додані тільки після їх виконання. Робоча гілка — codex/seo-m83-b2-revision-basic-grammar-standard-view; accepted base — 6d1681c9e5b7ffc06d47b00537c87a5588b05df8. Ця редакція не заявляє commit/push, не змінює main і не дозволяє деплой. Приватні SQL snapshots, runtime identity, секрети, backups, screenshots та діагностичні raw payloads не публікуються у звіті або Git.
+Main, PR, merge, force-push, workflow dispatch і deploy не виконувалися. Сервери production та gramlyze.ub не змінювалися. Приватні SQL snapshots, runtime identity, секрети, backups, screenshots та діагностичні raw payloads не публікуються у звіті або Git.
