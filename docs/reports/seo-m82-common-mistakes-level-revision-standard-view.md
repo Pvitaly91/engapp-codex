@@ -1,9 +1,9 @@
 # M82 — типові помилки та змішане повторення: локальне застосування
 
-Статус: **основну редакцію 1.0.1 та скінченну prose-корекцію 1.0.2 застосовано до робочого `gramlyze.loc`; локальні acceptance gates підтверджені**. Основний apply — 44 updates + 6 inserts; корекція — ще 2 body updates тих самих B rows, тому ефективний diff від незалежного BEFORE — 44 unique updates + 6 inserts. Обидва застосування мають backup, postconditions, no-op ×2 і exact proof-route cleanup + 404. Прийнято 36/36 layout states, 30 settled widget answers, 48 full-input cases, 60 option cases, registry 187 та фінальні SQL/source/old-consumer repeats. Dedicated M82 profile — 36 tests / 41 572 assertions, failures/errors 0. Повний історичний набір не названо green: його 8 нових M81 source-guard failing executions окремо пояснено в §8. Commit і push ще pending.
+Статус: **основну редакцію 1.0.1 та скінченну prose-корекцію 1.0.2 застосовано до робочого `gramlyze.loc`; локальні acceptance gates підтверджені, контент закомічено та запушено**. Основний apply — 44 updates + 6 inserts; корекція — ще 2 body updates тих самих B rows, тому ефективний diff від незалежного BEFORE — 44 unique updates + 6 inserts. Обидва застосування мають backup, postconditions, no-op ×2 і exact proof-route cleanup + 404. Прийнято 36/36 layout states, 30 settled widget answers, 48 full-input cases, 60 option cases, registry 187 та фінальні SQL/source/old-consumer repeats. Dedicated M82 profile — 36 tests / 41 572 assertions, failures/errors 0. Повний історичний набір не названо green: його 8 нових M81 source-guard failing executions окремо пояснено в §8.
 
 Робоча гілка: `codex/seo-m82-common-mistakes-level-revision-standard-view`.
-База: `b8fecb29492038dc01d374955b61c500c718fa4c` — прийнятий M81. Commit M82 і push: **pending**. Main, production, `.com` і `.ub` не є ціллю застосування; production-запитів і деплою не виконано.
+База: `b8fecb29492038dc01d374955b61c500c718fa4c` — прийнятий M81. **Content commit: `94ea142c8fac995a3e4d216222edf8320d9964aa`**; normal push успішний, незалежний `git ls-remote` підтвердив точний збіг remote SHA з цим HEAD. Це окремий commit із усіма 85 перевіреними файлами M82; подальше report-only доповнення лише фіксує виконану доставку. Main, production, `.com` і `.ub` не є ціллю застосування; production-запитів і деплою не виконано.
 
 ## 1. Шість точних цілей
 
@@ -224,12 +224,12 @@ Interaction cases завершені після 1.0.1; їх не видаємо 
 
 | Owner | Effective source | Own interaction + widget | Targeted DB / no-op | Final SSR / layout | Delivery |
 | --- | --- | --- | --- | --- | --- |
-| A | reviewed 1.0.1, unchanged | accepted + widget 5/5 | applied; no-op ×2 | 200 / 6 of 6 | pending |
-| B | reviewed 1.0.1 + prose 1.0.2 | accepted; practice bytes exact + widget 5/5 | correction 2 body updates; no-op ×2 | 200 / 6 of 6 after correction | pending |
-| C | reviewed 1.0.1, unchanged | accepted + widget 5/5 | applied; no-op ×2 | 200 / 6 of 6 | pending |
-| D | reviewed 1.0.1, unchanged | accepted + widget 5/5 | applied; no-op ×2 | 200 / 6 of 6 | pending |
-| E | reviewed 1.0.1 + 4 nav URLs | accepted + widget 5/5 | applied; no-op ×2 | 200 / 6 of 6 | pending |
-| F | reviewed 1.0.1 + 4 nav URLs | accepted + widget 5/5 | applied; no-op ×2 | 200 / 6 of 6 | pending |
+| A | reviewed 1.0.1, unchanged | accepted + widget 5/5 | applied; no-op ×2 | 200 / 6 of 6 | content pushed `94ea142c8` |
+| B | reviewed 1.0.1 + prose 1.0.2 | accepted; practice bytes exact + widget 5/5 | correction 2 body updates; no-op ×2 | 200 / 6 of 6 after correction | content pushed `94ea142c8` |
+| C | reviewed 1.0.1, unchanged | accepted + widget 5/5 | applied; no-op ×2 | 200 / 6 of 6 | content pushed `94ea142c8` |
+| D | reviewed 1.0.1, unchanged | accepted + widget 5/5 | applied; no-op ×2 | 200 / 6 of 6 | content pushed `94ea142c8` |
+| E | reviewed 1.0.1 + 4 nav URLs | accepted + widget 5/5 | applied; no-op ×2 | 200 / 6 of 6 | content pushed `94ea142c8` |
+| F | reviewed 1.0.1 + 4 nav URLs | accepted + widget 5/5 | applied; no-op ×2 | 200 / 6 of 6 | content pushed `94ea142c8` |
 
 ### Фінальні registry / SQL / old-consumer gates
 
@@ -259,6 +259,10 @@ Interaction cases завершені після 1.0.1; їх не видаємо 
 
 Print layout і WCAG audit — **not_checked**. Не заявлено офіційної CEFR-сертифікації, production/indexing/ranking результату, course client JS acceptance, проходження всіх 187 сторінок у браузері чи повної no-JS інтерактивної практики. Пізніший browser policy block не обходили; final browser receipt прозоро відрізняє збережені реальні observations від post-reset reconciliation.
 
-Залишилася лише Git-доставка: delivery/staged-diff review, scoped commit перевірених M82 файлів у робочу гілку, push і remote verification; потім окреме мінімальне report-доповнення з уже наявним фактичним content commit SHA та перевіреним push. **Full content commit SHA, delivery commit SHA та push-result — pending; майбутні SHA не вигадуються.** Main і production не змінюються; deployment не дозволений цим локальним завершенням.
+Git-доставку контенту виконано: **`94ea142c8fac995a3e4d216222edf8320d9964aa`**, parent — exact M81 base вище. Явний staged allowlist містив **85 файлів**: 15 tracked changes і 70 нових M82; усі 20 сторонніх untracked файлів виключені й збережені. Перевірено повний staged path set, raw bytes усіх staged blobs із лише чинною Git EOL-нормалізацією трьох історичних text paths, 12 registration additions у 8 shared files і `git -c core.whitespace=cr-at-eol diff --cached --check`.
+
+Normal push створив лише робочу гілку M82; окремий `git ls-remote --heads origin refs/heads/codex/seo-m82-common-mistakes-level-revision-standard-view` підтвердив **remote SHA = content HEAD = `94ea142c8fac995a3e4d216222edf8320d9964aa`**. PR, merge, rebase, main update, force push і deployment не виконувалися. Це report-only доповнення не змінює код, навчальні дані або результати приймання; content SHA лишається точним посиланням на реалізацію, а завершальний documentation HEAD наводиться у фінальному повідомленні.
+
+Private delivery receipts: `final-delivery-preflight-v2.json` SHA256 `9d312005bf64f8aaad16eeb3ac420838b7d8d1239def2d27b0c982961a1c318b`; `staged-review-v1.json` SHA256 `34891d2b95cd2dbd92758a1bbcc018acd6c6303675b1ae3577428fe4abbb99b8`. Ці файли до Git не входять. Main і production не змінені; локальне завершення не є дозволом на deployment.
 
 Звіт навмисно не містить raw SQL rows, приватних snapshots/proofs, runtime identity, секретів, дампів або screenshots. Наведені basenames та opaque SHA256 служать обліком контрольованих доказів, а не публікацією їхнього приватного вмісту.
