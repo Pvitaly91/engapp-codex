@@ -1,0 +1,387 @@
+{
+  "schema_version": 1,
+  "base_sha": "6d1681c9e5b7ffc06d47b00537c87a5588b05df8",
+  "scope": "M83 twelve nonvisual caller-owned registration additions only; independent raw ROOT/WT, immutable native validator, A1/A2/B2 course, accepted M82/M81/M80/M79/test/visual preservation",
+  "independent_source_before_sha256": "bae358ff481654fcd38be6a5802a9419f4b4edf7132c931e3e38ef82bc535618",
+  "independent_db_before_sha256": "d522a715b123748b84f52f076b156ccf5224892f138d5429062d9527a843e33e",
+  "independent_course_source_before_sha256": "0d7129811de13e6991c84c5b6d6b2b62d837458ab95e352e87bc7cf6e33186ef",
+  "owned_added_registration_lines": 12,
+  "owned_validator_added_lines": 0,
+  "owned_validator_removed_lines": 0,
+  "approved_definition_paths": [
+    "database/seeders/Page_V3/BasicGrammar/B2MixedRevisionTheorySeeder/definition.json",
+    "database/seeders/Page_V3/BasicGrammar/BasicGrammarConjunctionsTheorySeeder/definition.json",
+    "database/seeders/Page_V3/BasicGrammar/BasicGrammarImperativesTheorySeeder/definition.json",
+    "database/seeders/Page_V3/BasicGrammar/BasicGrammarPartsOfSpeechTheorySeeder/definition.json",
+    "database/seeders/Page_V3/BasicGrammar/BasicGrammarSentenceStructureSvoTheorySeeder/definition.json",
+    "database/seeders/Page_V3/BasicGrammar/BasicGrammarSentenceTypesTheorySeeder/definition.json"
+  ],
+  "original_group_counts": {
+    "visual": 326,
+    "frozen": 1942,
+    "tests": 929,
+    "shared_and_routes": 13,
+    "delivery_attributes": 1,
+    "m83_target_definitions": 6,
+    "historical_m79_runtime_and_diagnostics": 31,
+    "historical_m80_runtime_and_diagnostics": 19,
+    "historical_m81_runtime_and_diagnostics": 19,
+    "historical_m82_runtime_and_diagnostics": 27,
+    "accepted_m82_delivery": 85,
+    "foreign_untracked": 20
+  },
+  "files": [
+    {
+      "path": "app/Support/TheoryContentSource.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "        [M81TransformationsCommonMistakes::class, 'm42StyleContext'],\n        [M82CommonMistakesLevelRevision::class, 'm42StyleContext'],\n",
+          "after": "        [M81TransformationsCommonMistakes::class, 'm42StyleContext'],\n        [M82CommonMistakesLevelRevision::class, 'm42StyleContext'],\n        [M83B2RevisionBasicGrammar::class, 'm42StyleContext'],\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "f32a6dc2f6d566316e1142599e52924863fb0781571e1d2dc7c8fc3130465151",
+          "before_lf_sha256": "f32a6dc2f6d566316e1142599e52924863fb0781571e1d2dc7c8fc3130465151",
+          "before_pin_origin": "independent-M83-source-BEFORE",
+          "after_raw_sha256": "101cb496c5ab758c2ed9ee09bfe31dd2307a7483026b073cf6ba00d52ff96ee2",
+          "after_lf_sha256": "101cb496c5ab758c2ed9ee09bfe31dd2307a7483026b073cf6ba00d52ff96ee2",
+          "after_pin_origin": "independent-finite-twelve-hunk-expectation",
+          "after_lf_line_count": 114,
+          "after_crlf_line_count": 0,
+          "hunk_added_line_eols": [
+            "LF"
+          ]
+        },
+        "worktree": {
+          "before_raw_sha256": "f32a6dc2f6d566316e1142599e52924863fb0781571e1d2dc7c8fc3130465151",
+          "before_lf_sha256": "f32a6dc2f6d566316e1142599e52924863fb0781571e1d2dc7c8fc3130465151",
+          "before_pin_origin": "independent-M83-source-BEFORE",
+          "after_raw_sha256": "101cb496c5ab758c2ed9ee09bfe31dd2307a7483026b073cf6ba00d52ff96ee2",
+          "after_lf_sha256": "101cb496c5ab758c2ed9ee09bfe31dd2307a7483026b073cf6ba00d52ff96ee2",
+          "after_pin_origin": "independent-finite-twelve-hunk-expectation",
+          "after_lf_line_count": 114,
+          "after_crlf_line_count": 0,
+          "hunk_added_line_eols": [
+            "LF"
+          ]
+        }
+      }
+    },
+    {
+      "path": "app/Support/TheoryHtmlAdapter.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "        if (($design['package'] ?? null) === 'm81-native-v1') { return M81TransformationsCommonMistakes::pointPanels($design); }\n        if (($design['package'] ?? null) === 'm82-native-v1') { return M82CommonMistakesLevelRevision::pointPanels($design); }\n",
+          "after": "        if (($design['package'] ?? null) === 'm81-native-v1') { return M81TransformationsCommonMistakes::pointPanels($design); }\n        if (($design['package'] ?? null) === 'm82-native-v1') { return M82CommonMistakesLevelRevision::pointPanels($design); }\n        if (($design['package'] ?? null) === 'm83-native-v1') { return M83B2RevisionBasicGrammar::pointPanels($design); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        },
+        {
+          "before": "        if (($design['package'] ?? null) === 'm81-native-v1') { return M81TransformationsCommonMistakes::validDesign($design); }\n        if (($design['package'] ?? null) === 'm82-native-v1') { return M82CommonMistakesLevelRevision::validDesign($design); }\n",
+          "after": "        if (($design['package'] ?? null) === 'm81-native-v1') { return M81TransformationsCommonMistakes::validDesign($design); }\n        if (($design['package'] ?? null) === 'm82-native-v1') { return M82CommonMistakesLevelRevision::validDesign($design); }\n        if (($design['package'] ?? null) === 'm83-native-v1') { return M83B2RevisionBasicGrammar::validDesign($design); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "d40d08c5bb63e0b24936f8cca2a677e2e71fad6d964ca0b7864abecddba840e8",
+          "before_lf_sha256": "d40d08c5bb63e0b24936f8cca2a677e2e71fad6d964ca0b7864abecddba840e8",
+          "before_pin_origin": "independent-M83-source-BEFORE",
+          "after_raw_sha256": "f9fa7f124a6cb332e282254f71b4ee0c653b9afe44143abed11ca5e910043746",
+          "after_lf_sha256": "f9fa7f124a6cb332e282254f71b4ee0c653b9afe44143abed11ca5e910043746",
+          "after_pin_origin": "independent-finite-twelve-hunk-expectation",
+          "after_lf_line_count": 608,
+          "after_crlf_line_count": 0,
+          "hunk_added_line_eols": [
+            "LF",
+            "LF"
+          ]
+        },
+        "worktree": {
+          "before_raw_sha256": "d40d08c5bb63e0b24936f8cca2a677e2e71fad6d964ca0b7864abecddba840e8",
+          "before_lf_sha256": "d40d08c5bb63e0b24936f8cca2a677e2e71fad6d964ca0b7864abecddba840e8",
+          "before_pin_origin": "independent-M83-source-BEFORE",
+          "after_raw_sha256": "f9fa7f124a6cb332e282254f71b4ee0c653b9afe44143abed11ca5e910043746",
+          "after_lf_sha256": "f9fa7f124a6cb332e282254f71b4ee0c653b9afe44143abed11ca5e910043746",
+          "after_pin_origin": "independent-finite-twelve-hunk-expectation",
+          "after_lf_line_count": 608,
+          "after_crlf_line_count": 0,
+          "hunk_added_line_eols": [
+            "LF",
+            "LF"
+          ]
+        }
+      }
+    },
+    {
+      "path": "app/Support/TheoryLegacyAdapter.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "                if ($correction === null) { $correction = M81TransformationsCommonMistakes::correction($item, $design); }\n                if ($correction === null) { $correction = M82CommonMistakesLevelRevision::correction($item, $design); }\n",
+          "after": "                if ($correction === null) { $correction = M81TransformationsCommonMistakes::correction($item, $design); }\n                if ($correction === null) { $correction = M82CommonMistakesLevelRevision::correction($item, $design); }\n                if ($correction === null) { $correction = M83B2RevisionBasicGrammar::correction($item, $design); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "12262e757b413e559f6fe09f41cb2e12724829a55272e79c5f4512c7436c0150",
+          "before_lf_sha256": "12262e757b413e559f6fe09f41cb2e12724829a55272e79c5f4512c7436c0150",
+          "before_pin_origin": "independent-M83-source-BEFORE",
+          "after_raw_sha256": "09870e01fba4f2bb3b9fbd7f04dd4c5e0c20412db8d451c00e22ea989915283d",
+          "after_lf_sha256": "09870e01fba4f2bb3b9fbd7f04dd4c5e0c20412db8d451c00e22ea989915283d",
+          "after_pin_origin": "independent-finite-twelve-hunk-expectation",
+          "after_lf_line_count": 273,
+          "after_crlf_line_count": 0,
+          "hunk_added_line_eols": [
+            "LF"
+          ]
+        },
+        "worktree": {
+          "before_raw_sha256": "12262e757b413e559f6fe09f41cb2e12724829a55272e79c5f4512c7436c0150",
+          "before_lf_sha256": "12262e757b413e559f6fe09f41cb2e12724829a55272e79c5f4512c7436c0150",
+          "before_pin_origin": "independent-M83-source-BEFORE",
+          "after_raw_sha256": "09870e01fba4f2bb3b9fbd7f04dd4c5e0c20412db8d451c00e22ea989915283d",
+          "after_lf_sha256": "09870e01fba4f2bb3b9fbd7f04dd4c5e0c20412db8d451c00e22ea989915283d",
+          "after_pin_origin": "independent-finite-twelve-hunk-expectation",
+          "after_lf_line_count": 273,
+          "after_crlf_line_count": 0,
+          "hunk_added_line_eols": [
+            "LF"
+          ]
+        }
+      }
+    },
+    {
+      "path": "app/Support/TheoryContentRenderer.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "                $bindings = M81BuilderSelectionPresentation::bindings($bindings);\n                $bindings = M82BuilderSelectionPresentation::bindings($bindings);\n",
+          "after": "                $bindings = M81BuilderSelectionPresentation::bindings($bindings);\n                $bindings = M82BuilderSelectionPresentation::bindings($bindings);\n                $bindings = M83BuilderSelectionPresentation::bindings($bindings);\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "40a352071e2eeda6b817a9620f352a56e85efecb800239f58c794ae8d3df97a8",
+          "before_lf_sha256": "40a352071e2eeda6b817a9620f352a56e85efecb800239f58c794ae8d3df97a8",
+          "before_pin_origin": "independent-M83-source-BEFORE",
+          "after_raw_sha256": "810d98ba215a9bffbc89517cde66e38fa80f344febe930f8f1ddde0a89153a76",
+          "after_lf_sha256": "810d98ba215a9bffbc89517cde66e38fa80f344febe930f8f1ddde0a89153a76",
+          "after_pin_origin": "independent-finite-twelve-hunk-expectation",
+          "after_lf_line_count": 182,
+          "after_crlf_line_count": 0,
+          "hunk_added_line_eols": [
+            "LF"
+          ]
+        },
+        "worktree": {
+          "before_raw_sha256": "40a352071e2eeda6b817a9620f352a56e85efecb800239f58c794ae8d3df97a8",
+          "before_lf_sha256": "40a352071e2eeda6b817a9620f352a56e85efecb800239f58c794ae8d3df97a8",
+          "before_pin_origin": "independent-M83-source-BEFORE",
+          "after_raw_sha256": "810d98ba215a9bffbc89517cde66e38fa80f344febe930f8f1ddde0a89153a76",
+          "after_lf_sha256": "810d98ba215a9bffbc89517cde66e38fa80f344febe930f8f1ddde0a89153a76",
+          "after_pin_origin": "independent-finite-twelve-hunk-expectation",
+          "after_lf_line_count": 182,
+          "after_crlf_line_count": 0,
+          "hunk_added_line_eols": [
+            "LF"
+          ]
+        }
+      }
+    },
+    {
+      "path": "app/Support/PracticeCompletionLinkedPractice.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "        $block = M81BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n        $block = M82BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n",
+          "after": "        $block = M81BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n        $block = M82BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n        $block = M83BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "64a21fab94d3de2b99432bb1d4f4ec5715d5b0926387a53ce9655fb3f6f7f492",
+          "before_lf_sha256": "64a21fab94d3de2b99432bb1d4f4ec5715d5b0926387a53ce9655fb3f6f7f492",
+          "before_pin_origin": "independent-M83-source-BEFORE",
+          "after_raw_sha256": "7f8a145ac5657fff93b5ecba9828a0a1bf42cbf577d92eea8e28ccdf426c3e7c",
+          "after_lf_sha256": "7f8a145ac5657fff93b5ecba9828a0a1bf42cbf577d92eea8e28ccdf426c3e7c",
+          "after_pin_origin": "independent-finite-twelve-hunk-expectation",
+          "after_lf_line_count": 151,
+          "after_crlf_line_count": 0,
+          "hunk_added_line_eols": [
+            "LF"
+          ]
+        },
+        "worktree": {
+          "before_raw_sha256": "64a21fab94d3de2b99432bb1d4f4ec5715d5b0926387a53ce9655fb3f6f7f492",
+          "before_lf_sha256": "64a21fab94d3de2b99432bb1d4f4ec5715d5b0926387a53ce9655fb3f6f7f492",
+          "before_pin_origin": "independent-M83-source-BEFORE",
+          "after_raw_sha256": "7f8a145ac5657fff93b5ecba9828a0a1bf42cbf577d92eea8e28ccdf426c3e7c",
+          "after_lf_sha256": "7f8a145ac5657fff93b5ecba9828a0a1bf42cbf577d92eea8e28ccdf426c3e7c",
+          "after_pin_origin": "independent-finite-twelve-hunk-expectation",
+          "after_lf_line_count": 151,
+          "after_crlf_line_count": 0,
+          "hunk_added_line_eols": [
+            "LF"
+          ]
+        }
+      }
+    },
+    {
+      "path": "app/Services/Theory/TextBlockToQuestionsMatcherService.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "            $excludeQuestionIds = \\App\\Support\\M81BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n            $excludeQuestionIds = \\App\\Support\\M82BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n",
+          "after": "            $excludeQuestionIds = \\App\\Support\\M81BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n            $excludeQuestionIds = \\App\\Support\\M82BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n            $excludeQuestionIds = \\App\\Support\\M83BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "07854eb50a3652e328aeb81e49c16355f41416173e326eddfeab452eb7de32a9",
+          "before_lf_sha256": "754a5204bf849bc6c65ac820e1e259a7ed84ec89b4de5eda3bea0bac77cebc10",
+          "before_pin_origin": "independent-M83-source-BEFORE",
+          "after_raw_sha256": "6600a60cb89185991cc61bbef6aec3f0bdce22dca8690322be5503df841fb132",
+          "after_lf_sha256": "7e707acd64a20f838e056805eb916aa04ac13dcb2344b3edc7cb8dd601e11eb9",
+          "after_pin_origin": "independent-finite-twelve-hunk-expectation",
+          "after_lf_line_count": 479,
+          "after_crlf_line_count": 479,
+          "hunk_added_line_eols": [
+            "CRLF"
+          ]
+        },
+        "worktree": {
+          "before_raw_sha256": "07854eb50a3652e328aeb81e49c16355f41416173e326eddfeab452eb7de32a9",
+          "before_lf_sha256": "754a5204bf849bc6c65ac820e1e259a7ed84ec89b4de5eda3bea0bac77cebc10",
+          "before_pin_origin": "independent-M83-source-BEFORE",
+          "after_raw_sha256": "6600a60cb89185991cc61bbef6aec3f0bdce22dca8690322be5503df841fb132",
+          "after_lf_sha256": "7e707acd64a20f838e056805eb916aa04ac13dcb2344b3edc7cb8dd601e11eb9",
+          "after_pin_origin": "independent-finite-twelve-hunk-expectation",
+          "after_lf_line_count": 479,
+          "after_crlf_line_count": 479,
+          "hunk_added_line_eols": [
+            "CRLF"
+          ]
+        }
+      }
+    },
+    {
+      "path": "app/Services/TheoryCourseManifestService.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "        $page = \\App\\Support\\M81TransformationsCommonMistakes::preserveCoursePage($page);\n        $page = \\App\\Support\\M82CommonMistakesLevelRevision::preserveCoursePage($page);\n",
+          "after": "        $page = \\App\\Support\\M81TransformationsCommonMistakes::preserveCoursePage($page);\n        $page = \\App\\Support\\M82CommonMistakesLevelRevision::preserveCoursePage($page);\n        $page = \\App\\Support\\M83B2RevisionBasicGrammar::preserveCoursePage($page);\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "ffd9687d8ad6863de6a6d76aa5cb72954a5fb73f7b9503bb411a8de03cacdf6e",
+          "before_lf_sha256": "178067013036cb405b91a8c35e37a75671210da065e261d74962c1b129e6d172",
+          "before_pin_origin": "independent-M83-source-BEFORE",
+          "after_raw_sha256": "2853b0fb0a25ca77611774aceabd881938d18d602934870a48d859a9e02361ba",
+          "after_lf_sha256": "3f34b48b183d3e31f6449c8a537e124a84f3bb6ce7faaec1f2a1332f5290067d",
+          "after_pin_origin": "independent-finite-twelve-hunk-expectation",
+          "after_lf_line_count": 712,
+          "after_crlf_line_count": 608,
+          "hunk_added_line_eols": [
+            "CRLF"
+          ]
+        },
+        "worktree": {
+          "before_raw_sha256": "07a6d9a69df256eae84c23148a309aa9ff27f22a02e5a3a8f0d26a8a41c4202c",
+          "before_lf_sha256": "178067013036cb405b91a8c35e37a75671210da065e261d74962c1b129e6d172",
+          "before_pin_origin": "independent-M83-source-BEFORE",
+          "after_raw_sha256": "916e0baaf718f57c478ede49a5e1b70d4fad778f83e5bb99f1e2a44ad527a3ed",
+          "after_lf_sha256": "3f34b48b183d3e31f6449c8a537e124a84f3bb6ce7faaec1f2a1332f5290067d",
+          "after_pin_origin": "independent-finite-twelve-hunk-expectation",
+          "after_lf_line_count": 712,
+          "after_crlf_line_count": 712,
+          "hunk_added_line_eols": [
+            "CRLF"
+          ]
+        }
+      }
+    },
+    {
+      "path": "app/Http/Controllers/TestJsV2Controller.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "                    if ($block !== null) { $block = \\App\\Support\\M81TransformationsCommonMistakes::preserveExcludedTextBlock($block, 'standalone_test'); }\n                    if ($block !== null) { $block = \\App\\Support\\M82CommonMistakesLevelRevision::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+          "after": "                    if ($block !== null) { $block = \\App\\Support\\M81TransformationsCommonMistakes::preserveExcludedTextBlock($block, 'standalone_test'); }\n                    if ($block !== null) { $block = \\App\\Support\\M82CommonMistakesLevelRevision::preserveExcludedTextBlock($block, 'standalone_test'); }\n                    if ($block !== null) { $block = \\App\\Support\\M83B2RevisionBasicGrammar::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        },
+        {
+          "before": "                if ($textBlock) { $textBlock = \\App\\Support\\M81TransformationsCommonMistakes::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n                if ($textBlock) { $textBlock = \\App\\Support\\M82CommonMistakesLevelRevision::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+          "after": "                if ($textBlock) { $textBlock = \\App\\Support\\M81TransformationsCommonMistakes::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n                if ($textBlock) { $textBlock = \\App\\Support\\M82CommonMistakesLevelRevision::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n                if ($textBlock) { $textBlock = \\App\\Support\\M83B2RevisionBasicGrammar::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        },
+        {
+          "before": "                if ($block !== null) { $block = \\App\\Support\\M81TransformationsCommonMistakes::preserveExcludedTextBlock($block, 'standalone_test'); }\n                if ($block !== null) { $block = \\App\\Support\\M82CommonMistakesLevelRevision::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+          "after": "                if ($block !== null) { $block = \\App\\Support\\M81TransformationsCommonMistakes::preserveExcludedTextBlock($block, 'standalone_test'); }\n                if ($block !== null) { $block = \\App\\Support\\M82CommonMistakesLevelRevision::preserveExcludedTextBlock($block, 'standalone_test'); }\n                if ($block !== null) { $block = \\App\\Support\\M83B2RevisionBasicGrammar::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        },
+        {
+          "before": "            if ($textBlock) { $textBlock = \\App\\Support\\M81TransformationsCommonMistakes::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n            if ($textBlock) { $textBlock = \\App\\Support\\M82CommonMistakesLevelRevision::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+          "after": "            if ($textBlock) { $textBlock = \\App\\Support\\M81TransformationsCommonMistakes::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n            if ($textBlock) { $textBlock = \\App\\Support\\M82CommonMistakesLevelRevision::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n            if ($textBlock) { $textBlock = \\App\\Support\\M83B2RevisionBasicGrammar::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "0b493b2516d84c8495a56d678a7dc58d6f10cfcdf416a652fdfc81ae9d5423ff",
+          "before_lf_sha256": "31b7d74e8941667ca7c0ecf029c5db36ce234a25042cbcf5e21c6f5b5bfce7cf",
+          "before_pin_origin": "independent-M83-source-BEFORE",
+          "after_raw_sha256": "56dedba0758f3806d6c71b95d5c1816956bd5d46763b54d7f400f4e4284a6ac4",
+          "after_lf_sha256": "457130a54b6e17db669a85e5a82795df3337e83c002bce36068a9da9c216c3c8",
+          "after_pin_origin": "independent-finite-twelve-hunk-expectation",
+          "after_lf_line_count": 1570,
+          "after_crlf_line_count": 1570,
+          "hunk_added_line_eols": [
+            "CRLF",
+            "CRLF",
+            "CRLF",
+            "CRLF"
+          ]
+        },
+        "worktree": {
+          "before_raw_sha256": "f2ea95a4d6bc6273e44be1e3d7193660edd8a459efcd3f0a3a937ed98fe416b5",
+          "before_lf_sha256": "fbfc04228592a80b6753cf9e2e0bfbd75d30cd292d0cf4a3b24620fbf40167b4",
+          "before_pin_origin": "independent-M83-source-BEFORE",
+          "after_raw_sha256": "f470cf85c94d4fbb1c1713af0d68ef6a34c468edaf361c6fa1bda077164a170f",
+          "after_lf_sha256": "9668a1c587cd4bed6263998f4e66cbbe1974ad6b62a2a67b41e36c44fa1d6581",
+          "after_pin_origin": "independent-finite-twelve-hunk-expectation",
+          "after_lf_line_count": 1569,
+          "after_crlf_line_count": 1569,
+          "hunk_added_line_eols": [
+            "CRLF",
+            "CRLF",
+            "CRLF",
+            "CRLF"
+          ]
+        }
+      }
+    }
+  ]
+}

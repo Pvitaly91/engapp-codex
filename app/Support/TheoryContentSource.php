@@ -43,6 +43,7 @@ final class TheoryContentSource
         [M80NegativesTransformations::class, 'm42StyleContext'],
         [M81TransformationsCommonMistakes::class, 'm42StyleContext'],
         [M82CommonMistakesLevelRevision::class, 'm42StyleContext'],
+        [M83B2RevisionBasicGrammar::class, 'm42StyleContext'],
         [M50ObligationAdvicePackage::class, 'm42StyleContext'],
         [PracticeCompletionPackage::class, 'm42StyleContext'],
         [M49AdviceModalsPackage::class, 'm42StyleContext'],
