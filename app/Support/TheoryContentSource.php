@@ -41,6 +41,7 @@ final class TheoryContentSource
         [M78PhrasalQuestionBasics::class, 'm42StyleContext'],
         [M79QuestionTypesCompletion::class, 'm42StyleContext'],
         [M80NegativesTransformations::class, 'm42StyleContext'],
+        [M81TransformationsCommonMistakes::class, 'm42StyleContext'],
         [M50ObligationAdvicePackage::class, 'm42StyleContext'],
         [PracticeCompletionPackage::class, 'm42StyleContext'],
         [M49AdviceModalsPackage::class, 'm42StyleContext'],

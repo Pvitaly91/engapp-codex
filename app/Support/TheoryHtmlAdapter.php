@@ -63,6 +63,7 @@ final class TheoryHtmlAdapter
         if (($design['package'] ?? null) === 'm78-native-v1') { return M78PhrasalQuestionBasics::pointPanels($design); }
         if (($design['package'] ?? null) === 'm79-native-v1') { return M79QuestionTypesCompletion::pointPanels($design); }
         if (($design['package'] ?? null) === 'm80-native-v1') { return M80NegativesTransformations::pointPanels($design); }
+        if (($design['package'] ?? null) === 'm81-native-v1') { return M81TransformationsCommonMistakes::pointPanels($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::pointPanels($design); }
@@ -174,6 +175,7 @@ final class TheoryHtmlAdapter
         if (($design['package'] ?? null) === 'm78-native-v1') { return M78PhrasalQuestionBasics::validDesign($design); }
         if (($design['package'] ?? null) === 'm79-native-v1') { return M79QuestionTypesCompletion::validDesign($design); }
         if (($design['package'] ?? null) === 'm80-native-v1') { return M80NegativesTransformations::validDesign($design); }
+        if (($design['package'] ?? null) === 'm81-native-v1') { return M81TransformationsCommonMistakes::validDesign($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::validDesign($design); }
