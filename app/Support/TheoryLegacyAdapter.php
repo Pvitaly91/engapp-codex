@@ -192,6 +192,7 @@ final class TheoryLegacyAdapter
                 if ($correction === null) { $correction = M79QuestionTypesCompletion::correction($item, $design); }
                 if ($correction === null) { $correction = M80NegativesTransformations::correction($item, $design); }
                 if ($correction === null) { $correction = M81TransformationsCommonMistakes::correction($item, $design); }
+                if ($correction === null) { $correction = M82CommonMistakesLevelRevision::correction($item, $design); }
                 if ($correction !== null) { $point = array_replace($point, $correction); }
                 self::detail($point, $pointSections, $index);
                 $node['items'][] = $point;

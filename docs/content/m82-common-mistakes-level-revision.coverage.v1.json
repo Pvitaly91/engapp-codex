@@ -1,0 +1,985 @@
+{
+    "schema_version": 1,
+    "package": "m82-common-mistakes-level-revision",
+    "version": "1.0.1",
+    "status": "frozen",
+    "author_projection_sha256": "256cd5fa67379d596432b3b431588cce61450ac4b7d71fb9514c6c4d34101611",
+    "widget_selection_sha256": "4f907d2ca2877469e9c534ec6b199fece0418e64d5ee2a4f91f6729af0bc2fff",
+    "bank_projection_sha256": "21e3d014243c4e11afb16cdee8f5dbdaeee71cf7d73e1852ec811eadc41060de",
+    "claim": "Finite source-topic/model coverage only; 36 own tasks and 30 selected widget questions are not a complete course or CEFR assessment.",
+    "course_boundary": {
+        "source_and_consumer_before_sha256": "1a8cb25b84914738dcab29f957c3c38087685364281d061b6fcb2980b9fdbaa8",
+        "a1": {
+            "course": "English Sentence Builder A1",
+            "lessons": 16,
+            "final_lesson_slug": "polyglot-final-drill-a1",
+            "final_question_count": 24
+        },
+        "a2": {
+            "course": "English Sentence Builder A2",
+            "lessons": 16,
+            "final_lesson_slug": "polyglot-final-drill-a2",
+            "final_question_count": 24
+        },
+        "completion": {
+            "rolling_window": 100,
+            "min_rating": 4.5
+        },
+        "policy": "Standalone theory/widget selection never rewrites course lessons, original question models/options/hints, memberships, completion, enrollment or progress.",
+        "existing_pool_difference_preserved": "Two first A1 lesson pools contain 72 actual questions versus 24 in historical seed definitions; capture preserves the actual pools, not a reseed."
+    },
+    "targets": [
+        {
+            "identity": "Database\\Seeders\\Page_V3\\CommonMistakes\\CommonMistakesPresentPerfectTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/common-mistakes/present-perfect-common-mistakes",
+            "own_task_ids": [
+                "m82-present-perfect-form-auxiliary-v3",
+                "m82-present-perfect-form-start-point",
+                "m82-present-perfect-meaning-already-correct-scope",
+                "m82-present-perfect-meaning-been-in",
+                "m82-present-perfect-sentence-returned-visits",
+                "m82-present-perfect-sentence-not-finished-yet"
+            ],
+            "selected_widget_ids": [
+                44211,
+                44212,
+                44216,
+                44217,
+                44218
+            ],
+            "selected_widget_uuids": [
+                "cmpp-poly-a2-01",
+                "cmpp-poly-a2-02",
+                "cmpp-poly-a2-06",
+                "cmpp-poly-a2-07",
+                "cmpp-poly-a2-08"
+            ],
+            "rows": [
+                {
+                    "source_topic": "PresentPerfect/PastSimple/result/finishedtime",
+                    "theoretical_reference": [
+                        "present-perfect-common-mistakes-1/sections/0",
+                        "present-perfect-common-mistakes-2/sections/1"
+                    ],
+                    "own_task_ids": [
+                        "m82-present-perfect-meaning-already-correct-scope"
+                    ],
+                    "selected_widget_questions": [
+                        {
+                            "id": 44211,
+                            "uuid": "cmpp-poly-a2-01",
+                            "level": "A2",
+                            "function": "Діагностика finished-time scope: конкретний час стосується саме перегляду."
+                        }
+                    ],
+                    "uncovered_or_link": "Не повне оцінювання всіх часів; тематична навігація source збережена.",
+                    "coverage_kind": "own_and_widget"
+                },
+                {
+                    "source_topic": "Been/gone;completedvisits/currentstay",
+                    "theoretical_reference": [
+                        "present-perfect-common-mistakes-1/sections/1"
+                    ],
+                    "own_task_ids": [
+                        "m82-present-perfect-meaning-been-in",
+                        "m82-present-perfect-sentence-returned-visits"
+                    ],
+                    "selected_widget_questions": [
+                        {
+                            "id": 44218,
+                            "uuid": "cmpp-poly-a2-08",
+                            "level": "A2",
+                            "function": "Gone to з явно названим неповерненням додому; прибуття відоме з контексту, не виводиться тільки з gone."
+                        }
+                    ],
+                    "uncovered_or_link": "Gone/arrival probe передбачений у теорії та main browser semantic audit, не окремий seventh own task.",
+                    "coverage_kind": "own_and_widget"
+                },
+                {
+                    "source_topic": "For/since",
+                    "theoretical_reference": [
+                        "present-perfect-common-mistakes-1/sections/2"
+                    ],
+                    "own_task_ids": [
+                        "m82-present-perfect-form-start-point"
+                    ],
+                    "selected_widget_questions": [
+                        {
+                            "id": 44217,
+                            "uuid": "cmpp-poly-a2-07",
+                            "level": "A2",
+                            "function": "Since як початкова точка; форма has worked; без арифметики дат."
+                        }
+                    ],
+                    "uncovered_or_link": "Діапазонів дат і арифметичного перерахунку не оцінюємо.",
+                    "coverage_kind": "own_and_widget"
+                },
+                {
+                    "source_topic": "Yet/already/just",
+                    "theoretical_reference": [
+                        "present-perfect-common-mistakes-1/sections/3",
+                        "present-perfect-common-mistakes-2/sections/2"
+                    ],
+                    "own_task_ids": [
+                        "m82-present-perfect-form-auxiliary-v3",
+                        "m82-present-perfect-sentence-not-finished-yet"
+                    ],
+                    "selected_widget_questions": [
+                        {
+                            "id": 44212,
+                            "uuid": "cmpp-poly-a2-02",
+                            "level": "A2",
+                            "function": "Already за заданого отриманого результату; has + V3, без втрати об’єкта."
+                        },
+                        {
+                            "id": 44216,
+                            "uuid": "cmpp-poly-a2-06",
+                            "level": "A2",
+                            "function": "Yet у контексті очікуваного, досі не отриманого результату; множина have, not."
+                        }
+                    ],
+                    "uncovered_or_link": "Рідші negative already uses — видиме застереження, не квота питань.",
+                    "coverage_kind": "own_and_widget"
+                },
+                {
+                    "source_topic": "Have/has+V3/questions/negatives/shortanswers",
+                    "theoretical_reference": [
+                        "present-perfect-common-mistakes-2/sections/0"
+                    ],
+                    "own_task_ids": [
+                        "m82-present-perfect-form-auxiliary-v3",
+                        "m82-present-perfect-sentence-not-finished-yet"
+                    ],
+                    "selected_widget_questions": [
+                        {
+                            "id": 44212,
+                            "uuid": "cmpp-poly-a2-02",
+                            "level": "A2",
+                            "function": "Already за заданого отриманого результату; has + V3, без втрати об’єкта."
+                        },
+                        {
+                            "id": 44216,
+                            "uuid": "cmpp-poly-a2-06",
+                            "level": "A2",
+                            "function": "Yet у контексті очікуваного, досі не отриманого результату; множина have, not."
+                        }
+                    ],
+                    "uncovered_or_link": "Теорія покриває модель; шість own tasks не перевіряють усі її можливі форми.",
+                    "coverage_kind": "own_and_widget"
+                }
+            ]
+        },
+        {
+            "identity": "Database\\Seeders\\Page_V3\\CommonMistakes\\CommonMistakesCountableUncountableTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/common-mistakes/countable-vs-uncountable-nouns-common-mistakes",
+            "own_task_ids": [
+                "m82-countability-form-many-people",
+                "m82-countability-form-information-agreement",
+                "m82-countability-meaning-correct-servings",
+                "m82-countability-meaning-few-not-sufficient",
+                "m82-countability-sentence-one-advice",
+                "m82-countability-sentence-lots-information"
+            ],
+            "selected_widget_ids": [
+                43997,
+                43998,
+                43999,
+                44003,
+                44004
+            ],
+            "selected_widget_uuids": [
+                "cmu-poly-a2-03",
+                "cmu-poly-a2-04",
+                "cmu-poly-a2-05",
+                "cmu-poly-a2-09",
+                "cmu-poly-a2-10"
+            ],
+            "rows": [
+                {
+                    "source_topic": "Many/much+questions/style",
+                    "theoretical_reference": [
+                        "countable-vs-uncountable-nouns-common-mistakes-1/sections/2",
+                        "countable-vs-uncountable-nouns-common-mistakes-2/sections/1"
+                    ],
+                    "own_task_ids": [
+                        "m82-countability-form-many-people"
+                    ],
+                    "selected_widget_questions": [
+                        {
+                            "id": 43998,
+                            "uuid": "cmu-poly-a2-04",
+                            "level": "A2",
+                            "function": "How many + злічувана множина; lexical have з do-support; питання без втрати слів."
+                        }
+                    ],
+                    "uncovered_or_link": "Formal affirmative much taught, not separately graded by own6tasks; no blanket ban.",
+                    "coverage_kind": "own_and_widget"
+                },
+                {
+                    "source_topic": "Few/little;count/mass;sufficiency",
+                    "theoretical_reference": [
+                        "countable-vs-uncountable-nouns-common-mistakes-1/sections/3"
+                    ],
+                    "own_task_ids": [
+                        "m82-countability-meaning-few-not-sufficient"
+                    ],
+                    "selected_widget_questions": [
+                        {
+                            "id": 43999,
+                            "uuid": "cmu-poly-a2-05",
+                            "level": "A2",
+                            "function": "Very little зі звичайним mass time; не ототожнює фразу з незалежним критерієм достатності."
+                        }
+                    ],
+                    "uncovered_or_link": "Very little time перевіряє вибране питання cmu-poly-a2-05; little milk лишається видимим прикладом, а не окремо оціненим widget завданням. Достатність кількості визначається заданими фактами.",
+                    "coverage_kind": "own_and_widget"
+                },
+                {
+                    "source_topic": "Advice/information/homework/furniture+luggage",
+                    "theoretical_reference": [
+                        "countable-vs-uncountable-nouns-common-mistakes-1/sections/0",
+                        "countable-vs-uncountable-nouns-common-mistakes-2/sections/0"
+                    ],
+                    "own_task_ids": [
+                        "m82-countability-sentence-one-advice",
+                        "m82-countability-sentence-lots-information",
+                        "m82-countability-form-information-agreement"
+                    ],
+                    "selected_widget_questions": [
+                        {
+                            "id": 43997,
+                            "uuid": "cmu-poly-a2-03",
+                            "level": "A2",
+                            "function": "Information у звичайному незлічуваному значенні й узгодження is; уже правильний задум."
+                        },
+                        {
+                            "id": 44003,
+                            "uuid": "cmu-poly-a2-09",
+                            "level": "A2",
+                            "function": "A piece of advice: одиниця зі збереженням однини, не an advice і не кількісна підміна."
+                        },
+                        {
+                            "id": 44004,
+                            "uuid": "cmu-poly-a2-10",
+                            "level": "A2",
+                            "function": "Homework без довільної множини/a; Past Simple, учасники teacher/us та означений учитель збережені."
+                        }
+                    ],
+                    "uncovered_or_link": "Information, одна одиниця advice та homework представлені вибраними питаннями; furniture/luggage лишаються видимими орієнтирами без заяви про повне лексичне оцінювання.",
+                    "coverage_kind": "own_and_widget"
+                },
+                {
+                    "source_topic": "Units/one versus some/headwordagreement",
+                    "theoretical_reference": [
+                        "countable-vs-uncountable-nouns-common-mistakes-2/sections/0",
+                        "countable-vs-uncountable-nouns-common-mistakes-2/sections/1"
+                    ],
+                    "own_task_ids": [
+                        "m82-countability-sentence-one-advice",
+                        "m82-countability-form-information-agreement"
+                    ],
+                    "selected_widget_questions": [
+                        {
+                            "id": 44003,
+                            "uuid": "cmu-poly-a2-09",
+                            "level": "A2",
+                            "function": "A piece of advice: одиниця зі збереженням однини, не an advice і не кількісна підміна."
+                        }
+                    ],
+                    "uncovered_or_link": "Twopieces agreement visible; no assertion that allunittypes are graded.",
+                    "coverage_kind": "own_and_widget"
+                },
+                {
+                    "source_topic": "Substance versus countable portions;alreadycorrect",
+                    "theoretical_reference": [
+                        "countable-vs-uncountable-nouns-common-mistakes-1/sections/1",
+                        "countable-vs-uncountable-nouns-common-mistakes-2/sections/2"
+                    ],
+                    "own_task_ids": [
+                        "m82-countability-meaning-correct-servings"
+                    ],
+                    "selected_widget_questions": [],
+                    "uncovered_or_link": "Types/servings depend on specified meaning; milk/water not assumed globallyuncountable.",
+                    "coverage_kind": "own_only"
+                }
+            ]
+        },
+        {
+            "identity": "Database\\Seeders\\Page_V3\\CommonMistakes\\CommonMistakesPrepositionsTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/common-mistakes/prepositions-common-mistakes",
+            "own_task_ids": [
+                "m82-prepositions-common-mistakes-form-next-monday",
+                "m82-prepositions-common-mistakes-form-depend-support",
+                "m82-prepositions-common-mistakes-meaning-correct-jump",
+                "m82-prepositions-common-mistakes-meaning-destination-not-arrival",
+                "m82-prepositions-common-mistakes-sentence-airport-late",
+                "m82-prepositions-common-mistakes-sentence-room-entry"
+            ],
+            "selected_widget_ids": [
+                43851,
+                43852,
+                43857,
+                43858,
+                43860
+            ],
+            "selected_widget_uuids": [
+                "cmp-poly-a2-01",
+                "cmp-poly-a2-02",
+                "cmp-poly-a2-07",
+                "cmp-poly-a2-08",
+                "cmp-poly-a2-10"
+            ],
+            "rows": [
+                {
+                    "source_topic": "At/on/in: time",
+                    "theoretical_reference": [
+                        "lesson.blocks[1].data.sections[0]"
+                    ],
+                    "own_task_ids": [
+                        "m82-prepositions-common-mistakes-form-next-monday"
+                    ],
+                    "selected_widget_questions": [
+                        {
+                            "id": 43851,
+                            "uuid": "cmp-poly-a2-01",
+                            "level": "A2",
+                            "function": "Час за годинником; модель at, не дослівний переклад."
+                        }
+                    ],
+                    "uncovered_or_link": "Усі часові ідіоми не оцінюються; повні тематичні уроки залишаються read-only.",
+                    "coverage_kind": "own_and_widget",
+                    "reference_url": "/theory/prepositions-and-phrasal-verbs/prepositions-of-time"
+                },
+                {
+                    "source_topic": "At/on/in: place; arrive at/in and late",
+                    "theoretical_reference": [
+                        "lesson.blocks[1].data.sections[1]; blocks[3].items[2]"
+                    ],
+                    "own_task_ids": [
+                        "m82-prepositions-common-mistakes-sentence-airport-late"
+                    ],
+                    "selected_widget_questions": [
+                        {
+                            "id": 43852,
+                            "uuid": "cmp-poly-a2-02",
+                            "level": "A2",
+                            "function": "At для пункту діяльності; відсутня зміна на рух to."
+                        }
+                    ],
+                    "uncovered_or_link": "Не перевіряється весь словник просторових моделей.",
+                    "coverage_kind": "own_and_widget",
+                    "reference_url": "/theory/prepositions-and-phrasal-verbs/prepositions-of-place"
+                },
+                {
+                    "source_topic": "Dependent models: depend/interested/good/reason/listen",
+                    "theoretical_reference": [
+                        "lesson.blocks[1].data.sections[2]; blocks[2].data.sections[1]"
+                    ],
+                    "own_task_ids": [
+                        "m82-prepositions-common-mistakes-form-depend-support"
+                    ],
+                    "selected_widget_questions": [
+                        {
+                            "id": 43857,
+                            "uuid": "cmp-poly-a2-07",
+                            "level": "A2",
+                            "function": "Depend on у support/determination моделі; без заборони нормативного upon поза цим банком."
+                        },
+                        {
+                            "id": 43858,
+                            "uuid": "cmp-poly-a2-08",
+                            "level": "A2",
+                            "function": "Interested in конкретне значення; be не пропущено."
+                        },
+                        {
+                            "id": 43860,
+                            "uuid": "cmp-poly-a2-10",
+                            "level": "A2",
+                            "function": "Listen to + object та збереження carefully; imperative, не повідомлення про вже виконану дію."
+                        }
+                    ],
+                    "uncovered_or_link": "Own task перевіряє depend у заданій моделі, widget — depend on, interested in і listen to. Good/afraid/reason та інші значення залишаються видимими поясненнями, а не повністю оціненим словником.",
+                    "coverage_kind": "own_and_widget",
+                    "reference_url": "/theory/prepositions-and-phrasal-verbs/dependent-prepositions"
+                },
+                {
+                    "source_topic": "Movement inside vs entry; jump/put/fall/dive and on/onto",
+                    "theoretical_reference": [
+                        "lesson.blocks[1].data.sections[3]; movement-reading detail; blocks[2].data.sections[0]"
+                    ],
+                    "own_task_ids": [
+                        "m82-prepositions-common-mistakes-meaning-correct-jump",
+                        "m82-prepositions-common-mistakes-sentence-room-entry"
+                    ],
+                    "selected_widget_questions": [],
+                    "uncovered_or_link": "Put/fall/on/onto перевірено мовно й пояснено; не всі aliases є окремими graded own tasks.",
+                    "coverage_kind": "own_only",
+                    "reference_url": "/theory/prepositions-and-phrasal-verbs/prepositions-of-movement"
+                },
+                {
+                    "source_topic": "Direction versus actual arrival",
+                    "theoretical_reference": [
+                        "lesson.blocks[2].data.sections[2]"
+                    ],
+                    "own_task_ids": [
+                        "m82-prepositions-common-mistakes-meaning-destination-not-arrival"
+                    ],
+                    "selected_widget_questions": [],
+                    "uncovered_or_link": "Окремий meaning probe перевіряє висновок, не повний маршрутний словник.",
+                    "coverage_kind": "own_only",
+                    "reference_url": "/theory/prepositions-and-phrasal-verbs/prepositions-of-movement"
+                }
+            ]
+        },
+        {
+            "identity": "Database\\Seeders\\Page_V3\\CommonMistakes\\CommonMistakesB1B2GrammarTrapsTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/common-mistakes/b1-b2-grammar-traps",
+            "own_task_ids": [
+                "m82-b1-b2-grammar-traps-form-hypothetical-now",
+                "m82-b1-b2-grammar-traps-form-past-deduction",
+                "m82-b1-b2-grammar-traps-meaning-correct-medial-rarely",
+                "m82-b1-b2-grammar-traps-meaning-linker-actor",
+                "m82-b1-b2-grammar-traps-sentence-past-criticism",
+                "m82-b1-b2-grammar-traps-sentence-initial-rarely"
+            ],
+            "selected_widget_ids": [
+                44295,
+                44297,
+                44298,
+                44302,
+                44303
+            ],
+            "selected_widget_uuids": [
+                "cmbt-poly-b1-01",
+                "cmbt-poly-b1-03",
+                "cmbt-poly-b1-04",
+                "cmbt-poly-b1-08",
+                "cmbt-poly-b1-09"
+            ],
+            "rows": [
+                {
+                    "source_topic": "Conditionals: present hypothesis, past alternative, mixed; source wish",
+                    "theoretical_reference": [
+                        "lesson.blocks[1].data.sections[0]; blocks[2].data.sections[0]"
+                    ],
+                    "own_task_ids": [
+                        "m82-b1-b2-grammar-traps-form-hypothetical-now"
+                    ],
+                    "selected_widget_questions": [
+                        {
+                            "id": 44298,
+                            "uuid": "cmbt-poly-b1-04",
+                            "level": "B1",
+                            "function": "Third conditional past/past; дві окремі instances I, comma retained."
+                        }
+                    ],
+                    "uncovered_or_link": "Wish та всі варіанти mixed не мають окремого own graded task. Short review не дорівнює повному оцінюванню теми.",
+                    "coverage_kind": "own_and_widget",
+                    "reference_url": "/theory/conditionals/second-conditional"
+                },
+                {
+                    "source_topic": "Modal perfect: deduction/obligation/criticism",
+                    "theoretical_reference": [
+                        "lesson.blocks[1].data.sections[1]; blocks[3].data.items[1]"
+                    ],
+                    "own_task_ids": [
+                        "m82-b1-b2-grammar-traps-form-past-deduction",
+                        "m82-b1-b2-grammar-traps-sentence-past-criticism"
+                    ],
+                    "selected_widget_questions": [
+                        {
+                            "id": 44297,
+                            "uuid": "cmbt-poly-b1-03",
+                            "level": "B1",
+                            "function": "Should have + V3; past criticism clearly set, not unspecified expectation."
+                        }
+                    ],
+                    "uncovered_or_link": "Could/might/may весь спектр не входить до цієї короткої діагностики.",
+                    "coverage_kind": "own_and_widget",
+                    "reference_url": "/theory/modal-verbs/past-modals"
+                },
+                {
+                    "source_topic": "Linkers: although/despite/the fact that and actor",
+                    "theoretical_reference": [
+                        "lesson.blocks[1].data.sections[2]; blocks[2].data.sections[1]"
+                    ],
+                    "own_task_ids": [
+                        "m82-b1-b2-grammar-traps-meaning-linker-actor"
+                    ],
+                    "selected_widget_questions": [
+                        {
+                            "id": 44302,
+                            "uuid": "cmbt-poly-b1-08",
+                            "level": "B1",
+                            "function": "Although + clause; concession not cause, medial shared We normalized by actual ComposeTokenCase to we."
+                        }
+                    ],
+                    "uncovered_or_link": "Не перевіряються всі discourse markers; explicit-subject gerund alternatives наведено лише як межу, не додано broad accepted aliases.",
+                    "coverage_kind": "own_and_widget",
+                    "reference_url": "/theory/clauses-and-linking-words/concessive-and-contrastive-structures"
+                },
+                {
+                    "source_topic": "Inversion: initial versus medial, only subject versus adverbial",
+                    "theoretical_reference": [
+                        "lesson.blocks[1].data.sections[3]; only-scope detail; blocks[2].data.sections[2]"
+                    ],
+                    "own_task_ids": [
+                        "m82-b1-b2-grammar-traps-meaning-correct-medial-rarely",
+                        "m82-b1-b2-grammar-traps-sentence-initial-rarely"
+                    ],
+                    "selected_widget_questions": [
+                        {
+                            "id": 44303,
+                            "uuid": "cmbt-poly-b1-09",
+                            "level": "B1",
+                            "function": "Initial negative adverbial + have/I inversion; no tense change and no additional not."
+                        }
+                    ],
+                    "uncovered_or_link": "Hardly…when та only when пояснено у visible basic, але не всі формальні моделі мають власне graded task.",
+                    "coverage_kind": "own_and_widget",
+                    "reference_url": "/theory/sentence-transformations/word-order-emphasis"
+                },
+                {
+                    "source_topic": "Source umbrella: time and complete-message diagnosis",
+                    "theoretical_reference": [
+                        "lesson.blocks[2].data.sections[0]"
+                    ],
+                    "own_task_ids": [],
+                    "selected_widget_questions": [
+                        {
+                            "id": 44295,
+                            "uuid": "cmbt-poly-b1-01",
+                            "level": "B1",
+                            "function": "Додаткова source-umbrella time trap: finished event versus perfect; не п’ятий випадковий банк і не повний урок часів."
+                        }
+                    ],
+                    "uncovered_or_link": "Вибране cmbt-poly-b1-01 перевіряє завершену подію з явним finished-time критерієм. Це додаткова діагностика початкової source-групи, не повна перевірка часової системи.",
+                    "coverage_kind": "widget_only",
+                    "reference_url": null
+                }
+            ]
+        },
+        {
+            "identity": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarA1MixedRevisionTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/mixed-revision/a1-mixed-revision",
+            "own_task_ids": [
+                "m82-a1-revision-quantity-milk",
+                "m82-a1-revision-have-got-question",
+                "m82-a1-revision-routine-now",
+                "m82-a1-revision-comparison-context",
+                "m82-a1-revision-past-event",
+                "m82-a1-revision-future-purchase"
+            ],
+            "selected_widget_ids": [
+                46575,
+                46577,
+                46578,
+                46584,
+                46586
+            ],
+            "selected_widget_uuids": [
+                "mr-a1-poly-a1-01",
+                "mr-a1-poly-a1-03",
+                "mr-a1-poly-a1-04",
+                "mr-a1-poly-a1-10",
+                "mr-a1-poly-a1-12"
+            ],
+            "rows": [
+                {
+                    "key": "be",
+                    "source_topic": "be/питання/заперечення",
+                    "theoretical_reference": [
+                        "a1-mixed-revision-1/items/0"
+                    ],
+                    "own_task_ids": [],
+                    "selected_widget_questions": [
+                        {
+                            "id": 46575,
+                            "uuid": "mr-a1-poly-a1-01",
+                            "level": "A1",
+                            "function": "Be + profession and indefinite singular article."
+                        }
+                    ],
+                    "uncovered_or_link": "Решту форм моделі повторено в basic; шість own tasks і п’ять widget питань не є повним оцінюванням програми.",
+                    "coverage_kind": "widget_only"
+                },
+                {
+                    "key": "there",
+                    "source_topic": "there is/are",
+                    "theoretical_reference": [
+                        "a1-mixed-revision-1/items/1"
+                    ],
+                    "own_task_ids": [],
+                    "selected_widget_questions": [],
+                    "uncovered_or_link": "Наявність повторено в basic; окреме навігаційне посилання There is / There are збережено. П’ять widget питань не охоплюють усіх моделей.",
+                    "coverage_kind": "theory_only"
+                },
+                {
+                    "key": "have-got",
+                    "source_topic": "have got/wh",
+                    "theoretical_reference": [
+                        "a1-mixed-revision-1/items/2"
+                    ],
+                    "own_task_ids": [
+                        "m82-a1-revision-have-got-question"
+                    ],
+                    "selected_widget_questions": [
+                        {
+                            "id": 46577,
+                            "uuid": "mr-a1-poly-a1-03",
+                            "level": "A1",
+                            "function": "Have possession/third-person has and adjective/noun order; have got remains in own question."
+                        }
+                    ],
+                    "uncovered_or_link": "Решту форм моделі повторено в basic; шість own tasks і п’ять widget питань не є повним оцінюванням програми.",
+                    "coverage_kind": "own_and_widget"
+                },
+                {
+                    "key": "can",
+                    "source_topic": "can",
+                    "theoretical_reference": [
+                        "a1-mixed-revision-1/items/3"
+                    ],
+                    "own_task_ids": [],
+                    "selected_widget_questions": [
+                        {
+                            "id": 46586,
+                            "uuid": "mr-a1-poly-a1-12",
+                            "level": "A1",
+                            "function": "Can + bare infinitive and manner; no to or third-person s."
+                        }
+                    ],
+                    "uncovered_or_link": "Решту форм моделі повторено в basic; шість own tasks і п’ять widget питань не є повним оцінюванням програми.",
+                    "coverage_kind": "widget_only"
+                },
+                {
+                    "key": "present",
+                    "source_topic": "Present Simple/Continuous",
+                    "theoretical_reference": [
+                        "a1-mixed-revision-1/items/4"
+                    ],
+                    "own_task_ids": [
+                        "m82-a1-revision-routine-now"
+                    ],
+                    "selected_widget_questions": [
+                        {
+                            "id": 46578,
+                            "uuid": "mr-a1-poly-a1-04",
+                            "level": "A1",
+                            "function": "Present Simple routine and mass coffee; every token real rendering regression coverage."
+                        }
+                    ],
+                    "uncovered_or_link": "Решту форм моделі повторено в basic; шість own tasks і п’ять widget питань не є повним оцінюванням програми.",
+                    "coverage_kind": "own_and_widget"
+                },
+                {
+                    "key": "past",
+                    "source_topic": "Past Simple",
+                    "theoretical_reference": [
+                        "a1-mixed-revision-1/items/5"
+                    ],
+                    "own_task_ids": [
+                        "m82-a1-revision-past-event"
+                    ],
+                    "selected_widget_questions": [],
+                    "uncovered_or_link": "Решту форм моделі повторено в basic; шість own tasks і п’ять widget питань не є повним оцінюванням програми.",
+                    "coverage_kind": "own_only"
+                },
+                {
+                    "key": "will",
+                    "source_topic": "will",
+                    "theoretical_reference": [
+                        "a1-mixed-revision-1/items/6"
+                    ],
+                    "own_task_ids": [
+                        "m82-a1-revision-future-purchase"
+                    ],
+                    "selected_widget_questions": [],
+                    "uncovered_or_link": "Решту форм моделі повторено в basic; шість own tasks і п’ять widget питань не є повним оцінюванням програми.",
+                    "coverage_kind": "own_only"
+                },
+                {
+                    "key": "articles",
+                    "source_topic": "a/an/the",
+                    "theoretical_reference": [
+                        "a1-mixed-revision-1/items/7"
+                    ],
+                    "own_task_ids": [],
+                    "selected_widget_questions": [
+                        {
+                            "id": 46575,
+                            "uuid": "mr-a1-poly-a1-01",
+                            "level": "A1",
+                            "function": "Be + profession and indefinite singular article."
+                        },
+                        {
+                            "id": 46584,
+                            "uuid": "mr-a1-poly-a1-10",
+                            "level": "A1",
+                            "function": "Indefinite singular and sound-based an."
+                        }
+                    ],
+                    "uncovered_or_link": "Решту форм моделі повторено в basic; шість own tasks і п’ять widget питань не є повним оцінюванням програми.",
+                    "coverage_kind": "widget_only"
+                },
+                {
+                    "key": "some-any",
+                    "source_topic": "some/any",
+                    "theoretical_reference": [
+                        "a1-mixed-revision-1/items/8"
+                    ],
+                    "own_task_ids": [
+                        "m82-a1-revision-future-purchase"
+                    ],
+                    "selected_widget_questions": [],
+                    "uncovered_or_link": "Власне завдання перевіряє стверджувальне some; neutral any, offers і negative any залишаються в basic та збереженій навігації Some / Any — Things, а не оголошені повністю перевіреними.",
+                    "coverage_kind": "own_only"
+                },
+                {
+                    "key": "quantity",
+                    "source_topic": "much/many/a lot of",
+                    "theoretical_reference": [
+                        "a1-mixed-revision-1/items/9"
+                    ],
+                    "own_task_ids": [
+                        "m82-a1-revision-quantity-milk"
+                    ],
+                    "selected_widget_questions": [],
+                    "uncovered_or_link": "Решту форм моделі повторено в basic; шість own tasks і п’ять widget питань не є повним оцінюванням програми.",
+                    "coverage_kind": "own_only"
+                },
+                {
+                    "key": "comparison",
+                    "source_topic": "comparative/superlative",
+                    "theoretical_reference": [
+                        "a1-mixed-revision-1/items/10"
+                    ],
+                    "own_task_ids": [
+                        "m82-a1-revision-comparison-context"
+                    ],
+                    "selected_widget_questions": [],
+                    "uncovered_or_link": "Решту форм моделі повторено в basic; шість own tasks і п’ять widget питань не є повним оцінюванням програми.",
+                    "coverage_kind": "own_only"
+                }
+            ]
+        },
+        {
+            "identity": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarA2MixedRevisionTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/mixed-revision/a2-mixed-revision",
+            "own_task_ids": [
+                "m82-a2-revision-perfect-question",
+                "m82-a2-revision-modal-tag",
+                "m82-a2-revision-optional-not-forbidden",
+                "m82-a2-revision-imagined-present",
+                "m82-a2-revision-reported-speaker",
+                "m82-a2-revision-passive-agent"
+            ],
+            "selected_widget_ids": [
+                78,
+                7548,
+                7550,
+                7551,
+                7556
+            ],
+            "selected_widget_uuids": [
+                "polyglot-final-drill-a2-q04",
+                "polyglot-final-drill-a2-q05",
+                "polyglot-final-drill-a2-q07",
+                "polyglot-final-drill-a2-q08",
+                "polyglot-final-drill-a2-q13"
+            ],
+            "rows": [
+                {
+                    "key": "perfect",
+                    "source_topic": "Present Perfect / Past Simple",
+                    "theoretical_reference": [
+                        "a2-mixed-revision-1/items/0"
+                    ],
+                    "own_task_ids": [
+                        "m82-a2-revision-perfect-question"
+                    ],
+                    "selected_widget_questions": [],
+                    "uncovered_or_link": "Перевірено лише названу модель; решта форм не оголошені повністю оціненими п’ятьма widget питаннями.",
+                    "coverage_kind": "own_only"
+                },
+                {
+                    "key": "time",
+                    "source_topic": "Present Perfect time expressions",
+                    "theoretical_reference": [
+                        "a2-mixed-revision-1/items/1"
+                    ],
+                    "own_task_ids": [],
+                    "selected_widget_questions": [],
+                    "uncovered_or_link": "For/since/already/yet/just залишаються в basic; navigation Present Perfect Forms веде до розгорнутого повторення.",
+                    "coverage_kind": "theory_only"
+                },
+                {
+                    "key": "conditionals",
+                    "source_topic": "First / Second Conditional",
+                    "theoretical_reference": [
+                        "a2-mixed-revision-1/items/2"
+                    ],
+                    "own_task_ids": [
+                        "m82-a2-revision-imagined-present"
+                    ],
+                    "selected_widget_questions": [],
+                    "uncovered_or_link": "Own task зіставляє реальну можливість і уявну ситуацію; навігація First/Second Conditional збережена.",
+                    "coverage_kind": "own_only"
+                },
+                {
+                    "key": "going-to",
+                    "source_topic": "be going to",
+                    "theoretical_reference": [
+                        "a2-mixed-revision-1/items/3"
+                    ],
+                    "own_task_ids": [],
+                    "selected_widget_questions": [
+                        {
+                            "id": 78,
+                            "uuid": "polyglot-final-drill-a2-q04",
+                            "level": "A2",
+                            "function": "Going-to plan and am agreement."
+                        }
+                    ],
+                    "uncovered_or_link": "Перевірено лише названу модель; решта форм не оголошені повністю оціненими п’ятьма widget питаннями.",
+                    "coverage_kind": "widget_only"
+                },
+                {
+                    "key": "advice",
+                    "source_topic": "should / ought to",
+                    "theoretical_reference": [
+                        "a2-mixed-revision-1/items/4"
+                    ],
+                    "own_task_ids": [],
+                    "selected_widget_questions": [
+                        {
+                            "id": 7548,
+                            "uuid": "polyglot-final-drill-a2-q05",
+                            "level": "A2",
+                            "function": "Should advice, criterion distinguishes otherwise natural ought-to synonym."
+                        }
+                    ],
+                    "uncovered_or_link": "Перевірено лише названу модель; решта форм не оголошені повністю оціненими п’ятьма widget питаннями.",
+                    "coverage_kind": "widget_only"
+                },
+                {
+                    "key": "obligation",
+                    "source_topic": "must / have to / don't have to",
+                    "theoretical_reference": [
+                        "a2-mixed-revision-1/items/4"
+                    ],
+                    "own_task_ids": [
+                        "m82-a2-revision-optional-not-forbidden"
+                    ],
+                    "selected_widget_questions": [],
+                    "uncovered_or_link": "Перевірено лише названу модель; решта форм не оголошені повністю оціненими п’ятьма widget питаннями.",
+                    "coverage_kind": "own_only"
+                },
+                {
+                    "key": "patterns",
+                    "source_topic": "gerund / infinitive",
+                    "theoretical_reference": [
+                        "a2-mixed-revision-1/items/5"
+                    ],
+                    "own_task_ids": [],
+                    "selected_widget_questions": [
+                        {
+                            "id": 7550,
+                            "uuid": "polyglot-final-drill-a2-q07",
+                            "level": "A2",
+                            "function": "Decide + to-infinitive; lexeme criterion explicit because original distractor study can otherwise be natural."
+                        }
+                    ],
+                    "uncovered_or_link": "Widget перевіряє decide + infinitive; enjoy/mind + gerund залишаються видимими опорами, не оголошуються окремо перевіреними.",
+                    "coverage_kind": "widget_only"
+                },
+                {
+                    "key": "past-process",
+                    "source_topic": "Past Continuous",
+                    "theoretical_reference": [
+                        "a2-mixed-revision-1/items/6"
+                    ],
+                    "own_task_ids": [],
+                    "selected_widget_questions": [
+                        {
+                            "id": 7551,
+                            "uuid": "polyglot-final-drill-a2-q08",
+                            "level": "A2",
+                            "function": "Past Continuous ongoing process with were, wait-for and retained time."
+                        }
+                    ],
+                    "uncovered_or_link": "Перевірено лише названу модель; решта форм не оголошені повністю оціненими п’ятьма widget питаннями.",
+                    "coverage_kind": "widget_only"
+                },
+                {
+                    "key": "relative",
+                    "source_topic": "relative clauses",
+                    "theoretical_reference": [
+                        "a2-mixed-revision-1/items/7"
+                    ],
+                    "own_task_ids": [],
+                    "selected_widget_questions": [],
+                    "uncovered_or_link": "Relative who повторено в basic; окремого graded relative task у цій вибірці немає. Це явно не повна оцінка програми.",
+                    "coverage_kind": "theory_only"
+                },
+                {
+                    "key": "passive",
+                    "source_topic": "passive",
+                    "theoretical_reference": [
+                        "a2-mixed-revision-1/items/8"
+                    ],
+                    "own_task_ids": [
+                        "m82-a2-revision-passive-agent"
+                    ],
+                    "selected_widget_questions": [],
+                    "uncovered_or_link": "Перевірено лише названу модель; решта форм не оголошені повністю оціненими п’ятьма widget питаннями.",
+                    "coverage_kind": "own_only"
+                },
+                {
+                    "key": "reported",
+                    "source_topic": "reported speech",
+                    "theoretical_reference": [
+                        "a2-mixed-revision-1/items/9"
+                    ],
+                    "own_task_ids": [
+                        "m82-a2-revision-reported-speaker"
+                    ],
+                    "selected_widget_questions": [],
+                    "uncovered_or_link": "Перевірено лише названу модель; решта форм не оголошені повністю оціненими п’ятьма widget питаннями.",
+                    "coverage_kind": "own_only"
+                },
+                {
+                    "key": "used-to",
+                    "source_topic": "used to",
+                    "theoretical_reference": [
+                        "a2-mixed-revision-1/items/10"
+                    ],
+                    "own_task_ids": [],
+                    "selected_widget_questions": [
+                        {
+                            "id": 7556,
+                            "uuid": "polyglot-final-drill-a2-q13",
+                            "level": "A2",
+                            "function": "Used-to past state no longer true, not be-used-to familiarity."
+                        }
+                    ],
+                    "uncovered_or_link": "Перевірено лише названу модель; решта форм не оголошені повністю оціненими п’ятьма widget питаннями.",
+                    "coverage_kind": "widget_only"
+                },
+                {
+                    "key": "tags",
+                    "source_topic": "question tags",
+                    "theoretical_reference": [
+                        "a2-mixed-revision-1/items/11"
+                    ],
+                    "own_task_ids": [
+                        "m82-a2-revision-modal-tag"
+                    ],
+                    "selected_widget_questions": [],
+                    "uncovered_or_link": "Перевірено лише названу модель; решта форм не оголошені повністю оціненими п’ятьма widget питаннями.",
+                    "coverage_kind": "own_only"
+                }
+            ]
+        }
+    ]
+}

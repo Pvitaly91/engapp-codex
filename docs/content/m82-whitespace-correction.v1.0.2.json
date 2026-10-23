@@ -1,0 +1,88 @@
+{
+    "schema_version": 1,
+    "version": "1.0.2",
+    "status": "frozen",
+    "package": "m82-common-mistakes-level-revision",
+    "predecessor": {
+        "source": "database/content-patches/m82-common-mistakes-level-revision.v1.json",
+        "source_sha256": "6b679b6ac5311ec91353430dd8e62f36aac62375891b16cf62001048eb0bdfc3",
+        "master": "docs/content/m82-common-mistakes-level-revision.v1.json",
+        "master_sha256": "e39902a16dc7a162c83c12a1c63ae96d5e7c36036a4d3c677b9648d0ea9947e2",
+        "checksums": "docs/content/m82-source-checksums.v1.json",
+        "checksums_sha256": "67f13922e89873c27ea538abf358d5d3cef5376e1d676cf77a1a23cd789a5fe8",
+        "private_freeze_basename": "freeze-plan-v2.json",
+        "private_freeze_sha256": "0008adfeca8e77476d4a60a02fd6d108c21b2708b0d27b59995cdc59facc88b1",
+        "independent_post_apply_basename": "final-readonly-v1.json",
+        "independent_post_apply_sha256": "15ed2a44d22435dadbecd1330c9679cf063025b18b2da0dc1287bae0c91556c8"
+    },
+    "scope": "Only five slash-joined prose lists in three fields of two B bodies gain ordinary spaces. No word, punctuation, grading key, token delimiter, task, navigation, metadata or visual change.",
+    "changes": [
+        {
+            "path": [
+                2,
+                "data",
+                "sections",
+                1,
+                "description"
+            ],
+            "replacements": {
+                "information/advice/furniture": "information / advice / furniture"
+            }
+        },
+        {
+            "path": [
+                2,
+                "data",
+                "sections",
+                1,
+                "note"
+            ],
+            "replacements": {
+                "homework/furniture": "homework / furniture",
+                "assignments/items": "assignments / items"
+            }
+        },
+        {
+            "path": [
+                4,
+                "data",
+                "items",
+                2
+            ],
+            "replacements": {
+                "Advice/information/homework/furniture": "Advice / information / homework / furniture",
+                "piece/item/assignment": "piece / item / assignment"
+            }
+        }
+    ],
+    "owner": "Database\\Seeders\\Page_V3\\CommonMistakes\\CommonMistakesCountableUncountableTheorySeeder",
+    "page_id": 40,
+    "category_id": 9,
+    "rows": [
+        {
+            "source_index": 2,
+            "id": 1673,
+            "uuid": "b8629bfb-27d4-5cdd-a217-7539a8847352",
+            "type": "usage-panels",
+            "column": "left",
+            "level": null,
+            "before_body_sha256": "b51ca6b657288c04f4b5dc4233fc8209a104d5a2b059aad0daf653f285540b66",
+            "after_body_sha256": "49b2c36ddac9a9e119bff2a853a7d6b49908d6af244f0e48a4fecada96e21065"
+        },
+        {
+            "source_index": 4,
+            "id": 1675,
+            "uuid": "3328af5c-59cb-58a0-a998-3d30a16165c8",
+            "type": "summary-list",
+            "column": "right",
+            "level": "A2",
+            "before_body_sha256": "020d2b378c8dbc4a19eb54376a524d68b9446de28d2ae7ba54103b93ffe3c7d9",
+            "after_body_sha256": "e69c9bc66680270d0263ee20b0fa10ecfe5f0a9ab17b4c8346a5764f69a6ece2"
+        }
+    ],
+    "sql_updates": 2,
+    "sql_inserts": 0,
+    "question_writes": 0,
+    "visual_changes": 0,
+    "snapshot_policy": "1.0.1 artifacts remain immutable; only active successor pointers and B generated definition move to 1.0.2."
+}
