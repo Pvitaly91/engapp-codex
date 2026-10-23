@@ -1,0 +1,1031 @@
+{
+    "schema_version": 1,
+    "base_sha": "b56f29df4b3409edc1ad6cfb34b7fedd901e893d",
+    "version": "1.0.0",
+    "status": "frozen",
+    "review": "Main independently read all six lessons/tasks/maps and reviewed agent findings; agent review is not human review. Original new tasks, no publisher exercises copied.",
+    "author_projection_sha256": "c53c1fe93f26328693a75bd9ab94c75dac48efc46a8c097bee3c94cae05d4568",
+    "draft_parts_sha256": {
+        "negative-forms": "c91b79ce858d07483bc399cc11a647d059f12260d330046a0786ff9f06b796c2",
+        "double-negatives": "c20a64400593d8c9e43e4b7bc9796cec86771e977035986039ddc0351ec46b50",
+        "tenses": "ab6237376eeccae4da802a47b7587fbddc86ac878aafa74bd6c2dd873f42e80b",
+        "modals": "d75a606250177a0b7ef0f7d123fa5ae54bd11b7ab8eb33237d3cf58771e14c2e",
+        "passive": "3d4b13aee59607eef07e97297a86edd1e70ad4bde108d8f6ccde3705e32d840b",
+        "reported-speech": "26a014aff88b4132909fc89f99d67aa5d5da404b5fe356046487c9419cb11fff"
+    },
+    "lesson_reviews": {
+        "Database\\Seeders\\Page_V3\\QuestionsNegations\\QuestionsNegationsNegativeFormsTheorySeeder": {
+            "schema_version": 1,
+            "review_kind": "Agent author/reviewer, not human review",
+            "corrections": [
+                {
+                    "source": "Do not + be там, де потрібна інверсія be.",
+                    "after": "Звичайне повідомлення зі станом is not; окремо правильне Don’t be late.",
+                    "reason": "У заперечному твердженні немає інверсії; наказ не можна забороняти загальним правилом."
+                },
+                {
+                    "source": "He promised to not be late. названо помилкою.",
+                    "after": "Початковий рядок збережено як допустимий у visible basic. Реальна помилка в paired correction: He promised not be late. → He promised not to be late.",
+                    "reason": "Не позначає граматично можливий split infinitive як неправильний. Збережено навчальну функцію негативного інфінітива й обіцянки не запізнюватися."
+                },
+                {
+                    "source": "No перед іменником без ще одного not; simple tenses завжди do.",
+                    "after": "Одне задумане заперечення відсутності; lexical verbs у Simple окремо від be/auxiliary have. No/not в іншій сфері можуть співіснувати.",
+                    "reason": "Усуває надмірні абсолютні правила, не приховуючи потрібного beginner core."
+                }
+            ],
+            "source_practice_inventory": {
+                "selects": 0,
+                "choices": 0,
+                "inputs": 0,
+                "graded_rephrase": 0,
+                "ungraded_demos": 0
+            },
+            "after_practice_inventory": {
+                "selects": 2,
+                "choices": 2,
+                "inputs": 2,
+                "graded_rephrase": 0,
+                "ungraded_demos": 0,
+                "full_sentence_input_indices": [
+                    0,
+                    1
+                ]
+            },
+            "source_loader_boundary": "JsonPageSeeder використовує top-level seeder.class Page_V3. UUID, embedded metadata, tags, inherit flags, column і фактичні SQL levels задаються незалежним exact-bound compiler; автор не змінює їх за рівнем пояснення.",
+            "acceptance_boundary": "Авторська чернетка; не є HTTP/browser PASS, frozen source чи дозволом змінювати БД. Main виконує незалежний BEFORE, compiler, preview, backup, guarded apply і live acceptance.",
+            "sources": [
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/questions-negatives",
+                    "access": "direct-body-read",
+                    "verified": "Прочитано основне пояснення: not після першого допоміжного; do/does/did для лексичних дієслів; be без do; звичайне not перед to-infinitive. Коментарі учнів і вправи не використано.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/not",
+                    "access": "direct-http-403; indexed-editorial-body-read",
+                    "verified": "Індексоване редакційне пояснення допускає not перед і після to. Редакційний вибір not to не перетворено на заборону to not.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/imperative",
+                    "access": "indexed-editorial-body-read; direct-not-claimed",
+                    "verified": "Заперечний наказ do not/don’t + базова форма, у тому числі be. Власні приклади; вправи не копіювалися.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/negation_2",
+                    "access": "indexed-editorial-body-read; direct-not-claimed",
+                    "verified": "Перевірено not з допоміжними, неособовими формами та різні сфери дії заперечення. Загальний підрахунок слів не є правилом оцінювання.",
+                    "copied_exercises": false
+                }
+            ],
+            "retained_source": "Збережено три source-функції not/do/no та всі три приклади з перекладами; do-support звужено до lexical Simple, no — до заданої відсутності. Збережено всі чотири source приклади I do not agree / She does not work here / They did not call / You cannot park here; додано переклад, базову форму та скорочення. Source point0→after /sections/0; source point1→after /sections/2. Збережено всі п’ять прикладів; додано lexical do/never, наказ/інфінітив, короткі відповіді й коротку modal-межу. Source item0→after item0: збережено wrong/right, виправлено назву про інверсію. Item1→item1: збережено обидві EN-форми з різними сферами дії. Item2: допустиме to not перенесено в basic /sections/3; paired wrong тепер реальне missing-to, функція negative infinitive і promise збережена. Усі п’ять функцій англомовного summary перекладені й уточнені: first auxiliary, lexical do, modals, no/never, negative infinitive. Додано коротку перевірку задуму.",
+            "new_author_content": "Шість нових власних завдань (2 форма, 2 зміст, 2 повні речення), тематичний linked builder, точні UA-переклади й необхідні видимі умови. Банк/ключі старих питань не змінюються авторським файлом.",
+            "details_decision": "0 disclosures: усі межі — потрібний компактний basic, не окреме семантичне поглиблення.",
+            "inferred_identity_fields_not_written": [
+                "Page IDs",
+                "category IDs",
+                "continuing UUIDs",
+                "actual SQL levels",
+                "runtime widget question IDs"
+            ]
+        },
+        "Database\\Seeders\\Page_V3\\QuestionsNegations\\QuestionsNegationsDoubleNegativesTheorySeeder": {
+            "schema_version": 1,
+            "review_kind": "Agent author/reviewer, not human review",
+            "corrections": [
+                {
+                    "source": "No-слова завжди вимагають affirmative verb; not/no ніколи не поєднуються.",
+                    "after": "Для потрібного одного заперечного повідомлення — форма дієслова без not; whole-clause meaning лишається negative. Negative concord, scope і нормативне neither…nor явно відділені.",
+                    "reason": "Стандартна навчальна модель не стала глобальним blacklist чи оцінкою мовця."
+                },
+                {
+                    "source": "Nobody did not call. → Nobody called. без контексту.",
+                    "after": "Видимий задум «ніхто не телефонував» + точні різні логічні прочитання. Перебудова правильна саме для задуму.",
+                    "reason": "Без цього початкова фраза може передавати, що не було того, хто не подзвонив, і заміна змінює факт."
+                },
+                {
+                    "source": "We did not never go there. виправляється автоматично.",
+                    "after": "Видимий минулий задум «ніколи не ходили», never + went. В іншій сфері not never може заперечувати «ніколи».",
+                    "reason": "Збережено source навчальну функцію без механічного видалення негативних слів."
+                },
+                {
+                    "source": "Neither should not be combined with another negative.",
+                    "after": "Нормативна neither…nor показана в basic; all-sentence word count не є правилом.",
+                    "reason": "Узгоджено з прийнятими No/None/Neither/Either та розмежовано лексичну форму й логіку."
+                }
+            ],
+            "source_practice_inventory": {
+                "selects": 0,
+                "choices": 0,
+                "inputs": 0,
+                "graded_rephrase": 0,
+                "ungraded_demos": 0
+            },
+            "after_practice_inventory": {
+                "selects": 2,
+                "choices": 2,
+                "inputs": 2,
+                "graded_rephrase": 0,
+                "ungraded_demos": 0,
+                "full_sentence_input_indices": [
+                    0,
+                    1
+                ]
+            },
+            "source_loader_boundary": "JsonPageSeeder використовує top-level seeder.class Page_V3. UUID, embedded metadata, tags, inherit flags, column і фактичні SQL levels задаються незалежним exact-bound compiler; автор не змінює їх за рівнем пояснення.",
+            "acceptance_boundary": "Авторська чернетка; не є HTTP/browser PASS, frozen source чи дозволом змінювати БД. Main виконує незалежний BEFORE, compiler, preview, backup, guarded apply і live acceptance.",
+            "sources": [
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/double-negatives-",
+                    "access": "direct-http-403; indexed-editorial-body-read",
+                    "verified": "Розмежовано нейтральну standard English, negative concord у регіональних різновидах і пом’якшення not + слово з негативним префіксом. Не оголошено всі подвійні заперечення неможливими.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/negation_2",
+                    "access": "indexed-editorial-body-read; direct-not-claimed",
+                    "verified": "Перевірено not з допоміжними, неособовими формами та різні сфери дії заперечення. Загальний підрахунок слів не є правилом оцінювання.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/questions-negatives",
+                    "access": "direct-body-read",
+                    "verified": "Прочитано основне пояснення: not після першого допоміжного; do/does/did для лексичних дієслів; be без do; звичайне not перед to-infinitive. Коментарі учнів і вправи не використано.",
+                    "copied_exercises": false
+                }
+            ],
+            "retained_source": "Збережено not+any, no-word+форму без not і три EN-приклади; абсолютні формулювання обмежено нейтральною стандартною моделлю та одним задумом. Збережено чотири EN-речення й функції; English subtitles замінено точними UA-поясненнями, affirmative verb form відділено від negative clause meaning. Source point0→after /sections/0; source point1→after /sections/1. Усі чотири source EN-приклади й UA-зміст збережено. Додано concord, пом’якшення, нормативне neither…nor та перевірку логіки. Усі три source пари збережені в тих самих item positions; для кожної прямо задано намір і нейтральний стандарт. Nobody did not call і not never мають окремо названі інші прочитання, не названі неможливими рядками. П’ять source навчальних функцій збережені українською; blanket neither-заборону явно замінено нормативною neither…nor та аналізом області заперечення.",
+            "new_author_content": "Шість нових власних завдань (2 форма, 2 зміст, 2 повні речення), тематичний linked builder, точні UA-переклади й необхідні видимі умови. Банк/ключі старих питань не змінюються авторським файлом.",
+            "details_decision": "1 disclosure: окреме поглиблення reporting scope; concord, пом’якшення й neither…nor самодостатньо видимі.",
+            "inferred_identity_fields_not_written": [
+                "Page IDs",
+                "category IDs",
+                "continuing UUIDs",
+                "actual SQL levels",
+                "runtime widget question IDs"
+            ]
+        },
+        "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsTensesTheorySeeder": {
+            "schema_version": 1,
+            "review_kind": "Agent author/reviewer, not human review",
+            "corrections": [
+                {
+                    "source": "Часовий маркер першим визначає Simple/Perfect/PPC; started … ago майже автоматично PPC.",
+                    "after": "Зміст і контекст → часовий орієнтир → форма; продовження прямо задане. For не автоматичний Perfect.",
+                    "reason": "Граматично можливий target не повинен додавати невідомий факт."
+                },
+                {
+                    "source": "When we arrived, the film started. → By the time we arrived, the film had started.",
+                    "after": "The film started before we arrived. → By the time we arrived, the film had started. Обидві версії: фільм раніше, наше прибуття пізніше.",
+                    "reason": "Колишня вихідна версія задає початок у момент/після прибуття; source-ситуацію виправлено явно, не видано зміну хронології за рівнозначність."
+                },
+                {
+                    "source": "Past Perfect неправильний без другої опорної події в самому реченні.",
+                    "after": "У прикладі прямо задано standalone факт без минулої опори; basic пояснює зовнішній контекст, detail показує зв’язок між сусідніми репліками.",
+                    "reason": "Past Perfect може спиратися на попередній або ширший контекст."
+                },
+                {
+                    "source": "Числові періоди та first/last time без чіткого моменту відліку.",
+                    "after": "Сталі навчальні дати 2024/2021 та червень/травень 2024; first time віднесено до нинішнього першого досвіду, before — до нього.",
+                    "reason": "Не залежить від дати комп’ютера й не заперечує поточну першу подію."
+                }
+            ],
+            "source_practice_inventory": {
+                "selects": 0,
+                "choices": 0,
+                "inputs": 0,
+                "graded_rephrase": 0,
+                "ungraded_demos": 0
+            },
+            "after_practice_inventory": {
+                "selects": 2,
+                "choices": 2,
+                "inputs": 2,
+                "graded_rephrase": 0,
+                "ungraded_demos": 0,
+                "full_sentence_input_indices": [
+                    0,
+                    1
+                ]
+            },
+            "source_loader_boundary": "JsonPageSeeder використовує top-level seeder.class Page_V3. UUID, embedded metadata, tags, inherit flags, column і фактичні SQL levels задаються незалежним exact-bound compiler; автор не змінює їх за рівнем пояснення.",
+            "acceptance_boundary": "Авторська чернетка; не є HTTP/browser PASS, frozen source чи дозволом змінювати БД. Main виконує незалежний BEFORE, compiler, preview, backup, guarded apply і live acceptance.",
+            "sources": [
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/past-perfect",
+                    "access": "direct-editorial-body-read; named-team-reply-separately-reviewed",
+                    "verified": "Основне пояснення: had + дієприкметник для події до минулого орієнтира; порядок частин не змінює послідовність. Окремо прочитано відповідь Peter M., LearnEnglish Team, 14.07.2026: орієнтир може бути в контексті. Вправи й повідомлення учнів не копіювалися.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/present-perfect-simple-continuous",
+                    "access": "direct-editorial-body-read",
+                    "verified": "Основне пояснення: зв’язок із теперішнім, результат/активність, тривалі стани й дії. Не зроблено абсолютної заборони Simple для тривалості. Власні ситуації та приклади.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/ago",
+                    "access": "direct-http-403; indexed-editorial-body-read",
+                    "verified": "Ago відлічує від моменту мовлення; минулий початок сам по собі не доводить продовження зараз. Тривалість із for відрізнено від точки з since.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/us/grammar/british-grammar/for-or-since",
+                    "access": "indexed-editorial-body-read; non-us-direct-variant-http-403",
+                    "verified": "For називає період, since — початкову точку. Доступність URL-варіантів не підмінено твердженням про пряме читання всіх варіантів.",
+                    "copied_exercises": false
+                }
+            ],
+            "retained_source": "Збережено часову перспективу, три source-функції й приклади know/since; порядок аналізу став значення/контекст→орієнтир→форма, маркери не алгоритм. Чотири source bullets перенесено без HTML box: ongoing→/sections/0; earlier-past→/sections/2; completed-marker→/sections/1; last/first/started pairs→/sections/3 і таблиця. Коректні застереження збережено й уточнено контекстом. Усі чотири табличні функції збережено в тих самих row indices. Row0 отримав explicit ongoing/date; row1 explicit latest meeting/date; row2 виправлено source chronology; row3 explicit current first event/before reference. Обидві версії кожного рядка мають UA. Усі чотири source correction-функції та EN-пари збережені на тих самих позиціях; зміни стосуються видимого контексту, точних перекладів і меж застосування. Had gone не отримав blanket-заборони. Збережено чотири перевірки source summary, але meaning/context перед маркером; вилучено необґрунтовану обіцянку іспитового алгоритму. Усі вісім navigation items, explicit destination URL, current flags і порядок лишилися дослівно з source. Жоден destination не замінено темою з іншої категорії.",
+            "new_author_content": "Шість нових власних завдань (2 форма, 2 зміст, 2 повні речення), тематичний linked builder, точні UA-переклади й необхідні видимі умови. Банк/ключі старих питань не змінюються авторським файлом.",
+            "details_decision": "1 disclosure: зовнішній минулий орієнтир через дві репліки. Основний порядок подій, продовження й часові межі видимі.",
+            "inferred_identity_fields_not_written": [
+                "Page IDs",
+                "category IDs",
+                "continuing UUIDs",
+                "actual SQL levels",
+                "runtime widget question IDs"
+            ],
+            "metadata_transitions": [
+                {
+                    "source_index": 1,
+                    "before": {
+                        "type": "box",
+                        "column": "left",
+                        "level_present": false,
+                        "heading": "1. Як розпізнати потрібну перебудову"
+                    },
+                    "after": {
+                        "type": "usage-panels",
+                        "column": "left",
+                        "level": null,
+                        "title": "1. Як розпізнати потрібну перебудову"
+                    },
+                    "reason": "HTML пояснення перенесено в наявний canonical native component; continuing UUID/position/column/actual NULL level без змін; old heading переходить у data.title."
+                },
+                {
+                    "source_index": 2,
+                    "before": {
+                        "type": "box",
+                        "column": "left",
+                        "level_present": false,
+                        "heading": "2. Основні шаблони трансформації"
+                    },
+                    "after": {
+                        "type": "comparison-table",
+                        "column": "left",
+                        "level": null,
+                        "title": "2. Основні шаблони трансформації"
+                    },
+                    "reason": "HTML таблиця перенесена в підтриманий native table; усі4рядки простежуються, UUID/position/column/actual NULL level без змін."
+                }
+            ],
+            "table_row_map": [
+                {
+                    "source_index": 2,
+                    "row_index": 0,
+                    "source_pair": [
+                        "I started learning French three years ago.",
+                        "I have been learning French for three years."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">I started learning French three years ago and I am still learning it.</p><p>Я почав вивчати французьку три роки тому й досі її вивчаю.</p>",
+                        "<p lang=\"en\">I have been learning French for three years.</p><p>Я вивчаю французьку вже три роки.</p>",
+                        "Навчальна дата — 1 вересня 2024 року; початок — 1 вересня 2021 року. Продовження прямо назване; у новій версії підкреслюємо активність і тривалість. Ago не замінюється на for без цієї умови."
+                    ],
+                    "reason": "Старий source не доводив продовження; додано still learning і сталу навчальну дату 01.09.2024, початок01.09.2021. Форму Continuous звужено до процесу."
+                },
+                {
+                    "source_index": 2,
+                    "row_index": 1,
+                    "source_pair": [
+                        "The last time I saw Marta was in May.",
+                        "I haven't seen Marta since May."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">The last time I saw Marta was in May.</p><p>Востаннє я бачив Марту в травні.</p>",
+                        "<p lang=\"en\">I haven’t seen Marta since May.</p><p>Я не бачив Марту від травня.</p>",
+                        "У ситуації зараз червень 2024 року; остання зустріч була в травні 2024 року, пізніших не було. Since відлічує час від цієї останньої зустрічі; саму травневу зустріч не заперечено."
+                    ],
+                    "reason": "Остання зустріч та since належать до того самого травня2024, nowчервень2024; пізнішихзустрічейнемає."
+                },
+                {
+                    "source_index": 2,
+                    "row_index": 2,
+                    "source_pair": [
+                        "When we arrived, the film started.",
+                        "By the time we arrived, the film had started."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">The film started before we arrived.</p><p>Фільм почався до того, як ми прийшли.</p>",
+                        "<p lang=\"en\">By the time we arrived, the film had started.</p><p>На той момент, коли ми прийшли, фільм уже почався.</p>",
+                        "Спочатку почався фільм, потім прийшли ми. Початкове When we arrived, the film started. — Коли ми прийшли, фільм почався. — передавало б іншу послідовність; це не рівнозначна вихідна версія."
+                    ],
+                    "reason": "Source When…started змінено на before…arrived явно: лише так збережено фільмраніше/прибуттяпізніше. Стару нерівнозначність не названо парафразою."
+                },
+                {
+                    "source_index": 2,
+                    "row_index": 3,
+                    "source_pair": [
+                        "It is the first time he has driven on the left.",
+                        "He has never driven on the left before."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">It is the first time he has driven on the left.</p><p>Він уперше керує автомобілем лівою стороною дороги.</p>",
+                        "<p lang=\"en\">He has never driven on the left before.</p><p>Раніше він ніколи не керував автомобілем лівою стороною дороги.</p>",
+                        "Йдеться про нинішню першу таку поїздку. Before означає «до цієї першої події»; нова версія не заперечує теперішнього першого досвіду. Якщо змінити момент відліку на минулий, потрібна інша узгоджена редакція."
+                    ],
+                    "reason": "Поточнаперша поїздка й попередній досвід відділені; before означає дотеперішньоїпершоїподії."
+                }
+            ]
+        },
+        "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsModalsTheorySeeder": {
+            "kind": "Agent-authored editorial draft, not human review; no SQL/definition/engine/view edits.",
+            "source_definition": "database/seeders/Page_V3/SentenceTransformations/SentenceTransformationsModalsTheorySeeder/definition.json",
+            "source_read": "Full six-block source, canonical template/detail/builder docs, M79 report, actual native label/after/input renderer and generic release projection read.",
+            "metadata_status": "Draft source-derived vector only; main must confirm actual SQL. Two explicit type+heading transitions preserve source absent/null levels, source indexes, columns and navigation labels/current states. No claim of completed apply or browser acceptance.",
+            "metadata_transitions": [
+                {
+                    "source_index": 1,
+                    "before": {
+                        "type": "box",
+                        "heading": "1. Як розпізнати потрібну перебудову",
+                        "level": null
+                    },
+                    "after": {
+                        "type": "usage-panels",
+                        "heading": null,
+                        "level": null
+                    },
+                    "column": "left",
+                    "reason": "Existing algorithm becomes named native usage points, not HTML flow."
+                },
+                {
+                    "source_index": 2,
+                    "before": {
+                        "type": "box",
+                        "heading": "2. Основні шаблони трансформації",
+                        "level": null
+                    },
+                    "after": {
+                        "type": "comparison-table",
+                        "heading": null,
+                        "level": null
+                    },
+                    "column": "left",
+                    "reason": "All four useful source table rows remain explicitly mapped with both translations."
+                }
+            ],
+            "source_derived_preserved": [
+                "Meaning-first algorithm; ability/necessity/advice/deduction distinctions; all four source table functions; right mistakes/summary; eight navigation labels/order/current flags."
+            ],
+            "table_row_map": [
+                {
+                    "old_row_index": 0,
+                    "after_row_index": 0,
+                    "old_source": "I managed to solve the puzzle.",
+                    "old_target": "I was able to solve the puzzle.",
+                    "decision": "retained_contextualized",
+                    "reason": "Both versions now mention several attempts; result is preserved without claiming managed-to effort nuance is always identical."
+                },
+                {
+                    "old_row_index": 1,
+                    "after_row_index": 1,
+                    "old_source": "It is necessary for all visitors to wear badges.",
+                    "old_target": "All visitors have to wear badges.",
+                    "decision": "retained_translated",
+                    "reason": "Same people and present necessity, with translations of both versions."
+                },
+                {
+                    "old_row_index": 2,
+                    "after_row_index": 2,
+                    "old_source": "It would be a good idea to leave earlier.",
+                    "old_target": "We should leave earlier.",
+                    "decision": "corrected_with_named_addressee",
+                    "reason": "Source never established we; explicit for you and You should preserve the same addressee."
+                },
+                {
+                    "old_row_index": 3,
+                    "after_row_index": 3,
+                    "old_source": "I'm sure he isn't at home.",
+                    "old_target": "He can't be at home.",
+                    "decision": "retained_translated",
+                    "reason": "Strong negative present deduction, not prohibition."
+                }
+            ],
+            "confirmed_corrections": [
+                {
+                    "old": "Mistake2 label says can but source is We could finish the report yesterday, and we did.",
+                    "after": "Full source sentence retained in visible basic and semantic choice; not marked universally ungrammatical. A different explicitly possibility-only example demonstrates an unsupported achievement claim.",
+                    "reason": "And we did already states the result; the usual achievement-form guidance cannot erase that fact."
+                },
+                {
+                    "old": "Past deduction correction dropped yesterday.",
+                    "after": "Yesterday and meeting retained in can't have forgotten example.",
+                    "reason": "The temporal reference and object are part of the message."
+                },
+                {
+                    "old": "Must→should replacement and mixed alternative answer obscured obligatory versus advisory context.",
+                    "after": "Named rule requires have to; advice is separately contextualized for you.",
+                    "reason": "Modal strength and participants must survive transformation."
+                }
+            ],
+            "new_author_additions": [
+                "Explicit permission/ability distinction; possibility does not entail success; known addressee for advice; original six transformation tasks with separate visible Ukrainian instruction/English stimulus."
+            ],
+            "removed_repetition": [
+                "Repeated generic exam slogans replaced by concrete semantic checks; no unsupported exam-frequency claim retained."
+            ],
+            "practice_counts": {
+                "old_interactive_positions": 0,
+                "new_selects": 2,
+                "new_meaning_choices": 2,
+                "new_full_sentence_inputs": 2,
+                "graded_total": 6,
+                "demos": 0,
+                "linked_widget_questions_separate": 5
+            },
+            "normalization_boundary": "Only two reviewed don't/do not variants in full input2; no new normalizer/strict flags. Incorrect meaning options are grammatical but do not perform the stated transformation. No ready target in hint/placeholder; banks shuffled 1–3 words.",
+            "sources": [
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/past-ability",
+                    "access": "Direct editorial Grammar explanation read successfully, including general ability/specific success/unsuccessful occasion; learner comments not used as authority.",
+                    "verified": "Specific achievements usually use was/were able to or managed to; managed to adds difficulty. Guidance is not a universal ban on every could context.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/could",
+                    "access": "Direct fetch403; official indexed English Grammar Today body read, including past achievement, possibility, perception and reporting sections.",
+                    "verified": "Could has several functions; specific achievement guidance is qualified. Source and we did result clause assessed independently, not claimed as a publisher example.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/must",
+                    "access": "Direct fetch403; official indexed editorial body read, including deductions, past obligation and no-obligation/prohibition contrast.",
+                    "verified": "Must have/can't have for past deduction; had to for past obligation; mustn't is not don't have to.",
+                    "copied_exercises": false
+                }
+            ],
+            "pending_main_acceptance": [
+                "Actual SQL bindings/levels and practice absence",
+                "Independent semantic and native grading probes",
+                "Bank review/selection",
+                "Metadata/navigation proof",
+                "Guarded apply/no-op and real browser acceptance"
+            ]
+        },
+        "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsPassiveTheorySeeder": {
+            "kind": "Agent-authored editorial draft, not human review; no SQL/definition/engine/view edits.",
+            "source_definition": "database/seeders/Page_V3/SentenceTransformations/SentenceTransformationsPassiveTheorySeeder/definition.json",
+            "source_read": "Full six-block source, M80 prompt, canonical docs, M79 report and actual native data/renderer fields read.",
+            "metadata_status": "Source-derived [B1,absent,absent,B1,B1,absent] retained provisionally; main confirms SQL. Boxes1/2 become native usage/table with explicit type/heading transitions; no column/level/identity movement.",
+            "metadata_transitions": [
+                {
+                    "source_index": 1,
+                    "column": "left",
+                    "before": {
+                        "type": "box",
+                        "heading": "1. Як розпізнати потрібну перебудову",
+                        "level": null
+                    },
+                    "after": {
+                        "type": "usage-panels",
+                        "heading": null,
+                        "level": null
+                    },
+                    "reason": "Algorithm becomes native grouped rules with examples/translations."
+                },
+                {
+                    "source_index": 2,
+                    "column": "left",
+                    "before": {
+                        "type": "box",
+                        "heading": "2. Основні шаблони трансформації",
+                        "level": null
+                    },
+                    "after": {
+                        "type": "comparison-table",
+                        "heading": null,
+                        "level": null
+                    },
+                    "reason": "Four useful transformation rows become a native bilingual table."
+                }
+            ],
+            "source_derived_preserved": [
+                "Active object/passive subject algorithm, same time/aspect/modality, by-agent context, all four useful table rows and two-object alternative, right mistakes/summary, eight navigation destinations/labels/order/current flags."
+            ],
+            "table_row_map": [
+                {
+                    "old_row_index": 0,
+                    "after_row_index": 0,
+                    "old_source": "People speak English in many offices.",
+                    "old_target": "English is spoken in many offices.",
+                    "decision": "retained_translated",
+                    "reason": "Same habitual event and locations; generic agent not independently required."
+                },
+                {
+                    "old_row_index": 1,
+                    "after_row_index": 1,
+                    "old_source": "They have cancelled the meeting.",
+                    "old_target": "The meeting has been cancelled.",
+                    "decision": "retained_contextualized",
+                    "reason": "Explicitly permit omission of unspecified/unimportant they only in this example; preserve Present Perfect."
+                },
+                {
+                    "old_row_index": 2,
+                    "after_row_index": 2,
+                    "old_source": "Someone will send you the link tomorrow.",
+                    "old_target": "The link will be sent to you tomorrow.",
+                    "decision": "retained_expanded",
+                    "reason": "Recipient/time remain, and valid recipient-subject alternative is acknowledged rather than rejected."
+                },
+                {
+                    "old_row_index": 3,
+                    "after_row_index": 3,
+                    "old_source": "They are repairing the bridge.",
+                    "old_target": "The bridge is being repaired.",
+                    "decision": "retained_translated",
+                    "reason": "Ongoing process, not completion; unimportant agent context stated."
+                }
+            ],
+            "confirmed_corrections": [
+                {
+                    "old": "Hero says preserve semantic focus while also shifting focus.",
+                    "after": "Preserve facts/participants/time while acknowledging changed information focus.",
+                    "reason": "Active/passive focus is not identical even when event information is retained."
+                },
+                {
+                    "old": "The road was closed by the authorities marked wrong merely for by-phrase.",
+                    "after": "Both grammatical source versions remain in visible basic; omission is allowed only when agent identity is not required. New contextual mistake demonstrates loss of a required named painter.",
+                    "reason": "Style selection does not make by-agent grammar wrong."
+                },
+                {
+                    "old": "Is cleaned right now treated as universally wrong based on marker alone.",
+                    "after": "Explicit ongoing cleaning context licenses being; schedule/state reading distinguished.",
+                    "reason": "Aspect depends on the specified event/state, not a time phrase alone."
+                },
+                {
+                    "old": "Two-object alternatives reduced to an unspecified most natural exam answer.",
+                    "after": "Both reviewed patterns acknowledged with to/for and pronoun roles; tasks specify start where needed.",
+                    "reason": "Do not reject another valid transformation that performs the same instruction."
+                }
+            ],
+            "new_author_additions": [
+                "Named-agent meaning preservation; negative Perfect and past-question transformations; bounded transitivity restriction; one meaningful two-object detail; six original 2/2/2 tasks."
+            ],
+            "removed_repetition": [
+                "No unsupported most-natural-on-exam assertion; broad passive-course material replaced with short transformation-focused cautions."
+            ],
+            "practice_counts": {
+                "old_interactive_positions": 0,
+                "new_selects": 2,
+                "new_meaning_choices": 2,
+                "new_full_sentence_inputs": 2,
+                "graded_total": 6,
+                "demos": 0,
+                "linked_widget_questions_separate": 5
+            },
+            "normalization_boundary": "Only reviewed has not/hasn't full-input pair; no relaxed word order or global aliases. Required named agents stay in canonical/accepted answers. All instructions visible in label/after, English stimuli separate; no target in hint/placeholder.",
+            "sources": [
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/passives",
+                    "access": "Direct editorial Grammar explanation read successfully: focus, optional agent and tense/aspect table. Learner examples/comments not used as rules.",
+                    "verified": "Passive changes focus, retains appropriate be/participle forms and may omit irrelevant agent.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/passives",
+                    "access": "Direct fetch403; official indexed English Grammar Today body on passives with/without agent read.",
+                    "verified": "By introduces important agent; agentless passive when unknown/obvious/not important, not automatic named-agent deletion.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/us/grammar/british-grammar/passive-forms",
+                    "access": "Direct fetch403; official indexed editorial body read, including transitivity/two objects/linking verbs.",
+                    "verified": "Object restrictions and two possible passive subjects for appropriate two-object verbs.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://www.cambridgeenglish.org/de/Images/682648-advanced-grammar-in-use-4-sample.pdf",
+                    "access": "Official indexed publisher sample Unit29 read; reference explanation only, no exercises copied.",
+                    "verified": "To versus for in two-object variants and relation-sensitive preposition choice; example sentences in this draft are original/source-derived, not sample exercises.",
+                    "copied_exercises": false
+                }
+            ],
+            "pending_main_acceptance": [
+                "Actual SQL levels/metadata/practice inventory",
+                "Native projection and semantic alias probes",
+                "Thematic bank selection",
+                "Navigation/metadata and guarded apply/no-op",
+                "Real browser and all manual/token/widget outputs"
+            ]
+        },
+        "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsReportedSpeechTheorySeeder": {
+            "kind": "Agent-authored editorial draft, not human review; no SQL/definition/engine/view edits.",
+            "source_definition": "database/seeders/Page_V3/SentenceTransformations/SentenceTransformationsReportedSpeechTheorySeeder/definition.json",
+            "source_read": "Full six-block source, M80 prompt, canonical docs, M79 report and actual native label/after fields read.",
+            "metadata_status": "Draft source vector [B1,absent,absent,B1,B1,absent] and append B1 only; main independently confirms actual SQL/practice absence. Two explicit box type/heading transitions preserve columns/levels/order; no new navigation labels.",
+            "metadata_transitions": [
+                {
+                    "source_index": 1,
+                    "column": "left",
+                    "before": {
+                        "type": "box",
+                        "heading": "1. Як розпізнати потрібну перебудову",
+                        "level": null
+                    },
+                    "after": {
+                        "type": "usage-panels",
+                        "heading": null,
+                        "level": null
+                    },
+                    "reason": "Algorithm becomes native grouped context/structure/request/time rules."
+                },
+                {
+                    "source_index": 2,
+                    "column": "left",
+                    "before": {
+                        "type": "box",
+                        "heading": "2. Основні шаблони трансформації",
+                        "level": null
+                    },
+                    "after": {
+                        "type": "comparison-table",
+                        "heading": null,
+                        "level": null
+                    },
+                    "reason": "All four useful source table functions remain native and bilingual with explicit reporting contexts."
+                }
+            ],
+            "source_derived_preserved": [
+                "Statements/questions/commands-request algorithm, context-sensitive backshift caution, all four table functions, right mistakes/summary, eight explicit navigation labels/order/current flags."
+            ],
+            "table_row_map": [
+                {
+                    "old_row_index": 0,
+                    "after_row_index": 0,
+                    "old_source": "Anna said, “I can't stay long.”",
+                    "old_target": "Anna said that she couldn't stay long.",
+                    "decision": "retained_contextualized_translated",
+                    "reason": "Anna speaker/Nina addressee-reporter and Monday→Wednesday/station→home context makes she and backshift explicit."
+                },
+                {
+                    "old_row_index": 1,
+                    "after_row_index": 1,
+                    "old_source": "He asked me, “Where do you work?”",
+                    "old_target": "He asked me where I worked.",
+                    "decision": "retained_contextualized_translated",
+                    "reason": "Oleh asks Maria, Maria reports next day elsewhere; work-information and I/you roles preserved."
+                },
+                {
+                    "old_row_index": 2,
+                    "after_row_index": 2,
+                    "old_source": "The teacher said, “Please close the window.”",
+                    "old_target": "The teacher told us to close the window.",
+                    "decision": "corrected_with_known_request_recipients",
+                    "reason": "Source did not license us or command intent; add our group explicitly and preserve request with asked us rather than arbitrary told us."
+                },
+                {
+                    "old_row_index": 3,
+                    "after_row_index": 3,
+                    "old_source": "They said, “We are meeting tomorrow.”",
+                    "old_target": "They said that they were meeting the next day.",
+                    "decision": "retained_contextualized_translated",
+                    "reason": "Named speakers and Monday→Wednesday reporting frame fix next day as Tuesday, not reporter tomorrow; no meeting-success claim."
+                }
+            ],
+            "confirmed_corrections": [
+                {
+                    "old": "Missing tell object corrected to me without known addressee.",
+                    "after": "Explicit speaker commanded the reporter personally; me is now justified, while requests remain separate asked cases.",
+                    "reason": "A grammatical repair cannot invent a participant."
+                },
+                {
+                    "old": "Water boiled at100C marked wrong, boils declared only correct.",
+                    "after": "Replace physics-dependent error pair by an actual missing-if form error; a separate meaningful library-schedule detail accepts contextually valid backshift and no-backshift.",
+                    "reason": "Past backshift is not inherently wrong; unspecified physical conditions should not decide a grammar score."
+                },
+                {
+                    "old": "She said that I would finish this tomorrow universally corrected by I→she,this→it,tomorrow→next day.",
+                    "after": "Set Lina speaker/Oleh reporter, same report and Monday→Wednesday reference frame before explaining the needed changes.",
+                    "reason": "The original could be grammatical with different people/reference times; only this known context makes its referents wrong."
+                },
+                {
+                    "old": "Unsupported claim that exams especially often test particular patterns.",
+                    "after": "Removed; retained concrete short checks of structures and meaning.",
+                    "reason": "No verified exam-frequency evidence."
+                }
+            ],
+            "new_author_additions": [
+                "Reported words versus narrator-certified event; negative request versus negated request-act; explicit time/place/participants in every task; six original 2/2/2 transformations with separate visible English stimulus."
+            ],
+            "removed_repetition": [
+                "Global pronoun/time replacement list replaced by known referents; no duplicate basic M79 embedded/indirect course."
+            ],
+            "practice_counts": {
+                "old_interactive_positions": 0,
+                "new_selects": 2,
+                "new_meaning_choices": 2,
+                "new_full_sentence_inputs": 2,
+                "graded_total": 6,
+                "demos": 0,
+                "linked_widget_questions_separate": 5
+            },
+            "normalization_boundary": "Only reviewed if/whether pair for one ordinary full yes/no reported question. Past point of view explicitly requested where finite key uses backshift. No strict punctuation flags or universal reference resolver; no ready target hints/placeholders and shuffled 1–3-word banks.",
+            "sources": [
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/reported-speech-questions",
+                    "access": "Direct editorial Grammar explanation read successfully: inner statement order, if/whether, wh words and request patterns. Separate named PeterM reply18March2026 also read; learner comments not treated as rule evidence.",
+                    "verified": "Questions preserve information type; requests can be reported with asked+object+to; type and context matter.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/reported-speech-indirect-speech",
+                    "access": "Direct fetch403; official indexed /uk editorial body read for backshift/no-backshift/pronouns. The /uk direct variant also returned403.",
+                    "verified": "Still-relevant information can retain tense; pronoun changes depend on participants, not universal substitution.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/us/grammar/british-grammar/reporting-verbs",
+                    "access": "Official indexed English Grammar Today reporting-verbs editorial body read; direct success not claimed.",
+                    "verified": "Say/tell/reporting patterns and required addressee with tell; reporting concerns content of words, not automatic fact certification.",
+                    "copied_exercises": false
+                }
+            ],
+            "pending_main_acceptance": [
+                "Independent actual SQL/metadata/practice inventory",
+                "Semantic/native grading and finite alias probes",
+                "Thematic bank selection with explicit transformation context",
+                "Metadata/navigation and guarded apply/no-op",
+                "Real browser full-input/widget visible outputs"
+            ]
+        }
+    },
+    "projection_edits": {
+        "Database\\Seeders\\Page_V3\\QuestionsNegations\\QuestionsNegationsNegativeFormsTheorySeeder": {
+            "technical_block_level": {
+                "draft": "A2",
+                "projected": "A2"
+            },
+            "display_level": {
+                "draft": "A1–B1",
+                "projected": "A1-B1"
+            },
+            "continuing_level_source": "Exact independently captured SQL/source per-slot vector; no range-to-CEFR substitution."
+        },
+        "Database\\Seeders\\Page_V3\\QuestionsNegations\\QuestionsNegationsDoubleNegativesTheorySeeder": {
+            "technical_block_level": {
+                "draft": "B1",
+                "projected": "B1"
+            },
+            "display_level": {
+                "draft": "A1–B1",
+                "projected": "A1-B1"
+            },
+            "continuing_level_source": "Exact independently captured SQL/source per-slot vector; no range-to-CEFR substitution."
+        },
+        "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsTensesTheorySeeder": {
+            "technical_block_level": {
+                "draft": "B1",
+                "projected": "B1"
+            },
+            "display_level": {
+                "draft": "B1–B2",
+                "projected": "B1-B2"
+            },
+            "continuing_level_source": "Exact independently captured SQL/source per-slot vector; no range-to-CEFR substitution."
+        },
+        "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsModalsTheorySeeder": {
+            "technical_block_level": {
+                "draft": "B1",
+                "projected": "B1"
+            },
+            "display_level": {
+                "draft": "B1-B2",
+                "projected": "B1-B2"
+            },
+            "continuing_level_source": "Exact independently captured SQL/source per-slot vector; no range-to-CEFR substitution."
+        },
+        "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsPassiveTheorySeeder": {
+            "technical_block_level": {
+                "draft": "B1",
+                "projected": "B1"
+            },
+            "display_level": {
+                "draft": "B1-B2",
+                "projected": "B1-B2"
+            },
+            "continuing_level_source": "Exact independently captured SQL/source per-slot vector; no range-to-CEFR substitution."
+        },
+        "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsReportedSpeechTheorySeeder": {
+            "technical_block_level": {
+                "draft": "B1",
+                "projected": "B1"
+            },
+            "display_level": {
+                "draft": "B1-B2",
+                "projected": "B1-B2"
+            },
+            "continuing_level_source": "Exact independently captured SQL/source per-slot vector; no range-to-CEFR substitution."
+        }
+    },
+    "expected_http_metadata": {
+        "schema_version": 1,
+        "purpose": "M80 pre-apply prospective native metadata; not served-page acceptance",
+        "projection_file": "author-projection-v2.json",
+        "projection_sha256": "c53c1fe93f26328693a75bd9ab94c75dac48efc46a8c097bee3c94cae05d4568",
+        "independent_before_sha256": "75a9e58003f9364c45e4e3c2696aab7c0b8e5d5073a2bb2acefe54fb198dbefb",
+        "native_policy_pins": {
+            "app/Support/PageMetadata.php": "1d782d27483bdc0cff63515a1d69153dc908adbf2c3b3eea47bec35f141e0a9e",
+            "app/Http/Middleware/AddStructuredData.php": "ea3774ba90512bfa2bf7cee9277b87a3951e4a43fbd48eeed21ffb83ec2a58ac"
+        },
+        "metadata": [
+            {
+                "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\QuestionsNegationsNegativeFormsTheorySeeder",
+                "raw_title": "Negative Forms",
+                "preserved_h1": "Negative Forms",
+                "local_url": "http://gramlyze.loc/theory/pytalni-rechennia-ta-zaperechennia/negative-forms",
+                "hero_intro_sha256": "26ee4e7a092b9c5a89e6ec57a1c051665003544734137497db143bbcf1c24b48",
+                "independent_before_protected": {
+                    "robots_header": "noindex, nofollow, noarchive",
+                    "h1_count": 1,
+                    "h1": "Negative Forms",
+                    "title": "Negative Forms — правила | Gramlyze",
+                    "breadcrumb": "Головна / Теорія / Питальні речення та заперечення / Negative Forms",
+                    "canonical": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/negative-forms",
+                    "robots_meta": null
+                },
+                "prospective_page_metadata": {
+                    "title": "Negative Forms — правила | Gramlyze",
+                    "description": "Negative Forms. Заперечна форма повідомляє, що щось не є правдою, не відбувається або відсутнє."
+                },
+                "prospective_learning_resource_description": "Заперечна форма повідомляє, що щось не є правдою, не відбувається або відсутнє. Спочатку визнач, що саме заперечуєш, а тоді обери not, n’t, no чи never."
+            },
+            {
+                "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\QuestionsNegationsDoubleNegativesTheorySeeder",
+                "raw_title": "Double Negatives",
+                "preserved_h1": "Double Negatives",
+                "local_url": "http://gramlyze.loc/theory/pytalni-rechennia-ta-zaperechennia/double-negatives",
+                "hero_intro_sha256": "43645c455cd18033b97cab12bc22b85e86162075a5bed1f0722a7c147f14bbbe",
+                "independent_before_protected": {
+                    "robots_header": "noindex, nofollow, noarchive",
+                    "h1_count": 1,
+                    "h1": "Double Negatives",
+                    "title": "Double Negatives — правила | Gramlyze",
+                    "breadcrumb": "Головна / Теорія / Питальні речення та заперечення / Double Negatives",
+                    "canonical": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/double-negatives",
+                    "robots_meta": null
+                },
+                "prospective_page_metadata": {
+                    "title": "Double Negatives — правила | Gramlyze",
+                    "description": "Double Negatives. Для одного звичайного заперечного повідомлення в нейтральній стандартній англійській зазвичай обираємо not + any або no-слово без другого заперечення дієслова."
+                },
+                "prospective_learning_resource_description": "Для одного звичайного заперечного повідомлення в нейтральній стандартній англійській зазвичай обираємо not + any або no-слово без другого заперечення дієслова. Це не спосіб оцінювати людей чи всі мовні різновиди."
+            },
+            {
+                "identity": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsTensesTheorySeeder",
+                "raw_title": "Sentence Transformations — Tenses",
+                "preserved_h1": "Sentence Transformations — Tenses",
+                "local_url": "http://gramlyze.loc/theory/sentence-transformations/tenses",
+                "hero_intro_sha256": "a068afb9af4195ef8c205f6906faf5b25914c089dddf8db6b72238bd88bf0ae7",
+                "independent_before_protected": {
+                    "robots_header": "noindex, nofollow, noarchive",
+                    "h1_count": 1,
+                    "h1": "Sentence Transformations — Tenses",
+                    "title": "Sentence Transformations — Tenses — правила | Gramlyze",
+                    "breadcrumb": "Головна / Теорія / Трансформації речень / Sentence Transformations — Tenses",
+                    "canonical": "https://gramlyze.com/theory/sentence-transformations/tenses",
+                    "robots_meta": null
+                },
+                "prospective_page_metadata": {
+                    "title": "Sentence Transformations — Tenses — правила | Gramlyze",
+                    "description": "Sentence Transformations — Tenses. Під час перефразування часових форм зберігай не лише граматику, а й повідомлення: що завершилося, що ще триває та яка подія відбулася раніше."
+                },
+                "prospective_learning_resource_description": "Під час перефразування часових форм зберігай не лише граматику, а й повідомлення: що завершилося, що ще триває та яка подія відбулася раніше. Порядок перевірки: зміст і контекст → часовий орієнтир → форма."
+            },
+            {
+                "identity": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsModalsTheorySeeder",
+                "raw_title": "Sentence Transformations — Modals",
+                "preserved_h1": "Sentence Transformations — Modals",
+                "local_url": "http://gramlyze.loc/theory/sentence-transformations/modals",
+                "hero_intro_sha256": "6e64dab264ebc215e175291ef477e4f822ac4ca0dc2e22a9b38adcd3b88dd955",
+                "independent_before_protected": {
+                    "robots_header": "noindex, nofollow, noarchive",
+                    "h1_count": 1,
+                    "h1": "Sentence Transformations — Modals",
+                    "title": "Sentence Transformations — Modals — правила | Gramlyze",
+                    "breadcrumb": "Головна / Теорія / Трансформації речень / Sentence Transformations — Modals",
+                    "canonical": "https://gramlyze.com/theory/sentence-transformations/modals",
+                    "robots_meta": null
+                },
+                "prospective_page_metadata": {
+                    "title": "Sentence Transformations — Modals — правила | Gramlyze",
+                    "description": "Sentence Transformations — Modals. У модальній трансформації зберігай значення, учасників і час."
+                },
+                "prospective_learning_resource_description": "У модальній трансформації зберігай значення, учасників і час. Одна форма може передавати різні функції; граматично правильна заміна не завжди зберігає початкове повідомлення."
+            },
+            {
+                "identity": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsPassiveTheorySeeder",
+                "raw_title": "Sentence Transformations — Passive",
+                "preserved_h1": "Sentence Transformations — Passive",
+                "local_url": "http://gramlyze.loc/theory/sentence-transformations/passive",
+                "hero_intro_sha256": "04db82309f88c69a5cc4f9513daf92a715818bd4a64a304c9811d30988dfba85",
+                "independent_before_protected": {
+                    "robots_header": "noindex, nofollow, noarchive",
+                    "h1_count": 1,
+                    "h1": "Sentence Transformations — Passive",
+                    "title": "Sentence Transformations — Passive — правила | Gramlyze",
+                    "breadcrumb": "Головна / Теорія / Трансформації речень / Sentence Transformations — Passive",
+                    "canonical": "https://gramlyze.com/theory/sentence-transformations/passive",
+                    "robots_meta": null
+                },
+                "prospective_page_metadata": {
+                    "title": "Sentence Transformations — Passive — правила | Gramlyze",
+                    "description": "Sentence Transformations — Passive. Пасив змінює те, з чого починається повідомлення і на чому зосереджено увагу."
+                },
+                "prospective_learning_resource_description": "Пасив змінює те, з чого починається повідомлення і на чому зосереджено увагу. Під час трансформації збережи подію, учасників, час, вид і потрібну інформацію про виконавця."
+            },
+            {
+                "identity": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsReportedSpeechTheorySeeder",
+                "raw_title": "Sentence Transformations — Reported Speech",
+                "preserved_h1": "Sentence Transformations — Reported Speech",
+                "local_url": "http://gramlyze.loc/theory/sentence-transformations/reported-speech",
+                "hero_intro_sha256": "4e02e8f68c35a839ad173ca4105402aa359ee4a1addd3353e98262505d955297",
+                "independent_before_protected": {
+                    "robots_header": "noindex, nofollow, noarchive",
+                    "h1_count": 1,
+                    "h1": "Sentence Transformations — Reported Speech",
+                    "title": "Sentence Transformations — Reported Speech — правила | Gramlyze",
+                    "breadcrumb": "Головна / Теорія / Трансформації речень / Sentence Transformations — Reported Speech",
+                    "canonical": "https://gramlyze.com/theory/sentence-transformations/reported-speech",
+                    "robots_meta": null
+                },
+                "prospective_page_metadata": {
+                    "title": "Sentence Transformations — Reported Speech — правила | Gramlyze",
+                    "description": "Sentence Transformations — Reported Speech. У непрямій мові передаємо чиїсь слова з певної точки переказу."
+                },
+                "prospective_learning_resource_description": "У непрямій мові передаємо чиїсь слова з певної точки переказу. Спочатку встанови людей, час і намір, потім змінюй форму; займенники та часові слова не мають єдиної заміни для всіх ситуацій."
+            }
+        ],
+        "application_bootstrapped": false,
+        "working_env_loaded": false,
+        "db_connections": 0,
+        "db_queries": 0,
+        "db_writes": 0,
+        "http_requests": 0
+    },
+    "real_page_acceptance": {
+        "status": "not_checked_before_freeze",
+        "required_after_guarded_apply": true,
+        "target": "http://gramlyze.loc",
+        "widths": [
+            1440,
+            390,
+            320
+        ],
+        "themes": [
+            "light",
+            "dark"
+        ],
+        "target_states": 36,
+        "full_inputs": 12,
+        "manual_token_size_cases": 48,
+        "widget_questions": 30,
+        "autonomous_html_preview_required": false,
+        "user_screenshots_required": false
+    },
+    "main_language_review": [
+        "A: lexical do-support is distinguished from ordinary be, existing auxiliaries, imperative Don’t be and valid negative/split infinitives; scope of promise and no/not is retained.",
+        "B: the stated neutral standard register is distinguished from negative concord without judging speakers; scope, not unhappy/impossible and neither/nor are not reduced to word counting.",
+        "C: corrected film chronology uses an explicitly earlier start; continuing learning, fixed dates and last/first experience reference are stated before transformation. Context can supply a past reference outside one sentence.",
+        "D: could plus and we did explicitly proves success; possibility alone does not. Advice has a known recipient; prohibition, no necessity, past obligation and past deduction remain distinct.",
+        "E: changed information focus does not license loss of a required named agent, recipient, tense/aspect/modality, negation or question force. Unknown/unimportant agents may be omitted only in stated contexts.",
+        "F: speaker/addressee/reporter/time/place establish pronouns and deictics; request/command and scope of not stay distinct; both contextually valid backshift choices are acknowledged without a physics-dependent universal rule."
+    ],
+    "main_source_access": [
+        {
+            "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/past-perfect",
+            "access": "Direct editorial main body read; named editorial replies and learner comments are distinct evidence."
+        },
+        {
+            "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/passives",
+            "access": "Direct editorial main body read; learner comments/exercises not used as source rules or copied tasks."
+        },
+        {
+            "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+            "access": "Direct primary guidance read; people-first helpful content orientation, not ranking/indexing guarantees."
+        }
+    ],
+    "boundaries": [
+        "36 new own graded tasks:12 form,12 meaning,12 full manual/token inputs; no existing own practice was present in independently captured source or current SQL.",
+        "Six widgets/30 selected existing questions are separate from own tasks. No new question, answer, option, link, progress or standalone membership writes.",
+        "Eight continuing box type/heading transitions are explicit; UUID/id/order/column/SQL NULL levels remain exact. A/B range levels and right mistakes/summary stay unchanged.",
+        "All four source table functions on each transformation page remain mapped, bilingual and explicitly corrected where meanings previously differed.",
+        "Finite reviewed aliases are not an unrestricted paraphrase grader. Native case/punctuation/formatting and all visual/engine sources remain unchanged.",
+        "Known defective old keys/options are excluded from the finite widget five, not rewritten or silently reformatted.",
+        "Meaningful details have finite point owners; essential rules, translations and visible control criteria stay in basic.",
+        "Freeze and isolated/offline probes are not actual browser or working-local acceptance; those remain separate required receipts."
+    ]
+}
