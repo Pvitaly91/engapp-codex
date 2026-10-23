@@ -61,6 +61,7 @@ final class TheoryHtmlAdapter
         if (($design['package'] ?? null) === 'm76-native-v1') { return M76PronounRelations::pointPanels($design); }
         if (($design['package'] ?? null) === 'm77-native-v1') { return M77OnePrepositionsPhrasal::pointPanels($design); }
         if (($design['package'] ?? null) === 'm78-native-v1') { return M78PhrasalQuestionBasics::pointPanels($design); }
+        if (($design['package'] ?? null) === 'm79-native-v1') { return M79QuestionTypesCompletion::pointPanels($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::pointPanels($design); }
@@ -170,6 +171,7 @@ final class TheoryHtmlAdapter
         if (($design['package'] ?? null) === 'm76-native-v1') { return M76PronounRelations::validDesign($design); }
         if (($design['package'] ?? null) === 'm77-native-v1') { return M77OnePrepositionsPhrasal::validDesign($design); }
         if (($design['package'] ?? null) === 'm78-native-v1') { return M78PhrasalQuestionBasics::validDesign($design); }
+        if (($design['package'] ?? null) === 'm79-native-v1') { return M79QuestionTypesCompletion::validDesign($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::validDesign($design); }

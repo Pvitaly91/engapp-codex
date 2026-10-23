@@ -1,0 +1,182 @@
+{
+    "schema_version": 1,
+    "package": "m79-practice-criteria-revision",
+    "version": "1.0.1",
+    "status": "frozen",
+    "reason": "Actual select prompt is not rendered by the unchanged native view; criteria must be in the rendered label.",
+    "predecessor_pins": {
+        "database/content-patches/m79-question-types-completion.v1.json": "0e0b1406a376e392c4b12028e589ec099e4a675599b6907a873b738474e51d11",
+        "docs/content/m79-question-types-completion.v1.json": "1941b5bc4976d9526145e32216f429b5bde81a6776718c894634a0e0ee9f532f",
+        "docs/content/m79-source-checksums.v1.json": "16a473c3cd5a36eece553d6260e011f1f5d0af2d864dd40a095c9d2f15cdff17",
+        "docs/content/m79-question-types-completion.components.v1.json": "a19a60057869554808c5b8d508b719ca4a73e6d61ebd75382d31379fe54bebb4",
+        "docs/content/m79-question-types-completion.tasks.v1.json": "f5012be1e9b85d8462a31018d451b003e433a2691f8c538828532d1694b6c191",
+        "docs/content/m79-question-types-completion.editorial.v1.json": "13ad14dbe3a293fb094aba09f6a49ee5ef2a517ddc929b8e8d2df6602367a8f6",
+        "docs/content/m79-sentence-builder-bank-audit.v1.json": "9953bcf155eac62bc7369d6859513cc682bd46175eed2ce3bcd5f76eb300bf49"
+    },
+    "active_artifacts": {
+        "database/content-patches/m79-question-types-completion.v1.0.1.json": {
+            "sha256": "9af348eae92ac0cb361f5a9da2c407275037cfb1fc1673e84486abef31d7396c",
+            "bytes": 247638
+        },
+        "docs/content/m79-question-types-completion.v1.0.1.json": {
+            "sha256": "8ec1e542444fbf26bea877cba2896c5bf64cea959b91b1fc51914f9a7b0ecc7f",
+            "bytes": 438076
+        },
+        "docs/content/m79-question-types-completion.components.v1.0.1.json": {
+            "sha256": "f127bdab87df82f77f892ec46a605c69f8ce4f4d6a7178e680f95a10052006ee",
+            "bytes": 40551
+        },
+        "docs/content/m79-question-types-completion.tasks.v1.0.1.json": {
+            "sha256": "71a55839c6cff0485f812ee83a1a1f9d3bd89e7b8c26fc7a154c981adaa3e25d",
+            "bytes": 96776
+        },
+        "docs/content/m79-question-types-completion.editorial.v1.0.1.json": {
+            "sha256": "0a0cae9ca89ba971506cab74227553474b89025f9a5f3dc1125a2f25050b2998",
+            "bytes": 58925
+        },
+        "docs/content/m79-question-types-completion.v1.0.1.uk.md": {
+            "sha256": "cdbf89c1f243b72c5f215d9880661fb6b7aaa669d397497b8d8ed044b48591f7",
+            "bytes": 162008
+        },
+        "docs/content/m79-source-checksums.v1.0.1.json": {
+            "sha256": "4a685cdab60e6e5c64063fadf76b529fa5b43df88f9794edf28e7383afa64c55",
+            "bytes": 7697
+        },
+        "docs/content/m79-sentence-builder-bank-audit.v1.0.1.json": {
+            "sha256": "d3acbfc669a8842f11dcbf040493541a66c0e07305c626ce62bba4aee071ebd7",
+            "bytes": 415432
+        }
+    },
+    "transitions": [
+        {
+            "lesson_index": 0,
+            "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsAlternativeQuestionsTheorySeeder",
+            "definition_path": "database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions/TypesOfQuestionsAlternativeQuestionsTheorySeeder/definition.json",
+            "page_id": 132,
+            "page_category_id": 22,
+            "locale": "uk",
+            "block_source_index": 11,
+            "type": "practice-set",
+            "column": "left",
+            "before_body_sha256": "4efcd9349a70d52e6c4e80cf7d4a2344f9656495db60c763fcbb1dd58ac8ada2",
+            "after_body_sha256": "772ba65bf8b812741cf444d7ce8418beac0d528f5489ff060d0d36bcb66598bf",
+            "allowed_field": "body",
+            "only_six_select_labels_changed": true
+        },
+        {
+            "lesson_index": 2,
+            "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsNegativeQuestionsTheorySeeder",
+            "definition_path": "database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions/TypesOfQuestionsNegativeQuestionsTheorySeeder/definition.json",
+            "page_id": 136,
+            "page_category_id": 22,
+            "locale": "uk",
+            "block_source_index": 11,
+            "type": "practice-set",
+            "column": "left",
+            "before_body_sha256": "a4cc7b3f9d987d8b9f0b2c793008de1e81642b89f47a5a7e6062a82c62482337",
+            "after_body_sha256": "772c94a555f699ce43ba5cb30b4a79b123507ae96c1306cf8a988cdb447dd2df",
+            "allowed_field": "body",
+            "only_six_select_labels_changed": true
+        }
+    ],
+    "labels": [
+        {
+            "lesson_index": 0,
+            "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsAlternativeQuestionsTheorySeeder",
+            "block_source_index": 11,
+            "group": "selects",
+            "group_index": 0,
+            "prompt": "Офіціант просить вибрати напій. Яка повна нейтральна модель передає вибір?",
+            "before_label": "a) You prefer coffee or tea? — Ти віддаєш перевагу каві чи чаю? (перепитування); b) Do you prefer coffee or tea? — Ти віддаєш перевагу каві чи чаю?; c) Do you prefer coffee and tea? — Ти віддаєш перевагу і каві, і чаю?",
+            "after_label": "Офіціант просить вибрати напій. Яка повна нейтральна модель передає вибір? a) You prefer coffee or tea? — Ти віддаєш перевагу каві чи чаю? (перепитування); b) Do you prefer coffee or tea? — Ти віддаєш перевагу каві чи чаю?; c) Do you prefer coffee and tea? — Ти віддаєш перевагу і каві, і чаю?",
+            "other_task_fields_identical": true
+        },
+        {
+            "lesson_index": 0,
+            "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsAlternativeQuestionsTheorySeeder",
+            "block_source_index": 11,
+            "group": "selects",
+            "group_index": 1,
+            "prompt": "Обери повне нейтральне питання про температуру з be.",
+            "before_label": "a) Is it hot or cold? — Там спекотно чи холодно?; b) It is hot or cold? — Там спекотно чи холодно? (перепитування); c) Does it hot or cold? — задум «Там спекотно чи холодно?»",
+            "after_label": "Обери повне нейтральне питання про температуру з be. a) Is it hot or cold? — Там спекотно чи холодно?; b) It is hot or cold? — Там спекотно чи холодно? (перепитування); c) Does it hot or cold? — задум «Там спекотно чи холодно?»",
+            "other_task_fields_identical": true
+        },
+        {
+            "lesson_index": 0,
+            "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsAlternativeQuestionsTheorySeeder",
+            "block_source_index": 11,
+            "group": "selects",
+            "group_index": 2,
+            "prompt": "Для розподілу на заняття тренер просить назвати одну з двох здібностей. Обери повну нейтральну модель із can та явними альтернативами.",
+            "before_label": "a) Can you swim and dive? — Ти вмієш і плавати, і пірнати?; b) You can swim or dive? — Ти вмієш плавати чи пірнати? (перепитування); c) Can you swim or dive? — Ти вмієш плавати чи пірнати?",
+            "after_label": "Для розподілу на заняття тренер просить назвати одну з двох здібностей. Обери повну нейтральну модель із can та явними альтернативами. a) Can you swim and dive? — Ти вмієш і плавати, і пірнати?; b) You can swim or dive? — Ти вмієш плавати чи пірнати? (перепитування); c) Can you swim or dive? — Ти вмієш плавати чи пірнати?",
+            "other_task_fields_identical": true
+        },
+        {
+            "lesson_index": 2,
+            "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsNegativeQuestionsTheorySeeder",
+            "block_source_index": 11,
+            "group": "selects",
+            "group_index": 0,
+            "prompt": "Потрібне повне самостійне інверсійне заперечне питання, не перепитування з порядком твердження.",
+            "before_label": "a) You don’t like coffee? — Тобі не подобається кава? (перепитування); b) Don’t you like coffee? — Хіба тобі не подобається кава?; c) Do you don’t like coffee? — задум «Хіба тобі не подобається кава?»",
+            "after_label": "Потрібне повне самостійне інверсійне заперечне питання, не перепитування з порядком твердження. a) You don’t like coffee? — Тобі не подобається кава? (перепитування); b) Don’t you like coffee? — Хіба тобі не подобається кава?; c) Do you don’t like coffee? — задум «Хіба тобі не подобається кава?»",
+            "other_task_fields_identical": true
+        },
+        {
+            "lesson_index": 2,
+            "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsNegativeQuestionsTheorySeeder",
+            "block_source_index": 11,
+            "group": "selects",
+            "group_index": 1,
+            "prompt": "Обери саме інверсійну модель зі скороченим заперечним be. Повна форма граматична, але тут потрібне скорочення.",
+            "before_label": "a) She isn’t happy? — Вона не щаслива? (перепитування); b) Isn’t she happy? — Хіба вона не щаслива?; c) Is she not happy? — Хіба вона не щаслива? (повна форма)",
+            "after_label": "Обери саме інверсійну модель зі скороченим заперечним be. Повна форма граматична, але тут потрібне скорочення. a) She isn’t happy? — Вона не щаслива? (перепитування); b) Isn’t she happy? — Хіба вона не щаслива?; c) Is she not happy? — Хіба вона не щаслива? (повна форма)",
+            "other_task_fields_identical": true
+        },
+        {
+            "lesson_index": 2,
+            "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsNegativeQuestionsTheorySeeder",
+            "block_source_index": 11,
+            "group": "selects",
+            "group_index": 2,
+            "prompt": "Обери повне інверсійне питання з can; не додавай do-support.",
+            "before_label": "a) Can’t you swim? — Хіба ти не вмієш плавати?; b) You can’t swim? — Ти не вмієш плавати? (перепитування); c) Don’t you can swim? — задум «Хіба ти не вмієш плавати?»",
+            "after_label": "Обери повне інверсійне питання з can; не додавай do-support. a) Can’t you swim? — Хіба ти не вмієш плавати?; b) You can’t swim? — Ти не вмієш плавати? (перепитування); c) Don’t you can swim? — задум «Хіба ти не вмієш плавати?»",
+            "other_task_fields_identical": true
+        }
+    ],
+    "invariants": {
+        "only_changed_learning_fields": "Six A/C selects label prefixes",
+        "unchanged_prompt_fields": true,
+        "answers_options_feedback_aliases_ids_source_indices_unchanged": true,
+        "other_four_lessons_identical": true,
+        "old_artifacts_preserved": true,
+        "author_parts_preserved": true,
+        "view_changes": 0,
+        "grader_changes": 0,
+        "db_body_updates": 2,
+        "db_inserts": 0
+    },
+    "bank_binding_successor": {
+        "version_before": "1.0.0",
+        "version_after": "1.0.1",
+        "practice_body_bindings": [
+            {
+                "lesson_index": 0,
+                "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsAlternativeQuestionsTheorySeeder",
+                "before_body_sha256": "4efcd9349a70d52e6c4e80cf7d4a2344f9656495db60c763fcbb1dd58ac8ada2",
+                "after_body_sha256": "772ba65bf8b812741cf444d7ce8418beac0d528f5489ff060d0d36bcb66598bf"
+            },
+            {
+                "lesson_index": 2,
+                "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsNegativeQuestionsTheorySeeder",
+                "before_body_sha256": "a4cc7b3f9d987d8b9f0b2c793008de1e81642b89f47a5a7e6062a82c62482337",
+                "after_body_sha256": "772c94a555f699ce43ba5cb30b4a79b123507ae96c1306cf8a988cdb447dd2df"
+            }
+        ],
+        "targets_and_selected_questions_identical": true,
+        "all_other_audit_fields_identical": true
+    }
+}

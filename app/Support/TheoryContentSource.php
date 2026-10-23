@@ -39,6 +39,7 @@ final class TheoryContentSource
         [M76PronounRelations::class, 'm42StyleContext'],
         [M77OnePrepositionsPhrasal::class, 'm42StyleContext'],
         [M78PhrasalQuestionBasics::class, 'm42StyleContext'],
+        [M79QuestionTypesCompletion::class, 'm42StyleContext'],
         [M50ObligationAdvicePackage::class, 'm42StyleContext'],
         [PracticeCompletionPackage::class, 'm42StyleContext'],
         [M49AdviceModalsPackage::class, 'm42StyleContext'],

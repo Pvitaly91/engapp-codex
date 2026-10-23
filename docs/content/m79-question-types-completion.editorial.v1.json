@@ -1,0 +1,745 @@
+{
+    "schema_version": 1,
+    "base_sha": "f33d1a0e2eff08e66044d9b746a46bc33f207bce",
+    "version": "1.0.0",
+    "status": "frozen",
+    "review": "Main independently read all six author lessons/tasks and corrections; agent review is not human review. Original examples/tasks; publisher exercises not copied.",
+    "author_projection_sha256": "df5d7fa1261eded4a8139a9ceb422e46f898ccfdb30e29d82d3d90397ada46c2",
+    "draft_parts_sha256": {
+        "alternative": "f01423f79c8416b4f182408a32673cf906f2f730bf1e27195ae75ab548af6655",
+        "tags": "1218246c1ad24a7061743c8cbfbdd03ac1661ff910803944fea03daab823d076",
+        "negative": "0c438ab4d2067e1c4f8637eb85d7915717b94ad953c137ee7cdbcc6b206aa7a1",
+        "subject": "ebe3ab4c4cfb1f04aed14630e25d30b6823a07fe38b1a564607ebce6e1f3dbfd",
+        "embedded": "55027be48634c47ef4913645e501e05a24579cf4a5cd518c0ea0c5e61ee63ca8",
+        "indirect": "db84641921db3060d024c72cf5e366283d3ef39e21d42dd93cb939dd18eff133"
+    },
+    "lesson_reviews": {
+        "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsAlternativeQuestionsTheorySeeder": {
+            "schema_version": 1,
+            "review_kind": "Agent author/reviewer, not human review",
+            "corrections": [
+                {
+                    "source": "Or завжди означає вибір, ніколи Yes/No; summary вимагає один варіант.",
+                    "after": "Контекст розрізняє справжній вибір і yes/no-reading; відповідь може назвати один/обидва, відхилити два або весь більший набір.",
+                    "reason": "Зберігає правильні source both/neither та усуває суперечність із ними."
+                },
+                {
+                    "source": "Auxiliary + Subject + Verb як універсальна формула.",
+                    "after": "Окремі моделі з дією і з основним be; Is it blue or green? не потребує додаткового дієслова.",
+                    "reason": "Не створює зайвого main verb."
+                },
+                {
+                    "source": "You prefer…? та and відхилено без визначення задуму.",
+                    "after": "Повна нейтральна модель і вибір явно задані; можливе перепитування/питання про поєднання відрізнено від виконання умови.",
+                    "reason": "Граматичність не підміняє функцію запиту."
+                },
+                {
+                    "source": "Can you swim or dive? без контексту вибору.",
+                    "after": "Тренер розподіляє на заняття й просить назвати одну здібність; окремий meaning-task перевіряє yes/no-reading.",
+                    "reason": "Не вимагає вгадати відсутню інтонацію."
+                },
+                {
+                    "source": "Must we pay by cash or card?",
+                    "after": "Must we pay in cash or by card?; by cash не названо помилковим.",
+                    "reason": "Словник дозволяє by cash; редакція обирає прозорі навчальні сполучення."
+                }
+            ],
+            "retained_source": "Збережено всі 13 native типів/позицій, добір be/do/modal/Wh/кількох варіантів, правильні Both/Neither, усі10 graded функцій та demo. Повторні категоричні формули в summary/table узгоджено з видимим basic, а не приховано.",
+            "new_author_content": "Два meaning tasks; явні наміри старих tasks; змістовні bilingual пояснення про yes/no-reading, відмову й повні/скорочені форми.",
+            "details_decision": "Нуль disclosures: усі потрібні смислові межі, переклади й короткі застереження є частиною самодостатнього basic. Рішення отримане переглядом кожного пункту, не копією M78.",
+            "independent_before_sha256": "8c261b17b3f7e332fc5fc86eef8b555af83de19938aee7ae83d2a23e7dbb3add",
+            "page_id": 132,
+            "category_id": 22,
+            "practice_id": 4243,
+            "practice_uuid": "37f2ff28-6385-5261-bee9-c30d5ec77172",
+            "practice_source_index": 11,
+            "practice_level": "A2",
+            "actual_h1_preserved": true,
+            "plain_subtitle_extractor_fallback_preserved": true,
+            "source_practice_inventory": {
+                "selects": 3,
+                "choices": 0,
+                "inputs": 4,
+                "graded_rephrase": 3,
+                "ungraded_demos": 1
+            },
+            "after_practice_inventory": {
+                "selects": 3,
+                "choices": 2,
+                "inputs": 4,
+                "graded_rephrase": 3,
+                "ungraded_demos": 1,
+                "full_sentence_input_indices": [
+                    0,
+                    1,
+                    2,
+                    3
+                ]
+            },
+            "source_loader_boundary": "JsonPageSeeder використовує top-level seeder.class Page_V3 для фактичних upsert і UUID scope. Embedded Page_v2 metadata не керує цим scope; compiler має зберегти кожне історичне поле, uuid_key, tags, inherit_base_tags, level та column без глобальної заміни.",
+            "acceptance_boundary": "Цей файл є авторським джерелом, не HTTP/browser PASS. Main виконує compiler, frozen guards, локальне застосування й live acceptance."
+        },
+        "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder": {
+            "schema_version": 1,
+            "review_kind": "Agent author/reviewer, not human review",
+            "corrections": [
+                {
+                    "source": "Позитив+позитив і She is happy, is she? названо помилкою без заданого наміру.",
+                    "after": "Стандартний confirmation-pattern явно відокремлено; інша модель визнана можливою й пояснена в змістовному point-level detail.",
+                    "reason": "Не створює нової загальної заборони."
+                },
+                {
+                    "source": "I am right, am I not? оцінювалося як помилка; I am → aren't I завжди.",
+                    "after": "Формальне am I not приймається у select4/rephrase3 з явно дозволеним регістром; I am not → am I показано окремо.",
+                    "reason": "Engine природно допускає граматичні contraction aliases; умова не стверджує виключної перевірки скорочення."
+                },
+                {
+                    "source": "Глобальні ordinal labels не тотожні словесним answer keys.",
+                    "after": "Додано per-item options із буквальними tag values та per-option feedback; canonical словесні keys усіх4 source selects лишилися тими самими.",
+                    "reason": "Actual native Blade прив’язує item.options або global options без ordinal-перекодування; JSON сам по собі не оголошено UI failure."
+                },
+                {
+                    "source": "Must/might працюють так само, do з have виключно американське; усіlet us → shall we.",
+                    "after": "Збережено конкретні можливі modal examples із межами вживаності; лексичне have і have got розділено; let’s зі спільною пропозицією відрізнено від дозвільного let us.",
+                    "reason": "Значення й регістр важливіші за механічне копіювання."
+                },
+                {
+                    "source": "Відсутні never/nobody/hardly, there, people-referents та явний факт у відповідях.",
+                    "after": "Додано невеликий набір прозорих bilingual examples; factual answer task задає мовців і результат.",
+                    "reason": "Негативність не визначається лише n’t; question tag не встановлює істини."
+                }
+            ],
+            "retained_source": "Збережено 14 native blocks, усі 11 старих graded функцій і demo, чотири partial tag inputs на старих позиціях та всі canonical answers. Додано два meaning і два full-sentence tasks; часткові gaps не рахуються повнореченнєвими.",
+            "new_author_content": "Негативні слова, there і people-referents; межа I am not та let us; змістовне поглиблення про same-polarity tags; два meaning та два повнореченнєві завдання.",
+            "details_decision": "Один змістовний detail про реакцію на нову інформацію на власнику tags-8/sections/2. Basic одразу визнає можливість same-polarity та задає стандартне підтвердження; переклади, спеціальні форми й фактичні відповіді не приховані.",
+            "checker_boundary": "Незмінений EnglishAnswerVariants приймає граматичні contraction/full aliases; select4 та rephrase3 явно дозволяють обидва регістри. Вони не заявляють перевірки обов’язкового скорочення. Comma/question mark оцінювання окремо не заявляється.",
+            "independent_before_sha256": "8c261b17b3f7e332fc5fc86eef8b555af83de19938aee7ae83d2a23e7dbb3add",
+            "page_id": 137,
+            "category_id": 22,
+            "practice_id": 4415,
+            "practice_uuid": "1f25fd18-30c2-54c6-b5a2-54d05067620d",
+            "practice_source_index": 12,
+            "practice_level": "B1",
+            "actual_h1_preserved": true,
+            "plain_subtitle_extractor_fallback_preserved": true,
+            "source_practice_inventory": {
+                "selects": 4,
+                "choices": 0,
+                "inputs": 4,
+                "graded_rephrase": 3,
+                "ungraded_demos": 1
+            },
+            "after_practice_inventory": {
+                "selects": 4,
+                "choices": 2,
+                "inputs": 6,
+                "graded_rephrase": 3,
+                "ungraded_demos": 1,
+                "full_sentence_input_indices": [
+                    4,
+                    5
+                ]
+            },
+            "source_loader_boundary": "JsonPageSeeder використовує top-level seeder.class Page_V3 для фактичних upsert і UUID scope. Embedded Page_v2 metadata не керує цим scope; compiler має зберегти кожне історичне поле, uuid_key, tags, inherit_base_tags, level та column без глобальної заміни.",
+            "acceptance_boundary": "Цей файл є авторським джерелом, не HTTP/browser PASS. Main виконує compiler, frozen guards, локальне застосування й live acceptance."
+        },
+        "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsNegativeQuestionsTheorySeeder": {
+            "schema_version": 1,
+            "review_kind": "Agent author/reviewer, not human review",
+            "corrections": [
+                {
+                    "source": "N’t розглядалося лише як негативне допоміжне; повна модель мала тільки be-приклади.",
+                    "after": "Явно зіставлено contracted допоміжне+n’t+підмет і full допоміжне+підмет+not; збережено час/особу/заперечення.",
+                    "reason": "Не створює хибне Do not you… механічним розгортанням."
+                },
+                {
+                    "source": "Яка форма розмовна? неоднозначна між statement-question та contracted inversion.",
+                    "after": "У select2 прямо потрібна інверсійна модель зі скороченим be; у select1/3 відмежовано перепитування від повної інверсії.",
+                    "reason": "Граматична full або echo форма не оголошена неправильною загалом."
+                },
+                {
+                    "source": "Будь-яке negativequestion емоційне або ввічливіше; переклад завжди «хіба».",
+                    "after": "Контекст визначає очікування, уточнення, запрошення або критику; Won’t you sit down? природно «Сідайте, будь ласка».",
+                    "reason": "Відокремлено форму, намір і факт."
+                },
+                {
+                    "source": "У Q/A частина ua була аналізом замість перекладу; Yes назване згодою з позитивом.",
+                    "after": "Обидві репліки точно перекладено, аналіз у descriptions/notes; meaningtasks задають мовців і реальний результат окремо.",
+                    "reason": "Саме Isn’t she coming? не доводить, що вона прийде."
+                },
+                {
+                    "source": "Чотири full inputs без токенного банку.",
+                    "after": "Збережено чотири canonical answers, групи, позиції та відсутність IDs; додано перемішані групи по 1–3 слова й reviewed повні aliases.",
+                    "reason": "Ручний і токенний маршрути — одна навчальна функція, не нові завдання для статистики."
+                }
+            ],
+            "retained_source": "Збережено 13 native blocks, усі 10 старих graded функцій і demo, чотири full inputs та canonical keys. Правильне source-пояснення відповідей за фактом збережено й уточнено перекладами та явним контекстом.",
+            "new_author_content": "Два fact-based meaning tasks; повні моделі з do, be та modal; короткий wh-negative контраст; природні переклади функцій і українські умови повнореченнєвих inputs.",
+            "details_decision": "Нуль disclosures: порядок not, фактична відповідь, переклади та короткі межі інтерпретації потрібні для basic і видимі відразу. Окремого обґрунтованого поглиблення без повтору немає.",
+            "checker_boundary": "Aliases сформульовані поодинці з правильним порядком not, не декартовим розгортанням скорочень. Незмінений checker не перевіряє тон голосу або окремо термінальний знак питання.",
+            "independent_before_sha256": "8c261b17b3f7e332fc5fc86eef8b555af83de19938aee7ae83d2a23e7dbb3add",
+            "page_id": 136,
+            "category_id": 22,
+            "practice_id": 4372,
+            "practice_uuid": "221438bd-95b6-57fd-87cf-b1bb6a06a987",
+            "practice_source_index": 11,
+            "practice_level": "B1",
+            "actual_h1_preserved": true,
+            "plain_subtitle_extractor_fallback_preserved": true,
+            "source_practice_inventory": {
+                "selects": 3,
+                "choices": 0,
+                "inputs": 4,
+                "graded_rephrase": 3,
+                "ungraded_demos": 1
+            },
+            "after_practice_inventory": {
+                "selects": 3,
+                "choices": 2,
+                "inputs": 4,
+                "graded_rephrase": 3,
+                "ungraded_demos": 1,
+                "full_sentence_input_indices": [
+                    0,
+                    1,
+                    2,
+                    3
+                ]
+            },
+            "source_loader_boundary": "JsonPageSeeder використовує top-level seeder.class Page_V3 для фактичних upsert і UUID scope. Embedded Page_v2 metadata не керує цим scope; compiler має зберегти кожне історичне поле, uuid_key, tags, inherit_base_tags, level та column без глобальної заміни.",
+            "acceptance_boundary": "Цей файл є авторським джерелом, не HTTP/browser PASS. Main виконує compiler, frozen guards, локальне застосування й live acceptance."
+        },
+        "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsSubjectQuestionsTheorySeeder": {
+            "kind": "Agent-authored review, not human review. Author source only; no SQL, definition, engine or visual edit.",
+            "source_definition": "database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions/TypesOfQuestionsSubjectQuestionsTheorySeeder/definition.json",
+            "source_read": "Entire six-block definition and subtitle; full JsonPageSeeder and TheoryNativeContentRelease; M79 instructions and canonical template/detail/builder documents read.",
+            "metadata_status": "Source vector [A2–B1,A2,A2–B1,A2,A2,A2] retained. Actual SQL binding and absence of later practice must be independently proved by main before append. No invented existing UUID/Page ID. Navigation preserves nine labels/order/current flags; proposed full parent paths require resolver/GET confirmation.",
+            "source_derived_preserved": [
+                "Who/what subject models and the original useful call/live/want/happen/make/cause examples remain with exact Ukrainian meanings.",
+                "Subject/object contrast, neutral Simple structure, forms, right mistakes/summary and nine navigation identities preserved."
+            ],
+            "confirmed_corrections": [
+                {
+                    "old": "Subject is described only as the person/thing that performs the action.",
+                    "after": "Distinguish grammatical role from active doer with state and passive examples.",
+                    "reason": "Subject can be a state bearer or passive patient."
+                },
+                {
+                    "old": "Who did call you? and What did happen? treated as unconditionally impossible.",
+                    "after": "Correction explicitly requests neutral non-emphatic information; possible emphatic readings remain explained.",
+                    "reason": "Auxiliary do can mark emphasis or negation even in subject questions."
+                },
+                {
+                    "old": "No do/does/did slogan not scoped to neutral positive Simple questions.",
+                    "after": "Keep lexical do, required is/has/can, negative do-support and contextual emphasis.",
+                    "reason": "Removing every auxiliary changes grammatical tense/polarity/function."
+                },
+                {
+                    "old": "Object contrast not anchored to the same named participants.",
+                    "after": "Add Who contacted Anna? / Who did Anna contact? with known and unknown roles stated.",
+                    "reason": "A transformation must preserve the intended action, time and other participants."
+                }
+            ],
+            "new_author_additions": [
+                "Whole subject groups which student/which students/how many people and agreement.",
+                "State/passive grammatical roles; explicit Subject/Object semantic tasks.",
+                "Six new graded tasks: two form, two meaning, two full questions with manual and shuffled 1–3-word tokens."
+            ],
+            "removed_repetition": [
+                "Who called you? and What happened? are reused only in their short core contrast; duplicated source slogans consolidated into qualified basic and one optional explanatory detail."
+            ],
+            "practice_counts": {
+                "old_interactive_positions": 0,
+                "new_selects": 2,
+                "new_meaning_choices": 2,
+                "new_full_sentence_inputs": 2,
+                "graded_total": 6,
+                "demos": 0,
+                "linked_widget_questions_separate": 5
+            },
+            "normalization_boundary": "Literal lower-trim feedback covers every displayed option and alias. Neutral-vs-emphatic select distinguishes the visible instruction, not absolute grammaticality. No punctuation or spoken emphasis assessment claim. No generated contraction aliases.",
+            "sources": [
+                {
+                    "url": "https://dictionary.cambridge.org/us/grammar/british-grammar/questions-wh-questions",
+                    "access": "Direct fetch403. Official indexed editorial body read from English Grammar Today question-wh page; not a direct-fetch success.",
+                    "verified": "Subject/object contrast; emphatic do and negative subject questions.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/questions-negatives",
+                    "access": "Two direct fetches timed out. Official indexed body read; editorial explanation of subject/object and whole question groups. Named LearnEnglish Team reply by Kirk Moore23September2022 separately read for agreement; not an anonymous learner claim.",
+                    "verified": "Wh-subject groups, agreement and first auxiliary retention.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/do",
+                    "access": "Direct fetch403; official indexed editorial dictionary grammar excerpt read.",
+                    "verified": "Main-verb do versus auxiliary functions.",
+                    "copied_exercises": false
+                }
+            ],
+            "pending_main_acceptance": [
+                "Independent SQL inventory and new practice UUID",
+                "Source/engine freeze validation",
+                "Navigation resolver and GET proof",
+                "Local apply/no-op and real browser details/tasks/widget acceptance"
+            ]
+        },
+        "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsEmbeddedQuestionsTheorySeeder": {
+            "kind": "Agent-authored review, not human review. Author source only; no SQL, definition, engine or visual edit.",
+            "source_definition": "database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions/TypesOfQuestionsEmbeddedQuestionsTheorySeeder/definition.json",
+            "source_read": "Entire six-block definition/subtitle, full JsonPageSeeder/TheoryNativeContentRelease, M79 instructions and canonical template/detail/builder documents read.",
+            "metadata_status": "Source technical vector [B1,B1,B1,B1,B1,absent] preserved including absent footer level represented null. Main must independently confirm SQL and absence of a later practice before append. Eight navigation labels/order/current flags retained; full canonical parent paths proposed for resolver/GET verification.",
+            "source_derived_preserved": [
+                "Original nine useful usage examples and core forms retained with genuine translations.",
+                "Opening phrases, inner statement order, ordinary if/whether and the source right mistakes/summary components preserved."
+            ],
+            "confirmed_corrections": [
+                {
+                    "old": "Subtitle and first usage panel imply embedded questions are defined by politeness.",
+                    "after": "Structure is primary; statements of knowledge/ignorance and wonder coexist with main questions.",
+                    "reason": "An embedded interrogative does not require a polite request."
+                },
+                {
+                    "old": "Never add do/does/did inside an embedded question.",
+                    "after": "Remove neutral positive question do-support only; retain lexical do, needed negative auxiliary and legitimate contextual emphasis.",
+                    "reason": "Blind deletion loses lexical meaning or negation."
+                },
+                {
+                    "old": "If/whether listed with no restricted placements.",
+                    "after": "Ordinary full clauses allow both; before infinitive/after preposition/immediately before or not use whether in the named models.",
+                    "reason": "The two connectors are not universally interchangeable."
+                },
+                {
+                    "old": "No explicit distinction between wh-subject and wh-object embedding.",
+                    "after": "Who called Anna versus who Anna called preserve different roles; do not duplicate he after subject who.",
+                    "reason": "Not every verb after who signals inversion."
+                }
+            ],
+            "new_author_additions": [
+                "Main-clause question versus knowledge statement; whole-sentence punctuation limitation.",
+                "Lexical does and negative didn't probes, if/whether accepted full-sentence aliases.",
+                "One semantic detail on connector placements, while required restrictions stay in basic.",
+                "Six new graded 2/2/2 tasks; full inputs use existing manual/token modes."
+            ],
+            "removed_repetition": [
+                "Repeated no-inversion slogans replaced by a role-based progression; indirect-request pragmatics are linked rather than copied from the separate owner."
+            ],
+            "practice_counts": {
+                "old_interactive_positions": 0,
+                "new_selects": 2,
+                "new_meaning_choices": 2,
+                "new_full_sentence_inputs": 2,
+                "graded_total": 6,
+                "demos": 0,
+                "linked_widget_questions_separate": 5
+            },
+            "normalization_boundary": "Accepted if/whether alternatives apply only to the ordinary full clause. Only explicitly reviewed don't/do not aliases are declared. Feedback lower-trim plain text covers all values. Main-clause task uses different nonempty semantic values rather than punctuation-only scoring; no independent punctuation claim.",
+            "sources": [
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/questions-negatives",
+                    "access": "Direct fetch timed out twice; official indexed editorial body read under Other ways of asking questions. Separate named LearnEnglish Team response13November2022 read for main versus inner clause, not learner comments as authority.",
+                    "verified": "Main question with normal embedded order; statement wrappers and if clauses.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/if-or-whether",
+                    "access": "Direct fetch403; official indexed editorial body including whether-not-if sections read.",
+                    "verified": "Ordinary alternation and restrictions before to, after preposition and immediate or not.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/do",
+                    "access": "Direct fetch403; official indexed grammar excerpt read.",
+                    "verified": "Lexical/auxiliary do distinction; existing negative structure is not removed.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/reported-speech-indirect-speech",
+                    "access": "Direct fetch403; official indexed reporting editorial excerpt read separately via reporting-verbs page. No direct-success claim.",
+                    "verified": "Reporting is context-sensitive and distinct from merely placing a question clause inside a present knowledge statement.",
+                    "copied_exercises": false
+                }
+            ],
+            "pending_main_acceptance": [
+                "Independent actual SQL/footer level and practice inventory",
+                "Exact projection/normalization tests",
+                "Navigation and metadata proofs",
+                "Guarded apply/no-op",
+                "Live details and all input/choice/widget acceptance"
+            ]
+        },
+        "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsIndirectQuestionsTheorySeeder": {
+            "kind": "Agent-authored review, not human review. Author source only; no SQL, definition, engine or visual edit.",
+            "source_definition": "database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions/TypesOfQuestionsIndirectQuestionsTheorySeeder/definition.json",
+            "source_read": "Entire six-block definition/subtitle, full JsonPageSeeder/TheoryNativeContentRelease, M79 instructions and canonical template/detail/builder documents read.",
+            "metadata_status": "Source technical vector [B1,B1,B1,B1,B1,absent] retained, footer absence represented null. Actual SQL exact binding and no later practice independently confirmed by main; new practice source6/B1 proposed. Existing eight footer labels/order/current flags preserved; full nested paths require resolver/GET confirmation.",
+            "source_derived_preserved": [
+                "All nine source usage sentences retained with genuine Ukrainian translations. Three old ua analysis fields moved into note/description rather than treated as translations.",
+                "Could/Do-you-know frames, if/whether, statements of wonder, real she-asked example, whole-sentence punctuation, right mistakes/summary and explicit overlap recognition preserved."
+            ],
+            "confirmed_corrections": [
+                {
+                    "old": "Polite frame and longer indirect question can sound categorically better.",
+                    "after": "Context, intention and tone matter; direct questions are not inherently rude and know-frame alone does not ensure politeness.",
+                    "reason": "Grammatical form and social effect are not identical."
+                },
+                {
+                    "old": "Embedded/Indirect contrast risks reading as a universal terminology boundary.",
+                    "after": "Explicitly call it this pair of lessons' editorial focus; acknowledge terminology overlap and link structure lesson.",
+                    "reason": "The same sentence can instantiate both descriptions."
+                },
+                {
+                    "old": "Three source ua fields contain analysis, not translations.",
+                    "after": "Each receives a real translation; their useful analysis is retained in the shared paragraph/note.",
+                    "reason": "Learners need the actual utterance meaning, not only a structural label."
+                },
+                {
+                    "old": "No current polite-past versus actual-reporting contrast.",
+                    "after": "Keep present availability after current was-wondering; separately track one old question's speaker/time in meaningful detail.",
+                    "reason": "Embedding/request framing does not automatically backshift every event."
+                }
+            ],
+            "new_author_additions": [
+                "Distinct train-platform and service-desk response situations; literal yes/can versus giving requested information.",
+                "Current room-availability request, participants/time preservation and finite reviewed if/whether plus available/free aliases.",
+                "Six new graded 2/2/2 tasks, all with visible intent before Check; two full manual/token inputs.",
+                "One contextual expansion contrasting current polite past and real historical reporting, with essential distinction already visible."
+            ],
+            "removed_repetition": [
+                "Repeated inner word-order slogans consolidated and linked to Embedded; main progression is frame → relevant answer → present polite past → statement/reporting → shared terminology."
+            ],
+            "practice_counts": {
+                "old_interactive_positions": 0,
+                "new_selects": 2,
+                "new_meaning_choices": 2,
+                "new_full_sentence_inputs": 2,
+                "graded_total": 6,
+                "demos": 0,
+                "linked_widget_questions_separate": 5
+            },
+            "normalization_boundary": "Could frame is explicitly fixed; Can is not accepted as an unrequested replacement. Canonical and finite if/whether, available/free variants preserve tense/participants. Meaning choices distinguish relevant information from literal grammar with different semantic values. Punctuation display is reviewed separately, not claimed tested by normalized score.",
+            "sources": [
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/questions-negatives",
+                    "access": "Two direct attempts timed out; official indexed editorial Other ways of asking questions body read. Named editorial reply on inner order separately distinguished from learner comments.",
+                    "verified": "Shared inner structure and interrogative/statement wrappers; not a rigid universal terminology taxonomy.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/pl/grammar/british-grammar/politeness_2",
+                    "access": "Official indexed English Grammar Today editorial body read with English explanatory text; not a direct-fetch success claim.",
+                    "verified": "Past-shaped forms may soften current requests; situation and phrasing matter.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/dictionary/english/wondering",
+                    "access": "Official indexed Cambridge dictionary editorial senses read; corpus examples not used as authority or copied.",
+                    "verified": "Wonder as questioning/wish to know and request-opening use.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/reported-speech-indirect-speech",
+                    "access": "Direct fetch403; official indexed reporting editorial excerpt read through reporting-verbs result. The new Lena dialogue is author-created, not a publisher exercise.",
+                    "verified": "Speaker/time context matters in genuine reporting; separate from a current request frame.",
+                    "copied_exercises": false
+                }
+            ],
+            "pending_main_acceptance": [
+                "Exact SQL/new UUID binding",
+                "Author aliases versus actual unchanged engine",
+                "All navigation targets/metadata",
+                "Guarded apply/no-op",
+                "Real details, response probes, full-input and distinct linked-bank acceptance"
+            ]
+        }
+    },
+    "projection_edits": {
+        "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsAlternativeQuestionsTheorySeeder": {
+            "technical_block_level": {
+                "draft": "A2",
+                "projected": "A2"
+            },
+            "display_level": {
+                "draft": "A2–B1",
+                "projected": "A2–B1"
+            },
+            "continuing_level_source": "Exact per-slot SQL/source vector, not hero focus inference"
+        },
+        "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder": {
+            "technical_block_level": {
+                "draft": "B1",
+                "projected": "B1"
+            },
+            "display_level": {
+                "draft": "B1–B2",
+                "projected": "B1–B2"
+            },
+            "continuing_level_source": "Exact per-slot SQL/source vector, not hero focus inference"
+        },
+        "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsNegativeQuestionsTheorySeeder": {
+            "technical_block_level": {
+                "draft": "B1",
+                "projected": "B1"
+            },
+            "display_level": {
+                "draft": "B1–B2",
+                "projected": "B1–B2"
+            },
+            "continuing_level_source": "Exact per-slot SQL/source vector, not hero focus inference",
+            "supplement_bank_addition": {
+                "old": [
+                    "Database\\Seeders\\V3\\Polyglot\\PolyglotNegativeQuestionsAllLevelsLessonSeeder"
+                ],
+                "new": [
+                    "Database\\Seeders\\V3\\Polyglot\\PolyglotNegativeQuestionsAllLevelsLessonSeeder",
+                    "Database\\Seeders\\V3\\Polyglot\\M79NegativeFactsSupplementSeeder"
+                ],
+                "reason": "Minimum thematic gaps / exact native visible-case candidate deficiency; old rows are never rewritten."
+            }
+        },
+        "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsSubjectQuestionsTheorySeeder": {
+            "technical_block_level": {
+                "draft": "A2",
+                "projected": "A2"
+            },
+            "display_level": {
+                "draft": "A2–B1",
+                "projected": "A2–B1"
+            },
+            "continuing_level_source": "Exact per-slot SQL/source vector, not hero focus inference"
+        },
+        "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsEmbeddedQuestionsTheorySeeder": {
+            "technical_block_level": {
+                "draft": "B1",
+                "projected": "B1"
+            },
+            "display_level": {
+                "draft": "B1",
+                "projected": "B1"
+            },
+            "continuing_level_source": "Exact per-slot SQL/source vector, not hero focus inference",
+            "supplement_bank_addition": {
+                "old": [
+                    "Database\\Seeders\\V3\\Polyglot\\PolyglotEmbeddedQuestionsAllLevelsLessonSeeder"
+                ],
+                "new": [
+                    "Database\\Seeders\\V3\\Polyglot\\PolyglotEmbeddedQuestionsAllLevelsLessonSeeder",
+                    "Database\\Seeders\\V3\\Polyglot\\M79EmbeddedStructureSupplementSeeder"
+                ],
+                "reason": "Minimum thematic gaps / exact native visible-case candidate deficiency; old rows are never rewritten."
+            }
+        },
+        "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsIndirectQuestionsTheorySeeder": {
+            "technical_block_level": {
+                "draft": "B1",
+                "projected": "B1"
+            },
+            "display_level": {
+                "draft": "B1",
+                "projected": "B1"
+            },
+            "continuing_level_source": "Exact per-slot SQL/source vector, not hero focus inference",
+            "supplement_bank_addition": {
+                "old": [
+                    "Database\\Seeders\\V3\\Polyglot\\PolyglotIndirectQuestionsAllLevelsLessonSeeder"
+                ],
+                "new": [
+                    "Database\\Seeders\\V3\\Polyglot\\PolyglotIndirectQuestionsAllLevelsLessonSeeder",
+                    "Database\\Seeders\\V3\\Polyglot\\M79IndirectInformationSupplementSeeder"
+                ],
+                "reason": "Minimum thematic gaps / exact native visible-case candidate deficiency; old rows are never rewritten."
+            }
+        }
+    },
+    "expected_http_metadata": {
+        "schema_version": 1,
+        "purpose": "M79 pre-apply prospective native metadata; not served-page acceptance",
+        "projection_file": "author-projection-v2.json",
+        "projection_sha256": "df5d7fa1261eded4a8139a9ceb422e46f898ccfdb30e29d82d3d90397ada46c2",
+        "independent_before_sha256": "8c261b17b3f7e332fc5fc86eef8b555af83de19938aee7ae83d2a23e7dbb3add",
+        "native_policy_pins": {
+            "app/Support/PageMetadata.php": "1d782d27483bdc0cff63515a1d69153dc908adbf2c3b3eea47bec35f141e0a9e",
+            "app/Http/Middleware/AddStructuredData.php": "ea3774ba90512bfa2bf7cee9277b87a3951e4a43fbd48eeed21ffb83ec2a58ac"
+        },
+        "metadata": [
+            {
+                "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsAlternativeQuestionsTheorySeeder",
+                "raw_title": "Alternative Questions",
+                "preserved_h1": "Alternative Questions",
+                "local_url": "http://gramlyze.loc/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/alternative-questions-coffee-or-tea",
+                "hero_intro_sha256": "c87c80203ae36b8122acc27e1ca6acedafc15c4738c10f14448428d8e448c84d",
+                "independent_before_protected": {
+                    "robots_header": "noindex, nofollow, noarchive",
+                    "h1_count": 1,
+                    "h1": "Alternative Questions",
+                    "title": "Alternative Questions — правила | Gramlyze",
+                    "breadcrumb": "Головна / Теорія / Основні типи питань англійською / Alternative Questions",
+                    "canonical": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/alternative-questions-coffee-or-tea",
+                    "robots_meta": null
+                },
+                "prospective_page_metadata": {
+                    "title": "Alternative Questions — правила | Gramlyze",
+                    "description": "Alternative Questions. Альтернативне питання пропонує два або більше варіантів через or."
+                },
+                "prospective_learning_resource_description": "Альтернативне питання пропонує два або більше варіантів через or. Спочатку визнач, чи мовець просить вибрати, чи лише перевіряє наявність хоча б однієї можливості: однакове or не визначає відповідь без контексту."
+            },
+            {
+                "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder",
+                "raw_title": "Question Tags",
+                "preserved_h1": "Question Tags",
+                "local_url": "http://gramlyze.loc/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/question-tags-disjunctive-questions-dont-you-isnt-it",
+                "hero_intro_sha256": "9b3fbaff6febce6acd53e2efe8d5fec6301882e110ceb4ee549d5c27a7093202",
+                "independent_before_protected": {
+                    "robots_header": "noindex, nofollow, noarchive",
+                    "h1_count": 1,
+                    "h1": "Question Tags",
+                    "title": "Question Tags — правила | Gramlyze",
+                    "breadcrumb": "Головна / Теорія / Основні типи питань англійською / Question Tags",
+                    "canonical": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/question-tags-disjunctive-questions-dont-you-isnt-it",
+                    "robots_meta": null
+                },
+                "prospective_page_metadata": {
+                    "title": "Question Tags — правила | Gramlyze",
+                    "description": "Question tags додають короткий запит до головної частини."
+                },
+                "prospective_learning_resource_description": "Question tags додають короткий запит до головної частини. Основний маршрут уроку — підтвердження з протилежною полярністю; це не заборона інших моделей і не доказ правдивості головного повідомлення."
+            },
+            {
+                "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsNegativeQuestionsTheorySeeder",
+                "raw_title": "Negative Questions",
+                "preserved_h1": "Negative Questions",
+                "local_url": "http://gramlyze.loc/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/negative-questions-dont-you-know",
+                "hero_intro_sha256": "76f3c2aece42a17ea81a759bf8b8eba78258772e2fb0b46a04f93e66b9935b80",
+                "independent_before_protected": {
+                    "robots_header": "noindex, nofollow, noarchive",
+                    "h1_count": 1,
+                    "h1": "Negative Questions",
+                    "title": "Negative Questions — правила | Gramlyze",
+                    "breadcrumb": "Головна / Теорія / Основні типи питань англійською / Negative Questions",
+                    "canonical": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/negative-questions-dont-you-know",
+                    "robots_meta": null
+                },
+                "prospective_page_metadata": {
+                    "title": "Negative Questions — правила | Gramlyze",
+                    "description": "Negative Questions. Заперечне питання містить not або n’t."
+                },
+                "prospective_learning_resource_description": "Заперечне питання містить not або n’t. Воно може виражати очікування, здивування, уточнення чи запрошення, але не встановлює факту й не обов’язково є емоційним або ввічливішим."
+            },
+            {
+                "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsSubjectQuestionsTheorySeeder",
+                "raw_title": "Subject Questions",
+                "preserved_h1": "Subject Questions",
+                "local_url": "http://gramlyze.loc/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/subject-questions",
+                "hero_intro_sha256": "fff0794dc159508b50f1941910c54dd1752a772a80e9aa20164dc8540cc4ac58",
+                "independent_before_protected": {
+                    "robots_header": "noindex, nofollow, noarchive",
+                    "h1_count": 1,
+                    "h1": "Subject Questions",
+                    "title": "Subject Questions — правила | Gramlyze",
+                    "breadcrumb": "Головна / Теорія / Основні типи питань англійською / Subject Questions",
+                    "canonical": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/subject-questions",
+                    "robots_meta": null
+                },
+                "prospective_page_metadata": {
+                    "title": "Subject Questions — правила | Gramlyze",
+                    "description": "Subject Questions. Питальна група сама є підметом: невідомо, хто телефонував, що сталося або які учні готові."
+                },
+                "prospective_learning_resource_description": "Питальна група сама є підметом: невідомо, хто телефонував, що сталося або які учні готові. Підмет може позначати не тільки активного виконавця, а й носія стану або предмет у пасивному реченні."
+            },
+            {
+                "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsEmbeddedQuestionsTheorySeeder",
+                "raw_title": "Embedded Questions",
+                "preserved_h1": "Embedded Questions",
+                "local_url": "http://gramlyze.loc/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/embedded-questions",
+                "hero_intro_sha256": "034908e55e1cbf73b7759370ddf2cfcd15a4ad5b4288c14c58fcf9bb9fdb3834",
+                "independent_before_protected": {
+                    "robots_header": "noindex, nofollow, noarchive",
+                    "h1_count": 1,
+                    "h1": "Embedded Questions",
+                    "title": "Embedded Questions — правила | Gramlyze",
+                    "breadcrumb": "Головна / Теорія / Основні типи питань англійською / Embedded Questions",
+                    "canonical": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/embedded-questions",
+                    "robots_meta": null
+                },
+                "prospective_page_metadata": {
+                    "title": "Embedded Questions — правила | Gramlyze",
+                    "description": "Embedded Questions. Embedded question — питальна за змістом частина всередині більшого речення."
+                },
+                "prospective_learning_resource_description": "Embedded question — питальна за змістом частина всередині більшого речення. Вона може входити в запит інформації, твердження про знання чи незнання або роздум; сама наявність такої частини не гарантує ввічливості."
+            },
+            {
+                "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsIndirectQuestionsTheorySeeder",
+                "raw_title": "Indirect Questions",
+                "preserved_h1": "Indirect Questions",
+                "local_url": "http://gramlyze.loc/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/indirect-questions",
+                "hero_intro_sha256": "c9efacb5b0bbae219e4dfedadb5c50dddb06e63ea4ff59cf54ea7b7e2c6ff5c0",
+                "independent_before_protected": {
+                    "robots_header": "noindex, nofollow, noarchive",
+                    "h1_count": 1,
+                    "h1": "Indirect Questions",
+                    "title": "Indirect Questions — правила | Gramlyze",
+                    "breadcrumb": "Головна / Теорія / Основні типи питань англійською / Indirect Questions",
+                    "canonical": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/indirect-questions",
+                    "robots_meta": null
+                },
+                "prospective_page_metadata": {
+                    "title": "Indirect Questions — правила | Gramlyze",
+                    "description": "Indirect Questions. Терміни indirect і embedded questions часто перетинаються."
+                },
+                "prospective_learning_resource_description": "Терміни indirect і embedded questions часто перетинаються. Тут тренуємо практичний запит: яку інформацію потрібно отримати, яку рамку обрати й чи дає відповідь саме цю інформацію. Будову вкладеної частини окремо пояснює урок Embedded Questions."
+            }
+        ],
+        "application_bootstrapped": false,
+        "working_env_loaded": false,
+        "db_connections": 0,
+        "db_queries": 0,
+        "db_writes": 0,
+        "http_requests": 0
+    },
+    "prefreeze_formula_browser_sha256": null,
+    "formula_browser_validation": {
+        "status": "deferred_to_real_after_apply",
+        "prefreeze_status": "not_checked",
+        "required_before_freeze": false,
+        "required_before_guarded_local_apply": false,
+        "user_approval_required": false,
+        "user_screenshots_required": false,
+        "autonomous_html_artifacts": "auxiliary_not_browser_acceptance",
+        "after_apply": {
+            "status": "not_checked",
+            "target": "http://gramlyze.loc",
+            "scope": "All six real local theory pages",
+            "viewport_width": 320,
+            "themes": [
+                "light",
+                "dark"
+            ],
+            "evidence": "Separate actual browser acceptance receipt; blocked checks remain blocked/not_checked."
+        },
+        "process_clarification": "Autonomous HTML review is optional. Do not require user screenshots or approval, bypass browser security, or count post-apply acceptance as pre-apply PASS."
+    },
+    "main_language_review": [
+        "Alternative: written context distinguishes genuine choice from yes/no reading with or; both/neither, parallel options, main be and natural cash/card patterns are preserved.",
+        "Tags: confirmation pattern is distinguished from same-polarity intent; formal am I not is valid, requested contracted/full forms and factual replies stay explicit.",
+        "Negative: contracted and full not-order, time/participants and actual reply facts remain distinct; the question alone never proves its answer.",
+        "Subject: neutral positive Simple does not require question do-support; required auxiliaries, negative/emphatic do, lexical do, plural groups and passive subjects are retained.",
+        "Embedded: inner structure is separated from main inversion; lexical/negative do, who-subject/object and specific if/whether positions remain explicit.",
+        "Indirect: practical current requests and useful responses are distinguished from statements and actual reporting, without inventing a universal terminology boundary."
+    ],
+    "main_source_access": [
+        "Requested Cambridge direct pages returned403; some British Council direct requests timed out. The British Council Questions and negatives body and Google helpful-content guidance were read directly; official indexed editorial bodies were read separately.",
+        "Named LearnEnglish Team am I not reply is an editorial response, not an anonymous learner comment or direct main-body claim.",
+        "Primary grammar-source ledger is preserved in each independently reviewed author part; new examples and tasks are original, not publisher exercises.",
+        "Google helpful-content guidance is an editorial orientation, not an indexing/ranking guarantee."
+    ],
+    "boundaries": [
+        "57 own graded functions:31 retained/corrected+26new;3 retained demos separately.20inputs:16full and4retainedpartialtaggaps.",
+        "Six widgets/30selected questions:22reused+8minimum insert-only supplement questions; original question/options/answers/links and standalone memberships unchanged.",
+        "Native case/punctuation normalization is unchanged; textual score does not prove intonation or independently enforce question marks/commas.",
+        "Four semantic details have exact point owners; essential rules, translations and task criteria remain visible basic.",
+        "Three existing practice UUIDs/levels and all continuing metadata retained; onlyD/E/F append A2/B1/B1 practices. Display ranges never become exact filters.",
+        "No visual source, formatter, grader or practice-engine changes. M78 retained-practice/M77 variable-owner/M76 every-shift safeguards retained.",
+        "Defective old mid-clause-capitalized candidates are excluded, not repaired through shared options or hidden formatter rules."
+    ]
+}
