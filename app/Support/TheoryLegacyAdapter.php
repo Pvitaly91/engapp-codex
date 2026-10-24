@@ -196,6 +196,7 @@ final class TheoryLegacyAdapter
                 if ($correction === null) { $correction = M83B2RevisionBasicGrammar::correction($item, $design); }
                 if ($correction === null) { $correction = M84WordOrderHaveGot::correction($item, $design); }
                 if ($correction === null) { $correction = M85VerbToBe::correction($item, $design); }
+                if ($correction === null) { $correction = M86PresentSimpleContinuousBasics::correction($item, $design); }
                 if ($correction !== null) { $point = array_replace($point, $correction); }
                 self::detail($point, $pointSections, $index);
                 $node['items'][] = $point;
