@@ -2,7 +2,7 @@
 
 ## 1. Статус і scope
 
-Локальний apply і actual browser acceptance завершено: 70 цільових updates, один новий practice-set Have got / has got та 25 нових тематичних питань конструктора. Два повторні no-op — 0 writes. Незалежна реконструкція всіх 46 SQL-таблиць і її post-UI повтор підтвердили погоджений scope. Browser consolidation містить 36 states, 68 input cases та 6 widgets 5/5. Delivery review, commit і push ще **pending main**; цей документ — report draft, не твердження про завершену доставку.
+Локальний apply і actual browser acceptance завершено: 70 цільових updates, один новий practice-set Have got / has got та 25 нових тематичних питань конструктора. Два повторні no-op — 0 writes. Незалежна реконструкція всіх 46 SQL-таблиць і її post-UI повтор підтвердили погоджений scope. Browser consolidation містить 36 states, 68 input cases та 6 widgets 5/5. Перевірені зміни закомічено й доставлено normal push у робочу codex-гілку; remote SHA content-коміту незалежно підтверджено. Нижче не приховано старі test failures, random-variant HTTP limitations і невиконаний WT runtime repeat.
 
 Accepted base: `91c718a119a6d42f180c2a7121fbbbf94ef5afa4`. Робоча гілка: `codex/seo-m84-word-order-have-got-standard-view`. Реалізація й HTTP/UI — лише `http://gramlyze.loc`. Production-профіль перевірявся тільки ізольованим локальним тестом; запитів до production або gramlyze.ub не було.
 
@@ -171,7 +171,7 @@ Fresh SSR перевірив 1076 learning fields, 56 graded controls, 5 demos, 
 
 Print, повний WCAG audit, повна no-JS працездатність практики, course progress session і mixed answer interaction — **not_checked**. SSR читання не замінює цих перевірок. Прийняття canonical/alias відповідей не доводить автоматичне зіставлення всіх синонімічних token inventories.
 
-## 10. Докази, hashes і pending delivery
+## 10. Докази, hashes і доставка
 
 Приватні receipts, SQL snapshots, runtime identity, backups/dumps, cookies/secrets і raw diagnostics не призначені для Git. Нижче лише basename/hash references; teaching artifacts і source contracts versioned.
 
@@ -201,4 +201,4 @@ Versioned source entry points: M84WordOrderHaveGot, M84BuilderSelectionPresentat
 
 Staged review завершено: exact allowlist 74 files, 23 frozen index artifacts/definitions збігаються з SHA manifest, усі 8 shared RAW profiles і reverse-to-HEAD hunks exact. Нових visual sources, routes, секретів, private receipts/screenshots/backups або foreign files в index немає. Звичайний diff-check позначає тільки чотири CRLF registrations у controller; CRLF свідомо збережено. `git -c core.whitespace=cr-at-eol diff --cached --check` PASS. За чинними Git attributes index нормалізує LF лише в .gitattributes і двох existing text services; working RAW profiles та історичний attribute prefix лишаються exact. Full frozen-source validation: 6 owners / 25 supplement questions / 6 bank targets, 0 SQL connections/writes.
 
-**Content commit SHA: pending main. Push/remote equality: pending main.** Це не дозвіл або свідчення deploy. Main, PR, merge/rebase/cherry-pick, force-push, production/gramlyze.ub mutations не виконувалися.
+Content commit: **0b566cd3333dc89be71fd89fa9d312c6bf9ce720**. Normal push у `codex/seo-m84-word-order-have-got-standard-view` успішний; окремий `git ls-remote` підтвердив remote SHA == цьому content HEAD. Фіналізація цього звіту — окремий report-only commit у тій самій гілці, без додаткових навчальних/DB змін; його кінцевий HEAD наведено у фінальній відповіді й окремо звіряється з remote. Це не дозвіл або свідчення deploy. Main, PR, merge/rebase/cherry-pick, force-push, production/gramlyze.ub mutations не виконувалися.
