@@ -273,6 +273,7 @@ class TheoryCourseManifestService
         $page = \App\Support\M82CommonMistakesLevelRevision::preserveCoursePage($page);
         $page = \App\Support\M83B2RevisionBasicGrammar::preserveCoursePage($page);
         $page = \App\Support\M84WordOrderHaveGot::preserveCoursePage($page);
+        $page = \App\Support\M85VerbToBe::preserveCoursePage($page);
 
         return \App\Support\M49AdviceModalsPackage::preserveCoursePage(\App\Support\M48ConditionalsPackage::preserveCoursePage(\App\Support\M47ConditionalsPackage::preserveCoursePage(\App\Support\M46ConditionalsPackage::preserveCoursePage($page))));
     }

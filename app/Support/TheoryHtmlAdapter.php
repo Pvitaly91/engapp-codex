@@ -67,6 +67,7 @@ final class TheoryHtmlAdapter
         if (($design['package'] ?? null) === 'm82-native-v1') { return M82CommonMistakesLevelRevision::pointPanels($design); }
         if (($design['package'] ?? null) === 'm83-native-v1') { return M83B2RevisionBasicGrammar::pointPanels($design); }
         if (($design['package'] ?? null) === 'm84-native-v1') { return M84WordOrderHaveGot::pointPanels($design); }
+        if (($design['package'] ?? null) === 'm85-native-v1') { return M85VerbToBe::pointPanels($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::pointPanels($design); }
@@ -182,6 +183,7 @@ final class TheoryHtmlAdapter
         if (($design['package'] ?? null) === 'm82-native-v1') { return M82CommonMistakesLevelRevision::validDesign($design); }
         if (($design['package'] ?? null) === 'm83-native-v1') { return M83B2RevisionBasicGrammar::validDesign($design); }
         if (($design['package'] ?? null) === 'm84-native-v1') { return M84WordOrderHaveGot::validDesign($design); }
+        if (($design['package'] ?? null) === 'm85-native-v1') { return M85VerbToBe::validDesign($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::validDesign($design); }

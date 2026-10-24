@@ -1,0 +1,309 @@
+{
+  "schema_version": 1,
+  "base_sha": "6f7751612a3bc9d8bec2315c052e81f9e2fc0973",
+  "scope": "M85 twelve additive nonvisual caller-owned registrations; no validator/design/formatter/grader/engine changes",
+  "independent_source_before_sha256": "7f554bebc5c15ea86bef65592d35da75cc1fdbec3631e1f3060de55926508fe1",
+  "independent_db_before_sha256": "fe639c06446c6fb46b5b4ab25ae654e3910b6733cc124a9e4bee262e41b411b7",
+  "independent_course_source_before_sha256": "6b8a6a974245af260486489f890062f29942235a4827d5db665d4c2f664d7c20",
+  "owned_added_registration_lines": 12,
+  "owned_validator_added_lines": 0,
+  "owned_validator_removed_lines": 0,
+  "files": [
+    {
+      "path": "app/Support/TheoryContentSource.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "        [M84WordOrderHaveGot::class, 'm42StyleContext'],\n",
+          "after": "        [M84WordOrderHaveGot::class, 'm42StyleContext'],\n        [M85VerbToBe::class, 'm42StyleContext'],\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "602eb0d605e3534b24ccb7cbeeb1bdf70ad5035032626bbcabe37f9c35888ade",
+          "before_lf_sha256": "602eb0d605e3534b24ccb7cbeeb1bdf70ad5035032626bbcabe37f9c35888ade",
+          "after_raw_sha256": "50165b404cf58e56e4f363d59be42d21d139d5667555e014d7da8016d8e5c736",
+          "after_lf_sha256": "50165b404cf58e56e4f363d59be42d21d139d5667555e014d7da8016d8e5c736",
+          "after_lf_line_count": 116,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M85 paired BEFORE",
+          "after_pin_origin": "finite additive whole-line expected bytes"
+        },
+        "worktree": {
+          "before_raw_sha256": "602eb0d605e3534b24ccb7cbeeb1bdf70ad5035032626bbcabe37f9c35888ade",
+          "before_lf_sha256": "602eb0d605e3534b24ccb7cbeeb1bdf70ad5035032626bbcabe37f9c35888ade",
+          "after_raw_sha256": "50165b404cf58e56e4f363d59be42d21d139d5667555e014d7da8016d8e5c736",
+          "after_lf_sha256": "50165b404cf58e56e4f363d59be42d21d139d5667555e014d7da8016d8e5c736",
+          "after_lf_line_count": 116,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M85 paired BEFORE",
+          "after_pin_origin": "finite additive whole-line expected bytes"
+        }
+      }
+    },
+    {
+      "path": "app/Support/TheoryHtmlAdapter.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "        if (($design['package'] ?? null) === 'm84-native-v1') { return M84WordOrderHaveGot::pointPanels($design); }\n",
+          "after": "        if (($design['package'] ?? null) === 'm84-native-v1') { return M84WordOrderHaveGot::pointPanels($design); }\n        if (($design['package'] ?? null) === 'm85-native-v1') { return M85VerbToBe::pointPanels($design); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        },
+        {
+          "before": "        if (($design['package'] ?? null) === 'm84-native-v1') { return M84WordOrderHaveGot::validDesign($design); }\n",
+          "after": "        if (($design['package'] ?? null) === 'm84-native-v1') { return M84WordOrderHaveGot::validDesign($design); }\n        if (($design['package'] ?? null) === 'm85-native-v1') { return M85VerbToBe::validDesign($design); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "640e0494513b23db15211523fc3e8d3e11929079d70a5155f7df86d73afce1a4",
+          "before_lf_sha256": "640e0494513b23db15211523fc3e8d3e11929079d70a5155f7df86d73afce1a4",
+          "after_raw_sha256": "2711c74c0621abb3ef9ab08950091bb7c326cdbf9dc5d7cea7df47a6f6543662",
+          "after_lf_sha256": "2711c74c0621abb3ef9ab08950091bb7c326cdbf9dc5d7cea7df47a6f6543662",
+          "after_lf_line_count": 612,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M85 paired BEFORE",
+          "after_pin_origin": "finite additive whole-line expected bytes"
+        },
+        "worktree": {
+          "before_raw_sha256": "640e0494513b23db15211523fc3e8d3e11929079d70a5155f7df86d73afce1a4",
+          "before_lf_sha256": "640e0494513b23db15211523fc3e8d3e11929079d70a5155f7df86d73afce1a4",
+          "after_raw_sha256": "2711c74c0621abb3ef9ab08950091bb7c326cdbf9dc5d7cea7df47a6f6543662",
+          "after_lf_sha256": "2711c74c0621abb3ef9ab08950091bb7c326cdbf9dc5d7cea7df47a6f6543662",
+          "after_lf_line_count": 612,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M85 paired BEFORE",
+          "after_pin_origin": "finite additive whole-line expected bytes"
+        }
+      }
+    },
+    {
+      "path": "app/Support/TheoryLegacyAdapter.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "                if ($correction === null) { $correction = M84WordOrderHaveGot::correction($item, $design); }\n",
+          "after": "                if ($correction === null) { $correction = M84WordOrderHaveGot::correction($item, $design); }\n                if ($correction === null) { $correction = M85VerbToBe::correction($item, $design); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "985c5f0f37f20673aad406787d404d14d0e5bee8b775f6c27d15962151a9ac8b",
+          "before_lf_sha256": "985c5f0f37f20673aad406787d404d14d0e5bee8b775f6c27d15962151a9ac8b",
+          "after_raw_sha256": "65bc82798c5b9b42f669bfb413634772e09a9d2efb0f645db2ccf5bcd5b3701e",
+          "after_lf_sha256": "65bc82798c5b9b42f669bfb413634772e09a9d2efb0f645db2ccf5bcd5b3701e",
+          "after_lf_line_count": 275,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M85 paired BEFORE",
+          "after_pin_origin": "finite additive whole-line expected bytes"
+        },
+        "worktree": {
+          "before_raw_sha256": "985c5f0f37f20673aad406787d404d14d0e5bee8b775f6c27d15962151a9ac8b",
+          "before_lf_sha256": "985c5f0f37f20673aad406787d404d14d0e5bee8b775f6c27d15962151a9ac8b",
+          "after_raw_sha256": "65bc82798c5b9b42f669bfb413634772e09a9d2efb0f645db2ccf5bcd5b3701e",
+          "after_lf_sha256": "65bc82798c5b9b42f669bfb413634772e09a9d2efb0f645db2ccf5bcd5b3701e",
+          "after_lf_line_count": 275,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M85 paired BEFORE",
+          "after_pin_origin": "finite additive whole-line expected bytes"
+        }
+      }
+    },
+    {
+      "path": "app/Support/TheoryContentRenderer.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "                $bindings = M84BuilderSelectionPresentation::bindings($bindings);\n",
+          "after": "                $bindings = M84BuilderSelectionPresentation::bindings($bindings);\n                $bindings = M85BuilderSelectionPresentation::bindings($bindings);\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "5c7df053f4fc4a8a93db8586b8ea127a39ed841519a4c4a7293c85d9137a2955",
+          "before_lf_sha256": "5c7df053f4fc4a8a93db8586b8ea127a39ed841519a4c4a7293c85d9137a2955",
+          "after_raw_sha256": "2e25135ca9d349832faf1e5a17cba85482c2c8a209a7e6ddb8ae0c3ddf9b398f",
+          "after_lf_sha256": "2e25135ca9d349832faf1e5a17cba85482c2c8a209a7e6ddb8ae0c3ddf9b398f",
+          "after_lf_line_count": 184,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M85 paired BEFORE",
+          "after_pin_origin": "finite additive whole-line expected bytes"
+        },
+        "worktree": {
+          "before_raw_sha256": "5c7df053f4fc4a8a93db8586b8ea127a39ed841519a4c4a7293c85d9137a2955",
+          "before_lf_sha256": "5c7df053f4fc4a8a93db8586b8ea127a39ed841519a4c4a7293c85d9137a2955",
+          "after_raw_sha256": "2e25135ca9d349832faf1e5a17cba85482c2c8a209a7e6ddb8ae0c3ddf9b398f",
+          "after_lf_sha256": "2e25135ca9d349832faf1e5a17cba85482c2c8a209a7e6ddb8ae0c3ddf9b398f",
+          "after_lf_line_count": 184,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M85 paired BEFORE",
+          "after_pin_origin": "finite additive whole-line expected bytes"
+        }
+      }
+    },
+    {
+      "path": "app/Support/PracticeCompletionLinkedPractice.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "        $block = M84BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n",
+          "after": "        $block = M84BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n        $block = M85BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "ec7f141b30203df95c54c01292f02b376a64c26b2f83fe29cd2ff660d9553554",
+          "before_lf_sha256": "ec7f141b30203df95c54c01292f02b376a64c26b2f83fe29cd2ff660d9553554",
+          "after_raw_sha256": "9fb9b848ac9c86b032f4d0ea4530e14ed0a964c46f7ad88d27b2ada9bfc86b3e",
+          "after_lf_sha256": "9fb9b848ac9c86b032f4d0ea4530e14ed0a964c46f7ad88d27b2ada9bfc86b3e",
+          "after_lf_line_count": 153,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M85 paired BEFORE",
+          "after_pin_origin": "finite additive whole-line expected bytes"
+        },
+        "worktree": {
+          "before_raw_sha256": "ec7f141b30203df95c54c01292f02b376a64c26b2f83fe29cd2ff660d9553554",
+          "before_lf_sha256": "ec7f141b30203df95c54c01292f02b376a64c26b2f83fe29cd2ff660d9553554",
+          "after_raw_sha256": "9fb9b848ac9c86b032f4d0ea4530e14ed0a964c46f7ad88d27b2ada9bfc86b3e",
+          "after_lf_sha256": "9fb9b848ac9c86b032f4d0ea4530e14ed0a964c46f7ad88d27b2ada9bfc86b3e",
+          "after_lf_line_count": 153,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M85 paired BEFORE",
+          "after_pin_origin": "finite additive whole-line expected bytes"
+        }
+      }
+    },
+    {
+      "path": "app/Services/Theory/TextBlockToQuestionsMatcherService.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "            $excludeQuestionIds = \\App\\Support\\M84BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n",
+          "after": "            $excludeQuestionIds = \\App\\Support\\M84BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n            $excludeQuestionIds = \\App\\Support\\M85BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "7b1ea14bccfc58b1000386b1b51b906c96509fe7b1a1c42cd56f239819601e4c",
+          "before_lf_sha256": "b1c7b5c98e5532dbae674c67b5773437f2d0dc2515b29684e069a703224fd3b7",
+          "after_raw_sha256": "43087c39b2c86abf1dc2a09b5773b434620ef62ef4b94f1076856c652fcab701",
+          "after_lf_sha256": "603d27c79d8a76032bbb1fa5306d47cd7c5ef0a28223ce758f2dc29a5e461391",
+          "after_lf_line_count": 481,
+          "after_crlf_line_count": 481,
+          "before_pin_origin": "independent M85 paired BEFORE",
+          "after_pin_origin": "finite additive whole-line expected bytes"
+        },
+        "worktree": {
+          "before_raw_sha256": "7b1ea14bccfc58b1000386b1b51b906c96509fe7b1a1c42cd56f239819601e4c",
+          "before_lf_sha256": "b1c7b5c98e5532dbae674c67b5773437f2d0dc2515b29684e069a703224fd3b7",
+          "after_raw_sha256": "43087c39b2c86abf1dc2a09b5773b434620ef62ef4b94f1076856c652fcab701",
+          "after_lf_sha256": "603d27c79d8a76032bbb1fa5306d47cd7c5ef0a28223ce758f2dc29a5e461391",
+          "after_lf_line_count": 481,
+          "after_crlf_line_count": 481,
+          "before_pin_origin": "independent M85 paired BEFORE",
+          "after_pin_origin": "finite additive whole-line expected bytes"
+        }
+      }
+    },
+    {
+      "path": "app/Services/TheoryCourseManifestService.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "        $page = \\App\\Support\\M84WordOrderHaveGot::preserveCoursePage($page);\n",
+          "after": "        $page = \\App\\Support\\M84WordOrderHaveGot::preserveCoursePage($page);\n        $page = \\App\\Support\\M85VerbToBe::preserveCoursePage($page);\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "25d6c2d6d3bd89176ce215f186c569662779e04dbc21f141818150b3ae6033f5",
+          "before_lf_sha256": "9c83ca00bdc36d402242a2ed1808a40195a24e58f6fc5d66a1feb90937ae6e39",
+          "after_raw_sha256": "908eff2cb600f4628cd137232938b8562b7edeb6b099d9c47325572c05e1cd33",
+          "after_lf_sha256": "c33de5a33bda21385a46d11d0bebb09f8050cd5a9b77c624c7bee99d5d354d80",
+          "after_lf_line_count": 714,
+          "after_crlf_line_count": 610,
+          "before_pin_origin": "independent M85 paired BEFORE",
+          "after_pin_origin": "finite additive whole-line expected bytes"
+        },
+        "worktree": {
+          "before_raw_sha256": "8a38e31df8f1b9624fa2c620bd6164c644c94c828d773e38f25339e169c5cadc",
+          "before_lf_sha256": "9c83ca00bdc36d402242a2ed1808a40195a24e58f6fc5d66a1feb90937ae6e39",
+          "after_raw_sha256": "f9315fd565387715c3c839c51ad98db8c7dc7a822bf6cd54c1f8cd0c388293b1",
+          "after_lf_sha256": "c33de5a33bda21385a46d11d0bebb09f8050cd5a9b77c624c7bee99d5d354d80",
+          "after_lf_line_count": 714,
+          "after_crlf_line_count": 714,
+          "before_pin_origin": "independent M85 paired BEFORE",
+          "after_pin_origin": "finite additive whole-line expected bytes"
+        }
+      }
+    },
+    {
+      "path": "app/Http/Controllers/TestJsV2Controller.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "                    if ($block !== null) { $block = \\App\\Support\\M84WordOrderHaveGot::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+          "after": "                    if ($block !== null) { $block = \\App\\Support\\M84WordOrderHaveGot::preserveExcludedTextBlock($block, 'standalone_test'); }\n                    if ($block !== null) { $block = \\App\\Support\\M85VerbToBe::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        },
+        {
+          "before": "                if ($textBlock) { $textBlock = \\App\\Support\\M84WordOrderHaveGot::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+          "after": "                if ($textBlock) { $textBlock = \\App\\Support\\M84WordOrderHaveGot::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n                if ($textBlock) { $textBlock = \\App\\Support\\M85VerbToBe::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        },
+        {
+          "before": "                if ($block !== null) { $block = \\App\\Support\\M84WordOrderHaveGot::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+          "after": "                if ($block !== null) { $block = \\App\\Support\\M84WordOrderHaveGot::preserveExcludedTextBlock($block, 'standalone_test'); }\n                if ($block !== null) { $block = \\App\\Support\\M85VerbToBe::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        },
+        {
+          "before": "            if ($textBlock) { $textBlock = \\App\\Support\\M84WordOrderHaveGot::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+          "after": "            if ($textBlock) { $textBlock = \\App\\Support\\M84WordOrderHaveGot::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n            if ($textBlock) { $textBlock = \\App\\Support\\M85VerbToBe::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "dc14b4c8a81e5db41b48c4577a22d7bac857fce5dad37107ab2663ecbf4135de",
+          "before_lf_sha256": "59512a9137bb5607326fa071e218029afce3ea78992776f5be701801db5b1963",
+          "after_raw_sha256": "f247da5fff791dd4ed2f52b566bbbb5e0a9182940b1bac3c955fdf1a6a30d881",
+          "after_lf_sha256": "947b5fc7efa6387198d032488d257672eba99e2e881b6b9355f1b1aaa8fb0473",
+          "after_lf_line_count": 1578,
+          "after_crlf_line_count": 1578,
+          "before_pin_origin": "independent M85 paired BEFORE",
+          "after_pin_origin": "finite additive whole-line expected bytes"
+        },
+        "worktree": {
+          "before_raw_sha256": "14402494da3e92b87e2036d9a4c1eb1274c48a65bc4b1c8421b358c3e1727b0c",
+          "before_lf_sha256": "94cc1fb9528de4b026dddfafbe54abd0fb32ba3ff7b2d55306fa32b7085ff45e",
+          "after_raw_sha256": "1aa4d6f865d9641619af793f3e991463ec2a42d81c11cef61572ba7a2ccb006a",
+          "after_lf_sha256": "bf912d3c6045cc9bae73db803ccf0e4503a3dff9a75b564cda1baa621e492bfc",
+          "after_lf_line_count": 1577,
+          "after_crlf_line_count": 1577,
+          "before_pin_origin": "independent M85 paired BEFORE",
+          "after_pin_origin": "finite additive whole-line expected bytes"
+        }
+      }
+    }
+  ]
+}

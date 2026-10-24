@@ -1,0 +1,1086 @@
+{
+    "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBePresentTheorySeeder": [
+        {
+            "ledger_key": "m85-a-select-01",
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 7,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Узгодження is з однією названою людиною.",
+            "change_reason": "Новий form control доповнює займенникову таблицю noun subject.",
+            "identity_policy": "New stable m85-a-select-01; actual practice binding pending.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-a-select-01",
+                "label": "Йдеться про одну людину: The new student ___ in our class. — Новий учень / нова учениця в нашому класі.",
+                "options": [
+                    "is",
+                    "am",
+                    "are"
+                ],
+                "answer": "is",
+                "accepted": [
+                    "is"
+                ],
+                "feedback": {
+                    "is": "The new student is in our class. — Новий учень / нова учениця в нашому класі. Одна названа людина потребує is.",
+                    "am": "Потрібне is: The new student is in our class. — Новий учень / нова учениця в нашому класі. Am поєднується з I, а не з the new student.",
+                    "are": "Потрібне is: The new student is in our class. — Новий учень / нова учениця в нашому класі. Умова називає одну людину, не кількох."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-a-select-02",
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 7,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Проста модель звички проти зайвого be або іншої be + -ing моделі за явним критерієм.",
+            "change_reason": "Окремий form probe перевіряє source-risk I am play без оголошення будь-якого Continuous неграматичним.",
+            "identity_policy": "New stable m85-a-select-02.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-a-select-02",
+                "label": "Умова прямо просить просту модель звички, не дію зараз: We ___ tennis on Sundays. — Ми граємо в теніс щонеділі.",
+                "options": [
+                    "are play",
+                    "play",
+                    "are playing"
+                ],
+                "answer": "play",
+                "accepted": [
+                    "play"
+                ],
+                "feedback": {
+                    "are play": "Потрібне play: We play tennis on Sundays. — Ми граємо в теніс щонеділі. У цій простій моделі перед play не вставляємо are.",
+                    "play": "We play tennis on Sundays. — Ми граємо в теніс щонеділі. Виконано явну умову: проста модель звички без зайвого be.",
+                    "are playing": "Потрібне play: We play tennis on Sundays. — Ми граємо в теніс щонеділі. Are playing — інша граматична конструкція, але умова просить саме просту модель звички; не оголошуємо її неможливою в усіх контекстах."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-a-meaning-01",
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 7,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Повідомлення місця не встановлює власника.",
+            "change_reason": "Окреме завдання на зміст, не ще одна перестановка am/is/are.",
+            "identity_policy": "New stable m85-a-meaning-01.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-a-meaning-01",
+                "label": "Що саме повідомили про книжку?",
+                "prompt": "The book is on the chair. — Книжка на стільці.<br>a) Повідомили, де зараз книжка.<br>b) Повідомили, кому належить книжка.",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "Правильно: a. The book is on the chair. — Книжка на стільці. Названо її місце, не власника.",
+                    "b": "Правильно: a. The book is on the chair. — Книжка на стільці. Речення не повідомляє, кому вона належить."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-a-meaning-02",
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 7,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Названа професія не доводить дії просто зараз.",
+            "change_reason": "Перевіряє межу повідомленого факту без гендерного висновку за професією.",
+            "identity_policy": "New stable m85-a-meaning-02.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-a-meaning-02",
+                "label": "Обери повідомлений факт, не домислюй дію просто зараз.",
+                "prompt": "She is a doctor. — Вона лікарка.<br>a) Нам повідомили, що вона саме зараз виконує роботу.<br>b) Нам повідомили її професію.",
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "Правильно: b. She is a doctor. — Вона лікарка. Професія не встановлює, що людина працює саме цієї миті.",
+                    "b": "Правильно: b. She is a doctor. — Вона лікарка. Іменник після be називає професію."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-a-input-01",
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 7,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Повне I am речення про місце, manual і tokens.",
+            "change_reason": "Власне повнореченнєве завдання, не fragment gap і не копія widget question.",
+            "identity_policy": "New stable m85-a-input-01; manual/token are two modes of one task.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-a-input-01",
+                "before": "in the / I / small garden. / am",
+                "after": "Склади повне ствердження про себе зараз: «Я в маленькому саду». Використай наведені слова, почни з «я». У ручному введенні можна використати повну або скорочену форму «бути».",
+                "answer": "I am in the small garden.",
+                "accepted": [
+                    "I am in the small garden.",
+                    "I'm in the small garden."
+                ],
+                "feedback": {
+                    "i am in the small garden.": "I am in the small garden. — Я в маленькому саду. З I потрібне am; місце стоїть після be.",
+                    "i'm in the small garden.": "I'm in the small garden. — Я в маленькому саду. I'm = I am; учасник і місце не змінюються."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-a-input-02",
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 7,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Повне noun-plural + are + adjective, manual і tokens.",
+            "change_reason": "Зберігає означений підмет і характеристику без вигаданого object.",
+            "identity_policy": "New stable m85-a-input-02; manual/token are two modes of one task.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-a-input-02",
+                "before": "heavy. / are / The red boxes",
+                "after": "Склади повне речення: «Червоні коробки важкі». Йдеться про вже названі коробки. Використай наведені слова, почни з групи «червоні коробки» й збережи ознаку.",
+                "answer": "The red boxes are heavy.",
+                "accepted": [
+                    "The red boxes are heavy."
+                ],
+                "feedback": {
+                    "the red boxes are heavy.": "The red boxes are heavy. — Червоні коробки важкі. Підмет boxes у множині потребує are; heavy описує коробки, а не є додатком."
+                }
+            }
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBeNegativesTheorySeeder": [
+        {
+            "ledger_key": "m85-b-select-01",
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 7,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "I + am not, збереження заперечення.",
+            "change_reason": "Новий form control без рідкісних діалектних distractor-пасток.",
+            "identity_policy": "New stable m85-b-select-01; actual practice binding pending.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-b-select-01",
+                "label": "Говориш від свого імені: I ___ hungry. — Я не голодний / не голодна.",
+                "options": [
+                    "is not",
+                    "am not",
+                    "are not"
+                ],
+                "answer": "am not",
+                "accepted": [
+                    "am not"
+                ],
+                "feedback": {
+                    "is not": "Потрібне am not: I am not hungry. — Я не голодний / не голодна. Is не узгоджується з I у цій моделі.",
+                    "am not": "I am not hungry. — Я не голодний / не голодна. З I використовуємо am, а not стоїть після нього.",
+                    "are not": "Потрібне am not: I am not hungry. — Я не голодний / не голодна. Are не є формою для I у цьому твердженні."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-b-select-02",
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 7,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Are not з множинним noun subject без do.",
+            "change_reason": "Доповнює pronoun model, не змінює місце або стан.",
+            "identity_policy": "New stable m85-b-select-02.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-b-select-02",
+                "label": "Йдеться про кілька дверей: The doors ___ open. — Двері не відчинені.",
+                "options": [
+                    "are not",
+                    "do not",
+                    "is not"
+                ],
+                "answer": "are not",
+                "accepted": [
+                    "are not",
+                    "aren't"
+                ],
+                "feedback": {
+                    "are not": "The doors are not open. — Двері не відчинені. Множинний підмет doors потребує are; not зберігає заперечення.",
+                    "aren't": "The doors aren't open. — Двері не відчинені. Aren't = are not; це та сама заперечна модель.",
+                    "do not": "Потрібне are not: The doors are not open. — Двері не відчинені. Для повідомлення про стан із be допоміжне do не додаємо.",
+                    "is not": "Потрібне are not: The doors are not open. — Двері не відчинені. Is не узгоджується з doors у множині."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-b-meaning-01",
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 7,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Not happy не називає автоматично sad.",
+            "change_reason": "Meaning control перевіряє межу повідомленого, а не форму be.",
+            "identity_policy": "New stable m85-b-meaning-01.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-b-meaning-01",
+                "label": "Що можна стверджувати за цим повідомленням?",
+                "prompt": "She is not happy. — Вона не щаслива.<br>a) Вона обов'язково сумна: це прямо встановлено.<br>b) Сказано, що вона не щаслива; її точного іншого стану не названо.",
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "Правильно: b. She is not happy. — Вона не щаслива. Речення не називає точного іншого стану; sad не випливає автоматично з not happy.",
+                    "b": "Правильно: b. She is not happy. — Вона не щаслива. Збережено межу повідомленого: протилежний стан не вигадуємо."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-b-meaning-02",
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 7,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Not at school не доводить at home.",
+            "change_reason": "Другий змістовний control на іншу функцію — місце.",
+            "identity_policy": "New stable m85-b-meaning-02.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-b-meaning-02",
+                "label": "Обери лише повідомлений факт про місце.",
+                "prompt": "They are not at school. — Вони не в школі.<br>a) Вони не в школі; інше місце не назване.<br>b) Вони обов'язково вдома.",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "Правильно: a. They are not at school. — Вони не в школі. Про конкретне інше місце нічого не сказано.",
+                    "b": "Правильно: a. They are not at school. — Вони не в школі. At home було б додатковим фактом, якого немає в реченні."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-b-input-01",
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 7,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Повне заперечне I am not / I'm not речення про місце.",
+            "change_reason": "Свої слова та місце, не копія існуючих tired/home widget candidates.",
+            "identity_policy": "New stable m85-b-input-01; manual/token are modes of one task.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-b-input-01",
+                "before": "at the station. / not / I / am",
+                "after": "Склади повне теперішнє повідомлення про себе: «Я не на вокзалі». Використай наведені слова й почни з «я». Збережи заперечення; іншого місця не додавай.",
+                "answer": "I am not at the station.",
+                "accepted": [
+                    "I am not at the station.",
+                    "I'm not at the station."
+                ],
+                "feedback": {
+                    "i am not at the station.": "I am not at the station. — Я не на вокзалі. Am узгоджується з I, not стоїть після be; іншого місця не названо.",
+                    "i'm not at the station.": "I'm not at the station. — Я не на вокзалі. I'm not = I am not; заперечення й місце збережено."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-b-input-02",
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 7,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Повне noun-plural + are not / aren't повідомлення.",
+            "change_reason": "Підмет, місце й заперечення визначені; жодного висновку про інше місце.",
+            "identity_policy": "New stable m85-b-input-02; manual/token are modes of one task.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-b-input-02",
+                "before": "in the car. / The children / not / are",
+                "after": "Склади повне речення: «Діти не в машині». Йдеться про вже названих дітей і машину. Використай наведені слова, почни з групи «діти» та збережи заперечення.",
+                "answer": "The children are not in the car.",
+                "accepted": [
+                    "The children are not in the car.",
+                    "The children aren't in the car."
+                ],
+                "feedback": {
+                    "the children are not in the car.": "The children are not in the car. — Діти не в машині. Множинний підмет children потребує are; not не зникає.",
+                    "the children aren't in the car.": "The children aren't in the car. — Діти не в машині. Aren't = are not; та сама група людей і те саме заперечне повідомлення."
+                }
+            }
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBeQuestionsTheorySeeder": [
+        {
+            "ledger_key": "m85-be-questions-form-are",
+            "classification": "new_author_task",
+            "old_block_source_index": null,
+            "after_block_source_index": 8,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Select one form/format under the actually visible criterion.",
+            "change_reason": "No source or actual SQL own practice; add required native2form/2meaning/2full-sentence controls without replacing teaching functions.",
+            "identity_policy": "New stable M85 ID; no legacy identity invented.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-be-questions-form-are",
+                "label": "<p>Організатор звертається до двох друзів. Обери форму be для звичайного прямого питання.</p><p lang=\"en\">____ you ready?</p><p>Ви готові? You тут стосується обох друзів.</p>",
+                "options": [
+                    "Am",
+                    "Is",
+                    "Are"
+                ],
+                "answer": "Are",
+                "accepted": [
+                    "Are"
+                ],
+                "feedback": {
+                    "am": "Are you ready? — Ви готові? З you потрібне are; у звичайному прямому питанні воно стоїть перед підметом.",
+                    "is": "Are you ready? — Ви готові? З you потрібне are; у звичайному прямому питанні воно стоїть перед підметом.",
+                    "are": "Are you ready? — Ви готові? З you потрібне are; у звичайному прямому питанні воно стоїть перед підметом."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-be-questions-form-positive-ending",
+            "classification": "new_author_task",
+            "old_block_source_index": null,
+            "after_block_source_index": 8,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Select one form/format under the actually visible criterion.",
+            "change_reason": "No source or actual SQL own practice; add required native2form/2meaning/2full-sentence controls without replacing teaching functions.",
+            "identity_policy": "New stable M85 ID; no legacy identity invented.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-be-questions-form-positive-ending",
+                "label": "<p>Одна людина запитує іншу:</p><p lang=\"en\">Are you at home?</p><p>Ти вдома? Адресат справді вдома й відповідає лише за себе. Обери окрему коротку ствердну відповідь, після якої немає інших слів.</p><p lang=\"en\">a) Yes, I am.<br>b) Yes, I’m.</p><p>Задум обох варіантів: «Так, я вдома». Потрібен стандартний кінцевий формат короткої відповіді.</p>",
+                "options": [
+                    "a",
+                    "b"
+                ],
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "Yes, I am. — Так, я вдома. Окрема ствердна коротка відповідь закінчується повною формою am. I'm доречне з продовженням, але не як кінцеве Yes, I'm у цій моделі.",
+                    "b": "Yes, I am. — Так, я вдома. Окрема ствердна коротка відповідь закінчується повною формою am. I'm доречне з продовженням, але не як кінцеве Yes, I'm у цій моделі."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-be-questions-meaning-speakers",
+            "classification": "new_author_task",
+            "old_block_source_index": null,
+            "after_block_source_index": 8,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Interpret participants/time or avoid an unsupported factual inference.",
+            "change_reason": "No source or actual SQL own practice; add required native2form/2meaning/2full-sentence controls without replacing teaching functions.",
+            "identity_policy": "New stable M85 ID; no legacy identity invented.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-be-questions-meaning-speakers",
+                "label": "<p>Організатор звертається до Олени та її брата; обоє готові. Олена відповідає від обох:</p><p lang=\"en\">Are you ready? — Yes, we are.</p><p>Ви готові? — Так, ми готові. Що підтверджує відповідь?</p>",
+                "options": [
+                    "Готовність Олени та її брата, від імені яких вона відповідає.",
+                    "Лише готовність Олени, без жодного повідомлення про брата.",
+                    "Готовність організатора, до якого тепер звертається Олена."
+                ],
+                "answer": "Готовність Олени та її брата, від імені яких вона відповідає.",
+                "accepted": [
+                    "Готовність Олени та її брата, від імені яких вона відповідає."
+                ],
+                "feedback": {
+                    "готовність олени та її брата, від імені яких вона відповідає.": "Are you ready? — Yes, we are. — Ви готові? — Так, ми готові. You стосується двох адресатів; Олена входить до їхньої групи й відповідає з we.",
+                    "лише готовність олени, без жодного повідомлення про брата.": "Are you ready? — Yes, we are. — Ви готові? — Так, ми готові. You стосується двох адресатів; Олена входить до їхньої групи й відповідає з we.",
+                    "готовність організатора, до якого тепер звертається олена.": "Are you ready? — Yes, we are. — Ви готові? — Так, ми готові. You стосується двох адресатів; Олена входить до їхньої групи й відповідає з we."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-be-questions-meaning-unknown",
+            "classification": "new_author_task",
+            "old_block_source_index": null,
+            "after_block_source_index": 8,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Interpret participants/time or avoid an unsupported factual inference.",
+            "change_reason": "No source or actual SQL own practice; add required native2form/2meaning/2full-sentence controls without replacing teaching functions.",
+            "identity_policy": "New stable M85 ID; no legacy identity invented.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-be-questions-meaning-unknown",
+                "label": "<p>Людина ще не знає відповіді й запитує:</p><p lang=\"en\">Is the library open?</p><p>Бібліотека відчинена? Який висновок випливає саме з цього запитання?</p>",
+                "options": [
+                    "Бібліотека точно відчинена.",
+                    "Людина хоче дізнатися, чи бібліотека відчинена; самого факту ще не встановлено.",
+                    "Бібліотека точно зачинена."
+                ],
+                "answer": "Людина хоче дізнатися, чи бібліотека відчинена; самого факту ще не встановлено.",
+                "accepted": [
+                    "Людина хоче дізнатися, чи бібліотека відчинена; самого факту ще не встановлено."
+                ],
+                "feedback": {
+                    "бібліотека точно відчинена.": "Is the library open? — Бібліотека відчинена? Це запит про стан, не ствердження відчинена або зачинена. Для Yes чи No потрібна відповідь або інші факти.",
+                    "людина хоче дізнатися, чи бібліотека відчинена; самого факту ще не встановлено.": "Is the library open? — Бібліотека відчинена? Це запит про стан, не ствердження відчинена або зачинена. Для Yes чи No потрібна відповідь або інші факти.",
+                    "бібліотека точно зачинена.": "Is the library open? — Бібліотека відчинена? Це запит про стан, не ствердження відчинена або зачинена. Для Yes чи No потрібна відповідь або інші факти."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-be-questions-sentence-negative-reply",
+            "classification": "new_author_task",
+            "old_block_source_index": null,
+            "after_block_source_index": 8,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Produce one whole sentence by manual input or shuffled logical groups of1–3words.",
+            "change_reason": "No source or actual SQL own practice; add required native2form/2meaning/2full-sentence controls without replacing teaching functions.",
+            "identity_policy": "New stable M85 ID; no legacy identity invented.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-be-questions-sentence-negative-reply",
+                "before": "at home. / I am / No, / not",
+                "after": "<p>Одна людина запитує тебе:</p><p lang=\"en\">Are you at home?</p><p>Ти вдома? Ти відповідаєш лише за себе: «Ні, я не вдома». Напиши повну негативну репліку з названим місцем, не лише коротке «Ні». Почни з No; для місця використай at home. Збережи заперечення.</p>",
+                "answer": "No, I am not at home.",
+                "accepted": [
+                    "No, I am not at home.",
+                    "No, I'm not at home."
+                ],
+                "feedback": {
+                    "no, i am not at home.": "No, I am not at home. — Ні, я не вдома. Адресат відповідає про себе з I am not; місце й заперечення збережені. No, I'm not at home має той самий зміст.",
+                    "no, i'm not at home.": "No, I'm not at home. — Ні, я не вдома. Це прийнятне скорочення у повній негативній репліці; воно не є кінцевим позитивним Yes, I'm."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-be-questions-sentence-subject-who",
+            "classification": "new_author_task",
+            "old_block_source_index": null,
+            "after_block_source_index": 8,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Produce one whole sentence by manual input or shuffled logical groups of1–3words.",
+            "change_reason": "No source or actual SQL own practice; add required native2form/2meaning/2full-sentence controls without replacing teaching functions.",
+            "identity_policy": "New stable M85 ID; no legacy identity invented.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-be-questions-sentence-subject-who",
+                "before": "ready? / Who / is",
+                "after": "<p>Хто готовий? Ти запитуєш, яка людина готова, а не про конкретно названого його чи її. Склади повне питання з who як підметом і формою is; для стану використай ready. Не додавай he або she.</p>",
+                "answer": "Who is ready?",
+                "accepted": [
+                    "Who is ready?"
+                ],
+                "feedback": {
+                    "who is ready?": "Who is ready? — Хто готовий? Who саме запитує про підмет; після нього потрібні is і характеристика ready, без додаткового he / she."
+                }
+            }
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBePastTheorySeeder": [
+        {
+            "ledger_key": "m85-be-past-form-noun-plural",
+            "classification": "new_author_task",
+            "old_block_source_index": null,
+            "after_block_source_index": 8,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Select one form/format under the actually visible criterion.",
+            "change_reason": "No source or actual SQL own practice; add required native2form/2meaning/2full-sentence controls without replacing teaching functions.",
+            "identity_policy": "New stable M85 ID; no legacy identity invented.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-be-past-form-noun-plural",
+                "label": "<p>Два вікна були відчинені вчора. Обери минулу форму для названого множинного підмета.</p><p lang=\"en\">The two windows ____ open yesterday.</p><p>Час стосується саме стану вікон.</p>",
+                "options": [
+                    "was",
+                    "were",
+                    "are"
+                ],
+                "answer": "were",
+                "accepted": [
+                    "were"
+                ],
+                "feedback": {
+                    "was": "The two windows were open yesterday. — Два вікна були відчинені вчора. Множинний підмет the two windows у цій минулій розповіді узгоджується з were.",
+                    "were": "The two windows were open yesterday. — Два вікна були відчинені вчора. Множинний підмет the two windows у цій минулій розповіді узгоджується з were.",
+                    "are": "The two windows were open yesterday. — Два вікна були відчинені вчора. Множинний підмет the two windows у цій минулій розповіді узгоджується з were."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-be-past-form-question",
+            "classification": "new_author_task",
+            "old_block_source_index": null,
+            "after_block_source_index": 8,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Select one form/format under the actually visible criterion.",
+            "change_reason": "No source or actual SQL own practice; add required native2form/2meaning/2full-sentence controls without replacing teaching functions.",
+            "identity_policy": "New stable M85 ID; no legacy identity invented.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-be-past-form-question",
+                "label": "<p>Запитай про місце Олени вчора: «Олена була вчора на вокзалі?» Потрібне звичайне пряме питання з be.</p><p lang=\"en\">____ Olena at the station yesterday?</p><p>Не змінюй учасницю, місце чи минулий день.</p>",
+                "options": [
+                    "Was",
+                    "Did",
+                    "Were"
+                ],
+                "answer": "Was",
+                "accepted": [
+                    "Was"
+                ],
+                "feedback": {
+                    "was": "Was Olena at the station yesterday? — Олена була вчора на вокзалі? З одиничним підметом Olena потрібне was перед ним; did не додаємо.",
+                    "did": "Was Olena at the station yesterday? — Олена була вчора на вокзалі? З одиничним підметом Olena потрібне was перед ним; did не додаємо.",
+                    "were": "Was Olena at the station yesterday? — Олена була вчора на вокзалі? З одиничним підметом Olena потрібне was перед ним; did не додаємо."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-be-past-meaning-now-unknown",
+            "classification": "new_author_task",
+            "old_block_source_index": null,
+            "after_block_source_index": 8,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Interpret participants/time or avoid an unsupported factual inference.",
+            "change_reason": "No source or actual SQL own practice; add required native2form/2meaning/2full-sentence controls without replacing teaching functions.",
+            "identity_policy": "New stable M85 ID; no legacy identity invented.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-be-past-meaning-now-unknown",
+                "label": "<p>Відомо лише це повідомлення; про сьогодні ще нічого не сказано:</p><p lang=\"en\">Marta was busy yesterday.</p><p>Марта була зайнята вчора. Який висновок коректний?</p>",
+                "options": [
+                    "Марта була зайнята вчора; її стан зараз цим реченням не визначено.",
+                    "Зараз Марта обов’язково вільна.",
+                    "Марта ніколи більше не буде зайнята."
+                ],
+                "answer": "Марта була зайнята вчора; її стан зараз цим реченням не визначено.",
+                "accepted": [
+                    "Марта була зайнята вчора; її стан зараз цим реченням не визначено."
+                ],
+                "feedback": {
+                    "марта була зайнята вчора; її стан зараз цим реченням не визначено.": "Marta was busy yesterday. — Марта була зайнята вчора. Was описує минулий стан. Саме це повідомлення не каже, чи Марта зайнята зараз.",
+                    "зараз марта обов’язково вільна.": "Marta was busy yesterday. — Марта була зайнята вчора. Was описує минулий стан. Саме це повідомлення не каже, чи Марта зайнята зараз.",
+                    "марта ніколи більше не буде зайнята.": "Marta was busy yesterday. — Марта була зайнята вчора. Was описує минулий стан. Саме це повідомлення не каже, чи Марта зайнята зараз."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-be-past-meaning-plural-dialogue",
+            "classification": "new_author_task",
+            "old_block_source_index": null,
+            "after_block_source_index": 8,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Interpret participants/time or avoid an unsupported factual inference.",
+            "change_reason": "No source or actual SQL own practice; add required native2form/2meaning/2full-sentence controls without replacing teaching functions.",
+            "identity_policy": "New stable M85 ID; no legacy identity invented.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-be-past-meaning-plural-dialogue",
+                "label": "<p>Батько питає двох дітей про вчорашній ранок. Обоє тоді були втомлені; одна дитина відповідає від обох:</p><p lang=\"en\">Were you tired? — Yes, we were.</p><p>Ви були втомлені? — Так, ми були втомлені. Про кого й про який час ідеться у відповіді?</p>",
+                "options": [
+                    "Про батька зараз.",
+                    "Лише про дитину, яка відповідає, у момент розмови.",
+                    "Про обох дітей у згаданому вчорашньому ранку."
+                ],
+                "answer": "Про обох дітей у згаданому вчорашньому ранку.",
+                "accepted": [
+                    "Про обох дітей у згаданому вчорашньому ранку."
+                ],
+                "feedback": {
+                    "про батька зараз.": "Were you tired? — Yes, we were. — Ви були втомлені? — Так, ми були втомлені. You стосується двох дітей, we включає обох; контекст задає вчорашній ранок.",
+                    "лише про дитину, яка відповідає, у момент розмови.": "Were you tired? — Yes, we were. — Ви були втомлені? — Так, ми були втомлені. You стосується двох дітей, we включає обох; контекст задає вчорашній ранок.",
+                    "про обох дітей у згаданому вчорашньому ранку.": "Were you tired? — Yes, we were. — Ви були втомлені? — Так, ми були втомлені. You стосується двох дітей, we включає обох; контекст задає вчорашній ранок."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-be-past-sentence-pair",
+            "classification": "new_author_task",
+            "old_block_source_index": null,
+            "after_block_source_index": 8,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Produce one whole sentence by manual input or shuffled logical groups of1–3words.",
+            "change_reason": "No source or actual SQL own practice; add required native2form/2meaning/2full-sentence controls without replacing teaching functions.",
+            "identity_policy": "New stable M85 ID; no legacy identity invented.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-be-past-sentence-pair",
+                "before": "at the museum / yesterday. / were / Olena and I",
+                "after": "<p>Ми з Оленою були в музеї вчора. Склади повне твердження про двох людей: назви Олену й мовця як Olena and I на початку; потім форму be, місце і час. Музей — the museum, вчора — yesterday. Не замінюй обох людей лише одним I.</p>",
+                "answer": "Olena and I were at the museum yesterday.",
+                "accepted": [
+                    "Olena and I were at the museum yesterday."
+                ],
+                "feedback": {
+                    "olena and i were at the museum yesterday.": "Olena and I were at the museum yesterday. — Ми з Оленою були в музеї вчора. Підмет охоплює двох людей, тому were; місце й минулий день збережені."
+                }
+            }
+        },
+        {
+            "ledger_key": "m85-be-past-sentence-negative-state",
+            "classification": "new_author_task",
+            "old_block_source_index": null,
+            "after_block_source_index": 8,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Produce one whole sentence by manual input or shuffled logical groups of1–3words.",
+            "change_reason": "No source or actual SQL own practice; add required native2form/2meaning/2full-sentence controls without replacing teaching functions.",
+            "identity_policy": "New stable M85 ID; no legacy identity invented.",
+            "old_task": null,
+            "after_task": {
+                "id": "m85-be-past-sentence-negative-state",
+                "before": "yesterday. / not open / The library / was",
+                "after": "<p>Бібліотека не була відчинена вчора. Напиши повне минуле твердження із запереченням; почни з The library, далі постав be, заперечення й open, а час yesterday — у кінці. Не замінюй повідомлення на твердження про сьогодні; використай заперечну конструкцію з open.</p>",
+                "answer": "The library was not open yesterday.",
+                "accepted": [
+                    "The library was not open yesterday.",
+                    "The library wasn't open yesterday."
+                ],
+                "feedback": {
+                    "the library was not open yesterday.": "The library was not open yesterday. — Бібліотека не була відчинена вчора. Was узгоджене з одиничним підметом; not зберігає заперечення, yesterday — минулий час. Скорочене wasn't теж прийнятне.",
+                    "the library wasn't open yesterday.": "The library wasn't open yesterday. — Бібліотека не була відчинена вчора. Wasn't передає was not; стан зараз із цього речення не випливає."
+                }
+            }
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBeFutureTheorySeeder": [
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 8,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m85-future-form-negative",
+                "label": "<p>Оберіть повну форму заперечення саме з will be. Мовець очікує, що діти завтра не будуть удома.</p><p lang=\"en\">The children ___ at home tomorrow.</p><p>Діти завтра не будуть удома.</p>",
+                "options": [
+                    "will not be",
+                    "will not are",
+                    "will be"
+                ],
+                "answer": "will not be",
+                "accepted": [
+                    "will not be"
+                ],
+                "feedback": {
+                    "will not be": "The children will not be at home tomorrow. — Діти завтра не будуть удома. Після will not у цій моделі потрібне be; ствердження will be змінює заперечний зміст.",
+                    "will not are": "The children will not be at home tomorrow. — Діти завтра не будуть удома. Після will not у цій моделі потрібне be; ствердження will be змінює заперечний зміст.",
+                    "will be": "The children will not be at home tomorrow. — Діти завтра не будуть удома. Після will not у цій моделі потрібне be; ствердження will be змінює заперечний зміст."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нова форма",
+            "change_reason": "Нова практика: у definition відсутня. Main має підтвердити actual SQL practice до append, не замінювати вже прийняті локальні завдання."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 8,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m85-future-form-subject-who",
+                "label": "<p>Постав питання «хто?»: шукаємо сам підмет, не питаємо про окремого названого чоловіка.</p><p lang=\"en\">Who ___ in the library tomorrow?</p><p>Хто буде в бібліотеці завтра?</p>",
+                "options": [
+                    "will be",
+                    "will he be",
+                    "will is"
+                ],
+                "answer": "will be",
+                "accepted": [
+                    "will be"
+                ],
+                "feedback": {
+                    "will be": "Who will be in the library tomorrow? — Хто буде в бібліотеці завтра? Who тут уже підмет, тому ще he не додаємо; will і be зберігаємо.",
+                    "will he be": "Who will be in the library tomorrow? — Хто буде в бібліотеці завтра? Who тут уже підмет, тому ще he не додаємо; will і be зберігаємо.",
+                    "will is": "Who will be in the library tomorrow? — Хто буде в бібліотеці завтра? Who тут уже підмет, тому ще he не додаємо; will і be зберігаємо."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нова форма",
+            "change_reason": "Нова практика: у definition відсутня. Main має підтвердити actual SQL practice до append, не замінювати вже прийняті локальні завдання."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 8,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m85-future-meaning-prediction",
+                "label": "<p>Оля оцінює завтрашню погоду; це її припущення, а не повідомлення після події. Яке тлумачення точне?</p><p lang=\"en\">I think it will be cold tomorrow.</p><p>Думаю, завтра буде холодно.</p>",
+                "options": [
+                    "Оля очікує холоду завтра; прогноз може не справдитися.",
+                    "Оля довела, що завтра неодмінно буде холодно.",
+                    "Оля описує погоду вчора."
+                ],
+                "answer": "Оля очікує холоду завтра; прогноз може не справдитися.",
+                "accepted": [
+                    "Оля очікує холоду завтра; прогноз може не справдитися."
+                ],
+                "feedback": {
+                    "оля очікує холоду завтра; прогноз може не справдитися.": "I think it will be cold tomorrow. — Думаю, завтра буде холодно. Речення передає прогноз Олі; граматична форма не гарантує його здійснення.",
+                    "оля довела, що завтра неодмінно буде холодно.": "I think it will be cold tomorrow. — Думаю, завтра буде холодно. Речення передає прогноз Олі; граматична форма не гарантує його здійснення.",
+                    "оля описує погоду вчора.": "I think it will be cold tomorrow. — Думаю, завтра буде холодно. Речення передає прогноз Олі; граматична форма не гарантує його здійснення."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нове розуміння змісту",
+            "change_reason": "Нова практика: у definition відсутня. Main має підтвердити actual SQL practice до append, не замінювати вже прийняті локальні завдання."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 8,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m85-future-meaning-short-answer",
+                "label": "<p>Оля питає одного Марка: <span lang=\"en\">Will you be at home tonight?</span> — Ти будеш сьогодні ввечері вдома? Марк знає, що буде вдома. Обери нормативну <strong>самостійну позитивну коротку відповідь</strong>.</p><p>А: <span lang=\"en\">Yes, I will.</span> — Так, буду.<br>Б: <span lang=\"en\">Yes, I’ll.</span> — Так, буду.</p>",
+                "options": [
+                    "А",
+                    "Б"
+                ],
+                "answer": "А",
+                "accepted": [
+                    "А"
+                ],
+                "feedback": {
+                    "а": "А: Yes, I will. — Так, буду. Марк відповідає про себе. Кінцеве 'll не вживаємо в позитивній короткій відповіді. Повне I will be at home. також граматичне, але не є запитаним коротким форматом.",
+                    "б": "А: Yes, I will. — Так, буду. Марк відповідає про себе. Кінцеве 'll не вживаємо в позитивній короткій відповіді. Повне I will be at home. також граматичне, але не є запитаним коротким форматом."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нове розуміння змісту",
+            "change_reason": "Нова практика: у definition відсутня. Main має підтвердити actual SQL practice до append, не замінювати вже прийняті локальні завдання."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 8,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m85-future-sentence-negative",
+                "before": "at home / We / on Sunday. / will not be",
+                "after": "<p>Переклади повне речення моделлю will be. Почни з We; on Sunday означає «у неділю». Повне will not або доречне скорочення дозволені.</p><p>Ми не будемо вдома в неділю.</p>",
+                "answer": "We will not be at home on Sunday.",
+                "accepted": [
+                    "We will not be at home on Sunday.",
+                    "We won't be at home on Sunday.",
+                    "We'll not be at home on Sunday."
+                ],
+                "feedback": {
+                    "we will not be at home on sunday.": "We will not be at home on Sunday. — Ми не будемо вдома в неділю. Зберігай підмет we, заперечення і be. We won't be та We'll not be — прийнятні негативні варіанти; банк складає повну форму.",
+                    "we won't be at home on sunday.": "We will not be at home on Sunday. — Ми не будемо вдома в неділю. Зберігай підмет we, заперечення і be. We won't be та We'll not be — прийнятні негативні варіанти; банк складає повну форму.",
+                    "we'll not be at home on sunday.": "We will not be at home on Sunday. — Ми не будемо вдома в неділю. Зберігай підмет we, заперечення і be. We won't be та We'll not be — прийнятні негативні варіанти; банк складає повну форму."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нове повне речення manual і tokens",
+            "change_reason": "Нова практика: у definition відсутня. Main має підтвердити actual SQL practice до append, не замінювати вже прийняті локальні завдання."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 8,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m85-future-sentence-where",
+                "before": "at noon? / the teachers / Where / be / will",
+                "after": "<p>Переклади повне питання про місце. Підмет — the teachers, учителі; at noon — опівдні. Почни з Where та використай will be.</p><p>Де вчителі будуть опівдні?</p>",
+                "answer": "Where will the teachers be at noon?",
+                "accepted": [
+                    "Where will the teachers be at noon?"
+                ],
+                "feedback": {
+                    "where will the teachers be at noon?": "Where will the teachers be at noon? — Де вчителі будуть опівдні? Where питає про місце; the teachers — названий підмет між will і be."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нове повне речення manual і tokens",
+            "change_reason": "Нова практика: у definition відсутня. Main має підтвердити actual SQL practice до append, не замінювати вже прийняті локальні завдання."
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\ThereIsThereAreTheorySeeder": [
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 7,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m85-there-form-uncountable",
+                "label": "<p>Обери форму для стандартного письмового повідомлення про наявність. Milk тут незлічуване.</p><p lang=\"en\">There ___ some milk in the fridge.</p><p>У холодильнику є трохи молока.</p>",
+                "options": [
+                    "is",
+                    "are",
+                    "am"
+                ],
+                "answer": "is",
+                "accepted": [
+                    "is"
+                ],
+                "feedback": {
+                    "is": "There is some milk in the fridge. — У холодильнику є трохи молока. Незлічуване milk потребує is; молоко тут не рахуємо як один предмет.",
+                    "are": "There is some milk in the fridge. — У холодильнику є трохи молока. Незлічуване milk потребує is; молоко тут не рахуємо як один предмет.",
+                    "am": "There is some milk in the fridge. — У холодильнику є трохи молока. Незлічуване milk потребує is; молоко тут не рахуємо як один предмет."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нова форма",
+            "change_reason": "Нова практика: у definition відсутня. Main має підтвердити actual SQL practice до append, не замінювати вже прийняті локальні завдання."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 7,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m85-there-form-positive-short-answer",
+                "label": "<p>Оля бачить аптеку й відповідає на питання <span lang=\"en\">Is there a pharmacy here?</span> — Тут є аптека? Обери нормативну <strong>самостійну позитивну коротку відповідь</strong>.</p><p>А: <span lang=\"en\">Yes, there is.</span> — Так, є.<br>Б: <span lang=\"en\">Yes, there’s.</span> — Так, є.</p>",
+                "options": [
+                    "А",
+                    "Б"
+                ],
+                "answer": "А",
+                "accepted": [
+                    "А"
+                ],
+                "feedback": {
+                    "а": "А: Yes, there is. — Так, є. У позитивній короткій відповіді is не скорочуємо до 's. Повне There's a pharmacy here. — Тут є аптека — граматичне повідомлення, але не задана коротка відповідь.",
+                    "б": "А: Yes, there is. — Так, є. У позитивній короткій відповіді is не скорочуємо до 's. Повне There's a pharmacy here. — Тут є аптека — граматичне повідомлення, але не задана коротка відповідь."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нова форма",
+            "change_reason": "Нова практика: у definition відсутня. Main має підтвердити actual SQL practice до append, не замінювати вже прийняті локальні завдання."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 7,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m85-there-meaning-existence",
+                "label": "<p>Співрозмовник ще не знає про лампу. Потрібно вперше повідомити, що на столі є лампа, а не сказати, де вже відома лампа, і не назвати тип показаного предмета. Яке речення виконує цей задум?</p><p>А: <span lang=\"en\">There is a lamp on the desk.</span> — На столі є лампа.<br>Б: <span lang=\"en\">The lamp is on the desk.</span> — Ця відома нам лампа стоїть на столі.<br>В: <span lang=\"en\">It is a lamp.</span> — Це лампа.</p>",
+                "options": [
+                    "А",
+                    "Б",
+                    "В"
+                ],
+                "answer": "А",
+                "accepted": [
+                    "А"
+                ],
+                "feedback": {
+                    "а": "А вводить новий предмет: There is a lamp on the desk. — На столі є лампа. Б говорить про місце вже відомої лампи, В ідентифікує предмет; обидва речення граматичні, але виконують інший задум.",
+                    "б": "А вводить новий предмет: There is a lamp on the desk. — На столі є лампа. Б говорить про місце вже відомої лампи, В ідентифікує предмет; обидва речення граматичні, але виконують інший задум.",
+                    "в": "А вводить новий предмет: There is a lamp on the desk. — На столі є лампа. Б говорить про місце вже відомої лампи, В ідентифікує предмет; обидва речення граматичні, але виконують інший задум."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нове розуміння змісту",
+            "change_reason": "Нова практика: у definition відсутня. Main має підтвердити actual SQL practice до append, не замінювати вже прийняті локальні завдання."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 7,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m85-there-meaning-not-two",
+                "label": "<p>Відомо тільки це повідомлення:</p><p lang=\"en\">There aren’t two chairs in the room.</p><p>У кімнаті немає двох стільців.</p><p>Чи можна з нього напевно зробити висновок, що стільців немає зовсім?</p>",
+                "options": [
+                    "Ні: речення не встановлює повної відсутності; може бути, наприклад, один стілець.",
+                    "Так: воно обов'язково означає нуль стільців.",
+                    "Так: воно підтверджує, що стільців рівно два."
+                ],
+                "answer": "Ні: речення не встановлює повної відсутності; може бути, наприклад, один стілець.",
+                "accepted": [
+                    "Ні: речення не встановлює повної відсутності; може бути, наприклад, один стілець."
+                ],
+                "feedback": {
+                    "ні: речення не встановлює повної відсутності; може бути, наприклад, один стілець.": "There aren't two chairs in the room. — У кімнаті немає двох стільців. Заперечення кількості two не доводить нуль; для явної повної відсутності: There aren't any chairs in the room. — У кімнаті немає жодного стільця.",
+                    "так: воно обов'язково означає нуль стільців.": "There aren't two chairs in the room. — У кімнаті немає двох стільців. Заперечення кількості two не доводить нуль; для явної повної відсутності: There aren't any chairs in the room. — У кімнаті немає жодного стільця.",
+                    "так: воно підтверджує, що стільців рівно два.": "There aren't two chairs in the room. — У кімнаті немає двох стільців. Заперечення кількості two не доводить нуль; для явної повної відсутності: There aren't any chairs in the room. — У кімнаті немає жодного стільця."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нове розуміння змісту",
+            "change_reason": "Нова практика: у definition відсутня. Main має підтвердити actual SQL practice до append, не замінювати вже прийняті локальні завдання."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 7,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m85-there-sentence-milk",
+                "before": "in the fridge. / There is / some milk",
+                "after": "<p>Переклади повне повідомлення про наявність. Використай milk — молоко, some — трохи, fridge — холодильник; почни з There. Повна форма is або доречне скорочення дозволені.</p><p>У холодильнику є трохи молока.</p>",
+                "answer": "There is some milk in the fridge.",
+                "accepted": [
+                    "There is some milk in the fridge.",
+                    "There's some milk in the fridge."
+                ],
+                "feedback": {
+                    "there is some milk in the fridge.": "There is some milk in the fridge. — У холодильнику є трохи молока. Milk незлічуване, тому is; There's some milk in the fridge. — прийнятне скорочення повного речення.",
+                    "there's some milk in the fridge.": "There is some milk in the fridge. — У холодильнику є трохи молока. Milk незлічуване, тому is; There's some milk in the fridge. — прийнятне скорочення повного речення."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нове повне речення manual і tokens",
+            "change_reason": "Нова практика: у definition відсутня. Main має підтвердити actual SQL practice до append, не замінювати вже прийняті локальні завдання."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 7,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m85-there-sentence-plural-question",
+                "before": "in the cupboard? / any clean plates / there / Are",
+                "after": "<p>Постав повне нейтральне питання про наявність у стандартній письмовій формі. Використай any; clean plates — чисті тарілки, cupboard — шафа. Почни з Are.</p><p>У шафі є чисті тарілки?</p>",
+                "answer": "Are there any clean plates in the cupboard?",
+                "accepted": [
+                    "Are there any clean plates in the cupboard?"
+                ],
+                "feedback": {
+                    "are there any clean plates in the cupboard?": "Are there any clean plates in the cupboard? — У шафі є чисті тарілки? Plates — множина, тому are стоїть перед there. Наявність тарілок не встановлена самим питанням."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нове повне речення manual і tokens",
+            "change_reason": "Нова практика: у definition відсутня. Main має підтвердити actual SQL practice до append, не замінювати вже прийняті локальні завдання."
+        }
+    ]
+}
