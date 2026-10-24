@@ -1,0 +1,424 @@
+{
+    "schema_version": 1,
+    "base_sha": "443032b85caf8a27fffb372bb81bc2f0b023314b",
+    "scope": "M87 twelve additive nonvisual caller-owned registrations; no native validator/design/formatter/grader/engine edits",
+    "independent_source_before_sha256": "4345c31ffe0233766e3edba90e5c1996f1a7d29ee23dee301fdb0a11306d42a5",
+    "independent_db_before_sha256": "c9b7cffb07a0440e5051a0b7c522eb016ce4cdcc80107edf6573e8780eb151c5",
+    "parent_fixture": {
+        "path": "tests/Fixtures/m86-owned-source-hunks.json",
+        "sha256": "44bfa36b2a2ca9d8128fe9858cf6ff051474fe65fee7d1f5b0d44524f835f196"
+    },
+    "owned_added_registration_lines": 12,
+    "owned_validator_added_lines": 0,
+    "owned_validator_removed_lines": 0,
+    "files": [
+        {
+            "path": "app/Support/TheoryContentSource.php",
+            "kind": "finite-package-registration",
+            "hunks": [
+                {
+                    "before": "        [M86PresentSimpleContinuousBasics::class, 'm42StyleContext'],\n",
+                    "after": "        [M86PresentSimpleContinuousBasics::class, 'm42StyleContext'],\n        [M87ContinuousCompletionPastSimple::class, 'm42StyleContext'],\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                }
+            ],
+            "profiles": {
+                "served_root": {
+                    "before_raw_sha256": "254398a087aafe49a115b1dff5d6f2eab90228116eaa7b87d23fad1e6a47bafb",
+                    "before_lf_sha256": "254398a087aafe49a115b1dff5d6f2eab90228116eaa7b87d23fad1e6a47bafb",
+                    "after_raw_sha256": "fb81352e7147fb50762a573d65cfcbc44167cea990da6f36985688d5fb641e7c",
+                    "after_lf_sha256": "fb81352e7147fb50762a573d65cfcbc44167cea990da6f36985688d5fb641e7c",
+                    "before_bytes": 6352,
+                    "after_bytes": 6423,
+                    "before_lf_line_count": 117,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 118,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "independent M87 paired BEFORE; exact context, not ROOT imposed on WT",
+                    "after_pin_origin": "finite additive whole-line expected bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                },
+                "worktree": {
+                    "before_raw_sha256": "254398a087aafe49a115b1dff5d6f2eab90228116eaa7b87d23fad1e6a47bafb",
+                    "before_lf_sha256": "254398a087aafe49a115b1dff5d6f2eab90228116eaa7b87d23fad1e6a47bafb",
+                    "after_raw_sha256": "fb81352e7147fb50762a573d65cfcbc44167cea990da6f36985688d5fb641e7c",
+                    "after_lf_sha256": "fb81352e7147fb50762a573d65cfcbc44167cea990da6f36985688d5fb641e7c",
+                    "before_bytes": 6352,
+                    "after_bytes": 6423,
+                    "before_lf_line_count": 117,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 118,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "independent M87 paired BEFORE; exact context, not ROOT imposed on WT",
+                    "after_pin_origin": "finite additive whole-line expected bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                }
+            }
+        },
+        {
+            "path": "app/Support/TheoryHtmlAdapter.php",
+            "kind": "finite-package-registration",
+            "hunks": [
+                {
+                    "before": "        if (($design['package'] ?? null) === 'm86-native-v1') { return M86PresentSimpleContinuousBasics::pointPanels($design); }\n",
+                    "after": "        if (($design['package'] ?? null) === 'm86-native-v1') { return M86PresentSimpleContinuousBasics::pointPanels($design); }\n        if (($design['package'] ?? null) === 'm87-native-v1') { return M87ContinuousCompletionPastSimple::pointPanels($design); }\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                },
+                {
+                    "before": "        if (($design['package'] ?? null) === 'm86-native-v1') { return M86PresentSimpleContinuousBasics::validDesign($design); }\n",
+                    "after": "        if (($design['package'] ?? null) === 'm86-native-v1') { return M86PresentSimpleContinuousBasics::validDesign($design); }\n        if (($design['package'] ?? null) === 'm87-native-v1') { return M87ContinuousCompletionPastSimple::validDesign($design); }\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                }
+            ],
+            "profiles": {
+                "served_root": {
+                    "before_raw_sha256": "e1186636b479466803c2245eee75d10d04fc29939b585279cd81c3e78f6c3901",
+                    "before_lf_sha256": "e1186636b479466803c2245eee75d10d04fc29939b585279cd81c3e78f6c3901",
+                    "after_raw_sha256": "4cff07769c4635de9603c65154103151ea719c36196e1d1761a1eb691fda190e",
+                    "after_lf_sha256": "4cff07769c4635de9603c65154103151ea719c36196e1d1761a1eb691fda190e",
+                    "before_bytes": 41927,
+                    "after_bytes": 42187,
+                    "before_lf_line_count": 614,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 616,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "independent M87 paired BEFORE; exact context, not ROOT imposed on WT",
+                    "after_pin_origin": "finite additive whole-line expected bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                },
+                "worktree": {
+                    "before_raw_sha256": "e1186636b479466803c2245eee75d10d04fc29939b585279cd81c3e78f6c3901",
+                    "before_lf_sha256": "e1186636b479466803c2245eee75d10d04fc29939b585279cd81c3e78f6c3901",
+                    "after_raw_sha256": "4cff07769c4635de9603c65154103151ea719c36196e1d1761a1eb691fda190e",
+                    "after_lf_sha256": "4cff07769c4635de9603c65154103151ea719c36196e1d1761a1eb691fda190e",
+                    "before_bytes": 41927,
+                    "after_bytes": 42187,
+                    "before_lf_line_count": 614,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 616,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "independent M87 paired BEFORE; exact context, not ROOT imposed on WT",
+                    "after_pin_origin": "finite additive whole-line expected bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                }
+            }
+        },
+        {
+            "path": "app/Support/TheoryLegacyAdapter.php",
+            "kind": "finite-package-registration",
+            "hunks": [
+                {
+                    "before": "                if ($correction === null) { $correction = M86PresentSimpleContinuousBasics::correction($item, $design); }\n",
+                    "after": "                if ($correction === null) { $correction = M86PresentSimpleContinuousBasics::correction($item, $design); }\n                if ($correction === null) { $correction = M87ContinuousCompletionPastSimple::correction($item, $design); }\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                }
+            ],
+            "profiles": {
+                "served_root": {
+                    "before_raw_sha256": "41e181583b90670cf370096a01bfb65bebe54d6e0bb516c6265d30d1c95098ba",
+                    "before_lf_sha256": "41e181583b90670cf370096a01bfb65bebe54d6e0bb516c6265d30d1c95098ba",
+                    "after_raw_sha256": "5fa965f4080e5c5be8a36b4fef1f813e6fc97ce54e396da74bdfe86faa9116dd",
+                    "after_lf_sha256": "5fa965f4080e5c5be8a36b4fef1f813e6fc97ce54e396da74bdfe86faa9116dd",
+                    "before_bytes": 20331,
+                    "after_bytes": 20454,
+                    "before_lf_line_count": 276,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 277,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "independent M87 paired BEFORE; exact context, not ROOT imposed on WT",
+                    "after_pin_origin": "finite additive whole-line expected bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                },
+                "worktree": {
+                    "before_raw_sha256": "41e181583b90670cf370096a01bfb65bebe54d6e0bb516c6265d30d1c95098ba",
+                    "before_lf_sha256": "41e181583b90670cf370096a01bfb65bebe54d6e0bb516c6265d30d1c95098ba",
+                    "after_raw_sha256": "5fa965f4080e5c5be8a36b4fef1f813e6fc97ce54e396da74bdfe86faa9116dd",
+                    "after_lf_sha256": "5fa965f4080e5c5be8a36b4fef1f813e6fc97ce54e396da74bdfe86faa9116dd",
+                    "before_bytes": 20331,
+                    "after_bytes": 20454,
+                    "before_lf_line_count": 276,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 277,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "independent M87 paired BEFORE; exact context, not ROOT imposed on WT",
+                    "after_pin_origin": "finite additive whole-line expected bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                }
+            }
+        },
+        {
+            "path": "app/Support/TheoryContentRenderer.php",
+            "kind": "finite-package-registration",
+            "hunks": [
+                {
+                    "before": "                $bindings = M86BuilderSelectionPresentation::bindings($bindings);\n",
+                    "after": "                $bindings = M86BuilderSelectionPresentation::bindings($bindings);\n                $bindings = M87BuilderSelectionPresentation::bindings($bindings);\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                }
+            ],
+            "profiles": {
+                "served_root": {
+                    "before_raw_sha256": "2da36bd7d24d8a29858c76cdbbed210ab5bad4e05473e1a7cc29e3de20a7933b",
+                    "before_lf_sha256": "2da36bd7d24d8a29858c76cdbbed210ab5bad4e05473e1a7cc29e3de20a7933b",
+                    "after_raw_sha256": "85afc58bf5ed221dc5d25aee3f7c70acc81485649efeaee03b7290a048445656",
+                    "after_lf_sha256": "85afc58bf5ed221dc5d25aee3f7c70acc81485649efeaee03b7290a048445656",
+                    "before_bytes": 8677,
+                    "after_bytes": 8759,
+                    "before_lf_line_count": 185,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 186,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "independent M87 paired BEFORE; exact context, not ROOT imposed on WT",
+                    "after_pin_origin": "finite additive whole-line expected bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                },
+                "worktree": {
+                    "before_raw_sha256": "2da36bd7d24d8a29858c76cdbbed210ab5bad4e05473e1a7cc29e3de20a7933b",
+                    "before_lf_sha256": "2da36bd7d24d8a29858c76cdbbed210ab5bad4e05473e1a7cc29e3de20a7933b",
+                    "after_raw_sha256": "85afc58bf5ed221dc5d25aee3f7c70acc81485649efeaee03b7290a048445656",
+                    "after_lf_sha256": "85afc58bf5ed221dc5d25aee3f7c70acc81485649efeaee03b7290a048445656",
+                    "before_bytes": 8677,
+                    "after_bytes": 8759,
+                    "before_lf_line_count": 185,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 186,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "independent M87 paired BEFORE; exact context, not ROOT imposed on WT",
+                    "after_pin_origin": "finite additive whole-line expected bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                }
+            }
+        },
+        {
+            "path": "app/Support/PracticeCompletionLinkedPractice.php",
+            "kind": "finite-package-registration",
+            "hunks": [
+                {
+                    "before": "        $block = M86BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n",
+                    "after": "        $block = M86BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n        $block = M87BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                }
+            ],
+            "profiles": {
+                "served_root": {
+                    "before_raw_sha256": "4ff08e3ac470e8e9d71962c2245a72c4fd873eff05bdeaa38697e33e7086cbd4",
+                    "before_lf_sha256": "4ff08e3ac470e8e9d71962c2245a72c4fd873eff05bdeaa38697e33e7086cbd4",
+                    "after_raw_sha256": "3b714e3b08f22f4f414010965485abdce88e0739282a7bd6fbef19f8fcc62b77",
+                    "after_lf_sha256": "3b714e3b08f22f4f414010965485abdce88e0739282a7bd6fbef19f8fcc62b77",
+                    "before_bytes": 9507,
+                    "after_bytes": 9598,
+                    "before_lf_line_count": 154,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 155,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "independent M87 paired BEFORE; exact context, not ROOT imposed on WT",
+                    "after_pin_origin": "finite additive whole-line expected bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                },
+                "worktree": {
+                    "before_raw_sha256": "4ff08e3ac470e8e9d71962c2245a72c4fd873eff05bdeaa38697e33e7086cbd4",
+                    "before_lf_sha256": "4ff08e3ac470e8e9d71962c2245a72c4fd873eff05bdeaa38697e33e7086cbd4",
+                    "after_raw_sha256": "3b714e3b08f22f4f414010965485abdce88e0739282a7bd6fbef19f8fcc62b77",
+                    "after_lf_sha256": "3b714e3b08f22f4f414010965485abdce88e0739282a7bd6fbef19f8fcc62b77",
+                    "before_bytes": 9507,
+                    "after_bytes": 9598,
+                    "before_lf_line_count": 154,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 155,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "independent M87 paired BEFORE; exact context, not ROOT imposed on WT",
+                    "after_pin_origin": "finite additive whole-line expected bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                }
+            }
+        },
+        {
+            "path": "app/Services/Theory/TextBlockToQuestionsMatcherService.php",
+            "kind": "finite-package-registration",
+            "hunks": [
+                {
+                    "before": "            $excludeQuestionIds = \\App\\Support\\M86BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n",
+                    "after": "            $excludeQuestionIds = \\App\\Support\\M86BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n            $excludeQuestionIds = \\App\\Support\\M87BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                }
+            ],
+            "profiles": {
+                "served_root": {
+                    "before_raw_sha256": "d43b3548914b8db20b8bd574202f23fc29fe38b4fc545aa5cd00bff409e111f6",
+                    "before_lf_sha256": "ca5fce5a2a34cdbff5ff00fe6b3373202ab5b032196bc98d2fea147ca33b0e08",
+                    "after_raw_sha256": "cfbacf4b5a7c32d1f80258519cfa5eb3e519c2f882097f3a6bda03bb917fe31b",
+                    "after_lf_sha256": "2b2752a1504c9e1d119fe050a9b9e1f85498558144c7b771158fbdb08a05ac66",
+                    "before_bytes": 19423,
+                    "after_bytes": 19562,
+                    "before_lf_line_count": 482,
+                    "before_crlf_line_count": 482,
+                    "after_lf_line_count": 483,
+                    "after_crlf_line_count": 483,
+                    "before_pin_origin": "independent M87 paired BEFORE; exact context, not ROOT imposed on WT",
+                    "after_pin_origin": "finite additive whole-line expected bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                },
+                "worktree": {
+                    "before_raw_sha256": "d43b3548914b8db20b8bd574202f23fc29fe38b4fc545aa5cd00bff409e111f6",
+                    "before_lf_sha256": "ca5fce5a2a34cdbff5ff00fe6b3373202ab5b032196bc98d2fea147ca33b0e08",
+                    "after_raw_sha256": "cfbacf4b5a7c32d1f80258519cfa5eb3e519c2f882097f3a6bda03bb917fe31b",
+                    "after_lf_sha256": "2b2752a1504c9e1d119fe050a9b9e1f85498558144c7b771158fbdb08a05ac66",
+                    "before_bytes": 19423,
+                    "after_bytes": 19562,
+                    "before_lf_line_count": 482,
+                    "before_crlf_line_count": 482,
+                    "after_lf_line_count": 483,
+                    "after_crlf_line_count": 483,
+                    "before_pin_origin": "independent M87 paired BEFORE; exact context, not ROOT imposed on WT",
+                    "after_pin_origin": "finite additive whole-line expected bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                }
+            }
+        },
+        {
+            "path": "app/Services/TheoryCourseManifestService.php",
+            "kind": "finite-package-registration",
+            "hunks": [
+                {
+                    "before": "        $page = \\App\\Support\\M86PresentSimpleContinuousBasics::preserveCoursePage($page);\n",
+                    "after": "        $page = \\App\\Support\\M86PresentSimpleContinuousBasics::preserveCoursePage($page);\n        $page = \\App\\Support\\M87ContinuousCompletionPastSimple::preserveCoursePage($page);\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                }
+            ],
+            "profiles": {
+                "served_root": {
+                    "before_raw_sha256": "9c2b0cd341c88e350c09ba9447dd5c8573e5da4dffe2a1f13a29ff9e2fb0cabd",
+                    "before_lf_sha256": "53b37138d71974a5e5ee7b5995b17e60528eb2d520033a6348edfe86204d842d",
+                    "after_raw_sha256": "a34d76a1e7fdbc64c3d0e57eab4387f12b1299a26d7615bc29da77ec27e8a789",
+                    "after_lf_sha256": "537890011dd381a242ef862b5b6873f4728331e73cbd6f265cda2be8a5e59252",
+                    "before_bytes": 28046,
+                    "after_bytes": 28138,
+                    "before_lf_line_count": 715,
+                    "before_crlf_line_count": 611,
+                    "after_lf_line_count": 716,
+                    "after_crlf_line_count": 612,
+                    "before_pin_origin": "independent M87 paired BEFORE; exact context, not ROOT imposed on WT",
+                    "after_pin_origin": "finite additive whole-line expected bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                },
+                "worktree": {
+                    "before_raw_sha256": "26cd0469c5eee02ee54594b7b32ec2a1027d68fa4f4552685218cf22cfd43836",
+                    "before_lf_sha256": "53b37138d71974a5e5ee7b5995b17e60528eb2d520033a6348edfe86204d842d",
+                    "after_raw_sha256": "458c10a5888499f13888d834a2c12c0b0857d64cf18bc92057be6eac52289923",
+                    "after_lf_sha256": "537890011dd381a242ef862b5b6873f4728331e73cbd6f265cda2be8a5e59252",
+                    "before_bytes": 28150,
+                    "after_bytes": 28242,
+                    "before_lf_line_count": 715,
+                    "before_crlf_line_count": 715,
+                    "after_lf_line_count": 716,
+                    "after_crlf_line_count": 716,
+                    "before_pin_origin": "independent M87 paired BEFORE; exact context, not ROOT imposed on WT",
+                    "after_pin_origin": "finite additive whole-line expected bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                }
+            }
+        },
+        {
+            "path": "app/Http/Controllers/TestJsV2Controller.php",
+            "kind": "finite-package-registration",
+            "hunks": [
+                {
+                    "before": "                    if ($block !== null) { $block = \\App\\Support\\M86PresentSimpleContinuousBasics::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+                    "after": "                    if ($block !== null) { $block = \\App\\Support\\M86PresentSimpleContinuousBasics::preserveExcludedTextBlock($block, 'standalone_test'); }\n                    if ($block !== null) { $block = \\App\\Support\\M87ContinuousCompletionPastSimple::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                },
+                {
+                    "before": "                if ($textBlock) { $textBlock = \\App\\Support\\M86PresentSimpleContinuousBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+                    "after": "                if ($textBlock) { $textBlock = \\App\\Support\\M86PresentSimpleContinuousBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n                if ($textBlock) { $textBlock = \\App\\Support\\M87ContinuousCompletionPastSimple::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                },
+                {
+                    "before": "                if ($block !== null) { $block = \\App\\Support\\M86PresentSimpleContinuousBasics::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+                    "after": "                if ($block !== null) { $block = \\App\\Support\\M86PresentSimpleContinuousBasics::preserveExcludedTextBlock($block, 'standalone_test'); }\n                if ($block !== null) { $block = \\App\\Support\\M87ContinuousCompletionPastSimple::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                },
+                {
+                    "before": "            if ($textBlock) { $textBlock = \\App\\Support\\M86PresentSimpleContinuousBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+                    "after": "            if ($textBlock) { $textBlock = \\App\\Support\\M86PresentSimpleContinuousBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n            if ($textBlock) { $textBlock = \\App\\Support\\M87ContinuousCompletionPastSimple::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                }
+            ],
+            "profiles": {
+                "served_root": {
+                    "before_raw_sha256": "76f79b5d17b68d9b422780b88aad86b2cdb150d85a6a6580af100af2f45b9cf9",
+                    "before_lf_sha256": "bfb308089e03ffff87afd45dc39752353a94cbf212d044c6ac5dfdcaeb2ec563",
+                    "after_raw_sha256": "063a04a33ad161161c5c222990c585a89ea9ab3e0391f17f34c203e0762a4848",
+                    "after_lf_sha256": "a036e17dbe16a54288f01d2c7beba33b547f466e6f003a598803e3f051c6e4dd",
+                    "before_bytes": 75346,
+                    "after_bytes": 75964,
+                    "before_lf_line_count": 1582,
+                    "before_crlf_line_count": 1582,
+                    "after_lf_line_count": 1586,
+                    "after_crlf_line_count": 1586,
+                    "before_pin_origin": "independent M87 paired BEFORE; exact context, not ROOT imposed on WT",
+                    "after_pin_origin": "finite additive whole-line expected bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                },
+                "worktree": {
+                    "before_raw_sha256": "2f4f128fe2e9209d28dd437f86a37c7a367bc8bb603842d743d37c02ef85c7a6",
+                    "before_lf_sha256": "e8100dc5b6fc85e0475e1d269fed87b43735c70191068669a5fc9e2a282b8741",
+                    "after_raw_sha256": "8662488b69306d0a0ad3f5b70525cd0185b6f1142c8178b2155bd5e2d22173d6",
+                    "after_lf_sha256": "5b55bc5b260c33f495e48de2d11c825e97f77fc0c170ae1ad2e55126debfb3b0",
+                    "before_bytes": 75202,
+                    "after_bytes": 75820,
+                    "before_lf_line_count": 1581,
+                    "before_crlf_line_count": 1581,
+                    "after_lf_line_count": 1585,
+                    "after_crlf_line_count": 1585,
+                    "before_pin_origin": "independent M87 paired BEFORE; exact context, not ROOT imposed on WT",
+                    "after_pin_origin": "finite additive whole-line expected bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                }
+            }
+        }
+    ]
+}

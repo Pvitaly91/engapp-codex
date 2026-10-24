@@ -47,6 +47,7 @@ final class TheoryContentSource
         [M84WordOrderHaveGot::class, 'm42StyleContext'],
         [M85VerbToBe::class, 'm42StyleContext'],
         [M86PresentSimpleContinuousBasics::class, 'm42StyleContext'],
+        [M87ContinuousCompletionPastSimple::class, 'm42StyleContext'],
         [M50ObligationAdvicePackage::class, 'm42StyleContext'],
         [PracticeCompletionPackage::class, 'm42StyleContext'],
         [M49AdviceModalsPackage::class, 'm42StyleContext'],
