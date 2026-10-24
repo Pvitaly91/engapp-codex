@@ -1,0 +1,309 @@
+{
+  "schema_version": 1,
+  "base_sha": "91c718a119a6d42f180c2a7121fbbbf94ef5afa4",
+  "scope": "M84 twelve additive nonvisual caller-owned registrations; no native validator, design, formatter, grader or engine changes",
+  "independent_source_before_sha256": "9066938a376b3f4eeae6fa65f6fea6afc7a2bdd624a4ed93dc32e37c59b8e47e",
+  "independent_db_before_sha256": "babac2b3efa88b87fc8ea50b1ad45fb9feb8cadfdf766c33e76ca7b24aa19916",
+  "independent_course_source_before_sha256": "dd8c7e8c08b256e5fe67ec24e8ba0afd3d6342c431478ab024e8a39e6b7bb870",
+  "owned_added_registration_lines": 12,
+  "owned_validator_added_lines": 0,
+  "owned_validator_removed_lines": 0,
+  "files": [
+    {
+      "path": "app/Support/TheoryContentSource.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "        [M83B2RevisionBasicGrammar::class, 'm42StyleContext'],\n",
+          "after": "        [M83B2RevisionBasicGrammar::class, 'm42StyleContext'],\n        [M84WordOrderHaveGot::class, 'm42StyleContext'],\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "101cb496c5ab758c2ed9ee09bfe31dd2307a7483026b073cf6ba00d52ff96ee2",
+          "before_lf_sha256": "101cb496c5ab758c2ed9ee09bfe31dd2307a7483026b073cf6ba00d52ff96ee2",
+          "after_raw_sha256": "602eb0d605e3534b24ccb7cbeeb1bdf70ad5035032626bbcabe37f9c35888ade",
+          "after_lf_sha256": "602eb0d605e3534b24ccb7cbeeb1bdf70ad5035032626bbcabe37f9c35888ade",
+          "after_lf_line_count": 115,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M84 paired BEFORE",
+          "after_pin_origin": "finite additive exact expected bytes"
+        },
+        "worktree": {
+          "before_raw_sha256": "101cb496c5ab758c2ed9ee09bfe31dd2307a7483026b073cf6ba00d52ff96ee2",
+          "before_lf_sha256": "101cb496c5ab758c2ed9ee09bfe31dd2307a7483026b073cf6ba00d52ff96ee2",
+          "after_raw_sha256": "602eb0d605e3534b24ccb7cbeeb1bdf70ad5035032626bbcabe37f9c35888ade",
+          "after_lf_sha256": "602eb0d605e3534b24ccb7cbeeb1bdf70ad5035032626bbcabe37f9c35888ade",
+          "after_lf_line_count": 115,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M84 paired BEFORE",
+          "after_pin_origin": "finite additive exact expected bytes"
+        }
+      }
+    },
+    {
+      "path": "app/Support/TheoryHtmlAdapter.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "        if (($design['package'] ?? null) === 'm83-native-v1') { return M83B2RevisionBasicGrammar::pointPanels($design); }\n",
+          "after": "        if (($design['package'] ?? null) === 'm83-native-v1') { return M83B2RevisionBasicGrammar::pointPanels($design); }\n        if (($design['package'] ?? null) === 'm84-native-v1') { return M84WordOrderHaveGot::pointPanels($design); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        },
+        {
+          "before": "        if (($design['package'] ?? null) === 'm83-native-v1') { return M83B2RevisionBasicGrammar::validDesign($design); }\n",
+          "after": "        if (($design['package'] ?? null) === 'm83-native-v1') { return M83B2RevisionBasicGrammar::validDesign($design); }\n        if (($design['package'] ?? null) === 'm84-native-v1') { return M84WordOrderHaveGot::validDesign($design); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "f9fa7f124a6cb332e282254f71b4ee0c653b9afe44143abed11ca5e910043746",
+          "before_lf_sha256": "f9fa7f124a6cb332e282254f71b4ee0c653b9afe44143abed11ca5e910043746",
+          "after_raw_sha256": "640e0494513b23db15211523fc3e8d3e11929079d70a5155f7df86d73afce1a4",
+          "after_lf_sha256": "640e0494513b23db15211523fc3e8d3e11929079d70a5155f7df86d73afce1a4",
+          "after_lf_line_count": 610,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M84 paired BEFORE",
+          "after_pin_origin": "finite additive exact expected bytes"
+        },
+        "worktree": {
+          "before_raw_sha256": "f9fa7f124a6cb332e282254f71b4ee0c653b9afe44143abed11ca5e910043746",
+          "before_lf_sha256": "f9fa7f124a6cb332e282254f71b4ee0c653b9afe44143abed11ca5e910043746",
+          "after_raw_sha256": "640e0494513b23db15211523fc3e8d3e11929079d70a5155f7df86d73afce1a4",
+          "after_lf_sha256": "640e0494513b23db15211523fc3e8d3e11929079d70a5155f7df86d73afce1a4",
+          "after_lf_line_count": 610,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M84 paired BEFORE",
+          "after_pin_origin": "finite additive exact expected bytes"
+        }
+      }
+    },
+    {
+      "path": "app/Support/TheoryLegacyAdapter.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "                if ($correction === null) { $correction = M83B2RevisionBasicGrammar::correction($item, $design); }\n",
+          "after": "                if ($correction === null) { $correction = M83B2RevisionBasicGrammar::correction($item, $design); }\n                if ($correction === null) { $correction = M84WordOrderHaveGot::correction($item, $design); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "09870e01fba4f2bb3b9fbd7f04dd4c5e0c20412db8d451c00e22ea989915283d",
+          "before_lf_sha256": "09870e01fba4f2bb3b9fbd7f04dd4c5e0c20412db8d451c00e22ea989915283d",
+          "after_raw_sha256": "985c5f0f37f20673aad406787d404d14d0e5bee8b775f6c27d15962151a9ac8b",
+          "after_lf_sha256": "985c5f0f37f20673aad406787d404d14d0e5bee8b775f6c27d15962151a9ac8b",
+          "after_lf_line_count": 274,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M84 paired BEFORE",
+          "after_pin_origin": "finite additive exact expected bytes"
+        },
+        "worktree": {
+          "before_raw_sha256": "09870e01fba4f2bb3b9fbd7f04dd4c5e0c20412db8d451c00e22ea989915283d",
+          "before_lf_sha256": "09870e01fba4f2bb3b9fbd7f04dd4c5e0c20412db8d451c00e22ea989915283d",
+          "after_raw_sha256": "985c5f0f37f20673aad406787d404d14d0e5bee8b775f6c27d15962151a9ac8b",
+          "after_lf_sha256": "985c5f0f37f20673aad406787d404d14d0e5bee8b775f6c27d15962151a9ac8b",
+          "after_lf_line_count": 274,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M84 paired BEFORE",
+          "after_pin_origin": "finite additive exact expected bytes"
+        }
+      }
+    },
+    {
+      "path": "app/Support/TheoryContentRenderer.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "                $bindings = M83BuilderSelectionPresentation::bindings($bindings);\n",
+          "after": "                $bindings = M83BuilderSelectionPresentation::bindings($bindings);\n                $bindings = M84BuilderSelectionPresentation::bindings($bindings);\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "810d98ba215a9bffbc89517cde66e38fa80f344febe930f8f1ddde0a89153a76",
+          "before_lf_sha256": "810d98ba215a9bffbc89517cde66e38fa80f344febe930f8f1ddde0a89153a76",
+          "after_raw_sha256": "5c7df053f4fc4a8a93db8586b8ea127a39ed841519a4c4a7293c85d9137a2955",
+          "after_lf_sha256": "5c7df053f4fc4a8a93db8586b8ea127a39ed841519a4c4a7293c85d9137a2955",
+          "after_lf_line_count": 183,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M84 paired BEFORE",
+          "after_pin_origin": "finite additive exact expected bytes"
+        },
+        "worktree": {
+          "before_raw_sha256": "810d98ba215a9bffbc89517cde66e38fa80f344febe930f8f1ddde0a89153a76",
+          "before_lf_sha256": "810d98ba215a9bffbc89517cde66e38fa80f344febe930f8f1ddde0a89153a76",
+          "after_raw_sha256": "5c7df053f4fc4a8a93db8586b8ea127a39ed841519a4c4a7293c85d9137a2955",
+          "after_lf_sha256": "5c7df053f4fc4a8a93db8586b8ea127a39ed841519a4c4a7293c85d9137a2955",
+          "after_lf_line_count": 183,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M84 paired BEFORE",
+          "after_pin_origin": "finite additive exact expected bytes"
+        }
+      }
+    },
+    {
+      "path": "app/Support/PracticeCompletionLinkedPractice.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "        $block = M83BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n",
+          "after": "        $block = M83BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n        $block = M84BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "7f8a145ac5657fff93b5ecba9828a0a1bf42cbf577d92eea8e28ccdf426c3e7c",
+          "before_lf_sha256": "7f8a145ac5657fff93b5ecba9828a0a1bf42cbf577d92eea8e28ccdf426c3e7c",
+          "after_raw_sha256": "ec7f141b30203df95c54c01292f02b376a64c26b2f83fe29cd2ff660d9553554",
+          "after_lf_sha256": "ec7f141b30203df95c54c01292f02b376a64c26b2f83fe29cd2ff660d9553554",
+          "after_lf_line_count": 152,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M84 paired BEFORE",
+          "after_pin_origin": "finite additive exact expected bytes"
+        },
+        "worktree": {
+          "before_raw_sha256": "7f8a145ac5657fff93b5ecba9828a0a1bf42cbf577d92eea8e28ccdf426c3e7c",
+          "before_lf_sha256": "7f8a145ac5657fff93b5ecba9828a0a1bf42cbf577d92eea8e28ccdf426c3e7c",
+          "after_raw_sha256": "ec7f141b30203df95c54c01292f02b376a64c26b2f83fe29cd2ff660d9553554",
+          "after_lf_sha256": "ec7f141b30203df95c54c01292f02b376a64c26b2f83fe29cd2ff660d9553554",
+          "after_lf_line_count": 152,
+          "after_crlf_line_count": 0,
+          "before_pin_origin": "independent M84 paired BEFORE",
+          "after_pin_origin": "finite additive exact expected bytes"
+        }
+      }
+    },
+    {
+      "path": "app/Services/Theory/TextBlockToQuestionsMatcherService.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "            $excludeQuestionIds = \\App\\Support\\M83BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n",
+          "after": "            $excludeQuestionIds = \\App\\Support\\M83BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n            $excludeQuestionIds = \\App\\Support\\M84BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "6600a60cb89185991cc61bbef6aec3f0bdce22dca8690322be5503df841fb132",
+          "before_lf_sha256": "7e707acd64a20f838e056805eb916aa04ac13dcb2344b3edc7cb8dd601e11eb9",
+          "after_raw_sha256": "7b1ea14bccfc58b1000386b1b51b906c96509fe7b1a1c42cd56f239819601e4c",
+          "after_lf_sha256": "b1c7b5c98e5532dbae674c67b5773437f2d0dc2515b29684e069a703224fd3b7",
+          "after_lf_line_count": 480,
+          "after_crlf_line_count": 480,
+          "before_pin_origin": "independent M84 paired BEFORE",
+          "after_pin_origin": "finite additive exact expected bytes"
+        },
+        "worktree": {
+          "before_raw_sha256": "6600a60cb89185991cc61bbef6aec3f0bdce22dca8690322be5503df841fb132",
+          "before_lf_sha256": "7e707acd64a20f838e056805eb916aa04ac13dcb2344b3edc7cb8dd601e11eb9",
+          "after_raw_sha256": "7b1ea14bccfc58b1000386b1b51b906c96509fe7b1a1c42cd56f239819601e4c",
+          "after_lf_sha256": "b1c7b5c98e5532dbae674c67b5773437f2d0dc2515b29684e069a703224fd3b7",
+          "after_lf_line_count": 480,
+          "after_crlf_line_count": 480,
+          "before_pin_origin": "independent M84 paired BEFORE",
+          "after_pin_origin": "finite additive exact expected bytes"
+        }
+      }
+    },
+    {
+      "path": "app/Services/TheoryCourseManifestService.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "        $page = \\App\\Support\\M83B2RevisionBasicGrammar::preserveCoursePage($page);\n",
+          "after": "        $page = \\App\\Support\\M83B2RevisionBasicGrammar::preserveCoursePage($page);\n        $page = \\App\\Support\\M84WordOrderHaveGot::preserveCoursePage($page);\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "2853b0fb0a25ca77611774aceabd881938d18d602934870a48d859a9e02361ba",
+          "before_lf_sha256": "3f34b48b183d3e31f6449c8a537e124a84f3bb6ce7faaec1f2a1332f5290067d",
+          "after_raw_sha256": "25d6c2d6d3bd89176ce215f186c569662779e04dbc21f141818150b3ae6033f5",
+          "after_lf_sha256": "9c83ca00bdc36d402242a2ed1808a40195a24e58f6fc5d66a1feb90937ae6e39",
+          "after_lf_line_count": 713,
+          "after_crlf_line_count": 609,
+          "before_pin_origin": "independent M84 paired BEFORE",
+          "after_pin_origin": "finite additive exact expected bytes"
+        },
+        "worktree": {
+          "before_raw_sha256": "916e0baaf718f57c478ede49a5e1b70d4fad778f83e5bb99f1e2a44ad527a3ed",
+          "before_lf_sha256": "3f34b48b183d3e31f6449c8a537e124a84f3bb6ce7faaec1f2a1332f5290067d",
+          "after_raw_sha256": "8a38e31df8f1b9624fa2c620bd6164c644c94c828d773e38f25339e169c5cadc",
+          "after_lf_sha256": "9c83ca00bdc36d402242a2ed1808a40195a24e58f6fc5d66a1feb90937ae6e39",
+          "after_lf_line_count": 713,
+          "after_crlf_line_count": 713,
+          "before_pin_origin": "independent M84 paired BEFORE",
+          "after_pin_origin": "finite additive exact expected bytes"
+        }
+      }
+    },
+    {
+      "path": "app/Http/Controllers/TestJsV2Controller.php",
+      "kind": "finite-package-registration",
+      "hunks": [
+        {
+          "before": "                    if ($block !== null) { $block = \\App\\Support\\M83B2RevisionBasicGrammar::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+          "after": "                    if ($block !== null) { $block = \\App\\Support\\M83B2RevisionBasicGrammar::preserveExcludedTextBlock($block, 'standalone_test'); }\n                    if ($block !== null) { $block = \\App\\Support\\M84WordOrderHaveGot::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        },
+        {
+          "before": "                if ($textBlock) { $textBlock = \\App\\Support\\M83B2RevisionBasicGrammar::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+          "after": "                if ($textBlock) { $textBlock = \\App\\Support\\M83B2RevisionBasicGrammar::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n                if ($textBlock) { $textBlock = \\App\\Support\\M84WordOrderHaveGot::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        },
+        {
+          "before": "                if ($block !== null) { $block = \\App\\Support\\M83B2RevisionBasicGrammar::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+          "after": "                if ($block !== null) { $block = \\App\\Support\\M83B2RevisionBasicGrammar::preserveExcludedTextBlock($block, 'standalone_test'); }\n                if ($block !== null) { $block = \\App\\Support\\M84WordOrderHaveGot::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        },
+        {
+          "before": "            if ($textBlock) { $textBlock = \\App\\Support\\M83B2RevisionBasicGrammar::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+          "after": "            if ($textBlock) { $textBlock = \\App\\Support\\M83B2RevisionBasicGrammar::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n            if ($textBlock) { $textBlock = \\App\\Support\\M84WordOrderHaveGot::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+          "added_lines": 1,
+          "removed_lines": 0
+        }
+      ],
+      "profiles": {
+        "served_root": {
+          "before_raw_sha256": "56dedba0758f3806d6c71b95d5c1816956bd5d46763b54d7f400f4e4284a6ac4",
+          "before_lf_sha256": "457130a54b6e17db669a85e5a82795df3337e83c002bce36068a9da9c216c3c8",
+          "after_raw_sha256": "dc14b4c8a81e5db41b48c4577a22d7bac857fce5dad37107ab2663ecbf4135de",
+          "after_lf_sha256": "59512a9137bb5607326fa071e218029afce3ea78992776f5be701801db5b1963",
+          "after_lf_line_count": 1574,
+          "after_crlf_line_count": 1574,
+          "before_pin_origin": "independent M84 paired BEFORE",
+          "after_pin_origin": "finite additive exact expected bytes"
+        },
+        "worktree": {
+          "before_raw_sha256": "f470cf85c94d4fbb1c1713af0d68ef6a34c468edaf361c6fa1bda077164a170f",
+          "before_lf_sha256": "9668a1c587cd4bed6263998f4e66cbbe1974ad6b62a2a67b41e36c44fa1d6581",
+          "after_raw_sha256": "14402494da3e92b87e2036d9a4c1eb1274c48a65bc4b1c8421b358c3e1727b0c",
+          "after_lf_sha256": "94cc1fb9528de4b026dddfafbe54abd0fb32ba3ff7b2d55306fa32b7085ff45e",
+          "after_lf_line_count": 1573,
+          "after_crlf_line_count": 1573,
+          "before_pin_origin": "independent M84 paired BEFORE",
+          "after_pin_origin": "finite additive exact expected bytes"
+        }
+      }
+    }
+  ]
+}

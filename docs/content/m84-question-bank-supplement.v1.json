@@ -1,0 +1,921 @@
+{
+    "schema_version": 1,
+    "package": "m84-question-bank-supplement",
+    "version": "1.0.0",
+    "status": "frozen",
+    "locale": "uk",
+    "base_sha": "91c718a119a6d42f180c2a7121fbbbf94ef5afa4",
+    "review_kind": "Agent and main editorial review, not independent human review or browser acceptance",
+    "scope": "25 minimal new full-sentence type-4 questions in five exact separate banks; no original bank/key/options/saved membership mutation.",
+    "banks": [
+        {
+            "owner": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+            "bank_seeder": "Database\\Seeders\\V3\\Polyglot\\M84BasicWordOrderSupplementSeeder",
+            "level": "A1",
+            "type": 4,
+            "local_url": "http://gramlyze.loc/theory/basic-grammar/word-order/theory-basic-word-order",
+            "questions": [
+                {
+                    "source_uid": "m84-bwo-a1-01",
+                    "question_uk": "Пекар продає тут хліб.",
+                    "context_uk": "Це звичайне повідомлення про роботу конкретного пекаря. Він продає хліб саме тут.",
+                    "criterion_uk": "Почни з підмета, потім назви дію, товар і місце. Збережи всі ці факти та використай подані слова.",
+                    "translation_uk": "Пекар продає тут хліб.",
+                    "ambiguity_note_uk": "Потрібне нейтральне твердження про звичну роботу, не питання чи заперечення. Не міняй місцями того, хто продає, і товар.",
+                    "canonical_en": "The baker sells bread here.",
+                    "tokens_correct": [
+                        "The baker",
+                        "sells",
+                        "bread",
+                        "here."
+                    ],
+                    "tokens_shuffled": [
+                        "bread",
+                        "here.",
+                        "The baker",
+                        "sells"
+                    ],
+                    "distractors": [
+                        "sell",
+                        "there",
+                        "bread sells"
+                    ],
+                    "learning_requirements": [
+                        "Нейтральне S–V–O із названим місцем.",
+                        "Підмет-іменник збережено разом із означеним артиклем.",
+                        "Місце тут не замінено місцем там.",
+                        "Повне видиме речення після Check, не лише дієслівний фрагмент."
+                    ]
+                },
+                {
+                    "source_uid": "m84-bwo-a1-02",
+                    "question_uk": "Лео часто ходить до школи пішки.",
+                    "context_uk": "Говоримо про звичку Лео, а не про одну дію зараз. Пішки тут передає основне дієслово руху.",
+                    "criterion_uk": "Почни з імені. У цій вправі постав прислівник частотності безпосередньо перед основним дієсловом; напрямок залиш після нього.",
+                    "translation_uk": "Лео часто ходить до школи пішки.",
+                    "ambiguity_note_uk": "Збережи частотність часто. Не замінюй напрямок до школи місцем у школі й не вводь заперечення.",
+                    "canonical_en": "Leo often walks to school.",
+                    "tokens_correct": [
+                        "Leo",
+                        "often",
+                        "walks",
+                        "to school."
+                    ],
+                    "tokens_shuffled": [
+                        "to school.",
+                        "walks",
+                        "Leo",
+                        "often"
+                    ],
+                    "distractors": [
+                        "never",
+                        "walk",
+                        "at school"
+                    ],
+                    "learning_requirements": [
+                        "Прислівник частотності перед основним walks за явним критерієм.",
+                        "Третя особа однини узгоджена.",
+                        "Названо спосіб руху та напрямок.",
+                        "Інші контекстні позиції often не є ціллю цього завдання."
+                    ]
+                },
+                {
+                    "source_uid": "m84-bwo-a1-03",
+                    "question_uk": "Ми зазвичай удома.",
+                    "context_uk": "Мовець описує звичайне місцеперебування себе та інших людей разом. Це не розповідь про вчорашній день.",
+                    "criterion_uk": "Почни із займенника ми. У нейтральній моделі постав прислівник частотності після форми бути, а місце — в кінці.",
+                    "translation_uk": "Ми зазвичай удома.",
+                    "ambiguity_note_uk": "Не додавай предмета дії: речення про місцеперебування вже повне. Збережи теперішній час і значення зазвичай.",
+                    "canonical_en": "We are usually at home.",
+                    "tokens_correct": [
+                        "We",
+                        "are",
+                        "usually",
+                        "at home."
+                    ],
+                    "tokens_shuffled": [
+                        "usually",
+                        "at home.",
+                        "We",
+                        "are"
+                    ],
+                    "distractors": [
+                        "is",
+                        "were",
+                        "always"
+                    ],
+                    "learning_requirements": [
+                        "Are узгоджено з We.",
+                        "Частотність після be у цій нейтральній моделі.",
+                        "Місце не перетворене на додаток.",
+                        "Потрібне повне видиме твердження без зайвого основного дієслова."
+                    ]
+                },
+                {
+                    "source_uid": "m84-bwo-a1-04",
+                    "question_uk": "Мої друзі грають у шахи після обіду.",
+                    "context_uk": "Це звичне заняття друзів мовця. У реченні названо і гру, і час, але окремого місця немає.",
+                    "criterion_uk": "Склади нейтральне твердження: почни з підмета, далі постав дієслово й назву гри, а час — у кінці.",
+                    "translation_uk": "Мої друзі грають у шахи після обіду.",
+                    "ambiguity_note_uk": "Збережи множину друзі та час після обіду. Не додавай місця лише для заповнення розширеної схеми.",
+                    "canonical_en": "My friends play chess after lunch.",
+                    "tokens_correct": [
+                        "My friends",
+                        "play",
+                        "chess after lunch."
+                    ],
+                    "tokens_shuffled": [
+                        "chess after lunch.",
+                        "My friends",
+                        "play"
+                    ],
+                    "distractors": [
+                        "plays",
+                        "before lunch",
+                        "my friend"
+                    ],
+                    "learning_requirements": [
+                        "Підмет — ціла іменна група у множині.",
+                        "Учасники, заняття та час збережені.",
+                        "Кінцева обставина часу задана явно.",
+                        "Відсутнє місце не є помилкою або неповнотою речення."
+                    ]
+                },
+                {
+                    "source_uid": "m84-bwo-a1-05",
+                    "question_uk": "По п’ятницях я читаю вдома.",
+                    "context_uk": "Мовець розповідає про свою п’ятничну звичку й хоче спочатку задати день тижня.",
+                    "criterion_uk": "У цьому реченні почни саме з обставини часу. Потім постав підмет і основне дієслово, а місце залиш у кінці.",
+                    "translation_uk": "По п’ятницях я читаю вдома.",
+                    "ambiguity_note_uk": "Збережи день п’ятниця, а не неділя. Це звичайний початковий час без інверсії; кома окремо не оцінюється.",
+                    "canonical_en": "On Fridays, I read at home.",
+                    "tokens_correct": [
+                        "On Fridays,",
+                        "I",
+                        "read",
+                        "at home."
+                    ],
+                    "tokens_shuffled": [
+                        "at home.",
+                        "read",
+                        "On Fridays,",
+                        "I"
+                    ],
+                    "distractors": [
+                        "On Sundays",
+                        "reads",
+                        "at school"
+                    ],
+                    "learning_requirements": [
+                        "Явно дозволений і заданий початковий час.",
+                        "Після часу лишається порядок підмет — дієслово.",
+                        "Місце вдома збережене.",
+                        "Не додається вигаданий додаток після read у цьому повному вживанні."
+                    ]
+                }
+            ],
+            "editorial_review": {
+                "review_kind": "Авторська агентна перевірка; не human review.",
+                "review_boundaries": "П’ять різних простих повідомлень: SVO+place; lexical-frequency; be-frequency; object+time; initial-time+SV+place. Не всі possible word orders або CEFR constructs оцінюються. Усі слова з наданого банку; вільний добір синонімів не є ціллю. Два різних режими відповіді в own practice не зараховуються сюди.",
+                "sources": [
+                    {
+                        "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/clause-structure-verb-patterns",
+                        "access": "Direct editorial body read before comments."
+                    },
+                    {
+                        "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/where-adverbials-go-sentence",
+                        "access": "Direct editorial body read before comments."
+                    },
+                    {
+                        "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/how-often",
+                        "access": "Direct editorial body read before comments."
+                    },
+                    {
+                        "url": "https://dictionary.cambridge.org/grammar/british-grammar/adverbs-and-adverb-phrases-position",
+                        "access": "Primary indexed editorial text read; canonical direct403 not claimed full-body access."
+                    }
+                ]
+            }
+        },
+        {
+            "owner": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder",
+            "bank_seeder": "Database\\Seeders\\V3\\Polyglot\\M84QuestionsNegativesSupplementSeeder",
+            "level": "A1",
+            "type": 4,
+            "local_url": "http://gramlyze.loc/theory/basic-grammar/word-order/theory-word-order-questions-negatives",
+            "questions": [
+                {
+                    "source_uid": "m84-woqn-a1-01",
+                    "question_uk": "Дітям потрібна вода?",
+                    "context_uk": "Запитай співрозмовника про потребу конкретних дітей зараз. Це нейтральне запитання, не повторення здивованим тоном.",
+                    "criterion_uk": "Склади повне питання у Present Simple із потрібним допоміжним перед підметом. Збережи множину дітей та слово вода.",
+                    "translation_uk": "Дітям потрібна вода?",
+                    "ambiguity_note_uk": "Використай смислове дієслово потребувати з наданого банку. Не замінюй потребу на бажання чи твердження, що вода вже є.",
+                    "canonical_en": "Do the children need water?",
+                    "tokens_correct": [
+                        "Do",
+                        "the children",
+                        "need",
+                        "water?"
+                    ],
+                    "tokens_shuffled": [
+                        "water?",
+                        "need",
+                        "Do",
+                        "the children"
+                    ],
+                    "distractors": [
+                        "Does",
+                        "needs",
+                        "have"
+                    ],
+                    "learning_requirements": [
+                        "Do-support із підметом у множині.",
+                        "Основне need після допоміжного має базову форму.",
+                        "Ціле питання, не пропуск одного do.",
+                        "Збережена потреба у воді, не інше повідомлення."
+                    ]
+                },
+                {
+                    "source_uid": "m84-woqn-a1-02",
+                    "question_uk": "Твій брат удома?",
+                    "context_uk": "Мовець питає одного співрозмовника про його брата та місце, де брат перебуває зараз.",
+                    "criterion_uk": "Склади нейтральне повне питання з формою бути перед підметом. Іменна група твій брат називає одну людину; місце залиш після неї.",
+                    "translation_uk": "Твій брат удома?",
+                    "ambiguity_note_uk": "Не додавай do або вигаданого дієслова дії: питаємо лише про місцеперебування. Не міняй брата на сестру або себе.",
+                    "canonical_en": "Is your brother at home?",
+                    "tokens_correct": [
+                        "Is",
+                        "your",
+                        "brother",
+                        "at home?"
+                    ],
+                    "tokens_shuffled": [
+                        "brother",
+                        "at home?",
+                        "Is",
+                        "your"
+                    ],
+                    "distractors": [
+                        "Are",
+                        "Do",
+                        "my"
+                    ],
+                    "learning_requirements": [
+                        "Is перед підметом-іменником в однині.",
+                        "Be з місцем уже дає повне питання.",
+                        "Референт — брат адресата.",
+                        "Не переноситься механічно допоміжне do зі звичайного lexical-verb питання."
+                    ]
+                },
+                {
+                    "source_uid": "m84-woqn-a1-03",
+                    "question_uk": "Де працює Пол?",
+                    "context_uk": "Запитай про звичайне місце роботи Пола. Особа відома; невідоме саме місце, не той, хто працює.",
+                    "criterion_uk": "Почни з питального слова про місце. Далі постав потрібне допоміжне, ім’я-підмет і базову форму основного дієслова.",
+                    "translation_uk": "Де працює Пол?",
+                    "ambiguity_note_uk": "Це пряме питання у Present Simple. Не перетворюй його на підрядну частину або питання про минуле.",
+                    "canonical_en": "Where does Paul work?",
+                    "tokens_correct": [
+                        "Where",
+                        "does",
+                        "Paul",
+                        "work?"
+                    ],
+                    "tokens_shuffled": [
+                        "Paul",
+                        "work?",
+                        "Where",
+                        "does"
+                    ],
+                    "distractors": [
+                        "do",
+                        "works",
+                        "did"
+                    ],
+                    "learning_requirements": [
+                        "Where залишається частиною повної відповіді, не губиться як непоказаний службовий префікс.",
+                        "Does перед Paul і базове work.",
+                        "Відомий підмет та невідоме місце розрізнені.",
+                        "Незмінений formatter має показати все речення після Check."
+                    ]
+                },
+                {
+                    "source_uid": "m84-woqn-a1-04",
+                    "question_uk": "Хто відчиняє цей магазин?",
+                    "context_uk": "Питаємо, хто зазвичай відмикає та відчиняє магазин уранці. Виконавець невідомий; магазин уже вказаний.",
+                    "criterion_uk": "Склади нейтральне ствердне питання до підмета у Present Simple. Після питального слова збережи потрібну форму основного дієслова; додаткового займенника не вводь.",
+                    "translation_uk": "Хто відчиняє цей магазин?",
+                    "ambiguity_note_uk": "Не перетворюй питання на хто не відчиняє або на спеціальне підсилене перепитування. Не замінюй цей магазин іншим предметом.",
+                    "canonical_en": "Who opens this shop?",
+                    "tokens_correct": [
+                        "Who opens",
+                        "this",
+                        "shop?"
+                    ],
+                    "tokens_shuffled": [
+                        "shop?",
+                        "this",
+                        "Who opens"
+                    ],
+                    "distractors": [
+                        "do",
+                        "open",
+                        "he"
+                    ],
+                    "learning_requirements": [
+                        "Who займає місце підмета.",
+                        "Не додаємо do у явно заданій neutral positive simple моделі.",
+                        "Не дублюємо невідомий підмет займенником.",
+                        "Додаток this shop та звичний теперішній час збережені."
+                    ]
+                },
+                {
+                    "source_uid": "m84-woqn-a1-05",
+                    "question_uk": "Вони не п’ють молока.",
+                    "context_uk": "Це повідомлення про звичку групи людей, не про одну дію зараз. Мовець заперечує саме пиття молока.",
+                    "criterion_uk": "Почни з підмета вони. Використай повну нескорочену форму заперечення у Present Simple та збережи основне дієслово й напій.",
+                    "translation_uk": "Вони не п’ють молока.",
+                    "ambiguity_note_uk": "Не міняй заперечення на твердження, інших людей чи інший напій. Повна форма є навчальною вимогою тут, а не загальною забороною скорочень.",
+                    "canonical_en": "They do not drink milk.",
+                    "tokens_correct": [
+                        "They",
+                        "do",
+                        "not",
+                        "drink",
+                        "milk."
+                    ],
+                    "tokens_shuffled": [
+                        "drink",
+                        "milk.",
+                        "not",
+                        "They",
+                        "do"
+                    ],
+                    "distractors": [
+                        "does",
+                        "drinks",
+                        "coffee"
+                    ],
+                    "learning_requirements": [
+                        "They + do + not + базова форма drink.",
+                        "Not лишається окремим потрібним instance і не губиться у видимій відповіді.",
+                        "Повна форма задана явно, але unchanged contraction acceptance не перевизначається.",
+                        "Збережені множина, звичка й молоко."
+                    ]
+                }
+            ],
+            "editorial_review": {
+                "review_kind": "Авторська агентна перевірка; не human review.",
+                "review_boundaries": "П’ять цілих речень охоплюють do + noun subject, be + place, wh-location + does, нейтральне positive simple subject question та negative do not. Past Simple, modals і Perfect лишаються в теорії та власних source-derived tasks; їх не приписано цим п’ятьом candidates. Немає готових EN target answers у condition або hint."
+            }
+        },
+        {
+            "owner": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderAdverbsAdverbialsTheorySeeder",
+            "bank_seeder": "Database\\Seeders\\V3\\Polyglot\\M84AdverbsAdverbialsSupplementSeeder",
+            "level": "A2",
+            "type": 4,
+            "local_url": "http://gramlyze.loc/theory/basic-grammar/word-order/theory-word-order-adverbs-adverbials",
+            "questions": [
+                {
+                    "source_uid": "m84-woaa-a2-01",
+                    "question_uk": "Мій брат зазвичай ходить на роботу пішки.",
+                    "context_uk": "Йдеться про звичний спосіб діставатися на роботу, а не про одну подію зараз. Брат — один чоловік; прислівник має значення зазвичай.",
+                    "criterion_uk": "Почни з підмета та склади нейтральне теперішнє твердження. Постав прислівник частотності перед основним дієсловом і збережи всі задані групи слів.",
+                    "translation_uk": "Мій брат зазвичай ходить на роботу пішки.",
+                    "ambiguity_note_uk": "Потрібна звична дія з наведеним дієсловом ходити пішки; не змінюй її на поїздку транспортом або одноразову минулу подію.",
+                    "canonical_en": "My brother usually walks to work.",
+                    "tokens_correct": [
+                        "My brother",
+                        "usually",
+                        "walks",
+                        "to work."
+                    ],
+                    "tokens_shuffled": [
+                        "walks",
+                        "to work.",
+                        "My brother",
+                        "usually"
+                    ],
+                    "distractors": [
+                        "walk",
+                        "never",
+                        "at work."
+                    ],
+                    "learning_requirements": [
+                        "Підмет — один брат; у теперішній звичці зберігаємо walks.",
+                        "Usually стоїть перед lexical walks у заданому нейтральному порядку.",
+                        "To work означає напрямок до роботи, не перебування на роботі.",
+                        "Повне видиме речення, не окреме слово-прислівник у прогалині."
+                    ]
+                },
+                {
+                    "source_uid": "m84-woaa-a2-02",
+                    "question_uk": "Гості ніколи не запізнюються.",
+                    "context_uk": "Про відому групу гостей повідомляємо загальну звичку: вони щоразу вчасно. Використай модель з дієсловом-зв'язкою та словом зі значенням ніколи.",
+                    "criterion_uk": "Склади нейтральне твердження з підметом на початку. Постав прислівник після дієслова-зв'язки; не додавай другого заперечення.",
+                    "translation_uk": "Гості ніколи не запізнюються.",
+                    "ambiguity_note_uk": "Підмет у множині. Повідомлення заперечує запізнення, а не стверджує постійне запізнення; не починай з акцентного заперечного прислівника.",
+                    "canonical_en": "The guests are never late.",
+                    "tokens_correct": [
+                        "The guests",
+                        "are",
+                        "never",
+                        "late."
+                    ],
+                    "tokens_shuffled": [
+                        "never",
+                        "late.",
+                        "The guests",
+                        "are"
+                    ],
+                    "distractors": [
+                        "is",
+                        "always",
+                        "not never"
+                    ],
+                    "learning_requirements": [
+                        "Plural guests узгоджено з are.",
+                        "У базовій copular-моделі never стоїть після are.",
+                        "Never уже несе заперечення; not не додається.",
+                        "Оцінка не підміняє перевірки фактичного settled visible sentence."
+                    ]
+                },
+                {
+                    "source_uid": "m84-woaa-a2-03",
+                    "question_uk": "Ми часто відвідували той музей.",
+                    "context_uk": "Це наш досвід до теперішнього моменту; конкретного завершеного минулого періоду не названо. Використай подану конструкцію теперішнього доконаного часу та слово часто.",
+                    "criterion_uk": "Почни з підмета. Постав прислівник частотності після допоміжного дієслова й перед основною дієприкметниковою формою; предмет відвідування збережи.",
+                    "translation_uk": "Ми часто відвідували той музей.",
+                    "ambiguity_note_uk": "Потрібна саме подана модель досвіду донині, не минулий розклад. Музей — той самий конкретний об'єкт; нової часової дати не додавай.",
+                    "canonical_en": "We have often visited that museum.",
+                    "tokens_correct": [
+                        "We",
+                        "have often",
+                        "visited",
+                        "that museum."
+                    ],
+                    "tokens_shuffled": [
+                        "that museum.",
+                        "visited",
+                        "We",
+                        "have often"
+                    ],
+                    "distractors": [
+                        "has often",
+                        "often have",
+                        "visit"
+                    ],
+                    "learning_requirements": [
+                        "Допоміжне have та частотність often обидва збережені.",
+                        "Частотність не переставляється після всіх дієслів механічно.",
+                        "Visited — потрібна форма Perfect; visit не підміняє її.",
+                        "Токен have often є двослівною логічною групою, не цілою готовою відповіддю."
+                    ]
+                },
+                {
+                    "source_uid": "m84-woaa-a2-04",
+                    "question_uk": "Щосуботи Лео готує вдома.",
+                    "context_uk": "Це звичний розклад Лео. Початкова часова група встановлює рамку повідомлення; місце — його дім.",
+                    "criterion_uk": "Залиши групу зі значенням щосуботи на початку, далі постав ім'я підмета й теперішню дію. Місце має завершувати речення.",
+                    "translation_uk": "Щосуботи Лео готує вдома.",
+                    "ambiguity_note_uk": "Початкова обставина часу тут навмисно задана й не є помилкою. Не змінюй день, місце, виконавця або час; саму кому engine окремо не оцінює.",
+                    "canonical_en": "Every Saturday, Leo cooks at home.",
+                    "tokens_correct": [
+                        "Every Saturday,",
+                        "Leo",
+                        "cooks",
+                        "at home."
+                    ],
+                    "tokens_shuffled": [
+                        "at home.",
+                        "cooks",
+                        "Every Saturday,",
+                        "Leo"
+                    ],
+                    "distractors": [
+                        "cook",
+                        "in the office.",
+                        "Last Saturday,"
+                    ],
+                    "learning_requirements": [
+                        "Допустима передня часова обставина не відкидається заради кінцевого шаблону.",
+                        "Узгоджено singular Leo та cooks.",
+                        "At home є обставинною групою місця, не одним словом-прислівником.",
+                        "У BANK повністю видно Every Saturday,; службовий every не повинен ставати порожньою кнопкою."
+                    ]
+                },
+                {
+                    "source_uid": "m84-woaa-a2-05",
+                    "question_uk": "Елла повільно відчинила вікно.",
+                    "context_uk": "Одна минула дія: вона відчиняла вікно повільно. Потрібен спосіб виконання дії, а не частота або місце.",
+                    "criterion_uk": "Почни з імені. У цьому завданні постав прислівник способу перед основним дієсловом; короткий додаток залиш після нього.",
+                    "translation_uk": "Елла повільно відчинила вікно.",
+                    "ambiguity_note_uk": "Кінцевий прислівник у відповідному контексті теж можливий, але тут явно задана переддієслівна позиція. Не розривай прислівником дієслово й короткий додаток.",
+                    "canonical_en": "Ella slowly opened the window.",
+                    "tokens_correct": [
+                        "Ella",
+                        "slowly",
+                        "opened",
+                        "the window."
+                    ],
+                    "tokens_shuffled": [
+                        "the window.",
+                        "opened",
+                        "Ella",
+                        "slowly"
+                    ],
+                    "distractors": [
+                        "slow",
+                        "opens",
+                        "the windows."
+                    ],
+                    "learning_requirements": [
+                        "Доречне manner перед lexical verb приймається, а не оголошується універсальною помилкою.",
+                        "Slowly характеризує opened; slow не замінює прислівник у цій моделі.",
+                        "Збережено минулу дію та singular window.",
+                        "Не приймається перестановка opened slowly the window за заданою звичайною моделлю."
+                    ]
+                }
+            ],
+            "editorial_review": {
+                "review_kind": "Авторська агентна перевірка, не human review.",
+                "source_review": "author-cd-review.json: BC adverb position/frequency and Cambridge indexed primary position text.",
+                "coverage": "Five complete sentences: lexical frequency, copular frequency/negative, auxiliary frequency, initial time + final place, pre-verbal manner. These are not all adverb positions or a complete CEFR examination.",
+                "uniqueness": "No own-practice canonical is reused. Main must compare against the fresh complete actual bank inventory before freeze and verify SQL option case through formatter and actual settled text.",
+                "sources": [
+                    {
+                        "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/where-adverbials-go-sentence",
+                        "access": "Direct editorial body read; learner comments excluded."
+                    },
+                    {
+                        "url": "https://dictionary.cambridge.org/grammar/british-grammar/adverbs-and-adverb-phrases-position",
+                        "access": "Direct 403; indexed publisher editorial text read, not direct full access."
+                    },
+                    {
+                        "url": "https://learnenglishteens.britishcouncil.org/grammar/a1-a2-grammar/adverbs-frequency",
+                        "access": "Indexed publisher editorial dialogue read."
+                    }
+                ]
+            }
+        },
+        {
+            "owner": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderVerbsObjectsTheorySeeder",
+            "bank_seeder": "Database\\Seeders\\V3\\Polyglot\\M84VerbsObjectsSupplementSeeder",
+            "level": "A2",
+            "type": 4,
+            "local_url": "http://gramlyze.loc/theory/basic-grammar/word-order/theory-word-order-verbs-objects",
+            "questions": [
+                {
+                    "source_uid": "m84-wovo-a2-01",
+                    "question_uk": "Будь ласка, увімкни лампу.",
+                    "context_uk": "Лампа зараз не світить. Це прохання ввімкнути один конкретний прилад, не вимкнути його.",
+                    "criterion_uk": "Почни з поданого ввічливого слова й склади наказ. У цьому завданні постав весь іменниковий додаток між дієсловом і часткою; не замінюй його займенником.",
+                    "translation_uk": "Будь ласка, увімкни лампу.",
+                    "ambiguity_note_uk": "Порядок із коротким іменником після частки також граматичний, але тут явно задана розділена модель. Збережи значення ввімкнути, а не вимкнути.",
+                    "canonical_en": "Please turn the lamp on.",
+                    "tokens_correct": [
+                        "Please",
+                        "turn",
+                        "the lamp",
+                        "on."
+                    ],
+                    "tokens_shuffled": [
+                        "on.",
+                        "the lamp",
+                        "Please",
+                        "turn"
+                    ],
+                    "distractors": [
+                        "off.",
+                        "turns",
+                        "it on."
+                    ],
+                    "learning_requirements": [
+                        "Noun object дозволений між turn/on у цьому separable значенні.",
+                        "Visible criterion, а не прихований single key, задає потрібний із двох правильних порядків.",
+                        "Не змінюємо ввімкнення на вимкнення, noun на pronoun або наказ на твердження.",
+                        "Please лишається частиною фактичного видимого речення."
+                    ]
+                },
+                {
+                    "source_uid": "m84-wovo-a2-02",
+                    "question_uk": "Ми доглядаємо наших батьків.",
+                    "context_uk": "Ми допомагаємо й дбаємо про своїх батьків. Це звичне теперішнє повідомлення; використай поданий багатослівний вираз зі значенням доглядати.",
+                    "criterion_uk": "Почни з підмета та збережи нерозділювану модель: іменниковий додаток має стояти після прийменника. Батьків не замінюй іншими людьми або займенником.",
+                    "translation_uk": "Ми доглядаємо наших батьків.",
+                    "ambiguity_note_uk": "Йдеться саме про піклування, а не про пошук або погляд. Правило розділюваного дієслова не переноситься на цю конструкцію.",
+                    "canonical_en": "We look after our parents.",
+                    "tokens_correct": [
+                        "We",
+                        "look",
+                        "after",
+                        "our parents."
+                    ],
+                    "tokens_shuffled": [
+                        "our parents.",
+                        "after",
+                        "We",
+                        "look"
+                    ],
+                    "distractors": [
+                        "for",
+                        "looks",
+                        "their parents."
+                    ],
+                    "learning_requirements": [
+                        "Look after у значенні доглядати зберігає object після after.",
+                        "Our зберігає референт батьків мовців.",
+                        "Look узгоджується з plural we; looks не підходить.",
+                        "Повне sentence key й кінцевий текст містять after, а не випадково гублять прийменник."
+                    ]
+                },
+                {
+                    "source_uid": "m84-wovo-a2-03",
+                    "question_uk": "Вона не розуміє інструкцій.",
+                    "context_uk": "Описуємо її теперішнє нерозуміння конкретних інструкцій, а не відсутність здатності в минулому. Потрібне звичайне заперечення.",
+                    "criterion_uk": "Почни з підмета й використай повну нескорочену допоміжну заперечну форму. Після неї збережи основне дієслово у потрібній базовій формі.",
+                    "translation_uk": "Вона не розуміє інструкцій.",
+                    "ambiguity_note_uk": "Не прибирай заперечення та не додавай другу ознаку третьої особи до основного дієслова. Тут тренуємо подані повні групи; загальна граматична заборона скорочень не заявляється.",
+                    "canonical_en": "She does not understand the instructions.",
+                    "tokens_correct": [
+                        "She",
+                        "does not",
+                        "understand",
+                        "the instructions."
+                    ],
+                    "tokens_shuffled": [
+                        "understand",
+                        "the instructions.",
+                        "She",
+                        "does not"
+                    ],
+                    "distractors": [
+                        "do not",
+                        "understands",
+                        "did not"
+                    ],
+                    "learning_requirements": [
+                        "Does — потрібне auxiliary при singular she; not збережено.",
+                        "Lexical understand не має -s після does.",
+                        "Не змінено теперішній час або заперечення.",
+                        "Settled visible sentence має містити does not, а не лише правильний score."
+                    ]
+                },
+                {
+                    "source_uid": "m84-wovo-a2-04",
+                    "question_uk": "Тобі не можна пересувати ці коробки.",
+                    "context_uk": "Це пряма заборона пересувати конкретні коробки. Вони повинні залишитися на місці; це не повідомлення про відсутність необхідності їх рухати.",
+                    "criterion_uk": "Почни з підмета та склади повну нескорочену модальну заборону з поданих груп. Після модального дієслова збережи базову форму дії й множину предметів.",
+                    "translation_uk": "Тобі не можна пересувати ці коробки.",
+                    "ambiguity_note_uk": "Використай саме подану модальну модель заборони. Не замінюй її на пораду або на дозвіл нічого не робити; про здатність пересувати коробки нічого не сказано.",
+                    "canonical_en": "You must not move these boxes.",
+                    "tokens_correct": [
+                        "You",
+                        "must not",
+                        "move",
+                        "these boxes."
+                    ],
+                    "tokens_shuffled": [
+                        "these boxes.",
+                        "move",
+                        "You",
+                        "must not"
+                    ],
+                    "distractors": [
+                        "must",
+                        "to move",
+                        "this box."
+                    ],
+                    "learning_requirements": [
+                        "Must not — заборона, не don't have to.",
+                        "Move після core modal має base form без to.",
+                        "These boxes зберігає вказівку та множину.",
+                        "Не губимо not під час складання, перевірки або formatter projection."
+                    ]
+                },
+                {
+                    "source_uid": "m84-wovo-a2-05",
+                    "question_uk": "Лена надягає його перед сніданком.",
+                    "context_uk": "Його — одне конкретне пальто Лени. Описуємо її звичну ранкову дію. Скористайся поданим розділюваним виразом надягати та займенником для пальта.",
+                    "criterion_uk": "Почни з імені. Постав особовий займенник між дієсловом і часткою, а час — наприкінці; збережи теперішню звичку.",
+                    "translation_uk": "Лена надягає його перед сніданком.",
+                    "ambiguity_note_uk": "Пальто — один предмет, тому потрібен займенник однини. Не змінюй подію на роздягання або на надягання кількох речей.",
+                    "canonical_en": "Lena puts it on before breakfast.",
+                    "tokens_correct": [
+                        "Lena",
+                        "puts it",
+                        "on",
+                        "before breakfast."
+                    ],
+                    "tokens_shuffled": [
+                        "before breakfast.",
+                        "on",
+                        "Lena",
+                        "puts it"
+                    ],
+                    "distractors": [
+                        "put",
+                        "them",
+                        "off"
+                    ],
+                    "learning_requirements": [
+                        "Singular Lena зберігає present puts.",
+                        "It замінює назване singular coat; не можна здогадуватися про референт без контексту.",
+                        "It стоїть між puts/on саме в одягальному separable значенні.",
+                        "Before breakfast — збережений час, а не новий object; у видимому результаті не губимо particle on."
+                    ]
+                }
+            ],
+            "editorial_review": {
+                "review_kind": "Авторська агентна перевірка, не human review.",
+                "source_review": "author-cd-review.json: BC phrasal word order, Cambridge multiword/verb types/modals and dictionary meaning review.",
+                "coverage": "Five complete sentences: named noun separability, inseparable prepositional model, do-support negative, modal prohibition, third-person separable pronoun with explicit referent. Own tasks remain separate and are not replaced.",
+                "uniqueness": "No own canonical reused. Main must compare fresh actual-bank conditions and normalized full keys, inspect option case and formatter settled sentences before freeze/apply.",
+                "sources": [
+                    {
+                        "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/c1/word-order-phrasal-verbs",
+                        "access": "Direct editorial body read; no exercise bank copied and no learner comment used as rule."
+                    },
+                    {
+                        "url": "https://dictionaryblog.cambridge.org/2020/01/29/let-down-and-look-after-the-difference-between-phrasal-verbs-and-prepositional-verbs/",
+                        "access": "Direct publisher editorial body read, before comments."
+                    },
+                    {
+                        "url": "https://dictionary.cambridge.org/grammar/british-grammar/modality-forms",
+                        "access": "Direct 403; indexed primary editorial forms text read."
+                    },
+                    {
+                        "url": "https://dictionary.cambridge.org/grammar/british-grammar/verbs-auxiliary-verbs",
+                        "access": "Indexed primary editorial body read; auxiliary/main function distinguished."
+                    }
+                ]
+            }
+        },
+        {
+            "owner": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\AdvancedWordOrderEmphasisTheorySeeder",
+            "bank_seeder": "Database\\Seeders\\V3\\Polyglot\\M84AdvancedEmphasisSupplementSeeder",
+            "level": "B2",
+            "type": 4,
+            "local_url": "http://gramlyze.loc/theory/basic-grammar/word-order/theory-advanced-word-order-emphasis",
+            "questions": [
+                {
+                    "source_uid": "m84-woadv-b2-01",
+                    "question_uk": "Я ніколи не чув / не чула такого ясного пояснення.",
+                    "context_uk": "Мовець озирається на весь свій попередній досвід, а не описує одну завершену розмову.",
+                    "criterion_uk": "Побудуй повне речення з інверсією, збережи початкове Never і форму теперішнього доконаного часу.",
+                    "translation_uk": "Ніколи я не чув / не чула такого ясного пояснення.",
+                    "ambiguity_note_uk": "У цьому завданні потрібна саме початкова негативна обставина, не нейтральний порядок із never усередині.",
+                    "canonical_en": "Never have I heard such a clear explanation.",
+                    "tokens_correct": [
+                        "Never",
+                        "have I",
+                        "heard",
+                        "such a",
+                        "clear explanation."
+                    ],
+                    "tokens_shuffled": [
+                        "clear explanation.",
+                        "heard",
+                        "Never",
+                        "such a",
+                        "have I"
+                    ],
+                    "distractors": [
+                        "has I",
+                        "hear"
+                    ],
+                    "learning_requirements": [
+                        "Повна конструкція з початковим Never.",
+                        "Збережено have, підмет I та дієприкметник heard.",
+                        "Не змінено чіткість пояснення або досвід мовця."
+                    ]
+                },
+                {
+                    "source_uid": "m84-woadv-b2-02",
+                    "question_uk": "Саме Марта відремонтувала радіо.",
+                    "context_uk": "Радіо вже відремонтоване; співрозмовник помилково приписав цю дію іншій людині.",
+                    "criterion_uk": "Виділи Марту конструкцією it-cleft у минулому часі; з'єднай частини через who.",
+                    "translation_uk": "Саме Марта відремонтувала радіо.",
+                    "ambiguity_note_uk": "Збережи особу, дію та предмет. Не додавай значення «лише» або нову подію.",
+                    "canonical_en": "It was Marta who repaired the radio.",
+                    "tokens_correct": [
+                        "It was",
+                        "Marta",
+                        "who repaired",
+                        "the radio."
+                    ],
+                    "tokens_shuffled": [
+                        "Marta",
+                        "the radio.",
+                        "It was",
+                        "who repaired"
+                    ],
+                    "distractors": [
+                        "which repaired",
+                        "is"
+                    ],
+                    "learning_requirements": [
+                        "У фокусі саме особа Marta.",
+                        "It was зберігає заданий минулий контекст.",
+                        "Who з'єднує частини відповідно до видимої умови."
+                    ]
+                },
+                {
+                    "source_uid": "m84-woadv-b2-03",
+                    "question_uk": "Те, чого вона хоче, — це піти.",
+                    "context_uk": "Вона називає бажану дію, а не річ, яку треба отримати.",
+                    "criterion_uk": "Почни з What і побудуй what-cleft; після зв’язки назви бажану дію в інфінітиві.",
+                    "translation_uk": "Те, чого вона хоче, — це піти.",
+                    "ambiguity_note_uk": "Збережи її бажання піти. Тут потрібне позначення дії в інфінітиві, не іменна група й не питання.",
+                    "canonical_en": "What she wants is to leave.",
+                    "tokens_correct": [
+                        "What she wants",
+                        "is",
+                        "to leave."
+                    ],
+                    "tokens_shuffled": [
+                        "to leave.",
+                        "is",
+                        "What she wants"
+                    ],
+                    "distractors": [
+                        "it is",
+                        "leave to"
+                    ],
+                    "learning_requirements": [
+                        "Wh-частина задає її бажання, без додавання нового підмета it.",
+                        "Інфінітив після is є правильним фокусом what-cleft.",
+                        "Повне речення відрізняється від речень власної практики й видимих прикладів.",
+                        "Кінцева крапка зберігає твердження за незміненим formatter."
+                    ]
+                },
+                {
+                    "source_uid": "m84-woadv-b2-04",
+                    "question_uk": "Ось цим старим велосипедом я досі користуюся.",
+                    "context_uk": "Мовець порівнює цей велосипед з іншими речами, якими вже не користується.",
+                    "criterion_uk": "Винеси групу This old bicycle на початок для контрасту; збережи далі підмет і звичайний стверджувальний присудок.",
+                    "translation_uk": "Ось цим старим велосипедом я досі користуюся.",
+                    "ambiguity_note_uk": "Потрібне винесення предмета, не інверсія допоміжного дієслова й не додаткова заборона або заперечення.",
+                    "canonical_en": "This old bicycle I still use.",
+                    "tokens_correct": [
+                        "This old",
+                        "bicycle",
+                        "I",
+                        "still use."
+                    ],
+                    "tokens_shuffled": [
+                        "still use.",
+                        "I",
+                        "This old",
+                        "bicycle"
+                    ],
+                    "distractors": [
+                        "still uses",
+                        "do not"
+                    ],
+                    "learning_requirements": [
+                        "Предмет This old bicycle стоїть у контрастній початковій позиції.",
+                        "Підмет I і присудок still use не інвертуються.",
+                        "Зберігається значення тривалого використання, без not."
+                    ]
+                },
+                {
+                    "source_uid": "m84-woadv-b2-05",
+                    "question_uk": "Вона таки принесла документи.",
+                    "context_uk": "Співрозмовник сумнівається, чи принесла вона документи; мовець підтверджує, що це сталося.",
+                    "criterion_uk": "Почни з She і підсиль минулу дію за допомогою did; після нього потрібна базова форма дієслова.",
+                    "translation_uk": "Вона таки принесла документи.",
+                    "ambiguity_note_uk": "Збережи дію принесення та всі названі документи. Текстова перевірка не оцінює вимову наголосу.",
+                    "canonical_en": "She did bring the documents.",
+                    "tokens_correct": [
+                        "She",
+                        "did",
+                        "bring",
+                        "the documents."
+                    ],
+                    "tokens_shuffled": [
+                        "the documents.",
+                        "bring",
+                        "She",
+                        "did"
+                    ],
+                    "distractors": [
+                        "brought",
+                        "does"
+                    ],
+                    "learning_requirements": [
+                        "Підсилення ствердження з did, не питання.",
+                        "Bring лишається базовою формою, минулий час виражає did.",
+                        "Учасниця і документи не змінюються."
+                    ]
+                }
+            ]
+        }
+    ],
+    "case_review_revision": {
+        "scope": "Only draft token boundaries; canonical sentences, Ukrainian facts and old SQL options unchanged.",
+        "reason": "Fresh SQL labels After lunch./Opens/Puts retain inappropriate internal uppercase. Regroup three new candidate banks into native 1–3-word chunks, without changing existing options or formatter.",
+        "additional_editorial_revision": "E03 uses a distinct infinitival what-cleft fact instead of duplicating the native practice candidate What I need is to rest. All 25 complete canonical sentences were read independently before freeze."
+    }
+}

@@ -44,6 +44,7 @@ final class TheoryContentSource
         [M81TransformationsCommonMistakes::class, 'm42StyleContext'],
         [M82CommonMistakesLevelRevision::class, 'm42StyleContext'],
         [M83B2RevisionBasicGrammar::class, 'm42StyleContext'],
+        [M84WordOrderHaveGot::class, 'm42StyleContext'],
         [M50ObligationAdvicePackage::class, 'm42StyleContext'],
         [PracticeCompletionPackage::class, 'm42StyleContext'],
         [M49AdviceModalsPackage::class, 'm42StyleContext'],
