@@ -545,6 +545,7 @@ class TestJsV2Controller extends Controller
                     if ($block !== null) { $block = \App\Support\M85VerbToBe::preserveExcludedTextBlock($block, 'standalone_test'); }
                     if ($block !== null) { $block = \App\Support\M86PresentSimpleContinuousBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
                     if ($block !== null) { $block = \App\Support\M87ContinuousCompletionPastSimple::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M88PastContinuousPresentPerfectBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
                     if ($block === null) { continue; }
                     if (isset($seenBlockUuids[$block->uuid])) {
                         continue;
@@ -599,6 +600,7 @@ class TestJsV2Controller extends Controller
                 if ($textBlock) { $textBlock = \App\Support\M85VerbToBe::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) { $textBlock = \App\Support\M86PresentSimpleContinuousBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) { $textBlock = \App\Support\M87ContinuousCompletionPastSimple::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M88PastContinuousPresentPerfectBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) {
                     $theoryBlocks[] = [
                         'uuid' => $textBlock->uuid,
@@ -1476,6 +1478,7 @@ class TestJsV2Controller extends Controller
                 if ($block !== null) { $block = \App\Support\M85VerbToBe::preserveExcludedTextBlock($block, 'standalone_test'); }
                 if ($block !== null) { $block = \App\Support\M86PresentSimpleContinuousBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
                 if ($block !== null) { $block = \App\Support\M87ContinuousCompletionPastSimple::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M88PastContinuousPresentPerfectBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
                 if ($block === null) { continue; }
                 $seen[$block->uuid] = true;
                 $blocks[] = [
@@ -1527,6 +1530,7 @@ class TestJsV2Controller extends Controller
             if ($textBlock) { $textBlock = \App\Support\M85VerbToBe::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) { $textBlock = \App\Support\M86PresentSimpleContinuousBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) { $textBlock = \App\Support\M87ContinuousCompletionPastSimple::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M88PastContinuousPresentPerfectBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) {
                 $blocks[] = [
                     'uuid' => $textBlock->uuid,
