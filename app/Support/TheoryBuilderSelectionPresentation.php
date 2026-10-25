@@ -6,6 +6,7 @@ use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
 use App\Models\TextBlock;
+use App\Models\VerbHint;
 use Illuminate\Support\Collection;
 use RuntimeException;
 use Throwable;
@@ -99,6 +100,13 @@ abstract class TheoryBuilderSelectionPresentation
                 throw new RuntimeException($policy['label'].' finite five/pool partition differs.');
             }
             foreach ($target['first_five'] as $sample) {
+                $hintOptIn = array_key_exists('verb_hint_snapshot_schema', $policy);
+                if (array_key_exists('verb_hint_snapshot_schema', $sample) !== $hintOptIn
+                    || ($hintOptIn && ($policy['verb_hint_snapshot_schema'] !== 'complete-loaded-verb-hints-v1'
+                        || $sample['verb_hint_snapshot_schema'] !== $policy['verb_hint_snapshot_schema']
+                        || preg_match('/^[a-f0-9]{64}$/D', $sample['snapshot_hashes']['verb_hints_snapshot'] ?? '') !== 1))) {
+                    throw new RuntimeException($policy['label'].' exact verb-hint snapshot schema opt-in differs.');
+                }
                 if ($sample['token_presentations']!==[] || $sample['option_presentations']!==[]
                     || $sample['question_attribute_keys']!==M51QuestionSupplement::ROW_COLUMNS['questions']
                     || ComposeTokenCase::normalize($sample['correct_tokens'])!==$sample['correct_tokens']) {
@@ -163,17 +171,65 @@ abstract class TheoryBuilderSelectionPresentation
                 || !$question->relationLoaded('answers') || !$question->relationLoaded('options')
                 || !$question->relationLoaded('hints') || !$question->relationLoaded('verbHints')
                 || !$question->getRelation('answers') instanceof Collection || !$question->getRelation('options') instanceof Collection
-                || !$question->getRelation('hints') instanceof Collection || !$question->getRelation('verbHints') instanceof Collection
-                || $question->getRelation('verbHints')->isNotEmpty()) { return false; }
+                || !$question->getRelation('hints') instanceof Collection || !$question->getRelation('verbHints') instanceof Collection) { return false; }
+            $verbHints = self::verbHints($question, $sample);
+            if ($verbHints === null) { return false; }
             $answers = self::answers($question); $options = self::options($question); $pivots = self::optionPivots($question);
             if ($answers === null || $options === null || $pivots === null
                 || M26DetailPackage::digest($answers) !== $sample['snapshot_hashes']['ordered_answer_snapshot']
                 || M26DetailPackage::digest($options) !== $sample['snapshot_hashes']['original_options_snapshot']
                 || M26DetailPackage::digest($pivots) !== $sample['snapshot_hashes']['loaded_option_pivots']
                 || M26DetailPackage::digest(self::hints($question)) !== $sample['snapshot_hashes']['hints_snapshot']
-                || M26DetailPackage::digest([]) !== $sample['snapshot_hashes']['verb_hints_snapshot']) { return false; }
+                || M26DetailPackage::digest($verbHints) !== $sample['snapshot_hashes']['verb_hints_snapshot']) { return false; }
         }
         return true;
+    }
+
+    /**
+     * Explicit frozen opt-in only. Historical packages still require an empty
+     * relation. Complete raw hint/option attributes and loaded row order are
+     * bound without queries, locale/case normalization or original-model edits.
+     */
+    private static function verbHints(Question $question, array $sample): ?array
+    {
+        if (!$question->relationLoaded('verbHints') || !$question->getRelation('verbHints') instanceof Collection) { return null; }
+        $hints = $question->getRelation('verbHints');
+        if (!array_key_exists('verb_hint_snapshot_schema', $sample)) { return $hints->isEmpty() ? [] : null; }
+        if ($sample['verb_hint_snapshot_schema'] !== 'complete-loaded-verb-hints-v1'
+            || !$question->relationLoaded('options') || !$question->getRelation('options') instanceof Collection) { return null; }
+        $hintKeys = ['id', 'question_id', 'option_id', 'marker', 'locale', 'created_at', 'updated_at'];
+        $optionKeys = ['id', 'option', 'created_at', 'updated_at'];
+        $exact = static function (array $attributes, array $keys): ?array {
+            $actual = array_keys($attributes); $expected = $keys; sort($actual); sort($expected);
+            if ($actual !== $expected) { return null; }
+            $out = []; foreach ($keys as $key) { $out[$key] = $attributes[$key]; } return $out;
+        };
+        $options = [];
+        foreach ($question->getRelation('options') as $option) {
+            if (!$option instanceof QuestionOption) { return null; }
+            $attributes = $exact($option->getAttributes(), $optionKeys);
+            if ($attributes === null || !is_int($attributes['id']) || !is_string($attributes['option'])
+                || isset($options[$attributes['id']])) { return null; }
+            $options[$attributes['id']] = $attributes;
+        }
+        $rows = []; $ids = [];
+        foreach ($hints as $hint) {
+            if (!$hint instanceof VerbHint || !$hint->relationLoaded('option')) { return null; }
+            $attributes = $exact($hint->getAttributes(), $hintKeys); $option = $hint->getRelation('option');
+            if ($attributes === null || !is_int($attributes['id']) || isset($ids[$attributes['id']])
+                || $attributes['question_id'] !== ($question->getAttributes()['id'] ?? null)
+                || !is_int($attributes['option_id']) || !is_string($attributes['marker']) || !is_string($attributes['locale'])
+                || !$option instanceof QuestionOption) { return null; }
+            $optionAttributes = $exact($option->getAttributes(), $optionKeys);
+            if ($optionAttributes === null || $optionAttributes['id'] !== $attributes['option_id']
+                || (isset($options[$attributes['option_id']]) && $options[$attributes['option_id']] !== $optionAttributes)) { return null; }
+            // Hint-only options have pivot flag1 and are intentionally absent
+            // from Question::options(); their complete separate snapshot is
+            // still bound below, never inserted into the native token bank.
+            $ids[$attributes['id']] = true;
+            $rows[] = ['attributes' => $attributes, 'option' => $optionAttributes];
+        }
+        return $rows;
     }
 
     private static function answers(Question $question): ?array

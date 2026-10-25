@@ -1,0 +1,1597 @@
+{
+    "Database\\Seeders\\Page_V3\\Tenses\\PresentPerfect\\PresentPerfectQuestionsTheorySeeder": [
+        {
+            "old_block_source_index": 6,
+            "old_group": "selects",
+            "old_group_index": 0,
+            "old_task": {
+                "label": "a) Has she finished the report? / b) Have she finished the report?",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "after_task": {
+                "label": "<p>Який варіант правильний? Потрібне нейтральне пряме питання Present Perfect про готовність уже згаданого звіту.</p><p lang=\"en\">a) Has she finished the report? / b) Have she finished the report?</p><p>Вона закінчила звіт?</p>",
+                "prompt": "Який варіант правильний?",
+                "answer": "a",
+                "feedback": {
+                    "a": "Has she finished the report? — Вона закінчила звіт? She узгоджується з has; finished — V3. Питання ще не стверджує завершення.",
+                    "b": "Потрібне Has she finished the report? — Вона закінчила звіт? Have не узгоджується з she у цій моделі."
+                },
+                "accepted": [
+                    "a"
+                ]
+            },
+            "classification": "retained_refined",
+            "graded": true,
+            "learning_function": "Нейтральне Present Perfect питання: has із she та finished.",
+            "change_reason": "Старий letter answer і обидва EN stimuli збережені; вирішальний criterion тепер видно в label, додано plain feedback. Додано explicit accepted=[незмінний answer], бо unchanged release validator вимагає canonical answer серед accepted; це не зміна оцінювача й не твердження про попередню несправність runtime.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "selects",
+            "old_group_index": 1,
+            "old_task": {
+                "label": "a) When have you sent the email? / b) When did you send the email?",
+                "prompt": "Питаємо, коли саме сталася завершена подія.",
+                "answer": "b"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "after_task": {
+                "label": "<p>Питаємо, коли саме сталася завершена подія. Електронного листа вже надіслано; потрібно з'ясувати конкретний час надсилання.</p><p lang=\"en\">a) When have you sent the email? / b) When did you send the email?</p><p>Коли саме ти надіслав електронного листа?</p>",
+                "prompt": "Питаємо, коли саме сталася завершена подія.",
+                "answer": "b",
+                "feedback": {
+                    "a": "Потрібне When did you send the email? — Коли саме ти надіслав електронного листа? Для заданої завершеної події запитуємо конкретний минулий час; це не заборона всіх інших when-запитів.",
+                    "b": "When did you send the email? — Коли саме ти надіслав електронного листа? Past Simple відповідає видимому запиту про час конкретного завершеного надсилання."
+                },
+                "accepted": [
+                    "b"
+                ]
+            },
+            "classification": "retained_refined",
+            "graded": true,
+            "learning_function": "Конкретний час завершеного надсилання: Past Simple за visible criterion.",
+            "change_reason": "Старий letter answer і обидва EN stimuli збережені; вирішальний criterion тепер видно в label, додано plain feedback. Додано explicit accepted=[незмінний answer], бо unchanged release validator вимагає canonical answer серед accepted; це не зміна оцінювача й не твердження про попередню несправність runtime.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "old_task": {
+                "before": "ever / you / have / been / to Canada",
+                "after": "→",
+                "answer": "Have you ever been to Canada?"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "after_task": {
+                "before": "to Canada? / ever been / Have you",
+                "after": "<p>Ти коли-небудь бував у Канаді? Запитай одного співрозмовника про досвід до сьогодні, без конкретної минулої дати. Побудуй нейтральне питання Present Perfect; ужий ever після підмета та повну форму допоміжного.</p><p lang=\"en\">be to Canada — бувати в Канаді; ever — коли-небудь.</p>",
+                "answer": "Have you ever been to Canada?",
+                "feedback": {
+                    "have you ever been to canada?": "Have you ever been to Canada? — Ти коли-небудь бував у Канаді? Have стоїть перед you, ever — перед been. Питання не визначає відповіді наперед."
+                },
+                "accepted": [
+                    "Have you ever been to Canada?"
+                ]
+            },
+            "classification": "retained_refined",
+            "graded": true,
+            "learning_function": "Повне question про Canada experience із ever.",
+            "change_reason": "Старий canonical/accepted list та відсутність identity полів збережені; видимі UA/лексика/порядок і canonical-case/punctuation bank додають здійсненність без нового engine. Додано explicit accepted=[незмінний answer], бо unchanged release validator вимагає canonical answer серед accepted; це не зміна оцінювача й не твердження про попередню несправність runtime.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "full_sentence"
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "old_task": {
+                "before": "How long / she / has / lived / here",
+                "after": "→",
+                "answer": "How long has she lived here?"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "after_task": {
+                "before": "lived here? / How long / has she",
+                "after": "<p>Як давно вона тут живе? Питаємо про тривалість її проживання до тепер. У цій вправі тренуємо саме Present Perfect Simple з дієсловом live; почни з How long і використай повну форму допоміжного.</p><p lang=\"en\">how long — як давно; live here — жити тут.</p>",
+                "answer": "How long has she lived here?",
+                "feedback": {
+                    "how long has she lived here?": "How long has she lived here? — Як давно вона тут живе? How long стоїть на початку; has узгоджується з she, lived — V3. Це задана Simple-модель, а не загальна заборона Continuous з live."
+                },
+                "accepted": [
+                    "How long has she lived here?"
+                ]
+            },
+            "classification": "retained_refined",
+            "graded": true,
+            "learning_function": "Повне How long question у явно заданій Present Perfect Simple моделі.",
+            "change_reason": "Старий canonical/accepted list та відсутність identity полів збережені; видимі UA/лексика/порядок і canonical-case/punctuation bank додають здійсненність без нового engine. Додано explicit accepted=[незмінний answer], бо unchanged release validator вимагає canonical answer серед accepted; це не зміна оцінювача й не твердження про попередню несправність runtime.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "full_sentence"
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m89-present-perfect-questions-meaning-subject",
+                "label": "<p>Стільці в кімнаті переставлені. Олег не знає, хто це зробив, і питає:</p><p lang=\"en\">Who has moved the chairs?</p><p>Хто переставив стільці? Яку інформацію він хоче отримати?</p>",
+                "options": [
+                    "Хто виконав переставляння стільців.",
+                    "Які саме стільці було переставлено.",
+                    "Коли саме почалося переставляння."
+                ],
+                "answer": "Хто виконав переставляння стільців.",
+                "accepted": [
+                    "Хто виконав переставляння стільців."
+                ],
+                "feedback": {
+                    "хто виконав переставляння стільців.": "Who has moved the chairs? — Хто переставив стільці? Who — підмет: Олег з'ясовує виконавця дії, а не предмет чи час.",
+                    "які саме стільці було переставлено.": "Who has moved the chairs? — Хто переставив стільці? Олег питає про виконавця. Назву предмета chairs уже подано; питання не Which chairs…?",
+                    "коли саме почалося переставляння.": "Who has moved the chairs? — Хто переставив стільці? Олег питає Who, не When. Час початку цим питанням не встановлюється."
+                }
+            },
+            "classification": "new_authored",
+            "graded": true,
+            "learning_function": "Інформаційна роль who-subject за заданим фактом переставляння.",
+            "change_reason": "Нова семантична задача з власним stable ID, не дубль have/has або punctuation-only difference.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "meaning"
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m89-present-perfect-questions-meaning-short-answer",
+                "label": "<p>Леся одна відповідає про себе. Вона вже бувала в Польщі. Друг питає, і вона відповідає:</p><p lang=\"en\">Have you ever been to Poland? — Yes, I have.</p><p>Ти коли-небудь бувала в Польщі? — Так. Що підтверджує її відповідь?</p>",
+                "options": [
+                    "У Лесі був такий досвід до цього моменту; її теперішнє місце перебування не названо.",
+                    "Леся обов'язково зараз перебуває в Польщі.",
+                    "Леся відповіла за всю групу друзів."
+                ],
+                "answer": "У Лесі був такий досвід до цього моменту; її теперішнє місце перебування не названо.",
+                "accepted": [
+                    "У Лесі був такий досвід до цього моменту; її теперішнє місце перебування не названо."
+                ],
+                "feedback": {
+                    "у лесі був такий досвід до цього моменту; її теперішнє місце перебування не названо.": "Have you ever been to Poland? — Yes, I have. — Ти коли-небудь бувала в Польщі? — Так. Леся підтвердила власний досвід; коли саме вона їздила й де перебуває зараз, не сказано.",
+                    "леся обов'язково зараз перебуває в польщі.": "Have you ever been to Poland? — Yes, I have. — Ти коли-небудь бувала в Польщі? — Так. Been to у такому запиті про досвід не підтверджує, що Леся зараз у Польщі.",
+                    "леся відповіла за всю групу друзів.": "Have you ever been to Poland? — Yes, I have. — Ти коли-небудь бувала в Польщі? — Так. Видима умова каже, що одна Леся відповідає про себе; I не означає всю групу."
+                }
+            },
+            "classification": "new_authored",
+            "graded": true,
+            "learning_function": "Meaning власного підтвердженого досвіду у short answer; не now-location/груповий мовець.",
+            "change_reason": "Нова семантична задача з власним stable ID, не дубль have/has або punctuation-only difference.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "meaning"
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\Tenses\\PresentPerfect\\PresentPerfectTimeExpressionsTheorySeeder": [
+        {
+            "old_block_source_index": 6,
+            "old_group": "selects",
+            "old_group_index": 0,
+            "old_task": {
+                "label": "a) I have seen him yesterday. / b) I saw him yesterday.",
+                "prompt": "Який варіант правильний?",
+                "answer": "b"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "after_task": {
+                "label": "<p>Який варіант правильний? Мовець розповідає про конкретний завершений факт: він бачив цю людину саме вчора.</p><p lang=\"en\">a) I have seen him yesterday. / b) I saw him yesterday.</p><p>Я бачив його вчора.</p>",
+                "prompt": "Який варіант правильний?",
+                "answer": "b",
+                "feedback": {
+                    "a": "Потрібне I saw him yesterday. — Я бачив його вчора. Yesterday датує задану завершену подію; тут не підсумок до зараз.",
+                    "b": "I saw him yesterday. — Я бачив його вчора. Past Simple відповідає конкретному завершеному часу цієї події."
+                },
+                "accepted": [
+                    "b"
+                ]
+            },
+            "classification": "retained_refined",
+            "graded": true,
+            "learning_function": "Завершений yesterday event проти безпідставного Perfect.",
+            "change_reason": "Старий letter answer і обидва EN stimuli збережені; вирішальний criterion тепер видно в label, додано plain feedback. Додано explicit accepted=[незмінний answer], бо unchanged release validator вимагає canonical answer серед accepted; це не зміна оцінювача й не твердження про попередню несправність runtime.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "selects",
+            "old_group_index": 1,
+            "old_task": {
+                "label": "a) She has lived here since 2022. / b) She has lived here for 2022.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "after_task": {
+                "label": "<p>Який варіант правильний? Вона почала жити тут у 2022 році й досі тут живе. Назви початкову точку, не тривалість.</p><p lang=\"en\">a) She has lived here since 2022. / b) She has lived here for 2022.</p><p>Вона живе тут із 2022 року.</p>",
+                "prompt": "Який варіант правильний?",
+                "answer": "a",
+                "feedback": {
+                    "a": "She has lived here since 2022. — Вона живе тут із 2022 року. Since вводить початкову точку; точну тривалість без моменту мовлення не обчислюємо.",
+                    "b": "Потрібне She has lived here since 2022. — Вона живе тут із 2022 року. Рік 2022 тут є початковою точкою, не тривалістю після for."
+                },
+                "accepted": [
+                    "a"
+                ]
+            },
+            "classification": "retained_refined",
+            "graded": true,
+            "learning_function": "Since2022 як початкова точка проживання донині, не for2022.",
+            "change_reason": "Старий letter answer і обидва EN stimuli збережені; вирішальний criterion тепер видно в label, додано plain feedback. Додано explicit accepted=[незмінний answer], бо unchanged release validator вимагає canonical answer серед accepted; це не зміна оцінювача й не твердження про попередню несправність runtime.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "old_task": {
+                "before": "already / has / Leo / finished / the task",
+                "after": "→",
+                "answer": "Leo has already finished the task."
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "after_task": {
+                "before": "the task. / has already / Leo / finished",
+                "after": "<p>Лео вже закінчив завдання. Повідом про готовий результат у Present Perfect, використавши finish і already. У цьому завданні постав already між допоміжним і V3 та почни з Leo. Повна форма has і скорочена Leo's приймаються за ручного введення; банк готових груп складає повну форму.</p><p lang=\"en\">Leo — Лео; finish the task — закінчити це завдання; already — уже.</p>",
+                "answer": "Leo has already finished the task.",
+                "feedback": {
+                    "leo has already finished the task.": "Leo has already finished the task. — Лео вже закінчив завдання. Умова прямо задає already між has і finished; інші природні позиції already не оголошуються неправильними загалом.",
+                    "leo's already finished the task.": "Leo's already finished the task. — Лео вже закінчив завдання. 's тут скорочує has; already стоїть після допоміжного й перед finished. Повна й скорочена форми приймаються за ручного введення; готові групи складають повну форму."
+                },
+                "accepted": [
+                    "Leo has already finished the task.",
+                    "Leo's already finished the task."
+                ]
+            },
+            "classification": "retained_refined",
+            "graded": true,
+            "learning_function": "Already у заданій mid-position, готовий результат Leo.",
+            "change_reason": "Старий canonical/accepted list та відсутність identity полів збережені; видимі UA/лексика/порядок і canonical-case/punctuation bank додають здійсненність без нового engine. Додано explicit accepted=[незмінний answer], бо unchanged release validator вимагає canonical answer серед accepted; це не зміна оцінювача й не твердження про попередню несправність runtime. Targeted actual native-factory probe 20a3ded4… показав, що стара v2 не приймає Leo's автоматично: список s_subjects не містить Leo. Нова редакція свідомо дозволяє природну скорочену форму через explicit accepted alias та окремий plain feedback, не через зміну engine і не як твердження про стару несправність. Canonical і банк незмінні.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "full_sentence"
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "old_task": {
+                "before": "not / we / have / heard / from her / yet",
+                "after": "→",
+                "accepted": [
+                    "We have not heard from her yet.",
+                    "We haven't heard from her yet."
+                ]
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": true,
+            "after_block_source_index": 6,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "after_task": {
+                "before": "from her / yet. / We have / not heard",
+                "after": "<p>Ми ще не отримали від неї звістки. Передай відсутність такого повідомлення до тепер формою Present Perfect. Почни з We, постав yet наприкінці. Повна have not і скорочена haven't приймаються; банк готових груп складає повну форму.</p><p lang=\"en\">hear from her — отримати від неї звістку; yet — ще (у цьому запереченні).</p>",
+                "accepted": [
+                    "We have not heard from her yet.",
+                    "We haven't heard from her yet."
+                ],
+                "feedback": {
+                    "we have not heard from her yet.": "We have not heard from her yet. — Ми ще не отримали від неї звістки. Have not heard передає відсутність повідомлення до тепер; yet стоїть у заданій кінцевій позиції.",
+                    "we haven't heard from her yet.": "We haven't heard from her yet. — Ми ще не отримали від неї звістки. Haven't — прийняте скорочення have not; часовий зміст і задана позиція yet збережені."
+                },
+                "answer": "We have not heard from her yet."
+            },
+            "classification": "retained_refined",
+            "graded": true,
+            "learning_function": "Not-yet contact до тепер, обидва old full/contracted variants.",
+            "change_reason": "Старий runtime підтримує accepted-only і не оголошується зламаним. Unchanged TheoryNativeContentRelease::assertPractice вимагає explicit answer серед accepted; AFTER додає рівно old accepted[0] як answer. Обидва accepted strings і порядок збережені; bank складає full canonical, contracted alias лишається manual.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "full_sentence"
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m89-present-perfect-time-meaning-startpoint",
+                "label": "<p>Мовець повідомляє про стан, який триває до тепер; поточний рік у завданні не задано.</p><p lang=\"en\">Olha has known Iryna since 2022.</p><p>Ольга знає Ірину з 2022 року. Що тут виражає since 2022?</p>",
+                "options": [
+                    "2022 — початкова точка періоду до тепер; точну тривалість у роках без моменту мовлення не встановлено.",
+                    "2022 — кількість років цього стану.",
+                    "Цей стан закінчився в 2022 році."
+                ],
+                "answer": "2022 — початкова точка періоду до тепер; точну тривалість у роках без моменту мовлення не встановлено.",
+                "accepted": [
+                    "2022 — початкова точка періоду до тепер; точну тривалість у роках без моменту мовлення не встановлено."
+                ],
+                "feedback": {
+                    "2022 — початкова точка періоду до тепер; точну тривалість у роках без моменту мовлення не встановлено.": "Olha has known Iryna since 2022. — Ольга знає Ірину з 2022 року. Since задає початок, не готову числову тривалість. Нинішню дату комп'ютера не використовуємо.",
+                    "2022 — кількість років цього стану.": "Olha has known Iryna since 2022. — Ольга знає Ірину з 2022 року. 2022 у цьому вислові — рік початку, а не кількість років. Тривалість потребувала б окремого періоду, наприклад після for.",
+                    "цей стан закінчився в 2022 році.": "Olha has known Iryna since 2022. — Ольга знає Ірину з 2022 року. За видимою умовою стан триває до тепер. Since не повідомляє, що він завершився 2022 року."
+                }
+            },
+            "classification": "new_authored",
+            "graded": true,
+            "learning_function": "Початкова точка since не дорівнює числовій тривалості.",
+            "change_reason": "Нова семантична задача з власним stable ID, не дубль have/has або punctuation-only difference.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "meaning"
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m89-present-perfect-time-meaning-open-morning",
+                "label": "<p>У цій навчальній ситуації зараз 10:30; ранок триває. Ольга підсумовує свою пошту до цього моменту:</p><p lang=\"en\">I've answered five emails this morning.</p><p>Я відповіла на п'ять електронних листів цього ранку. Який висновок випливає?</p>",
+                "options": [
+                    "До 10:30 Ольга відповіла на п'ять листів; час кожної відповіді не названо, ранок ще триває.",
+                    "Ранок уже завершився до цього повідомлення.",
+                    "Слова this morning завжди роблять Past Simple помилкою, незалежно від ситуації."
+                ],
+                "answer": "До 10:30 Ольга відповіла на п'ять листів; час кожної відповіді не названо, ранок ще триває.",
+                "accepted": [
+                    "До 10:30 Ольга відповіла на п'ять листів; час кожної відповіді не названо, ранок ще триває."
+                ],
+                "feedback": {
+                    "до 10:30 ольга відповіла на п'ять листів; час кожної відповіді не названо, ранок ще триває.": "I've answered five emails this morning. — Я відповіла на п'ять електронних листів цього ранку. За заданими 10:30 це підсумок до зараз усередині ранку; точні моменти п'яти дій не названі.",
+                    "ранок уже завершився до цього повідомлення.": "I've answered five emails this morning. — Я відповіла на п'ять електронних листів цього ранку. Умова прямо задає 10:30 і незавершений ранок; протилежного висновку немає.",
+                    "слова this morning завжди роблять past simple помилкою, незалежно від ситуації.": "I've answered five emails this morning. — Я відповіла на п'ять електронних листів цього ранку. Правильна модель залежить від задуму: окремий завершений ранковий епізод може мати Past Simple; маркер не є автоматичним ключем."
+                }
+            },
+            "classification": "new_authored",
+            "graded": true,
+            "learning_function": "Підсумок у незавершений ранок за сталим 10:30; markers-not-rules.",
+            "change_reason": "Нова семантична задача з власним stable ID, не дубль have/has або punctuation-only difference.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "meaning"
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\Tenses\\PresentPerfectContinuous\\PresentPerfectContinuousFormsTheorySeeder": [
+        {
+            "old_block_source_index": 6,
+            "old_group": "selects",
+            "old_group_index": 0,
+            "old_task": {
+                "label": "I ____ English for two hours.",
+                "prompt": "Яка форма завершує речення?",
+                "answer": "have been studying"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "after_task": {
+                "label": "<p>Я вивчаю англійську вже дві години й продовжую. Обери форму саме дієслова study — вивчати.</p><p lang=\"en\">I ____ English for two hours.</p>",
+                "prompt": "Яка форма завершує речення?",
+                "answer": "have been studying",
+                "accepted": [
+                    "have been studying"
+                ],
+                "feedback": {
+                    "have been studying": "I have been studying English for two hours. — Я вивчаю англійську вже дві години. З I потрібне have; studying відповідає заданій діяльності. Форма не означає відсутності будь-яких коротких перерв.",
+                    "has been working": "Потрібне I have been studying English for two hours. — Я вивчаю англійську вже дві години. Has не узгоджується з I; умова задає study, а не work."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "grammar_form",
+            "learning_function": "Have зі I та задана діяльність study",
+            "change_reason": "Original answer values, accepted variants/order where present, group/index and old identity absence retained. Visible UA context/criteria/translation and plain feedback added; input punctuation/case only finite data projection. Retained grammar choices remain form controls."
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "selects",
+            "old_group_index": 1,
+            "old_task": {
+                "label": "She ____ since morning.",
+                "prompt": "Яка форма завершує речення?",
+                "answer": "has been working"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "after_task": {
+                "label": "<p>Вона працює з ранку й продовжує. Обери форму саме дієслова work — працювати.</p><p lang=\"en\">She ____ since morning.</p>",
+                "prompt": "Яка форма завершує речення?",
+                "answer": "has been working",
+                "accepted": [
+                    "has been working"
+                ],
+                "feedback": {
+                    "have been studying": "Потрібне She has been working since morning. — Вона працює з ранку. Із she потрібне has; у заданій ситуації йдеться про work.",
+                    "has been working": "She has been working since morning. — Вона працює з ранку. З she потрібне has been working; since позначає початок."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "grammar_form",
+            "learning_function": "Has зі she та задана діяльність work",
+            "change_reason": "Original answer values, accepted variants/order where present, group/index and old identity absence retained. Visible UA context/criteria/translation and plain feedback added; input punctuation/case only finite data projection. Retained grammar choices remain form controls."
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "choices",
+            "old_group_index": 0,
+            "old_task": {
+                "label": "a) She has been working since morning. / b) She have been working since morning.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "after_task": {
+                "label": "<p>Обери стандартну форму з підметом she.</p><p lang=\"en\">a) She has been working since morning.<br>b) She have been working since morning.</p><p>Вона працює з ранку.</p>",
+                "prompt": "Який варіант правильний?",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "She has been working since morning. — Вона працює з ранку. З she потрібне has, тому правильний варіант a.",
+                    "b": "Потрібне She has been working since morning. — Вона працює з ранку. She have не узгоджується; це завдання на форму, не на зміст періоду."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "grammar_form",
+            "learning_function": "Збережена form choice has/have",
+            "change_reason": "Original answer values, accepted variants/order where present, group/index and old identity absence retained. Visible UA context/criteria/translation and plain feedback added; input punctuation/case only finite data projection. Retained grammar choices remain form controls."
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "choices",
+            "old_group_index": 1,
+            "old_task": {
+                "label": "a) They have been wait for two hours. / b) They have been waiting for two hours.",
+                "prompt": "Який варіант правильний?",
+                "answer": "b"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "after_task": {
+                "label": "<p>Обери форму основного дієслова для процесу очікування.</p><p lang=\"en\">a) They have been wait for two hours.<br>b) They have been waiting for two hours.</p><p>Вони чекають уже дві години.</p>",
+                "prompt": "Який варіант правильний?",
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "Потрібне They have been waiting for two hours. — Вони чекають уже дві години. Після been у цій Continuous-моделі потрібне waiting.",
+                    "b": "They have been waiting for two hours. — Вони чекають уже дві години. Правильний варіант b з waiting, не базовим wait."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "grammar_form",
+            "learning_function": "Збережена form choice wait/waiting",
+            "change_reason": "Original answer values, accepted variants/order where present, group/index and old identity absence retained. Visible UA context/criteria/translation and plain feedback added; input punctuation/case only finite data projection. Retained grammar choices remain form controls."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 2,
+            "after_task": {
+                "id": "m89-ppc-forms-meaning-repeated-breaks",
+                "label": "<p>Олег говорить про останні шість місяців. Він тренується на піаніно тричі на тиждень і робить перерви.</p><p lang=\"en\">I have been practising the piano for six months.</p><p>Я займаюся грою на піаніно вже шість місяців. Як форма узгоджується з відомим розкладом?</p><p>a) Це повторювана діяльність у періоді до тепер; перерви їй не суперечать.<br>b) Олег мусив грати кожної миті всі шість місяців без перерв.</p>",
+                "options": [
+                    "a",
+                    "b"
+                ],
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "I have been practising the piano for six months. — Я займаюся грою на піаніно вже шість місяців. Правильно a: Perfect Continuous може описувати повторювану діяльність; відомі заняття з перервами цьому не суперечать.",
+                    "b": "I have been practising the piano for six months. — Я займаюся грою на піаніно вже шість місяців. Правильно a. Форма сама не вимагає безперервної гри; b також суперечить заданим трьом заняттям на тиждень."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "new_authored",
+            "graded": true,
+            "assessed_role": "meaning",
+            "learning_function": "Meaning: repeated activity з перервами",
+            "change_reason": "Two distinct new meaning controls appended at choices[2,3] with stable IDs, supported a/b options and visible facts/alternatives. They do not replace retained form choices or inputs."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 3,
+            "after_task": {
+                "id": "m89-ppc-forms-meaning-recent-result",
+                "label": "<p>Марта щойно відклала пензель; на її руках фарба. Не повідомлено, чи всю кухню вже пофарбовано.</p><p lang=\"en\">I have been painting the kitchen.</p><p>Я фарбувала кухню. Який висновок обґрунтований?</p><p>a) Усю кухню обов'язково вже пофарбовано повністю.<br>b) Йдеться про недавню діяльність із теперішнім зв'язком; повного завершення речення не встановлює.</p>",
+                "options": [
+                    "a",
+                    "b"
+                ],
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "I have been painting the kitchen. — Я фарбувала кухню. Правильно b: форму зосереджено на діяльності, а не на доведеному повному результаті. A додає факт, якого немає.",
+                    "b": "I have been painting the kitchen. — Я фарбувала кухню. Правильно b. У заданому контексті діяльність щойно припинилася, але завершення всієї кухні не повідомлено."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "new_authored",
+            "graded": true,
+            "assessed_role": "meaning",
+            "learning_function": "Meaning: recent activity без встановленого завершення",
+            "change_reason": "Two distinct new meaning controls appended at choices[2,3] with stable IDs, supported a/b options and visible facts/alternatives. They do not replace retained form choices or inputs."
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "old_task": {
+                "before": "for two hours / English / have been studying / I",
+                "after": "→",
+                "answer": "I have been studying English for two hours."
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "after_task": {
+                "before": "for two hours. / English / have been studying / I",
+                "after": "<p>Я вивчаю англійську вже дві години. Мовець продовжує навчатися зараз; передай процес до тепер формою Present Perfect Continuous. Почни з I, назви English і постав тривалість наприкінці.</p><p lang=\"en\">study — вивчати; English — англійська мова; for two hours — протягом двох годин.</p>",
+                "answer": "I have been studying English for two hours.",
+                "accepted": [
+                    "I have been studying English for two hours."
+                ],
+                "feedback": {
+                    "i have been studying english for two hours.": "I have been studying English for two hours. — Я вивчаю англійську вже дві години. З I потрібне have been studying; збережено мову й тривалість. Перерви та кількість завершених вправ речення не встановлює."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "full_sentence",
+            "learning_function": "Повне I/study/English/two hours",
+            "change_reason": "Original answer values, accepted variants/order where present, group/index and old identity absence retained. Visible UA context/criteria/translation and plain feedback added; input punctuation/case only finite data projection. Retained grammar choices remain form controls."
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "old_task": {
+                "before": "all morning / on the project / has been working / Maya",
+                "after": "→",
+                "answer": "Maya has been working on the project all morning."
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "after_task": {
+                "before": "all morning. / on the project / has been working / Maya",
+                "after": "<p>Мая працює над уже названим проєктом весь ранок. У цій ситуації розмова відбувається об 11:30, і робота ще триває. Передай процес формою Present Perfect Continuous, почни з Maya й постав час наприкінці.</p><p lang=\"en\">Maya — Мая; work on — працювати над; the project — названий проєкт; all morning — весь ранок.</p>",
+                "answer": "Maya has been working on the project all morning.",
+                "accepted": [
+                    "Maya has been working on the project all morning."
+                ],
+                "feedback": {
+                    "maya has been working on the project all morning.": "Maya has been working on the project all morning. — Мая працює над проєктом весь ранок. Один названий учасник має has been working; on the project і all morning збережені. Завершення проєкту не стверджується."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "full_sentence",
+            "learning_function": "Повне Maya/work/on the project/all morning",
+            "change_reason": "Original answer values, accepted variants/order where present, group/index and old identity absence retained. Visible UA context/criteria/translation and plain feedback added; input punctuation/case only finite data projection. Retained grammar choices remain form controls."
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\Tenses\\PresentPerfectContinuous\\PresentPerfectContinuousNegativesTheorySeeder": [
+        {
+            "old_block_source_index": 6,
+            "old_group": "selects",
+            "old_group_index": 0,
+            "old_task": {
+                "label": "I ____ well lately.",
+                "prompt": "Яка заперечна форма потрібна?",
+                "answer": "haven't been sleeping"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "after_task": {
+                "label": "<p>Я останнім часом погано сплю. Обери заперечну форму саме для sleep well; це не твердження, що я взагалі не спав.</p><p lang=\"en\">I ____ well lately.</p>",
+                "prompt": "Яка заперечна форма потрібна?",
+                "answer": "haven't been sleeping",
+                "accepted": [
+                    "haven't been sleeping"
+                ],
+                "feedback": {
+                    "haven't been sleeping": "I haven't been sleeping well lately. — Останнім часом я погано сплю. З I потрібне haven't; sleeping well описує якість сну.",
+                    "hasn't been sleeping": "Потрібне I haven't been sleeping well lately. — Останнім часом я погано сплю. Hasn't не узгоджується з I."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "grammar_form",
+            "learning_function": "Haven't із I та sleep well",
+            "change_reason": "Original answer values, accepted variants/order where present, group/index and old identity absence retained. Visible UA context/criteria/translation and plain feedback added; input punctuation/case only finite data projection. Retained grammar choices remain form controls."
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "selects",
+            "old_group_index": 1,
+            "old_task": {
+                "label": "He ____ well lately.",
+                "prompt": "Яка заперечна форма потрібна?",
+                "answer": "hasn't been sleeping"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "after_task": {
+                "label": "<p>Він останнім часом погано спить. Обери заперечну форму для sleep well відповідно до he.</p><p lang=\"en\">He ____ well lately.</p>",
+                "prompt": "Яка заперечна форма потрібна?",
+                "answer": "hasn't been sleeping",
+                "accepted": [
+                    "hasn't been sleeping"
+                ],
+                "feedback": {
+                    "haven't been sleeping": "Потрібне He hasn't been sleeping well lately. — Останнім часом він погано спить. З he потрібне hasn't, не haven't.",
+                    "hasn't been sleeping": "He hasn't been sleeping well lately. — Останнім часом він погано спить. Hasn't узгоджується з he; збережено заперечення якості сну."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "grammar_form",
+            "learning_function": "Hasn't із he та sleep well",
+            "change_reason": "Original answer values, accepted variants/order where present, group/index and old identity absence retained. Visible UA context/criteria/translation and plain feedback added; input punctuation/case only finite data projection. Retained grammar choices remain form controls."
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "choices",
+            "old_group_index": 0,
+            "old_task": {
+                "label": "a) He hasn't been sleeping well lately. / b) He haven't been sleeping well lately.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "after_task": {
+                "label": "<p>Обери стандартне узгодження з he; йдеться про поганий сон останнім часом.</p><p lang=\"en\">a) He hasn't been sleeping well lately.<br>b) He haven't been sleeping well lately.</p><p>Останнім часом він погано спить.</p>",
+                "prompt": "Який варіант правильний?",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "He hasn't been sleeping well lately. — Останнім часом він погано спить. Правильне a: he вимагає hasn't.",
+                    "b": "Потрібне He hasn't been sleeping well lately. — Останнім часом він погано спить. He haven't не узгоджується; це формальне завдання, не перевірка кількості сну."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "grammar_form",
+            "learning_function": "Збережена form choice he hasn't/haven't",
+            "change_reason": "Original answer values, accepted variants/order where present, group/index and old identity absence retained. Visible UA context/criteria/translation and plain feedback added; input punctuation/case only finite data projection. Retained grammar choices remain form controls."
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "choices",
+            "old_group_index": 1,
+            "old_task": {
+                "label": "a) They hasn't been working today. / b) They haven't been working today.",
+                "prompt": "Який варіант правильний?",
+                "answer": "b"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "after_task": {
+                "label": "<p>Поточний день ще триває. Обери стандартне узгодження з they у повідомленні про роботу за цей період до тепер.</p><p lang=\"en\">a) They hasn't been working today.<br>b) They haven't been working today.</p><p>Вони сьогодні не працюють.</p>",
+                "prompt": "Який варіант правильний?",
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "Потрібне They haven't been working today. — Вони сьогодні не працюють. Множинний they має haven't; hasn't тут не підходить.",
+                    "b": "They haven't been working today. — Вони сьогодні не працюють. Правильний варіант b; поточний день і заперечення збережені."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "grammar_form",
+            "learning_function": "Збережена form choice they hasn't/haven't",
+            "change_reason": "Original answer values, accepted variants/order where present, group/index and old identity absence retained. Visible UA context/criteria/translation and plain feedback added; input punctuation/case only finite data projection. Retained grammar choices remain form controls."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 2,
+            "after_task": {
+                "id": "m89-ppc-negatives-meaning-not-enough",
+                "label": "<p>Відомо тільки це повідомлення, без кількості годин чи додаткових фактів.</p><p lang=\"en\">Nina hasn't been sleeping enough lately.</p><p>Останнім часом Ніна спить недостатньо. Який висновок дає саме речення?</p><p>a) Сон оцінено як недостатній; точну тривалість сну не названо.<br>b) Ніна обов'язково не спала жодної хвилини.</p>",
+                "options": [
+                    "a",
+                    "b"
+                ],
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "Nina hasn't been sleeping enough lately. — Останнім часом Ніна спить недостатньо. Правильно a: enough стосується достатності. Речення не дає точних годин і саме не доводить ні повного нуля, ні певної кількості сну.",
+                    "b": "Nina hasn't been sleeping enough lately. — Останнім часом Ніна спить недостатньо. Правильно a. B додає повну відсутність сну, якої саме повідомлення не встановлює."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "new_authored",
+            "graded": true,
+            "assessed_role": "meaning",
+            "learning_function": "Meaning: insufficient quantity не доводить нуля або точної кількості",
+            "change_reason": "Two distinct new meaning controls appended at choices[2,3] with stable IDs, supported a/b options and visible facts/alternatives. They do not replace retained form choices or inputs."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 3,
+            "after_task": {
+                "id": "m89-ppc-negatives-meaning-not-long",
+                "label": "<p>Тарас прийшов три хвилини тому, досі чекає й вважає це коротким очікуванням.</p><p lang=\"en\">Taras hasn't been waiting long.</p><p>Тарас чекає недовго. Як заперечення відповідає заданим фактам?</p><p>a) Тарас узагалі не починав чекати.<br>b) Очікування вже відбувається, але його тривалість поки невелика.</p>",
+                "options": [
+                    "a",
+                    "b"
+                ],
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "Taras hasn't been waiting long. — Тарас чекає недовго. Правильно b. За умовою він уже чекає; a плутає відсутність довгої тривалості з відсутністю самого очікування.",
+                    "b": "Taras hasn't been waiting long. — Тарас чекає недовго. Правильно b: коротке очікування явно задане. Поза цими фактами не треба автоматично домислювати точну тривалість лише з not long."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "new_authored",
+            "graded": true,
+            "assessed_role": "meaning",
+            "learning_function": "Meaning: not long за явними фактами короткого очікування",
+            "change_reason": "Two distinct new meaning controls appended at choices[2,3] with stable IDs, supported a/b options and visible facts/alternatives. They do not replace retained form choices or inputs."
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "old_task": {
+                "before": "lately / hasn't been studying / Olena / enough",
+                "after": "→",
+                "accepted": [
+                    "Olena hasn't been studying enough lately.",
+                    "Olena has not been studying enough lately."
+                ]
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": true,
+            "after_block_source_index": 6,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "after_task": {
+                "before": "lately. / hasn't been studying / Olena / enough",
+                "after": "<p>Олена останнім часом навчається недостатньо для іспиту. Відомо, що вона іноді готується, але менше, ніж потрібно. Передай це Present Perfect Continuous, почни з Olena й постав enough перед кінцевим lately.</p><p lang=\"en\">study — навчатися; enough — достатньо; lately — останнім часом. Приймаються hasn't і has not; готові групи складають скорочений варіант.</p>",
+                "accepted": [
+                    "Olena hasn't been studying enough lately.",
+                    "Olena has not been studying enough lately."
+                ],
+                "answer": "Olena hasn't been studying enough lately.",
+                "feedback": {
+                    "olena hasn't been studying enough lately.": "Olena hasn't been studying enough lately. — Олена останнім часом навчається недостатньо. Заперечено достатність навчання, а не весь факт підготовки; деяка підготовка в цьому завданні відома окремо.",
+                    "olena has not been studying enough lately.": "Olena has not been studying enough lately. — Олена останнім часом навчається недостатньо. Повне has not і скорочене hasn't тут передають те саме базове заперечення; enough і lately збережені."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "full_sentence",
+            "learning_function": "Збережене Olena/studying/enough/lately з accepted-only source",
+            "change_reason": "Supported data-only explicit answer=unchanged old accepted[0] required by unchanged TheoryNativeContentRelease::assertPractice; old runtime already handles accepted-only. Exact aliases/order and ID/source_index absence preserved. Visible UA criteria, per-alias plain feedback and canonical case/punctuation groups added; no validator/engine edit."
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "old_task": {
+                "before": "the equipment / haven't been checking / this week / they",
+                "after": "→",
+                "accepted": [
+                    "They haven't been checking the equipment this week.",
+                    "They have not been checking the equipment this week."
+                ]
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": true,
+            "after_block_source_index": 6,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "after_task": {
+                "before": "the equipment / haven't been checking / this week. / They",
+                "after": "<p>Вони цього тижня не займаються перевіркою вже названого обладнання. Розмова в п'ятницю вранці стосується поточного тижня до тепер. Побудуй Present Perfect Continuous, почни з They і постав this week наприкінці; причини відсутності перевірок не додавати.</p><p lang=\"en\">check — перевіряти; the equipment — назване обладнання; this week — цього тижня. Приймаються haven't і have not; банк складає скорочений варіант.</p>",
+                "accepted": [
+                    "They haven't been checking the equipment this week.",
+                    "They have not been checking the equipment this week."
+                ],
+                "answer": "They haven't been checking the equipment this week.",
+                "feedback": {
+                    "they haven't been checking the equipment this week.": "They haven't been checking the equipment this week. — Вони цього тижня не займаються перевіркою обладнання. They має haven't been checking; поточний період і the equipment збережені. Речення не доводить, що обладнання зламалося або чому перевірок немає.",
+                    "they have not been checking the equipment this week.": "They have not been checking the equipment this week. — Вони цього тижня не займаються перевіркою обладнання. Повне have not приймається нарівні з haven't; це не повідомлення про конкретну причину несправності."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "full_sentence",
+            "learning_function": "Збережене They/checking/the equipment/this week з accepted-only source",
+            "change_reason": "Supported data-only explicit answer=unchanged old accepted[0] required by unchanged TheoryNativeContentRelease::assertPractice; old runtime already handles accepted-only. Exact aliases/order and ID/source_index absence preserved. Visible UA criteria, per-alias plain feedback and canonical case/punctuation groups added; no validator/engine edit."
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\Tenses\\PresentPerfectContinuous\\PresentPerfectContinuousQuestionsTheorySeeder": [
+        {
+            "old_block_source_index": 6,
+            "old_group": "selects",
+            "old_group_index": 0,
+            "old_task": {
+                "label": "____ you been waiting for long?",
+                "prompt": "Яке допоміжне дієслово потрібне?",
+                "answer": "Have"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "after_task": {
+                "label": "Доповни нейтральне питання до однієї людини.<br>____ you been waiting for long?<br>Ти давно чекаєш?",
+                "prompt": "Яке допоміжне дієслово потрібне?",
+                "answer": "Have",
+                "accepted": [
+                    "Have"
+                ],
+                "feedback": {
+                    "have": "Have you been waiting for long? — Ти давно чекаєш? З you у цій моделі потрібне have; been waiting залишається після підмета.",
+                    "has": "Have you been waiting for long? — Ти давно чекаєш? Has не узгоджується з you; потрібне have. Саме питання не встановлює, скільки людина чекала."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "form",
+            "learning_function": "Узгодити have з you у нейтральному питанні",
+            "change_reason": "Старий key, варіанти та навчальна функція граматичної перевірки збережені. Видимий контекст/переклад уточнено; explicit accepted[answer] і plain feedback потрібні чинному data validator, не означають старої UI-помилки.",
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "selects",
+            "old_group_index": 1,
+            "old_task": {
+                "label": "____ she been working since morning?",
+                "prompt": "Яке допоміжне дієслово потрібне?",
+                "answer": "Has"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "after_task": {
+                "label": "Доповни нейтральне питання про одну жінку.<br>____ she been working since morning?<br>Вона працює від ранку?",
+                "prompt": "Яке допоміжне дієслово потрібне?",
+                "answer": "Has",
+                "accepted": [
+                    "Has"
+                ],
+                "feedback": {
+                    "have": "Has she been working since morning? — Вона працює від ранку? З she потрібне has, не have.",
+                    "has": "Has she been working since morning? — Вона працює від ранку? Has узгоджується з she, been working не змінюється."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "form",
+            "learning_function": "Узгодити has із she у питанні з since morning",
+            "change_reason": "Старий key, варіанти та навчальна функція граматичної перевірки збережені. Видимий контекст/переклад уточнено; explicit accepted[answer] і plain feedback потрібні чинному data validator, не означають старої UI-помилки.",
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "choices",
+            "old_group_index": 0,
+            "old_task": {
+                "label": "a) Has she been working since morning? / b) Have she been working since morning?",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "after_task": {
+                "label": "<p>Обери граматичну форму нейтрального прямого питання про одну жінку.</p><p>a) Has she been working since morning?</p><p>b) Have she been working since morning?</p><p>Задум обох: «Вона працює від ранку?»</p>",
+                "prompt": "Який варіант правильний?",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "Has she been working since morning? — Вона працює від ранку? Has узгоджується з she; це перевірка форми, не встановлення факту роботи.",
+                    "b": "Правильна модель: Has she been working since morning? — Вона працює від ранку? Have не узгоджується з she."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "form",
+            "learning_function": "Зберегти перевірку граматичної форми has із she",
+            "change_reason": "Старий key, варіанти та навчальна функція граматичної перевірки збережені. Видимий контекст/переклад уточнено; explicit accepted[answer] і plain feedback потрібні чинному data validator, не означають старої UI-помилки.",
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "choices",
+            "old_group_index": 1,
+            "old_task": {
+                "label": "a) How long you have been waiting? / b) How long have you been waiting?",
+                "prompt": "Який варіант правильний?",
+                "answer": "b"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "after_task": {
+                "label": "<p>Потрібне нейтральне пряме питання про тривалість очікування.</p><p>a) How long you have been waiting?</p><p>b) How long have you been waiting?</p><p>Задум обох: «Скільки часу ти чекаєш?»</p>",
+                "prompt": "Який варіант правильний?",
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "How long have you been waiting? — Скільки часу ти чекаєш? У цій нейтральній моделі have стоїть перед you.",
+                    "b": "How long have you been waiting? — Скільки часу ти чекаєш? Збережено How long, have, you і been waiting."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "form",
+            "learning_function": "Зберегти нейтральний порядок How long + have + you",
+            "change_reason": "Старий key, варіанти та навчальна функція граматичної перевірки збережені. Видимий контекст/переклад уточнено; explicit accepted[answer] і plain feedback потрібні чинному data validator, не означають старої UI-помилки.",
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 2,
+            "after_task": {
+                "id": "m89-present-perfect-continuous-questions-meaning-1",
+                "label": "<p>У Ніни почервонілі очі. Мовець запитує: Has she been crying? — Вона плакала? Ніхто ще не відповів. Що передає це запитання?</p><p>a) Мовець перевіряє можливу недавню активність; сам запит не доводить її або причини почервоніння.</p><p>b) Відомо напевно, що Ніна плакала й саме тому її очі червоні.</p><p>c) Відомо, що Ніна ніколи не плаче.</p>",
+                "options": [
+                    "a",
+                    "b",
+                    "c"
+                ],
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "Has she been crying? — Вона плакала? Це запит про можливу недавню активність, а не підтвердження її факту чи причини почервоніння.",
+                    "b": "Has she been crying? — Вона плакала? Відповіді ще немає: почервонілі очі та питання не доводять, що причиною був плач.",
+                    "c": "Has she been crying? — Вона плакала? Питання не містить твердження never і не описує все життя Ніни."
+                }
+            },
+            "classification": "new_authored_meaning",
+            "graded": true,
+            "assessment_role": "meaning",
+            "learning_function": "Відрізнити запит про можливу активність від твердження про її факт і причину",
+            "change_reason": "Нова самостійна змістова перевірка за видимими фактами; вона не підміняє старі a/b grammar choices. Stable ID присвоєно лише новому пункту.",
+            "assessed_role": "meaning"
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 3,
+            "after_task": {
+                "id": "m89-present-perfect-continuous-questions-meaning-2",
+                "label": "<p>Учитель звертається до однієї учениці Олі: Have you been studying all morning? — Ти вчилася весь ранок? Оля вчилася лише двадцять хвилин перед розмовою, не весь ранок. Вона відповідає: No, I haven't. — Ні. Як зрозуміти її відповідь у цій ситуації?</p><p>a) Вона стверджує, що ніколи нічого не вчила.</p><p>b) Вона заперечує навчання протягом усього ранку, а не наявність тих двадцяти хвилин.</p><p>c) Вона повідомляє, що її однокласники весь ранок працювали.</p>",
+                "options": [
+                    "a",
+                    "b",
+                    "c"
+                ],
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "No, I haven't. — Ні. У заданій розмові Оля заперечує all morning; факт двадцяти хвилин навчання збережено, never не додано.",
+                    "b": "No, I haven't. — Ні. Оля відповідає про себе, тому I; її факт не підтверджує весь ранок. Have/haven't повторює перше допоміжне з питання.",
+                    "c": "No, I haven't. — Ні. Оля відповідає про себе, не про однокласників; інших учасників і факти не домислюємо."
+                }
+            },
+            "classification": "new_authored_meaning",
+            "graded": true,
+            "assessment_role": "meaning",
+            "learning_function": "Пояснити коротку відповідь одного мовця за заданим фактом, не виводити never",
+            "change_reason": "Нова самостійна змістова перевірка за видимими фактами; вона не підміняє старі a/b grammar choices. Stable ID присвоєно лише новому пункту.",
+            "assessed_role": "meaning"
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "old_task": {
+                "before": "been waiting / how long / you / have",
+                "after": "→",
+                "answer": "How long have you been waiting?"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "after_task": {
+                "before": "you / been waiting? / How long / have",
+                "after": "<p>Скільки часу ти чекаєш? Запитай саме про тривалість у Present Perfect Continuous. Використай wait — чекати; почни з How long. Усе питання потрібно ввести, жодної готової його частини перед полем немає.</p>",
+                "answer": "How long have you been waiting?",
+                "accepted": [
+                    "How long have you been waiting?"
+                ],
+                "feedback": {
+                    "how long have you been waiting?": "How long have you been waiting? — Скільки часу ти чекаєш? How long запитує тривалість; have стоїть перед you, been waiting — після. Відповідь про тривалість цим питанням не задано.",
+                    "how long have you been waiting": "How long have you been waiting? — Скільки часу ти чекаєш? How long запитує тривалість; have стоїть перед you, been waiting — після. Відповідь про тривалість цим питанням не задано."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "full_sentence_manual_and_tokens",
+            "learning_function": "Побудувати повне How long-питання з have / been / waiting",
+            "change_reason": "Canonical answer literal exact; старі відсутні id/source_index не вигадано. Додано видиму UAумову/лексичні опори, shuffle1–3word groups із правильною case/кінцевою пунктуацією, explicit accepted і plain feedback. Власні tokens не є новим завданням або spelling-тестом.",
+            "assessed_role": "full_sentence"
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "old_task": {
+                "before": "on the report / has / been working / she",
+                "after": "→",
+                "answer": "Has she been working on the report?"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "after_task": {
+                "before": "been working / on the report? / she / Has",
+                "after": "<p>Вона працює над звітом? Побудуй нейтральне пряме питання в Present Perfect Continuous, не твердження-перепитування. Використай work — працювати, report — звіт; частину «над звітом» постав після дієслова. Не додавай часових слів або відповіді Yes / No.</p>",
+                "answer": "Has she been working on the report?",
+                "accepted": [
+                    "Has she been working on the report?"
+                ],
+                "feedback": {
+                    "has she been working on the report?": "Has she been working on the report? — Вона працює над звітом? Has узгоджується з she; збережено been working та on the report. Саме питання не стверджує, що звіт готовий.",
+                    "has she been working on the report": "Has she been working on the report? — Вона працює над звітом? Has узгоджується з she; збережено been working та on the report. Саме питання не стверджує, що звіт готовий."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "full_sentence_manual_and_tokens",
+            "learning_function": "Побудувати повне Has she-питання й зберегти on the report",
+            "change_reason": "Canonical answer literal exact; старі відсутні id/source_index не вигадано. Додано видиму UAумову/лексичні опори, shuffle1–3word groups із правильною case/кінцевою пунктуацією, explicit accepted і plain feedback. Власні tokens не є новим завданням або spelling-тестом.",
+            "assessed_role": "full_sentence"
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\Tenses\\PresentPerfectContinuous\\PresentPerfectContinuousTimeExpressionsTheorySeeder": [
+        {
+            "old_block_source_index": 6,
+            "old_group": "selects",
+            "old_group_index": 0,
+            "old_task": {
+                "label": "We have been waiting ____.",
+                "prompt": "Який вираз часу потрібний?",
+                "answer": "for two hours"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "after_task": {
+                "label": "Відомо лише, що очікування триває дві години. Передай саме цю тривалість, не називай день початку.<br>We have been waiting ____.<br>Ми чекаємо вже дві години.",
+                "prompt": "Який вираз часу потрібний?",
+                "answer": "for two hours",
+                "accepted": [
+                    "for two hours"
+                ],
+                "feedback": {
+                    "for two hours": "We have been waiting for two hours. — Ми чекаємо вже дві години. For називає задану тривалість; день початку не задано.",
+                    "since monday": "За цієї умови потрібно: We have been waiting for two hours. — Ми чекаємо вже дві години. Since Monday граматично можливе з іншим фактом, але додає не заданий тут день початку."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "form",
+            "learning_function": "Передати задану тривалість for two hours без вигаданого дня",
+            "change_reason": "Збережено старий key та обидва options, але в supported visible label додано однозначну вимогу: тривалість або початковий день. Prompt не використано як прихований критерій.",
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "selects",
+            "old_group_index": 1,
+            "old_task": {
+                "label": "She has been working ____.",
+                "prompt": "Який вираз часу потрібний?",
+                "answer": "since Monday"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "after_task": {
+                "label": "Відомий початок роботи — понеділок. Передай саме цей початковий день, не підставляй вигадану тривалість у годинах.<br>She has been working ____.<br>Вона працює з понеділка.",
+                "prompt": "Який вираз часу потрібний?",
+                "answer": "since Monday",
+                "accepted": [
+                    "since Monday"
+                ],
+                "feedback": {
+                    "for two hours": "За цієї умови потрібно: She has been working since Monday. — Вона працює з понеділка. For two hours називає іншу, не задану тривалість; це не помилка for взагалі.",
+                    "since monday": "She has been working since Monday. — Вона працює з понеділка. Since передає задану початкову точку; без моменту відліку не обчислюємо кількість годин."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "form",
+            "learning_function": "Передати заданий початковий день since Monday без вигаданої тривалості",
+            "change_reason": "Збережено старий key та обидва options, але в supported visible label додано однозначну вимогу: тривалість або початковий день. Prompt не використано як прихований критерій.",
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "choices",
+            "old_group_index": 0,
+            "old_task": {
+                "label": "a) We have been waiting since two hours. / b) We have been waiting for two hours.",
+                "prompt": "Який варіант правильний?",
+                "answer": "b"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "after_task": {
+                "label": "<p>Потрібна стандартна форма виразу для тривалості дві години.</p><p>a) We have been waiting since two hours.</p><p>b) We have been waiting for two hours.</p><p>Задум обох: «Ми чекаємо вже дві години».</p>",
+                "prompt": "Який варіант правильний?",
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "We have been waiting for two hours. — Ми чекаємо вже дві години. Since не поєднуємо тут із проміжком two hours.",
+                    "b": "We have been waiting for two hours. — Ми чекаємо вже дві години. For + тривалість; це формальна перевірка, не обчислення початку."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "form",
+            "learning_function": "Зберегти формальне розрізнення for + duration / since + duration",
+            "change_reason": "Старий key, варіанти та навчальна функція граматичної перевірки збережені. Видимий контекст/переклад уточнено; explicit accepted[answer] і plain feedback потрібні чинному data validator, не означають старої UI-помилки.",
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "choices",
+            "old_group_index": 1,
+            "old_task": {
+                "label": "a) She has been working since Monday. / b) She has been working for Monday.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "after_task": {
+                "label": "<p>Потрібно назвати понеділок як початковий момент роботи, що веде до тепер.</p><p>a) She has been working since Monday.</p><p>b) She has been working for Monday.</p><p>Задум обох: «Вона працює з понеділка».</p>",
+                "prompt": "Який варіант правильний?",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "She has been working since Monday. — Вона працює з понеділка. Since + день початку, не період у днях.",
+                    "b": "She has been working since Monday. — Вона працює з понеділка. У заданому значенні for Monday не передає початок від понеділка до тепер."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "form",
+            "learning_function": "Зберегти since + starting day у заданій часовій моделі",
+            "change_reason": "Старий key, варіанти та навчальна функція граматичної перевірки збережені. Видимий контекст/переклад уточнено; explicit accepted[answer] і plain feedback потрібні чинному data validator, не означають старої UI-помилки.",
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 2,
+            "after_task": {
+                "id": "m89-present-perfect-continuous-time-expressions-meaning-1",
+                "label": "<p>Умовна розмова відбувається у вівторок о 10:00. Цього самого дня о 8:00 команда почала шукати ключі; були короткі перерви. Вони кажуть: We have been looking for the keys since eight. — Ми шукаємо ключі з восьмої. Що означає since eight?</p><p>a) Пошуки тривають рівно вісім годин, бо названо число eight.</p><p>b) О 8:00 задано початок відліку до цієї розмови; фраза не означає вісім годин без перерв і не повідомляє, що ключі знайдено.</p><p>c) Пошук завершився о 8:00, а потім ніхто не шукав.</p>",
+                "options": [
+                    "a",
+                    "b",
+                    "c"
+                ],
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "Since eight — з восьмої. Eight називає годину початку, не вісім годин тривалості. Час розмови задано як 10:00, не взято з годинника комп’ютера.",
+                    "b": "We have been looking for the keys since eight. — Ми шукаємо ключі з восьмої. Since задає початок; короткі перерви дозволені контекстом, результат пошуку не стверджується.",
+                    "c": "Since eight — від восьмої до цієї часової рамки, не до восьмої. Умова не повідомляє, що пошук або весь процес завершилися саме о 8:00."
+                }
+            },
+            "classification": "new_authored_meaning",
+            "graded": true,
+            "assessment_role": "meaning",
+            "learning_function": "Зрозуміти since як початок за сталим часовим відліком, не число годин і не результат",
+            "change_reason": "Нова самостійна змістова перевірка за видимими фактами; вона не підміняє старі a/b grammar choices. Stable ID присвоєно лише новому пункту.",
+            "assessed_role": "meaning"
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "choices",
+            "after_group_index": 3,
+            "after_task": {
+                "id": "m89-present-perfect-continuous-time-expressions-meaning-2",
+                "label": "<p>О 12:05 Тарас щойно відклав пензлі й зробив перерву. Він каже: I've been painting all morning. — Я фарбував увесь ранок. Про готовність усього об’єкта нічого не сказано. Яке тлумачення відповідає ситуації?</p><p>a) Він описує недавній тривалий процес, пов’язаний із теперішньою ситуацією; сама форма не доводить завершення всього об’єкта або відсутності всіх перерв.</p><p>b) Речення неможливе лише тому, що зараз уже 12:05, а ранок минув.</p><p>c) Він гарантовано фарбував кожну секунду без жодної перерви й уже закінчив увесь об’єкт.</p>",
+                "options": [
+                    "a",
+                    "b",
+                    "c"
+                ],
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "I've been painting all morning. — Я фарбував увесь ранок. У цій ситуації діяльність щойно призупинилася й пов’язана з теперішнім; обсяг готового результату не названо.",
+                    "b": "I've been painting all morning. — Я фарбував увесь ранок. Present Perfect Continuous допускає щойно припинену активність; 12:05 у цьому контексті не є автоматичною забороною.",
+                    "c": "I've been painting all morning. — Я фарбував увесь ранок. All morning не встановлює відсутності кожної короткої перерви й не доводить готовності всього об’єкта."
+                }
+            },
+            "classification": "new_authored_meaning",
+            "graded": true,
+            "assessment_role": "meaning",
+            "learning_function": "Розпізнати нещодавно призупинену активність з all morning без висновку про повну готовність або безперервність",
+            "change_reason": "Нова самостійна змістова перевірка за видимими фактами; вона не підміняє старі a/b grammar choices. Stable ID присвоєно лише новому пункту.",
+            "assessed_role": "meaning"
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "old_task": {
+                "before": "all morning / has been raining / it",
+                "after": "→",
+                "answer": "It has been raining all morning."
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "after_task": {
+                "before": "raining / all morning. / It / has been",
+                "after": "<p>Зараз 11:00 того самого дня, дощ іще йде. Передай: «Дощ іде весь ранок» у Present Perfect Continuous. Використай дієслово rain («іти» про дощ), почни з It, а all morning постав наприкінці. Повне It has і скорочене It's тут приймаються.</p>",
+                "answer": "It has been raining all morning.",
+                "accepted": [
+                    "It has been raining all morning.",
+                    "It's been raining all morning."
+                ],
+                "feedback": {
+                    "it has been raining all morning.": "It has been raining all morning. / It's been raining all morning. — Дощ іде весь ранок. Збережено rain, безособовий підмет і all morning; момент 11:00 задано умовою, не системним часом.",
+                    "it has been raining all morning": "It has been raining all morning. / It's been raining all morning. — Дощ іде весь ранок. Збережено rain, безособовий підмет і all morning; момент 11:00 задано умовою, не системним часом.",
+                    "it's been raining all morning.": "It has been raining all morning. / It's been raining all morning. — Дощ іде весь ранок. Збережено rain, безособовий підмет і all morning; момент 11:00 задано умовою, не системним часом.",
+                    "it's been raining all morning": "It has been raining all morning. / It's been raining all morning. — Дощ іде весь ранок. Збережено rain, безособовий підмет і all morning; момент 11:00 задано умовою, не системним часом."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "full_sentence_manual_and_tokens",
+            "learning_function": "Побудувати повне речення з all morning у заданий час 11:00",
+            "change_reason": "Canonical answer literal exact; старі відсутні id/source_index не вигадано. Додано видиму UAумову/лексичні опори, shuffle1–3word groups із правильною case/кінцевою пунктуацією, explicit accepted і plain feedback. Власні tokens не є новим завданням або spelling-тестом.",
+            "assessed_role": "full_sentence"
+        },
+        {
+            "old_block_source_index": 6,
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "old_task": {
+                "before": "recently / a lot / have been travelling / they",
+                "after": "→",
+                "answer": "They have been travelling a lot recently."
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 6,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "after_task": {
+                "before": "travelling / a lot / They / recently. / have been",
+                "after": "<p>Останнім часом вони багато подорожують. Покажи повторювану активність до тепер у Present Perfect Continuous. Використай travel — подорожувати та британське написання travelling. Почни з They, постав a lot після дієслова, а recently — наприкінці. Повне have і скорочення They've тут приймаються.</p>",
+                "answer": "They have been travelling a lot recently.",
+                "accepted": [
+                    "They have been travelling a lot recently.",
+                    "They've been travelling a lot recently."
+                ],
+                "feedback": {
+                    "they have been travelling a lot recently.": "They have been travelling a lot recently. / They've been travelling a lot recently. — Останнім часом вони багато подорожують. Збережено підмет, повторювану активність і заявлений порядок a lot recently; це не подорож без перерв.",
+                    "they have been travelling a lot recently": "They have been travelling a lot recently. / They've been travelling a lot recently. — Останнім часом вони багато подорожують. Збережено підмет, повторювану активність і заявлений порядок a lot recently; це не подорож без перерв.",
+                    "they've been travelling a lot recently.": "They have been travelling a lot recently. / They've been travelling a lot recently. — Останнім часом вони багато подорожують. Збережено підмет, повторювану активність і заявлений порядок a lot recently; це не подорож без перерв.",
+                    "they've been travelling a lot recently": "They have been travelling a lot recently. / They've been travelling a lot recently. — Останнім часом вони багато подорожують. Збережено підмет, повторювану активність і заявлений порядок a lot recently; це не подорож без перерв."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "full_sentence_manual_and_tokens",
+            "learning_function": "Побудувати повне речення про повторювані подорожі з явним кінцевим recently",
+            "change_reason": "Canonical answer literal exact; старі відсутні id/source_index не вигадано. Додано видиму UAумову/лексичні опори, shuffle1–3word groups із правильною case/кінцевою пунктуацією, explicit accepted і plain feedback. Власні tokens не є новим завданням або spelling-тестом.",
+            "assessed_role": "full_sentence"
+        }
+    ]
+}
