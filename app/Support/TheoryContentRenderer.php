@@ -101,6 +101,7 @@ final class TheoryContentRenderer
                 $bindings = M91BuilderSelectionPresentation::bindings($bindings);
                 $bindings = M92BuilderSelectionPresentation::bindings($bindings);
                 $bindings = M93BuilderSelectionPresentation::bindings($bindings);
+                $bindings = M94BuilderSelectionPresentation::bindings($bindings);
             }
             return view($nativeView, $bindings)->render();
         }

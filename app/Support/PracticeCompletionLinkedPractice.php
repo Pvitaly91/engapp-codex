@@ -143,6 +143,7 @@ final class PracticeCompletionLinkedPractice
         $block = M91BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);
         $block = M92BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);
         $block = M93BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);
+        $block = M94BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);
         try {
             $data = json_decode((string) $block->body, true, flags: JSON_THROW_ON_ERROR);
             if (!is_array($data)) { return $block; }

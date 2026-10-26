@@ -204,6 +204,7 @@ final class TheoryLegacyAdapter
                 if ($correction === null) { $correction = M91FutureSimpleCompletionContinuous::correction($item, $design); }
                 if ($correction === null) { $correction = M92FuturePerfectContinuousBasics::correction($item, $design); }
                 if ($correction === null) { $correction = M93FutureCompletionDemonstrativesSomeAny::correction($item, $design); }
+                if ($correction === null) { $correction = M94RelativeClausesWhoseWhich::correction($item, $design); }
                 if ($correction !== null) { $point = array_replace($point, $correction); }
                 self::detail($point, $pointSections, $index);
                 $node['items'][] = $point;
