@@ -280,6 +280,7 @@ class TheoryCourseManifestService
         $page = \App\Support\M89PresentPerfectCompletionContinuous::preserveCoursePage($page);
         $page = \App\Support\M90PastPerfectFutureSimpleBasics::preserveCoursePage($page);
         $page = \App\Support\M91FutureSimpleCompletionContinuous::preserveCoursePage($page);
+        $page = \App\Support\M92FuturePerfectContinuousBasics::preserveCoursePage($page);
 
         return \App\Support\M49AdviceModalsPackage::preserveCoursePage(\App\Support\M48ConditionalsPackage::preserveCoursePage(\App\Support\M47ConditionalsPackage::preserveCoursePage(\App\Support\M46ConditionalsPackage::preserveCoursePage($page))));
     }

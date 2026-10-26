@@ -74,6 +74,7 @@ final class TheoryHtmlAdapter
         if (($design['package'] ?? null) === 'm89-native-v1') { return M89PresentPerfectCompletionContinuous::pointPanels($design); }
         if (($design['package'] ?? null) === 'm90-native-v1') { return M90PastPerfectFutureSimpleBasics::pointPanels($design); }
         if (($design['package'] ?? null) === 'm91-native-v1') { return M91FutureSimpleCompletionContinuous::pointPanels($design); }
+        if (($design['package'] ?? null) === 'm92-native-v1') { return M92FuturePerfectContinuousBasics::pointPanels($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::pointPanels($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::pointPanels($design); }
@@ -196,6 +197,7 @@ final class TheoryHtmlAdapter
         if (($design['package'] ?? null) === 'm89-native-v1') { return M89PresentPerfectCompletionContinuous::validDesign($design); }
         if (($design['package'] ?? null) === 'm90-native-v1') { return M90PastPerfectFutureSimpleBasics::validDesign($design); }
         if (($design['package'] ?? null) === 'm91-native-v1') { return M91FutureSimpleCompletionContinuous::validDesign($design); }
+        if (($design['package'] ?? null) === 'm92-native-v1') { return M92FuturePerfectContinuousBasics::validDesign($design); }
         if (($design['package'] ?? null) === 'm50-native-v1') { return M50ObligationAdvicePackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm49-native-v1') { return M49AdviceModalsPackage::validDesign($design); }
         if (($design['package'] ?? null) === 'm48-native-v1') { return M48ConditionalsPackage::validDesign($design); }
