@@ -53,6 +53,7 @@ final class TheoryContentSource
         [M90PastPerfectFutureSimpleBasics::class, 'm42StyleContext'],
         [M91FutureSimpleCompletionContinuous::class, 'm42StyleContext'],
         [M92FuturePerfectContinuousBasics::class, 'm42StyleContext'],
+        [M93FutureCompletionDemonstrativesSomeAny::class, 'm42StyleContext'],
         [M50ObligationAdvicePackage::class, 'm42StyleContext'],
         [PracticeCompletionPackage::class, 'm42StyleContext'],
         [M49AdviceModalsPackage::class, 'm42StyleContext'],

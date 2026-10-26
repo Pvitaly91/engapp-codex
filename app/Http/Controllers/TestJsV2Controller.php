@@ -550,6 +550,7 @@ class TestJsV2Controller extends Controller
                     if ($block !== null) { $block = \App\Support\M90PastPerfectFutureSimpleBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
                     if ($block !== null) { $block = \App\Support\M91FutureSimpleCompletionContinuous::preserveExcludedTextBlock($block, 'standalone_test'); }
                     if ($block !== null) { $block = \App\Support\M92FuturePerfectContinuousBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M93FutureCompletionDemonstrativesSomeAny::preserveExcludedTextBlock($block, 'standalone_test'); }
                     if ($block === null) { continue; }
                     if (isset($seenBlockUuids[$block->uuid])) {
                         continue;
@@ -609,6 +610,7 @@ class TestJsV2Controller extends Controller
                 if ($textBlock) { $textBlock = \App\Support\M90PastPerfectFutureSimpleBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) { $textBlock = \App\Support\M91FutureSimpleCompletionContinuous::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) { $textBlock = \App\Support\M92FuturePerfectContinuousBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M93FutureCompletionDemonstrativesSomeAny::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) {
                     $theoryBlocks[] = [
                         'uuid' => $textBlock->uuid,
@@ -1491,6 +1493,7 @@ class TestJsV2Controller extends Controller
                 if ($block !== null) { $block = \App\Support\M90PastPerfectFutureSimpleBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
                 if ($block !== null) { $block = \App\Support\M91FutureSimpleCompletionContinuous::preserveExcludedTextBlock($block, 'standalone_test'); }
                 if ($block !== null) { $block = \App\Support\M92FuturePerfectContinuousBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M93FutureCompletionDemonstrativesSomeAny::preserveExcludedTextBlock($block, 'standalone_test'); }
                 if ($block === null) { continue; }
                 $seen[$block->uuid] = true;
                 $blocks[] = [
@@ -1547,6 +1550,7 @@ class TestJsV2Controller extends Controller
             if ($textBlock) { $textBlock = \App\Support\M90PastPerfectFutureSimpleBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) { $textBlock = \App\Support\M91FutureSimpleCompletionContinuous::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) { $textBlock = \App\Support\M92FuturePerfectContinuousBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M93FutureCompletionDemonstrativesSomeAny::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) {
                 $blocks[] = [
                     'uuid' => $textBlock->uuid,

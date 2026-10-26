@@ -1,0 +1,424 @@
+{
+    "schema_version": 1,
+    "base_sha": "6d3003884fb8d15e870285c1ac0875995ff84fc8",
+    "scope": "M93 twelve additive nonvisual caller-owned registrations; no native validator/design/formatter/grader/engine edits",
+    "independent_source_before_sha256": "94874d0ff6075434e851bafe2ccf2bb2af5483a618dbad71e799973d0d8d1edf",
+    "independent_db_before_sha256": "6729742666cb49dfbe3edbd16d93878a495a01c6c46a37a5419279a643772d92",
+    "parent_fixture": {
+        "path": "tests/Fixtures/m92-owned-source-hunks.json",
+        "sha256": "6d037f3ab4fca1f8feb1ffac403e1230dbe2ce0f3b4fa5889821023382d1da60"
+    },
+    "owned_added_registration_lines": 12,
+    "owned_validator_added_lines": 0,
+    "owned_validator_removed_lines": 0,
+    "files": [
+        {
+            "path": "app/Support/TheoryContentSource.php",
+            "kind": "finite-package-registration",
+            "hunks": [
+                {
+                    "before": "        [M92FuturePerfectContinuousBasics::class, 'm42StyleContext'],\n",
+                    "after": "        [M92FuturePerfectContinuousBasics::class, 'm42StyleContext'],\n        [M93FutureCompletionDemonstrativesSomeAny::class, 'm42StyleContext'],\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                }
+            ],
+            "profiles": {
+                "served_root": {
+                    "before_raw_sha256": "af81ae367fea1258786460bc61aa4c2e3402efd756751bafc3e7050f975a8637",
+                    "before_lf_sha256": "af81ae367fea1258786460bc61aa4c2e3402efd756751bafc3e7050f975a8637",
+                    "after_raw_sha256": "4c5912f092facac89760ddb707ca9c4b7eadd4c8b90acdf9a0f7e79ec08dfb3f",
+                    "after_lf_sha256": "4c5912f092facac89760ddb707ca9c4b7eadd4c8b90acdf9a0f7e79ec08dfb3f",
+                    "before_bytes": 6786,
+                    "after_bytes": 6864,
+                    "before_lf_line_count": 123,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 124,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "Fresh independent M93 paired BEFORE, exact context",
+                    "after_pin_origin": "Twelve additive whole-line planned bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                },
+                "worktree": {
+                    "before_raw_sha256": "af81ae367fea1258786460bc61aa4c2e3402efd756751bafc3e7050f975a8637",
+                    "before_lf_sha256": "af81ae367fea1258786460bc61aa4c2e3402efd756751bafc3e7050f975a8637",
+                    "after_raw_sha256": "4c5912f092facac89760ddb707ca9c4b7eadd4c8b90acdf9a0f7e79ec08dfb3f",
+                    "after_lf_sha256": "4c5912f092facac89760ddb707ca9c4b7eadd4c8b90acdf9a0f7e79ec08dfb3f",
+                    "before_bytes": 6786,
+                    "after_bytes": 6864,
+                    "before_lf_line_count": 123,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 124,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "Fresh independent M93 paired BEFORE, exact context",
+                    "after_pin_origin": "Twelve additive whole-line planned bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                }
+            }
+        },
+        {
+            "path": "app/Support/TheoryHtmlAdapter.php",
+            "kind": "finite-package-registration",
+            "hunks": [
+                {
+                    "before": "        if (($design['package'] ?? null) === 'm92-native-v1') { return M92FuturePerfectContinuousBasics::pointPanels($design); }\n",
+                    "after": "        if (($design['package'] ?? null) === 'm92-native-v1') { return M92FuturePerfectContinuousBasics::pointPanels($design); }\n        if (($design['package'] ?? null) === 'm93-native-v1') { return M93FutureCompletionDemonstrativesSomeAny::pointPanels($design); }\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                },
+                {
+                    "before": "        if (($design['package'] ?? null) === 'm92-native-v1') { return M92FuturePerfectContinuousBasics::validDesign($design); }\n",
+                    "after": "        if (($design['package'] ?? null) === 'm92-native-v1') { return M92FuturePerfectContinuousBasics::validDesign($design); }\n        if (($design['package'] ?? null) === 'm93-native-v1') { return M93FutureCompletionDemonstrativesSomeAny::validDesign($design); }\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                }
+            ],
+            "profiles": {
+                "served_root": {
+                    "before_raw_sha256": "05cb67a7283693d7832e21b249942ddbf3d4e9984147f7ea7c5b067966f1d1c2",
+                    "before_lf_sha256": "05cb67a7283693d7832e21b249942ddbf3d4e9984147f7ea7c5b067966f1d1c2",
+                    "after_raw_sha256": "762b1da9f60d9f3eb1cc6074ce122293999e9bc6daa785f511b0ca233c9f866a",
+                    "after_lf_sha256": "762b1da9f60d9f3eb1cc6074ce122293999e9bc6daa785f511b0ca233c9f866a",
+                    "before_bytes": 43503,
+                    "after_bytes": 43777,
+                    "before_lf_line_count": 626,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 628,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "Fresh independent M93 paired BEFORE, exact context",
+                    "after_pin_origin": "Twelve additive whole-line planned bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                },
+                "worktree": {
+                    "before_raw_sha256": "05cb67a7283693d7832e21b249942ddbf3d4e9984147f7ea7c5b067966f1d1c2",
+                    "before_lf_sha256": "05cb67a7283693d7832e21b249942ddbf3d4e9984147f7ea7c5b067966f1d1c2",
+                    "after_raw_sha256": "762b1da9f60d9f3eb1cc6074ce122293999e9bc6daa785f511b0ca233c9f866a",
+                    "after_lf_sha256": "762b1da9f60d9f3eb1cc6074ce122293999e9bc6daa785f511b0ca233c9f866a",
+                    "before_bytes": 43503,
+                    "after_bytes": 43777,
+                    "before_lf_line_count": 626,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 628,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "Fresh independent M93 paired BEFORE, exact context",
+                    "after_pin_origin": "Twelve additive whole-line planned bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                }
+            }
+        },
+        {
+            "path": "app/Support/TheoryLegacyAdapter.php",
+            "kind": "finite-package-registration",
+            "hunks": [
+                {
+                    "before": "                if ($correction === null) { $correction = M92FuturePerfectContinuousBasics::correction($item, $design); }\n",
+                    "after": "                if ($correction === null) { $correction = M92FuturePerfectContinuousBasics::correction($item, $design); }\n                if ($correction === null) { $correction = M93FutureCompletionDemonstrativesSomeAny::correction($item, $design); }\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                }
+            ],
+            "profiles": {
+                "served_root": {
+                    "before_raw_sha256": "ff064c656d8f40e0e0e1b2f78e43b5f4be6cf712ae5dfd2779be61c38394fe9d",
+                    "before_lf_sha256": "ff064c656d8f40e0e0e1b2f78e43b5f4be6cf712ae5dfd2779be61c38394fe9d",
+                    "after_raw_sha256": "5fec16abc275aa5ab95271ca1744bce7b3828bb7f6d550512a0d61e89345afe6",
+                    "after_lf_sha256": "5fec16abc275aa5ab95271ca1744bce7b3828bb7f6d550512a0d61e89345afe6",
+                    "before_bytes": 21077,
+                    "after_bytes": 21207,
+                    "before_lf_line_count": 282,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 283,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "Fresh independent M93 paired BEFORE, exact context",
+                    "after_pin_origin": "Twelve additive whole-line planned bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                },
+                "worktree": {
+                    "before_raw_sha256": "ff064c656d8f40e0e0e1b2f78e43b5f4be6cf712ae5dfd2779be61c38394fe9d",
+                    "before_lf_sha256": "ff064c656d8f40e0e0e1b2f78e43b5f4be6cf712ae5dfd2779be61c38394fe9d",
+                    "after_raw_sha256": "5fec16abc275aa5ab95271ca1744bce7b3828bb7f6d550512a0d61e89345afe6",
+                    "after_lf_sha256": "5fec16abc275aa5ab95271ca1744bce7b3828bb7f6d550512a0d61e89345afe6",
+                    "before_bytes": 21077,
+                    "after_bytes": 21207,
+                    "before_lf_line_count": 282,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 283,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "Fresh independent M93 paired BEFORE, exact context",
+                    "after_pin_origin": "Twelve additive whole-line planned bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                }
+            }
+        },
+        {
+            "path": "app/Support/TheoryContentRenderer.php",
+            "kind": "finite-package-registration",
+            "hunks": [
+                {
+                    "before": "                $bindings = M92BuilderSelectionPresentation::bindings($bindings);\n",
+                    "after": "                $bindings = M92BuilderSelectionPresentation::bindings($bindings);\n                $bindings = M93BuilderSelectionPresentation::bindings($bindings);\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                }
+            ],
+            "profiles": {
+                "served_root": {
+                    "before_raw_sha256": "af4ae1f5d69518ecbeadd1701ea3f2a942e9d2c22e7a27e84cbbc1f9237d36a3",
+                    "before_lf_sha256": "af4ae1f5d69518ecbeadd1701ea3f2a942e9d2c22e7a27e84cbbc1f9237d36a3",
+                    "after_raw_sha256": "f1e0f3a715b8f33ac050ff571e4dc3edbce5f8e95e96c8ef2ea2d123e9668436",
+                    "after_lf_sha256": "f1e0f3a715b8f33ac050ff571e4dc3edbce5f8e95e96c8ef2ea2d123e9668436",
+                    "before_bytes": 9169,
+                    "after_bytes": 9251,
+                    "before_lf_line_count": 191,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 192,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "Fresh independent M93 paired BEFORE, exact context",
+                    "after_pin_origin": "Twelve additive whole-line planned bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                },
+                "worktree": {
+                    "before_raw_sha256": "af4ae1f5d69518ecbeadd1701ea3f2a942e9d2c22e7a27e84cbbc1f9237d36a3",
+                    "before_lf_sha256": "af4ae1f5d69518ecbeadd1701ea3f2a942e9d2c22e7a27e84cbbc1f9237d36a3",
+                    "after_raw_sha256": "f1e0f3a715b8f33ac050ff571e4dc3edbce5f8e95e96c8ef2ea2d123e9668436",
+                    "after_lf_sha256": "f1e0f3a715b8f33ac050ff571e4dc3edbce5f8e95e96c8ef2ea2d123e9668436",
+                    "before_bytes": 9169,
+                    "after_bytes": 9251,
+                    "before_lf_line_count": 191,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 192,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "Fresh independent M93 paired BEFORE, exact context",
+                    "after_pin_origin": "Twelve additive whole-line planned bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                }
+            }
+        },
+        {
+            "path": "app/Support/PracticeCompletionLinkedPractice.php",
+            "kind": "finite-package-registration",
+            "hunks": [
+                {
+                    "before": "        $block = M92BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n",
+                    "after": "        $block = M92BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n        $block = M93BuilderSelectionPresentation::matchingBlock($block, $canonicalTheory);\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                }
+            ],
+            "profiles": {
+                "served_root": {
+                    "before_raw_sha256": "46c0d82929011521ae0103f92fbce646b046e081e2c1b7c1c8290725dc3f2f29",
+                    "before_lf_sha256": "46c0d82929011521ae0103f92fbce646b046e081e2c1b7c1c8290725dc3f2f29",
+                    "after_raw_sha256": "0936f680f2b9d782e9e6049e9dbfce9e339dc7fcf700ff1e260a47cb9e918496",
+                    "after_lf_sha256": "0936f680f2b9d782e9e6049e9dbfce9e339dc7fcf700ff1e260a47cb9e918496",
+                    "before_bytes": 10053,
+                    "after_bytes": 10144,
+                    "before_lf_line_count": 160,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 161,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "Fresh independent M93 paired BEFORE, exact context",
+                    "after_pin_origin": "Twelve additive whole-line planned bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                },
+                "worktree": {
+                    "before_raw_sha256": "46c0d82929011521ae0103f92fbce646b046e081e2c1b7c1c8290725dc3f2f29",
+                    "before_lf_sha256": "46c0d82929011521ae0103f92fbce646b046e081e2c1b7c1c8290725dc3f2f29",
+                    "after_raw_sha256": "0936f680f2b9d782e9e6049e9dbfce9e339dc7fcf700ff1e260a47cb9e918496",
+                    "after_lf_sha256": "0936f680f2b9d782e9e6049e9dbfce9e339dc7fcf700ff1e260a47cb9e918496",
+                    "before_bytes": 10053,
+                    "after_bytes": 10144,
+                    "before_lf_line_count": 160,
+                    "before_crlf_line_count": 0,
+                    "after_lf_line_count": 161,
+                    "after_crlf_line_count": 0,
+                    "before_pin_origin": "Fresh independent M93 paired BEFORE, exact context",
+                    "after_pin_origin": "Twelve additive whole-line planned bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                }
+            }
+        },
+        {
+            "path": "app/Services/Theory/TextBlockToQuestionsMatcherService.php",
+            "kind": "finite-package-registration",
+            "hunks": [
+                {
+                    "before": "            $excludeQuestionIds = \\App\\Support\\M92BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n",
+                    "after": "            $excludeQuestionIds = \\App\\Support\\M92BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n            $excludeQuestionIds = \\App\\Support\\M93BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                }
+            ],
+            "profiles": {
+                "served_root": {
+                    "before_raw_sha256": "a8f44dbe10d50da35020b53e70829e12195f8b2a3774774c2717d4b660496094",
+                    "before_lf_sha256": "57e5783d35c6dcd6251855671290a316bbb34b9201f509d5edc1d3cfdc8b80bc",
+                    "after_raw_sha256": "25e67e6d790d365684dbbd3fe8e839f9b365fd8d7ef60f31c07dcbed74151831",
+                    "after_lf_sha256": "1e10ff3203bbc8fb243c9bb528a37b319dd5a831b17044bfe56c0bca2335b701",
+                    "before_bytes": 20257,
+                    "after_bytes": 20396,
+                    "before_lf_line_count": 488,
+                    "before_crlf_line_count": 488,
+                    "after_lf_line_count": 489,
+                    "after_crlf_line_count": 489,
+                    "before_pin_origin": "Fresh independent M93 paired BEFORE, exact context",
+                    "after_pin_origin": "Twelve additive whole-line planned bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                },
+                "worktree": {
+                    "before_raw_sha256": "a8f44dbe10d50da35020b53e70829e12195f8b2a3774774c2717d4b660496094",
+                    "before_lf_sha256": "57e5783d35c6dcd6251855671290a316bbb34b9201f509d5edc1d3cfdc8b80bc",
+                    "after_raw_sha256": "25e67e6d790d365684dbbd3fe8e839f9b365fd8d7ef60f31c07dcbed74151831",
+                    "after_lf_sha256": "1e10ff3203bbc8fb243c9bb528a37b319dd5a831b17044bfe56c0bca2335b701",
+                    "before_bytes": 20257,
+                    "after_bytes": 20396,
+                    "before_lf_line_count": 488,
+                    "before_crlf_line_count": 488,
+                    "after_lf_line_count": 489,
+                    "after_crlf_line_count": 489,
+                    "before_pin_origin": "Fresh independent M93 paired BEFORE, exact context",
+                    "after_pin_origin": "Twelve additive whole-line planned bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                }
+            }
+        },
+        {
+            "path": "app/Services/TheoryCourseManifestService.php",
+            "kind": "finite-package-registration",
+            "hunks": [
+                {
+                    "before": "        $page = \\App\\Support\\M92FuturePerfectContinuousBasics::preserveCoursePage($page);\n",
+                    "after": "        $page = \\App\\Support\\M92FuturePerfectContinuousBasics::preserveCoursePage($page);\n        $page = \\App\\Support\\M93FutureCompletionDemonstrativesSomeAny::preserveCoursePage($page);\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                }
+            ],
+            "profiles": {
+                "served_root": {
+                    "before_raw_sha256": "097ca202030767ecd1b282bd92140a9665262e4f64faf5102ef75a6af170bf66",
+                    "before_lf_sha256": "fec7ceca241d8020715e47ddbf6c89bb402453a7381b4dd5082ba2a20a33f62a",
+                    "after_raw_sha256": "530bbf012c9cac5e7e45d43ad67e7f75f828436ff4914dc3847b64c1dc800434",
+                    "after_lf_sha256": "3ab4452607fb7ccbb2665b1d30888006bf7f8d6cc264993bca29b1b08ba588ae",
+                    "before_bytes": 28606,
+                    "after_bytes": 28705,
+                    "before_lf_line_count": 721,
+                    "before_crlf_line_count": 617,
+                    "after_lf_line_count": 722,
+                    "after_crlf_line_count": 618,
+                    "before_pin_origin": "Fresh independent M93 paired BEFORE, exact context",
+                    "after_pin_origin": "Twelve additive whole-line planned bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                },
+                "worktree": {
+                    "before_raw_sha256": "a2b75e18a05a692a81caac530df896f4aeef01edf0fecdc7e51342112e735969",
+                    "before_lf_sha256": "fec7ceca241d8020715e47ddbf6c89bb402453a7381b4dd5082ba2a20a33f62a",
+                    "after_raw_sha256": "8b40ffd343c204e3f89b4eb716c22f820725ad51f0df6f1868e4aa011cab2892",
+                    "after_lf_sha256": "3ab4452607fb7ccbb2665b1d30888006bf7f8d6cc264993bca29b1b08ba588ae",
+                    "before_bytes": 28710,
+                    "after_bytes": 28809,
+                    "before_lf_line_count": 721,
+                    "before_crlf_line_count": 721,
+                    "after_lf_line_count": 722,
+                    "after_crlf_line_count": 722,
+                    "before_pin_origin": "Fresh independent M93 paired BEFORE, exact context",
+                    "after_pin_origin": "Twelve additive whole-line planned bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                }
+            }
+        },
+        {
+            "path": "app/Http/Controllers/TestJsV2Controller.php",
+            "kind": "finite-package-registration",
+            "hunks": [
+                {
+                    "before": "                    if ($block !== null) { $block = \\App\\Support\\M92FuturePerfectContinuousBasics::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+                    "after": "                    if ($block !== null) { $block = \\App\\Support\\M92FuturePerfectContinuousBasics::preserveExcludedTextBlock($block, 'standalone_test'); }\n                    if ($block !== null) { $block = \\App\\Support\\M93FutureCompletionDemonstrativesSomeAny::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                },
+                {
+                    "before": "                if ($textBlock) { $textBlock = \\App\\Support\\M92FuturePerfectContinuousBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+                    "after": "                if ($textBlock) { $textBlock = \\App\\Support\\M92FuturePerfectContinuousBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n                if ($textBlock) { $textBlock = \\App\\Support\\M93FutureCompletionDemonstrativesSomeAny::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                },
+                {
+                    "before": "                if ($block !== null) { $block = \\App\\Support\\M92FuturePerfectContinuousBasics::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+                    "after": "                if ($block !== null) { $block = \\App\\Support\\M92FuturePerfectContinuousBasics::preserveExcludedTextBlock($block, 'standalone_test'); }\n                if ($block !== null) { $block = \\App\\Support\\M93FutureCompletionDemonstrativesSomeAny::preserveExcludedTextBlock($block, 'standalone_test'); }\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                },
+                {
+                    "before": "            if ($textBlock) { $textBlock = \\App\\Support\\M92FuturePerfectContinuousBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+                    "after": "            if ($textBlock) { $textBlock = \\App\\Support\\M92FuturePerfectContinuousBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n            if ($textBlock) { $textBlock = \\App\\Support\\M93FutureCompletionDemonstrativesSomeAny::preserveExcludedTextBlock($textBlock, 'standalone_test'); }\n",
+                    "added_lines": 1,
+                    "removed_lines": 0
+                }
+            ],
+            "profiles": {
+                "served_root": {
+                    "before_raw_sha256": "eb4f79273c18192533f8bf509a8e4cafae752811f3f9722e49a638054b2c9628",
+                    "before_lf_sha256": "e2556cfa36c948b40290ccf134d5ed1b226f6d9a561610b9b39cd56cd0249d6f",
+                    "after_raw_sha256": "118da0546a3ea9eda1736ab02a87ea354a3835336e50c61bcb48fae2d70975be",
+                    "after_lf_sha256": "2c0b7802ad72948c4b2537bc0334445f739688d20ef30778a68cc5f28f6cd722",
+                    "before_bytes": 79086,
+                    "after_bytes": 79732,
+                    "before_lf_line_count": 1606,
+                    "before_crlf_line_count": 1606,
+                    "after_lf_line_count": 1610,
+                    "after_crlf_line_count": 1610,
+                    "before_pin_origin": "Fresh independent M93 paired BEFORE, exact context",
+                    "after_pin_origin": "Twelve additive whole-line planned bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                },
+                "worktree": {
+                    "before_raw_sha256": "57dd4dc3265c4ae995b77e2697ba8a555a353c8d6ffa3215cee3b437bfaa38e6",
+                    "before_lf_sha256": "b8658dee628ca571d1c091180a51ac5b65653a432a97c86a9b2d1c5cd302884f",
+                    "after_raw_sha256": "1cc98eb9cdd363a6b2fdb5c2f9416440e66f48f3a3b2b0dc8bc579893ec88d9d",
+                    "after_lf_sha256": "b3f0241b2b91298f91781d06eee93a9d5b030afbc0f3c9fab40bbb3e79aeead6",
+                    "before_bytes": 78942,
+                    "after_bytes": 79588,
+                    "before_lf_line_count": 1605,
+                    "before_crlf_line_count": 1605,
+                    "after_lf_line_count": 1609,
+                    "after_crlf_line_count": 1609,
+                    "before_pin_origin": "Fresh independent M93 paired BEFORE, exact context",
+                    "after_pin_origin": "Twelve additive whole-line planned bytes",
+                    "complete_before_raw_recovered_by_reversing_only_insertions": true,
+                    "complete_before_lf_recovered_by_reversing_only_insertions": true,
+                    "prospective_php_lint": "PASS; stdin only, no executable file created"
+                }
+            }
+        }
+    ]
+}
